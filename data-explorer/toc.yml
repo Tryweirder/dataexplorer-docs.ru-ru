@@ -1,0 +1,326 @@
+- name: Документация по Azure Data Explorer
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что такое Azure Data Explorer?
+      href: data-explorer-overview.md
+- name: Краткие руководства
+  expanded: true
+  items:
+    - name: "Создание кластера и базы данных\_— портал Azure"
+      href: create-cluster-database-portal.md
+    - name: Принятие демонстрационных данных
+      href: ingest-sample-data.md
+    - name: Запрашивание данных с помощью пользовательского веб-интерфейса
+      href: web-query-data.md
+- name: Учебники
+  items:
+    - name: Написание запросов
+      href: write-queries.md
+    - name: Программный прием больших двоичных объектов E2E
+      items:
+        - name: 'C#'
+          href: end-to-end-csharp.md
+        - name: Python
+          href: end-to-end-python.md
+    - name: Прием и запрос данных мониторинга
+      href: ingest-data-no-code.md
+    - name: Визуализация данных в Power BI
+      href: visualize-power-bi.md
+- name: Основные понятия
+  items:
+    - name: Прием данных
+      items:
+        - name: Общие сведения о приеме данных
+          displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
+          href: ingest-data-overview.md
+        - name: Свойства приема данных
+          href: ingestion-properties.md
+        - name: Форматы для приема данных
+          href: ingestion-supported-formats.md
+    - name: Язык запросов Kusto
+      items:
+        - name: Краткое справочное руководство
+          href: kql-quick-reference.md
+    - name: Обзор визуализации данных
+      href: viz-overview.md
+    - name: Безопасность
+      items:
+        - name: Общие сведения о безопасности
+          href: security.md
+        - name: Базовые средства безопасности
+          href: security-baseline.md
+- name: Практические руководства
+  items:
+    - name: Создание кластера и базы данных
+      items:
+        - name: Azure CLI
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+        - name: Шаблон Azure Resource Manager
+          href: create-cluster-database-resource-manager.md
+    - name: Прием данных
+      items:
+        - name: Прием данных одним щелчком
+          items:
+            - name: Общие сведения о приеме одним щелчком
+              href: ingest-data-one-click.md
+            - name: Прием одним щелчком в новую таблицу
+              href: one-click-ingestion-new-table.md
+            - name: Прием одним щелчком в существующую таблицу
+              href: one-click-ingestion-existing-table.md
+        - name: Прием потоковой передачи
+          href: ingest-data-streaming.md
+        - name: Использование LightIngest
+          href: lightingest.md
+        - name: Концентратор событий
+          items:
+            - name: Портал Azure
+              href: ingest-data-event-hub.md
+            - name: 'C#'
+              href: data-connection-event-hub-csharp.md
+            - name: Python
+              href: data-connection-event-hub-python.md
+            - name: Шаблон Azure Resource Manager
+              href: data-connection-event-hub-resource-manager.md
+        - name: Сетка событий Azure
+          items:
+            - name: Портал Azure
+              href: ingest-data-event-grid.md
+            - name: 'C#'
+              href: data-connection-event-grid-csharp.md
+            - name: Python
+              href: data-connection-event-grid-python.md
+            - name: Шаблон Azure Resource Manager
+              href: data-connection-event-grid-resource-manager.md
+        - name: Центр Интернета вещей
+          items:
+            - name: Портал Azure
+              href: ingest-data-iot-hub.md
+            - name: 'C#'
+              href: data-connection-iot-hub-csharp.md
+            - name: Python
+              href: data-connection-iot-hub-python.md
+            - name: Шаблон Azure Resource Manager
+              href: data-connection-iot-hub-resource-manager.md
+        - name: Использование пакетов SDK
+          items:
+            - name: Python
+              href: python-ingest-data.md
+            - name: Пакет SDK для Node
+              href: node-ingest-data.md
+            - name: Пакет SDK для .NET Standard
+              href: net-standard-ingest-data.md
+        - name: Kafka
+          href: ingest-data-kafka.md
+        - name: Logstash
+          href: ingest-data-logstash.md
+        - name: Данные в формате JSON
+          href: ingest-json-formats.md
+    - name: Данные запросов
+      items:
+        - name: Отправка запроса данных в Azure Data Lake
+          href: data-lake-query-data.md
+        - name: Запрашивание данных в Azure Monitor
+          href: query-monitor-data.md
+        - name: Отладка встроенного KQL-кода Python
+          href: debug-inline-python.md
+        - name: Использование пакетов SDK
+          items:
+            - name: Python
+              href: python-query-data.md
+        - name: Анализ временных рядов и машинное обучение
+          items:
+            - name: Аналитика временных рядов
+              href: time-series-analysis.md
+            - name: Обнаружение аномалий и прогнозирование
+              href: anomaly-detection.md
+            - name: Машинное обучение
+              href: machine-learning-clustering.md
+    - name: Визуализируйте данные
+      items:
+        - name: Power BI
+          items:
+            - name: Рекомендации
+              href: power-bi-best-practices.md
+            - name: Соединитель
+              href: power-bi-connector.md
+            - name: Импортированный запрос
+              href: power-bi-imported-query.md
+            - name: SQL-запрос
+              href: power-bi-sql-query.md
+        - name: Excel
+          items:
+            - name: Соединитель
+              href: excel-connector.md
+            - name: Пустой запрос
+              href: excel-blank-query.md
+        - name: Grafana
+          href: grafana.md
+        - name: Соединитель ODBC
+          href: connect-odbc.md
+        - name: Tableau
+          href: tableau.md
+        - name: Sisense
+          href: sisense.md
+        - name: Redash
+          href: redash.md
+        - name: Kibana (соединитель K2Bridge)
+          href: k2bridge.md
+    - name: Безопасность
+      items:
+        - name: Сетевая изоляция (виртуальная сеть)
+          items:
+            - name: "Создание кластера в виртуальной сети\_— портал"
+              href: vnet-create-cluster-portal.md
+            - name: Развертывание кластера в виртуальной сети
+              href: vnet-deployment.md
+            - name: 'Устранение неполадок при создании и подключении кластера виртуальной сети, а также при работе с ним'
+              href: vnet-deploy-troubleshoot.md
+        - name: Управление безопасностью кластера
+          href: manage-cluster-security.md
+        - name: Настройка управляемых удостоверений
+          href: managed-identities.md
+        - name: 'Настройка ключей, управляемых клиентом'
+          items:
+            - name: Портал
+              href: customer-managed-keys-portal.md
+            - name: 'C#'
+              href: customer-managed-keys-csharp.md
+            - name: Шаблон Azure Resource Manager
+              href: customer-managed-keys-resource-manager.md
+        - name: Создание приложения Azure AD
+          href: provision-azure-ad-app.md
+    - name: Управление
+      items:
+        - name: Кластер
+          items:
+            - name: Выбор номера SKU виртуальной машины кластера
+              href: manage-cluster-choose-sku.md
+            - name: Управление горизонтальным масштабированием кластера
+              href: manage-cluster-horizontal-scaling.md
+            - name: Управление вертикальным масштабированием кластера
+              href: manage-cluster-vertical-scaling.md
+            - name: Проверка работоспособности кластера
+              href: check-cluster-health.md
+            - name: Добавление субъекта кластера
+              items:
+                - name: 'C#'
+                  href: cluster-principal-csharp.md
+                - name: Python
+                  href: cluster-principal-python.md
+                - name: Шаблон Azure Resource Manager
+                  href: cluster-principal-resource-manager.md
+            - name: Управление расширениями языка кластера
+              href: language-extensions.md
+        - name: База данных
+          items:
+            - name: Базы данных подписчиков
+              href: follower.md
+            - name: Управление разрешениями базы данных
+              href: manage-database-permissions.md
+            - name: Добавление субъекта базы данных
+              items:
+                - name: 'C#'
+                  href: database-principal-csharp.md
+                - name: Python
+                  href: database-principal-python.md
+                - name: Шаблон Azure Resource Manager
+                  href: database-principal-resource-manager.md
+            - name: Политики
+              items:
+                - name: 'C#'
+                  href: database-table-policies-csharp.md
+                - name: Python
+                  href: database-table-policies-python.md
+        - name: Данные
+          items:
+            - name: Удаление данных
+              href: delete-data.md
+            - name: Обработка дублированных данных
+              href: dealing-with-duplicates.md
+    - name: Монитор
+      items:
+        - name: Использование журналов диагностики для мониторинга приема
+          href: using-diagnostic-logs.md
+        - name: Использование метрик для мониторинга работоспособности кластера
+          href: using-metrics.md
+        - name: Использование Работоспособности ресурсов для мониторинга работоспособности кластера
+          href: monitor-with-resource-health.md
+    - name: Интеграция с другими средствами
+      items:
+        - name: Фабрика данных Azure
+          items:
+            - name: Интеграция со службой "Фабрика данных"
+              href: data-factory-integration.md
+            - name: Копирование данных с помощью Фабрики данных Azure
+              href: data-factory-load-data.md
+            - name: Массовое копирование данных с помощью шаблона Фабрики данных Azure
+              href: data-factory-template.md
+            - name: Выполнение команд управления с использованием Фабрики данных Azure
+              href: data-factory-command-activity.md
+        - name: Соединитель Microsoft Flow
+          items:
+            - name: Соединитель Microsoft Flow
+              href: flow.md
+            - name: Примеры использования соединителя Microsoft Flow
+              href: flow-usage.md
+        - name: Соединитель Apache Spark
+          href: spark-connector.md
+        - name: Подключение из Databricks с помощью Python
+          href: connect-from-databricks.md
+        - name: Анализ данных в Jupyter Notebook и Kqlmagic
+          href: kqlmagic.md
+        - name: Анализ данных в Записных книжках Azure
+          href: azure-notebooks.md
+        - name: Azure Pipelines
+          href: devops.md
+    - name: Диагностика
+      items:
+        - name: Создание кластера
+          href: troubleshoot-create-cluster.md
+        - name: Подключение к кластеру
+          href: troubleshoot-connect-cluster.md
+        - name: Работа с базами данных и таблицами
+          href: troubleshoot-database-table.md
+- name: Справочник
+  items:
+    - name: Язык запросов
+      href: kusto/query/index.md
+    - name: Команды управления
+      href: kusto/management/index.md
+    - name: Программные интерфейсы
+      href: kusto/api/index.md
+    - name: Инструменты
+      href: kusto/tools/index.md
+    - name: Основные понятия
+      href: kusto/concepts/index.md
+- name: Ресурсы
+  items:
+    - name: Блог
+      href: 'https://azure.microsoft.com/blog/tag/azure-data-explorer/'
+    - name: Форумы
+      items:
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-data-explorer'
+        - name: Техническое сообщество Майкрософт
+          href: 'https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto'
+        - name: Форум MSDN
+          href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto'
+    - name: Отзыв о продукте
+      href: 'https://aka.ms/adefeedback'
+    - name: Цены и выставление счетов
+      items:
+        - name: Страница цен
+          href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
+        - name: Калькулятор стоимости
+          href: 'https://aka.ms/adecostestimator'
+        - name: Зарезервированная емкость
+          href: pricing-reserved-capacity.md
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=data-explorer'
