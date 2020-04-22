@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 49d024d1deecd8e0c7bf16eda9917cd237fe6319
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 460ad9cfca4f97e6735d30a4d47d6384581e7af7
+ms.sourcegitcommit: 29018b3db4ea7d015b1afa65d49ecf918cdff3d6
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81523279"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82029998"
 ---
 # <a name="data-purge"></a>Очистка данных
 
@@ -90,6 +90,7 @@ ms.locfileid: "81523279"
 1. Программный призыв: одноэтапный вызов, который предназначен для вызова приложений. Вызов этой команды непосредственно вызывает последовательность выполнения очистки.
 
     **Синтаксис**
+
      ```kusto
      .purge table [TableName] records in database [DatabaseName] with (noregrets='true') <| [Predicate]
      ```
@@ -101,6 +102,7 @@ ms.locfileid: "81523279"
     <!-- If query times-out on DM endpoint (default timeout is 10 minutes), it is recommended to use the [engine `whatif` command](#purge-whatif-command) directly againt the engine endpoint while increasing the [server timeout limit](../concepts/querylimits.md#limit-on-request-execution-time-timeout). Only after you have verified the expected results using the engine whatif command, issue the purge command via the DM endpoint using the 'noregrets' option. -->
 
      **Синтаксис**
+
      ```kusto
      // Step #1 - retrieve a verification token (no records will be purged until step #2 is executed)
      .purge table [TableName] records in database [DatabaseName] <| [Predicate]
@@ -256,8 +258,6 @@ ms.locfileid: "81523279"
 * ClientRequestId - идентификатор активности клиента запроса DM purge. 
 * Главный - личность эмитента команды чистки.
 
-
-
 ## <a name="purging-an-entire-table"></a>Очистка всей таблицы
 Очистка таблицы включает в себя падение таблицы и маркировку как очищенную так, чтобы процесс жесткого удаления, описанный в [процессе очистки,](#purge-process) был включен на нее. Удаление таблицы без очистки не удаляет все артефакты хранения (удаляется в соответствии с политикой жесткого удержания, первоначально установленной на столе). Команда `purge table allrecords` быстрая и эффективная и гораздо предпочтительнее процесса записей очистки, если она применима для вашего сценария. 
 
@@ -270,6 +270,7 @@ ms.locfileid: "81523279"
 1. Программный призыв (одноступенчатый):
 
      **Синтаксис**
+
      ```kusto
      .purge table [TableName] in database [DatabaseName] allrecords with (noregrets='true')
      ```
@@ -277,6 +278,7 @@ ms.locfileid: "81523279"
 2. Вызов человека (два шага):
 
      **Синтаксис**
+
      ```kusto
      // Step #1 - retrieve a verification token (the table will not be purged until step #2 is executed)
      .purge table [TableName] in database [DatabaseName] allrecords
@@ -287,7 +289,7 @@ ms.locfileid: "81523279"
 
     |Параметры  |Описание  |
     |---------|---------|
-    |**Databasename**   |   Имя базы данных.      |
+    |**DatabaseName**   |   Имя базы данных.      |
     |**Tablename**     |     Имя таблицы.    |
     |**нет сожалений**    |     Если установлен, запускает одношаговую активацию.    |
     |**верификациятокен**     |  В двухэтапном сценарии**активации (не установлено сожаления)** этот маркер может быть использован для выполнения второго шага и совершения действия. Если **проверка** не указана, он запустит первый шаг команды, на котором возвращается маркер, чтобы вернуться к команде и выполнить шаг команды #2.|
@@ -312,6 +314,7 @@ ms.locfileid: "81523279"
     .purge table MyTable in database MyDatabase allrecords 
     with (verificationtoken='eyJTZXJ2aWNlTmFtZSI6IkVuZ2luZS1pdHNhZ3VpIiwiRGF0YWJhc2VOYW1lIjoiQXp1cmVTdG9yYWdlTG9ncyIsIlRhYmxlTmFtZSI6IkF6dXJlU3RvcmFnZUxvZ3MiLCJQcmVkaWNhdGUiOiIgd2hlcmUgU2VydmVyTGF0ZW5jeSA9PSAyNSJ9')
     ```
+    
     Выход такой же, как и вывод команды '.show таблицы' (возвращается без продуцируется таблицы).
 
     **Вывод**

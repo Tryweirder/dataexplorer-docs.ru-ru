@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-zone_pivot_group_filename: kusto/zone-pivot-groups.json
+zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 495eb15c13a5691df8b0a2f3c2996c5aac58eb0a
-ms.sourcegitcommit: 436cd515ea0d83d46e3ac6328670ee78b64ccb05
+ms.openlocfilehash: 4c3db23128c47c86639f15286cbcbcb748157386
+ms.sourcegitcommit: 01eb9aaf1df2ebd5002eb7ea7367a9ef85dc4f5d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81663812"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81765922"
 ---
 # <a name="find-operator"></a>Оператор find
 
@@ -196,8 +196,8 @@ find "Kusto"
 |Session_Id|Level|EventText|Версия
 |---|---|---|---|
 |acbd207d-51aa-4df7-bfa7-be70eb68f04e|Сведения|Некоторые Text1|v1.0.0
-|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Ошибка|Некоторые Text2|v1.0.0
-|28b8e46e-3c31-43cf-83cb-48921c3986fc|Ошибка|Некоторые Text3|v1.0.1
+|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Error|Некоторые Text2|v1.0.0
+|28b8e46e-3c31-43cf-83cb-48921c3986fc|Error|Некоторые Text3|v1.0.1
 |8f057b11-3281-45c3-a856-05ebb18a3c59|Сведения|Некоторые Text4|v1.1.0
 
 ### <a name="eventstable2"></a>EventsTable2
@@ -206,8 +206,8 @@ find "Kusto"
 |---|---|---|---|
 |f7d5f95f-f580-4ea6-830b-5776c8d64fdd|Сведения|Некоторые другие Text1|Событие1
 |acbd207d-51aa-4df7-bfa7-be70eb68f04e|Сведения|Некоторые другие Text2|Событие2
-|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Ошибка|Некоторые другие Text3|Событие3
-|15eaeab5-8576-4b58-8fc6-478f75d8fee4|Ошибка|Некоторые другие Text4|Событие4
+|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Error|Некоторые другие Text3|Событие3
+|15eaeab5-8576-4b58-8fc6-478f75d8fee4|Error|Некоторые другие Text4|Событие4
 
 
 ### <a name="search-in-common-columns-project-common-and-uncommon-columns-and-pack-the-rest"></a>Поиск в общих столбцах, проект общих и необычных столбцов и упаковать остальные  
@@ -247,9 +247,9 @@ find Session_Id == 'acbd207d-51aa-4df7-bfa7-be70eb68f04e'
 |source_|Session_Id|Level|EventText|pack_|
 |---|---|---|---|---|
 |EventsTable1|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Сведения|Некоторые Text1|"Версия":"v1.0.0"
-|EventsTable1|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Ошибка|Некоторые Text2|"Версия":"v1.0.0"
+|EventsTable1|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Error|Некоторые Text2|"Версия":"v1.0.0"
 |EventsTable2|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Сведения|Некоторые другие Text2|«EventName»:«Событие2»
-|EventsTable2|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Ошибка|Некоторые другие Text3|«EventName»:Event3»
+|EventsTable2|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Error|Некоторые другие Text3|«EventName»:Event3»
 
 
 ### <a name="return-the-results-from-each-row-as-a-property-bag"></a>Возврат результатов из каждой строки в виде пакета свойств
