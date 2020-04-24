@@ -1,6 +1,6 @@
 ---
-title: Управление внешней таблицей - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается управление внешней таблицей в Azure Data Explorer.
+title: Управление внешними таблицами в Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается управление внешними таблицами в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,41 +8,41 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 680a4e25d6b478fe171aa3296de81c0106417877
-ms.sourcegitcommit: e94be7045d71a0435b4171ca3a7c30455e6dfa57
+ms.openlocfilehash: 624c0a7f1105ff13642649174f769781f1749598
+ms.sourcegitcommit: e1e35431374f2e8b515bbe2a50cd916462741f49
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81744707"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82108077"
 ---
-# <a name="external-table-management"></a>Управление внешней таблицей
+# <a name="external-table-management"></a>Управление внешними таблицами
 
-Ознакомьтесь с [внешними таблицами](../query/schema-entities/externaltables.md) для обзора внешних таблиц. 
+Общие сведения о внешних таблицах см. в разделе [внешние таблицы](../query/schema-entities/externaltables.md) . 
 
-## <a name="common-external-tables-control-commands"></a>Общие команды управления внешними таблицами
+## <a name="common-external-tables-control-commands"></a>Команды управления общими внешними таблицами
 
-Следующие команды имеют отношение к _любой_ внешней таблице (любого типа).
+Следующие команды относятся к _любой_ внешней таблице (любого типа).
 
-### <a name="show-external-tables"></a>.show внешние таблицы
+### <a name="show-external-tables"></a>. показывать внешние таблицы
 
-* Возвращает все внешние таблицы в базе данных (или конкретную внешнюю таблицу).
-* Требуется [разрешение мониторинга базы данных.](../management/access-control/role-based-authorization.md)
+* Возвращает все внешние таблицы в базе данных (или определенную внешнюю таблицу).
+* Требуется [разрешение монитора базы данных](../management/access-control/role-based-authorization.md).
 
 **Синтаксис** 
 
 `.show` `external` `tables`
 
-`.show``external` *таблицы* `table`
+`.show``external` *TableName* TableName `table`
 
 **Вывод**
 
 | Выходной параметр | Тип   | Описание                                                         |
 |------------------|--------|---------------------------------------------------------------------|
-| TableName        | строка | Название внешней таблицы                                             |
+| TableName        | строка | Имя внешней таблицы                                             |
 | TableType        | строка | Тип внешней таблицы                                              |
 | Папка           | строка | Папка таблицы                                                     |
 | DocString        | строка | Строка документирования таблицы                                       |
-| Свойства       | строка | Серийные свойства таблицы JSON (специфические к типу таблицы) |
+| Свойства       | строка | Сериализованные свойства JSON таблицы (зависит от типа таблицы) |
 
 
 **Примеры:**
@@ -54,25 +54,25 @@ ms.locfileid: "81744707"
 
 | TableName | TableType | Папка         | DocString | Свойства |
 |-----------|-----------|----------------|-----------|------------|
-| T         | BLOB-объект      | Внешниетаблицы | Docs      | {}         |
+| T         | BLOB-объект      | екстерналтаблес | Docs      | {}         |
 
 
-### <a name="show-external-table-schema"></a>.show внешняя схема таблицы
+### <a name="show-external-table-schema"></a>. отобразить схему внешней таблицы
 
-* Возвращает схему внешней таблицы, как JSON или CSL. 
-* Требуется [разрешение мониторинга базы данных.](../management/access-control/role-based-authorization.md)
+* Возвращает схему внешней таблицы в формате JSON или CSL. 
+* Требуется [разрешение монитора базы данных](../management/access-control/role-based-authorization.md).
 
 **Синтаксис** 
 
-`.show``external` `as` `json` |  *TableName* `schema` ТаблицаИмя`csl`() `table`
+`.show``external` `schema` *TableName* (`json`) `table` `as`  | `csl`
 
-`.show``external` *таблицы* `table``cslschema`
+`.show``external` *TableName* TableName `table``cslschema`
 
 **Вывод**
 
 | Выходной параметр | Тип   | Описание                        |
 |------------------|--------|------------------------------------|
-| TableName        | строка | Название внешней таблицы            |
+| TableName        | строка | Имя внешней таблицы            |
 | схема           | строка | Схема таблицы в формате JSON |
 | имя_базы_данных     | строка | Имя базы данных таблицы             |
 | Папка           | строка | Папка таблицы                    |
@@ -89,34 +89,34 @@ ms.locfileid: "81744707"
 .show external table T cslschema
 ```
 
-**Выход:**
+**Проверки**
 
-*Json:*
+*формат*
 
 | TableName | схема    | имя_базы_данных | Папка         | DocString |
 |-----------|----------------------------------|--------------|----------------|-----------|
-| T         | "Имя":"ВнешнийБлоб",<br>"Folder":"Внешние таблицы",<br>"DocString":"Документы",<br>"Заказанные колонки": "Name":"x","Type":"System.Int64","CslType":"длинный","DocString":"""Имя":"Имя":"А","Тип":"Система","CslType":"Строка","DocString":"За" | DB           | Внешниетаблицы | Docs      |
+| T         | {"Имя": "Екстерналблоб",<br>"Папка": "Екстерналтаблес",<br>"DocString": "документы",<br>"Ордередколумнс": [{"имя": "x", "Type": "System. Int64", "Кслтипе": "Long", "DocString": ""}, {"имя": "s", "Type": "System. String", "Кслтипе": "строка", "DocString": ""}]} | DB           | екстерналтаблес | Docs      |
 
 
-*Csl:*
+*CSL*
 
 | TableName | схема          | имя_базы_данных | Папка         | DocString |
 |-----------|-----------------|--------------|----------------|-----------|
-| T         | x:длинный,s:string | DB           | Внешниетаблицы | Docs      |
+| T         | КС:Лонг, с:стринг | DB           | екстерналтаблес | Docs      |
 
-### <a name="drop-external-table"></a>.drop внешняя таблица
+### <a name="drop-external-table"></a>. Удаление внешней таблицы
 
-* Капли внешней таблицы 
-* Определение внешней таблицы не может быть восстановлено после этой операции
-* Требуется [разрешение админа базы данных.](../management/access-control/role-based-authorization.md)
+* Удаляет внешнюю таблицу 
+* Невозможно восстановить определение внешней таблицы после этой операции
+* Требуется [разрешение администратора базы данных](../management/access-control/role-based-authorization.md).
 
 **Синтаксис**  
 
-`.drop``external` *таблицы* `table`
+`.drop``external` *TableName* TableName `table`
 
 **Вывод**
 
-Возвращает свойства упавной таблицы. Смотрите [внешние таблицы .show](#show-external-tables).
+Возвращает свойства удаленной таблицы. См. раздел [. Отображение внешних таблиц](#show-external-tables).
 
 **Примеры:**
 
@@ -126,50 +126,50 @@ ms.locfileid: "81744707"
 
 | TableName | TableType | Папка         | DocString | схема       | Свойства |
 |-----------|-----------|----------------|-----------|-----------------------------------------------------|------------|
-| T         | BLOB-объект      | Внешниетаблицы | Docs      | "Имя": "x", "CslType": "длинный",<br> "Имя": "s", "CslType": "строка" | {}         |
+| T         | BLOB-объект      | екстерналтаблес | Docs      | [{"Name": "x", "Кслтипе": "Long"},<br> {"Name": "s", "Кслтипе": "String"}] | {}         |
 
-## <a name="external-tables-in-azure-storage-or-azure-data-lake"></a>Внешние таблицы в Azure Storage или Azure Data Lake
+## <a name="external-tables-in-azure-storage-or-azure-data-lake"></a>Внешние таблицы в службе хранилища Azure или Azure Data Lake
 
-Следующая команда описывает, как создать внешнюю таблицу. Таблица может быть размещена в Хранилище Azure Blob, магазине Azure Data Lake Store Gen1 или Магазине озера данных Azure Data. Gen2. 
-[Строки подключения хранилища](../api/connection-strings/storage.md) описывают создание строки соединения для каждого из этих параметров. 
+Следующая команда описывает создание внешней таблицы. Таблицу можно найти в хранилище BLOB-объектов Azure, Azure Data Lake Store Gen1 или Azure Data Lake Store Gen2. 
+[Строки подключения к хранилищу](../api/connection-strings/storage.md) . Описание создания строки подключения для каждого из этих параметров. 
 
-### <a name="create-or-alter-external-table"></a>.create или .alter внешняя таблица
+### <a name="create-or-alter-external-table"></a>. Create или. ALTER External Table
 
 **Синтаксис**
 
-`.create` | `.alter`() `external` *Schema*TableName ( Схема ) *TableName* `table`  
+`.create` | (`.alter`) `external` *TableName (* *схема*) `table`  
 `kind` `=` (`blob` | `adl`)  
-`partition` `by` *Разделить* .`,` . . . . . . . . . . . . . . . . . . . . . . . . .  
+[`partition` `by` *Partition* [`,` ....]]  
 `dataformat``=` *Формат*  
 `(`  
-*StorageConnectionString* `,`  
+*StorageConnectionString* [`,` ...]  
 `)`  
-`with` `(`Документация`docstring` `folder` *Documentation* `=` *value*`,` *property_name* - `=` *FolderName*FolderName, property_name значение ...`,` `=` `)`]
+[`with` `(`[`docstring` `=` *FolderName* `=` *value* *Documentation* `folder` `,` *property_name* Документация] [`,` имя_папки], property_name значение... `=` `)`]
 
 Создает или изменяет новую внешнюю таблицу в базе данных, в которой выполняется команда.
 
 **Параметры**
 
-* *TableName* - Название внешнего стола. Должны следовать правилам для [имен сущности.](../query/schema-entities/entity-names.md) Внешняя таблица не может иметь то же имя, что и обычная таблица в той же базе данных.
-* *Схема* - Внешняя схема данных `ColumnName:ColumnType[, ColumnName:ColumnType ...]`в формате: . Если внешняя схема данных неизвестна, используйте [infer_storage_schema](../query/inferstorageschemaplugin.md) плагин, который может сделать вывод о схеме на основе содержимого внешнего файла.
-* *Раздел* - Одно или несколько определений раздела (по желанию). Ниже приведен синтаксис раздела.
-* *Формат* - Формат данных. Любой из [форматов приема](https://docs.microsoft.com/azure/data-explorer/ingestion-supported-formats) поддерживается для запроса. Использование внешней таблицы для [экспортного](data-export/export-data-to-an-external-table.md) сценария `CSV` `TSV`ограничено следующими форматами: , , `JSON` `Parquet`.
-* *StorageConnectionString* - Один или несколько путей к контейнерам Azure Blob Storage blob или файловым системам Azure Data Lake Store (виртуальные каталоги или папки), включая учетные данные. Подробнее о [строках подключения к хранилищу.](../api/connection-strings/storage.md) Настоятельно рекомендуется предоставить более одной учетной записи хранилища, чтобы избежать регулирования хранилища при [экспорте](data-export/export-data-to-an-external-table.md) больших объемов данных во внешнюю таблицу. Экспорт будет распределять записи между всеми предоставленными счетами. 
+* *TableName* — имя внешней таблицы. Должны соответствовать правилам для [имен сущностей](../query/schema-entities/entity-names.md). Имя внешней таблицы не может совпадать с именем обычной таблицы в той же базе данных.
+* *Схема* -внешняя схема данных в формате: `ColumnName:ColumnType[, ColumnName:ColumnType ...]`. Если схема внешних данных неизвестна, используйте подключаемый модуль [infer_storage_schema](../query/inferstorageschemaplugin.md) , который может вывести схему на основе содержимого внешнего файла.
+* *Partition* — одно или несколько определений секций (необязательно). См. синтаксис раздела ниже.
+* *Format* — формат данных. Для запросов поддерживается любой из [форматов приема](https://docs.microsoft.com/azure/data-explorer/ingestion-supported-formats) . Использование внешней таблицы для [сценария экспорта](data-export/export-data-to-an-external-table.md) ограничено следующими форматами `CSV`:, `TSV`, `JSON`,. `Parquet`
+* *StorageConnectionString* — один или несколько путей к контейнерам больших двоичных объектов хранилища BLOB-объектов Azure или Azure Data Lake Store файловых системах (виртуальные каталоги или папки), включая учетные данные. Дополнительные сведения см. в разделе [строки подключения к хранилищу](../api/connection-strings/storage.md) . Настоятельно рекомендуется предоставить более одной учетной записи хранения, чтобы избежать регулирования хранилища при [экспорте](data-export/export-data-to-an-external-table.md) больших объемов данных во внешнюю таблицу. При экспорте будут распределяться операции записи между всеми предоставленными учетными записями. 
 
 **Синтаксис раздела**
 
--`format_datetime =` *DateTimePartitionFormat* `bin(` *TimestampColumnName*, *РазделByTimeSpan*`)`  
+[`format_datetime =` *Датетимепартитионформат*] `bin(` *Тиместампколумннаме*, *партитионбитимеспан*`)`  
 |   
--*StringFormatPrefix* *СтрокаКолпаНамик -* *StringFormatSuffix*)
+[*Стрингформатпрефикс*] *Стрингколумннаме* [*стрингформатсуффикс*])
 
-**Параметры раздела**
+**Параметры секции**
 
-* *DateTimePartitionFormat* - формат требуемой структуры каталога в пути вывода (необязательно). Если раздел определен и формат не указан, по умолчанию по умолчанию является "yyyy/MM/dd/HH/mm", на основе разделаByTimeSpan. Например, если вы разделите на 1d, структура будет "yyyy/MM/dd". Если вы разделите на 1h, структура будет "yyyy / ММ / DD / HH".
-* *TimestampColumnName* - колонка времени для дат, по которой разделена таблица. Столбец timestamp должен существовать во внешнем определении схемы таблицы и выходе экспортного запроса при экспорте во внешнюю таблицу.
-* *РазделByTimeSpan* - Timespan буквально, с помощью которого раздел.
-* *StringFormatPrefix* - постоянная строка буквально, которая будет частью пути артефакта, сконструированного перед значением таблицы (необязательно).
-* *StringFormatSuffix* - постоянная строка буквально, которая будет частью пути артефакта, concatenated после таблицы значение (необязательно).
-* *StringColumnName* - строка столбца, по которой разделена таблица. Строка столбца должна существовать в определении внешней схемы таблицы.
+* *Датетимепартитионформат* — формат требуемой структуры каталогов в выходном пути (необязательно). Если определение секционирования определено и формат не указан, по умолчанию используется значение "гггг/мм/дд/чч/мм" на основе Партитионбитимеспан. Например, если секционировать по 1d, структура будет иметь значение "гггг/мм/дд". При секционировании по 1 ч структура будет иметь значение "гггг/мм/дд/чч".
+* Столбец *тиместампколумннаме* -DateTime, по которому секционирована таблица. Столбец отметок времени должен существовать во внешнем определении схемы таблицы и выходных данных запроса экспорта при экспорте во внешнюю таблицу.
+* *Партитионбитимеспан* -литерал TimeSpan, по которому следует секционировать.
+* *Стрингформатпрефикс* — константный строковый литерал, который будет входить в путь к артефакту, Объединенный перед табличным значением (необязательно).
+* *Стрингформатсуффикс* — константный строковый литерал, который будет входить в путь к артефакту, Объединенный после табличного значения (необязательно).
+* *Стрингколумннаме* — строковый столбец, на котором секционирована таблица. Столбец String должен существовать в определении схемы внешней таблицы.
 
 **Необязательные свойства**:
 
@@ -177,21 +177,21 @@ ms.locfileid: "81744707"
 |------------------|----------|-------------------------------------------------------------------------------------|
 | `folder`         | `string` | Папка таблицы                                                                     |
 | `docString`      | `string` | Строка документирования таблицы                                                       |
-| `compressed`     | `bool`   | Если установлен, указывается, сжимаются ли капли в виде `.gz` файлов                  |
-| `includeHeaders` | `string` | Для CSV или TSV капли, указывает ли капли содержат заголовок                     |
-| `namePrefix`     | `string` | Если установлен, указывает префикс капли. На записи операций, все капли будут написаны с этой приставкой. При чтении операции, только капли с этой приставкой считываются. |
-| `fileExtension`  | `string` | Если набор, указывает на расширение файла капли. На писать, капли имена закончится с этим суффиксом. На читайте, только капли с этим расширением файла будут читаться.           |
-| `encoding`       | `string` | Указывает, как закодирован `UTF8NoBOM` текст: (по умолчанию) или `UTF8BOM`.             |
+| `compressed`     | `bool`   | Если задано, указывает, сжимаются ли большие `.gz` двоичные объекты как файлы                  |
+| `includeHeaders` | `string` | Для больших двоичных объектов CSV или TSV указывает, содержат ли большие двоичные объекты заголовок.                     |
+| `namePrefix`     | `string` | Если задано, указывает префикс больших двоичных объектов. При операциях записи все большие двоичные объекты будут записаны с этим префиксом. При операциях чтения считываются только большие двоичные объекты с этим префиксом. |
+| `fileExtension`  | `string` | Если задано, указывает расширения файлов больших двоичных объектов. При записи имена больших двоичных объектов будут заканчиваться этим суффиксом. При чтении будут считываться только большие двоичные объекты с этим расширением файла.           |
+| `encoding`       | `string` | Указывает, как текст кодируется: `UTF8NoBOM` (по умолчанию) `UTF8BOM`или.             |
 
 > [!NOTE]
-> * Если таблица `.create` существует, команда выйдет из строя с ошибкой. Используйте `.alter` для изменения существующих таблиц. 
-> * Изменение схемы, формата или определения раздела внешней таблицы каплей не поддерживается. 
+> * Если таблица существует, `.create` команда завершится ошибкой. Используйте `.alter` для изменения существующих таблиц. 
+> * Изменение схемы, формата или определения секции внешней таблицы больших двоичных объектов не поддерживается. 
 
-Требуется разрешение `.create` пользователя базы [данных](../management/access-control/role-based-authorization.md) для `.alter`и разрешения [администрирования таблицы](../management/access-control/role-based-authorization.md) для . 
+Требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md) для `.create` и [разрешения администратора таблицы](../management/access-control/role-based-authorization.md) для `.alter`. 
  
 **Пример** 
 
-Внешняя таблица, не разделенная. Все артефакты, как ожидается, будут находиться непосредственно под контейнером (ы) определены:
+Внешняя таблица, не относящаяся к секционированию. Все артефакты должны находиться непосредственно под определенными контейнерами:
 
 ```kusto
 .create external table ExternalBlob (x:long, s:string) 
@@ -208,7 +208,7 @@ with
 )  
 ```
 
-Внешняя таблица, разделенная dateTime. Артефакты находятся в каталогах в формате "yyyy/MM/dd" под траекторией (ы) определены:
+Внешняя таблица, секционированная по dateTime. Артефакты находятся в каталогах в формате "гггг/мм/дд" под определенными путями:
 
 ```kusto
 .create external table ExternalAdlGen2 (Timestamp:datetime, x:long, s:string) 
@@ -226,7 +226,7 @@ with
 )  
 ```
 
-Внешняя таблица, разделенная dateTime с форматом каталога "year'yyyy/month/MM/day-dd":
+Внешняя таблица, секционированная по dateTime с форматом каталога «year = гггг/месяц = MM/Day = DD»:
 
 ```kusto
 .create external table ExternalPartitionedBlob (Timestamp:datetime, x:long, s:string) 
@@ -244,7 +244,7 @@ with
 )
 ```
 
-Внешняя таблица с ежемесячными разделами данных и форматом каталога "yyyy/MM":
+Внешняя таблица с ежемесячными секциями данных и форматом каталога "гггг/мм":
 
 ```kusto
 .create external table ExternalPartitionedBlob (Timestamp:datetime, x:long, s:string) 
@@ -262,7 +262,7 @@ with
 )
 ```
 
-Внешняя таблица с двумя разделами. Структура каталога представляет собой конкатацию обоих разделов: отформатированное CustomerName с по следующим образом форматом dateTime по умолчанию. Например, "CustomerName-softworks/2011/11/11":
+Внешняя таблица с двумя секциями. Структура каталогов — это объединение обеих секций: форматированный CustomerName, за которым следует формат dateTime по умолчанию. Например, "CustomerName = софтворкс/2011/11/11":
 
 ```kusto
 .create external table ExternalMultiplePartitions (Timestamp:datetime, CustomerName:string) 
@@ -285,17 +285,17 @@ with
 
 |TableName|TableType|Папка|DocString|Свойства|ConnectionStrings|Секции|
 |---|---|---|---|---|---|---|
-|ВнешнеенееНесколькоразделов|BLOB-объект|Внешниетаблицы|Docs|"Формат":"Csv","Compressed":false,"CompressionType":null,"FileExtension":"CSV","IncludeHeaders":"Никто","Кодирование":null,"NamePrefix":null|["https://storageaccount.blob.core.windows.net/container1;*******"]}|"StringFormat":"CustomerName","ColumnName":"CustomerName","Ordinal":0,PartitionBy":"1.00:00:00","ColumnName":"Timestamp","Ordinal":1{0}|
+|екстерналмултиплепартитионс|BLOB-объект|екстерналтаблес|Docs|{"Format": "CSV", "сжатый": false, "Компрессионтипе": NULL, "FileExtension": "CSV", "Инклудехеадерс": "None", "Encoding": NULL, "NamePrefix": NULL}|["https://storageaccount.blob.core.windows.net/container1;*******"]}|[{"StringFormat": "CustomerName ={0}", "ColumnName": "CustomerName", "Ordinal": 0}, PartitionBy ":" 1,00:00:00 "," ColumnName ":" timestamp "," Ordinal ": 1}]|
 
 #### <a name="spark-virtual-columns-support"></a>Поддержка виртуальных столбцов Spark
 
-При экспорте данных из Spark столбцы разделов (указанные в `partitionBy` методе автора данных) не записываются в файлы данных. Это делается для того, чтобы избежать дублирования данных, поскольку данные, уже присутствующие в именах "папки" (например, `column1=<value>/column2=<value>/`), и Spark могут распознать их при чтении. Однако Kusto требует, чтобы столбцы разделов присутствовали в самих данных. Планируется поддержка виртуальных столбцов в Кусто. До тех пор используйте следующий обходной путь: при экспорте данных из Spark создайте копию всех столбцов, которые данные разделены перед написанием кадра данных:
+При экспорте данных из Spark столбцы секционирования (заданные в `partitionBy` методе модуля записи данных в кадре) не записываются в файлы данных. Это делается, чтобы избежать дублирования данных, поскольку данные, уже имеющиеся в именах папок (например, `column1=<value>/column2=<value>/`), и Spark могут распознать их при чтении. Однако Kusto требует, чтобы столбцы секционирования присутствовали в самих данных. Планируется поддержка виртуальных столбцов в Kusto. До этого следует использовать следующее решение: при экспорте данных из Spark создайте копию всех столбцов, на которые секционированы данные, перед записью кадра данных.
 
 ```kusto
 df.withColumn("_a", $"a").withColumn("_b", $"b").write.partitionBy("_a", "_b").parquet("...")
 ```
 
-При определении внешней таблицы в Кусто укажите столбцы разделов, как в следующем примере:
+При определении внешней таблицы в Kusto укажите столбцы секционирования, как в следующем примере:
 
 ```kusto
 .create external table ExternalSparkTable(a:string, b:datetime) 
@@ -309,20 +309,20 @@ dataformat=parquet
 )
 ```
 
-### <a name="show-external-table-artifacts"></a>.show внешние артефакты таблицы
+### <a name="show-external-table-artifacts"></a>. Отображение артефактов внешней таблицы
 
 * Возвращает список всех артефактов, которые будут обработаны при запросе данной внешней таблицы.
-* Требуется [разрешение пользователя базы данных.](../management/access-control/role-based-authorization.md)
+* Требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
 
 **Синтаксис** 
 
-`.show``external` *таблицы* `table``artifacts`
+`.show``external` *TableName* TableName `table``artifacts`
 
 **Вывод**
 
 | Выходной параметр | Тип   | Описание                       |
 |------------------|--------|-----------------------------------|
-| URI              | строка | URI внешнего артефакта хранения |
+| URI              | строка | URI внешнего артефакта хранилища |
 
 **Примеры:**
 
@@ -330,17 +330,17 @@ dataformat=parquet
 .show external table T artifacts
 ```
 
-**Выход:**
+**Проверки**
 
 | URI                                                                     |
 |-------------------------------------------------------------------------|
-| https://storageaccount.blob.core.windows.net/container1/folder/file.csv |
+| `https://storageaccount.blob.core.windows.net/container1/folder/file.csv` |
 
-### <a name="create-external-table-mapping"></a>.создать внешнее отображение таблицы
+### <a name="create-external-table-mapping"></a>. Создание сопоставления внешней таблицы
 
-`.create``external` *ExternalTableName* `json` `mapping` *MappingName* Внешнее имя Картографическое *имя КартпингинжонФормат* `table`
+`.create``external` `mapping` *MappingName* *MappingInJsonFormat* *ExternalTableName* Екстерналтабленаме `json` маппингинжсонформат `table`
 
-Создает новое отображение. Для получения дополнительной [информации см.](./mappings.md#json-mapping)
+Создает новое сопоставление. Дополнительные сведения см. в разделе [сопоставления данных](./mappings.md#json-mapping).
 
 **Пример** 
  
@@ -348,17 +348,17 @@ dataformat=parquet
 .create external table MyExternalTable JSON mapping "Mapping1" '[{ "column" : "rownumber", "datatype" : "int", "path" : "$.rownumber"},{ "column" : "rowguid", "path" : "$.rowguid" }]'
 ```
 
-**Вывод примера**
+**Пример выходных данных**
 
-| Имя     | Вид | Сопоставление                                                           |
+| Название     | Вид | Сопоставление                                                           |
 |----------|------|-------------------------------------------------------------------|
-| отображение1 | JSON | «ColumnName»: «rownumber»:»,ColumnType»:«Int»,«Свойства»: «Путь»:«Путь»:«$.rownumber», «ColumnName»: «Rowguid»,«ColumnType»:««Свойства»: «Путь»:«$.....rowguid» |
+| mapping1 | JSON | [{"ColumnName": "RowNumber", "ColumnType": "int", "Properties": {"путь": "$. RowNumber"}}, {"ColumnName": "ROWGUID", "ColumnType": "", "Properties": {"путь": "$. ROWGUID"}}] |
 
-### <a name="alter-external-table-mapping"></a>.alter внешнее отображение таблицы
+### <a name="alter-external-table-mapping"></a>. изменение сопоставления внешней таблицы
 
-`.alter``external` *ExternalTableName* `json` `mapping` *MappingName* Внешнее имя Картографическое *имя КартпингинжонФормат* `table`
+`.alter``external` `mapping` *MappingName* *MappingInJsonFormat* *ExternalTableName* Екстерналтабленаме `json` маппингинжсонформат `table`
 
-Изменяет существующее отображение. 
+Изменяет существующее сопоставление. 
  
 **Пример** 
  
@@ -366,19 +366,19 @@ dataformat=parquet
 .alter external table MyExternalTable JSON mapping "Mapping1" '[{ "column" : "rownumber", "path" : "$.rownumber"},{ "column" : "rowguid", "path" : "$.rowguid" }]'
 ```
 
-**Вывод примера**
+**Пример выходных данных**
 
-| Имя     | Вид | Сопоставление                                                                |
+| Название     | Вид | Сопоставление                                                                |
 |----------|------|------------------------------------------------------------------------|
-| отображение1 | JSON | «ColumnName»: «rownumber»:»,ColumnType»:«,«Свойства»: «Путь»:«Путь»:«$.rownumber», «ColumnName»: «Rowguid»,«ColumnType»:«,«Свойства»: «Путь»:«$.rowguid» |
+| mapping1 | JSON | [{"ColumnName": "RowNumber", "ColumnType": "", "Properties": {"путь": "$. RowNumber"}}, {"ColumnName": "ROWGUID", "ColumnType": "", "Properties": {"путь": "$. ROWGUID"}}] |
 
-### <a name="show-external-table-mappings"></a>.show внешние отображения таблиц
+### <a name="show-external-table-mappings"></a>. Отображение сопоставлений внешних таблиц
 
-`.show``external` `json` `mapping` *MappingName* *ExternalTableName* ВнешнийTableName MappingName `table` 
+`.show``external` `mapping` *MappingName* *ExternalTableName* Екстерналтабленаме MappingName `table` `json` 
 
-`.show``external` `json` ВнешнийTableName *ExternalTableName* `table``mappings`
+`.show``external` `json` *ExternalTableName* Екстерналтабленаме `table``mappings`
 
-Отображение карт (все или тот, указанный по имени).
+Отображение сопоставлений (все или указанное по имени).
  
 **Пример** 
  
@@ -388,17 +388,17 @@ dataformat=parquet
 .show external table MyExternalTable JSON mappings 
 ```
 
-**Вывод примера**
+**Пример выходных данных**
 
-| Имя     | Вид | Сопоставление                                                                         |
+| Название     | Вид | Сопоставление                                                                         |
 |----------|------|---------------------------------------------------------------------------------|
-| отображение1 | JSON | «ColumnName»: «rownumber»:»,ColumnType»:«,«Свойства»: «Путь»:«Путь»:«$.rownumber», «ColumnName»: «Rowguid»,«ColumnType»:«,«Свойства»: «Путь»:«$.rowguid» |
+| mapping1 | JSON | [{"ColumnName": "RowNumber", "ColumnType": "", "Properties": {"путь": "$. RowNumber"}}, {"ColumnName": "ROWGUID", "ColumnType": "", "Properties": {"путь": "$. ROWGUID"}}] |
 
-### <a name="drop-external-table-mapping"></a>.drop внешнее отображение таблицы
+### <a name="drop-external-table-mapping"></a>. Удаление сопоставления внешней таблицы
 
-`.drop``external` `json` `mapping` *MappingName* *ExternalTableName* ВнешнийTableName MappingName `table` 
+`.drop``external` `mapping` *MappingName* *ExternalTableName* Екстерналтабленаме MappingName `table` `json` 
 
-Выпадает отображение из базы данных.
+Удаляет сопоставление из базы данных.
  
 **Пример** 
  
@@ -406,46 +406,46 @@ dataformat=parquet
 .drop external table MyExternalTable JSON mapping "Mapping1" 
 ```
 
-## <a name="external-sql-table"></a>Внешняя таблица СЗЛ
+## <a name="external-sql-table"></a>Внешняя таблица SQL
 
-### <a name="create-or-alter-external-sql-table"></a>.создать или изменить внешнюю таблицу sql
+### <a name="create-or-alter-external-sql-table"></a>. Создание или изменение внешней таблицы SQL
 
-Создает или изменяет внешнюю таблицу S'L в базе данных, в которой выполняется команда.  
+Создает или изменяет внешнюю таблицу SQL в базе данных, в которой выполняется команда.  
 
 **Синтаксис**
 
-`.create` | `.alter`() `external` TableName («columnName»:columnType»,,...) *TableName* `table`  
+`.create` | (`.alter`) `external` TableName ([ColumnName: columnType],...) *TableName* `table`  
 `kind` `=` `sql`  
-`table``=` *SqlTableName*  
-`(`*SqlServerConnectionString*`)`  
-`with` `(`Документация`docstring` `folder` *Documentation* `=` *value*`,` *property_name* - `=` *FolderName*FolderName, property_name значение ...`,` `=` `)`]
+`table``=` *Склтабленаме*  
+`(`*склсерверконнектионстринг*`)`  
+[`with` `(`[`docstring` `=` *FolderName* `=` *value* *Documentation* `folder` `,` *property_name* Документация] [`,` имя_папки], property_name значение... `=` `)`]
 
 
-**Параметры**
+**Вход**
 
-* *TableName* - Название внешнего стола. Должны следовать правилам для [имен сущности.](../query/schema-entities/entity-names.md) Внешняя таблица не может иметь то же имя, что и обычная таблица в той же базе данных.
-* *SqlTableName* - Название таблицы S'L.
-* *SqlServerConnectionString* - Строка подключения к серверу S'L. Может применяться один из перечисленных ниже типов. 
-    * **AAD интегрировала аутентификацию** (`Authentication="Active Directory Integrated"`): Пользователь или приложение аутентифицирует через AAD к Кусто, и тот же маркер затем используется для доступа к конечной точке сети S'L Server.
-    * **Имя пользователя/проверка подлинности паролей** ().`User ID=...; Password=...;` Если внешняя таблица используется для [непрерывного экспорта,](data-export/continuous-data-export.md)проверка подлинности должна быть выполнена с помощью этого метода. 
+* *TableName* — имя внешней таблицы. Должны соответствовать правилам для [имен сущностей](../query/schema-entities/entity-names.md). Имя внешней таблицы не может совпадать с именем обычной таблицы в той же базе данных.
+* *Склтабленаме* — имя таблицы SQL.
+* *Склсерверконнектионстринг* — строка подключения к SQL Server. Может принимать следующие значения: 
+    * **Встроенная проверка подлинности AAD** (`Authentication="Active Directory Integrated"`): пользователь или приложение проходят проверку подлинности с помощью AAD в Kusto, и тот же токен используется для доступа к конечной точке сети SQL Server.
+    * **Проверка подлинности имени пользователя и пароля** (`User ID=...; Password=...;`). Если внешняя таблица используется для [непрерывного экспорта](data-export/continuous-data-export.md), необходимо выполнить проверку подлинности с помощью этого метода. 
 
 > [!WARNING]
-> Строки подключения и запросы, которые включают конфиденциальную информацию, должны быть запутываны, чтобы они были исключены из любого отслеживания Kusto. Для получения дополнительной информации смотрите [запутанные буквы строки.](../query/scalar-data-types/string.md#obfuscated-string-literals)
+> Строки подключения и запросы, содержащие конфиденциальные сведения, должны быть замаскированы, чтобы их можно было опустить из любой трассировки Kusto. Дополнительные сведения см. в разделе [немаскированные строковые литералы](../query/scalar-data-types/string.md#obfuscated-string-literals) .
 
-**Дополнительные свойства**
+**Необязательные свойства**
 | Свойство            | Тип            | Описание                          |
 |---------------------|-----------------|---------------------------------------------------------------------------------------------------|
-| `folder`            | `string`        | Папка стола.                  |
-| `docString`         | `string`        | Строка, документирующая таблицу.      |
-| `firetriggers`      | `true`/`false`  | Если `true`, поручает целевой системе для запуска триггеров INSERT, определенных на таблице S'L. Значение по умолчанию — `false`. (Для получения дополнительной информации [см. BULK INSERT](https://msdn.microsoft.com/library/ms188365.aspx) и [System.Data.SqlClient.SqlBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy(v=vs.110).aspx)) |
-| `createifnotexists` | `true`/ `false` | Если `true`целевая таблица S'L будет создана, если она еще не существует; свойство `primarykey` должно быть предоставлено в этом случае, чтобы указать столбец результата, который является основным ключом. Значение по умолчанию — `false`.  |
-| `primarykey`        | `string`        | Если `createifnotexists` `true`есть, указывается имя столбца в результате, которое будет использоваться в качестве основного ключа таблицы S'L, если оно создано этой командой.                  |
+| `folder`            | `string`        | Папка таблицы.                  |
+| `docString`         | `string`        | Строка, задокументированная в таблице.      |
+| `firetriggers`      | `true`/`false`  | Значение `true`указывает, что целевая система должна срабатывать триггеры INSERT, определенные в таблице SQL. Значение по умолчанию — `false`. (Дополнительные сведения см. в разделе [BULK INSERT](https://msdn.microsoft.com/library/ms188365.aspx) и [System. Data. SqlClient. SqlBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy(v=vs.110).aspx)). |
+| `createifnotexists` | `true`/ `false` | Если `true`значение равно, то Целевая таблица SQL будет создана, если она еще не существует. в `primarykey` этом случае необходимо указать свойство для указания результирующего столбца, который является первичным ключом. Значение по умолчанию — `false`.  |
+| `primarykey`        | `string`        | Если `createifnotexists` имеет `true`значение, то указывает имя столбца в результатах, который будет использоваться в качестве ПЕРВИЧного ключа таблицы SQL, если он создан с помощью этой команды.                  |
 
 > [!NOTE]
-> * Если таблица существует, `.create` команда выйдет из строя с ошибкой. Используйте `.alter` для изменения существующих таблиц. 
-> * Изменение схемы или формата внешней таблицы S'L не поддерживается. 
+> * Если таблица существует, `.create` команда завершится ошибкой. Используйте `.alter` для изменения существующих таблиц. 
+> * Изменение схемы или формата внешней таблицы SQL не поддерживается. 
 
-Требуется разрешение `.create` пользователя базы [данных](../management/access-control/role-based-authorization.md) для `.alter`и разрешения [администрирования таблицы](../management/access-control/role-based-authorization.md) для . 
+Требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md) для `.create` и [разрешения администратора таблицы](../management/access-control/role-based-authorization.md) для `.alter`. 
  
 **Пример** 
 
@@ -470,14 +470,14 @@ with
 
 | TableName   | TableType | Папка         | DocString | Свойства                            |
 |-------------|-----------|----------------|-----------|---------------------------------------|
-| ВнешнийSql | SQL       | Внешниетаблицы | Docs      | {<br>  "TargetEntityKind": "sqltable",<br>  "TargetEntityName": "MySqlTable",<br>  "TargetEntityConnectionString": "Сервер:myserver.database.windows.net,1433; Аутентификация-Активный каталог Интегрированный;Первоначальный каталог»-моя база данных;",<br>  "FireTriggers": правда,<br>  "CreateifNotExists": правда,<br>  "PrimaryKey": "x"<br>} |
+| екстерналскл | SQL       | екстерналтаблес | Docs      | {<br>  "Таржетентитикинд": "склтабле",<br>  "Таржетентитинаме": "Мисклтабле",<br>  "Таржетентитиконнектионстринг": "Server = TCP:мисервер. Database. Windows. NET, 1433; Authentication = Active Directory интегрирован; исходный каталог = MyDatabase; ",<br>  "Фиретригжерс": true,<br>  "CreateIfNotExists": true,<br>  "PrimaryKey": "x"<br>} |
 
-### <a name="querying-an-external-table-of-type-sql"></a>Запрос навнешней таблицы типа S'L 
-По аналогии с другими типами внешних таблиц поддерживается запрос на внешнюю таблицу S'L. Смотрите [запрос внешних таблиц](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data). Обратите внимание, что реализация внешнего запроса таблицы S'L выполняет полный 'SELECT q' (или выберите соответствующие столбцы) из таблицы S'L, в то время как остальная часть запроса будет выполняться на стороне Kusto. Рассмотрим следующий внешний настольный запрос: 
+### <a name="querying-an-external-table-of-type-sql"></a>Запрос к внешней таблице типа SQL 
+Аналогично для других типов внешних таблиц, поддерживается запрос к внешней таблице SQL. См. раздел [запросы к внешним таблицам](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data). Обратите внимание, что реализация запроса к внешней таблице SQL будет выполнять полную инструкцию "SELECT *" (или выбрать соответствующие столбцы) из таблицы SQL, а остальная часть запроса будет выполняться на Kusto стороне. Рассмотрим следующий запрос к внешней таблице: 
 
 ```kusto
 external_table('MySqlExternalTable') | count
 ```
 
-Kusto выполнит запрос 'SELECT - от TABLE' к базе данных S'L, а затем будет рассчитывать на сторону Кусто. В таких случаях производительность, как ожидается, будет лучше, если писать в T-S'L непосредственно ('SELECT COUNT (1) FROM TABLE') и выполняться с использованием [sql_request плагина,](../query/sqlrequestplugin.md)вместо того, чтобы использовать функцию внешней таблицы. Аналогичным образом, фильтры не перемещаются в запрос S'L.  
-Рекомендуется использовать внешнюю таблицу для запроса таблицы S'L, когда запрос требует прочтения всей таблицы (или соответствующих столбцов) для дальнейшего выполнения на стороне Кусто. При значительной оптимизации запроса на S-L в T-S'L используйте [sql_request плагин.](../query/sqlrequestplugin.md)
+Kusto будет выполнять запрос SELECT * из таблицы в базе данных SQL, за которым следует счетчик на стороне Kusto. В таких случаях производительность должна быть лучше, если написать непосредственно в T-SQL напрямую ("SELECT COUNT (1) из таблицы") и выполнить с помощью [подключаемого модуля sql_request](../query/sqlrequestplugin.md), а не с помощью функции внешней таблицы. Аналогичным образом фильтры не отправляются в SQL запрос.  
+Рекомендуется использовать внешнюю таблицу для запроса таблицы SQL, если запрос требует считывания всей таблицы (или соответствующих столбцов) для дальнейшего выполнения на стороне Kusto. Если SQL-запрос может быть значительно оптимизирован в языке T SQL, используйте [подключаемый модуль sql_request](../query/sqlrequestplugin.md).

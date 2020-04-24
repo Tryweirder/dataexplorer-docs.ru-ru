@@ -1,58 +1,58 @@
 ---
-title: Используйте разъем Azure Data Explorer для Apache Spark для перемещения данных между кластерами Azure Data Explorer и Spark.
-description: В этой теме показано, как перемещать данные между кластерами Azure Data Explorer и Apache Spark.
+title: Используйте соединитель Azure обозреватель данных для Apache Spark перемещения данных между кластерами обозреватель данных и Spark Azure.
+description: В этом разделе показано, как перемещать данные между кластерами Azure обозреватель данных и Apache Spark.
 author: orspod
 ms.author: orspodek
 ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 1/14/2020
-ms.openlocfilehash: 0c8d1add5f5f72ad96475df67ec2ff20bc9364c0
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 6e7879948fb7683210859c84970f31bc5adb4a90
+ms.sourcegitcommit: e1e35431374f2e8b515bbe2a50cd916462741f49
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81495527"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82108326"
 ---
-# <a name="azure-data-explorer-connector-for-apache-spark"></a>Разъем Azure Data Explorer для Apache Spark
+# <a name="azure-data-explorer-connector-for-apache-spark"></a>Соединитель Azure обозреватель данных для Apache Spark
 
-[Apache Spark](https://spark.apache.org/) — это единый аналитический движок для крупномасштабной обработки данных. Azure Data Explorer — это быстрая, полностью управляемая служба анализа данных для анализа больших объемов данных в режиме реального времени. 
+[Apache Spark](https://spark.apache.org/) — это единый модуль аналитики для обработки больших данных. Azure обозреватель данных — это быстрая, полностью управляемая служба аналитики данных для анализа больших объемов данных в режиме реального времени. 
 
-Разъем Azure Data Explorer для Spark — это [проект с открытым исходным кодом,](https://github.com/Azure/azure-kusto-spark) который может работать на любом кластере Spark. Он реализует источник данных и поглотитель данных для перемещения данных через кластеры Azure Data Explorer и Spark. Используя Azure Data Explorer и Apache Spark, можно создавать быстрые и масштабируемые приложения, ориентированные на сценарии, ориентированные на данные. Например, машинное обучение (ML), Extract-Transform-Load (ETL) и Log Analytics. С разъемом Azure Data Explorer становится действительным хранилищем данных для стандартных операций источника и поглотителей Spark, таких как запись, чтение и запись Stream.
+Соединитель Azure обозреватель данных для Spark — это [проект с открытым исходным кодом](https://github.com/Azure/azure-kusto-spark) , который может работать в любом кластере Spark. Он реализует источник данных и приемник данных для перемещения данных между кластерами Azure обозреватель данных и Spark. С помощью Azure обозреватель данных и Apache Spark можно создавать быстрые и масштабируемые приложения, предназначенные для сценариев, управляемых данными. Например, машинное обучение (ML), извлечение-преобразование-Загрузка (ETL) и Log Analytics. С помощью соединителя обозреватель данных Azure преобразуется в допустимое хранилище данных для стандартных операций источника и приемника Spark, таких как запись, чтение и Вритестреам.
 
-Вы можете написать в Azure Data Explorer в режиме пакетной или потоковой передачи. Чтение из Azure Data Explorer поддерживает обрезку столбцов и предикат pushdown, которая фильтрует данные в Azure Data Explorer, уменьшая объем переданных данных.
+Запись в обозреватель данных Azure можно выполнять в пакетном или потоковой режиме. Чтение из Azure обозреватель данных поддерживает очистку столбцов и предикаты включение, которые отфильтровывают данные в обозреватель данных Azure, уменьшая объем передаваемых данных.
 
-В этой теме описывается, как установить и настроить разъем Azure Data Explorer Spark и переместить данные между кластерами Azure Data Explorer и Apache Spark.
+В этом разделе описывается установка и Настройка соединителя Azure обозреватель данных Spark и перемещение данных между кластерами Azure обозреватель данных и Apache Spark.
 
 > [!NOTE]
-> Хотя некоторые приведенные ниже примеры относятся к кластеру [Azure Databricks](https://docs.azuredatabricks.net/) Spark, разъем Azure Data Explorer Spark не принимает прямой зависимости от Databricks или любого другого дистрибутива Spark.
+> Хотя некоторые из приведенных ниже примеров относятся к кластеру [Azure Databricks](https://docs.azuredatabricks.net/) Spark, соединитель Azure обозреватель данных Spark не принимает прямые зависимости от кирпичей данных или других дистрибутивов Spark.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные условия
 
-* [Создание кластера и базы данных Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) 
+* [Создание кластера Azure обозреватель данных и базы данных](/azure/data-explorer/create-cluster-database-portal) 
 * Создание кластера Spark
-* Установите библиотеку разъема Azure Data Explorer:
-    * Предварительно построенные библиотеки для [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases) 
-    * [Maven репо](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)
-* [Maven 3.x](https://maven.apache.org/download.cgi) установлен
+* Установка библиотеки соединителей Azure обозреватель данных:
+    * Предварительно созданные библиотеки для [Spark 2,4, Scala 2,11](https://github.com/Azure/azure-kusto-spark/releases) 
+    * [Репозиторий Maven](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)
+* Установлен [Maven 3. x](https://maven.apache.org/download.cgi)
 
 > [!TIP]
-> Версии 2.3.x также поддерживаются, но могут потребовать некоторых изменений в зависимостях pom.xml.
+> версии 2.3. x также поддерживаются, но может потребоваться внести некоторые изменения в зависимости POM. XML.
 
-## <a name="how-to-build-the-spark-connector"></a>Как построить разъем Spark
+## <a name="how-to-build-the-spark-connector"></a>Как создать соединитель Spark
 
 > [!NOTE]
-> Это необязательный шаг. Если вы используете предварительно построенные библиотеки, перейдите на [настройку кластера Spark.](#spark-cluster-setup)
+> Это необязательный шаг. Если вы используете предварительно созданные библиотеки, перейдите в раздел [Установка кластера Spark](#spark-cluster-setup).
 
-### <a name="build-prerequisites"></a>Создание предпосылок
+### <a name="build-prerequisites"></a>Необходимые компоненты для сборки
 
-1. Установите библиотеки, перечисленные в [зависимостях,](https://github.com/Azure/azure-kusto-spark#dependencies) включая следующие [библиотеки Kusto Java SDK:](kusto/api/java/kusto-java-client-library.md)
+1. Установите библиотеки, перечисленные в списке [зависимости](https://github.com/Azure/azure-kusto-spark#dependencies) , включая следующие библиотеки [SDK Kusto для Java](kusto/api/java/kusto-java-client-library.md) :
     * [Клиент данных Kusto](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
-    * [Кусто Ingest Клиент](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
+    * [Принимающий клиент Kusto](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
 
-1. Обратитесь к [этому источнику](https://github.com/Azure/azure-kusto-spark) для создания разъема Spark.
+1. Сведения о создании соединителя Spark см. в [этом источнике](https://github.com/Azure/azure-kusto-spark) .
 
-1. Для приложений Scala/Java, использующих определения проекта Maven, свяжите приложение со следующим артефактом (последняя версия может отличаться):
+1. Для приложений Scala/Java, использующих определения проектов Maven, свяжите приложение со следующим артефактом (последняя версия может отличаться):
     
     ```Maven
        <dependency>
@@ -70,65 +70,65 @@ ms.locfileid: "81495527"
 mvn clean package
 ```
 
-Чтобы построить банку, запустите все тесты и установите банку в локальное репозиторий Maven:
+Чтобы создать JAR-файл, выполните все тесты и установите JAR-файл в локальный репозиторий Maven:
 
 ```
 mvn clean install
 ```
 
-Для получения дополнительной информации [см.](https://github.com/Azure/azure-kusto-spark#usage)
+Дополнительные сведения см. в разделе [Использование соединителя](https://github.com/Azure/azure-kusto-spark#usage).
 
 ## <a name="spark-cluster-setup"></a>Установка кластера Spark
 
 > [!NOTE]
-> Рекомендуется использовать последний разъем разъем Azure Data Explorer Spark при выполнении следующих шагов.
+> При выполнении следующих действий рекомендуется использовать последнюю версию соединителя Azure обозреватель данных Spark.
 
-1. Настроите следующие настройки кластера Spark на основе кластера Azure Databricks с использованием Spark 2.4.4 и Scala 2.11:
+1. Настройте следующие параметры кластера Spark на основе кластера Azure Databricks, используя Spark 2.4.4 и Scala 2,11:
 
-    ![Настройки кластера Databricks](media/spark-connector/databricks-cluster.png)
+    ![Параметры кластера "кирпичные данные"](media/spark-connector/databricks-cluster.png)
     
-1. Установите последнюю библиотеку искры-кусто-разъем от Maven:
+1. Установите последнюю версию библиотеки Spark-kusto-Connector из Maven:
     
-    ![Библиотеки](media/spark-connector/db-libraries-view.png) ![импорта Выберите Spark-Kusto-Connector](media/spark-connector/db-dependencies.png)
+    ![Импорт библиотек](media/spark-connector/db-libraries-view.png) ![выберите Spark-Kusto-Connector](media/spark-connector/db-dependencies.png)
 
-1. Убедитесь, что все необходимые библиотеки установлены:
+1. Убедитесь, что установлены все необходимые библиотеки:
 
     ![Проверка установленных библиотек](media/spark-connector/db-libraries-view.png)
 
-1. Для установки с помощью файла JAR убедитесь, что были установлены дополнительные зависимости:
+1. Для установки с помощью JAR-файла убедитесь, что установлены дополнительные зависимости:
 
     ![Добавление зависимостей](media/spark-connector/db-not-maven.png)
 
 ## <a name="authentication"></a>Аутентификация
 
-Разъем Azure Data Explorer Spark позволяет аутентифицировать с помощью Active Directory (Azure AD) с помощью одного из следующих методов:
-* [Приложение Azure AD](#azure-ad-application-authentication)
-* [Токен доступа Azure AD](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token)
-* [Проверка подлинности устройств](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (для непроизводственных сценариев)
-* [Убежище ключей Azure](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault) для доступа к ресурсу Key Vault, установки пакета azure-keyvault и предоставления учетных данных приложений.
+Соединитель Azure обозреватель данных Spark позволяет выполнять аутентификацию с помощью Azure Active Directory (Azure AD) одним из следующих способов.
+* [Приложение Azure AD](#azure-ad-application-authentication) ;
+* [Маркер доступа Azure AD](https://github.com/Azure/azure-kusto-spark/blob/master/docs/Authentication.md#direct-authentication-with-access-token) ;
+* [Проверка подлинности устройства](https://github.com/Azure/azure-kusto-spark/blob/master/docs/Authentication.md#device-authentication) (для нерабочих сценариев)
+* [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/master/docs/Authentication.md#key-vault) для доступа к ресурсу Key Vault, установите пакет Azure-keyvault и укажите учетные данные приложения.
 
-### <a name="azure-ad-application-authentication"></a>Аутентификация приложения Azure AD
+### <a name="azure-ad-application-authentication"></a>Проверка подлинности приложения Azure AD
 
-Аутентификация приложения Azure AD является самым простым и распространенным методом проверки подлинности и рекомендуется для разъема Azure Data Explorer Spark.
+Проверка подлинности приложения Azure AD является самым простым и наиболее распространенным методом проверки подлинности и рекомендуется для соединителя Azure обозреватель данных Spark.
 
 |Свойства  |Описание  |
 |---------|---------|
 |**KUSTO_AAD_CLIENT_ID**     |   Идентификатор приложения Azure AD (клиент).      |
-|**KUSTO_AAD_AUTHORITY_ID**     |  Орган по аутентификации Azure AD. Идентификатор каталога AD Azure AD.        |
+|**KUSTO_AAD_AUTHORITY_ID**     |  Центр проверки подлинности Azure AD. Идентификатор каталога Azure AD (клиент).        |
 |**KUSTO_AAD_CLIENT_PASSWORD**    |    Ключ приложения Azure AD для клиента.     |
 
-### <a name="azure-data-explorer-privileges"></a>Привилегии Azure Data Explorer
+### <a name="azure-data-explorer-privileges"></a>Права обозреватель данных Azure
 
-Предоставь следующие привилегии в кластере Azure Data Explorer:
+Предоставьте следующие права в кластере Azure обозреватель данных.
 
-* Для чтения (источника данных) интатора Azure AD должна иметь привилегии *просмотра* в целевой базе данных или привилегии *администрирования* в целевой таблице.
-* Для записи (поглотителя данных) интатор Azure AD должен иметь привилегии *ingestor* в целевой базе данных. Он также должен иметь привилегии *пользователя* в целевой базе данных для создания новых таблиц. Если целевая таблица уже существует, необходимо настроить привилегии *админа* в целевой таблице.
+* Для чтения (источник данных) удостоверение Azure AD должно иметь права доступа *средства просмотра* в целевой базе данных или права *администратора* в целевой таблице.
+* Для записи (приемника данных) удостоверение Azure AD должно иметь привилегии *приема* в целевой базе данных. Для создания новых таблиц у нее также должны быть привилегии *пользователя* в целевой базе данных. Если целевая таблица уже существует, необходимо настроить права *администратора* в целевой таблице.
  
-Для получения дополнительной информации о главных ролях Azure Data Explorer [см.](kusto/management/access-control/role-based-authorization.md) Для управления ролями [security roles management](kusto/management/security-roles.md)безопасности см.
+Дополнительные сведения о ролях участников Azure обозреватель данных см. в разделе [авторизация на основе ролей](kusto/management/access-control/role-based-authorization.md). Сведения об управлении ролями безопасности см. в разделе [Управление ролями безопасности](kusto/management/security-roles.md).
 
-## <a name="spark-sink-writing-to-azure-data-explorer"></a>Раковина искры: письмо в Azure Data Explorer
+## <a name="spark-sink-writing-to-azure-data-explorer"></a>Приемник Spark: запись в Azure обозреватель данных
 
-1. Настройка параметров раковины:
+1. Настройка параметров приемника:
 
      ```scala
     val KustoSparkTestAppId = dbutils.secrets.get(scope = "KustoDemos", key = "KustoSparkTestAppId")
@@ -142,7 +142,7 @@ mvn clean install
     val table = "StringAndIntTable"
     ```
 
-1. Запись Spark DataFrame в кластер Azure Data Explorer в виде пакета:
+1. Запись данных Spark в кластер Azure обозреватель данных в качестве пакета:
 
     ```scala
     import com.microsoft.kusto.spark.datasink.KustoSinkOptions
@@ -192,9 +192,9 @@ mvn clean install
           .start()
     ```
 
-## <a name="spark-source-reading-from-azure-data-explorer"></a>Источник искры: чтение от Исследователя данных Azure
+## <a name="spark-source-reading-from-azure-data-explorer"></a>Источник Spark: чтение из обозреватель данных Azure
 
-1. При [чтении небольших объемов данных](kusto/concepts/querylimits.md)определите запрос данных:
+1. При чтении [небольших объемов данных](kusto/concepts/querylimits.md)Определите запрос данных:
 
     ```scala
     import com.microsoft.kusto.spark.datasource.KustoSourceOptions
@@ -223,8 +223,8 @@ mvn clean install
     display(df2)
     ```
 
-1. Дополнительно: Если **вы** предоставляете переходное хранилище капли (а не Azure Data Explorer), то капли создаются под ответственностью вызывающегося абонента. Это включает в себя предоставление хранилища, вращающиеся клавиши доступа и удаляние переходных артефактов. 
-    Модуль KustoBlobStorageUtils содержит функции помощника для удаляния капли на основе либо учетных записей и координат контейнера и учетных данных учетной записи, либо полного URL SAS с разрешениями на запись, чтение и список. Когда соответствующий RDD больше не нужен, каждая транзакция хранит переходные артефакты blob в отдельном каталоге. Этот каталог фиксируется как часть информационных журналов считывания транзакций, сообщаемых на узлах Драйвера Spark.
+1. Необязательно. Если **вы** предоставляете временное хранилище BLOB-объектов (а не Azure обозреватель данных), большие двоичные объекты создаются под обязанностью вызывающего. Сюда входит подготовка хранилища, вращение ключей доступа и удаление временных артефактов. 
+    Модуль Кустоблобсторажеутилс содержит вспомогательные функции для удаления больших двоичных объектов на основе координат учетной записи и контейнера и учетных данных учетной записи либо полного URL-адреса SAS с разрешениями на запись, чтение и перечисление. Если соответствующий RDD больше не нужен, каждая транзакция хранит временные артефакты больших двоичных объектов в отдельном каталоге. Этот каталог записывается как часть журналов сведений о транзакциях чтения и записи, о которых сообщается на узле драйвера Spark.
 
     ```scala
     // Use either container/account-key/account name, or container SaS
@@ -234,11 +234,11 @@ mvn clean install
     // val storageSas = dbutils.secrets.get(scope = "KustoDemos", key = "blobStorageSasUrl")
     ```
 
-    В приведенном выше примере доступ к Key Vault не используется с помощью интерфейса разъема; используется более простой метод использования секретов Databricks.
+    В приведенном выше примере доступ к Key Vault не осуществляется с помощью интерфейса соединителя. используется более простой метод использования секретов блоков данных.
 
-1. Читайте от Azure Data Explorer.
+1. Чтение из обозреватель данных Azure.
 
-    * Если **вы** предоставляете переходное хранилище капли, прочитайте из Azure Data Explorer следующее:
+    * Если **вы** предоставляете временное хранилище BLOB-объектов, выполните чтение из обозреватель данных Azure следующим образом:
 
         ```scala
          val conf3 = Map(
@@ -256,7 +256,7 @@ mvn clean install
         display(dfFiltered)
         ```
 
-    * Если **Azure Data Explorer** предоставляет переходное хранилище, прочитайте из Azure Data Explorer следующее:
+    * Если **azure обозреватель данных** предоставляет временное хранилище BLOB-объектов, выполните чтение из обозреватель данных Azure следующим образом:
     
         ```scala
         val dfFiltered = df2
@@ -268,7 +268,7 @@ mvn clean install
         display(dfFiltered)
         ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* Узнайте больше о [разъединении искры Azure Data Explorer](https://github.com/Azure/azure-kusto-spark/tree/master/docs)
+* Дополнительные сведения о [соединителе Azure обозреватель данных Spark](https://github.com/Azure/azure-kusto-spark/tree/master/docs)
 * [Пример кода для Java и Python](https://github.com/Azure/azure-kusto-spark/tree/master/samples/src/main)
