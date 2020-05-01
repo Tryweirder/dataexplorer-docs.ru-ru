@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/30/2020
-ms.openlocfilehash: ad255c6930e76628a5187fa8d321e3445dbb5f99
-ms.sourcegitcommit: fbe298e88542c0dcea0f491bb53ac427f850f729
+ms.openlocfilehash: e03ff6fe7ffb65d11b59cc98f150df617d42932d
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82138872"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82616378"
 ---
 # <a name="data-partitioning-policy-preview"></a>Политика секционирования данных (Предварительная версия)
 
@@ -39,7 +39,7 @@ ms.locfileid: "82138872"
 
 ### <a name="hash-partition-key"></a>Ключ хэш-секции
 
-Применение `string`ключа хэш-секции к столбцу с типом данных в таблице уместно, когда *большинство* запросов использует фильтры равенства (`==`, `in()`) для столбца с определенным `string`типом *больших*размеров, например `application_ID`, `tenant_ID` или. `user_ID`
+Применение ключа хэш-секции к столбцу `string`с типом данных в таблице уместно, когда *большинство* запросов использует фильтры равенства (`==`, `in()`) для столбца с определенным `string`типом для *больших измерений* (10 миллионов или выше), например `application_ID`, `tenant_ID` или. `user_ID`
 
 * Для секционирования данных используется функция хэширования по модулю.
 * Все *однородные* (секционированные) экстенты, принадлежащие к одной секции, назначаются одному и тому же узлу данных.

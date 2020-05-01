@@ -1,6 +1,6 @@
 ---
-title: столбец таблицы альтер-слияние - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны столбцы таблицы альтер-слияния в Azure Data Explorer.
+title: ALTER-Merge столбец таблицы — докстрингс — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается инструкция ALTER-Merge таблицы Column-докстрингс в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,39 +8,39 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 75d298f35a215af5da443f673278e4a252c24cc9
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 7dd36181be1140d3960369b1c8a5284ed55e48f5
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81522395"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82616496"
 ---
-# <a name="alter-merge-table-column-docstrings"></a>столбец таблицы альтер-слияние-docstrings
+# <a name="alter-merge-table-column-docstrings"></a>ALTER-Merge столбец таблицы — докстрингс
 
-Устанавливает `docstring` свойство одной или нескольких столбцов указанной таблицы. Столбцы, явно не установленные, **сохраняют** существующее значение для этого свойства, если у них есть одно.
+Задает `docstring` свойство для одного или нескольких столбцов указанной таблицы. Столбцы, не заданные явным образом, **сохраняют** свое существующее значение для этого свойства, если они есть.
 
-Для изменения столбца таблицы-docstring, [см.](#alter-table-column-docstrings)
+Инструкции по изменению столбца таблицы — docstring см. [ниже](#alter-table-column-docstrings).
 
 **Синтаксис**
 
-`.alter-merge``table` *TableName* `column-docstring` *Col1* `:` `:` `,` *Col2* *Docstring1* *Docstring2*Col1 Docstring1 - Col2 Docstring2 ... `(``)`
+`.alter-merge``table` *TableName* `:` *Docstring1* *Col1* `:` *Docstring2*col1 Docstring1 [`,` Col2 Docstring2]... *Col2* `column-docstring` `(``)`
 
 **Пример** 
 
-```
+```kusto
 .alter-merge table Table1 column-docstrings (Column1:"DocString1", Column2:"DocString2")
 ```
 
-## <a name="alter-table-column-docstrings"></a>изменить столбец таблицы-docstrings
+## <a name="alter-table-column-docstrings"></a>изменение столбца таблицы — докстрингс
 
-Устанавливает `docstring` свойство одной или нескольких столбцов указанной таблицы. Столбцы, которые явно не установлены, будут **удалены**из этого свойства.
+Задает `docstring` свойство для одного или нескольких столбцов указанной таблицы. Для столбцов, не заданных явно, это свойство будет **удалено**.
 
 **Синтаксис**
 
-`.alter``table` *TableName* `column-docstring` *Col1* `:` `:` `,` *Col2* *Docstring1* *Docstring2*Col1 Docstring1 - Col2 Docstring2 ... `(``)`
+`.alter``table` *TableName* `:` *Docstring1* *Col1* `:` *Docstring2*col1 Docstring1 [`,` Col2 Docstring2]... *Col2* `column-docstring` `(``)`
 
 **Пример** 
 
-```
+```kusto
 .alter table Table1 column-docstrings (Column1:"DocString1", Column2:"DocString2")
 ```

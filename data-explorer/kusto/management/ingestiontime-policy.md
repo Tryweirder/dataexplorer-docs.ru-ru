@@ -1,6 +1,6 @@
 ---
-title: Политика IngestionTime - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается политика IngestionTime в Azure Data Explorer.
+title: Управление политиками Инжестионтиме Kusto в Azure обозреватель данных
+description: В этой статье описывается политика Инжестионтиме в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,42 +8,42 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: c42da570b961595be1fbcae352fe121d8b6f59ea
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 907c6ddf84d772f800fce45d3c1245bbd11b0c85
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81520899"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82616462"
 ---
 # <a name="ingestiontime-policy"></a>Политика времени приема
 
-Политика IngestionTime — это дополнительная политика, установленная в таблицах (она включена по умолчанию).
-он обеспечивает приблизительное время приема записей в таблицу.
+Политика Инжестионтиме — это необязательная политика, заданная для таблиц (она включена по умолчанию).
+Он предоставляет примерное время приема записей в таблицу.
 
-Значение времени заглаживания можно получить во `ingestion_time()` время запроса с помощью функции.
+Доступ к значению времени приема можно получить во время выполнения `ingestion_time()` запроса с помощью функции.
 
 ```kusto
 T | extend ingestionTime = ingestion_time()
 ```
 
-Для включения/отключать политику:
+Чтобы включить или отключить политику, выполните следующие действия.
 ```kusto
 .alter table table_name policy ingestiontime true
 ```
 
-Для включения/отключать политику нескольких таблиц:
+Включение и отключение политики для нескольких таблиц:
 ```kusto
 .alter tables (table_name [, ...]) policy ingestiontime true
 ```
 
-Для просмотра политики:
+Чтобы просмотреть политику, выполните следующие действия.
 ```kusto
 .show table table_name policy ingestiontime  
 
 .show table * policy ingestiontime  
 ```
 
-Чтобы удалить политику (равно отключению):
+Чтобы удалить политику (равной отключенной), выполните следующие действия.
 ```kusto
 .delete table table_name policy ingestiontime  
 ```
