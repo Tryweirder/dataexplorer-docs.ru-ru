@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/01/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 5ceafde1361c87d368237d0f8c71ad8d0708aec1
-ms.sourcegitcommit: e1e35431374f2e8b515bbe2a50cd916462741f49
+ms.openlocfilehash: 6b33ee0ed9535d512c909dd8de124fc8b1770cee
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82108513"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82618995"
 ---
 # <a name="python-plugin"></a>Подключаемый модуль Python
 
@@ -92,7 +92,8 @@ typeof(*, fx:double),               //  Output schema: append a new fx column to
 )
 | render linechart 
 ```
-:::image type="content" source="images/samples/sine-demo.png" alt-text="синусная демонстрация":::
+
+:::image type="content" source="images/plugin/sine-demo.png" alt-text="синусная демонстрация" border="false":::
 
 ```kusto
 print "This is an example for using 'external_artifacts'"
@@ -128,7 +129,7 @@ print "This is an example for using 'external_artifacts'"
     * Можно также использовать [оператор Partition](partitionoperator.md) для секционирования входного набора данных.
 * Используйте язык запросов Kusto, когда это возможно, чтобы реализовать логику скрипта Python.
 
-    Пример.
+    Пример:
 
     ```kusto    
     .show operations
@@ -176,7 +177,7 @@ print "This is an example for using 'external_artifacts'"
 
 1. Однократное предварительное требование:
   
-  a. Создайте контейнер больших двоичных объектов для размещения пакетов, предпочтительно в том же регионе, что и кластер.
+  а. Создайте контейнер больших двоичных объектов для размещения пакетов, предпочтительно в том же регионе, что и кластер.
     * Пример: `https://artifcatswestus.blob.core.windows.net/python` (если кластер находится в западной части США)
   
   b. Измените [политику выноски](../management/calloutpolicy.md) кластера, чтобы разрешить доступ к этому расположению.
@@ -226,7 +227,7 @@ range Id from 1 to 3 step 1
     external_artifacts=pack('faker.zip', 'https://artifacts.blob.core.windows.net/kusto/Faker.zip?...'))
 ```
 
-| Идентификатор | Название         |
+| Идентификатор | Имя         |
 |----|--------------|
 |   1| Гари Тапиа   |
 |   2| Емма Эванс   |

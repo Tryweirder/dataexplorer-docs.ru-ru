@@ -1,6 +1,6 @@
 ---
-title: stdev() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описанstdev() (функция агрегирования) в Azure Data Explorer.
+title: STDEV () (агрегатная функция) — обозреватель данных Azure | Документация Майкрософт
+description: В этой статье описывается СТАНДОТКЛОН () (статистическая функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,34 +8,34 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: d54af583db6f7aca0b436040c453249207a5ae59
-ms.sourcegitcommit: 436cd515ea0d83d46e3ac6328670ee78b64ccb05
+ms.openlocfilehash: 3a29621a18a364145585022b1f0651100cadab1c
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81663096"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82618549"
 ---
-# <a name="stdev-aggregation-function"></a>stdev() (функция агрегирования)
+# <a name="stdev-aggregation-function"></a>STDEV () (агрегатная функция)
 
-Высчитывает стандартное отклонение *Expr* по всей группе, рассматривая группу как [образец.](https://en.wikipedia.org/wiki/Sample_%28statistics%29) 
+Вычисляет стандартное отклонение *выражения expr* по группе, принимая в качестве [примера](https://en.wikipedia.org/wiki/Sample_%28statistics%29)группу. 
 
-* Подержана формула:
+* Используемая формула:
 
-:::image type="content" source="images/aggregations/stdev-sample.png" alt-text="Образец Stdev":::
+:::image type="content" source="images/stdev-aggfunction/stdev-sample.png" alt-text="Пример STDEV":::
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
 **Синтаксис**
 
-резюмировать `stdev(` *Expr*`)`
+`stdev(`суммировать *выражение*`)`
 
 **Аргументы**
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации. 
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
 
 **Возвращает**
 
-Стандартное значение отклонения *Expr* по всей группе.
+Стандартное значение отклонения *выражения* в группе.
  
 **Примеры**
 
@@ -47,4 +47,4 @@ range x from 1 to 5 step 1
 
 |list_x|stdev_x|
 |---|---|
-|[ 1, 2, 3, 4, 5]|1.58113883008419|
+|[1, 2, 3, 4, 5]|1.58113883008419|
