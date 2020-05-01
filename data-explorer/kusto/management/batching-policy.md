@@ -1,6 +1,6 @@
 ---
-title: Политика ingestionBatching - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается политика IngestionBatching в Azure Data Explorer.
+title: Управление политиками Инжестионбатчинг Kusto в Azure обозреватель данных
+description: В этой статье описывается политика Инжестионбатчинг в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,43 +8,43 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: 232767e390669a08312f10d3999d19264fb29f26
-ms.sourcegitcommit: e94be7045d71a0435b4171ca3a7c30455e6dfa57
+ms.openlocfilehash: e9823fd0cd44dd2e5bd0731cc59086961ce86d8c
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81744301"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82617771"
 ---
-# <a name="ingestionbatching-policy"></a>Политика ingestionBatching
+# <a name="ingestionbatching-policy"></a>Политика Инжестионбатчинг
 
-[Политика ingestionBatching](batchingpolicy.md) — это объект политики, определяющий, когда агрегация данных должна прекратиться во время приема данных в соответствии с указанными параметрами.
+[Политика инжестионбатчинг](batchingpolicy.md) — это объект политики, определяющий, когда должна останавливаться агрегирование данных во время приема данных в соответствии с заданными параметрами.
 
-Политика может быть `null`установлена на, в этом случае значения по умолчанию используются, установив максимальный промежуток времени пакетирования до: 5 минут, 1000 элементов и общий размер партии 1G или значение кластера по умолчанию, установленное Kusto.
+Для `null`политики можно задать значение. в этом случае используются значения по умолчанию, установка максимального интервала времени пакетной обработки: 5 минут, 1000 элементов и общий размер пакета (1 ГБ), а параметр кластера по умолчанию, заданный Kusto.
 
-Если политика не установлена для определенной сущности, она будет искать политику более высокого уровня иерархии, если все настроены на обнулении значения по умолчанию. 
+Если политика не задана для определенной сущности, она будет искать политику более высокого уровня иерархии, если для параметра ALL задано значение null, то будет использоваться по умолчанию. 
 
-Политика имеет нижний предел 10 секунд и не рекомендуется использовать значения, превышающее 15 минут.
+Нижняя граница политики ограничена 10 секундами, поэтому не рекомендуется использовать значения, превышающие 15 минут.
 
-## <a name="displaying-the-ingestionbatching-policy"></a>Отображение политики ingestionBatching
+## <a name="displaying-the-ingestionbatching-policy"></a>Отображение политики Инжестионбатчинг
 
-Политика может быть установлена в базе данных или таблице и отображаться с помощью одной из следующих команд:
+Политику можно задать для базы данных или таблицы и отобразить с помощью одной из следующих команд:
 
 * `.show` `database` *DatabaseName* `policy` `ingestionbatching`
-* `.show``table` *База данныхИмя*`.`*таблицыИмя* `policy``ingestionbatching`
+* `.show``table` *DatabaseName*Имя_базы_данных`.`*TableName* , TableName `policy``ingestionbatching`
 
-## <a name="altering-the-ingestionbatching-policy"></a>Изменение политики ingestionBatching
+## <a name="altering-the-ingestionbatching-policy"></a>Изменение политики Инжестионбатчинг
 
 ```kusto
 .alter <entity_type> <database_or_table_name> policy ingestionbatching @'<ingestionbatching policy json>'
 ```
 
-Изменение политики IngestionBatching для нескольких таблиц (в одном контексте базы данных):
+Изменение политики Инжестионбатчинг для нескольких таблиц (в одном контексте базы данных):
 
 ```kusto
 .alter tables (table_name [, ...]) policy ingestionbatching @'<ingestionbatching policy json>'
 ```
 
-Политика ingestionBatching:
+Политика Инжестионбатчинг:
 
 ```kusto
 {
@@ -55,12 +55,12 @@ ms.locfileid: "81744301"
 ```
 
 * `entity_type`: таблица, база данных
-* `database_or_table`: если объект является таблицей или базой данных, ее имя должно быть указано в команде следующим образом - 
+* `database_or_table`. Если сущность является таблицей или базой данных, ее имя должно быть указано в команде следующим образом: 
   - `database_name` или 
   - `database_name.table_name` или 
-  - `table_name`(при запуске в контексте конкретной базы данных)
+  - `table_name`(при выполнении в контексте конкретной базы данных)
 
-## <a name="deleting-the-ingestionbatching-policy"></a>Удаление политики ingestionBatching
+## <a name="deleting-the-ingestionbatching-policy"></a>Удаление политики Инжестионбатчинг
 
 ```kusto
 .delete <entity_type> <database_or_table_name> policy ingestionbatching

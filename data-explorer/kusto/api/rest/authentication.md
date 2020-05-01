@@ -1,6 +1,6 @@
 ---
-title: Аутентификация по HTTPS - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описывается аутентификация по сравнению с HTTPS в Azure Data Explorer.
+title: Проверка подлинности по протоколу HTTPS с обозреватель данных Azure | Документация Майкрософт
+description: В этой статье описывается проверка подлинности по протоколу HTTPS в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,36 +8,36 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/30/2019
-ms.openlocfilehash: 4b6fbf5bb34dc3ff52938c7042778a7e49fd5faf
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: e0910089d87d6bce6124cb7e4560c2fa7b92b847
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81503049"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82617992"
 ---
-# <a name="authentication-over-https"></a>Аутентификация по HTTPS
+# <a name="authentication-over-https"></a>Проверка подлинности по протоколу HTTPS
 
-При использовании HTTPS служба `Authorization` поддерживает стандартный заголовок HTTP для выполнения аутентификации.
+При использовании протокола HTTPS служба поддерживает стандартный заголовок HTTP `Authorization` для выполнения проверки подлинности.
 
-Поддерживаемые методы проверки подлинности HTTP:
+Поддерживаются следующие методы проверки подлинности HTTP:
 
-* **Активный каталог Azure**с `bearer` помощью метода.
+* **Azure Active Directory**с помощью `bearer` метода.
 
-При проверке подлинности с помощью `Authorization` Active Directory Azure заголовок имеет формат:
+При проверке подлинности с помощью Azure `Authorization` AD заголовок имеет формат:
 
 ```txt
 Authorization: bearer TOKEN
 ```
 
-Где `TOKEN` же контокен доступа, который абонент приобретает, связавшись с службой Active Directory Azure со следующими свойствами:
+Где `TOKEN` — маркер доступа, получаемый вызывающим объектом путем взаимодействия со службой Azure AD. Маркер имеет следующие свойства:
 
-* Ресурсом является услуга URI (например, `https://help.kusto.windows.net`).
-* Конечная точка службы Active `https://login.microsoftonline.com/TENANT/`Directory — это точка .
+* Ресурс является URI службы (например, `https://help.kusto.windows.net`).
+* Конечная точка службы Azure AD`https://login.microsoftonline.com/TENANT/`
 
-Где `TENANT` находится идентификатор или имя арендатора Active Directory Azure. Например, службы, созданные `https://login.microsoftonline.com/microsoft.com/`под арендатором Майкрософт, могут использоваться. Кроме того, только для проверки подлинности `https://login.microsoftonline.com/common/` пользователя, вместо этого можно сделать запрос.
+Где `TENANT` — это идентификатор или имя клиента Azure AD. Например, службы, созданные в клиенте Майкрософт, могут использовать `https://login.microsoftonline.com/microsoft.com/`. В качестве альтернативы для проверки подлинности пользователя можно выполнить запрос `https://login.microsoftonline.com/common/`к.
 
 > [!NOTE]
-> Конечная точка службы Active Directory изменяется при запуске в национальных облаках.
-> Чтобы изменить конечную точку, которая будет `AadAuthorityUri` использоваться, установите переменную среды в требуемый URI.
+> Конечная точка службы Azure AD изменяется при запуске в национальных облаках.
+> Чтобы изменить конечную точку, задайте для переменной `AadAuthorityUri` среды требуемый URI.
 
-Для получения дополнительной информации смотрите [обзор аутентификации](../../management/access-control/index.md) и [руководство по аутентификации Active Directory Azure.](../../management/access-control/how-to-authenticate-with-aad.md)
+Дополнительные информатон см. в статье [Общие сведения о проверке подлинности](../../management/access-control/index.md) и [инструкции по проверке подлинности Azure AD](../../management/access-control/how-to-authenticate-with-aad.md).

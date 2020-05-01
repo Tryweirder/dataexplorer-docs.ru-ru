@@ -1,6 +1,6 @@
 ---
-title: Политика удержания - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описывается политика удержания в Azure Data Explorer.
+title: Управление политикой хранения Kusto в Azure обозреватель данных
+description: В этой статье описывается политика хранения в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: b0366bef619d815bbe58f91730eff70ec847c239
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: e03e529e0c802f0d424deb4048c5809bbe845ddd
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81520355"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82617414"
 ---
 # <a name="retention-policy"></a>Политика хранения
 
-В этой статье описаны команды управления, используемые для создания и изменения [политики удержания.](retentionpolicy.md)
+В этой статье описываются управляющие команды, используемые для создания и изменения [политики хранения](retentionpolicy.md).
 
-## <a name="show-retention-policy"></a>Показать политику удержания
+## <a name="show-retention-policy"></a>Отображение политики хранения
 
 ```kusto
 .show <entity_type> <database_or_table> policy retention
@@ -28,39 +28,39 @@ ms.locfileid: "81520355"
 ```
 
 * `entity_type`: таблица или база данных
-* `database_or_table`: `database_name` `database_name.table_name` или `table_name` (в контексте базы данных)
+* `database_or_table`: `database_name` или `database_name.table_name` или `table_name` (в контексте базы данных)
 
 **Пример**
 
-Отображите политику `MyDatabase`удержания для базы данных под названием:
+Отображение политики хранения для базы данных с именем `MyDatabase`:
 
 ```kusto
 .show database MyDatabase policy retention
 ```
 
-## <a name="delete-retention-policy"></a>Удалить политику удержания
+## <a name="delete-retention-policy"></a>Удаление политики хранения
 
-Политика удержания данных — это аффективное установление неограниченного хранения данных.
+Удаление политики хранения данных влияет на неограниченное хранение данных.
 
-Использование политики хранения данных в таблице приведет к тому, что таблица вычеркнет политику удержания из уровня базы данных.
+Удаление политики хранения данных таблицы приведет к тому, что эта таблица будет наследовать политику хранения на уровне базы данных.
 
 ```kusto
 .delete <entity_type> <database_or_table> policy retention
 ```
 
 * `entity_type`: таблица или база данных
-* `database_or_table`: `database_name` `database_name.table_name` или `table_name` (в контексте базы данных)
+* `database_or_table`: `database_name` или `database_name.table_name` или `table_name` (в контексте базы данных)
 
 **Пример**
 
-Удалите политику удержания `MyTable1`для таблицы с именем:
+Удалите политику хранения для таблицы с именем `MyTable1`.
 
 ```kusto
 .delete table MyTable policy retention
 ```
 
 
-## <a name="alter-retention-policy"></a>Изменить политику удержания
+## <a name="alter-retention-policy"></a>Изменение политики хранения
 
 ```kusto
 .alter <entity_type> <database_or_table> policy retention <retention_policy>
@@ -73,11 +73,11 @@ ms.locfileid: "81520355"
 ```
 
 * `entity_type`: таблица или база данных
-* `database_or_table`: `database_name` `database_name.table_name` или `table_name` (в контексте базы данных)
-* `table_name`: имя таблицы в контексте базы данных.  Подстановочный знак (разрешено`*` здесь).
+* `database_or_table`: `database_name` или `database_name.table_name` или `table_name` (в контексте базы данных)
+* `table_name`: имя таблицы в контексте базы данных.  Подстановочный знак`*` (допускается здесь).
 * `retention_policy` :
 
-```
+```kusto
     "{ 
         \"SoftDeletePeriod\": \"10.00:00:00\", \"Recoverability\": \"Disabled\"
     }" 
@@ -85,31 +85,31 @@ ms.locfileid: "81520355"
 
 **Примеры**
 
-Отображите политику `MyDatabase`удержания для базы данных под названием:
+Отображение политики хранения для базы данных с именем `MyDatabase`:
 
 ```kusto
 .show database MyDatabase policy retention
 ```
 
-Устанавливает политику удержания с 10-дневным периодом мягкого удаления и отключенной возможностью восстановления данных:
+Задает политику хранения с периодом обратимого удаления в 10 дней и отключением возможности восстановления данных.
 
 ```kusto
 .alter-merge table Table1 policy retention softdelete = 10d recoverability = disabled
 ```
 
-Устанавливает политику удержания с 10-дневным периодом мягкого удаления и включенной возможностью восстановления данных:
+Задает политику хранения с периодом обратимого удаления в 10 дней и возможностью восстановления данных.
 
 ```kusto
 .alter table Table1 policy retention "{\"SoftDeletePeriod\": \"10.00:00:00\", \"Recoverability\": \"Enabled\"}"
 ```
 
-Устанавливает ту же политику удержания, что и выше, но на этот раз для нескольких таблиц (таблица1, таблица2 и таблица3):
+Задает ту же политику хранения, которая указана выше, но на этот раз для нескольких таблиц (Table1, Table2 и Table3):
 
 ```kusto
 .alter tables (Table1, Table2, Table3) policy retention "{\"SoftDeletePeriod\": \"10.00:00:00\", \"Recoverability\": \"Enabled\"}"
 ```
 
-Устанавливает политику удержания значениями по умолчанию: 100 лет, как период мягкого удаления и возможность восстановления:
+Задает политику хранения со значениями по умолчанию: 100 лет в качестве периода обратимого удаления и включения возможности восстановления.
 
 ```kusto
 .alter table Table1 policy retention "{}"

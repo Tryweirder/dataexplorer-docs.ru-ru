@@ -1,6 +1,6 @@
 ---
-title: Политика ограниченного доступа в режим доступа к Интернету - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается политика RestrictedView Access в Azure Data Explorer.
+title: Kusto Рестриктедвиевакцесс политика управляет запросами в Azure обозреватель данных
+description: В этой статье описывается политика Рестриктедвиевакцесс в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,24 +8,24 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: 6f994f5b80632650ab6dbe5dcf28cd82407d688f
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: e44aa2b14aa8babdab95a6ad8c6f7ef5ed026ff9
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81520423"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82617432"
 ---
-# <a name="restrictedviewaccess-policy"></a>Политика ограниченногодоступа
+# <a name="restrictedviewaccess-policy"></a>Политика Рестриктедвиевакцесс
 
-*RestrictedViewAccess* — это дополнительная политика, которая может быть включена на столах в базе данных.
+*Рестриктедвиевакцесс* — это необязательная политика, которая может быть включена для таблиц в базе данных.
 
-Когда эта политика включена в таблице, данные в таблице могут быть запрошены *только* к принципам, добавленным к роли [UnrestrictedViewer](../management/access-control/role-based-authorization.md) в базе данных.
+Если эта политика включена для таблицы, данные в таблице могут быть запрошены *только* для участников, добавленных в роль [унрестриктедвиевер](../management/access-control/role-based-authorization.md) в базе данных.
 
-Когда политика включена в таблице, любой директор (даже таблица/база данных/кластерный админ), который не включен в роль уровня базы данных [UnrestrictedViewer,](../management/access-control/role-based-authorization.md) не сможет заставить данные в таблице.
+Если политика включена для таблицы, любой участник (даже таблица или база данных или администратор кластера), который не включен в роль уровня базы данных [унрестриктедвиевер](../management/access-control/role-based-authorization.md) , не сможет запрашивать данные в таблице.
 
-Роль [UnrestrictedViewer](../management/access-control/role-based-authorization.md) предоставляет разрешение на представление *всем* таблицам в базе данных, в которых включена политика, предполагая, что текущий принцип уже уполномочен задавать запрос на базу данных (админ/пользователь/зритель базы данных). Добавление или удаление принципов в или из роли может быть сделано [DatabaseAdmin](../management/access-control/role-based-authorization.md).
+Роль [унрестриктедвиевер](../management/access-control/role-based-authorization.md) предоставляет разрешение VIEW для *всех* таблиц в базе данных, для которых включена политика, предполагая, что текущий участник уже имеет право на запрос к базе данных (администратор базы данных, пользователь или средство просмотра). Добавление или удаление участников роли можно выполнять с помощью [датабасеадмин](../management/access-control/role-based-authorization.md).
 
 > [!NOTE]
-> Политика RestrictedViewAccess не может быть настроена на стол, на котором включена [политика безопасности уровня строки.](./rowlevelsecuritypolicy.md)
+> Невозможно настроить политику Рестриктедвиевакцесс для таблицы, в которой включена [политика безопасность на уровне строк](./rowlevelsecuritypolicy.md) .
 
-Подробнее о командах управления для управления политикой RestrictedViewAccess [смотрите здесь.](../management/restrictedviewaccess-policy.md)
+Дополнительные сведения об управляющих командах для управления политикой Рестриктедвиевакцесс [см. здесь](../management/restrictedviewaccess-policy.md).

@@ -1,6 +1,6 @@
 ---
-title: make_set () (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описана make_set (функция агрегирования) в Azure Data Explorer.
+title: make_set () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается make_set () (статистическая функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/23/2020
-ms.openlocfilehash: db11bd528703323d54ff96b228c0b80bbcb86dd9
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: e6eb481423e31e4dfa1b4e6c738ffb525e9aaef7
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81512688"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82618413"
 ---
-# <a name="make_set-aggregation-function"></a>make_set() (функция агрегирования)
+# <a name="make_set-aggregation-function"></a>make_set () (агрегатная функция)
 
 Возвращает массив `dynamic` (JSON) с набором различных значений, которые выражение *Expr* принимает в группе.
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
 **Синтаксис**
 
-`summarize``make_set(` *Экстр* `,` *-MaxSize*`)`
+`summarize``make_set(` *Expr* [`,` *MAXSIZE*]`)`
 
 **Аргументы**
 
-* *Expr*: Выражение для расчета агрегации.
-* *MaxSize* является дополнительным целым пределом для максимального количества возвращенных элементов (по умолчанию *1048576).* Значение MaxSize не может превышать 1048576.
+* *Expr*: выражение для вычисления агрегата.
+* *MAXSIZE* — Необязательное целочисленное ограничение на максимальное число возвращаемых элементов (по умолчанию — *1048576*). Значение MaxSize не может превышать 1048576.
 
 > [!NOTE]
-> Устаревший и устаревший вариант `makeset()` этой функции: имеет предел по умолчанию *MaxSize* No 128.
+> Устаревший и устаревший вариант этой функции: `makeset()` имеет ограничение по умолчанию *MAXSIZE* = 128.
 
 **Возвращает**
 
@@ -39,7 +39,7 @@ ms.locfileid: "81512688"
 Порядок сортировки массива не определен.
 
 > [!TIP]
-> Чтобы считать только определенные значения, используйте [dcount()](dcount-aggfunction.md)
+> Для подсчета только уникальных значений используйте [DCount ()](dcount-aggfunction.md) .
 
 **Пример**
 
@@ -48,9 +48,9 @@ PageViewLog
 | summarize countries=make_set(country) by continent
 ```
 
-![альт текст](./images/aggregations/makeset.png "makeset")
+:::image type="content" source="images/makeset-aggfunction/makeset.png" alt-text="Создать":::
 
 **См. также:**
 
-* Используйте [`mv-expand`](./mvexpandoperator.md) оператора для противоположной функции.
-* [`make_set_if`](./makesetif-aggfunction.md)оператор похож `make_set`на, за исключением он также принимает предикат.
+* Используйте [`mv-expand`](./mvexpandoperator.md) оператор для противоположной функции.
+* [`make_set_if`](./makesetif-aggfunction.md)аналогичен оператору `make_set`, за исключением того, что он также принимает предикат.

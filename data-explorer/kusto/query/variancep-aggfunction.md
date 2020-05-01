@@ -1,6 +1,6 @@
 ---
-title: дисперсия() (функция агрегации) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны дисперсии () (функция агрегирования) в Azure Data Explorer.
+title: VarianceP () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается VarianceP () (статистическая функция) в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,32 +8,34 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 386244806a6fcb3f321eb1a6b40595dc71b2b413
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 80f3f900649d2c4c36c7a50831e011f0ee018860
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81504596"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82618022"
 ---
-# <a name="variancep-aggregation-function"></a>дисперсия() (функция агрегирования)
+# <a name="variancep-aggregation-function"></a>VarianceP () (агрегатная функция)
 
-Высчитывает дисперсию *Expr* по всей группе, учитывая группу как [население.](https://en.wikipedia.org/wiki/Statistical_population) 
+Вычисляет дисперсию *выражения* в группе, принимая во внимание группу как [совокупность](https://en.wikipedia.org/wiki/Statistical_population). 
 
-* Подержана формула: ![альт текст](./images/aggregations/variance-population.png "дисперсия-население")
+* Используемая формула:
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+:::image type="content" source="images/variancep-aggfunction/variance-population.png" alt-text="Заполнение дисперсии":::
+
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
 **Синтаксис**
 
-резюмировать `variancep(` *Expr*`)`
+`variancep(`суммировать *выражение*`)`
 
 **Аргументы**
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации. 
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
 
 **Возвращает**
 
-Значение дисперсии *Expr* по всей группе.
+Значение дисперсии *выражения* в группе.
  
 **Примеры**
 
@@ -44,4 +46,4 @@ range x from 1 to 5 step 1
 
 |list_x|variance_x|
 |---|---|
-|[ 1, 2, 3, 4, 5]|2|
+|[1, 2, 3, 4, 5]|2|

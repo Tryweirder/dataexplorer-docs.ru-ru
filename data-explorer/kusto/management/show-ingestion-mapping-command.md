@@ -1,6 +1,6 @@
 ---
-title: .show повышающие сярпинги - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны отображения .show ingestion в Azure Data Explorer.
+title: . Отображение сопоставлений приема — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается отображение сопоставлений приема в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,28 +8,28 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/04/2020
-ms.openlocfilehash: 91990fe40664ae89d69357812b0def2c7288eb7d
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 711861a07896b7bdc4cf57bebbf1cdd0e01d064a
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81519828"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82617176"
 ---
-# <a name="show-ingestion-mappings"></a>.show ingestion отображение
+# <a name="show-ingestion-mappings"></a>. показывать сопоставления приема
 
-Отображение карт опродающихся данных (все или тот, указанный по имени).
+Отображение сопоставлений приема (все или указанное по имени).
 
-* `.show``table` *ТаблицаИмя* `ingestion` *КартпингКинд*  `mappings`
+* `.show``table` *TableName* TableName `ingestion` *маппингкинд*  `mappings`
 
-* `.show``table` *TableName* `ingestion` *КартированиеKind* `mapping` *MappingName*   
+* `.show``table` *TableName* TableName `ingestion` *MappingKind* маппингкинд`mapping` *MappingName*   
 
-Показать все отображения приема всех видов отображения:
+Показывать все сопоставления приема из всех типов сопоставления:
 
-* `.show``table` *Название таблицы*`ingestion`  `mapping`
+* `.show``table` *TableName*`ingestion`  `mapping`
  
 **Пример** 
  
-```
+```kusto
 .show table MyTable ingestion csv mapping "Mapping1" 
 
 .show table MyTable ingestion csv mappings 
@@ -37,8 +37,8 @@ ms.locfileid: "81519828"
 .show table MyTable ingestion mappings 
 ```
 
-**Вывод примера**
+**Пример выходных данных**
 
 | Имя     | Вид | Сопоставление     |
 |----------|------|-------------|
-| отображение1 | CSV  | «Имя»:«Rownumber»,»,«DataType»:«int»,,»CsvDataType»:null,«Ordinal»:0,«ConstValue»: null», «Имя»:«rowguid»,«DataType»:«строка»», «CsvDataType»: null,«Ordinal»: |
+| mapping1 | CSV  | [{"Name": "RowNumber", "Тип_данных": "int", "Ксвдататипе": NULL, "Ordinal": 0, "ConstValue": NULL}, {"имя": "ROWGUID", "DataType": "строка", "Ксвдататипе": NULL, "Ordinal": 1, "ConstValue": NULL}] |
