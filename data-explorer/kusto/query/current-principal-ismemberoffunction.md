@@ -1,6 +1,6 @@
 ---
-title: current_principal_is_member_of () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается current_principal_is_member_of () в Azure Data Explorer.
+title: current_principal_is_member_of () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается current_principal_is_member_of () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/09/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 03d565c9eb61703b326a01b31bb6b1a79742f006
-ms.sourcegitcommit: 01eb9aaf1df2ebd5002eb7ea7367a9ef85dc4f5d
+ms.openlocfilehash: 4b6f7d0b9ab4074f16ca00b4a3febb1a17351736
+ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81766051"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737765"
 ---
 # <a name="current_principal_is_member_of"></a>current_principal_is_member_of()
 
 ::: zone pivot="azuredataexplorer"
 
-Проверяет членство в группе или основную идентификацию текущего основного запроса.
+Проверяет членство в группе или идентификатор участника текущего участника, выполняющего запрос.
 
 ```kusto
 print current_principal_is_member_of(
@@ -37,24 +37,24 @@ print current_principal_is_member_of(
 
 **Аргументы**
 
-* *список выражений* - запятая разделенный список строк буквально, где каждый буквальный является основным полностью квалифицированным именем (ФЗН) строка формируется как:  
-*PrinciplaType*`=`*PrincipalId*`;`*TenantId*
+* *список выражений* — разделенный запятыми список строковых литералов, где каждый литерал является основной строкой полного имени (FQN), сформированной следующим образом:  
+*ПринЦиплатипе*`=`*PrincipalId*PrincipalId`;`*TenantId*
 
-| PrincipalType   | Префикс ФЗН  |
+| PrincipalType   | Префикс FQN  |
 |-----------------|-------------|
 | Пользователь AAD        | `aaduser=`  |
 | Группа AAD       | `aadgroup=` |
-| Применение AAD | `aadapp=`   |
+| Приложение AAD | `aadapp=`   |
 
 **Возвращает**
 
 Функция возвращает:
-* `true`: если текущий основной запуск запроса был успешно сопоставлен по крайней мере по одному аргументу ввода.
-* `false`: если текущий основной запуск запроса `aadgroup=` не был участником каких-либо `aaduser=` аргументов ФЗН и не был равен ни одной из аргументов или `aadapp=` аргументов ФЗН.
-* `(null)`: если текущий основной запуск запроса `aadgroup=` не был участником каких-либо `aaduser=` аргументов ФЗН и не был равен ни одному из аргументов или `aadapp=` аргументов ФЗН, и по крайней мере один аргумент ФЗН не был успешно решен (не был пресечен в AAD). 
+* `true`: если текущий участник, выполняющий запрос, был успешно сопоставлен по крайней мере с одним входным аргументом.
+* `false`: если текущий участник, выполняющий запрос, не был членом `aadgroup=` каких- `aaduser=` либо аргументов FQN и не равен ни одному из `aadapp=` аргументов FQN или.
+* `(null)`: если текущий участник, выполняющий запрос, не был членом `aadgroup=` каких- `aaduser=` либо аргументов FQN и не равен ни одному из `aadapp=` аргументов FQN или, и хотя бы один аргумент FQN не был успешно разрешен (не пресед в AAD). 
 
 > [!NOTE]
-> Поскольку функция возвращает трехгосударственное`true` `false`значение `null`(, и), важно полагаться только на положительные значения возврата для подтверждения успешного членства. Другими словами, следующие выражения не являются одинаковыми:
+> Поскольку функция возвращает значение более чем в три состояния (`true`, `false`и `null`), важно полагаться только на положительные возвращаемые значения для подтверждения успешного членства. Иными словами, следующие выражения не совпадают:
 > 
 > * `where current_principal_is_member_of('non-existing-group')`
 > * `where current_principal_is_member_of('non-existing-group') != false` 
@@ -74,7 +74,7 @@ print result=current_principal_is_member_of(
 |--------|
 | (null) |
 
-Использование динамического массива вместо аргументов multple:
+Использование динамического массива вместо мултпле аргументов:
 
 ```kusto
 print result=current_principal_is_member_of(
@@ -93,6 +93,6 @@ print result=current_principal_is_member_of(
 
 ::: zone pivot="azuremonitor"
 
-Это не поддерживается в Azure Monitor
+Эта возможность не поддерживается в Azure Monitor
 
 ::: zone-end

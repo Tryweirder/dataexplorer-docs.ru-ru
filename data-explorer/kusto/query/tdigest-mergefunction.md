@@ -1,6 +1,6 @@
 ---
-title: tdigest_merge() - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается tdigest_merge () в Azure Data Explorer.
+title: tdigest_merge () — обозреватель данных Azure
+description: В этой статье описывается tdigest_merge () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 988d7f05791723a823a5850f6865a780477f7bd4
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 92dce1a98cc0e24dcfbfcd7cb875fa370e3ae1d0
+ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506381"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737731"
 ---
 # <a name="tdigest_merge"></a>tdigest_merge()
 
-Слияния tdigest результаты (масштабная версия [`tdigest_merge()`](tdigest-merge-aggfunction.md)агрегированной версии ).
+Объединяет `tdigest` результаты (скалярная версия агрегатной версии [`tdigest_merge()`](tdigest-merge-aggfunction.md)).
 
-Узнайте больше о базовом алгоритме (T-Digest) и предполагаемой ошибке [здесь](percentiles-aggfunction.md#estimation-error-in-percentiles).
+Дополнительные сведения о базовом алгоритме (T-Digest) и предполагаемой ошибке см. [здесь](percentiles-aggfunction.md#estimation-error-in-percentiles).
 
 **Синтаксис**
 
-`merge_tdigests(`*Expr1* `,` *Expr2*`, ...)`
+`merge_tdigests(`*Выражение1* `,` *выражение2*`, ...)`
 
-`tdigest_merge(`*Expr1* `,` *Expr2* `, ...)` - Псевдоним.
+`tdigest_merge(`*Выражение1* `,` *Expr2* выражение2`, ...)` — псевдоним.
 
 **Аргументы**
 
-* Столбцы, которые имеет tdigests должны быть объединены.
+* Столбцы, имеющие объединяемые `tdigest` значения.
 
 **Возвращает**
 
-Результат для слияния столбцов `*Expr1*` `*Expr2*`, , ... `*ExprN*` до одного траварья.
+Результат объединения столбцов `*Expr1*`, `*Expr2*`,... `*ExprN*` на один `tdigest`.
 
 **Примеры**
 

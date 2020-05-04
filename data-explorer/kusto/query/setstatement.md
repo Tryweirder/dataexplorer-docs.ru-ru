@@ -1,6 +1,6 @@
 ---
-title: Заяц - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описано заявление Set в Azure Data Explorer.
+title: Инструкция SET — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается инструкция SET в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -10,27 +10,27 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 8cb9c1d72f1b2e8e4bfbbd28d67c04295c9ccf5b
-ms.sourcegitcommit: 01eb9aaf1df2ebd5002eb7ea7367a9ef85dc4f5d
+ms.openlocfilehash: 028bfb5a2d0ddf25f65cd16bca2c498d9dcb7059
+ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81765570"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737867"
 ---
 # <a name="set-statement"></a>Инструкция set
 
 ::: zone pivot="azuredataexplorer"
 
-Заявление `set` используется для установки опции запроса на время запроса.
-Параметры запроса управляют выполнением запроса и возвращением результатов. Они могут быть флагами Boolean (выключается по умолчанию), или иметь величину значения. Запрос может содержать один или несколько операторов set либо не содержать ни одного. Набор инструкций влияет только на табулярные операторы выражения, которые отсеивают их в порядке программы.
+`set` Оператор используется для задания параметра запроса на время выполнения запроса.
+Параметры запроса управляют выполнением запроса и возвращением результатов. Они могут быть логическими флагами (отключены по умолчанию) или иметь целочисленное значение. Запрос может содержать один или несколько операторов set либо не содержать ни одного. Инструкции SET влияют только на операторы табличных выражений, которые были в конце их порядка в программе.
 
-* Параметры запроса также могут быть включены программно, установив их в объекте. `ClientRequestProperties` Смотрите [здесь](../api/netfx/request-properties.md).
+* Параметры запроса можно также включить программно, задав их в `ClientRequestProperties` объекте. См. [здесь](../api/netfx/request-properties.md).
   
-* Параметры запроса формально не являются частью языка Kusto и могут быть изменены без рассмотрения как нарушение изменения языка.
+* Параметры запроса не формально являются частью языка Kusto и могут быть изменены без необходимости рассматриваться как коренное изменение языка.
 
 **Синтаксис**
 
-`set`*OptionName* `=` - *OptionValue*
+`set`*OptionName* [`=` *OptionValue*]
 
 **Пример**
 
@@ -43,6 +43,6 @@ Events | take 100
 
 ::: zone pivot="azuremonitor"
 
-Это не поддерживается в Azure Monitor
+Эта возможность не поддерживается в Azure Monitor
 
 ::: zone-end

@@ -1,6 +1,6 @@
 ---
-title: cursor_after () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается cursor_after () в Azure Data Explorer.
+title: cursor_after () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается cursor_after () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 39ec32322b74b55182522e4bbb04aa0c3830d8d2
-ms.sourcegitcommit: 01eb9aaf1df2ebd5002eb7ea7367a9ef85dc4f5d
+ms.openlocfilehash: 9fab1ec936e950368667fc3afb133dcd952e44b5
+ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81766027"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737697"
 ---
 # <a name="cursor_after"></a>cursor_after()
 
 ::: zone pivot="azuredataexplorer"
 
-Предикат над записями таблицы для сравнения времени приема с курсором базы данных.
+Предикат для записей таблицы для сравнения времени приема с курсором базы данных.
 
 **Синтаксис**
 
@@ -29,22 +29,22 @@ ms.locfileid: "81766027"
 
 **Аргументы**
 
-* *RHS*: Либо пустая строка буквального, или допустимое значение курсора базы данных.
+* *RHS*: пустой строковый литерал или допустимое значение курсора базы данных.
 
 **Возвращает**
 
-Масштабируемое значение `bool` типа, которое указывает, была ли запись попадает в`true`систему`false`после курсора базы данных *RHS* () или нет ( ).
+Скалярное значение типа `bool` , указывающее, была ли запись принята после курсора базы данных *RHS* (`true`) или not (`false`).
 
 **Примечания**
 
-Дополнительные сведения о курсорах баз данных можно узнать о [курсорах баз данных.](../management/databasecursor.md)
+Дополнительные сведения о курсорах базы данных см. в разделе [курсоры базы данных](../management/databasecursor.md) .
 
-Эта функция может быть вызвана только на записи таблицы, в которой [включена политика IngestionTime.](../management/ingestiontimepolicy.md)
+Эта функция может вызываться только для записей таблицы, для которых включена [Политика инжестионтиме](../management/ingestiontimepolicy.md) .
 
 ::: zone-end
 
 ::: zone pivot="azuremonitor"
 
-Это не поддерживается в Azure Monitor
+Эта возможность не поддерживается в Azure Monitor
 
 ::: zone-end

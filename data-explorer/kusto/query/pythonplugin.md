@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/01/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 6b33ee0ed9535d512c909dd8de124fc8b1770cee
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 3d88b04220851b8218d0d23fed93ba3627720afd
+ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82618995"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737833"
 ---
 # <a name="python-plugin"></a>Подключаемый модуль Python
 
@@ -129,7 +129,7 @@ print "This is an example for using 'external_artifacts'"
     * Можно также использовать [оператор Partition](partitionoperator.md) для секционирования входного набора данных.
 * Используйте язык запросов Kusto, когда это возможно, чтобы реализовать логику скрипта Python.
 
-    Пример:
+    Пример.
 
     ```kusto    
     .show operations
@@ -146,7 +146,7 @@ print "This is an example for using 'external_artifacts'"
 ## <a name="usage-tips"></a>Советы по использованию
 
 * Чтобы создать многострочные строки, содержащие скрипт Python в `Kusto.Explorer`, скопируйте скрипт Python из предпочтительного редактора Python (*Jupyter*, *Visual Studio Code*, *PyCharm*и т. д.), а затем выполните одно из следующих действий:
-    * Нажмите клавишу *F2* , чтобы открыть окно **изменить в Python** . Вставьте сценарий в это окно. Щелкните **ОК**. Сценарий будет дополнен кавычками и новыми строками (так что он допустим в Kusto) и автоматически вставлен на вкладку запрос.
+    * Нажмите клавишу *F2* , чтобы открыть окно **изменить в Python** . Вставьте сценарий в это окно. Нажмите кнопку **OK**. Сценарий будет дополнен кавычками и новыми строками (так что он допустим в Kusto) и автоматически вставлен на вкладку запрос.
     * Вставьте код Python непосредственно на вкладку запрос, выберите эти строки и нажмите клавиши *Ctrl + k*, *CTRL + S* , чтобы снабдить их, как показано выше (чтобы изменить его, нажмите клавиши *Ctrl + k*, *клавиши CTRL + M* ). [Ниже](../tools/kusto-explorer-shortcuts.md#query-editor) приведен полный список ярлыков редактора запросов.
 * Чтобы избежать конфликтов между разделителями строк Kusto и строковыми литералами Python, мы рекомендуем использовать одинарные кавычки`'`() для строковых литералов Kusto в запросах Kusto и двойные кавычки (`"`) для строковых литералов Python в скриптах Python.
 * Используйте [оператор externaldata](externaldata-operator.md) для получения содержимого скрипта, хранящегося во внешнем расположении, например в хранилище BLOB-объектов Azure.
@@ -177,7 +177,7 @@ print "This is an example for using 'external_artifacts'"
 
 1. Однократное предварительное требование:
   
-  а. Создайте контейнер больших двоичных объектов для размещения пакетов, предпочтительно в том же регионе, что и кластер.
+  a. Создайте контейнер больших двоичных объектов для размещения пакетов, предпочтительно в том же регионе, что и кластер.
     * Пример: `https://artifcatswestus.blob.core.windows.net/python` (если кластер находится в западной части США)
   
   b. Измените [политику выноски](../management/calloutpolicy.md) кластера, чтобы разрешить доступ к этому расположению.
@@ -227,7 +227,7 @@ range Id from 1 to 3 step 1
     external_artifacts=pack('faker.zip', 'https://artifacts.blob.core.windows.net/kusto/Faker.zip?...'))
 ```
 
-| Идентификатор | Имя         |
+| Идентификатор | name         |
 |----|--------------|
 |   1| Гари Тапиа   |
 |   2| Емма Эванс   |
@@ -239,6 +239,6 @@ range Id from 1 to 3 step 1
 
 ::: zone pivot="azuremonitor"
 
-Это не поддерживается в Azure Monitor
+Эта возможность не поддерживается в Azure Monitor
 
 ::: zone-end

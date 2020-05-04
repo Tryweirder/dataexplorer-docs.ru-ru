@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/01/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 514c67133980c9ab1c38b65cc51e4592dcb15eda
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 1014b9090fef60816c4bbc0a7fd9b2fdc4c22801
+ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82618974"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737799"
 ---
 # <a name="r-plugin-preview"></a>Подключаемый модуль R (Предварительная версия)
 
@@ -95,7 +95,7 @@ typeof(*, fx:double),               //  Output schema: append a new fx column to
     * Можно также использовать [оператор Partition](partitionoperator.md) для секционирования входного набора данных.
 * При возможности используйте язык запросов Kusto для реализации логики скрипта R.
 
-    Пример:
+    Например:
 
     ```kusto    
     .show operations
@@ -114,7 +114,7 @@ typeof(*, fx:double),               //  Output schema: append a new fx column to
 * Чтобы избежать конфликтов между Kusto строками и символами R, мы рекомендуем использовать одинарные кавычки (`'`) для Kusto строковых литералов в запросах Kusto и двойные кавычки (`"`) для строковых литералов R в скриптах r.
 * Используйте [оператор externaldata](externaldata-operator.md) для получения содержимого скрипта, хранящегося во внешнем расположении, например в хранилище BLOB-объектов Azure, общедоступном репозитории GitHub и т. д.
   
-  Пример:
+  Например:
 
     ```kusto    
     let script = 
@@ -135,7 +135,7 @@ typeof(*, fx:double),               //  Output schema: append a new fx column to
 
 ::: zone pivot="azuremonitor"
 
-Это не поддерживается в Azure Monitor
+Эта возможность не поддерживается в Azure Monitor
 
 ::: zone-end
 
