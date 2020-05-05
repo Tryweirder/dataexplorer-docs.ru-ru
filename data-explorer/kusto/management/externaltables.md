@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 624c0a7f1105ff13642649174f769781f1749598
-ms.sourcegitcommit: e1e35431374f2e8b515bbe2a50cd916462741f49
+ms.openlocfilehash: c52f0649531678e31310f5a1f4bfb97f99f15857
+ms.sourcegitcommit: 4f68d6dbfa6463dbb284de0aa17fc193d529ce3a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82108077"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82741944"
 ---
 # <a name="external-table-management"></a>Управление внешними таблицами
 
@@ -34,15 +34,15 @@ ms.locfileid: "82108077"
 
 `.show``external` *TableName* TableName `table`
 
-**Вывод**
+**Выходные данные**
 
-| Выходной параметр | Тип   | Описание                                                         |
+| Выходной параметр | Type   | Описание                                                         |
 |------------------|--------|---------------------------------------------------------------------|
-| TableName        | строка | Имя внешней таблицы                                             |
-| TableType        | строка | Тип внешней таблицы                                              |
-| Папка           | строка | Папка таблицы                                                     |
-| DocString        | строка | Строка документирования таблицы                                       |
-| Свойства       | строка | Сериализованные свойства JSON таблицы (зависит от типа таблицы) |
+| TableName        | string | Имя внешней таблицы                                             |
+| TableType        | string | Тип внешней таблицы                                              |
+| Папка           | string | Папка таблицы                                                     |
+| DocString        | string | Строка документирования таблицы                                       |
+| Элемент Property       | string | Сериализованные свойства JSON таблицы (зависит от типа таблицы) |
 
 
 **Примеры:**
@@ -52,9 +52,9 @@ ms.locfileid: "82108077"
 .show external table T
 ```
 
-| TableName | TableType | Папка         | DocString | Свойства |
+| TableName | TableType | Папка         | DocString | Элемент Property |
 |-----------|-----------|----------------|-----------|------------|
-| T         | BLOB-объект      | екстерналтаблес | Docs      | {}         |
+| T         | Blob      | екстерналтаблес | Docs      | {}         |
 
 
 ### <a name="show-external-table-schema"></a>. отобразить схему внешней таблицы
@@ -68,15 +68,15 @@ ms.locfileid: "82108077"
 
 `.show``external` *TableName* TableName `table``cslschema`
 
-**Вывод**
+**Выходные данные**
 
-| Выходной параметр | Тип   | Описание                        |
+| Выходной параметр | Type   | Описание                        |
 |------------------|--------|------------------------------------|
-| TableName        | строка | Имя внешней таблицы            |
-| схема           | строка | Схема таблицы в формате JSON |
-| имя_базы_данных     | строка | Имя базы данных таблицы             |
-| Папка           | строка | Папка таблицы                    |
-| DocString        | строка | Строка документирования таблицы      |
+| TableName        | string | Имя внешней таблицы            |
+| схема           | string | Схема таблицы в формате JSON |
+| имя_базы_данных     | string | Имя базы данных таблицы             |
+| Папка           | string | Папка таблицы                    |
+| DocString        | string | Строка документирования таблицы      |
 
 **Примеры:**
 
@@ -114,7 +114,7 @@ ms.locfileid: "82108077"
 
 `.drop``external` *TableName* TableName `table`
 
-**Вывод**
+**Выходные данные**
 
 Возвращает свойства удаленной таблицы. См. раздел [. Отображение внешних таблиц](#show-external-tables).
 
@@ -124,9 +124,9 @@ ms.locfileid: "82108077"
 .drop external table ExternalBlob
 ```
 
-| TableName | TableType | Папка         | DocString | схема       | Свойства |
+| TableName | TableType | Папка         | DocString | схема       | Элемент Property |
 |-----------|-----------|----------------|-----------|-----------------------------------------------------|------------|
-| T         | BLOB-объект      | екстерналтаблес | Docs      | [{"Name": "x", "Кслтипе": "Long"},<br> {"Name": "s", "Кслтипе": "String"}] | {}         |
+| T         | Blob      | екстерналтаблес | Docs      | [{"Name": "x", "Кслтипе": "Long"},<br> {"Name": "s", "Кслтипе": "String"}] | {}         |
 
 ## <a name="external-tables-in-azure-storage-or-azure-data-lake"></a>Внешние таблицы в службе хранилища Azure или Azure Data Lake
 
@@ -173,7 +173,7 @@ ms.locfileid: "82108077"
 
 **Необязательные свойства**:
 
-| Свойство         | Тип     | Описание       |
+| Свойство         | Type     | Описание       |
 |------------------|----------|-------------------------------------------------------------------------------------|
 | `folder`         | `string` | Папка таблицы                                                                     |
 | `docString`      | `string` | Строка документирования таблицы                                                       |
@@ -182,6 +182,8 @@ ms.locfileid: "82108077"
 | `namePrefix`     | `string` | Если задано, указывает префикс больших двоичных объектов. При операциях записи все большие двоичные объекты будут записаны с этим префиксом. При операциях чтения считываются только большие двоичные объекты с этим префиксом. |
 | `fileExtension`  | `string` | Если задано, указывает расширения файлов больших двоичных объектов. При записи имена больших двоичных объектов будут заканчиваться этим суффиксом. При чтении будут считываться только большие двоичные объекты с этим расширением файла.           |
 | `encoding`       | `string` | Указывает, как текст кодируется: `UTF8NoBOM` (по умолчанию) `UTF8BOM`или.             |
+
+Дополнительные сведения о параметрах внешней таблицы в запросах см. в разделе [логика фильтрации артефактов](#artifact-filtering-logic).
 
 > [!NOTE]
 > * Если таблица существует, `.create` команда завершится ошибкой. Используйте `.alter` для изменения существующих таблиц. 
@@ -203,8 +205,7 @@ dataformat=csv
 with 
 (
    docstring = "Docs",
-   folder = "ExternalTables",
-   namePrefix="Prefix"
+   folder = "ExternalTables"
 )  
 ```
 
@@ -221,8 +222,7 @@ dataformat=csv
 with 
 (
    docstring = "Docs",
-   folder = "ExternalTables",
-   namePrefix="Prefix"
+   folder = "ExternalTables"
 )  
 ```
 
@@ -239,8 +239,7 @@ dataformat=csv
 with 
 (
    docstring = "Docs",
-   folder = "ExternalTables",
-   namePrefix="Prefix"
+   folder = "ExternalTables"
 )
 ```
 
@@ -257,8 +256,7 @@ dataformat=csv
 with 
 (
    docstring = "Docs",
-   folder = "ExternalTables",
-   namePrefix="Prefix"
+   folder = "ExternalTables"
 )
 ```
 
@@ -281,11 +279,27 @@ with
 )
 ```
 
-**Вывод**
+**Выходные данные**
 
-|TableName|TableType|Папка|DocString|Свойства|ConnectionStrings|Секции|
+|TableName|TableType|Папка|DocString|Элемент Property|ConnectionStrings|Секции|
 |---|---|---|---|---|---|---|
-|екстерналмултиплепартитионс|BLOB-объект|екстерналтаблес|Docs|{"Format": "CSV", "сжатый": false, "Компрессионтипе": NULL, "FileExtension": "CSV", "Инклудехеадерс": "None", "Encoding": NULL, "NamePrefix": NULL}|["https://storageaccount.blob.core.windows.net/container1;*******"]}|[{"StringFormat": "CustomerName ={0}", "ColumnName": "CustomerName", "Ordinal": 0}, PartitionBy ":" 1,00:00:00 "," ColumnName ":" timestamp "," Ordinal ": 1}]|
+|екстерналмултиплепартитионс|Blob|екстерналтаблес|Docs|{"Format": "CSV", "сжатый": false, "Компрессионтипе": NULL, "FileExtension": "CSV", "Инклудехеадерс": "None", "Encoding": NULL, "NamePrefix": NULL}|["https://storageaccount.blob.core.windows.net/container1;*******"]}|[{"StringFormat": "CustomerName ={0}", "ColumnName": "CustomerName", "Ordinal": 0}, PartitionBy ":" 1,00:00:00 "," ColumnName ":" timestamp "," Ordinal ": 1}]|
+
+#### <a name="artifact-filtering-logic"></a>Логика фильтрации артефактов
+
+При запросе внешней таблицы обработчик запросов отфильтровывает ненужные внешние артефакты хранилища (BLOB-объекты) для повышения производительности запросов. Ниже описывается процесс итерации больших двоичных объектов и принятие решения о необходимости обработки большого двоичного объекта.
+
+1. Создайте шаблон URI, представляющий место, где находятся большие двоичные объекты. Изначально шаблон URI равен строке подключения, предоставленной как часть определения внешней таблицы. Если определены какие бы то ни было секции, они добавляются к шаблону URI.
+Например, если строка подключения имеет значение `https://storageaccount.blob.core.windows.net/container1` и определена секция даты и времени: `partition by format_datetime="yyyy-MM-dd" bin(Timestamp, 1d)`, соответствующий шаблон URI будет выглядеть так: `https://storageaccount.blob.core.windows.net/container1/yyyy-MM-dd`, и мы будем искать большие двоичные объекты в расположениях, соответствующих этому шаблону.
+Если определена дополнительная строковая Секция `"CustomerId" customerId` , соответствующий шаблон URI будет следующим: `https://storageaccount.blob.core.windows.net/container1/yyyy-MM-dd/CustomerId=*`и т. д.
+
+2. Для всех *прямых* BLOB-объектов, найденных в созданных шаблонах URI, проверьте следующее:
+
+ * Значения секций соответствуют предикатам, используемым в запросе.
+ * Имя большого двоичного `NamePrefix`объекта начинается с, если такое свойство определено.
+ * Имя большого двоичного `FileExtension`объекта заканчивается на, если такое свойство определено.
+
+После соблюдения всех условий большой двоичный объект извлекается и обрабатывается обработчиком запросов.
 
 #### <a name="spark-virtual-columns-support"></a>Поддержка виртуальных столбцов Spark
 
@@ -318,11 +332,11 @@ dataformat=parquet
 
 `.show``external` *TableName* TableName `table``artifacts`
 
-**Вывод**
+**Выходные данные**
 
-| Выходной параметр | Тип   | Описание                       |
+| Выходной параметр | Type   | Описание                       |
 |------------------|--------|-----------------------------------|
-| URI              | строка | URI внешнего артефакта хранилища |
+| URI              | string | URI внешнего артефакта хранилища |
 
 **Примеры:**
 
@@ -350,7 +364,7 @@ dataformat=parquet
 
 **Пример выходных данных**
 
-| Название     | Вид | Сопоставление                                                           |
+| name     | Вид | Сопоставление                                                           |
 |----------|------|-------------------------------------------------------------------|
 | mapping1 | JSON | [{"ColumnName": "RowNumber", "ColumnType": "int", "Properties": {"путь": "$. RowNumber"}}, {"ColumnName": "ROWGUID", "ColumnType": "", "Properties": {"путь": "$. ROWGUID"}}] |
 
@@ -368,7 +382,7 @@ dataformat=parquet
 
 **Пример выходных данных**
 
-| Название     | Вид | Сопоставление                                                                |
+| name     | Вид | Сопоставление                                                                |
 |----------|------|------------------------------------------------------------------------|
 | mapping1 | JSON | [{"ColumnName": "RowNumber", "ColumnType": "", "Properties": {"путь": "$. RowNumber"}}, {"ColumnName": "ROWGUID", "ColumnType": "", "Properties": {"путь": "$. ROWGUID"}}] |
 
@@ -390,7 +404,7 @@ dataformat=parquet
 
 **Пример выходных данных**
 
-| Название     | Вид | Сопоставление                                                                         |
+| name     | Вид | Сопоставление                                                                         |
 |----------|------|---------------------------------------------------------------------------------|
 | mapping1 | JSON | [{"ColumnName": "RowNumber", "ColumnType": "", "Properties": {"путь": "$. RowNumber"}}, {"ColumnName": "ROWGUID", "ColumnType": "", "Properties": {"путь": "$. ROWGUID"}}] |
 
@@ -433,7 +447,7 @@ dataformat=parquet
 > Строки подключения и запросы, содержащие конфиденциальные сведения, должны быть замаскированы, чтобы их можно было опустить из любой трассировки Kusto. Дополнительные сведения см. в разделе [немаскированные строковые литералы](../query/scalar-data-types/string.md#obfuscated-string-literals) .
 
 **Необязательные свойства**
-| Свойство            | Тип            | Описание                          |
+| Свойство            | Type            | Описание                          |
 |---------------------|-----------------|---------------------------------------------------------------------------------------------------|
 | `folder`            | `string`        | Папка таблицы.                  |
 | `docString`         | `string`        | Строка, задокументированная в таблице.      |
@@ -466,9 +480,9 @@ with
 )  
 ```
 
-**Вывод**
+**Выходные данные**
 
-| TableName   | TableType | Папка         | DocString | Свойства                            |
+| TableName   | TableType | Папка         | DocString | Элемент Property                            |
 |-------------|-----------|----------------|-----------|---------------------------------------|
 | екстерналскл | SQL       | екстерналтаблес | Docs      | {<br>  "Таржетентитикинд": "склтабле",<br>  "Таржетентитинаме": "Мисклтабле",<br>  "Таржетентитиконнектионстринг": "Server = TCP:мисервер. Database. Windows. NET, 1433; Authentication = Active Directory интегрирован; исходный каталог = MyDatabase; ",<br>  "Фиретригжерс": true,<br>  "CreateIfNotExists": true,<br>  "PrimaryKey": "x"<br>} |
 

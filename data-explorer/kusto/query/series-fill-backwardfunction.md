@@ -1,6 +1,6 @@
 ---
-title: series_fill_backward() - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается series_fill_backward () в Azure Data Explorer.
+title: series_fill_backward () — обозреватель данных Azure
+description: В этой статье описывается series_fill_backward () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,40 +8,40 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: b8c3bb09c7067112fd358c94fd46ca85bea31358
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 211ac6cb078e2f61243f4616f9141a6f4834d464
+ms.sourcegitcommit: 4f68d6dbfa6463dbb284de0aa17fc193d529ce3a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81508744"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82741804"
 ---
 # <a name="series_fill_backward"></a>series_fill_backward()
 
-Выполняет обратный заполнения интерполяции недостающих значений в серии.
+Осуществляет обратную заливку отсутствующих значений в ряде.
 
-Принимает выражение, содержащее динамический числовой массив, в качестве входная, заменяет все экземпляры missing_value_placeholder на ближайшее значение с правой стороны, кроме missing_value_placeholder и возвращает полученный массив. Сохранились самые правильные экземпляры missing_value_placeholder.
+Входными данными является выражение, содержащее динамический числовой массив. Функция заменяет все экземпляры missing_value_placeholder ближайшим значением из правой части (кроме missing_value_placeholder) и возвращает результирующий массив. Сохраняются самые правые экземпляры missing_value_placeholder.
 
 **Синтаксис**
 
-`series_fill_backward(`*x*`[, `*missing_value_placeholder*`])`
-* Возвращает серию *x* со всеми экземплярами *missing_value_placeholder* заполнены назад.
+`series_fill_backward(`*x*`[, `*missing_value_placeholder* x`])`
+* Возвратит ряд *x* со всеми экземплярами *missing_value_placeholder* заполните обратную сторону.
 
 **Аргументы**
 
-* *x*: динамическое выражение масштабирования массива, представляющее собой массив числовых значений.
-* *missing_value_placeholder*: дополнительный параметр, который определяет заполнителя для недостающих значений, которые будут заменены. Значение по `double`умолчанию *(нулевой).*
+* *x*: скалярное выражение с динамическим массивом, представляющее собой массив числовых значений.
+* *missing_value_placeholder*: Этот необязательный параметр указывает заполнитель для отсутствующих значений. Значение по умолчанию `double`— (*null*).
 
 **Примечания**
 
-* Для применения любых функций интерполяции после [make-series](make-seriesoperator.md) рекомендуется указать *нулевую* в качестве значения по умолчанию: 
+* Укажите значение *null* в качестве значения по умолчанию, чтобы применить любые функции интерполяции после [создания рядов](make-seriesoperator.md): 
 
 ```kusto
 make-series num=count() default=long(null) on TimeStamp in range(ago(1d), ago(1h), 1h) by Os, Browser
 ```
 
-* *Missing_value_placeholder* может быть любого типа, который будет преобразован в фактические типы элементов. Поэтому `double`либо *(null),* `long`*(null)* или `int`*(null)* имеют то же значение.
-* Если *missing_value_placeholder* missing_value_placeholder `double`*(null)*(или просто опущены, которые имеют то же значение), то результат может содержать *нулевые* значения. Используйте другие функции интерполяции для их заполнения. В настоящее время только [series_outliers ()](series-outliersfunction.md) поддерживают *нулевые* значения в вхотозах.
-* Функции сохраняют оригинальный тип элементов массива.
+* *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Оба `double`значения (*null*) `long`, (*null*) `int`и (*null*) имеют одинаковое значение.
+* Если *missing_value_placeholder* имеет `double`*значение (NULL*) (или опущено, то есть имеет то же значение), результат может содержать значения *null* . Для заполнения этих значений *null* используйте другие функции интерполяции. В настоящее время только [series_outliers ()](series-outliersfunction.md) поддерживают значения *null* во входных массивах.
+* Функция сохраняет исходный тип элементов массива.
 
 **Пример**
 
@@ -56,9 +56,9 @@ data
 
 ```
 
-|Arr|fill_forward|
+|`arr`|`fill_forward`|
 |---|---|
-|111,null,36,41,null,null,16,61,33,null, null|(111,36,36,41,16, 16,16,61,33,null,null)|
+|[111, null, 36, 41, null, null, 16, 61, 33, null, NULL]|[111, 36, 36, 41, 16, 16, 16, 61, 33, null, NULL]|
 
   
-Для завершения интерполяции вышеуказанного массива можно использовать [series_fill_forward](series-fill-forwardfunction.md) или [серию-заполняние.](series-fill-constfunction.md)
+Чтобы завершить интерполяцию приведенного выше массива, используйте [series_fill_forward](series-fill-forwardfunction.md) или " [Fill-FILLIN-const](series-fill-constfunction.md) ".

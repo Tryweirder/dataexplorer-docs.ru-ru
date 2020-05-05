@@ -1,6 +1,6 @@
 ---
-title: Заявление Alias - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описывается заявление Alias в Azure Data Explorer.
+title: Оператор Alias — Azure обозреватель данных
+description: В этой статье описывается инструкция Alias в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -10,30 +10,30 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: c6c689ab6daacebe1cd20742b199c8b9cc299245
-ms.sourcegitcommit: 01eb9aaf1df2ebd5002eb7ea7367a9ef85dc4f5d
+ms.openlocfilehash: 63c639fb95322c537c5e069aa7e8ef7037371c88
+ms.sourcegitcommit: 4f68d6dbfa6463dbb284de0aa17fc193d529ce3a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81766089"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742025"
 ---
 # <a name="alias-statement"></a>Инструкция alias
 
 ::: zone pivot="azuredataexplorer"
 
-Заявления псевдонимов позволяют определить псевдоним для баз данных, которые могут быть использованы позже в том же запросе.
+Операторы Alias позволяют определить псевдоним для баз данных, который можно использовать позже в том же запросе.
 
-Это полезно при работе с несколькими кластерами при попытке отобраться как работа на меньшем меньшем емких кластерах или только в одном кластере.
-Псевдоним должен быть определен в соответствии со следующим синтаксисом, где *название кластера* и *название базы данных* должны быть существующими и действительными сущностями.
+Это полезно при работе с несколькими кластерами, но при работе с меньшим количеством кластеров необходимо иметь значение.
+Псевдоним должен быть определен в соответствии со следующим синтаксисом, где *имя_кластера* и *DatabaseName* являются существующими и допустимыми сущностями.
 
 **Синтаксис**
 
-`alias`база данных *'DatabaseAliasName'*- `=` кластер ("https://*clustername*.kusto.windows.net:443").*databasename*
+`alias`база данных [*"датабасеалиаснаме"*] `=` кластер ("https://*имя_кластера*. kusto. Windows. NET: 443"). база данных ("*DatabaseName*")
 
-`alias`База данных *DatabaseAliasName* `=` кластера ("https://*clustername*.kusto.windows.net:443").*databasename*
+`alias`кластер *датабасеалиаснаме* `=` базы данных ("https://*имя_кластера*. kusto. Windows. NET: 443"). база данных ("*DatabaseName*")
 
-* *'DatabaseAliasName'* может быть либо en axisting имя или новое имя.
-* Отображеное кластер-ури и отображеное имя базы данных должны отображаться внутри двойных котировок () или однократных (')
+* *"Датабасеалиаснаме"* может быть либо существующим именем, либо новым именем.
+* Сопоставленный кластер-URI и имя сопоставленной базы данных должны находиться в двойных кавычках (") или одинарных кавычках (')
 
 **Примеры**
 
@@ -51,6 +51,6 @@ database("Logs").Traces | count
 
 ::: zone pivot="azuremonitor"
 
-Это не поддерживается в Azure Monitor
+Эта возможность не поддерживается в Azure Monitor
 
 ::: zone-end
