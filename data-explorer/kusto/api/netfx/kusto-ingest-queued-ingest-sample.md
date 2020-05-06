@@ -1,6 +1,6 @@
 ---
-title: Как Загласить данные с библиотекой Kusto.Ingest - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается, как проглатывается данные с помощью библиотеки Kusto.Ingest в Azure Data Explorer.
+title: Прием данных с помощью Kusto. Принимающая библиотека — Azure обозреватель данных
+description: В этой статье описывается прием данных с помощью библиотеки Kusto. приема Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/05/2020
-ms.openlocfilehash: 80b2b61c70269c5bd166a064fe9d0e2c59dd8197
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: fe268d19e5f42308737b7c392c58c6c1dca071b3
+ms.sourcegitcommit: 061eac135a123174c85fe1afca4d4208c044c678
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81523636"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799617"
 ---
-# <a name="howto-data-ingestion-with-kustoingest-library"></a>Как Заглом от данных с библиотекой Kusto.Ingest
-В этой статье представлен пример кода, который использует клиентскую библиотеку Kusto.Ingest.
+# <a name="data-ingestion-with-the-kustoingest-library"></a>Прием данных с помощью библиотеки Kusto. приема
 
-## <a name="overview"></a>Обзор
-Следующий пример кода демонстрирует, что в очередь (через службу управления данными Kusto) в Кусто с помощью библиотеки Kusto.Ingest попадает в очередь (идя через службу управления данными Kusto).
+В этой статье представлен пример кода, который использует клиентскую библиотеку Kusto. приема для приема данных. В коде описывается рекомендуемый режим приема для конвейеров рабочего уровня, называемый приемом в очереди. Для библиотеки Kusto. приема соответствующая сущность является интерфейсом [икустокуеуединжестклиент](kusto-ingest-client-reference.md#interface-ikustoqueuedingestclient) . Клиентский код взаимодействует со службой обозреватель данных Azure, публикуя уведомления об приеме в очередь Azure. Ссылка на очередь получена из Управление данными сущности, ответственной за прием. 
 
-> В этой статье рассматривается рекомендуемый режим приема для конвейеров производственного класса, который также называется **«Квейтing Ingestion»** (с точки зрения библиотеки Kusto.Ingest соответствующим органом является интерфейс [IKusto'uedIngClient).](kusto-ingest-client-reference.md#interface-ikustoqueuedingestclient) В этом режиме клиентский код взаимодействует с службой Kusto, размещая сообщения уведомлений о водоотданном сообщении в очередь Azure, ссылка на которую получена из Управления данными Kusto (также известная как Компания. Проглатывание) обслуживание. Взаимодействие со службой управления данными должно быть проверено с **помощью AAD.**
+> [!NOTE]
+> Взаимодействие со службой Управление данными должно проходить проверку подлинности с помощью Azure Active Directory (Azure AD).
 
-#### <a name="authentication"></a>Аутентификация
-Этот пример кода использует аутентификацию пользователя AAD и работает под удостоверением интерактивного пользователя.
+В примере используется проверка подлинности пользователя Azure AD и выполняется с удостоверением интерактивного пользователя.
 
 ## <a name="dependencies"></a>Зависимости
-Этот пример кода требует следующих пакетов NuGet:
-* Microsoft.Kusto.Ingest
+
+Для этого примера кода требуются следующие пакеты NuGet:
+* Microsoft. Kusto. прием
 * Microsoft.IdentityModel.Clients.ActiveDirectory;
 * WindowsAzure.Storage
 * Newtonsoft.Json.
 
-## <a name="namespaces-used"></a>Используемые именные пространства
+## <a name="namespaces-used"></a>Используемые пространства имен
+
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -46,14 +46,15 @@ using Kusto.Ingest;
 ```
 
 ## <a name="code"></a>Код
-Приведенный ниже код выполняет следующее:
-1. Создает таблицу `KustoLab` на общем кластере Kusto под `KustoIngestClientDemo` базой данных
-2. Предусматривает [объект отображения столбца JSON](../../management/create-ingestion-mapping-command.md) на этом столе
-3. Создает экземпляр [IKusto'uingingingClient](kusto-ingest-client-reference.md#interface-ikustoqueuedingestclient) для службы `Ingest-KustoLab` управления данными
-4. Настройка [Kusto-ОчередьIngestionСвойства Свойства](kusto-ingest-client-reference.md#class-kustoqueuedingestionproperties) с соответствующими вариантами приема
-5. Создает MemoryStream, наполненный некоторыми генерируемыми данными для поимки
-6. Прием данных с `KustoQueuedIngestClient.IngestFromStream` помощью метода
-7. Опросы для любых [ошибок приема](kusto-ingest-client-status.md#tracking-ingestion-status-kustoqueuedingestclient)
+
+Код выполняет следующие программы.
+1. Создание таблицы в `KustoLab` общем кластере Azure обозреватель данных в `KustoIngestClientDemo` базе данных
+2. Подготавливает [объект сопоставления столбца JSON](../../management/create-ingestion-mapping-command.md) для этой таблицы
+3. Создает экземпляр [икустокуеуединжестклиент](kusto-ingest-client-reference.md#interface-ikustoqueuedingestclient) для службы `Ingest-KustoLab` управление данными
+4. Настройка [кустокуеуединжестионпропертиес](kusto-ingest-client-reference.md#class-kustoqueuedingestionproperties) с соответствующими параметрами приема
+5. Создает объект MemoryStream, заполненный некоторыми созданными данными для приема
+6. Принимает данные с помощью `KustoQueuedIngestClient.IngestFromStream` метода
+7. Опрашивает о любых [ошибках приема](kusto-ingest-client-status.md#tracking-ingestion-status-kustoqueuedingestclient)
 
 ```csharp
 static void Main(string[] args)

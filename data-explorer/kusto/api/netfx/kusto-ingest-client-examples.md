@@ -1,6 +1,6 @@
 ---
-title: Kusto.Ingest Справка - Код приема Примеры - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описана ссылка На Kusto.Ingest - Примеры кода приема в Azure Data Explorer.
+title: Kusto. прием ссылок — примеры кода приема — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описываются примеры кода приема Kusto. принимаемые материалы в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,26 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/15/2019
-ms.openlocfilehash: d9314d3b9db5638a56def637e85027d4cc074d09
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: ba3232ca1c8a3f587f53ee1c3c6aad3fc12283ad
+ms.sourcegitcommit: 061eac135a123174c85fe1afca4d4208c044c678
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81502624"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799685"
 ---
-# <a name="kustoingest-reference---ingestion-code-examples"></a>Kusto.Ingest Справка - Код приема Примеры
-Это коллекция коротких фрагментов кода, демонстрирующих различные методы глотания данных в таблицу Kusto
+# <a name="kustoingest-reference---ingestion-code-examples"></a>Примеры кода приема Kusto. приема
+Это набор коротких фрагментов кода, демонстрирующих различные методы приема данных в таблицу Kusto
 
->Напоминание: эти образцы выглядят так, как будто клиент, утевщий, уничтожается сразу после приема внутрь. Пожалуйста, не принимайте это буквально.<BR>Клиенты, проявивщие, являются ретентным, безопасным потоком и не должны создаваться в больших количествах. Рекомендуемая кардинальность клиентских экземпляров составляет один раз в один процесс хостинга в каждом целевом кластере Kusto.
+>Напоминание. Эти примеры выглядят так, как если бы принимающий клиент уничтожаться сразу после приема. Не передавайте это буквально.<BR>Принимающие клиенты являются повторными, потокобезопасными и не должны создаваться в больших числах. Рекомендуемая кратность экземпляров приема клиента — одна для каждого процесса размещения на целевом кластере Kusto.
 
 ### <a name="useful-references"></a>Полезные ссылки
-* [Справка о клиентах Kusto.Ingest](kusto-ingest-client-reference.md)
-* [Состояние операции Kusto.Ingest](kusto-ingest-client-errors.md)
-* [Кусто.Ingest Исключения](kusto-ingest-client-errors.md)
+* [Ссылка на клиент Kusto. приема](kusto-ingest-client-reference.md)
+* [Состояние операции Kusto. приема](kusto-ingest-client-errors.md)
+* [Исключения Kusto. приема](kusto-ingest-client-errors.md)
 * [Строки подключения Kusto](../connection-strings/kusto.md)
 * [Модель авторизации Kusto](../../management/security-roles.md)
 
-### <a name="async-ingestion-from-a-single-azure-blob-using-kustoqueuedingestclient-with-optional-retrypolicy"></a>Async Ingestion От одного Azure Blob с помощью Kusto'ueдингИнгестКлиент с (необязательно) RetryPolicy:
+### <a name="async-ingestion-from-a-single-azure-blob-using-kustoqueuedingestclient-with-optional-retrypolicy"></a>Асинхронное получение из одного большого двоичного объекта Azure с помощью Кустокуеуединжестклиент с (необязательно) RetryPolicy:
 ```csharp
 //Create Kusto connection string with App Authentication
 var kustoConnectionStringBuilderDM =
@@ -56,7 +56,10 @@ await client.IngestFromStorageAsync(uri: @"BLOB-URI-WITH-SAS-KEY", ingestionProp
 client.Dispose();
 ```
 
-### <a name="ingest-from-local-file-using-kustodirectingestclient-only-for-test-purposes"></a>Глоток из местного файла с помощью KustoDirectIngestClient (только для целей тестирования):
+### <a name="ingest-from-local-file-using-kustodirectingestclient"></a>Прием из локального файла с помощью Кустодиректинжестклиент 
+
+Этот метод рекомендуется для приема с ограниченным объемом и низкой частотой.
+
 ```csharp
 // Create Kusto connection string with App Authentication
 var kustoConnectionStringBuilderEngine =
@@ -75,7 +78,7 @@ using (IKustoIngestClient client = KustoIngestFactory.CreateDirectIngestClient(k
 }
 ```
 
-### <a name="ingest-from-local-files-using-kustoqueuedingestclient-and-ingestion-validation"></a>Глоток из местных файлов с помощью Kusto'ueingIngclient и проверка приема 
+### <a name="ingest-from-local-files-using-kustoqueuedingestclient-and-ingestion-validation"></a>Прием из локальных файлов с помощью Кустокуеуединжестклиент и проверки приема 
 ```csharp
 // Create Kusto connection string with App Authentication
 var kustoConnectionStringBuilderDM =
@@ -107,7 +110,7 @@ Ensure.IsTrue((ingestionFailures.Count() > 0), "Failures expected");
 client.Dispose();
 ```
 
-### <a name="ingest-from-a-local-files-using-kustoqueuedingestclient-and-report-status-to-a-queue"></a>Глотать из локальных файлов с помощью Kusto'ueingIngclient и сообщать о состоянии в очередь
+### <a name="ingest-from-a-local-files-using-kustoqueuedingestclient-and-report-status-to-a-queue"></a>Прием из локальных файлов с помощью Кустокуеуединжестклиент и состояние отчета в очередь
 
 ```csharp
 // Create Kusto connection string with App Authentication
@@ -154,7 +157,7 @@ Ensure.ConditionIsMet((ingestionSuccesses.Count() > 0),
 client.Dispose();
 ```
 
-### <a name="ingest-from-a-local-file-using-kustoqueuedingestclient-and-report-status-to-a-table"></a>Глотать из локального файла с помощью Kusto'ueingIngclient и сообщить о состоянии к столу
+### <a name="ingest-from-a-local-file-using-kustoqueuedingestclient-and-report-status-to-a-table"></a>Прием из локального файла с помощью Кустокуеуединжестклиент и отчета о состоянии в таблицу
 
 ```csharp
 // Create Kusto connection string with App Authentication

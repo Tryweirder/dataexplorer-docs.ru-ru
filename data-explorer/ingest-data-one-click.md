@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 03/29/2020
-ms.openlocfilehash: 155c4fadfc2892ddd91cc0c355f4f47fe4ce513c
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 5f424716a9227f22b4ec5b148d29798b0a55fa27
+ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81491649"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82618383"
 ---
 # <a name="what-is-one-click-ingestion"></a>Что такое прием данных одним щелчком? 
 
@@ -53,10 +53,13 @@ ms.locfileid: "81491649"
     ![Выбор функции приема данных одним щелчком в веб-интерфейсе пользователя](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
 
 1. Мастер помогает выполнять следующие действия:
-       * принимать данные в [имеющейся таблице](one-click-ingestion-existing-table.md),
-       * принимать данные в [новой таблице](one-click-ingestion-new-table.md),
-       * принимать данные из хранилища BLOB-объектов, локального файла и контейнера,
-       * а также вводить размер выборки, от 1 до 10 000 строк (только из контейнера).
+    * принимать данные в [имеющейся таблице](one-click-ingestion-existing-table.md),
+    * о приеме данных в [новую таблицу](one-click-ingestion-new-table.md)
+    * Прием данных из:
+      * Хранилище BLOB-объектов
+      * локального файла;
+      * контейнера.
+    * а также вводить размер выборки, от 1 до 10 000 строк (только из контейнера).
        
 1. После успешного выбора источника данных отображается предварительный просмотр данных. 
     При приеме данных из контейнера их можно фильтровать таким образом, чтобы были приняты только файлы с конкретными префиксами или расширениями файлов. Например, вы можете принимать только файлы с именами, начинающимися со слова *Европа*, или только файлы с расширением *JSON*. 
