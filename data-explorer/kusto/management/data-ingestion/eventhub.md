@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/01/2020
-ms.openlocfilehash: fac9fd9f218948928e4f91d0d1aa056affcebd11
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 6b2f3b2d75bd964401ae37093405e692cfd64feb
+ms.sourcegitcommit: f6cf88be736aa1e23ca046304a02dee204546b6e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82617669"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82861788"
 ---
 # <a name="ingest-from-event-hub"></a>Прием данных из концентратора событий
 
@@ -33,13 +33,14 @@ ms.locfileid: "82617669"
 
 Свойства приема указывают на процесс приема. Где можно направить данные и как обработать их. [Свойства приема](https://docs.microsoft.com/azure/data-explorer/ingestion-properties) событий можно указать с помощью свойства [EVENTDATA. Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
 
-|Свойство |Описание|
+|Свойство. |Описание|
 |---|---|
 | Таблица | Имя существующей целевой таблицы (с учетом регистра). Переопределяет `Table` набор в `Data Connection` колонке. |
 | Формат | Формат данных. Переопределяет `Data format` набор в `Data Connection` колонке. |
 | инжестионмаппингреференце | Имя существующего [сопоставления приема](../create-ingestion-mapping-command.md) , которое будет использоваться. Переопределяет `Column mapping` набор в `Data Connection` колонке.|
-| сжатие; | Сжатие данных `None` (по умолчанию) `GZip` или сжатие.|
+| Сжатие | Сжатие данных `None` (по умолчанию) `GZip` или сжатие.|
 | Кодирование |  Кодировка данных, значение по умолчанию — UTF8. Может быть любой из [поддерживаемых кодировок .NET](https://docs.microsoft.com/dotnet/api/system.text.encoding?view=netframework-4.8#remarks). |
+| Теги (Предварительная версия) | Список [тегов](../extents-overview.md#extent-tagging) , связываемых с полученными данными в формате строки массива JSON. Обратите внимание на влияние использования тегов на [производительность](../extents-overview.md#performance-notes-1) . |
 
 <!--| Database | Name of the existing target database.|-->
 <!--| Tags | String representing [tags](https://docs.microsoft.com/azure/kusto/management/extents-overview#extent-tagging) that will be attached to resulting extent. |-->
@@ -65,6 +66,7 @@ var eventData = new EventData(Encoding.UTF8.GetBytes(data));
 eventData.Properties.Add("Table", "WeatherMetrics");
 eventData.Properties.Add("Format", "json");
 eventData.Properties.Add("IngestionMappingReference", "mapping1");
+eventData.Properties.Add("Tags", "['mydatatag']");
 
 // Send events
 var eventHubClient = EventHubClient.CreateFromConnectionString(eventHubNamespaceConnectionString, eventHubName);
@@ -83,7 +85,7 @@ eventHubClient.Close();
 
 ### <a name="event-hub-expose-the-following-system-properties"></a>Концентратор событий предоставляет следующие свойства системы
 
-|Свойство |Тип данных |Описание|
+|Свойство. |Тип данных |Описание|
 |---|---|---|
 | x-opt-enqueued-time |DATETIME | Время в очереди события в формате UTC. |
 | x-opt-sequence-number |long | Логический порядковый номер события в потоке секций концентратора событий.

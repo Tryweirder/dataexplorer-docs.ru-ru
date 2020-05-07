@@ -7,13 +7,14 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
+ms.custom: has-adal-ref
 ms.date: 02/19/2020
-ms.openlocfilehash: 9e4be7be65b0fe118a99835b24cd9d69ac5a531d
-ms.sourcegitcommit: e1e35431374f2e8b515bbe2a50cd916462741f49
+ms.openlocfilehash: 2ea7fd33a6e6ed8728fb12d53fbe76eadf8fd6b6
+ms.sourcegitcommit: f6cf88be736aa1e23ca046304a02dee204546b6e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82108496"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82862077"
 ---
 # <a name="howto-data-ingestion-without-kustoingest-library"></a>Получение данных без Kusto. Принимающая Библиотека
 
@@ -303,7 +304,7 @@ internal static IEnumerable<string> PopTopMessagesFromQueue(string queueUriWithS
 
 ```json
 {
-    "Id" : "<Id>", 
+    "Id" : "<Id>",
     "BlobPath" : "https://<AccountName>.blob.core.windows.net/<ContainerName>/<PathToBlob>?<SasToken>",
     "RawDataSize" : "<RawDataSizeInBytes>",
     "DatabaseName": "<DatabaseName>",
@@ -318,7 +319,7 @@ internal static IEnumerable<string> PopTopMessagesFromQueue(string queueUriWithS
 ```
 
 
-|Свойство | Описание |
+|Свойство. | Описание |
 |---------|-------------|
 |Идентификатор |Идентификатор сообщения (GUID) |
 |BlobPath |URI BLOB-объекта, включая ключ SAS, предоставляющий разрешения Kusto на чтение, запись или удаление (разрешения на запись и удаление требуются, если Kusto удаляет большой двоичный объект после завершения приема данных). |
@@ -336,7 +337,7 @@ internal static IEnumerable<string> PopTopMessagesFromQueue(string queueUriWithS
 ## <a name="appendix-b-ingestion-failure-message-structure"></a>Приложение б. Структура сообщений об ошибках приема
 Следующее сообщение таблицы, которое Kusto Служба Управление данными, должно считаться из входной очереди Azure, является документом JSON в следующем формате:
 
-|Свойство | Описание |
+|Свойство. | Описание |
 |---------|-------------
 |Операции |Идентификатор операции (GUID), который можно использовать для отслеживания операции на стороне службы |
 |База данных |Имя целевой базы данных |

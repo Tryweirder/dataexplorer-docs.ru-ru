@@ -7,13 +7,14 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
+ms.custom: has-adal-ref
 ms.date: 10/30/2019
-ms.openlocfilehash: 5e2de0c29c58959ce683518b03bef9164fa9543c
-ms.sourcegitcommit: 061eac135a123174c85fe1afca4d4208c044c678
+ms.openlocfilehash: b41f77fe97ce6adeeade63c00824818f4a3af721
+ms.sourcegitcommit: f6cf88be736aa1e23ca046304a02dee204546b6e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82799634"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82862043"
 ---
 # <a name="ms-tds-clients-and-azure-data-explorer"></a>Клиенты MS-TDS и Azure обозреватель данных
 
@@ -83,7 +84,7 @@ jdbc:sqlserver://<cluster_name.region>.kusto.windows.net:1433;database=<database
 "Driver={ODBC Driver 17 for SQL Server};Server=mykustocluster.kusto.windows.net;Database=mykustodatabase;Authentication=ActiveDirectoryIntegrated"
 ```
 
-Некоторые приложения ODBC плохо работают с `NVARCHAR(MAX)` типом. Для получения дополнительной информации см. https://docs.microsoft.com/sql/relational-databases/native-client/features/using-large-value-types?view=sql-server-2017#sql-server-native-client-odbc-driver. 
+Некоторые приложения ODBC плохо работают с `NVARCHAR(MAX)` типом. Для получения дополнительной информации см. https://docs.microsoft.com/sql/relational-databases/native-client/features/using-large-value-types?view=sql-server-2017#sql-server-native-client-odbc-driver.
 
 Распространенный обходной путь заключается в приведении возвращаемых данных к типу *nvarchar (n)* с некоторым значением n. Например, *nvarchar (4000)*. Однако такой обходной путь не будет работать для Azure обозреватель данных, так как Azure обозреватель данных имеет только один строковый тип и для клиентов SQL, закодированный как *nvarchar (max)*.
 
@@ -104,7 +105,7 @@ $conn = [System.Data.Common.DbProviderFactories]::GetFactory("System.Data.Odbc")
 $conn.ConnectionString = "Driver={ODBC Driver 17 for SQL Server};Server=mykustocluster.kusto.windows.net;Database=mykustodatabase;Authentication=ActiveDirectoryIntegrated"
 $conn.Open()
 $conn.GetSchema("Tables")
-$conn.Close()  
+$conn.Close()
 ```
 
 ## <a name="linqpad"></a>LINQPad
@@ -121,7 +122,7 @@ $conn.Close()
 5. Для сервера укажите имя кластера Azure обозреватель данных. Например, *mykusto.kusto.Windows.NET*.
 6. Настройте **проверку подлинности Windows (Active Directory)** для входа.
 7. Выберите **проверить** , чтобы проверить подключение.
-8. Щелкните **ОК**. В окне браузера отображается представление в виде дерева с базами данных.
+8. Нажмите кнопку **ОК**. В окне браузера отображается представление в виде дерева с базами данных.
 9. Можно просматривать базы данных, таблицы и столбцы.
 10. Запросы SQL можно выполнять в окне запроса. Укажите язык SQL и выберите соединение с базой данных.
 11. Запросы LINQ можно также выполнять в окне запроса. Например, выберите таблицу в окне браузера. Выберите **количество**и разрешите выполнение.
