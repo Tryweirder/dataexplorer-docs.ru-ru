@@ -8,21 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/30/2020
-ms.openlocfilehash: 56150c480d0d5ecfd4d428e51f7bdb4b68e36b0c
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 5a7a1b37c8c50bdff3760ad9222065191a9eb884
+ms.sourcegitcommit: 3393ad86dac455fd182296ffb410b2bd570dbfce
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82617703"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82991894"
 ---
 # <a name="export-data-to-an-external-table"></a>Экспорт данных во внешнюю таблицу
 
 Данные можно экспортировать, определив [внешнюю таблицу](../externaltables.md) и экспортировав в нее данные.
 Свойства таблицы указываются при [создании внешней таблицы](../externaltables.md#create-or-alter-external-table), поэтому не нужно внедрять свойства таблицы в команду Export. Команда Export ссылается на внешнюю таблицу по имени.
 Для экспорта данных требуется [разрешение администратора базы данных](../access-control/role-based-authorization.md).
-
-> [!NOTE] 
-> * Экспорт во внешнюю таблицу со `impersonate` строкой подключения в настоящее время не поддерживается.
 
 **Синтаксис**
 
@@ -31,10 +28,10 @@ ms.locfileid: "82617703"
 
 **Проверки**
 
-|Выходной параметр |Тип |Описание
+|Выходной параметр |Type |Описание
 |---|---|---
 |екстерналтабленаме  |Строка |Имя внешней таблицы.
-|Path|Строка|Путь вывода.
+|Путь|Строка|Путь вывода.
 |нумрекордс|Строка| Число записей, экспортируемых по пути.
 
 **Примечания.**
@@ -63,7 +60,7 @@ ms.locfileid: "82617703"
 .export to table ExternalBlob <| T
 ```
 
-|екстерналтабленаме|Path|нумрекордс|
+|екстерналтабленаме|Путь|нумрекордс|
 |---|---|---|
 |екстерналблоб|http://storage1.blob.core.windows.net/externaltable1cont1/1_58017c550b384c0db0fea61a8661333e.csv|10|
 
@@ -87,7 +84,7 @@ dataformat=csv
 .export to table PartitionedExternalBlob <| T
 ```
 
-|екстерналтабленаме|Path|нумрекордс|
+|екстерналтабленаме|Путь|нумрекордс|
 |---|---|---|
 |екстерналблоб|http://storageaccount.blob.core.windows.net/container1/CustomerName=customer1/2019/01/01/fa36f35c-c064-414d-b8e2-e75cf157ec35_1_58017c550b384c0db0fea61a8661333e.csv|10|
 |екстерналблоб|http://storageaccount.blob.core.windows.net/container1/CustomerName=customer2/2019/01/01/fa36f35c-c064-414d-b8e2-e75cf157ec35_2_b785beec2c004d93b7cd531208424dc9.csv|10|
