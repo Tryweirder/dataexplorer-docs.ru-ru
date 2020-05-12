@@ -1,5 +1,5 @@
 ---
-title: current_principal_is_member_of () — Azure обозреватель данных | Документация Майкрософт
+title: current_principal_is_member_of () — обозреватель данных Azure
 description: В этой статье описывается current_principal_is_member_of () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/09/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 4b6f7d0b9ab4074f16ca00b4a3febb1a17351736
-ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
+ms.openlocfilehash: 521165f5b0af31207d587f3d9514e7538d284258
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737765"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83227347"
 ---
 # <a name="current_principal_is_member_of"></a>current_principal_is_member_of()
 
@@ -38,7 +38,7 @@ print current_principal_is_member_of(
 **Аргументы**
 
 * *список выражений* — разделенный запятыми список строковых литералов, где каждый литерал является основной строкой полного имени (FQN), сформированной следующим образом:  
-*ПринЦиплатипе*`=`*PrincipalId*PrincipalId`;`*TenantId*
+*ПринЦиплатипе* `=` *PrincipalId* `;` *ИД* клиента
 
 | PrincipalType   | Префикс FQN  |
 |-----------------|-------------|
@@ -50,11 +50,11 @@ print current_principal_is_member_of(
 
 Функция возвращает:
 * `true`: если текущий участник, выполняющий запрос, был успешно сопоставлен по крайней мере с одним входным аргументом.
-* `false`: если текущий участник, выполняющий запрос, не был членом `aadgroup=` каких- `aaduser=` либо аргументов FQN и не равен ни одному из `aadapp=` аргументов FQN или.
-* `(null)`: если текущий участник, выполняющий запрос, не был членом `aadgroup=` каких- `aaduser=` либо аргументов FQN и не равен ни одному из `aadapp=` аргументов FQN или, и хотя бы один аргумент FQN не был успешно разрешен (не пресед в AAD). 
+* `false`: если текущий участник, выполняющий запрос, не был членом каких- `aadgroup=` либо аргументов FQN и не равен ни одному `aaduser=` из `aadapp=` аргументов FQN или.
+* `(null)`: если текущий участник, выполняющий запрос, не был членом каких- `aadgroup=` либо аргументов FQN и не равен ни одному `aaduser=` из `aadapp=` аргументов FQN или, и хотя бы один аргумент FQN не был успешно разрешен (не пресед в AAD). 
 
 > [!NOTE]
-> Поскольку функция возвращает значение более чем в три состояния (`true`, `false`и `null`), важно полагаться только на положительные возвращаемые значения для подтверждения успешного членства. Иными словами, следующие выражения не совпадают:
+> Поскольку функция возвращает значение более чем в три состояния ( `true` , `false` и `null` ), важно полагаться только на положительные возвращаемые значения для подтверждения успешного членства. Иными словами, следующие выражения не совпадают:
 > 
 > * `where current_principal_is_member_of('non-existing-group')`
 > * `where current_principal_is_member_of('non-existing-group') != false` 
@@ -62,6 +62,7 @@ print current_principal_is_member_of(
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 print result=current_principal_is_member_of(
     'aaduser=user1@fabrikam.com', 
@@ -70,12 +71,13 @@ print result=current_principal_is_member_of(
     )
 ```
 
-| набор по |
+| result |
 |--------|
 | (null) |
 
-Использование динамического массива вместо мултпле аргументов:
+Использование динамического массива вместо нескольких аргументов:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 print result=current_principal_is_member_of(
     dynamic([
@@ -85,7 +87,7 @@ print result=current_principal_is_member_of(
     ]))
 ```
 
-| набор по |
+| result |
 |--------|
 | (null) |
 

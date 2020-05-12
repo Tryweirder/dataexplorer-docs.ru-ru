@@ -1,6 +1,6 @@
 ---
-title: binary_all_and () (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается binary_all_and (функция агрегирования) в Azure Data Explorer.
+title: binary_all_and () (агрегатная функция) — обозреватель данных Azure
+description: В этой статье описывается binary_all_and () (статистическая функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,35 +8,36 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 4dfe4a2881f100a4bea3e9d418022c75b2621087
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 9f0e1665010885a64e6d97151b074d3a03df829b
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81517754"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83227576"
 ---
-# <a name="binary_all_and-aggregation-function"></a>binary_all_and() (функция агрегирования)
+# <a name="binary_all_and-aggregation-function"></a>binary_all_and () (агрегатная функция)
 
-Накапливает значения с `AND` помощью бинарной операции на группу обобщений (или в общей сложности, если обобщение осуществляется без группировки).
+Накапливает значения с помощью бинарной `AND` операции для группы формирования сводных данных (или, в целом, если формирование сводных данных выполняется без группирования).
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
 **Синтаксис**
 
-резюмировать `binary_all_and(` *Expr*`)`
+суммировать `binary_all_and(` *выражение*`)`
 
 **Аргументы**
 
-* *Expr*: длинный номер.
+* *Expr*: длинное число.
 
 **Возвращает**
 
-Возвращает значение, агрегируемое `AND` с помощью двоичной операции по записям на группу обобщений (или в общей сложности, если обобщение осуществляется без группировки).
+Возвращает значение, агрегированное с помощью двоичной `AND` операции над записями для группы формирования сводных данных (или в целом, если формирование сводных данных выполняется без группирования).
 
 **Пример**
 
-Производство «кафе-продуктов» с `AND` использованием бинарных операций:
+Создание "кафе-Food" с помощью бинарных `AND` операций:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 datatable(num:long)
 [
@@ -48,6 +49,6 @@ datatable(num:long)
 | summarize result = toupper(tohex(binary_all_and(num)))
 ```
 
-|набор по|
+|result|
 |---|
 |CAFEF00D|

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/15/2020
-ms.openlocfilehash: f5c47e2ebd2acc0b2ec250d183d65b6536aff756
-ms.sourcegitcommit: 4f68d6dbfa6463dbb284de0aa17fc193d529ce3a
+ms.openlocfilehash: cbe1b0639a0379fe84bc9c100a629bbadd9c3a63
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82741827"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83226573"
 ---
 # <a name="hll-aggregation-function"></a>ХЛЛ () (агрегатная функция)
 
@@ -40,16 +40,17 @@ ms.locfileid: "82741827"
     
 **Возвращает**
 
-Промежуточные результаты числа различных *`Expr`* объектов в группе.
+Промежуточные результаты числа различных объектов *`Expr`* в группе.
  
 **"Советы"**
 
-1. Статистическую функцию [`hll_merge`](hll-merge-aggfunction.md) можно использовать для слияния более чем одного `hll` промежуточного результата (он работает только `hll` на выходе).
+1. Статистическую функцию можно использовать [`hll_merge`](hll-merge-aggfunction.md) для слияния более чем одного `hll` промежуточного результата (он работает `hll` только на выходе).
 
-1. Вы можете использовать функцию [`dcount_hll`](dcount-hllfunction.md), которая будет вычислять статистические функции `dcount` from. `hll`  /  `hll_merge`
+1. Вы можете использовать функцию [`dcount_hll`](dcount-hllfunction.md) , которая будет вычислять `dcount` `hll`  /  `hll_merge` статистические функции from.
 
 **Примеры**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents
 | summarize hll(DamageProperty) by bin(StartTime,10m)
