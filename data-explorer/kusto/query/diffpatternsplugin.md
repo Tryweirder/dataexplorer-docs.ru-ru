@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9931b297f5a86c46a8502902a6c396fbb2fd4191
-ms.sourcegitcommit: 4f68d6dbfa6463dbb284de0aa17fc193d529ce3a
+ms.openlocfilehash: b3dece66f3bafae989643afd418557aeaaa7d746
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82741739"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83225043"
 ---
 # <a name="diff-patterns-plugin"></a>подключаемый модуль шаблонов diff
 
@@ -43,7 +43,7 @@ T | evaluate diffpatterns(splitColumn)
 
     Строковое представление одного из значений в указанном аргументе SplitColumn. Все строки, имеющие это значение в аргументах SplitColumn, считаются набором данных «B».
 
-    Например, `T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure") `.
+    Пример: `T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure") `
 
 **Необязательные аргументы**
 
@@ -51,10 +51,10 @@ T | evaluate diffpatterns(splitColumn)
 
 * WeightColumn — *column_name*
 
-    Рассматривает каждую строку входных данных в соответствии с указанным весовым коэффициентом (по умолчанию весовой коэффициент каждой строки — 1). Аргумент должен быть именем числового столбца (например `int` `long`,,, `real`).
+    Рассматривает каждую строку входных данных в соответствии с указанным весовым коэффициентом (по умолчанию весовой коэффициент каждой строки — 1). Аргумент должен быть именем числового столбца (например,,, `int` `long` `real` ).
     Как правило, при использовании столбца с весовым коэффициентом следует учитывать выборку, группирование или агрегирование данных, внедренных в каждой строке.
     
-    Например, `T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", sample_Count) `.
+    Пример: `T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", sample_Count) `
 
 * Пороговое значение — 0,015 < *double* < 1 [по умолчанию: 0,05]
 
@@ -71,10 +71,10 @@ T | evaluate diffpatterns(splitColumn)
 * CustomWildcard- *"любой-значение на тип"*
 
     Задает подстановочный знак для определенного типа в таблице результатов, который укажет, что текущий шаблон не имеет ограничения по этому столбцу.
-    По умолчанию имеет значение NULL, для строки по умолчанию указывается пустая строка. Если значение по умолчанию является допустимым значением в данных, следует использовать другое подстановочное значение (например, `*`).
+    По умолчанию имеет значение NULL, для строки по умолчанию указывается пустая строка. Если значение по умолчанию является допустимым значением в данных, следует использовать другое подстановочное значение (например, `*` ).
     См. следующий пример.
 
-    Например, `T | extend splitColumn = iff(request-responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))`.
+    Пример: `T | extend splitColumn = iff(request-responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))`
 
 **Возвращает**
 
@@ -84,9 +84,9 @@ T | evaluate diffpatterns(splitColumn)
 
 * SegmentId: удостоверение, назначенное шаблону в текущем запросе (Примечание. идентификаторы не обязательно будут одинаковыми в повторяющихся запросах).
 
-* Число: число строк, захваченных шаблоном в Set A (Set A является эквивалентом `where tostring(splitColumn) == SplitValueA`).
+* Число: число строк, захваченных шаблоном в Set A (Set A является эквивалентом `where tostring(splitColumn) == SplitValueA` ).
 
-* Каунтб: число строк, захваченных шаблоном в наборе B (Set B, эквивалентно `where tostring(splitColumn) == SplitValueB`).
+* Каунтб: число строк, захваченных шаблоном в наборе B (Set B, эквивалентно `where tostring(splitColumn) == SplitValueB` ).
 
 * Процентная доля: процент строк в наборе, захваченный шаблоном (100,0 * число/число (сета)).
 
@@ -111,6 +111,7 @@ T | evaluate diffpatterns(splitColumn)
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents 
 | where monthofyear(StartTime) == 5
@@ -119,7 +120,7 @@ StormEvents
 | evaluate diffpatterns(Damage, "0", "1" )
 ```
 
-|Идентификатор сегмента|Число A|Число B|Процент A|Процент B|перцентдиффаб|Область|EventType|Источник|DamageCrops|
+|Идентификатор сегмента|Число A|Число B|Процент A|Процент B|перцентдиффаб|State|EventType|Источник|DamageCrops|
 |---|---|---|---|---|---|---|---|---|---|
 |0|2278|93|49,8|7.1|42,7||Град||0|
 |1|779|512|17,03|39,08|22,05||Шквалистый ветер|||

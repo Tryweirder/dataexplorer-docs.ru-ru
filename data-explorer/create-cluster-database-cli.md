@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: cd503948d2f48a0ca431b7e1ce9fbe5c178fc542
-ms.sourcegitcommit: 72eaa9e5169d79507ceb6ead4a2eb703121c2190
+ms.openlocfilehash: b7e8611ba6427880f15d57137e31010047c39e01
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82774975"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83224618"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Создание кластера и базы данных Azure Data Explorer с помощью Azure CLI
 
@@ -26,9 +26,9 @@ ms.locfileid: "82774975"
 
 Azure Data Explorer — это быстрая и полностью управляемая служба для аналитики большого объема потоковых данных в реальном времени, поступающих из приложений, а также с веб-сайтов, устройств Интернета вещей и т. д. Чтобы использовать обозреватель данных Azure, сначала нужно создать кластер и одну или несколько баз данных в этом кластере. Затем вы должны принять (загрузить) данные в базы данных, чтобы к ним можно было выполнять запросы. В этой статье вы создадите кластер и базу данных с помощью Azure CLI.
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
-Для выполнения этой статьи требуется подписка Azure. Если у вас ее нет, [Создайте бесплатную учетную запись](https://azure.microsoft.com/free/) , прежде чем начинать работу.
+Для выполнения этой статьи требуется подписка Azure. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись](https://azure.microsoft.com/free/), прежде чем начать работу.
 
 [!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
 
@@ -49,13 +49,19 @@ Azure Data Explorer — это быстрая и полностью управ�
     ```azurecli-interactive
     az account set --subscription MyAzureSub
     ```
+   
+1. Установите расширение, чтобы использовать последнюю версию Kusto CLI:
+
+    ```azurecli-interactive
+    az extension add -n kusto
+    ```
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Создание кластера Azure Data Explorer
 
 1. Создайте кластер, используя приведенную ниже команду:
 
     ```azurecli-interactive
-    az kusto cluster create --name azureclitest --sku name="Standard_D13_v2" tier="Standard" --resource-group testrg --location westus
+    az kusto cluster create --cluster-name azureclitest --sku name="Standard_D13_v2" tier="Standard" --resource-group testrg --location westus
     ```
 
    |**Параметр** | **Рекомендуемое значение** | **Описание поля**|
@@ -70,7 +76,7 @@ Azure Data Explorer — это быстрая и полностью управ�
 1. Чтобы проверить, успешно ли создан кластер, можно выполнить следующую команду:
 
     ```azurecli-interactive
-    az kusto cluster show --name azureclitest --resource-group testrg
+    az kusto cluster show --cluster-name azureclitest --resource-group testrg
     ```
 
 Если результат содержит параметр `provisioningState` со значением `Succeeded`, это означает, что кластер создан успешно.
@@ -93,7 +99,7 @@ Azure Data Explorer — это быстрая и полностью управ�
 1. Выполните следующую команду, чтобы просмотреть созданную базу данных:
 
     ```azurecli-interactive
-    az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest
+    az kusto database show --database-name clidatabase --resource-group testrg --cluster-name azureclitest
     ```
 
 Теперь у вас есть кластер и база данных.
@@ -104,7 +110,7 @@ Azure Data Explorer — это быстрая и полностью управ�
 * Чтобы очистить ресурсы, удалите кластер. При удалении кластера также удаляются все содержащиеся в нем базы данных. Для удаления кластера используйте следующую команду:
 
     ```azurecli-interactive
-    az kusto cluster delete --name azureclitest --resource-group testrg
+    az kusto cluster delete --cluster-name azureclitest --resource-group testrg
     ```
 
 ## <a name="next-steps"></a>Дальнейшие действия

@@ -1,6 +1,6 @@
 ---
-title: make_list_with_nulls () (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается make_list_with_nulls (функция агрегирования) в Azure Data Explorer.
+title: make_list_with_nulls () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается make_list_with_nulls () (статистическая функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/09/2020
-ms.openlocfilehash: 4b039008c5969cf02187d69a3486b09e04ec41ae
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 41f07f16641fd303c9b8e76b4924238378b6ccc9
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81512875"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83224822"
 ---
-# <a name="make_list_with_nulls-aggregation-function"></a>make_list_with_nulls() (функция агрегирования)
+# <a name="make_list_with_nulls-aggregation-function"></a>make_list_with_nulls () (агрегатная функция)
 
-Возвращает `dynamic` массив (JSON) всех значений *Expr* в группе, включая нулевые значения.
+Возвращает `dynamic` массив (JSON) всех значений *expr* в группе, включая значения NULL.
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
 **Синтаксис**
 
-`summarize``make_list_with_nulls(` *Expr*`)`
+`summarize``make_list_with_nulls(` *Выражение*`)`
 
 **Аргументы**
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации.
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата.
 
 **Возвращает**
 
-Возвращает `dynamic` массив (JSON) всех значений *Expr* в группе, включая нулевые значения.
-Если вход оператору `summarize` не отсортирован, порядок элементов в полученном массиве не определен.
-Если вход `summarize` оператору отсортирован, порядок элементов в полученном массиве отслеживает ввод.
+Возвращает `dynamic` массив (JSON) всех значений *expr* в группе, включая значения NULL.
+Если входные данные `summarize` оператора не сортируются, порядок элементов в результирующем массиве не определен.
+Если входные данные `summarize` оператора сортируются, порядок элементов в результирующем массиве отслеживает входные данные.
 
 > [!TIP]
-> Используйте [`mv-apply`](./mv-applyoperator.md) оператора для создания заказанный список по некоторым ключам. Примеры см. [здесь](./mv-applyoperator.md#using-mv-apply-operator-to-sort-the-output-of-makelist-aggregate-by-some-key).
+> Используйте [`mv-apply`](./mv-applyoperator.md) оператор, чтобы создать упорядоченный список с помощью некоторого ключа. Примеры см. [здесь](./mv-applyoperator.md#using-the-mv-apply-operator-to-sort-the-output-of-makelist-aggregate-by-some-key).

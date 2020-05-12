@@ -1,6 +1,6 @@
 ---
-title: Использование клиентских библиотек .NET от PowerShell - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описывается использование клиентских библиотек .NET от PowerShell в Azure Data Explorer.
+title: Использование клиентских библиотек .NET из PowerShell — Azure обозреватель данных
+description: В этой статье описывается использование клиентских библиотек .NET из PowerShell в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,28 +8,31 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/29/2019
-ms.openlocfilehash: 635a23021a1a8c30347bfa27ecd65886b46a6fea
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 5c521d7e63d58dd32425e759b0cf09a22a050b40
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81503219"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83226046"
 ---
-# <a name="using-the-net-client-libraries-from-powershell"></a>Использование клиентских библиотек .NET от PowerShell
+# <a name="using-the-net-client-libraries-from-powershell"></a>Использование клиентских библиотек .NET из PowerShell
 
-Клиентские библиотеки Azure Data Explorer .NET могут использоваться скриптами PowerShell через встроенную интеграцию PowerShell с произвольными (не PowerShell) .NET библиотеками.
+Сценарии PowerShell могут использовать клиентские библиотеки Azure обозреватель данных .NET с помощью встроенной интеграции PowerShell с произвольными библиотеками .NET (не PowerShell).
 
-## <a name="getting-the-net-client-libraries-for-scripting-with-powershell"></a>Получение библиотек клиентов .NET для скриптов с PowerShell
+## <a name="getting-the-net-client-libraries-for-scripting-with-powershell"></a>Получение клиентских библиотек .NET для создания сценариев с помощью PowerShell
 
-Чтобы начать работу с библиотеками клиентов Azure Data Explorer .NET с помощью PowerShell:
+Чтобы начать работу с клиентскими библиотеками Azure обозреватель данных .NET с помощью PowerShell.
 
-1. Скачать [ `Microsoft.Azure.Kusto.Tools` пакет NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Tools/).
-2. Извлеките содержимое каталога «инструменты» в пакете (например, с помощью 7-zip).
-3. Звоните `[System.Reflection.Assembly]::LoadFrom("path")` из Powershell, чтобы загрузить необходимую библиотеку. 
-    - Параметр `"path"` команды должен указывать местоположение извлеченных файлов.
-4. После загрузки всех зависимых сборок .NET создайте строку соединения Kusto, мгновенно запустите *поставщика запросов* или *поставщика админ-* и запустите запросы или команды (как показано в приведенных ниже [примерах).](powershell.md#examples)
+1. Скачайте [ `Microsoft.Azure.Kusto.Tools` пакет NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Tools/).
+1. Извлеките содержимое каталога Tools в пакете (используйте средство архивации, например `7-zip` ).
+1. Вызовите `[System.Reflection.Assembly]::LoadFrom("path")` из PowerShell, чтобы загрузить необходимую библиотеку. 
+    - `path`Параметр для команды должен указывать расположение извлеченных файлов.
+1. После загрузки всех зависимых сборок .NET:
+   1. Создайте строку подключения Kusto.
+   1. Создайте экземпляр *поставщика запроса* или *поставщика администратора*.
+   1. Выполните запросы или команды, как показано в [примерах](powershell.md#examples) ниже.
 
-Для получения [подробной](../netfx/about-kusto-data.md)информации см.
+Дополнительные сведения см. в разделе [клиентские библиотеки Azure обозреватель данных](../netfx/about-kusto-data.md).
 
 ## <a name="examples"></a>Примеры
 
@@ -38,7 +41,7 @@ ms.locfileid: "81503219"
 ```powershell
 #  Part 1 of 3
 #  ------------
-#  Packages location - This is an example to the location where you extract the Microsoft.Azure.Kusto.Tools package.
+#  Packages location - This is an example of the location from where you extract the Microsoft.Azure.Kusto.Tools package.
 #  Please make sure you load the types from a local directory and not from a remote share.
 $packagesRoot = "C:\Microsoft.Azure.Kusto.Tools\Tools"
 
@@ -54,17 +57,17 @@ dir $packagesRoot\* | Unblock-File
 $clusterUrl = "https://help.kusto.windows.net;Fed=True"
 $databaseName = "Samples"
 
-#   Option A: using AAD User Authentication
+#   Option A: using Azure AD User Authentication
 $kcsb = New-Object Kusto.Data.KustoConnectionStringBuilder ($clusterUrl, $databaseName)
  
-#   Option B: using AAD application Authentication
+#   Option B: using Azure AD application Authentication
 #     $applicationId = "application ID goes here"
 #     $applicationKey = "application key goes here"
 #     $authority = "authority goes here"
 #     $kcsb = $kcsb.WithAadApplicationKeyAuthentication($applicationId, $applicationKey, $authority)
 ```
 
-### <a name="example-running-an-admin-command"></a>Пример: Запуск команды админ-айда
+### <a name="example-running-an-admin-command"></a>Пример. выполнение команды администратора
 
 ```powershell
 $adminProvider = [Kusto.Data.Net.Client.KustoClientFactory]::CreateCslAdminProvider($kcsb)
@@ -76,12 +79,12 @@ $isHealthy = $Reader.GetBoolean(0)
 Write-Host "IsHealthy = $isHealthy"
 ```
 
-И выход:
+Выходные данные:
 ```
 IsHealthy = True
 ```
 
-### <a name="example-running-a-query"></a>Пример: Запуск запроса
+### <a name="example-running-a-query"></a>Пример. выполнение запроса
 
 ```powershell
 $queryProvider = [Kusto.Data.Net.Client.KustoClientFactory]::CreateCslQueryProvider($kcsb)
@@ -102,12 +105,12 @@ $dataView = New-Object System.Data.DataView($dataTable)
 $dataView | Sort StartTime -Descending | Format-Table -AutoSize
 ```
 
-И выход:
+Выходные данные:
 
-|StartTime           |EndTime             |ЭпизодИд |EventId |Состояние          |EventType         |ТравмыПрямая |ТравмыКосвенные |DeathsDirect |СмертиКосвенные смерти
+|StartTime           |EndTime             |еписодеид |EventID |State          |EventType         |инжуриесдирект |инжуриесиндирект |деассдирект |деассиндирект
 |---------           |-------             |--------- |------- |-----          |---------         |-------------- |---------------- |------------ |--------------
 |2007-12-30 16:00:00 |2007-12-30 16:05:00 |    11749 |  64588 |Грузия        |Шквалистый ветер |             0 |               0 |           0 |             0
 |2007-12-20 07:50:00 |2007-12-20 07:53:00 |    12554 |  68796 |Миссисипи    |Шквалистый ветер |             0 |               0 |           0 |             0
-|2007-09-29 08:11:00 |2007-09-29 08:11:00 |    11091 |  61032 |АТЛАНТИЧЕСКИЙ ЮГ |Водяной сот        |             0 |               0 |           0 |             0
+|2007-09-29 08:11:00 |2007-09-29 08:11:00 |    11091 |  61032 |АТЛАНТИЧЕСКОЕ ЮГО |Spout воды       |             0 |               0 |           0 |             0
 |2007-09-20 21:57:00 |2007-09-20 22:05:00 |    11078 |  60913 |Флорида        |Торнадо           |             0 |               0 |           0 |             0
-|2007-09-18 20:00:00 |2007-09-19 18:00:00 |    11074 |  60904 |Флорида        |Сильный дождь        |             0 |               0 |           0 |             0
+|2007-09-18 20:00:00 |2007-09-19 18:00:00 |    11074 |  60904 |Флорида        |Тяжелая дождя        |             0 |               0 |           0 |             0

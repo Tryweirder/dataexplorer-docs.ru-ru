@@ -1,6 +1,6 @@
 ---
-title: make_list() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описана make_list (функция агрегирования) в Azure Data Explorer.
+title: make_list () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается make_list () (статистическая функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,40 +8,40 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/23/2020
-ms.openlocfilehash: e46dbfac7b8c819f66d469c160452ec4dddfb769
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: fed2616f5fbd32b1c80f936d5689261467a9dc5e
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81512756"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83224840"
 ---
-# <a name="make_list-aggregation-function"></a>make_list() (функция агрегирования)
+# <a name="make_list-aggregation-function"></a>make_list () (агрегатная функция)
 
 Возвращает массив `dynamic` (JSON) со всеми значениями *Expr* в группе.
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
 **Синтаксис**
 
-`summarize``make_list(` *Экстр* `,` *-MaxSize*`)`
+`summarize``make_list(` *Expr* [ `,` *MAXSIZE*]`)`
 
 **Аргументы**
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации.
-* *MaxSize* является дополнительным целым пределом для максимального количества возвращенных элементов (по умолчанию *1048576).* Значение MaxSize не может превышать 1048576.
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата.
+* *MAXSIZE* — Необязательное целочисленное ограничение на максимальное число возвращаемых элементов (по умолчанию — *1048576*). Значение MaxSize не может превышать 1048576.
 
 > [!NOTE]
-> Устаревший и устаревший вариант `makelist()` этой функции: имеет предел по умолчанию *MaxSize* No 128.
+> Устаревший и устаревший вариант этой функции: `makelist()` имеет ограничение по умолчанию *MaxSize* = 128.
 
 **Возвращает**
 
 Возвращает массив `dynamic` (JSON) со всеми значениями *Expr* в группе.
-Если вход оператору `summarize` не отсортирован, порядок элементов в полученном массиве не определен.
-Если вход `summarize` оператору отсортирован, порядок элементов в полученном массиве отслеживает ввод.
+Если входные данные `summarize` оператора не сортируются, порядок элементов в результирующем массиве не определен.
+Если входные данные `summarize` оператора сортируются, порядок элементов в результирующем массиве отслеживает входные данные.
 
 > [!TIP]
-> Используйте [`mv-apply`](./mv-applyoperator.md) оператора для создания заказанный список по некоторым ключам. Примеры см. [здесь](./mv-applyoperator.md#using-mv-apply-operator-to-sort-the-output-of-makelist-aggregate-by-some-key).
+> Используйте [`mv-apply`](./mv-applyoperator.md) оператор, чтобы создать упорядоченный список с помощью некоторого ключа. Примеры см. [здесь](./mv-applyoperator.md#using-the-mv-apply-operator-to-sort-the-output-of-makelist-aggregate-by-some-key).
 
 **См. также:**
 
-[`make_list_if`](./makelistif-aggfunction.md)оператор похож `make_list`на, за исключением он также принимает предикат.
+[`make_list_if`](./makelistif-aggfunction.md)аналогичен оператору `make_list` , за исключением того, что он также принимает предикат.

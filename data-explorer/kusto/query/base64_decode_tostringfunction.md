@@ -1,6 +1,6 @@
 ---
-title: base64_decode_tostring() - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается base64_decode_tostring () в Azure Data Explorer.
+title: base64_decode_tostring () — обозреватель данных Azure
+description: В этой статье описывается base64_decode_tostring () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/22/2019
-ms.openlocfilehash: a821fb07d62d5bca3982cc4c48b8e0457641f3f2
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: d2e1c5dbb845e67a5306ccb16c234de383d3ca69
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81518179"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83225349"
 ---
 # <a name="base64_decode_tostring"></a>base64_decode_tostring()
 
-Декодирует строку base64 к строке UTF-8
+Декодирует строку Base64 в строку UTF-8.
 
 **Синтаксис**
 
@@ -25,27 +25,29 @@ ms.locfileid: "81518179"
 
 **Аргументы**
 
-* *Строка*: Строка ввода, которая будет расшифрована с base64 до строки UTF8-8.
+* *String*: входная строка для декодирования из Base64 в строку UTF8-8.
 
 **Возвращает**
 
-Возвращает строку UTF-8, расшифрованную из строки base64.
+Возвращает строку в кодировке UTF-8, декодированную из строки Base64.
 
-* Для расшифровки базовых строк на массив длинных значений см. [base64_decode_toarray()](base64_decode_toarrayfunction.md)
-* Для кодирования строк на base64 [см. base64_encode_tostring()](base64_encode_tostringfunction.md)
+* Сведения о декодировании строк Base64 в массив длинных значений см. в разделе [base64_decode_toarray ()](base64_decode_toarrayfunction.md) .
+* Сведения о кодировке строк в строку Base64 см. в разделе [base64_encode_tostring ()](base64_encode_tostringfunction.md) .
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 print Quine=base64_decode_tostring("S3VzdG8=")
 ```
 
-|Квин|
+|куине|
 |-----|
 |Kusto|
 
-Попытка расшифровать строку base64, которая была создана из недействительного кодирования UTF-8, вернет нулевую строку:
+При попытке декодирования строки Base64, созданной из недопустимой кодировки UTF-8, будет возвращено значение NULL:
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 print Empty=base64_decode_tostring("U3RyaW5n0KHR0tGA0L7Rh9C60LA=")
 ```

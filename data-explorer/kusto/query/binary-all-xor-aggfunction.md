@@ -1,6 +1,6 @@
 ---
-title: binary_all_xor() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описана binary_all_xor(функция агрегирования) в Azure Data Explorer.
+title: binary_all_xor () (агрегатная функция) — обозреватель данных Azure
+description: В этой статье описывается binary_all_xor () (статистическая функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,35 +8,36 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/06/2020
-ms.openlocfilehash: a1908fe874576281c9ba45f23709845473b5725c
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: bc4b0bc8a02dd3a8d2a39ffdd27db5817eb8ffdb
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81517703"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83225247"
 ---
-# <a name="binary_all_xor-aggregation-function"></a>binary_all_xor() (функция агрегирования)
+# <a name="binary_all_xor-aggregation-function"></a>binary_all_xor () (агрегатная функция)
 
-Накапливает значения с `XOR` помощью бинарной операции на группу обобщений (или в общей сложности, если обобщение осуществляется без группировки).
+Накапливает значения с помощью бинарной `XOR` операции для группы формирования сводных данных (или, в целом, если формирование сводных данных выполняется без группирования).
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
 **Синтаксис**
 
-резюмировать `binary_all_xor(` *Expr*`)`
+суммировать `binary_all_xor(` *выражение*`)`
 
 **Аргументы**
 
-* *Expr*: длинный номер.
+* *Expr*: длинное число.
 
 **Возвращает**
 
-Возвращает значение, агрегируемое `XOR` с помощью двоичной операции по записям на группу обобщений (или в общей сложности, если обобщение осуществляется без группировки).
+Возвращает значение, агрегированное с помощью двоичной `XOR` операции над записями для группы формирования сводных данных (или в целом, если формирование сводных данных выполняется без группирования).
 
 **Пример**
 
-Производство «кафе-продуктов» с `XOR` использованием бинарных операций:
+Создание "кафе-Food" с помощью бинарных `XOR` операций:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 datatable(num:long)
 [
@@ -48,6 +49,6 @@ datatable(num:long)
 | summarize result = toupper(tohex(binary_all_xor(num)))
 ```
 
-|набор по|
+|result|
 |---|
 |CAFEF00D|

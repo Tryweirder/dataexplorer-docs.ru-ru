@@ -1,6 +1,6 @@
 ---
-title: dcount_intersect плагин - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описывается dcount_intersect плагин в Azure Data Explorer.
+title: подключаемый модуль dcount_intersect — Azure обозреватель данных
+description: В этой статье описывается подключаемый модуль dcount_intersect в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,41 +8,42 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 7771456ffa75085c79933c2e789e3d98f352b76f
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: c431f17184570b294b9c8077028ac792719b4abd
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81516139"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83225213"
 ---
-# <a name="dcount_intersect-plugin"></a>dcount_intersect плагин
+# <a name="dcount_intersect-plugin"></a>подключаемый модуль dcount_intersect
 
-Вычисляет пересечение между наборами N на основе значений hll (N в диапазоне 2...16) и возвращает значения N ccount.
+Вычисляет пересечение между N наборами на основе `hll` значений (N в диапазоне [2.. 16]) и возвращает N `dcount` значений.
 
-Учитывая наборы S<sub>1,</sub>S<sub>2</sub>, .. S<sub>n</sub> - значения возврата будут представлять различные показатели:  
-S<sub>1</sub>, S<sub>1</sub> 'S<sub>2</sub>,  
-S<sub>1</sub> "S<sub>2"</sub> S<sub>3</sub>,  
+Заданные наборы S<sub>1</sub>, s<sub>2</sub>,.. S<sub>n</sub> — возвращает значения, представляющие различные счетчики:  
+S<sub>1</sub>, s<sub>1</sub> ∩ s<sub>2</sub>,  
+S<sub>1</sub> ∩ s<sub>2</sub> ∩<sub>3</sub>,  
 ... ,  
-S<sub>1</sub> "S<sub>2</sub> " ... S<sub>n</sub>
+S<sub>1</sub> ∩ s<sub>2</sub> ∩... ∩ S<sub>n</sub>
 
     T | evaluate dcount_intersect(hll_1, hll_2, hll_3)
 
 **Синтаксис**
 
-*T* `| evaluate` T `dcount_intersect(` *hll_1,* *hll_2,*`,` *hll_3* `,` ...»`)`
+*T* `| evaluate` `dcount_intersect(` *hll_1*, *hll_2*, [ `,` *hll_3* `,` ...]`)`
 
 **Аргументы**
 
-* *T*: Входное табеляцивское выражение.
-* *hll_i*: значения набора S<sub>i</sub> вычислялись с функцией [hll()](./hll-aggfunction.md) .
+* *T*: Входное табличное выражение.
+* *hll_i*: значения<sub>Set S,</sub> вычисленные с помощью [`hll()`](./hll-aggfunction.md) функции.
 
 **Возвращает**
 
-Возвращает таблицу со значениями N dcount (на столбцы столбцов, представляющих наборы пересечений).
-Названия колонн s0, s1, ... (до n-1).
+Возвращает таблицу со значениями N `dcount` (для каждого столбца), представляющими собой набор пересечения.
+Имена столбцов: S0, S1,... (до n – 1).
 
 **Примеры**
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 // Generate numbers from 1 to 100
 range x from 1 to 100 step 1
@@ -58,6 +59,6 @@ range x from 1 to 100 step 1
           even_and_mod3_and_mod5 = s2 - 1   // gcd(2,3,5) is 30, therefore: 100 / 30 = 3 
 ```
 
-|evenNumbers|even_and_mod3|even_and_mod3_and_mod5|
+|евеннумберс|even_and_mod3|even_and_mod3_and_mod5|
 |---|---|---|
 |50|16|3|

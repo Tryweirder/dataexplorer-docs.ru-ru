@@ -1,6 +1,6 @@
 ---
-title: infer_storage_schema плагин - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описывается infer_storage_schema плагин в Azure Data Explorer.
+title: подключаемый модуль infer_storage_schema — Azure обозреватель данных
+description: В этой статье описывается подключаемый модуль infer_storage_schema в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 6c4543a3b029017067867bb70d913509941c332e
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 1b4a917101ad3a35f8fdbc1cccb257b6f3724b69
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81513912"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83224873"
 ---
-# <a name="infer_storage_schema-plugin"></a>infer_storage_schema плагин
+# <a name="infer_storage_schema-plugin"></a>подключаемый модуль infer_storage_schema
 
-Этот плагин выведет из себя схему внешних данных и возвращает ее в виде строки схемы CSL, которая может быть использована при [создании внешних таблиц.](../management/externaltables.md#create-or-alter-external-table)
+Этот подключаемый модуль определяет схему внешних данных и возвращает ее в виде строки схемы CSL. Строку можно использовать при [создании внешних таблиц](../management/external-tables-azurestorage-azuredatalake.md#create-or-alter-external-table).
 
 ```kusto
 let options = dynamic({
@@ -36,23 +36,23 @@ evaluate infer_storage_schema(options)
 
 **Аргументы**
 
-Аргументом «Один *параметры»* является `dynamic` постоянное значение типа, в которой содержится пакет свойств, определяющий свойства запроса:
+Единственный аргумент *параметров* — это постоянное значение типа `dynamic` , которое содержит контейнер свойств, указывающий свойства запроса:
 
-|Имя                    |Обязательно|Описание|
+|Имя                    |Обязательный|Описание|
 |------------------------|--------|-----------|
-|`StorageContainers`|Да|Список [строк соединения хранилища, представляющих](../api/connection-strings/storage.md) префикс URI для сохраненных артефактов данных|
-|`DataFormat`|Да|Один из [поддерживаемых форматов данных](https://docs.microsoft.com/azure/data-explorer/ingestion-supported-formats).|
-|`FileExtension`|нет|Только файлы сканирования, заканчивающиеся этим расширением файла. Это не требуется, но указание может ускорить процесс (или устранить проблемы с чтением данных)|
-|`FileNamePrefix`|нет|Только сканирование файлов, начиная с этой префикс. Это не требуется, но указание может ускорить процесс|
-|`Mode`|нет|Стратегия выводов схемы, одна `any`из: , `last`. `all` Вывод о схеме данных из любого (первого найденного) файла, из последнего письменного файла или из всех файлов соответственно. Значение по умолчанию — `last`.|
+|`StorageContainers`|Да|Список [строк подключения к хранилищу](../api/connection-strings/storage.md) , представляющих URI префикса для хранимых артефактов данных|
+|`DataFormat`|Да|Один из поддерживаемых [форматов данных](https://docs.microsoft.com/azure/data-explorer/ingestion-supported-formats).|
+|`FileExtension`|Нет|Проверять только те файлы, которые заканчиваются расширением этого файла. Это необязательно, но указание может ускорить процесс (или устранить проблемы с чтением данных).|
+|`FileNamePrefix`|Нет|Проверять только файлы, начинающиеся с этого префикса. Это необязательно, но указание может ускорить процесс|
+|`Mode`|Нет|Стратегия определения схемы, одна из следующих: `any` , `last` , `all` . Вывести схему данных из любого (первого найденного) файла, из последнего записанного файла или из всех файлов соответственно. Значение по умолчанию: `last`.|
 
 **Возвращает**
 
-Плагин `infer_storage_schema` возвращает одну таблицу результатов, содержащую одну строку/колонку, держащую строку схемы CSL.
+`infer_storage_schema`Подключаемый модуль возвращает одну таблицу результатов, содержащую одну строку или столбец со строкой схемы CSL.
 
 > [!NOTE]
-> * Стратегия выводов Schema 'все' очень "дорогой" операции, как это подразумевает чтение из *всех* артефактов, найденных и слияния их схемы.
-> * Некоторые возвращенные типы могут быть не актуальными в результате неправильного угадывания типа (или, в результате процесса слияния схемы). Вот почему он советует тщательно просмотреть результат перед созданием внешней таблицы.
+> * Стратегия вывода схемы "все" является очень дорогостоящей операцией, так как она подразумевает чтение из *всех* обнаруженных артефактов и объединение их схемы.
+> * Некоторые возвращаемые типы могут не быть реальными в результате неправильного подбора типа (или в результате процесса слияния схемы). Именно поэтому перед созданием внешней таблицы следует внимательно проанализировать результат.
 
 **Пример**
 
@@ -70,6 +70,6 @@ evaluate infer_storage_schema(options)
 
 *Результат*
 
-|ЧлШема|
+|кслсчема|
 |---|
-|app_id:string, user_id:long, event_time:datetime, country:string, city:string, device_type:string, device_vendor:string, ad_network:string, campaign:string, site_id:string, event_type:string, event_name:string, organic:string, days_from_install:int, revenue:real|
+|app_id: строка, user_id: long, event_time: DateTime, страна: строка, город: строка, device_type: строка, device_vendor: строка, ad_network: строка, кампания: строка, site_id: строка, event_type: строка, event_name: строка, согласованность: строка, days_from_install: int, доход: Real|

@@ -1,6 +1,6 @@
 ---
-title: dcount_hll () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны dcount_hll () в Azure Data Explorer.
+title: dcount_hll () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается dcount_hll () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,33 +8,34 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/15/2019
-ms.openlocfilehash: a0c921efa90f5d66fe42fa6ee872204b5bb399cd
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: d4a76a30526f5fecbafafd735cf72de92aae7644
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81516156"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83225196"
 ---
 # <a name="dcount_hll"></a>dcount_hll()
 
-Вычисляет количество от результатов hll (который был произведен [hll](hll-aggfunction.md) или [hll_merge).](hll-merge-aggfunction.md)
+Вычисляет DCount из результатов ХЛЛ (которые были созданы [ХЛЛ](hll-aggfunction.md) или [hll_merge](hll-merge-aggfunction.md)).
 
-Читайте о [базовом алгоритме (*H*yper*L*og*L*og) и точности оценки.](dcount-aggfunction.md#estimation-accuracy)
+Прочтите сведения о [базовом алгоритме (*H*ИПЕР*l*OG*l*OG) и точности оценки](dcount-aggfunction.md#estimation-accuracy).
 
 **Синтаксис**
 
-`dcount_hll(`*Expr*`)`
+`dcount_hll(`*Выражения*`)`
 
 **Аргументы**
 
-* *Expr*: Выражение, которое было сгенерировано [hll](hll-aggfunction.md) или [hll-merge](hll-merge-aggfunction.md)
+* *Expr*: выражение, созданное с помощью [ХЛЛ](hll-aggfunction.md) или [ХЛЛ-Merge](hll-merge-aggfunction.md)
 
 **Возвращает**
 
-Четкое количество каждого значения в *Expr*
+Число различных значений каждого значения в *expr*
 
 **Примеры**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents
 | summarize hllRes = hll(DamageProperty) by bin(StartTime,10m)

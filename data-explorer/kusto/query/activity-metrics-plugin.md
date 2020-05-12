@@ -1,6 +1,6 @@
 ---
-title: activity_metrics плагин - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описан activity_metrics плагин в Azure Data Explorer.
+title: подключаемый модуль activity_metrics — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается подключаемый модуль activity_metrics в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 940320b7cd77ba09b31192853da9073511b33f5d
-ms.sourcegitcommit: 29018b3db4ea7d015b1afa65d49ecf918cdff3d6
+ms.openlocfilehash: 8106d419f20dcacdec6386294a5b9ffb8d1bc8e2
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82030276"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83225910"
 ---
 # <a name="activity_metrics-plugin"></a>Подключаемый модуль activity_metrics
 
-Вычисляет полезные метрики активности (различные значения подсчета, отчетливое количество новых значений, скорость удержания и скорость оттока) на основе окна текущего периода по сравнению с предыдущим окном периода (в отличие от [activity_counts_metrics плагина,](activity-counts-metrics-plugin.md) в котором каждое временное окно сравнивается со *всеми* предыдущими временными окнами).
+Вычисляет полезные метрики действий (значения числа различных объектов, количество различных новых значений, скорость хранения и скорость обработки) на основе окна текущий период в сравнении с предыдущим периодом (в отличие от [подключаемого модуля activity_counts_metrics](activity-counts-metrics-plugin.md) , в котором каждое окно сравнивается со *всеми* предыдущими окнами времени).
 
 ```kusto
 T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startofday(now()), 1d, dim1, dim2, dim3)
@@ -25,33 +25,33 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
 
 **Синтаксис**
 
-*T* `| evaluate` `,` *End*`,``,` `,` `,` *IdColumn* `,` `,` *Window* *dim2* *Start* *dim1* *TimelineColumn* IdColumn СрокиКолонка » Стартовый конец » Окно » dim1 dim2 ...» `activity_metrics(``)`
+*T* `| evaluate` `activity_metrics(` *идколумн* `,` *тимелинеколумн* `,` [*начальный* `,` *конец* `,` ] *Window* [ `,` *Dim1* `,` *dim2* `,` ...]`)`
 
 **Аргументы**
 
-* *T*: Входное табеляцивское выражение.
-* *IdColumn*: Название столбца с значениями идентификатора, которые представляют активность пользователя. 
-* *TimelineColumn*: Название столбца, представляющего временную шкалу.
-* *Начало*: (необязательно) Scalar со значением периода начала анализа.
-* *Конец*: (необязательно) Scalar со значением конечного периода анализа.
-* *Окно*: Scalar со значением периода окна анализа. Может быть либо числовая / дата / timestamp значение, `week` / `month` / `year`или строка, которая является одним из , и в этом случае все периоды будут [startofweek](startofweekfunction.md)/[startofmonth](startofmonthfunction.md)/[startofyear](startofyearfunction.md) соответственно. 
-* *dim1*, *dim2*, ...: (необязательный) список столбцов измерений, которые нарезает расчет метрик активности.
+* *T*: Входное табличное выражение.
+* *Идколумн*: имя столбца со значениями идентификаторов, представляющими действия пользователя. 
+* *Тимелинеколумн*: имя столбца, представляющего временную шкалу.
+* *Start*(необязательно) — скаляр со значением начального периода анализа.
+* *End*(необязательный) — скаляр со значением периода окончания анализа.
+* *Window*: скалярный со значением периода окна анализа. Может быть либо числовым, либо значением DateTime или timestamp, либо строкой, которая является одним из `week` / `month` / `year` , в этом случае все периоды будут [startofweek](startofweekfunction.md) / [StartOfMonth](startofmonthfunction.md) / [startofyear](startofyearfunction.md) соответствующим образом. 
+* *Dim1*, *dim2*,...: (необязательно) список столбцов измерений, которые срезируют вычисление метрик действия.
 
 **Возвращает**
 
-Возвращает таблицу с различными значениями подсчета, определенным подсчетом новых значений, коэффициентом удержания и коэффициентом оттока для каждого периода временной шкалы и для каждой существующей комбинации измерений.
+Возвращает таблицу с различными значениями числа различных значений, скоростью хранения и частотой обновления для каждого периода временной шкалы и для каждого сочетания существующих измерений.
 
-Схема таблицы вывода:
+Схема выходной таблицы:
 
-|*ХронологияКоля*|dcount_values|dcount_newvalues|retention_rate|churn_rate|dim1|..|dim_n|
+|*тимелинеколумн*|dcount_values|dcount_newvalues|retention_rate|churn_rate|Dim1|..|dim_n|
 |---|---|---|---|---|--|--|--|--|--|--|
-|тип: по состоянию на *ХроникаColumn*|long|long|double|double|..|..|..|
+|Тип: от *тимелинеколумн*|long|long|double|double|..|..|..|
 
 **Примечания**
 
-***Определение коэффициента удержания***
+***Определение частоты удержания***
 
-`Retention Rate`за период рассчитывается как:
+`Retention Rate`за период вычисляется следующим образом:
 
     # of customers returned during the period
     / (divided by)
@@ -64,12 +64,12 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
     # of new customers acquired during the period
 
 `Retention Rate`может варьироваться от 0,0 до 1,0  
-Чем выше оценка, тем больше число возвращающихся пользователей.
+Более высокая оценка означает больший объем возвращаемых пользователей.
 
 
-***Определение тарифа churn***
+***Определение частоты обновлений***
 
-`Churn Rate`за период рассчитывается как:
+`Churn Rate`за период вычисляется следующим образом:
     
     # of customers lost in the period
     / (divided by)
@@ -81,21 +81,22 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
     - (minus)
     # of customers at the end of the period
 
-`Churn Rate`может варьироваться от 0,0 до 1,0 Более высокий балл означает, что большее количество пользователей не возвращаются в службу.
+`Churn Rate`может варьироваться от 0,0 до 1,0. более высокая оценка означает, что большее количество пользователей не возвращается в службу.
 
-***Отток против коэффициента удержания***
+***Сравнение обновлений и скорости хранения***
 
-Выведено от определения `Churn Rate` `Retention Rate`и , следующее всегда истинно:
+Производным от определения `Churn Rate` и `Retention Rate` , следующим всегда является true:
 
     [Retention rate] = 100.0% - [Churn Rate]
 
 
 **Примеры**
 
-### <a name="weekly-retention-rate-and-churn-rate"></a>Еженедельный коэффициент удержания и коэффициент оттока
+### <a name="weekly-retention-rate-and-churn-rate"></a>Еженедельный темп хранения и частота обновлений
 
-Следующий запрос вычисляет скорость удержания и оттока для окна недели за неделю.
+Следующий запрос вычисляет скорость хранения и обновления для недельного окна недели.
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 // Generate random data of user activities
 let _start = datetime(2017-01-02);
@@ -120,7 +121,7 @@ range _day from _start to _end  step 1d
 |2017-01-30 00:00:00.0000000|0.681141439205955|0.318858560794045|
 |2017-02-06 00:00:00.0000000|0.278145695364238|0.721854304635762|
 |2017-02-13 00:00:00.0000000|0.223172628304821|0.776827371695179|
-|2017-02-20 00:00:00.0000000|0,38|0.62|
+|2017-02-20 00:00:00.0000000|0,38|0,62|
 |2017-02-27 00:00:00.0000000|0.295519001701645|0.704480998298355|
 |2017-03-06 00:00:00.0000000|0.280387770320656|0.719612229679344|
 |2017-03-13 00:00:00.0000000|0.360628154795289|0.639371845204711|
@@ -136,13 +137,13 @@ range _day from _start to _end  step 1d
 |2017-05-22 00:00:00.0000000|0.199122325836533|0.800877674163467|
 |2017-05-29 00:00:00.0000000|0.063468992248062|0.936531007751938|
 
-:::image type="content" source="images/activity-metrics-plugin/activity-metrics-churn-and-retention.png" border="false" alt-text="Показатели активности оттока и удержания":::
+:::image type="content" source="images/activity-metrics-plugin/activity-metrics-churn-and-retention.png" border="false" alt-text="Обработка и хранение метрик действий":::
 
-### <a name="distinct-values-and-distinct-new-values"></a>Различные ценности и различные «новые» ценности 
+### <a name="distinct-values-and-distinct-new-values"></a>Уникальные значения и уникальные значения "New" 
 
-Следующий запрос вычисляет различные значения и "новые" значения (иденты, которые не отображались в предыдущем временном окне) для окна недели за неделю.
+Следующий запрос вычисляет различные значения и новые значения (идентификаторы, которые не отображались в предыдущем временном окне) для окна неделя за неделю.
 
-
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 // Generate random data of user activities
 let _start = datetime(2017-01-02);
@@ -183,4 +184,4 @@ range _day from _start to _end  step 1d
 |2017-05-22 00:00:00.0000000|1740|1017|
 |2017-05-29 00:00:00.0000000|960|756|
 
-:::image type="content" source="images/activity-metrics-plugin/activity-metrics-dcount-and-dcount-newvalues.png" border="false" alt-text="Показатели активности подсчитываются и учитывают новые значения":::
+:::image type="content" source="images/activity-metrics-plugin/activity-metrics-dcount-and-dcount-newvalues.png" border="false" alt-text="Метрики действия DCount и DCount новые значения":::

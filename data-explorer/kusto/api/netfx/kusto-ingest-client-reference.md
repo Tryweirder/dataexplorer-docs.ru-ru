@@ -1,6 +1,6 @@
 ---
-title: Ссылка на клиента Kusto.Ingest - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается ссылка клиента Kusto.Ingest в Azure Data Explorer.
+title: Kusto. прием клиентских интерфейсов и классов фабрики — Azure обозреватель данных
+description: В этой статье описывается Kusto. приема клиентских интерфейсов и классов фабрики в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: e5a9c1fa561fa07df527f17552a3a8f594a4e5d8
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 1d3c3939a5c8b3a5f1e6f1fa0b40f9b927ee5325
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81503117"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83226063"
 ---
-# <a name="kustoingest-client-reference"></a>Ссылка на клиента Kusto.Ingest
+# <a name="kustoingest-client-interfaces-and-factory-classes"></a>Kusto. приема клиентских интерфейсов и классов фабрики
 
-Основные интерфейсы и заводские классы в библиотеке Kusto.Ingest:
+Основные интерфейсы и классы фабрик в библиотеке Kusto. приема:
 
-* [интерфейс IKustoIngestClient](#interface-ikustoingestclient): Основной интерфейс приема.
-* [Класс ExtendedKustoIngestClient](#class-extendedkustoingestclient): Расширения к основному интерфейсу приема.
-* [класс KustoIngestFactory](#class-kustoingestfactory): Основная фабрика для клиентов по проглатыванию.
-* [класс KustoIngestionPropertiesСвойства](#class-kustoingestionproperties): Класс, используемый для обеспечения общих свойств приема.
-* [Класс JsonColumnMapping](#class-jsoncolumnmapping): Класс, используемый для описания схемы отображения применять при глотании из источника данных JSON.
-* [Класс CsvColumnMapping](#class-csvcolumnmapping): Класс, используемый для описания схемы отображения применять при глотании из источника данных CSV.
-* [Enum DataSourceFormat](#enum-datasourceformat): Поддерживаемые форматы источников данных (например, CSV, JSON)
-* [Интерфейс IKusto'ueingingclient](#interface-ikustoqueuedingestclient): Интерфейс, описывающий операции, которые применяются только для приема в очереди.
-* [Класс Kusto'ueingingestionСвойстваСвойства](#class-kustoqueuedingestionproperties): Свойства, которые применяются только к очереди приема.
+* [интерфейс икустоинжестклиент](#interface-ikustoingestclient): основной интерфейс приема.
+* [Класс екстендедкустоинжестклиент](#class-extendedkustoingestclient): расширения основного интерфейса приема.
+* [класс кустоинжестфактори](#class-kustoingestfactory): основная фабрика для клиентов приема.
+* [класс кустоинжестионпропертиес](#class-kustoingestionproperties): класс, используемый для предоставления общих свойств приема.
+* [Класс жсонколумнмаппинг](#class-jsoncolumnmapping): класс, используемый для описания сопоставления схемы, применяемого при приеме из источника данных JSON.
+* [Класс ксвколумнмаппинг](#class-csvcolumnmapping): класс, используемый для описания сопоставления схемы, применяемого при приеме из источника данных CSV.
+* [Enum датасаурцеформат](#enum-datasourceformat): Поддерживаемые форматы источников данных (например, CSV, JSON)
+* [Интерфейс икустокуеуединжестклиент](#interface-ikustoqueuedingestclient): интерфейс, описывающий операции, которые применяются только для приема в очереди.
+* [Класс кустокуеуединжестионпропертиес](#class-kustoqueuedingestionproperties): свойства, которые применяются только к постановке в очередь.
 
-## <a name="interface-ikustoingestclient"></a>Интерфейс IKustoIngestClient
+## <a name="interface-ikustoingestclient"></a>Икустоинжестклиент интерфейса
 
-* IngestFromDataReaderAsync
-* IngestFromStorageAsync
-* IngestFromStreamAsync
+* инжестфромдатареадерасинк
+* инжестфромсторажеасинк
+* инжестфромстреамасинк
 
 ```csharp
 public interface IKustoIngestClient : IDisposable
@@ -68,16 +68,16 @@ public interface IKustoIngestClient : IDisposable
 }
 ```
 
-## <a name="class-extendedkustoingestclient"></a>Класс РасширенныйKustoIngestКлиент
+## <a name="class-extendedkustoingestclient"></a>Класс Екстендедкустоинжестклиент
 
-* IngestFromSingleBlob - Обезображенный. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromStorageAsync`.
-* IngestFromFromSingleBlobAsync - Обезволоден. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromStorageAsync`.
-* IngestFromDataReader - Deprecated. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromDataReaderAsync`.
-* IngestFromDataReaderAsync
-* IngestFromSingleFile - Deprecated. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromStorageAsync`.
-* IngestFromFromSingleFileAsync - Обезволоден. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromStorageAsync`.
-* IngestFromStream - Обезображенный. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromStreamAsync`.
-* IngestFromStreamAsync
+* Инжестфромсинглеблоб — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromStorageAsync`.
+* Инжестфромсинглеблобасинк — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromStorageAsync`.
+* Инжестфромдатареадер — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromDataReaderAsync`.
+* инжестфромдатареадерасинк
+* Инжестфромсинглефиле — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromStorageAsync`.
+* Инжестфромсинглефилеасинк — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromStorageAsync`.
+* Инжестфромстреам — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromStreamAsync`.
+* инжестфромстреамасинк
 
 ```csharp
 public static class ExtendedKustoIngestClient
@@ -244,12 +244,12 @@ public static class ExtendedKustoIngestClient
 }
 ```
 
-## <a name="class-kustoingestfactory"></a>Класс КустоИнгестФабрика
+## <a name="class-kustoingestfactory"></a>Класс Кустоинжестфактори
 
-* СоздатьНаправлениеСамогозаказчика
-* СоздатьСамый быстрый клиент
-* Создать УправляемыйстримлингНаистКлиент
-* СоздатьСлингИнгсамыстКлиент
+* креатедиректинжестклиент
+* креатекуеуединжестклиент
+* креатеманажедстреамингинжестклиент
+* креатестреамингинжестклиент
 
 ```csharp
 /// <summary>
@@ -342,24 +342,24 @@ public static class KustoIngestFactory
 }
 ```
 
-## <a name="class-kustoingestionproperties"></a>Класс КустоИнгесционСвойства
+## <a name="class-kustoingestionproperties"></a>Класс Кустоинжестионпропертиес
 
-Класс KustoIngestionPropertiesProperties инкапсулирует основные свойства приема, которые позволяют контролировать процесс приема и его обработку двигателем Kusto:
+Класс Кустоинжестионпропертиес содержит базовые свойства приема для тонкого контроля над процессом приема и способ, которым механизм Kusto обрабатывает его.
 
 |Свойство   |Значение    |
 |-----------|-----------|
-|имя_базы_данных |Имя базы данных для глотания в |
-|TableName |Название таблицы, чтобы глотнуть в |
-|DropByTags |Теги, что каждый объем будет иметь. DropByTags являются постоянными и могут `.show table T extents where tags has 'some tag'` быть использованы следующим образом: или`.drop extents <| .show table T extents where tags has 'some tag'` |
-|IngestByTags |Теги, написанные в размахе. Позже может быть `IngestIfNotExists` использован с собственностью, чтобы избежать глотания одних и тех же данных в два раза |
-|ДополнительныеТеги |Дополнительные теги по мере необходимости |
-|Ингестинонес |Список тегов, которые вы не хотите глотать снова (за таблицу) |
-|CSVMapping |Для каждого столбца определяется тип данных и номер одатков. Релевантно для приема CSV только (необязательно) |
-|JsonMapping |Для каждого столбца определяется путь JSON и параметры преобразования. **Обязательный для приема ВСОН** |
-|AvroMapping |Для каждого столбца определяется название поля в записи Avro. **Обязательный для приема AVRO** |
-|ПроверкаПолитика |Определения проверки данных. Подробнее о |
-|Формат |Формат посягания данных |
-|ДополнительныеСвойства | Другие свойства, которые будут [переданы](https://docs.microsoft.com/azure/data-explorer/ingestion-properties) в качестве свойств приема в команду приема, потому что не все свойства приема представлены в отдельном члене этого класса|
+|имя_базы_данных |Имя базы данных для приема |
+|TableName |Имя таблицы для приема |
+|дропбитагс |Теги, которые будут иметься в каждом экстенте. Дропбитагс являются постоянными и могут использоваться следующим образом: `.show table T extents where tags has 'some tag'` или`.drop extents <| .show table T extents where tags has 'some tag'` |
+|инжестбитагс |Теги, записываемые на экстент. Позднее можно использовать со `IngestIfNotExists` свойством, чтобы избежать одновременного приема одних и тех же данных |
+|аддитионалтагс |Дополнительные теги по мере необходимости |
+|инжестифнотексистс |Список тегов, которые не нужно принимать повторно (для каждой таблицы) |
+|ксвмаппинг |Для каждого столбца определяет тип данных и порядковый номер столбца. Релевантно только для приема CSV (необязательно) |
+|жсонмаппинг |Для каждого столбца определяет путь JSON и параметры преобразования. **Обязательно для приема JSON** |
+|авромаппинг |Для каждого столбца определяет имя поля в записи Avro. **Обязательно для приема AVRO** |
+|валидатионполици |Определения проверки данных. Дополнительные сведения см. в разделе [TODO] |
+|Формат |Формат приема данных |
+|AdditionalProperties | Другие свойства, которые будут переданы в качестве [свойств приема](https://docs.microsoft.com/azure/data-explorer/ingestion-properties) в команду приема. Свойства будут передаваться, так как не все свойства приема представлены в отдельном члене этого класса|
 
 ```csharp
 public class KustoIngestionProperties
@@ -382,7 +382,7 @@ public class KustoIngestionProperties
 }
 ```
 
-## <a name="class-jsoncolumnmapping"></a>Класс JsonColumnMapping
+## <a name="class-jsoncolumnmapping"></a>Класс Жсонколумнмаппинг
 
 ```csharp
 public class JsonColumnMapping
@@ -395,7 +395,7 @@ public class JsonColumnMapping
 }
 ```
 
-## <a name="class-csvcolumnmapping"></a>Класс CsvColumnMapping
+## <a name="class-csvcolumnmapping"></a>Класс Ксвколумнмаппинг
 
 ```csharp
 public class CsvColumnMapping
@@ -418,7 +418,7 @@ public class CsvColumnMapping
 }
 ```
 
-## <a name="enum-datasourceformat"></a>Enum DataSourceFormat
+## <a name="enum-datasourceformat"></a>Перечисление Датасаурцеформат
 
 ```csharp
 public enum DataSourceFormat
@@ -438,7 +438,7 @@ public enum DataSourceFormat
 ```
 
 
-## <a name="example-of-kustoingestionproperties-definition"></a>Пример определения КустоИнгесционСвойства
+## <a name="example-of-kustoingestionproperties-definition"></a>Пример определения Кустоинжестионпропертиес
 
 ```csharp
 var guid = new Guid().ToString();
@@ -456,13 +456,13 @@ var kustoIngestionProperties = new KustoIngestionProperties("TargetDatabase", "T
 };
 ```
 
-## <a name="interface-ikustoqueuedingestclient"></a>Интерфейс IKusto'uingingestClient
+## <a name="interface-ikustoqueuedingestclient"></a>Икустокуеуединжестклиент интерфейса
 
-Интерфейс IKusto'ueingIngClient добавляет методы отслеживания, чтобы следить за результатом операции приема, и предоставляет RetryPolicy для клиента, глотанного.
+Интерфейс Икустокуеуединжестклиент добавляет методы отслеживания, которые следуют за результатом операции приема, и предоставляет RetryPolicy для принимающего клиента.
 
-* PeekTopIngestionFailures
-* GetAnddiscardtopIngestionОтказ
-* GetAnddiscardTopIngestionУспехы
+* пиктопинжестионфаилурес
+* жетанддискардтопинжестионфаилурес
+* жетанддискардтопинжестионсукцессес
 
 ```csharp
 public interface IKustoQueuedIngestClient : IKustoIngestClient
@@ -496,15 +496,15 @@ public interface IKustoQueuedIngestClient : IKustoIngestClient
 }
 ```
 
-## <a name="class-kustoqueuedingestionproperties"></a>Класс КустоКюдингИнгсионСвойства
+## <a name="class-kustoqueuedingestionproperties"></a>Класс Кустокуеуединжестионпропертиес
 
-Класс Kusto'UeingIngingestionPropertiesProperties расширяет KustoIngestionProperties с несколькими контрольными ручками, которые могут быть использованы для тонкой настройки поведения приема:
+Класс Кустокуеуединжестионпропертиес расширяет Кустоинжестионпропертиес с помощью нескольких контрольных регуляторов, которые можно использовать для точной настройки поведения приема.
 
 |Свойство   |Значение    |
 |-----------|-----------|
-|ФлешНесразу |По умолчанию равен `false`. Если `true`установить, будет обойти механизм агрегации службы управления данными |
-|Уровень ingestionReport |Контролирует уровень отчетности о состоянии `FailuresOnly`приема (по умолчанию). С точки зрения производительности и использования хранилища, не рекомендуется устанавливать IngestionReportLevel`FailuresAndSuccesses` |
-|IngestionReportMethod |Контролирует цель отчетности о состоянии приема. Доступные варианты: Очередь Azure, таблица Azure или и то, и другое. По умолчанию равен `Queue`.
+|флушиммедиатели |По умолчанию имеет значение `false`. Если задано значение `true` , обход механизма агрегирования для службы Управление данными |
+|инжестионрепортлевел |Управляет уровнем создания отчетов о состоянии приема (по умолчанию — `FailuresOnly` ). Для обеспечения высокой производительности и использования хранилища рекомендуется не задавать для Инжестионрепортлевел значение.`FailuresAndSuccesses` |
+|инжестионрепортмесод |Управляет целевым объектом отчетов о состоянии приема. Доступные варианты: "очередь Azure", "Таблица Azure" или "оба". По умолчанию имеет значение `Queue`.
 
 ```csharp
 public class KustoQueuedIngestionProperties : KustoIngestionProperties

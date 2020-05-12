@@ -1,6 +1,6 @@
 ---
-title: parse_path () - Исследователь данных Azure Документы Майкрософт
-description: Эта статья описывает parse_path () в Azure Data Explorer.
+title: parse_path () — обозреватель данных Azure
+description: В этой статье описывается parse_path () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,34 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 2267efb4e47a6d8e45733ad48dd9f7f4019c1fa8
-ms.sourcegitcommit: e94be7045d71a0435b4171ca3a7c30455e6dfa57
+ms.openlocfilehash: 16b80c86f526cb05514577359603e9e21de80064
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81744659"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83224890"
 ---
 # <a name="parse_path"></a>parse_path()
 
-Сравнивает путь `string` файла и [`dynamic`](./scalar-data-types/dynamic.md) возвращает объект, содержащий следующие части пути: Схема, RootPath, DirectoryPath, DirectoryName, FileName, FileName, Расширение, AlternateDataStreamName.
-В дополнение к простым путям с обоими типами слэйсов, поддерживает пути со схемами (например, "file://..."), общие пути (например, "общие\\дисковые"...), длинные пути (например, "?Кс:..."),\\альтернативные потоки данных (например, "file1.exe:file2.exe")
+Анализирует путь к файлу `string` и возвращает [`dynamic`](./scalar-data-types/dynamic.md) объект, который содержит следующие части пути: схема, rootpath, DirectoryPath, Директоринаме, имя файла, расширение, алтернатедатастреамнаме.
+Помимо простых путей с косыми чертами, поддерживает пути со схемами (например, "file://..."), общими путями (например " \\ шареддриве\усерс..."), длинными путями (например " \\ ? \c:..."), дополнительными потоками данных (например, "file1. exe: file2. exe").
 
 **Синтаксис**
 
-`parse_path(`*Путь*`)`
+`parse_path(`*путь*`)`
 
 **Аргументы**
 
-* *путь*: строка, представляющая путь файла.
+* *path*: строка, представляющая путь к файлу.
 
 **Возвращает**
 
-Объект типа, `dynamic` который прививал компоненты пути, перечисленные выше.
+Объект типа `dynamic` , включающий компоненты пути, перечисленные выше.
 
 **Пример**
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
-
 ```kusto
 datatable(p:string) 
 [
@@ -51,8 +50,8 @@ datatable(p:string)
 
 |p|path_parts
 |---|---
-|C: Темп-файли.txt|"Схема":"","RootPath":"C:","DirectoryPath":"C:\\темп","DirectoryName":"Темп","Filename":"filename":"file.txt","Расширение":"Txt","AlternateDataStreamName":"""
-|темп-файли.txt|"Схема":"","RootPath":"","DirectoryPath":"Темп","DirectoryName":"Temp","FileyName":"Temp","Filename":"file.txt","Расширение":"txt","AlternateDataName":"""
-|file://C:/temp/file.txt:some.exe|"Scheme":"файл","RootPath":"C:","DirectoryPath":"C:/temp","DirectoryName":"Темп","Filename":"filename":"file.txt","Расширение":"txt","AlternateDataStreamName":"some.exe"
-|\\общие пользователи-пользователи-темп-файл.txt.gz|\\\\"Схема":"","RootPath":"","DirectoryPath":" Общие\\\\пользователи темп","DirectoryName":"Темп","Filename":"filename":"file.txt.gz","Расширение":"Gz","AlternateDataStreamName":""
-|/usr/lib/temp/file.txt|"Схема":"","RootPath":"","DirectoryPath":"/usr/lib/temp","DirectoryName":"Temp","Filename":"filename":"file.txt","Расширение":"txt","AlternateDataStreamName":""
+|к:\темп\филе.ткст|{"Схема": "", "RootPath": "C:", "DirectoryPath": "C: \\ TEMP", "директоринаме": "Temp", "filename": "файл. txt", "Extension": "txt", "алтернатедатастреамнаме": ""}
+|темп\филе.ткст|{"Схема": "", "RootPath": "", "DirectoryPath": "Temp", "Директоринаме": "Temp", "имя_файла": "File. txt", "Extension": "txt", "Алтернатедатастреамнаме": ""}
+|file://C:/temp/file.txt:some.exe|{"Схема": "File", "RootPath": "C:", "DirectoryPath": "C:/Temp", "Директоринаме": "Temp", "filename": "файл. txt", "Extension": "txt", "Алтернатедатастреамнаме": "часть. exe"}
+|\\шаред\усерс\темп\филе.ткст.гз|{"Схема": "", "RootPath": "", "DirectoryPath": " \\ \\ Общие \\ Пользователи \\ TEMP "," директоринаме ":" Temp "," filename ":" файл. txt. gz "," Extension ":" GZ "," алтернатедатастреамнаме ":" "}
+|/уср/либ/темп/филе.ткст|{"Схема": "", "RootPath": "", "DirectoryPath": "/УСР/либ/темп", "Директоринаме": "Temp", "имя_файла": "File. txt", "Extension": "txt", "Алтернатедатастреамнаме": ""}

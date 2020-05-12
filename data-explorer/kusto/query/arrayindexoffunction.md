@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/22/2020
-ms.openlocfilehash: 27b956ee54ef22f55b3a0ceae97fceb41aadf5c3
-ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
+ms.openlocfilehash: 99044d8762a1c7c7e86fb2633a8226ef48d66b55
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737357"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83225638"
 ---
 # <a name="array_index_of"></a>array_index_of()
 
@@ -35,6 +35,7 @@ ms.locfileid: "82737357"
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 print arr=dynamic(["this", "is", "an", "example"]) 
 | project Result=array_index_of(arr, "example")
@@ -46,4 +47,4 @@ print arr=dynamic(["this", "is", "an", "example"])
 
 **См. также:**
 
-Если требуется только проверить, существует ли значение в массиве, но вы не заинтересованы в его положении, можно использовать [set_has_element (`arr`, `value`)](sethaselementfunction.md). Эта функция повысит удобочитаемость запроса. Обе функции имеют одинаковую производительность.
+Если требуется только проверить, существует ли значение в массиве, но вы не заинтересованы в его положении, можно использовать [set_has_element ( `arr` , `value` )](sethaselementfunction.md). Эта функция повысит удобочитаемость запроса. Обе функции имеют одинаковую производительность.
