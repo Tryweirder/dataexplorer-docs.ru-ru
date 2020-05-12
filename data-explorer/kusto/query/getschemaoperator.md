@@ -1,6 +1,6 @@
 ---
-title: Оператор getschema - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается оператор getschema в Azure Data Explorer.
+title: Оператор GetSchema — Azure обозреватель данных
+description: В этой статье описан оператор GetSchema в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 2faeee575f1af72cfad808253853ae96aba7a28f
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 333c4d59a7ed62fd031ab52019c10abd821fd858
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81514371"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83226760"
 ---
 # <a name="getschema-operator"></a>Оператор getschema 
 
-Создать таблицу, представляющую таблетную схему ввода.
+Создание таблицы, представляющей табличную схему входных данных.
 
 ```kusto
 T | summarize MyCount=count() by Country | getschema 
@@ -29,6 +29,7 @@ T | summarize MyCount=count() by Country | getschema
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents
 | top 10 by Timestamp
@@ -41,4 +42,4 @@ StormEvents
 |Язык|1|System.String|строка|
 |Страница|2|System.String|строка|
 |Представления|3|System.Int64|long
-|БайтсДоставлен|4|System.Int64|long
+|битесделиверед|4|System.Int64|long

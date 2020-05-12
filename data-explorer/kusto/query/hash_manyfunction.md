@@ -1,6 +1,6 @@
 ---
-title: hash_many() - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается hash_many () в Azure Data Explorer.
+title: hash_many () — обозреватель данных Azure
+description: В этой статье описывается hash_many () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,36 +8,37 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/06/2020
-ms.openlocfilehash: e98f9d1d956d15cd7a61e7873f9b1dd34c6ae288
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 66ca1e5ff330a4b39ab769b0e3e8d6359eed9c00
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81514184"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83226675"
 ---
 # <a name="hash_many"></a>hash_many()
 
-Возвращает комбинированное хэш-значение нескольких значений.
+Возвращает объединенное хэш-значение нескольких значений.
 
 **Синтаксис**
 
-`hash_many(`*s1* `,` *s2* `,` *s3 s3* ...»`)`
+`hash_many(`*S1* `,` *S2* [ `,` *S3* ...]`)`
 
 **Аргументы**
 
-* *s1*, *s2*, ..., *sN*: входные значения, которые будут хэшированы вместе.
+* *S1*, *S2*,..., *SN*: входные значения, которые будут хэшированы вместе.
 
 **Возвращает**
 
-Совокупная хэш-значение данных скаляров.
+Объединенное хэш-значение заданных скаляров.
 
 **Примеры**
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 print value1 = "Hello", value2 = "World"
 | extend combined = hash_many(value1, value2)
 ```
 
-|value1|value2|Комбинированный|
+|value1|value2|вышают|
 |---|---|---|
-|Привет|World|-1440138333540407281|
+|Привет|World|— 1440138333540407281|

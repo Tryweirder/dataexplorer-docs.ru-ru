@@ -1,59 +1,60 @@
 ---
-title: geo_distance_point_to_line () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается geo_distance_point_to_line () в Azure Data Explorer.
+title: geo_distance_point_to_line () — обозреватель данных Azure
+description: В этой статье описывается geo_distance_point_to_line () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/11/2020
-ms.openlocfilehash: 34c6811ed5a51dae5281a4374421df5914c5b263
-ms.sourcegitcommit: 436cd515ea0d83d46e3ac6328670ee78b64ccb05
+ms.openlocfilehash: 304b40a00fd471b7735ff11c01bdaa8b6ca3a8ec
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81663773"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83227479"
 ---
 # <a name="geo_distance_point_to_line"></a>geo_distance_point_to_line()
 
-Вычисляет кратчайшее расстояние между координатами и линией на Земле.
+Вычисляет кратчайшее расстояние между координатами и линией на земле.
 
 **Синтаксис**
 
-`geo_distance_point_to_line(`*долгота*`, `*широты*`, `*линииString*`)`
+`geo_distance_point_to_line(`*Долгота* `, ` *Широта* `, ` *lineString*`)`
 
 **Аргументы**
 
-* *долгота*: Геопространственная координация долготы значение в градусах. Допустимое значение – это реальное число и в диапазоне 180, 180 евро.
-* *широта*: Геопространственная координация широты значение в градусах. Допустимое значение – это реальное число и в диапазоне 90, 90 евро.
-* *lineString*: Линия в [формате GeoJSON](https://tools.ietf.org/html/rfc7946) и [динамического](./scalar-data-types/dynamic.md) типа данных.
+* *Долгота*: значение долготы геопространственной координаты в градусах. Допустимые значения — вещественное число и в диапазоне [-180, + 180].
+* *Широта*: Геопространственное значение координаты широты в градусах. Допустимые значения — вещественное число и в диапазоне [-90, + 90].
+* *lineString*: строка в [формате геоjson](https://tools.ietf.org/html/rfc7946) и тип [динамических](./scalar-data-types/dynamic.md) данных.
 
 **Возвращает**
 
-Самое короткое расстояние, в метрах, между координатами и линией на Земле. Если координаты или строки String недействительны, запрос даст нулевой результат.
+Кратчайшее расстояние в метрах между координатами и линией на земле. Если координата или lineString являются недопустимыми, запрос выдаст результат NULL.
 
 > [!NOTE]
-> * Геопространственные координаты интерпретируются как представленные системой координат [WGS-84.](https://earth-info.nga.mil/GandG/update/index.php?action=home)
-> * [Геодезический дом,](https://en.wikipedia.org/wiki/Geodetic_datum) используемый для измерения расстояния на Земле, является сферой. Края линий являются геодезиками на сфере.
+> * Геопространственные координаты обрабатываются как представленные системой координат [WGS-84](https://earth-info.nga.mil/GandG/update/index.php?action=home) .
+> * [Геодезическийная база](https://en.wikipedia.org/wiki/Geodetic_datum) , используемая для измерения расстояния на земле, — это сфера. Края линий жеодесикс в сфере.
 
-**Определение и ограничения LineString**
+**Определение LineString и ограничения**
 
-динамическая («тип»: «LineString»,«координаты»: «lng_1,lat_1», «lng_2,lat_2» ,..., (lng_N,lat_N)
+Dynamic ({"Type": "LineString", "координаты": [[lng_1, lat_1], [lng_2, lat_2],..., [lng_N, lat_N]]})
 
 * Массив координат LineString должен содержать не менее двух записей.
-* Координаты «долгота, широта» должны быть действительными там, где долгота – это реальное число в диапазоне »-180, 180», а широта – это реальное число в диапазоне »-90, 90».
-* Длина края должна быть менее 180 градусов. Будет выбран кратчайший край между двумя вершинами.
+* Координаты [Долгота, Широта] должны быть допустимыми, где Долгота является вещественным числом в диапазоне [-180, + 180], а Широта — вещественным числом в диапазоне [-90, + 90].
+* Длина границы должна быть меньше 180 градусов. Будет выбрано самое короткое ребро между двумя вершинами.
 
 > [!TIP]
-> Для повышения производительности используйте буквальные строки.
+> Для повышения производительности используйте литеральные строки.
 
 **Примеры**
 
-Ниже приводится кратчайшее расстояние между аэропортом Северного Лас-Вегаса и близлежащей дорогой.
+В следующем примере выполняется поиск кратчайшего расстояния между руководством по северу Лас-деньги и ближайшим поездкам.
 
-:::image type="content" source="images/queries/geo/distance_point_to_line.png" alt-text="Расстояние между аэропортом Норт-Лас-Вегас и дорогой":::
+:::image type="content" source="images/geo-distance-point-to-line-function/distance-point-to-line.png" alt-text="Расстояние между аэропортами и поездками Северной Лас":::
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 print distance_in_meters = geo_distance_point_to_line(-115.199625, 36.210419, dynamic({ "type":"LineString","coordinates":[[-115.115385,36.229195],[-115.136995,36.200366],[-115.140252,36.192470],[-115.143558,36.188523],[-115.144076,36.181954],[-115.154662,36.174483],[-115.166431,36.176388],[-115.183289,36.175007],[-115.192612,36.176736],[-115.202485,36.173439],[-115.225355,36.174365]]}))
 ```
@@ -62,10 +63,11 @@ print distance_in_meters = geo_distance_point_to_line(-115.199625, 36.210419, dy
 |--------------------|
 | 3797.88887253334   |
 
-Штормовые явления на южном побережье США. События фильтруются на максимальном расстоянии 5 км от определенной береговой линии.
+События в Южной регион США. События фильтруются по максимальному расстоянию в 5 км от определенной укрепление строки.
 
-:::image type="content" source="images/queries/geo/us_south_coast_storm_events.png" alt-text="Штормовые явления на южном побережье США":::
+:::image type="content" source="images/geo-distance-point-to-line-function/us-south-coast-storm-events.png" alt-text="События в Южной регион США":::
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 let southCoast = dynamic({"type":"LineString","coordinates":[[-97.18505859374999,25.997549919572112],[-97.58056640625,26.96124577052697],[-97.119140625,27.955591004642553],[-94.04296874999999,29.726222319395504],[-92.98828125,29.82158272057499],[-89.18701171875,29.11377539511439],[-89.384765625,30.315987718557867],[-87.5830078125,30.221101852485987],[-86.484375,30.4297295750316],[-85.1220703125,29.6880527498568],[-84.00146484374999,30.14512718337613],[-82.6611328125,28.806173508854776],[-82.81494140625,28.033197847676377],[-82.177734375,26.52956523826758],[-80.9912109375,25.20494115356912]]});
 StormEvents
@@ -74,10 +76,11 @@ StormEvents
 | render scatterchart with (kind=map) // map rendering available in Kusto Explorer desktop
 ```
 
-NY такси пикапы. Пикапы отфильтровываются на максимальном расстоянии 0,1 м от заданной линии.
+Повышена отправке в такси. Раскладки фильтруются по максимальному расстоянию 0,1 м из заданной строки.
 
-:::image type="content" source="images/queries/geo/park_ave_ny_road.png" alt-text="Штормовые явления на южном побережье США":::
+:::image type="content" source="images/geo-distance-point-to-line-function/park-ave-ny-road.png" alt-text="События в Южной регион США":::
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 nyc_taxi
 | project pickup_longitude, pickup_latitude
@@ -86,7 +89,9 @@ nyc_taxi
 | render scatterchart with (kind=map) // map rendering available in Kusto Explorer desktop
 ```
 
-Следующий пример возвращает нулевой результат из-за недействительного ввода LineString.
+В следующем примере возвращается результат NULL из-за недопустимых входных данных LineString.
+
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 print distance_in_meters = geo_distance_point_to_line(1,1, dynamic({ "type":"LineString"}))
 ```
@@ -95,7 +100,8 @@ print distance_in_meters = geo_distance_point_to_line(1,1, dynamic({ "type":"Lin
 |--------------------|
 |                    |
 
-Следующий пример возвращает нулевой результат из-за недействительных ввода координат.
+В следующем примере возвращается результат NULL из-за неправильного ввода координат.
+
 ```kusto
 print distance_in_meters = geo_distance_point_to_line(300, 3, dynamic({ "type":"LineString","coordinates":[[1,1],[2,2]]}))
 ```

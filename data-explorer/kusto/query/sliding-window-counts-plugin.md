@@ -1,6 +1,6 @@
 ---
-title: sliding_window_counts плагин - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описывается sliding_window_counts плагин в Azure Data Explorer.
+title: подключаемый модуль sliding_window_counts — Azure обозреватель данных
+description: В этой статье описывается подключаемый модуль sliding_window_counts в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: feab3d0e8f548817be12f202eb2d494bd65aa133
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 2fbc870eafc45c8c63bea98a64f492d161af4c9b
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81507503"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83226352"
 ---
-# <a name="sliding_window_counts-plugin"></a>sliding_window_counts плагин
+# <a name="sliding_window_counts-plugin"></a>подключаемый модуль sliding_window_counts
 
-Вычисляет подсчеты и отчетливое количество значений в раздвижном окне в течение периода возврата, используя технику, описанную [здесь.](samples.md#performing-aggregations-over-a-sliding-window)
+Вычисляет количество и число различных значений в скользящем окне за лукбакк период с помощью описываемого [здесь](samples.md#performing-aggregations-over-a-sliding-window)метода.
 
-Например, за каждый *день,* рассчитать количество и различные подсчета пользователей на предыдущей *неделе.* 
+Например, для каждого *дня*можно вычислить количество и число уникальных пользователей за прошлую *неделю*. 
 
 ```kusto
 T | evaluate sliding_window_counts(id, datetime_column, startofday(ago(30d)), startofday(now()), 7d, 1d, dim1, dim2, dim3)
@@ -27,33 +27,33 @@ T | evaluate sliding_window_counts(id, datetime_column, startofday(ago(30d)), st
 
 **Синтаксис**
 
-*T* `| evaluate` *dim1* `,` *dim2* `,` *End* `,` `,` *Bin* `,` *Start* `,` `,` *IdColumn* `,` *TimelineColumn* *LookbackWindow* IdColumn TimelineКолонка Начало Конец LookbackWindow Бин `sliding_window_counts(``)`
+*T* `| evaluate` `sliding_window_counts(` *идколумн* `,` *тимелинеколумн* `,` *Start* `,` *End* `,` *лукбакквиндов* `,` *bin* `,` [*Dim1* `,` *dim2* `,` ...]`)`
 
 **Аргументы**
 
-* *T*: Входное табеляцивское выражение.
-* *IdColumn*: Название столбца с значениями идентификатора, которые представляют активность пользователя. 
-* *TimelineColumn*: Название столбца, представляющего временную шкалу.
-* *Начало*: Scalar со значением периода начала анализа.
-* *Конец*: Scalar со значением конечного периода анализа.
-* *LookbackWindow*: Scalar постоянное значение периода возврата (например, для пользователей, считаюющихся в прошлом 7d: LookbackWindow 7d)
-* *Бин*: Scalar константное значение периода шага анализа. Может быть либо числовая / дата / timestamp значение, `week` / `month` / `year`или строка, которая является одним из , и в этом случае все периоды будут [startofweek](startofweekfunction.md)/[startofmonth](startofmonthfunction.md)/[startofyear](startofyearfunction.md) соответственно. 
-* *dim1*, *dim2*, ...: (необязательный) список столбцов измерений, которые нарезает расчет метрик активности.
+* *T*: Входное табличное выражение.
+* *Идколумн*: имя столбца со значениями идентификаторов, представляющими действия пользователя. 
+* *Тимелинеколумн*: имя столбца, представляющего временную шкалу.
+* *Начало*: скалярное значение начального периода анализа.
+* *End*: скаляр со значением периода окончания анализа.
+* *Лукбакквиндов*: скалярное постоянное значение периода лукбакк (например, для `dcount` пользователей в прошлом 7D: лукбакквиндов = 7D)
+* *Bin*: скалярное постоянное значение периода анализа. Это значение может быть числовым значением, DateTime или timestamp. Если значение является строкой с форматом `week` / `month` / `year` , все точки будут [startofweek](startofweekfunction.md) / [StartOfMonth](startofmonthfunction.md) / [startofyear](startofyearfunction.md). 
+* *Dim1*, *dim2*,...: (необязательно) список столбцов измерений, которые срезируют вычисление метрик действия.
 
 **Возвращает**
 
-Возвращает таблицу с значениями подсчета и различных значений подсчета идентификаторов в период обратного отсчета, для каждого периода временной шкалы (по ячейке) и для каждой существующей комбинации измерений.
+Возвращает таблицу, которая содержит значения Count и Distinct Count идентификаторов в лукбакк периоде для каждого периода временной шкалы (по ячейке) и для каждой комбинации существующих измерений.
 
-Схема таблицы вывода:
+Схема выходной таблицы:
 
-|*ХронологияКоля*|dim1|..|dim_n|Count|Численность счета|
+|*тимелинеколумн*|`dim1`|..|`dim_n`|`count`|`dcount`|
 |---|---|---|---|---|---|
-|тип: по состоянию на *ХроникаColumn*|..|..|..|long|long|
+|Тип: от *тимелинеколумн*|..|..|..|long|long|
 
 
 **Примеры**
 
-Рассчитать подсчеты и количество счетов для пользователей за прошедшую неделю, за каждый день в период анализа. 
+Вычислите количество и `dcounts` для пользователей за прошлую неделю за каждый день анализа. 
 
 ```kusto
 let start = datetime(2017 - 08 - 01);
@@ -83,7 +83,7 @@ T | evaluate sliding_window_counts(UserId, Timestamp, start, end, lookbackWindow
 
 ```
 
-|Отметка времени|Count|Численность счета|
+|Отметка времени|Счетчик|`dcount`|
 |---|---|---|
 |2017-08-01 00:00:00.0000000|5|3|
 |2017-08-02 00:00:00.0000000|8|5|

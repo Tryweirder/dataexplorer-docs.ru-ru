@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: b06b1c137552ba19f9b1ef5367a25bb72eea5c93
-ms.sourcegitcommit: 4f68d6dbfa6463dbb284de0aa17fc193d529ce3a
+ms.openlocfilehash: 167ba8818709f52ccc344452e275405c42b1796e
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742042"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83227678"
 ---
 # <a name="activity_counts_metrics-plugin"></a>Подключаемый модуль activity_counts_metrics
 
@@ -25,7 +25,7 @@ T | evaluate activity_counts_metrics(id, datetime_column, startofday(ago(30d)), 
 
 **Синтаксис**
 
-*T* `| evaluate` `,` *Start* `,` *dim1* *TimelineColumn* `,` *Cohort* *IdColumn* `,` *End* `,` *dim2* *Window* `,` идколумн тимелинеколумн Start End`,` Window [когорту] [Dim1 dim2...]`,` `activity_counts_metrics(` [`,` *Лукбакк*]`)`
+*T* `| evaluate` `activity_counts_metrics(` *идколумн* `,` *тимелинеколумн* `,` *Start* `,` *End* `,` *Window* [ `,` *когорту*] [ `,` *Dim1* `,` *dim2* `,` ...] [ `,` *лукбакк*]`)`
 
 **Аргументы**
 
@@ -34,7 +34,7 @@ T | evaluate activity_counts_metrics(id, datetime_column, startofday(ago(30d)), 
 * *Тимелинеколумн*: имя столбца, представляющего временную шкалу.
 * *Начало*: скалярное значение начального периода анализа.
 * *End*: скаляр со значением периода окончания анализа.
-* *Window*: скалярный со значением периода окна анализа. Аргумент может быть либо числовым значением, либо DateTime/timestamp, либо строкой, которая `week` / `month` / `year`является одним из, в этом случае все периоды будут [startofweek](startofweekfunction.md)/[StartOfMonth](startofmonthfunction.md) или [startofyear](startofyearfunction.md). 
+* *Window*: скалярный со значением периода окна анализа. Аргумент может быть либо числовым значением, либо DateTime/timestamp, либо строкой, которая является одним из `week` / `month` / `year` , в этом случае все периоды будут [startofweek](startofweekfunction.md) / [StartOfMonth](startofmonthfunction.md) или [startofyear](startofyearfunction.md). 
 * *Dim1*, *dim2*,...: (необязательно) список столбцов измерений, которые срезируют вычисление метрик действия.
 
 **Возвращает**
@@ -60,6 +60,7 @@ T | evaluate activity_counts_metrics(id, datetime_column, startofday(ago(30d)), 
 
 Следующий запрос вычисляет ежедневные счетчики активности для указанной входной таблицы.
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let start=datetime(2017-08-01);
 let end=datetime(2017-08-04);

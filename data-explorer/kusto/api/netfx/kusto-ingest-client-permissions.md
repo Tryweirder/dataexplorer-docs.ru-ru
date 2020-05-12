@@ -1,6 +1,6 @@
 ---
-title: Kusto. принимаемое разрешение на прием — обозреватель данных Azure
-description: В этой статье описываются разрешения на прием ссылок на Kusto. принимаемые в Azure обозреватель данных.
+title: Kusto. прием разрешений приема в Azure обозреватель данных
+description: В этой статье описываются разрешения Kusto. прием приема в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: e60eb6642a66fac81ce373f8f4d62de4f7217a91
-ms.sourcegitcommit: 061eac135a123174c85fe1afca4d4208c044c678
+ms.openlocfilehash: 3fd516b7201c5e857417ca13bade668f32f25161
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82799702"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83226165"
 ---
-# <a name="kustoingest-reference---ingestion-permissions"></a>Kusto. принимаемые ссылки — разрешения на прием
+# <a name="kustoingest---ingestion-permissions"></a>Разрешения на прием Kusto. приема
 
 В этой статье объясняется, какие разрешения следует настроить в службе для `Native` работы.
 
@@ -23,11 +23,9 @@ ms.locfileid: "82799702"
 
 * Сведения о просмотре и изменении параметров авторизации в службах и базах данных Kusto см. в разделе [команды управления Kusto](../../management/security-roles.md).
 
-## <a name="references"></a>Ссылки
-
-* Приложения Azure AD, используемые в качестве примеров участников в примерах ниже.
-    * Тестирование приложения AAD (2a904276-1234-5678-9012-66fc53add60b; microsoft.com)
-    * Приложение AAD для внутреннего приема Kusto (76263cdb-1234-5678-9012-545644e9c404; microsoft.com)
+* Azure Active Directory приложения (Azure AD), используемые в качестве примеров участников, в следующих примерах:
+    * Тестовая Azure AD App (2a904276-1234-5678-9012-66fc53add60b; microsoft.com)
+    * Azure AD App внутреннего приема Kusto (76263cdb-1234-5678-9012-545644e9c404; microsoft.com)
 
 ## <a name="ingestion-permission-mode-for-queued-ingestion"></a>Режим разрешения приема для приема в очереди
 
@@ -39,8 +37,8 @@ ms.locfileid: "82799702"
 
 ### <a name="permissions-on-the-engine-service"></a>Разрешения для службы Engine
 
-Чтобы обеспечить получение данных в таблице `T1` базы данных `DB1`, участник, выполняющий операцию приема, должен иметь авторизацию.
-Минимальные требуемые уровни разрешений `Database Ingestor` — `Table Ingestor` и позволяют принимать данные во все существующие таблицы в базе данных или в определенную существующую таблицу.
+Чтобы обеспечить получение данных в таблице `T1` базы данных `DB1` , участник, выполняющий операцию приема, должен иметь авторизацию.
+Минимальные требуемые уровни разрешений — `Database Ingestor` и `Table Ingestor` позволяют принимать данные во все существующие таблицы в базе данных или в определенную существующую таблицу.
 Если требуется создание таблицы, `Database User` также необходимо назначить более высокую роль доступа.
 
 
@@ -49,11 +47,11 @@ ms.locfileid: "82799702"
 |`Database Ingestor`  |Приложение Azure AD |`Test App (app id: 2a904276-1234-5678-9012-66fc53add60b)`
 |`Table Ingestor`     |Приложение Azure AD |`Test App (app id: 2a904276-1234-5678-9012-66fc53add60b)`
 
->`Kusto Internal Ingestion AAD App (76263cdb-1234-5678-9012-545644e9c404)`Основное приложение Kusto, которое является внутренним приложением приема, иммутабли сопоставлено с `Cluster Admin` ролью. Таким же авторизацией можно принимать данные в любую таблицу. Это происходит в конвейерах приема, управляемых Kusto.
+>`Kusto Internal Ingestion Azure AD App (76263cdb-1234-5678-9012-545644e9c404)`Основное приложение Kusto, которое является внутренним приложением приема, иммутабли сопоставлено с `Cluster Admin` ролью. Таким же авторизацией можно принимать данные в любую таблицу. Это происходит в конвейерах приема, управляемых Kusto.
 
-Предоставление требуемых разрешений для `DB1` базы данных `T1` или таблицы `Test App (2a904276-1234-5678-9012-66fc53add60b in AAD tenant microsoft.com)` в Azure AD App будет выглядеть следующим образом:
+Предоставление требуемых разрешений для базы данных `DB1` или таблицы `T1` в Azure AD App `Test App (2a904276-1234-5678-9012-66fc53add60b in Azure AD tenant microsoft.com)` будет выглядеть следующим образом:
 
 ```kusto
-.add database DB1 ingestors ('aadapp=2a904276-1234-5678-9012-66fc53add60b;microsoft.com') 'Test AAD App'
-.add table T1 ingestors ('aadapp=2a904276-1234-5678-9012-66fc53add60b;microsoft.com') 'Test AAD App'
+.add database DB1 ingestors ('aadapp=2a904276-1234-5678-9012-66fc53add60b;microsoft.com') 'Test Azure AD App'
+.add table T1 ingestors ('aadapp=2a904276-1234-5678-9012-66fc53add60b;microsoft.com') 'Test Azure AD App'
 ```

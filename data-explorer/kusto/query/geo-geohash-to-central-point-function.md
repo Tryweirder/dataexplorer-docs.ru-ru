@@ -1,43 +1,44 @@
 ---
-title: geo_geohash_to_central_point() - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны geo_geohash_to_central_point () в Azure Data Explorer.
+title: geo_geohash_to_central_point () — обозреватель данных Azure
+description: В этой статье описывается geo_geohash_to_central_point () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/27/2020
-ms.openlocfilehash: a71265b58cffcec2fcf9d6ac8d412c8dd44866f4
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: eb59eae0bc014c6ce9060d65f6c3aced80e4275c
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81514643"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83227134"
 ---
 # <a name="geo_geohash_to_central_point"></a>geo_geohash_to_central_point()
 
-Вычисляет геопространственные координаты, представляющие центр прямоугольной области Geohash.
+Вычисляет геопространственные координаты, представляющие центр прямоугольной области геохэш-кода.
 
-Для получения дополнительной информации о Geohash, [см.](https://en.wikipedia.org/wiki/Geohash)  
+Дополнительные сведения см [`geohash`](https://en.wikipedia.org/wiki/Geohash) . в статье.  
 
 **Синтаксис**
 
-`geo_geohash_to_central_point(`*geohash*`)`
+`geo_geohash_to_central_point(`*геохэш*`)`
 
 **Аргументы**
 
-*geohash*: Geohash значение строки, как это было рассчитано [geo_point_to_geohash()](geo-point-to-geohash-function.md). Строка геохэша может быть от 1 до 18 символов.
+*геохэш*: строковое значение геохэш-значения в том виде, в котором оно было вычислено [geo_point_to_geohash ()](geo-point-to-geohash-function.md). Длина строки геохэш-кода может составлять от 1 до 18 символов.
 
 **Возвращает**
 
-Значения геопространственных координат в [формате GeoJSON](https://tools.ietf.org/html/rfc7946) и [динамического](./scalar-data-types/dynamic.md) типа данных. Если геохаш недействителен, запрос даст нулевой результат.
+Значения геопространственных координат в [формате геоjson](https://tools.ietf.org/html/rfc7946) и [динамического](./scalar-data-types/dynamic.md) типа данных. Если геохэш является недопустимым, запрос выдает результат NULL.
 
 > [!NOTE]
-> Формат GeoJSON определяет длину первой и широты второй.
+> В формате геоjson сначала указывается Долгота и Широта секунд.
 
 **Примеры**
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 print point = geo_geohash_to_central_point("sunny")
 | extend coordinates = point.coordinates
@@ -46,22 +47,24 @@ print point = geo_geohash_to_central_point("sunny")
 
 |point|координаты|долгота|широта|
 |---|---|---|---|
-|{<br>  "тип": "Точка",<br>  "Координаты":<br>    42.47314453125,<br>    23.70849609375<br>  ]<br>}|[<br>  42.47314453125,<br>  23.70849609375<br>]|42.47314453125|23.70849609375|
+|{<br>  "тип": "точка",<br>  "координаты": [<br>    42.47314453125,<br>    23.70849609375<br>  ]<br>}|[<br>  42.47314453125,<br>  23.70849609375<br>]|42.47314453125|23.70849609375|
 
-Следующий пример возвращает нулевой результат из-за недействительного геохаса ввода.
+В следующем примере возвращается результат NULL из-за недопустимых входных данных геоалгоритма.
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 print geohash = geo_geohash_to_central_point("a")
 ```
 
-|geohash|
+|геохэш|
 |---|
 ||
 
-## <a name="example-creating-location-deep-links-for-bing-maps"></a>Пример: Создание глубоких ссылок на местоположение для Bing Maps
+## <a name="example-creating-location-deep-links-for-bing-maps"></a>Пример. Создание глубокой ссылки на расположение для карт Bing
 
-Вы можете использовать значение Geohash для создания URL-адреса глубокой связи с Картами Bing, указывая на центральную точку Geohash:
+Вы можете использовать значение геохэша для создания URL-адреса глубокой ссылки на карты Bing, указав центральную точку хэша.
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 // Use string concatenation to create Bing Map deep-link URL from a geo-point
 let point_to_map_url = (_point:dynamic, _title:string) 
@@ -77,6 +80,6 @@ print geohash = 'sv8wzvy7'
 | extend url = geohash_to_map_url(geohash, "You are here")
 ```
 
-|geohash|url|
+|геохэш|url|
 |---|---|
 |sv8wzvy7|[https://www.bing.com/maps?sp=point.32.15620994567871_34.80245590209961_You+are+here](https://www.bing.com/maps?sp=point.32.15620994567871_34.80245590209961_You+are+here)|

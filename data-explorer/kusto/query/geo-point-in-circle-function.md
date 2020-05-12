@@ -1,51 +1,52 @@
 ---
-title: geo_point_in_circle() - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается geo_point_in_circle () в Azure Data Explorer.
+title: geo_point_in_circle () — обозреватель данных Azure
+description: В этой статье описывается geo_point_in_circle () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/03/2020
-ms.openlocfilehash: ca3ca8a1ac2299c43888ac827d46c25d02e4999d
-ms.sourcegitcommit: 436cd515ea0d83d46e3ac6328670ee78b64ccb05
+ms.openlocfilehash: 6e6ef40fcdeb4942dc0924c86862ee8f6222ac12
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81663797"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83227190"
 ---
 # <a name="geo_point_in_circle"></a>geo_point_in_circle()
 
-Вычисляет, находятся ли геопространственные координаты внутри круга на Земле.
+Вычисляет, находятся ли геопространственные координаты внутри окружности на земле.
 
 **Синтаксис**
 
-`geo_point_in_circle(`*c_radius p_latitude p_longitude*`, `*p_latitude*`, `*pc_longitude*`, `*pc_latitude*`, `*c_radius*`)`
+`geo_point_in_circle(`*p_longitude* `, ` *p_latitude* `, ` *pc_longitude* `, ` *pc_latitude* `, ` *c_radius*`)`
 
 **Аргументы**
 
-* *p_longitude*: Значение долготы геопространственной координаты в градусах. Допустимое значение – это реальное число и в диапазоне 180, 180 евро.
-* *p_latitude*: Геопространственная координация широты значение в градусах. Допустимое значение – это реальное число и в диапазоне 90, 90 евро.
-* *pc_longitude*: Круг центр геопространственной координации значение долготы в градусах. Допустимое значение – это реальное число и в диапазоне 180, 180 евро.
-* *pc_latitude*: центр круга геопространственной координации широты значение в градусах. Допустимое значение – это реальное число и в диапазоне 90, 90 евро.
-* *c_radius*: Радиус круга в метрах. Допустимое значение должно быть положительным.
+* *p_longitude*: значение долготы геопространственной координаты в градусах. Допустимые значения — вещественное число и в диапазоне [-180, + 180].
+* *p_latitude*: значение широты для геопространственной координаты в градусах. Допустимые значения — вещественное число и в диапазоне [-90, + 90].
+* *pc_longitude*: значение долготы геопространственной координаты по кругу в градусах. Допустимые значения — вещественное число и в диапазоне [-180, + 180].
+* *pc_latitude*: значение широты геопространственной координаты в градусах. Допустимые значения — вещественное число и в диапазоне [-90, + 90].
+* *c_radius*: круг радиуса в метрах. Допустимое значение должно быть положительным.
 
 **Возвращает**
 
-Указывает, находятся ли геопространственные координаты внутри круга. Если координаты или круг недействительны, запрос даст нулевой результат.
+Указывает, находятся ли геопространственные координаты внутри окружности. Если координаты или окружность недопустимы, запрос выдаст результат NULL.
 
 > [!NOTE]
->* Геопространственные координаты интерпретируются как представленные системой координат [WGS-84.](https://earth-info.nga.mil/GandG/update/index.php?action=home)
->* [Геодезический дом,](https://en.wikipedia.org/wiki/Geodetic_datum) используемый для измерения расстояния на Земле, является сферой.
->* Круг - это сферическая шапка на Земле. Радиус крышки измеряется вдоль поверхности сферы.
+>* Геопространственные координаты обрабатываются как представленные системой координат [WGS-84](https://earth-info.nga.mil/GandG/update/index.php?action=home) .
+>* [Геодезическийная база](https://en.wikipedia.org/wiki/Geodetic_datum) , используемая для измерения расстояния на земле, — это сфера.
+>* Круг — это сферовая заглушка на земле. Радиус крепления определяется вдоль поверхности сферы.
 
 **Примеры**
 
-В следующем запросе находятся все места в области, определяемые кругом с радиусом 18 км, центр которого находится на уровне 122.317404, 47.609119 координаты.
+Следующий запрос находит все места в области, определяемой следующим кругом: радиус 18 км, центр по адресу [-122,317404, 47,609119].
 
-:::image type="content" source="images/queries/geo/circle_seattle.png" alt-text="Места возле Сиэтл":::
+:::image type="content" source="images/geo-point-in-circle-function/circle-seattle.png" alt-text="Расположений вблизи Сиэтл":::
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 datatable(longitude:real, latitude:real, place:string)
 [
@@ -65,10 +66,11 @@ datatable(longitude:real, latitude:real, place:string)
 |Kirkland|
 |Redmond|
 
-Штормовые события в Орландо. События фильтруются Орландо координаты, в пределах 100 км и агрегируется по типу события и хэш.
+События в Орландо. События фильтруются по 100 км в Орландо и объединяются по типу события и хэшу.
 
-:::image type="content" source="images/queries/geo/orlando_storm_events.png" alt-text="Штормовые события в Орландо":::
+:::image type="content" source="images/geo-point-in-circle-function/orlando-storm-events.png" alt-text="События в Орландо":::
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | project BeginLon, BeginLat, EventType
@@ -78,10 +80,11 @@ StormEvents
 | render piechart with (kind=map) // map rendering available in Kusto Explorer desktop
 ```
 
-Следующий пример показывает NY Такси пикапы поблизости некоторое место и в пределах 10 метров. Соответствующие пикапы агрегируются по хэшу.
+В следующем примере показаны посылки для Нью-Йорка в пределах 10 метров определенного местоположения. Соответствующие операции отправки объединяются по хэшу.
 
-:::image type="content" source="images/queries/geo/circle_junction.png" alt-text="NY Такси поблизости Пикапы":::
+:::image type="content" source="images/geo-point-in-circle-function/circle-junction.png" alt-text="Ближайшие такси":::
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 nyc_taxi
 | project pickup_longitude, pickup_latitude
@@ -91,7 +94,9 @@ nyc_taxi
 | render scatterchart with (kind = map) // map rendering available in Kusto Explorer desktop
 ```
 
-Следующий пример вернется верно.
+В следующем примере возвращается значение true.
+
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 print in_circle = geo_point_in_circle(-122.143564, 47.535677, -122.100896, 47.527351, 3500)
 ```
@@ -100,7 +105,9 @@ print in_circle = geo_point_in_circle(-122.143564, 47.535677, -122.100896, 47.52
 |---|
 |1|
 
-Следующий пример будет возвращаться ложным.
+В следующем примере возвращается значение false.
+
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 print in_circle = geo_point_in_circle(-122.137575, 47.630683, -122.100896, 47.527351, 3500)
 ```
@@ -109,7 +116,9 @@ print in_circle = geo_point_in_circle(-122.137575, 47.630683, -122.100896, 47.52
 |---|
 |0|
 
-Следующий пример возвращает нулевой результат из-за недействительных ввода координат.
+В следующем примере возвращается результат NULL из-за неправильного ввода координат.
+
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 print in_circle = geo_point_in_circle(200, 1, 1, 1, 1)
 ```
@@ -118,7 +127,8 @@ print in_circle = geo_point_in_circle(200, 1, 1, 1, 1)
 |---|
 ||
 
-Следующий пример возвращает нулевой результат из-за недействительного радиуса круга.
+В следующем примере возвращается результат NULL из-за недопустимых входных данных радиуса круга.
+
 ```kusto
 print in_circle = geo_point_in_circle(1, 1, 1, 1, -1)
 ```

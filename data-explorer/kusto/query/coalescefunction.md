@@ -1,6 +1,6 @@
 ---
-title: объединиться () - Azure Data Explorer Документы Майкрософт
-description: В этой статье описано объединение () в Azure Data Explorer.
+title: объединение () — Azure обозреватель данных
+description: В этой статье описывается объединение () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 1ee2cd24f36007914fdc326e2863da148aec4406
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: ea57efe36fb86189d798e5f18fa3fe9470bfd634
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81517142"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83227542"
 ---
 # <a name="coalesce"></a>coalesce()
 
-Оценивает список выражений и возвращает первое ненулевое (или непустое для строки) выражение.
+Вычисляет список выражений и возвращает первое выражение, отличное от NULL (или не пустое для строки).
 
 ```kusto
 coalesce(tolong("not a number"), tolong("42"), 33) == 42
@@ -25,25 +25,26 @@ coalesce(tolong("not a number"), tolong("42"), 33) == 42
 
 **Синтаксис**
 
-`coalesce(`*expr_1*`, `*expr_2* `,` ...)
+`coalesce(`*expr_1* `, ` *expr_2* `,` ...)
 
 **Аргументы**
 
-* *expr_i*: Выражаемый выражение, который будет оценен.
+* *expr_i*— скалярное выражение для вычисления.
 - Все аргументы должны быть одного типа.
-- Поддерживается максимум 64 аргумента.
+- Поддерживается не более 64 аргументов.
 
 
 **Возвращает**
 
-Значение первого *expr_i* значение которого не является нулевым (или не пустым для выражений строки).
+Значение первого *expr_i* , значение которого не равно null (или не является пустым для строковых выражений).
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net/Samples  -->
 ```kusto
 print result=coalesce(tolong("not a number"), tolong("42"), 33)
 ```
 
-|набор по|
+|result|
 |---|
 |42|

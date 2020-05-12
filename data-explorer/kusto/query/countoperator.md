@@ -1,6 +1,6 @@
 ---
-title: Оператор подсчета - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается оператор подсчета в Azure Data Explorer.
+title: Оператор Count — Azure обозреватель данных
+description: В этой статье описывается оператор Count в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/16/2020
-ms.openlocfilehash: c0d0286919a68b6e58065e0a6fe7e0d24b1cdd5f
-ms.sourcegitcommit: c4aea69fafa9d9fbb814764eebbb0ae93fa87897
+ms.openlocfilehash: 9a34734ebfee94646b2b2f15730f14f9d2709c6d
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81610229"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83227520"
 ---
 # <a name="count-operator"></a>Оператор count
 
-Возвращает количество записей в наборе входных записей.
+Возвращает количество записей во входном наборе записей.
 
 **Синтаксис**
 
@@ -33,6 +33,7 @@ ms.locfileid: "81610229"
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents | count
 ```

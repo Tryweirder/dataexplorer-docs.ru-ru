@@ -1,6 +1,6 @@
 ---
-title: между оператором - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается между оператором в Azure Data Explorer.
+title: оператор Between в Azure обозреватель данных
+description: В этой статье описывается оператор Between в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 336d24edbcd7574f0c4b6375b4b09014b38d10ec
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: ef64818c9c5e345ffb60999c97273670026be022
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81517856"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83227627"
 ---
 # <a name="between-operator"></a>Оператор between
 
@@ -24,31 +24,32 @@ Table1 | where Num1 between (1 .. 10)
 Table1 | where Time between (datetime(2017-01-01) .. datetime(2017-01-01))
 ```
 
-`between`может работать на любом численном, времени даты или выражении тайм-span.
+`between`может выполнять операции с любым числовым выражением, типом DateTime или значением типа TimeSpan.
  
 **Синтаксис**
 
-*T* `|` T `where` *expr* `between` *leftRange*` .. `*rightRange* leftRange rightRange `(``)`   
+*T* `|` `where` *expr* `between` `(` *лефтранже* ` .. ` *ригхтранже*`)`   
  
-Если *expr* выражение дата - другой синтаксической синтаксис сахара синтаксис предоставляется:
+Если выражение *expr* имеет тип DateTime, предоставляется еще один синтаксический синтаксис SugarCRM:
 
-*T* `|` T `where` *expr* `between` *leftRangeDateTime*` .. `*rightRangeTimespan* leftRangeDateTime rightRangeTimespan `(``)`   
+*T* `|` `where` *expr* `between` `(` *лефтранжедатетиме* ` .. ` *ригхтранжетимеспан*`)`   
 
 **Аргументы**
 
-* *T* - Табулярный вход, записи которого должны быть сопоставлены.
-* *expr* - выражение для фильтрации.
-* *leftRange* - выражение левого диапазона (включительно).
-* *rightRange* - выражение правильного диапазона (включительно).
+* *T* — табличный ввод, записи которого должны быть сопоставлены.
+* *expr* — выражение для фильтрации.
+* *лефтранже* -выражение левого диапазона (включительно).
+* *ригхтранже* -выражение правого диапазона (включительно).
 
 **Возвращает**
 
-Строки в *T,* для которых предикат *(expr* >= *leftRange* и `true` *expr* <= *rightRange*) оценивается в .
+Строки в *T* , для которых предикат (*expr*  >=  *лефтранже* и *expr*  <=  *ригхтранже*) принимает значение `true` .
 
 **Примеры**  
 
-**Фильтрация числовых значений с помощью оператора «между»**  
+**Фильтрация числовых значений с помощью оператора "Between"**  
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 range x from 1 to 100 step 1
 | where x between (50 .. 55)
@@ -63,26 +64,26 @@ range x from 1 to 100 step 1
 |54|
 |55|
 
-**Время фильтрации даты с помощью оператора «между»**  
+**Фильтрация даты и времени с помощью оператора "Between"**  
 
-
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents
 | where StartTime between (datetime(2007-07-27) .. datetime(2007-07-30))
 | count 
 ```
 
-|Count|
+|Счетчик|
 |---|
 |476|
 
-
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents
 | where StartTime between (datetime(2007-07-27) .. 3d)
 | count 
 ```
 
-|Count|
+|Счетчик|
 |---|
 |476|

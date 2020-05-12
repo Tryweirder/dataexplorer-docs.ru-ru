@@ -1,6 +1,6 @@
 ---
-title: beta_pdf() - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны beta_pdf () в Azure Data Explorer.
+title: beta_pdf () — обозреватель данных Azure
+description: В этой статье описывается beta_pdf () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 53b86d88b05cc6c5cc31f1e3bbb9e3e712eed7f8
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 8ebd4cb0ab8a5bffec717f83892a3ea11b35f409
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81517873"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83227644"
 ---
 # <a name="beta_pdf"></a>beta_pdf()
 
-Возвращает бета-функцию плотности вероятности.
+Возвращает функцию бета-версии плотности вероятности.
 
 ```kusto
 beta_pdf(0.2, 10.0, 50.0)
@@ -27,28 +27,29 @@ beta_pdf(0.2, 10.0, 50.0)
 
 **Синтаксис**
 
-`beta_pdf(`*x*`, `*альфа-бета*`, `*beta*`)`
+`beta_pdf(`*x* `, ` *альфа-канал* `, ` *бета-версия*`)`
 
 **Аргументы**
 
-* *x*: Значение, при котором можно оценить функцию.
-* *альфа*: Параметр распределения.
-* *бета*: Параметр распределения.
+* *x*: значение, для которого вычисляется функция.
+* *альфа*— параметр распределения.
+* *бета*— параметр распределения.
 
 **Возвращает**
 
-* [Функция вероятности бета-плотности.](https://en.wikipedia.org/wiki/Beta_distribution#Probability_density_function)
+* [Функция плотности бета-версии](https://en.wikipedia.org/wiki/Beta_distribution#Probability_density_function).
 
 **Примечания**
 
-Если какой-либо аргумент ненумерен, beta_pdf() возвращает нулевую стоимость.
+Если любой из аргументов является нечисловым, beta_pdf () возвращает значение null.
 
-Если х 0 или 1 х, beta_pdf() возвращает значение NaN.
+Если x ≤ 0 или 1 ≤ x, beta_pdf () возвращает значение NaN.
 
-Если альфа-0 или бета-версия 0, beta_pdf() возвращает значение NaN.
+Если альфа ≤ 0 или бета ≤ 0, beta_pdf () возвращает значение NaN.
 
 **Примеры**
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 datatable(x:double, alpha:double, beta:double, comment:string)
 [
@@ -62,12 +63,12 @@ datatable(x:double, alpha:double, beta:double, comment:string)
 
 |x|alpha|beta|comment|r|
 |---|---|---|---|---|
-|0,5|10|20|Действительный вход|0.746176019310951|
-|1.5|10|20|x > 1, дает NaN|NaN|
-|–10|10|20|x < 0, дает NaN|NaN|
-|0,1|-1|20|альфа < 0, дает NaN|NaN|
+|0,5|10|20|Допустимые входные данные|0.746176019310951|
+|1.5|10|20|x > 1, возвращает NaN|NaN|
+|–10|10|20|x < 0, возвращает NaN|NaN|
+|0,1|-1|20|Альфа-< 0, возвращает NaN|NaN|
 
 **Ссылки**
 
-* Для вычисления обратной функции бета-кумулятивной плотности вероятности [см.](./beta-invfunction.md)
-* Для стандартной функции кумулятивного [бета-распределения](./beta-cdffunction.md)см.
+* Вычисление обратной функции бета-интегральной плотности см. в статье [Beta – Inv ()](./beta-invfunction.md).
+* Сведения о стандартной интегральной функции бета-распределения см. в статье [Beta-CDF ()](./beta-cdffunction.md).
