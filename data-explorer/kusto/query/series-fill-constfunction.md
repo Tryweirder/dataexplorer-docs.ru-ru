@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 22e40c810242ee82701cf2d0e382a9f1910ed22d
-ms.sourcegitcommit: 4f68d6dbfa6463dbb284de0aa17fc193d529ce3a
+ms.openlocfilehash: 7f7c6384bb49640890ae4d3cbd5a4f409688bcbe
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82741725"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372788"
 ---
 # <a name="series_fill_const"></a>series_fill_const()
 
@@ -23,14 +23,14 @@ ms.locfileid: "82741725"
 
 **Синтаксис**
 
-`series_fill_const(`*x*`[, ``[,` *missing_value_placeholder* *constant_value* x`]])`
+`series_fill_const(`*x* `[, ` *constant_value* `[,` *missing_value_placeholder*`]])`
 * Возвратит ряд *x* со всеми экземплярами *missing_value_placeholder* заменяются *constant_value*.
 
 **Аргументы**
 
 * *x*: скалярное выражение динамического массива, которое является массивом числовых значений.
 * *constant_value*: параметр, указывающий заполнитель для замены отсутствующего значения. Значение по умолчанию — *0*. 
-* *missing_value_placeholder*: необязательный параметр, указывающий заполнитель для замены отсутствующего значения. Значение по умолчанию — `double`(*null*).
+* *missing_value_placeholder*: необязательный параметр, указывающий заполнитель для замены отсутствующего значения. Значение по умолчанию — `double` (*null*).
 
 **Примечания**
 * Можно создать ряд, который заполняется константным значением, с помощью `default = ` синтаксиса *DefaultValue* (или просто пропуская, что будет считать 0). Дополнительные сведения см. в разделе [make-Series](make-seriesoperator.md).
@@ -45,11 +45,12 @@ make-series num=count() default=-1 on TimeStamp in range(ago(1d), ago(1h), 1h) b
 make-series num=count() default=long(null) on TimeStamp in range(ago(1d), ago(1h), 1h) by Os, Browser
 ```
   
-* *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Таким образом, оба `double`значения (*null*) `long`, (*null*) `int`или (*null*) имеют одинаковое значение.
+* *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Таким образом, оба значения `double` (*null*), `long` (*null*) или `int` (*null*) имеют одинаковое значение.
 * Функция сохраняет исходный тип элементов массива. 
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let data = datatable(`arr`: dynamic)
 [

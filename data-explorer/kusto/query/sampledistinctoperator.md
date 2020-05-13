@@ -1,6 +1,6 @@
 ---
-title: оператор, отличаясь выборкой - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается оператор, отличающийся от примеров в Azure Data Explorer.
+title: Оператор Sample-DISTINCT в Azure обозреватель данных
+description: В этой статье описывается оператор Sample-DISTINCT в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: b6d6c77aef3a7e2c6d99af792062d9f1a6215f51
-ms.sourcegitcommit: 436cd515ea0d83d46e3ac6328670ee78b64ccb05
+ms.openlocfilehash: 5303801b983b326310065ea2a6ce6ded7d098001
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81663635"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372993"
 ---
 # <a name="sample-distinct-operator"></a>Оператор sample-distinct
 
 Возвращает один столбец, который содержит указанное число разных значений запрошенного столбца. 
 
-по умолчанию (и в настоящее время только) вкус оператора пытается вернуть ответ как можно быстрее (а не пытается сделать справедливый образец)
+по умолчанию только разновидность оператора пытается вернуть ответ как можно быстрее (а не пытаться сделать пример).
 
 ```kusto
 T | sample-distinct 5 of DeviceId
@@ -27,23 +27,24 @@ T | sample-distinct 5 of DeviceId
 
 **Синтаксис**
 
-*T* `| sample-distinct` *NumberOfValues* `of` *ColumnName*
+*T* `| sample-distinct` *нумберофвалуес* `of` *ColumnName*
 
 **Аргументы**
-* *NumberOfValues*: Число различных значений *T,* чтобы вернуться. Можно указать любое численное выражение.
+* *Нумберофвалуес*: количество различных значений *T* для возврата. Можно указать любое числовое выражение.
 
-**Советы**
+**"Советы"**
 
- Может быть удобно, чтобы `sample-distinct` попробовать население, поставив в `in` пусть заявление, а затем фильтр с помощью оператора (см. пример) 
+ Можно использовать для выборки заполнения, поместив `sample-distinct` инструкцию Let и последующий фильтр с помощью `in` оператора (см. пример). 
 
- Если вы хотите верхние значения, а не просто образец, вы можете использовать [топ-нападающих](tophittersoperator.md) оператора 
+ Если вам нужны верхние значения, а не просто образец, можно использовать оператор [Top-hitters](tophittersoperator.md) . 
 
- если вы хотите выставить строки данных (а не значения конкретного столбца), обратитесь к [оператору выборки](sampleoperator.md)
+ Если требуется вычислить образцы строк данных (а не значения определенного столбца), см. [оператор Sample](sampleoperator.md) .
 
 **Примеры**  
 
-Получите 10 различных значений от населения
+Получение 10 различных значений из Генеральной совокупности
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents | sample-distinct 10 of EpisodeId
 
@@ -51,6 +52,7 @@ StormEvents | sample-distinct 10 of EpisodeId
 
 Выполняет выборку заполнения и дальнейшие вычисления, учитывая то, что одна строка не может превысить ограничения запроса. 
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let sampleEpisodes = StormEvents | sample-distinct 10 of EpisodeId;
 StormEvents 

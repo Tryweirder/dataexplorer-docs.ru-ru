@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 4ef02ab79b0701b4af74744a94e0ff795eb8c26a
-ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
+ms.openlocfilehash: 4cec053990457a6b33c7446c5b32c63713320de9
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737255"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372763"
 ---
 # <a name="series_fill_linear"></a>series_fill_linear()
 
@@ -23,31 +23,33 @@ ms.locfileid: "82737255"
 
 **Синтаксис**
 
-`series_fill_linear(`*x*`[,` ` [,`*fill_edges*fill_edges` [,` *missing_value_placeholder*x*constant_value*`]]]))`
+`series_fill_linear(`*x* `[,` *missing_value_placeholder* ` [,` *fill_edges*missing_value_placeholder x ` [,` *constant_value*`]]]))`
 * Будет возвращать линейную интерполяцию по *оси x* с использованием указанных параметров.
  
 
 **Аргументы**
 
 * *x*: скалярное выражение с динамическим массивом, представляющее собой массив числовых значений.
-* *missing_value_placeholder*: необязательный параметр, который указывает заполнитель для замены отсутствующих значений. Значение по умолчанию — `double`(*null*).
+* *missing_value_placeholder*: необязательный параметр, который указывает заполнитель для замены отсутствующих значений. Значение по умолчанию — `double` (*null*).
 * *fill_edges*: логическое значение, указывающее, следует ли заменять *missing_value_placeholder* в начале и в конце массива на ближайшее значение. По умолчанию *имеет значение true* . Если задано значение *false*, то *missing_value_placeholder* в начале и в конце массива будут сохранены.
-* *constant_value*: необязательный параметр, относящийся только к массивам, полностью состоит из значений *null* . Этот параметр задает постоянное значение для заполнения ряда. Значение по умолчанию — *0*. Установка этого параметра в `double`значение (*null*) фактически оставляет значения *null* там, где они есть.
+* *constant_value*: необязательный параметр, относящийся только к массивам, полностью состоит из значений *null* . Этот параметр задает постоянное значение для заполнения ряда. Значение по умолчанию — *0*. Установка этого параметра в `double` значение (*null*) фактически оставляет значения *null* там, где они есть.
 
 **Примечания**
 
 * Чтобы применить любые функции интерполяции после выполнения действия [Series](make-seriesoperator.md), укажите значение *null* в качестве значения по умолчанию: 
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 make-series num=count() default=long(null) on TimeStamp in range(ago(1d), ago(1h), 1h) by Os, Browser
 ```
 
-* *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Таким образом, оба `double`значения (*null*) `long`, (*null*) `int`или (*null*) имеют одинаковое значение.
-* Если *missing_value_placeholder* имеет `double`*значение (NULL*) (или опущено, то есть имеет то же значение), результат может содержать значения *null* . Используйте другие функции интерполяции для заполнения этих значений *null* . В настоящее время только [series_outliers ()](series-outliersfunction.md) поддерживают значения *null* во входных массивах.
+* *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Таким образом, оба значения `double` (*null*), `long` (*null*) или `int` (*null*) имеют одинаковое значение.
+* Если *missing_value_placeholder* имеет `double` *значение (NULL*) (или опущено, то есть имеет то же значение), результат может содержать значения *null* . Используйте другие функции интерполяции для заполнения этих значений *null* . В настоящее время только [series_outliers ()](series-outliersfunction.md) поддерживают значения *null* во входных массивах.
 * Функция сохраняет исходный тип элементов массива. Если x содержит только int или long, линейная интерполяция будет возвращать округленные интерполяции значений, а не точные.
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let data = datatable(arr: dynamic)
 [

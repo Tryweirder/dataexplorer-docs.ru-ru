@@ -1,6 +1,6 @@
 ---
-title: series_multiply() - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается series_multiply () в Azure Data Explorer.
+title: series_multiply () — обозреватель данных Azure
+description: В этой статье описывается series_multiply () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,31 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: fa000d1058730e0232790e7f0e3976fa203519c0
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 1f88cdfc1490f8b00d8104286441e366aaf46f3f
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81508217"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372570"
 ---
 # <a name="series_multiply"></a>series_multiply()
 
-Вычисляет размножение элементов двух численных вводов серии.
+Вычисляет поэлементное умножение двух входных числовых рядов.
 
 **Синтаксис**
 
-`series_multiply(`*серия1* `,` *серия2*`)`
+`series_multiply(`*Series1* `,` *Series2*`)`
 
 **Аргументы**
 
-* *series1, series2*: Числовые массивы ввода, чтобы быть помноженными элементами в результате динамического массива. Все аргументы должны быть динамическими массивами. 
+* *Series1, Series2*: входные числовые массивы для поэлементного умножения в результат динамического массива. Все аргументы должны быть динамическими массивами. 
 
 **Возвращает**
 
-Динамический массив расчетливой операции умножения элементов между двумя входами. Любой нечислоный элемент или несуществующий элемент (массивы разных размеров) дает значение элемента. `null`
+Динамический массив вычисляемой операции умножения на уровне элементов между двумя входными значениями. Любой нечисловой элемент или несуществующий элемент (массивы разного размера) дает `null` значение элемента.
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 range x from 1 to 3 step 1
 | extend y = x * 2
@@ -43,6 +44,6 @@ range x from 1 to 3 step 1
 
 |s1         |s2|        s1_multiply_s2|
 |---|---|---|
-|[1,2,4]    |[4,2,1]|   [4,4,4]|
-|[2,4,8]    |[8,4,2]|   [16,16,16]|
-|[3,6,12]   |[12,6,3]|  [36,36,36]|
+|[1, 2, 4]    |[4, 2, 1]|   [4, 4, 4]|
+|[2, 4, 8]    |[8, 4, 2]|   [16, 16, 16]|
+|[3, 6, 12]   |[12, 6, 3]|  [36, 36, 36]|

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/26/2019
-ms.openlocfilehash: 5394eefad37195833c0c5ebb94325bb540d1f520
-ms.sourcegitcommit: 9fe6ee7db15a5cc92150d3eac0ee175f538953d2
+ms.openlocfilehash: 4500ec5b58c93901e011ea6dd270563d3405ee01
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82907215"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372872"
 ---
 # <a name="series_decompose"></a>series_decompose()
 
@@ -23,7 +23,7 @@ ms.locfileid: "82907215"
  
 **Синтаксис**
 
-`series_decompose(`*Series* `[,` *Seasonality* `,` *Test_points* Test_points`,` *Trend* тренда`,` ряда сезонности *Seasonality_threshold*`])`
+`series_decompose(`*Ряд* `[,` *Сезонности* `,` *Тенденция* `,` *Test_points* `,` *Seasonality_threshold*`])`
 
 **Аргументы**
 
@@ -37,7 +37,7 @@ ms.locfileid: "82907215"
     * "линефит": извлечение компонента тренда с использованием линейной регрессии.
     * "None": нет тренда, пропустите извлечение этого компонента.    
 * *Test_points*: 0 (по умолчанию) или положительное целое число, указывающее количество точек в конце последовательности, исключаемых из процесса обучения (регрессия). Этот параметр должен быть задан для целей прогнозирования.
-* *Seasonality_threshold*: пороговое значение для оценки сезонности, когда для *сезонности* задано автоматическое обнаружение, пороговое значение оценки по умолчанию — `0.6`. Дополнительные сведения см. в разделе [series_periods_detect](series-periods-detectfunction.md).
+* *Seasonality_threshold*: пороговое значение для оценки сезонности, когда для *сезонности* задано автоматическое обнаружение, пороговое значение оценки по умолчанию — `0.6` . Дополнительные сведения см. в разделе [series_periods_detect](series-periods-detectfunction.md).
 
 **Вернул**
 
@@ -72,6 +72,7 @@ ms.locfileid: "82907215"
 
 В следующем примере мы создаем серию с еженедельным сезонностиом и без тренда, а затем добавим в него некоторые выбросы. `series_decompose`находит и автоматически обнаруживает сезонности и формирует базовый уровень, почти идентичный сезонному компоненту. Добавленные выбросы можно четко увидеть в компоненте остатки.
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let ts=range t from 1 to 24*7*5 step 1 
 | extend Timestamp = datetime(2018-03-01 05:00) + 1h * t 
@@ -90,6 +91,7 @@ ts
 
 В этом примере мы добавим тенденцию к ряду из предыдущего примера. Сначала выполняется `series_decompose` с параметрами по умолчанию. Значение тренда `avg` по умолчанию принимает только среднее и не вычисляет тренд. Созданный базовый план не содержит тенденцию. При наблюдении за тенденциями в остатках он становится очевидным, что этот пример менее точен, чем в предыдущем примере.
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let ts=range t from 1 to 24*7*5 step 1 
 | extend Timestamp = datetime(2018-03-01 05:00) + 1h * t 
@@ -106,6 +108,7 @@ ts
 
 Затем повторно запустите тот же пример. Так как мы ожидаем тренд в ряде, мы указываем `linefit` в параметре тенденция. Можно заметить, что обнаружена положительная тенденция, а базовая линия почти ближе к входному ряду. Остатки близки к нулю, и только выбросы выделены. В диаграмме можно увидеть все компоненты серии.
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let ts=range t from 1 to 24*7*5 step 1 
 | extend Timestamp = datetime(2018-03-01 05:00) + 1h * t 

@@ -1,6 +1,6 @@
 ---
-title: sumif() (функция агрегации) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны sumif() (функция агрегирования) в Azure Data Explorer.
+title: СУММЕСЛИ () (агрегатная функция) — обозреватель данных Azure | Документация Майкрософт
+description: В этой статье описывается процедура СУММЕСЛИ () (агрегатная функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,36 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: a7d2c96f73b404e8d9acbe9da9defecd6bf1bbf3
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 7d97d31b2fb97d5541400bc0605ee40e83807b62
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506670"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83371898"
 ---
-# <a name="sumif-aggregation-function"></a>sumif() (функция агрегирования)
+# <a name="sumif-aggregation-function"></a>СУММЕСЛИ () (агрегатная функция)
 
-Возвращает сумму *Expr,* для которых *Predicate* оценивает . `true`
+Возвращает сумму *выражения expr* , для которой *предикат* принимает значение `true` .
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-Вы также можете использовать функцию [сумма ()](sum-aggfunction.md) которая суммирует строки без выражения предиката.
+Можно также использовать функцию [Sum ()](sum-aggfunction.md) , которая суммирует строки без выражения предиката.
 
 **Синтаксис**
 
-резюмировать `sumif(` *Expr*`,`*Predicate*`)`
+суммировать `sumif(` *Expr* `,` *предикат* выражения`)`
 
 **Аргументы**
 
-* *Expr*: выражение для расчета агрегации. 
-* *Предикат*: Предикат, что, если это правда, *Вычисляемой*стоимости будет добавлен к сумме. 
+* *Expr*: выражение для вычисления агрегата. 
+* *Предикат*: predicate, при значении true вычисляемое значение *expr*будет добавлено к сумме. 
 
 **Возвращает**
 
-Сумма значение *Expr,* для которого *Predicate* оценивает . `true`
-
-> [!TIP]
-> Используйте `summarize sumif(expr, filter)` вместо `where filter | summarize sum(expr)`
+Итоговое значение *выражения expr* , для *Predicate* которого вычисляется предикат `true` .
 
 **Пример**
 

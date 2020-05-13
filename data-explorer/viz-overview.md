@@ -1,6 +1,6 @@
 ---
-title: Визуализация данных Azure Data Explorer
-description: Узнайте о различных способах визуализации данных Azure Data Explorer
+title: Визуализация данных обозреватель данных Azure
+description: Узнайте о различных способах визуализации данных Azure обозреватель данных
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,63 +8,63 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 6d3b692d72b673b55e4bdc0f737b74b9c4a669d9
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: b1d888471c93409826abe523ae6ae4df39e120c3
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81500792"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374265"
 ---
-# <a name="data-visualization-with-azure-data-explorer"></a>Визуализация данных с помощью Azure Data Explorer 
+# <a name="data-visualization-with-azure-data-explorer"></a>Визуализация данных с помощью Azure обозреватель данных 
 
-Azure Data Explorer — это быстрая и высокомасштабируемая служба по разведке данных для данных журналов и телеметрии, которая используется для создания сложных аналитических решений для огромных объемов данных. Azure Data Explorer интегрируется с различными инструментами визуализации, так что вы можете визуализировать свои данные и делиться результатами по всей организации. Эти данные могут быть преобразованы в действенные идеи, чтобы оказать влияние на ваш бизнес.
+Azure обозреватель данных — это быстрая и Высокомасштабируемая служба просмотра данных для данных журналов и телеметрии, которая используется для создания сложных аналитических решений для больших объемов данных. Azure обозреватель данных интегрируется с различными средствами визуализации, позволяя визуализировать данные и совместно использовать результаты в Организации. Эти данные можно преобразовать в ценную информацию, чтобы повлиять на бизнес.
 
-Визуализация данных и отчетность является важным шагом в процессе анализа данных. Azure Data Explorer поддерживает множество служб BI, чтобы можно было использовать тот, который наилучшим образом соответствует сценарию и бюджету.
+Визуализация данных и отчетность — это важный шаг в процессе анализа данных. Azure обозреватель данных поддерживает множество служб бизнес-аналитики, что позволяет использовать ту, которая лучше подходит для вашего сценария и бюджета.
 
-## <a name="kusto-query-language-visualizations"></a>Визуализации языка запроса Kusto
+## <a name="kusto-query-language-visualizations"></a>Визуализации языка запросов Kusto
 
-Язык [`render operator`](kusto/query/renderoperator.md) запроса Kusto предлагает различные визуализации, такие как таблицы, круговые диаграммы и диаграммы баров для отображения результатов запросов. Визуализации запросов полезны при обнаружении и прогнозировании аномалий, машинном обучении и многом другом.
+Язык запросов Kusto [`render operator`](kusto/query/renderoperator.md) предлагает различные визуализации, такие как таблицы, круговые диаграммы и линейчатые диаграммы для отображения результатов запроса. Визуализации запросов полезны при обнаружении аномалий и прогнозировании, машинном обучении и т. д.
 
 ## <a name="power-bi"></a>Power BI
 
-Azure Data Explorer предоставляет возможность подключения к [Power BI](https://powerbi.microsoft.com) с помощью различных методов: 
+Azure обозреватель данных предоставляет возможность подключения к [Power BI](https://powerbi.microsoft.com) с помощью различных методов: 
 
-  * [Встроенный родной разъем Power BI](/azure/data-explorer/power-bi-connector)
+  * [Встроенный соединитель Native Power BI](power-bi-connector.md)
 
-  * [Импорт запросов из Azure Data Explorer в Power BI](/azure/data-explorer/power-bi-imported-query)
+  * [Импорт запросов из обозреватель данных Azure в Power BI](power-bi-imported-query.md)
  
-  * [SQL-запрос](/azure/data-explorer/power-bi-sql-query)
+  * [SQL-запрос](power-bi-sql-query.md)
 
 ## <a name="microsoft-excel"></a>Microsoft Excel
 
-Azure Data Explorer предоставляет возможность подключения к [Microsoft Excel](https://products.office.com/excel) с помощью [встроенного разъема Excel](excel-connector.md)или [импортировать запрос](excel-blank-query.md) из Azure Data Explorer в Excel.
+Azure обозреватель данных предоставляет возможность подключения к [Microsoft Excel](https://products.office.com/excel) с помощью [встроенного собственного соединителя Excel](excel-connector.md)или [импорта запроса](excel-blank-query.md) из обозреватель данных Azure в Excel.
 
 ## <a name="grafana"></a>Grafana
 
-[Grafana](https://grafana.com) предоставляет плагин Azure Data Explorer, который позволяет визуализировать данные из Azure Data Explorer. Вы [настраиваете Azure Data Explorer в качестве источника данных для Grafana, а затем визуализируете данные.](/azure/data-explorer/grafana) 
+[Grafana](https://grafana.com) предоставляет подключаемый модуль Azure обозреватель данных, который позволяет визуализировать данные из обозреватель данных Azure. Вы [настраиваете обозреватель данных Azure в качестве источника данных для Grafana, а затем визуализируйте данные](grafana.md). 
 
 ## <a name="kibana"></a>Kibana
 
-Azure Data Explorer предоставляет возможность подключения к [Kibana (страница Discover)](https://www.elastic.co/guide/en/kibana/6.8/discover.html) с помощью K2Bridge, разъема с открытым исходным кодом. Вы [настраиваете Azure Data Explorer в качестве источника данных для Kibana, а затем визуализируете данные.](/azure/data-explorer/k2bridge)
+Azure обозреватель данных предоставляет возможность подключения к [Kibana (странице обнаружения)](https://www.elastic.co/guide/en/kibana/6.8/discover.html) с помощью K2Bridge, соединителя с открытым исходным кодом. Вы [настраиваете обозреватель данных Azure в качестве источника данных для Kibana, а затем визуализируйте данные](k2bridge.md).
 
 ## <a name="odbc-connector"></a>Соединитель ODBC
 
-Azure Data Explorer предоставляет [разъем open Database Connectivity (ODBC),](connect-odbc.md) чтобы любое приложение, поддерживающее ODBC, может подключиться к Azure Data Explorer.
+Azure обозреватель данных предоставляет [Соединитель ODBC](connect-odbc.md) , так что любое приложение, которое поддерживает ODBC, может подключаться к Azure обозреватель данных.
 
 ## <a name="tableau"></a>Tableau
 
-Azure Data Explorer предоставляет возможность подключения к [Tableau](https://www.tableau.com) с помощью [разъема ODBC,](/azure/data-explorer/connect-odbc) а затем [визуализировать данные в Tableau.](tableau.md)
+Azure обозреватель данных предоставляет возможность подключения к [Tableau](https://www.tableau.com) с помощью [соединителя ODBC](connect-odbc.md) и [визуализации данных в Tableau](tableau.md).
 
 ## <a name="qlik"></a>Qlik
 
-Azure Data Explorer предоставляет возможность подключения к [злику](https://www.qlik.com) с помощью [разъема ODBC,](/azure/data-explorer/connect-odbc) а затем создавать панели мониторинга slik Sense и визуализировать данные. Используя следующее видео, вы можете научиться визуализировать данные Azure Data Explorer с помощью злик. 
+Azure обозреватель данных предоставляет возможность подключения к [Qlik Sense](https://www.qlik.com) с помощью [соединителя ODBC](connect-odbc.md) , а затем создает панели мониторинга Qlik senseного датчика и визуализируют данные. С помощью следующего видео вы узнаете, как визуализировать данные обозреватель данных Azure с помощью Qlik Sense. 
 
 > [!VIDEO https://www.youtube.com/embed/nhWIiBwxjjU]  
 
 ## <a name="sisense"></a>Sisense
 
-Azure Data Explorer предоставляет возможность подключения к [Sisense](https://www.sisense.com) с помощью разъема JDBC. Вы [настраиваете Azure Data Explorer в качестве источника данных для Sisense, а затем визуализируете данные.](/azure/data-explorer/sisense)
+Azure обозреватель данных предоставляет возможность подключения к [Sisense](https://www.sisense.com) с помощью соединителя JDBC. Вы [настраиваете обозреватель данных Azure в качестве источника данных для Sisense, а затем визуализируйте данные](sisense.md).
 
 ## <a name="redash"></a>Redash
 
-Можно использовать [Redash](https://redash.io/) для создания панелей мониторинга и визуализации данных. [Навлаживать Azure Data Explorer в качестве источника данных для Redash, а затем визуализировать данные.](/azure/data-explorer/redash)
+Вы можете использовать [перетире](https://redash.io/) для создания панелей мониторинга и визуализации данных. [Настройте обозреватель данных Azure в качестве источника данных для перештриха, а затем визуализируйте данные](redash.md).

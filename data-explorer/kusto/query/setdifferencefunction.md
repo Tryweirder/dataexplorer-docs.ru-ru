@@ -1,6 +1,6 @@
 ---
-title: set_difference () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны set_difference () в Azure Data Explorer.
+title: set_difference () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается set_difference () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,31 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/02/2019
-ms.openlocfilehash: d4edb8ec46fca99b7dd58b11bbd54442a9340c7a
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 7e13a9b652e1bdadb325cd866bddd78761b25b85
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81507809"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372393"
 ---
 # <a name="set_difference"></a>set_difference()
 
-Возвращает `dynamic` массив (JSON) из набора всех различных значений, которые находятся в первом массиве, но не в других массивах - (((arr1 й arr2)
+Возвращает `dynamic` массив (JSON) набора всех уникальных значений, которые находятся в первом массиве, но отсутствуют в других массивах (((arr1 \ arr2) \ arr3) \...).
 
 **Синтаксис**
 
-`set_difference(`*arr1*`, `*arr2*`[`,` *arr3*, ...])`
+`set_difference(`*arr1* `, ` *arr2* `[` ,` *arr3*, ...])`
 
 **Аргументы**
 
-* *arr1... arrN*: Ввод массивов для создания набора различий (по крайней мере два массива). Все аргументы должны быть динамическими массивами [(см. pack_array).](packarrayfunction.md) 
+* *arr1... Аррн*: входные массивы для создания набора различий (по крайней мере два массива). Все аргументы должны быть динамическими массивами (см. [pack_array](packarrayfunction.md)). 
 
 **Возвращает**
 
-Возвращает динамический массив набора всех различных значений, которые находятся в arr1, но не находятся в других массивах. Увидеть [`set_union()`](setunionfunction.md) [`set_intersect()`](setintersectfunction.md)и .
+Возвращает динамический массив из набора всех уникальных значений, которые находятся в arr1, но отсутствуют в других массивах. См [`set_union()`](setunionfunction.md) . раздел и [`set_intersect()`](setintersectfunction.md) .
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 range x from 1 to 3 step 1
 | extend y = x * 2
@@ -45,13 +46,14 @@ range x from 1 to 3 step 1
 |Column1|
 |---|
 |[4]|
-|[8]|
-|[12]|
+|8|
+|Двенадцать|
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 print arr = set_difference(dynamic([1,2,3]), dynamic([1,2,3]))
 ```
 
-|Arr|
+|маленькая|
 |---|
 |[]|

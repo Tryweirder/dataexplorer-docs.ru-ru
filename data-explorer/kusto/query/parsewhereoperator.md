@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/12/2020
-ms.openlocfilehash: c0ee38fe77c0957b9ba7fd589115eee20be6a649
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 646ec00531d528efd51b4a168fde3de660a85ced
+ms.sourcegitcommit: 733bde4c6bc422c64752af338b29cd55a5af1f88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83224856"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83271100"
 ---
 # <a name="parse-where-operator"></a>Оператор parse-where
 
@@ -95,6 +95,7 @@ T | parse-where Text with "ActivityName=" name ", ActivityType=" type
 
 При использовании `parse` вычисляемые столбцы будут иметь значения NULL.
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 let Traces = datatable(EventText:string)
 [
@@ -121,6 +122,7 @@ Traces
 
 Использование инструкции "Parse-Where" отфильтровывает неудачно проанализированные строки из результата.
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 let Traces = datatable(EventText:string)
 [
@@ -145,6 +147,7 @@ Traces
 
 Чтобы получить resourceName и Тоталслицес, используйте следующий запрос:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 let Traces = datatable(EventText:string)
 [
@@ -167,6 +170,7 @@ Traces
 
 Будут успешно проанализированы только три строки, поэтому результат будет состоять из трех записей (некоторые Тоталслицес содержат недопустимые целые числа).
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 let Traces = datatable(EventText:string)
 [

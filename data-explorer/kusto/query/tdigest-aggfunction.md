@@ -1,5 +1,5 @@
 ---
-title: тдижест () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+title: тдижест () (агрегатная функция) — Azure обозреватель данных
 description: В этой статье описывается тдижест () (статистическая функция) в Azure обозреватель данных.
 services: data-explorer
 author: orspod
@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/10/2019
-ms.openlocfilehash: 1a44945a22d08a1a5a55a5fc130f7ca4247f1fb8
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: b98c551cb1ded8da291d4510b45a86d560f325b1
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83224992"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83371029"
 ---
 # <a name="tdigest-aggregation-function"></a>тдижест () (агрегатная функция)
 
@@ -46,6 +46,7 @@ ms.locfileid: "83224992"
 
 **Примеры**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents
 | summarize tdigest(DamageProperty) by State

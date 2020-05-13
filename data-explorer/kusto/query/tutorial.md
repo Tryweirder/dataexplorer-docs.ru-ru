@@ -1,5 +1,5 @@
 ---
-title: Руководство по Azure обозреватель данных | Документация Майкрософт
+title: Руководство по Azure обозреватель данных
 description: В этой статье описывается руководство по Azure обозреватель данных.
 services: data-explorer
 author: orspod
@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/23/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 90d06064069a17d6b1394701bb4ea72483061b9c
-ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
+ms.openlocfilehash: 8898f772af37e86ec33bff66e43779dfbaf4c053
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737612"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83370690"
 ---
 # <a name="tutorial"></a>Учебник
 
 ::: zone pivot="azuredataexplorer"
 
-Лучший способ узнать о языке запросов Kusto — просмотреть некоторые простые запросы, чтобы получить "впечатление" для языка, использующего [базу данных с некоторыми примерами данных](https://help.kusto.windows.net/Samples). Запросы, показанные в этой статье, должны выполняться в этой базе данных. `StormEvents` Таблица в этом образце базы данных содержит некоторые сведения о выделах, произошедших в США.
+Лучший способ узнать о языке запросов Kusto — просмотреть некоторые простые запросы, чтобы получить "впечатление" для языка, использующего [базу данных с некоторыми примерами данных](https://help.kusto.windows.net/Samples). Запросы, показанные в этой статье, должны выполняться в этой базе данных. `StormEvents`Таблица в этом образце базы данных содержит некоторые сведения о выделах, произошедших в США.
 
 <!--
   TODO: Provide link to reference data we used originally in StormEvents
@@ -34,11 +34,12 @@ ms.locfileid: "82737612"
 
 ## <a name="count-rows"></a>Считать строки
 
-В нашем примере базы данных имеется таблица `StormEvents`с именем.
+В нашем примере базы данных имеется таблица с именем `StormEvents` .
 Чтобы узнать, насколько это было, мы будем передавать его содержимое в оператор, который просто подсчитывает строки:
 
 * *Синтаксис:* Запрос — это источник данных (обычно имя таблицы), за которым может следовать одна или несколько пар символа вертикальной черты и некоторый табличный оператор.
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents | count
 ```
@@ -57,8 +58,9 @@ StormEvents | count
 
 ## <a name="where-filtering-by-a-boolean-expression"></a>WHERE: Фильтрация по логическому выражению
 
-Давайте посмотрим только `flood`s в в `California` течение февраля-2007:
+Давайте посмотрим только `flood` s в в `California` течение февраля-2007:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | where StartTime > datetime(2007-02-01) and StartTime < datetime(2007-03-01)
@@ -66,7 +68,7 @@ StormEvents
 | project StartTime, EndTime , State , EventType , EpisodeNarrative
 ```
 
-|StartTime|EndTime|Область|EventType|еписоденарративе|
+|StartTime|EndTime|State|EventType|еписоденарративе|
 |---|---|---|---|---|
 |2007-02-19 00:00:00.0000000|2007-02-19 08:00:00.0000000|Калифорния|Наводнение|Фронтальная система, перемещающаяся через Южный Сан-Жоакуин, применяет краткие периоды высокой дождяи к западноевропейскому округу в первые утром часов 19. Незначительное переполнение было сообщено в состоянии "незначительные" 166 рядом с Тафт.|
 
@@ -74,13 +76,14 @@ StormEvents
 
 Давайте просмотрим некоторые данные — что содержится в выборке из 5 строк?
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | take 5
 | project  StartTime, EndTime, EventType, State, EventNarrative  
 ```
 
-|StartTime|EndTime|EventType|Область|Описание события (EventNarrative)|
+|StartTime|EndTime|EventType|State|Описание события (EventNarrative)|
 |---|---|---|---|---|
 |2007-09-18 20:00:00.0000000|2007-09-19 18:00:00.0000000|Тяжелая дождя|Флорида|До 9 дюймов дождя за 24-часовой период между частями Коастал Волусиа округ.|
 |2007-09-20 21:57:00.0000000|2007-09-20 22:05:00.0000000|Торнадо|Флорида|В торнадое Еустис на северном конце Западная Крукед Lake. Торнадо быстро переключается на EF1 надежность при перемещении Севера Северо-Запад через Еустис. Эта запись была находилась в течение двух миль и имеет максимальную ширину 300 метра.  Торнадо удалили 7 домов. Двадцать семи домов получили серьезные повреждения и 81 домов сообщили о незначительном повреждении. В $6 200 000 не было задано серьезного травмах, а свойство повреждено.|
@@ -93,18 +96,19 @@ StormEvents
 
 ## <a name="sort-and-top"></a>Сортировка и начало
 
-* *Синтаксис:* Некоторые операторы имеют параметры, представленные ключевыми `by`словами, такими как.
+* *Синтаксис:* Некоторые операторы имеют параметры, представленные ключевыми словами, такими как `by` .
 * `desc` — по убыванию, `asc` — по возрастанию.
 
 Показать первые n строк, упорядоченных по одному из столбцов:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | top 5 by StartTime desc
 | project  StartTime, EndTime, EventType, State, EventNarrative  
 ```
 
-|StartTime|EndTime|EventType|Область|Описание события (EventNarrative)|
+|StartTime|EndTime|EventType|State|Описание события (EventNarrative)|
 |---|---|---|---|---|
 |2007-12-31 22:30:00.0000000|2007-12-31 23:59:00.0000000|Зима|Мичиган|Это интенсивное событие снег, которое продолжается в первые утром часов в течение нового года.|
 |2007-12-31 22:30:00.0000000|2007-12-31 23:59:00.0000000|Зима|Мичиган|Это интенсивное событие снег, которое продолжается в первые утром часов в течение нового года.|
@@ -114,6 +118,7 @@ StormEvents
 
 То же самое можно сделать с помощью функции [Sort](./sortoperator.md) , а затем [взять](./takeoperator.md) оператор
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | sort by StartTime desc
@@ -125,6 +130,7 @@ StormEvents
 
 Создание нового столбца путем вычисления значения в каждой строке:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | limit 5
@@ -132,7 +138,7 @@ StormEvents
 | project StartTime, EndTime, Duration, EventType, State
 ```
 
-|StartTime|EndTime|Duration|EventType|Область|
+|StartTime|EndTime|Duration|EventType|State|
 |---|---|---|---|---|
 |2007-09-18 20:00:00.0000000|2007-09-19 18:00:00.0000000|22:00:00|Тяжелая дождя|Флорида|
 |2007-09-20 21:57:00.0000000|2007-09-20 22:05:00.0000000|00:08:00|Торнадо|Флорида|
@@ -141,8 +147,9 @@ StormEvents
 |2007-12-30 16:00:00.0000000|2007-12-30 16:05:00.0000000|00:05:00|Шквалистый ветер|Грузия|
 
 Можно повторно использовать имя столбца и присвоить результат вычисления одному и тому же столбцу.
-Например:
+Пример:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 print x=1
 | extend x = x + 1, y = x
@@ -153,29 +160,31 @@ print x=1
 |---|---|
 |3|1|
 
-[Скалярные выражения](./scalar-data-types/index.md) могут включать все обычные операторы (`+`, `-`, `*`, `/`, `%`), а также ряд полезных функций.
+[Скалярные выражения](./scalar-data-types/index.md) могут включать все обычные операторы ( `+` , `-` , `*` , `/` , `%` ), а также ряд полезных функций.
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>суммировать: статистические группы строк
 
 Подсчет количества событий, поступающих из каждой страны:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | summarize event_count = count() by State
 ```
 
-[суммирует](./summarizeoperator.md) группы строк с одинаковыми значениями в `by` предложении, а затем использует статистическую функцию (например, `count`) для объединения каждой группы в одну строку. Поэтому в этом случае есть строка для каждого состояния и столбец для числа строк в этом состоянии.
+[суммирует](./summarizeoperator.md) группы строк с одинаковыми значениями в `by` предложении, а затем использует статистическую функцию (например, `count` ) для объединения каждой группы в одну строку. Поэтому в этом случае есть строка для каждого состояния и столбец для числа строк в этом состоянии.
 
 Существует ряд [статистических функций](./summarizeoperator.md#list-of-aggregation-functions), которые можно использовать в одном операторе суммирования для создания нескольких вычисленных столбцов. Например, можно получить число разрядов в каждом состоянии, а также сумму уникальных типов для каждого состояния,  
 Затем мы можем использовать Top для получения наиболее [частых](./topoperator.md) состояний:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents 
 | summarize StormCount = count(), TypeOfStorms = dcount(EventType) by State
 | top 5 by StormCount desc
 ```
 
-|Область|стормкаунт|типеофстормс|
+|State|стормкаунт|типеофстормс|
 |---|---|---|
 |Техас|4701|27|
 |Канзас|3166|21|
@@ -191,9 +200,10 @@ StormEvents
 
 ## <a name="summarize-by-scalar-values"></a>Суммирование по скалярным значениям
 
-В `by` предложении можно использовать скалярные значения (числовые, временные или интервалы), но значения необходимо поместить в ячейки.  
+В предложении можно использовать скалярные значения (числовые, временные или интервалы) `by` , но значения необходимо поместить в ячейки.  
 Функция [bin ()](./binfunction.md) полезна для этого:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | where StartTime > datetime(2007-02-14) and StartTime < datetime(2007-02-21)
@@ -218,6 +228,7 @@ StormEvents
 
 Проект два столбца и использование их в качестве оси x и y диаграммы:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents 
 | summarize event_count=count(), mid = avg(BeginLat) by State 
@@ -238,6 +249,7 @@ StormEvents
 
 Вернувшись к числовым ячейкам, давайте выберем временные ряды:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | summarize event_count=count() by bin(StartTime, 1d)
@@ -250,6 +262,7 @@ StormEvents
 
 Используйте несколько значений в предложении `summarize by` , чтобы создать отдельную строку для каждого сочетания значений.
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents 
 | where StartTime > datetime(2007-06-04) and StartTime < datetime(2007-06-10) 
@@ -259,18 +272,19 @@ StormEvents
 
 :::image type="content" source="images/tutorial/table-count-source.png" alt-text="Счетчик таблиц по источнику":::
 
-Просто добавьте термин прорисовки к приведенной выше `| render timechart`:.
+Просто добавьте термин прорисовки к приведенной выше: `| render timechart` .
 
 :::image type="content" source="images/tutorial/line-count-source.png" alt-text="Число графиков по источнику":::
 
-Обратите `render timechart` внимание, что использует первый столбец в качестве оси x, а затем отображает другие столбцы в виде отдельных строк.
+Обратите внимание, что `render timechart` использует первый столбец в качестве оси x, а затем отображает другие столбцы в виде отдельных строк.
 
 ## <a name="daily-average-cycle"></a>Ежедневный средний цикл
 
 Как действие зависит от среднего дня?
 
-Подсчет событий по модулю времени один день, binned в час. Обратите внимание, `floor` что вместо Bin используется:
+Подсчет событий по модулю времени один день, binned в час. Обратите внимание, что `floor` вместо Bin используется:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | extend hour = floor(StartTime % 1d , 1h)
@@ -281,7 +295,7 @@ StormEvents
 
 :::image type="content" source="images/tutorial/time-count-hour.png" alt-text="Счетчик временной диаграммы по часам":::
 
-В настоящее `render` время не имеет правильной метки длительности, но вместо `| render columnchart` этого можно использовать:
+В настоящее время `render` не имеет правильной метки длительности, но `| render columnchart` вместо этого можно использовать:
 
 :::image type="content" source="images/tutorial/column-count-hour.png" alt-text="Количество столбцов в гистограмме по часам":::
 
@@ -289,6 +303,7 @@ StormEvents
 
 Как действие зависит от времени суток в различных штатах?
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | extend hour= floor( StartTime % 1d , 1h)
@@ -301,6 +316,7 @@ StormEvents
 
 Выполните деление `1h` на, чтобы превратить ось x в число часов, а не на длительность:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | extend hour= floor( StartTime % 1d , 1h)/ 1h
@@ -317,6 +333,7 @@ StormEvents
 
 Можно извлечь события с помощью первого EventType и второго EventType, а затем объединить два набора в состоянии.
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | where EventType == "Lightning"
@@ -331,7 +348,7 @@ StormEvents
 
 ## <a name="user-session-example-of-join"></a>Пример сеанса пользователя с присоединением
 
-В `StormEvents` этом разделе таблица не используется.
+В этом разделе таблица не используется `StormEvents` .
 
 Предположим, что имеются данные, включающие события, помечающие начало и конец каждого сеанса пользователя, с уникальным ИДЕНТИФИКАТОРом для каждого сеанса. 
 
@@ -339,6 +356,7 @@ StormEvents
 
 Используя `extend` для предоставления псевдонима для двух меток времени, можно вычислить длительность сеанса.
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 Events
 | where eventName == "session_started"
@@ -361,6 +379,7 @@ Events
 
 Сколько различий имеет разную длину?
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | extend  duration = EndTime - StartTime
@@ -374,7 +393,7 @@ StormEvents
 
 :::image type="content" source="images/tutorial/event-count-duration.png" alt-text="Число событий диаграмму по продолжительности":::
 
-Или используйте `| render columnchart`:
+Или используйте `| render columnchart` :
 
 :::image type="content" source="images/tutorial/column-event-count-duration.png" alt-text="Счетчик событий гистограммы диаграмму по продолжительности":::
 
@@ -382,7 +401,7 @@ StormEvents
 
 Какие диапазоны длительности охватывают различные процентные доли?
 
-Используйте приведенный выше запрос, но `render` замените на:
+Используйте приведенный выше запрос, но замените `render` на:
 
 ```kusto
 | summarize percentiles(duration, 5, 20, 50, 80, 95)
@@ -400,6 +419,7 @@ StormEvents
 
 Чтобы получить отдельную декомпозицию для каждого состояния, мы просто перенесем столбец State отдельно с помощью обоих операторов суммирования:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 StormEvents
 | extend  duration = EndTime - StartTime
@@ -417,6 +437,7 @@ StormEvents
 
 Используйте [let](./letstatement.md) , чтобы отделить части выражения запроса в примере "Join" выше. Результаты не изменились:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 let LightningStorms = 
     StormEvents

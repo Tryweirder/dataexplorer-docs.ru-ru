@@ -9,43 +9,39 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 ms.date: 02/19/2020
-ms.openlocfilehash: 2ea7fd33a6e6ed8728fb12d53fbe76eadf8fd6b6
-ms.sourcegitcommit: f6cf88be736aa1e23ca046304a02dee204546b6e
+ms.openlocfilehash: 80fe504311ee847afa7244e179974d80485efe46
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82862077"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83373562"
 ---
-# <a name="howto-data-ingestion-without-kustoingest-library"></a>Получение данных без Kusto. Принимающая Библиотека
+# <a name="ingestion-without-kustoingest-library"></a>Прием без Kusto. Принимающая Библиотека
 
-## <a name="when-to-consider-not-using-kustoingest-library"></a>Когда следует расдумать, не используется ли Kusto. Принимающая Библиотека?
-Как правило, использование Kusto. принимающей библиотеки должно быть предпочтительным при приеме данных в Kusto.<BR>
-Если это не является параметром (обычно из-за ограничений операционной системы), то с некоторыми усилиями можно добиться почти тех же функций.<BR>
-В этой статье показано, как реализовать прием в **очереди** на Kusto без зависимости от пакета Kusto. принимающий.
+Kusto. Принимающая библиотека предпочтительна для приема данных в Azure обозреватель данных. Тем не менее можно добиться почти тех же функций, не зависят от пакета Kusto. приема.
+В этой статье показано, как с помощью *приема* в службе Azure обозреватель данных для конвейеров производственного уровня.
 
->**Примечание.** Приведенный ниже код написан на языке C# для упрощения примера кода с использованием пакета SDK службы хранилища Azure, библиотеки проверки подлинности ADAL и NewtonSoft. JSON.<BR>При необходимости соответствующий код можно заменить соответствующим [REST APIными](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) вызовами службы хранилища Azure, [пакетом ADAL non-.NET](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) и любым доступным пакетом обработки JSON.
+> [!NOTE]
+> Приведенный ниже код написан на языке C# и использует пакет SDK службы хранилища Azure, библиотеку проверки подлинности ADAL и NewtonSoft. JSON для упрощения примера кода. При необходимости соответствующий код можно заменить соответствующим [REST APIными](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) вызовами службы хранилища Azure, [пакетом ADAL non-.NET](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)и любым доступным пакетом обработки JSON.
 
-## <a name="overview"></a>Обзор
-В следующем примере кода демонстрируется прием данных в очереди (с помощью Kusto Управление данными Service) в Kusto без использования Kusto. принимающей библиотеки.<BR>
-Это может быть полезно, если полноценная платформа .NET недоступна или недоступна из-за окружения или других ограничений.<BR>
+В этой статье описывается рекомендуемый режим приема. Для библиотеки Kusto. приема ее соответствующая сущность является интерфейсом [икустокуеуединжестклиент](kusto-ingest-client-reference.md#interface-ikustoqueuedingestclient) . В этом случае клиентский код взаимодействует со службой обозреватель данных Azure, публикуя сообщения уведомления о приеме в очередь Azure. Ссылки на сообщения берутся из службы Kusto Управление данными (также известной как прием). Взаимодействие со службой должно проходить проверку подлинности с помощью Azure Active Directory (Azure AD).
 
-> В этой статье рассматривается рекомендуемый режим приема для конвейеров производственного уровня, который также называется приемом в **очереди** (в терминах библиотеки Kusto. приема, соответствующая сущность — это интерфейс [икустокуеуединжестклиент](kusto-ingest-client-reference.md#interface-ikustoqueuedingestclient) ). В этом режиме клиентский код взаимодействует со службой Kusto, публикуя сообщения уведомлений о приеме в очередь Azure, ссылку на которую можно получить из Kusto Управление данными ( Приема). Взаимодействие со службой Управление данными должно проходить проверку подлинности в **AAD**.
+В следующем коде показано, как служба Kusto Управление данными обрабатывает прием данных в очереди без использования библиотеки Kusto. приема. Этот пример может быть полезен, если полная версия .NET недоступна или недоступна из-за среды или других ограничений.
 
-Структура этого потока описана в примере кода ниже и состоит из следующих элементов:
-1. Создание клиента службы хранилища Azure и передача данных в большой двоичный объект
-1. Получение маркера проверки подлинности для доступа к службе приема Kusto
-2. Запросите службу приема Kusto, чтобы получить:
-    * Ресурсы приема (очереди и контейнеры больших двоичных объектов)
-    * Токен удостоверения Kusto, который будет добавлен к каждому сообщению приема
-3. Отправка данных в большой двоичный объект в одном из контейнеров больших двоичных объектов, полученных из Kusto в (2)
-4. Создание сообщения приема, идентифицирующего целевую базу данных и таблицу, и указание на BLOB-объект из (3)
-5. Опубликовать сообщение приема, которое мы состояли в (4), в одной из очередей приема, полученных от Kusto в (2)
-6. Получение всех ошибок, обнаруженных службой во время приема
+Этот код включает шаги по созданию клиента службы хранилища Azure и передаче данных в большой двоичный объект.
+Каждый шаг описывается более подробно, после примера кода.
 
-В последующих разделах каждый шаг подробно описан выше.
+1. [Получение маркера проверки подлинности для доступа к службе приема обозреватель данных Azure](#obtain-authentication-evidence-from-azure-ad)
+1. Запросите службу приема обозреватель данных Azure, чтобы получить:
+    * [Ресурсы приема (очереди и контейнеры больших двоичных объектов)](#retrieve-azure-data-explorer-ingestion-resources)
+    * [Токен удостоверения Kusto, который будет добавлен к каждому сообщению приема](#obtain-a-kusto-identity-token)
+1. [Отправка данных в большой двоичный объект в одном из контейнеров больших двоичных объектов, полученных из Kusto в (2)](#upload-data-to-the-azure-blob-container)
+1. [Составление сообщения приема, идентифицирующего целевую базу данных и таблицу и указывающая на большой двоичный объект из (3)](#compose-the-azure-data-explorer-ingestion-message)
+1. [Публикация сообщения приема, которое мы состояли в (4), в очередь приема, полученную из обозреватель данных Azure в (2)](#post-the-azure-data-explorer-ingestion-message-to-the-azure-data-explorer-ingestion-queue)**
+1. [Получение всех ошибок, обнаруженных службой во время приема](#check-for-error-messages-from-the-azure-queue)
 
 ```csharp
-// A container class for ingestion resources we are going to obtain from Kusto
+// A container class for ingestion resources we are going to obtain from Azure Data Explorer
 internal class IngestionResourcesSnapshot
 {
     public IList<string> IngestionQueues { get; set; } = new List<string>();
@@ -57,7 +53,7 @@ internal class IngestionResourcesSnapshot
 
 public static void IngestSingleFile(string file, string db, string table, string ingestionMappingRef)
 {
-    // Your Kusto ingestion service URI, typically ingest-<your cluster name>.kusto.windows.net
+    // Your Azure Data Explorer ingestion service URI, typically ingest-<your cluster name>.kusto.windows.net
     string DmServiceBaseUri = @"https://ingest-{serviceNameAndRegion}.kusto.windows.net";
 
     // 1. Authenticate the interactive user (or application) to access Kusto ingestion service
@@ -69,7 +65,7 @@ public static void IngestSingleFile(string file, string db, string table, string
     // 2b. Retrieve Kusto identity token
     string identityToken = RetrieveKustoIdentityToken(DmServiceBaseUri, bearerToken);
 
-    // 3. Upload file to one of the blob containers we got from Kusto.
+    // 3. Upload file to one of the blob containers we got from Azure Data Explorer.
     // This example uses the first one, but when working with multiple blobs,
     // one should round-robin the containers in order to prevent throttling
     long blobSizeBytes = 0;
@@ -80,7 +76,7 @@ public static void IngestSingleFile(string file, string db, string table, string
     // 4. Compose ingestion command
     string ingestionMessage = PrepareIngestionMessage(db, table, blobUriWithSas, blobSizeBytes, ingestionMappingRef, identityToken);
 
-    // 5. Post ingestion command to one of the ingestion queues we got from Kusto.
+    // 5. Post ingestion command to one of the ingestion queues we got from Azure Data Explorer.
     // This example uses the first one, but when working with multiple blobs,
     // one should round-robin the queues in order to prevent throttling
     PostMessageToQueue(ingestionResources.IngestionQueues.First(), ingestionMessage);
@@ -103,17 +99,21 @@ public static void IngestSingleFile(string file, string db, string table, string
 }
 ```
 
-## <a name="1-obtain-authentication-evidence-from-aad"></a>1. получение свидетельства проверки подлинности из AAD
-Здесь мы используем ADAL для получения маркера AAD для доступа к службе Kusto Управление данными, чтобы запрашивать входные очереди.
+## <a name="using-queued-ingestion-to-azure-data-explorer-for-production-grade-pipelines"></a>Использование приема в очереди в Azure обозреватель данных для конвейеров производственного уровня
+
+### <a name="obtain-authentication-evidence-from-azure-ad"></a>Получение свидетельства проверки подлинности из Azure AD
+
+Здесь мы используем ADAL, чтобы получить маркер Azure AD для доступа к службе Управление данными Kusto и запросить входные очереди.
 Библиотека ADAL доступна на [платформах, отличных от Windows](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) , если это необходимо.
+
 ```csharp
-// Authenticates the interactive user and retrieves AAD Access token for specified resource
+// Authenticates the interactive user and retrieves Azure AD Access token for specified resource
 internal static string AuthenticateInteractiveUser(string resource)
 {
-    // Create Auth Context for MSFT AAD:
-    AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/{AAD Tenant ID or name}");
+    // Create Auth Context for MSFT Azure AD:
+    AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/{Azure AD Tenant ID or name}");
 
-    // Acquire user token for the interactive user for Kusto:
+    // Acquire user token for the interactive user for Azure Data Explorer:
     AuthenticationResult result =
         authContext.AcquireTokenAsync(resource, "<your client app ID>", new Uri(@"<your client app URI>"),
                                         new PlatformParameters(PromptBehavior.Auto), UserIdentifier.AnyUser, "prompt=select_account").Result;
@@ -121,12 +121,13 @@ internal static string AuthenticateInteractiveUser(string resource)
 }
 ```
 
-## <a name="2-retrieve-kusto-ingestion-resources"></a>2. получение ресурсов приема Kusto
-Именно здесь вещи интереснее. В этом примере вручную создается запрос HTTP POST к Kusto Управление данными службе, запрашивающий возврат ресурсов приема.
-К ним относятся очереди, прослушиваемые службой DM, а также контейнеры больших двоичных объектов для передачи данных.
-Служба Управление данными будет обрабатывать любое сообщение, содержащее запросы приема, поступающие в одну из этих очередей.
+### <a name="retrieve-azure-data-explorer-ingestion-resources"></a>Получение ресурсов приема обозреватель данных Azure
+
+Вручную создайте запрос HTTP POST к службе Управление данными, запросив возврат ресурсов приема. Эти ресурсы включают очереди, прослушиваемые службой DM, и контейнеры больших двоичных объектов для передачи данных.
+Служба Управление данными будет обрабатывать все сообщения, содержащие запросы приема, поступающие в одну из этих очередей.
+
 ```csharp
-// Retrieve ingestion resources (queues and blob containers) with SAS from specified Kusto Ingestion service using supplied Access token
+// Retrieve ingestion resources (queues and blob containers) with SAS from specified Azure Data Explorer Ingestion service using supplied Access token
 internal static IngestionResourcesSnapshot RetrieveIngestionResources(string ingestClusterBaseUri, string accessToken)
 {
     string ingestClusterUri = $"{ingestClusterBaseUri}/v1/rest/mgmt";
@@ -191,8 +192,10 @@ internal static WebResponse SendPostRequest(string uriString, string authToken, 
 }
 ```
 
-## <a name="obtaining-kusto-identity-token"></a>Получение маркера удостоверения Kusto
-Важный шаг в авторизации приема данных — получение маркера идентификации и его присоединение к каждому принимающему сообщению. Так как прием сообщений передается в Kusto через непрямой канал (очередь Azure), нет возможности выполнять проверку подлинности в рамках внутренней системы. Механизм маркера идентификации позволяет выполнить это, выполнив Kusto свидетельство удостоверения, которое может быть проверено службой Kusto после получения сообщения приема.
+### <a name="obtain-a-kusto-identity-token"></a>Получение маркера удостоверения Kusto
+
+Прием сообщений передаются в Azure обозреватель данных через непосредственный канал (очередь Azure), что делает невозможным проверку подлинности в локальной системе для доступа к службе приема обозреватель данных Azure. Решением является присоединение маркера идентификации к каждому принимающему сообщению. Токен включает проверку подлинности в основном канале. После этого подписанный маркер может быть проверен службой обозреватель данных Azure при получении сообщения приема.
+
 ```csharp
 // Retrieves a Kusto identity token that will be added to every ingest message
 internal static string RetrieveKustoIdentityToken(string ingestClusterBaseUri, string accessToken)
@@ -213,8 +216,10 @@ internal static string RetrieveKustoIdentityToken(string ingestClusterBaseUri, s
 }
 ```
 
-## <a name="3-upload-data-to-azure-blob-container"></a>3. Отправка данных в контейнер больших двоичных объектов Azure
-Этот шаг заключается в передаче локального файла в большой двоичный объект Azure, который позже будет передан для приема. В этом коде используется пакет SDK службы хранилища Azure, но такая зависимость невозможна, но она может быть достигнута так же, как и [Служба BLOB-объектов Azure REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-rest-api).
+### <a name="upload-data-to-the-azure-blob-container"></a>Отправка данных в контейнер больших двоичных объектов Azure
+
+Этот шаг заключается в передаче локального файла в большой двоичный объект Azure, который будет передан для приема. Этот код использует пакет SDK службы хранилища Azure. Если зависимость невозможна, ее можно достичь с помощью [REST API службы BLOB-объектов Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-rest-api).
+
 ```csharp
 // Uploads a single local file to an Azure Blob container, returns blob URI and original data size
 internal static string UploadFileToBlobContainer(string filePath, string blobContainerUri, string containerName, string blobName, out long blobSize)
@@ -233,13 +238,21 @@ internal static string UploadFileToBlobContainer(string filePath, string blobCon
 }
 ```
 
-## <a name="4-compose-kusto-ingestion-message"></a>4. составление сообщения приема Kusto
-Здесь мы снова используем пакет NewtonSoft. JSON, чтобы создать допустимое сообщение запроса на прием, которое будет отправлено в очередь Azure, в которой прослушивается соответствующая служба Управление данными Kusto.
-* Это минимальное значение для сообщения приема.
-* Обратите внимание, что маркер удостоверения является обязательным и должен находиться `AdditionalProperties` в объекте JSON.
-* При необходимости также `CsvMapping` необходимо указать `JsonMapping` свойства или.
-* Дополнительные сведения см. [в статье предварительное создание сопоставлений приема](../../management/create-ingestion-mapping-command.md) .
-* [Приложение а](#appendix-a-ingestion-message-internal-structure) содержит объяснение структуры сообщений приема
+### <a name="compose-the-azure-data-explorer-ingestion-message"></a>Составление сообщения приема обозреватель данных Azure
+
+Пакет NewtonSoft. JSON снова создаст допустимый запрос приема для определения целевой базы данных и таблицы и указывает на большой двоичный объект.
+Сообщение будет отправлено в очередь Azure, которую прослушивает соответствующая служба Kusto Управление данными.
+
+Ниже приведены некоторые моменты, которые следует учитывать.
+
+* Этот запрос является минимальным числом для сообщения приема.
+
+> [!NOTE]
+> Маркер удостоверения является обязательным и должен быть частью объекта **AdditionalProperties** JSON.
+
+* При необходимости также необходимо указать свойства Ксвмаппинг или Жсонмаппинг
+* Дополнительные сведения см. в [статье предварительное создание сопоставления приема](../../management/create-ingestion-mapping-command.md).
+* [Внутренняя структура сообщения приема](#ingestion-message-internal-structure) раздела содержит описание структуры сообщений приема
 
 ```csharp
 internal static string PrepareIngestionMessage(string db, string table, string dataUri, long blobSizeBytes, string mappingRef, string identityToken)
@@ -264,10 +277,12 @@ internal static string PrepareIngestionMessage(string db, string table, string d
 }
 ```
 
-## <a name="5-post-kusto-ingestion-message-to-kusto-ingestion-queue"></a>5. Отправка сообщения приема Kusto в очередь приема Kusto
-И наконец, собственно ДИД, просто Опубликуйте сообщение, созданное в выбранной очереди.<BR>
-Примечание. при использовании клиента хранилища .NET оно по умолчанию кодирует сообщение в Base64. Ознакомьтесь с [документацией по хранилищу](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.encodemessage).<BR>
-Если вы не используете этот клиент, убедитесь, что содержимое сообщения правильно закодировано.
+### <a name="post-the-azure-data-explorer-ingestion-message-to-the-azure-data-explorer-ingestion-queue"></a>Публикация сообщения приема обозреватель данных Azure в очередь приема обозреватель данных Azure
+
+Наконец, опубликуйте созданное вами сообщение в выбранную очередь приема, полученную из Azure обозреватель данных.
+
+> [!NOTE]
+> При использовании клиента хранилища .NET по умолчанию кодирует сообщение в Base64. Дополнительные сведения см. в разделе [Документация по хранилищу](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.encodemessage?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueue_EncodeMessage). Если вы не используете этот клиент, убедитесь, что содержимое сообщения правильно закодировано.
 
 ```csharp
 internal static void PostMessageToQueue(string queueUriWithSas, string message)
@@ -279,9 +294,9 @@ internal static void PostMessageToQueue(string queueUriWithSas, string message)
 }
 ```
 
-## <a name="6-pop-messages-from-an-azure-queue"></a>6. сообщения POP из очереди Azure
-После приема мы используем этот метод для чтения всех сообщений о сбое из соответствующей очереди, которая записывается в службу Kusto Управление данными.<BR>
-В [приложении б](#appendix-b-ingestion-failure-message-structure) содержится объяснение структуры сообщений об ошибках
+### <a name="check-for-error-messages-from-the-azure-queue"></a>Проверка сообщений об ошибках из очереди Azure
+
+После приема мы проверяем сообщения об ошибках из соответствующей очереди, в которую Управление данными записывает данные. Дополнительные сведения о структуре сообщений об ошибках см. в разделе [Структура сообщений об ошибках приема](#ingestion-failure-message-structure). 
 
 ```csharp
 internal static IEnumerable<string> PopTopMessagesFromQueue(string queueUriWithSas, int count)
@@ -299,10 +314,13 @@ internal static IEnumerable<string> PopTopMessagesFromQueue(string queueUriWithS
 }
 ```
 
-## <a name="appendix-a-ingestion-message-internal-structure"></a>Приложение а. Внутренняя структура сообщения приема
-Сообщение, которое Kusto Служба Управление данными требуется считывать из входной очереди Azure, является документом JSON в следующем формате:
+## <a name="ingestion-messages---json-document-formats"></a>Сообщения приема — форматы документов JSON
 
-```json
+### <a name="ingestion-message-internal-structure"></a>Внутренняя структура сообщения приема
+
+Сообщение, которое служба Kusto Управление данными считывает из входной очереди Azure, является документом JSON в следующем формате.
+
+```JSON
 {
     "Id" : "<Id>",
     "BlobPath" : "https://<AccountName>.blob.core.windows.net/<ContainerName>/<PathToBlob>?<SasToken>",
@@ -318,24 +336,23 @@ internal static IEnumerable<string> PopTopMessagesFromQueue(string queueUriWithS
 }
 ```
 
-
 |Свойство. | Описание |
 |---------|-------------|
 |Идентификатор |Идентификатор сообщения (GUID) |
-|BlobPath |URI BLOB-объекта, включая ключ SAS, предоставляющий разрешения Kusto на чтение, запись или удаление (разрешения на запись и удаление требуются, если Kusto удаляет большой двоичный объект после завершения приема данных). |
-|равдатасизе |Размер несжатых данных в байтах. Предоставление этого значения позволяет Kusto оптимизировать прием путем потенциальной статистической обработки нескольких больших двоичных объектов. Это свойство является необязательным, но если оно не указано, Kusto будет обращаться к большому двоичному объекту только для получения размера |
+|BlobPath |Путь (URI) к большому двоичному объекту, включая ключ SAS, предоставляющий разрешения Azure обозреватель данных для чтения, записи и удаления. Требуются разрешения, чтобы служба Azure обозреватель данных могла удалить большой двоичный объект после завершения приема данных.|
+|равдатасизе |Размер несжатых данных в байтах. Предоставление этого значения позволяет обозреватель данных Azure оптимизировать прием, потенциально выполнив статистическую обработку нескольких больших двоичных объектов. Это свойство является необязательным, но если оно не задано, Azure обозреватель данных будет обращаться к большому двоичному объекту только для получения размера |
 |имя_базы_данных |Имя целевой базы данных |
 |TableName |Имя целевой таблицы |
-|ретаинблобонсукцесс |Если задано `true`значение, большой двоичный объект не будет удален после успешного приема. По умолчанию — `false`. |
+|ретаинблобонсукцесс |Если задано значение `true` , большой двоичный объект не будет удален после успешного завершения приема. Значение по умолчанию — `false`. |
 |Формат |Формат несжатых данных |
-|флушиммедиатели |Если задано `true`значение, любые статистические вычисления будут пропущены. По умолчанию — `false`. |
+|флушиммедиатели |Если задано значение `true` , любые статистические вычисления будут пропущены. Значение по умолчанию — `false`. |
 |репортлевел |Уровень отчетов об успешном выполнении и ошибках: 0-сбоев, 1 — нет, 2 — все |
 |репортмесод |Механизм создания отчетов: 0 — очередь, 1-Таблица |
-|AdditionalProperties |Любые дополнительные свойства (Теги и т. д.); |
+|AdditionalProperties |Дополнительные свойства, такие как Теги |
 
+### <a name="ingestion-failure-message-structure"></a>Структура сообщения об ошибке приема
 
-## <a name="appendix-b-ingestion-failure-message-structure"></a>Приложение б. Структура сообщений об ошибках приема
-Следующее сообщение таблицы, которое Kusto Служба Управление данными, должно считаться из входной очереди Azure, является документом JSON в следующем формате:
+Сообщение, которое Управление данными требуется считывать из входной очереди Azure, является документом JSON в следующем формате.
 
 |Свойство. | Описание |
 |---------|-------------
@@ -343,11 +360,11 @@ internal static IEnumerable<string> PopTopMessagesFromQueue(string queueUriWithS
 |База данных |Имя целевой базы данных |
 |Таблица |Имя целевой таблицы |
 |фаиледон |Метка времени сбоя |
-|инжестионсаурцеид |GUID, определяющий блок данных, который Kusto не смог принять |
-|инжестионсаурцепас |Путь (URI) к блоку данных, который не удалось принять, Kusto |
-|Подробности |Сообщение об ошибке |
-|ErrorCode |Код ошибки Kusto (см. все коды ошибок [здесь](kusto-ingest-client-errors.md#ingestion-error-codes)) |
+|инжестионсаурцеид |GUID, определяющий блок данных, который обозреватель данных Azure не удалось принять |
+|инжестионсаурцепас |Путь (URI) к блоку данных, который обозреватель данных Azure не удалось принять |
+|Сведения |Сообщение об ошибке |
+|ErrorCode |Код ошибки обозреватель данных Azure (см. все коды ошибок [здесь](kusto-ingest-client-errors.md#ingestion-error-codes)) |
 |фаилурестатус |Указывает, является ли сбой постоянным или временным |
-|RootActivityId |Идентификатор корреляции Kusto (GUID), который можно использовать для отслеживания операции на стороне службы |
-|оригинатесфромупдатеполици |Указывает, вызвана ли ошибка [политикой обновления транзакций](../../management/updatepolicy.md) еррорнеаус |
+|RootActivityId |Идентификатор корреляции Azure обозреватель данных (GUID), который можно использовать для отслеживания операции на стороне службы. |
+|оригинатесфромупдатеполици |Указывает, вызвана ли ошибка ошибочной [политикой обновления транзакций](../../management/updatepolicy.md) |
 |шаулдретри | Указывает, может ли прием успешных попыток, если это так. |

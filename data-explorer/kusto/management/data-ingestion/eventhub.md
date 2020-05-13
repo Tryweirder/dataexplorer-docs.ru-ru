@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/01/2020
-ms.openlocfilehash: 6b2f3b2d75bd964401ae37093405e692cfd64feb
-ms.sourcegitcommit: f6cf88be736aa1e23ca046304a02dee204546b6e
+ms.openlocfilehash: a9308fa762bf7bbda0f57a1c252cf2121253565a
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82861788"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83373463"
 ---
 # <a name="ingest-from-event-hub"></a>Прием данных из концентратора событий
 
@@ -22,8 +22,8 @@ ms.locfileid: "82861788"
 ## <a name="data-format"></a>Формат данных
 
 * Данные считываются из концентратора событий в форме объектов [EVENTDATA](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata?view=azure-dotnet) .
-* Полезные данные события могут содержать одну или несколько записей для приема в одном из [форматов, поддерживаемых обозреватель данных Azure](https://docs.microsoft.com/azure/data-explorer/ingestion-supported-formats).
-* Данные можно сжимать с помощью `GZip` алгоритма сжатия. Должно быть указано в `Compression` качестве [Свойства приема](#ingestion-properties).
+* Полезные данные события могут содержать одну или несколько записей для приема в одном из [форматов, поддерживаемых обозреватель данных Azure](../../../ingestion-supported-formats.md).
+* Данные можно сжимать с помощью `GZip` алгоритма сжатия. Должно быть указано в качестве `Compression` [Свойства приема](#ingestion-properties).
 
 > [!Note]
 > * Сжатие данных не поддерживается для сжатых форматов (Avro, Parquet, ORC).
@@ -31,14 +31,14 @@ ms.locfileid: "82861788"
 
 ## <a name="ingestion-properties"></a>Свойства приема
 
-Свойства приема указывают на процесс приема. Где можно направить данные и как обработать их. [Свойства приема](https://docs.microsoft.com/azure/data-explorer/ingestion-properties) событий можно указать с помощью свойства [EVENTDATA. Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
+Свойства приема указывают на процесс приема. Где можно направить данные и как обработать их. [Свойства приема](../../../ingestion-properties.md) событий можно указать с помощью свойства [EVENTDATA. Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
 
 |Свойство. |Описание|
 |---|---|
 | Таблица | Имя существующей целевой таблицы (с учетом регистра). Переопределяет `Table` набор в `Data Connection` колонке. |
 | Формат | Формат данных. Переопределяет `Data format` набор в `Data Connection` колонке. |
 | инжестионмаппингреференце | Имя существующего [сопоставления приема](../create-ingestion-mapping-command.md) , которое будет использоваться. Переопределяет `Column mapping` набор в `Data Connection` колонке.|
-| Сжатие | Сжатие данных `None` (по умолчанию) `GZip` или сжатие.|
+| Сжатие | Сжатие данных `None` (по умолчанию) или `GZip` сжатие.|
 | Кодирование |  Кодировка данных, значение по умолчанию — UTF8. Может быть любой из [поддерживаемых кодировок .NET](https://docs.microsoft.com/dotnet/api/system.text.encoding?view=netframework-4.8#remarks). |
 | Теги (Предварительная версия) | Список [тегов](../extents-overview.md#extent-tagging) , связываемых с полученными данными в формате строки массива JSON. Обратите внимание на влияние использования тегов на [производительность](../extents-overview.md#performance-notes-1) . |
 
@@ -47,11 +47,11 @@ ms.locfileid: "82861788"
 
 ## <a name="events-routing"></a>Маршрутизация событий
 
-При настройке подключения концентратора событий к кластеру Azure обозреватель данных необходимо указать свойства целевой таблицы (имя таблицы, формат данных, сжатие и сопоставление). Это маршрутизация по умолчанию для данных, которая также называется `static routing`.
+При настройке подключения концентратора событий к кластеру Azure обозреватель данных необходимо указать свойства целевой таблицы (имя таблицы, формат данных, сжатие и сопоставление). Это маршрутизация по умолчанию для данных, которая также называется `static routing` .
 Можно также указать свойства целевой таблицы для каждого события с помощью свойств события. Соединение будет динамически маршрутизировать данные, как указано в [свойствах EVENTDATA. Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties), переопределяя статические свойства для этого события.
 
-В следующем примере задайте сведения о концентраторе событий и отправьте данные о метриках погоды `WeatherMetrics`в таблицу.
-Данные имеют `json` формат. `mapping1`предварительно определено для таблицы `WeatherMetrics`:
+В следующем примере задайте сведения о концентраторе событий и отправьте данные о метриках погоды в таблицу `WeatherMetrics` .
+Данные имеют `json` Формат. `mapping1`предварительно определено для таблицы `WeatherMetrics` :
 
 ```csharp
 var eventHubNamespaceConnectionString=<connection_string>;
@@ -89,15 +89,15 @@ eventHubClient.Close();
 |---|---|---|
 | x-opt-enqueued-time |DATETIME | Время в очереди события в формате UTC. |
 | x-opt-sequence-number |long | Логический порядковый номер события в потоке секций концентратора событий.
-| x-opt-offset |строка | Смещение события относительно потока секций концентратора событий. Идентификатор смещения уникален в пределах секции потока концентратора событий. |
-| Издатель x-opt- |строка | Имя издателя, если сообщение было отправлено конечной точке издателя. |
-| x-opt-partition-key |строка |Ключ секции соответствующей секции, в которой хранится событие. |
+| x-opt-offset |string | Смещение события относительно потока секций концентратора событий. Идентификатор смещения уникален в пределах секции потока концентратора событий. |
+| Издатель x-opt- |string | Имя издателя, если сообщение было отправлено конечной точке издателя. |
+| x-opt-partition-key |string |Ключ секции соответствующей секции, в которой хранится событие. |
 
 Если в разделе **источника данных** таблицы были выбраны **Свойства системы событий** , необходимо включить свойства в схему таблицы и сопоставление.
 
 **Пример схемы таблицы**
 
-Если данные содержат три`Timespan`столбца (, `Metric`и `Value`), а включаемые свойства — `x-opt-enqueued-time` и `x-opt-offset`, создайте или измените схему таблицы с помощью следующей команды:
+Если данные содержат три столбца ( `Timespan` , `Metric` и `Value` ), а включаемые свойства — `x-opt-enqueued-time` и `x-opt-offset` , создайте или измените схему таблицы с помощью следующей команды:
 
 ```kusto
     .create-merge table TestTable (TimeStamp: datetime, Metric: string, Value: int, EventHubEnqueuedTime:datetime, EventHubOffset:long)
@@ -140,7 +140,7 @@ eventHubClient.Close();
 
 ### <a name="create-an-event-hub"></a>Создание концентратора событий
 
-[Создайте концентратор событий](https://docs.microsoft.com/azure/event-hubs/event-hubs-create), если он еще не создан. Шаблон можно найти в разделе инструкции по [созданию концентратора событий](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub#create-an-event-hub) .
+[Создайте концентратор событий](https://docs.microsoft.com/azure/event-hubs/event-hubs-create), если он еще не создан. Шаблон можно найти в разделе инструкции по [созданию концентратора событий](../../../ingest-data-event-hub.md#create-an-event-hub) .
 
 > [!Note]
 > * Так как число секций неизменно, вам следует продумать масштаб заранее.
@@ -148,10 +148,10 @@ eventHubClient.Close();
 
 ### <a name="data-ingestion-connection-to-azure-data-explorer"></a>Подключение приема данных к Azure обозреватель данных
 
-* С помощью портала Azure [подключитесь к концентратору событий](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub#connect-to-the-event-hub).
-* Использование Azure обозреватель данных Management .NET SDK: [Добавление подключения к данным концентратора событий](https://docs.microsoft.com/azure/data-explorer/data-connection-event-hub-csharp#add-an-event-hub-data-connection)
-* Использование пакета SDK для управления обозреватель данных Azure для Python: [Добавление подключения к данным концентратора событий](https://docs.microsoft.com/azure/data-explorer/data-connection-event-hub-python#add-an-event-hub-data-connection)
-* Шаблон ARM: [Azure Resource Manager шаблон для добавления подключения к данным концентратора событий](https://docs.microsoft.com/azure/data-explorer/data-connection-event-hub-resource-manager#azure-resource-manager-template-for-adding-an-event-hub-data-connection)
+* С помощью портала Azure [подключитесь к концентратору событий](../../../ingest-data-event-hub.md#connect-to-the-event-hub).
+* Использование Azure обозреватель данных Management .NET SDK: [Добавление подключения к данным концентратора событий](../../../data-connection-event-hub-csharp.md#add-an-event-hub-data-connection)
+* Использование пакета SDK для управления обозреватель данных Azure для Python: [Добавление подключения к данным концентратора событий](../../../data-connection-event-hub-python.md#add-an-event-hub-data-connection)
+* Шаблон ARM: [Azure Resource Manager шаблон для добавления подключения к данным концентратора событий](../../../data-connection-event-hub-resource-manager.md#azure-resource-manager-template-for-adding-an-event-hub-data-connection)
 
 > [!Note]
 > Если в **данные включены сведения о маршрутизации** , *необходимо* предоставить необходимые сведения о [маршрутизации](#events-routing) как часть свойств событий.

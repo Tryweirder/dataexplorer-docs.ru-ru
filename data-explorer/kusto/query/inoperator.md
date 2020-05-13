@@ -1,6 +1,6 @@
 ---
-title: в и notin операторов - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описаны операторы в Azure Data Explorer и не в ней.
+title: операторы in и notin — Azure обозреватель данных
+description: В этой статье описываются операторы и notin в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: bd247de2bd211ae7be3da449e940899d2e8bb475
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: cd11362c15e5ecfb80eab57b57b22f190f47da05
+ms.sourcegitcommit: 733bde4c6bc422c64752af338b29cd55a5af1f88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81513810"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83271576"
 ---
 # <a name="in-and-in-operators"></a>Операторы in и !in
 
-Фильтрует набор записей, основанный на предоставленном наборе значений.
+Фильтрует набор записей на основе предоставленного набора значений.
 
 ```kusto
 Table1 | where col in ('value1', 'value2')
@@ -25,81 +25,86 @@ Table1 | where col in ('value1', 'value2')
 
 **Синтаксис**
 
-*Дело чувствительных синтаксис:*
+*Синтаксис с учетом регистра:*
 
-*T* `|` T `where` *col* `in` col `(` *список скалярных выражений*`)`   
-*T* `|` `where` *col* col `in` табулярное *выражение* `(``)`   
+*T* `|` `where` *Col* `in` `(` *список скалярных выражений*`)`   
+*T* `|` `where` *col* `in` `(` *Табличное выражение* T Col`)`   
  
-*T* `|` T `where` *col* `!in` col `(` *список скалярных выражений*`)`  
-*T* `|` `where` *col* col `!in` табулярное *выражение* `(``)`   
+*T* `|` `where` *Col* `!in` `(` *список скалярных выражений*`)`  
+*T* `|` `where` *col* `!in` `(` *Табличное выражение* T Col`)`   
 
-*Дело бесчувственный синтаксис:*
+*Синтаксис без учета регистра:*
 
-*T* `|` T `where` *col* `in~` col `(` *список скалярных выражений*`)`   
-*T* `|` `where` *col* col `in~` табулярное *выражение* `(``)`   
+*T* `|` `where` *Col* `in~` `(` *список скалярных выражений*`)`   
+*T* `|` `where` *col* `in~` `(` *Табличное выражение* T Col`)`   
  
-*T* `|` T `where` *col* `!in~` col `(` *список скалярных выражений*`)`  
-*T* `|` `where` *col* col `!in~` табулярное *выражение* `(``)`   
+*T* `|` `where` *Col* `!in~` `(` *список скалярных выражений*`)`  
+*T* `|` `where` *col* `!in~` `(` *Табличное выражение* T Col`)`   
 
 **Аргументы**
 
-* *T* - Табулярный ввод, записи которого должны быть отфильтротаны.
-* *col* - столбец для фильтрации.
-* *список выражений* - запятая разделенный список табликовых, скалярных или буквальных выражений  
-* *таблоское выражение* - табло-выражение, имевававеское набор значений (в случае выражение имеет несколько столбцов, используется первая колонка)
+* *T* — табличный ввод, записи которого должны быть отфильтрованы.
+* *Col* — столбец для фильтрации.
+* *список выражений* — разделенный запятыми список табличных, скалярных или литеральных выражений  
+* *табличное выражение* — табличное выражение, имеющее набор значений (в выражении CASE есть несколько столбцов, используется первый столбец).
 
 **Возвращает**
 
-Строки в *T,* для которых предикат`true`
+Строки в *T* , для которых предикатом является`true`
 
 **Примечания**
 
-* Список выражений может `1,000,000` создавать до значений    
-* Вложенные массивы сплющиваются в единый список `x in (dynamic([1,[2,3]]))` значений, например, превращаются в`x in (1,2,3)` 
-* В случае табликовых выражений выбирается первый столбец набора результатов   
-* Добавление 'к оператору' делает поисковик `x in~ (expression)` `x !in~ (expression)`значений нечувствительным: или .
+* Список выражений может выдавать до `1,000,000` значений    
+* Вложенные массивы сведены в один список значений, например `x in (dynamic([1,[2,3]]))` превращается в`x in (1,2,3)` 
+* В случае табличных выражений выбирается первый столбец результирующего набора   
+* При добавлении "~" к оператору значения "без учета регистра" не учитываются: `x in~ (expression)` или `x !in~ (expression)` .
 
 **Примеры:**  
 
-**Простое использование оператора 'in':**  
+**Простое использование оператора in:**  
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents 
 | where State in ("FLORIDA", "GEORGIA", "NEW YORK") 
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |4775|  
 
 
-**Простое использование оператора 'in':**  
+**Простое использование оператора "in ~":**  
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents 
 | where State in~ ("Florida", "Georgia", "New York") 
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |4775|  
 
-**Простое использование оператора '!in':**  
+**Простое использование оператора "! in":**  
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents 
 | where State !in ("FLORIDA", "GEORGIA", "NEW YORK") 
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |54291|  
 
 
 **Использование динамического массива:**
+
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let states = dynamic(['FLORIDA', 'ATLANTIC SOUTH', 'GEORGIA']);
 StormEvents 
@@ -107,13 +112,14 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |3218|
 
 
-**Пример подвоза:**  
+**Пример вложенного запроса:**  
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 // Using subquery
 let Top_5_States = 
@@ -125,8 +131,9 @@ StormEvents
 | count
 ```
 
-Тот же запрос может быть написан как:
+Тот же запрос можно написать следующим образом:
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 // Inline subquery 
 StormEvents 
@@ -138,12 +145,13 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |14242|  
 
-**Топ с другим примером:**  
+**Top с другим примером:**  
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let Lightning_By_State = materialize(StormEvents | summarize lightning_events = countif(EventType == 'Lightning') by State);
 let Top_5_States = Lightning_By_State | top 5 by lightning_events | project State; 
@@ -152,33 +160,35 @@ Lightning_By_State
 | summarize sum(lightning_events) by State 
 ```
 
-| Состояние     | sum_lightning_events |
+| State     | sum_lightning_events |
 |-----------|----------------------|
 | АЛАБАМА   | 29                   |
-| Висконсин | 31                   |
+| ВИСКОНСИНА | 31                   |
 | Техас     | 55                   |
 | Флорида   | 85                   |
 | Грузия   | 106                  |
-| Другой     | 415                  |
+| другой     | 415                  |
 
-**Использование статического списка, возвращенного функцией:**  
+**Использование статического списка, возвращаемого функцией:**  
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents | where State in (InterestingStates()) | count
 
 ```
 
-|Count|
+|Счетчик|
 |---|
 |4775|  
 
 
-Вот определение функции:  
+Ниже приведено определение функции.  
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 .show function InterestingStates
 ```
 
 |Имя|Параметры|Текст|Папка|DocString|
 |---|---|---|---|---|
-|Интересныегосударства|()|- динамический ("ВАШИНГТОН", "ФЛОРИДА", "Грузия", "НЬЮ-йорк")
+|интерестингстатес|()|{Dynamic (["Вашингтон", "ФЛОРИДЕ", "Грузия", "Нью-Йорк"])}

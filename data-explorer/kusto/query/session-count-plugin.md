@@ -1,5 +1,5 @@
 ---
-title: подключаемый модуль session_count — Azure обозреватель данных | Документация Майкрософт
+title: подключаемый модуль session_count — Azure обозреватель данных
 description: В этой статье описывается подключаемый модуль session_count в Azure обозреватель данных.
 services: data-explorer
 author: orspod
@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 7ebbbc401f8fdee79aaa328d45c7758d9acb931e
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 6a9596b71afabe1e80e866fef7f2a22f6b288631
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82619059"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372403"
 ---
 # <a name="session_count-plugin"></a>Подключаемый модуль session_count
 
@@ -25,7 +25,7 @@ T | evaluate session_count(id, datetime_column, startofday(ago(30d)), startofday
 
 **Синтаксис**
 
-*T* `| evaluate` `,` *Bin* *End* *IdColumn* `,` *LookBackWindow* *TimelineColumn* `,` *dim2* *Start* `,` идколумн тимелинеколумн Start лукбакквиндов [`,` *Dim1* dim2...]`,` `,` `session_count(``,``)`
+*T* `| evaluate` `session_count(` *идколумн* `,` *тимелинеколумн* `,` *Start* `,` *End* `,` *Bin* `,` *лукбакквиндов* [ `,` *Dim1* `,` *dim2* `,` ...]`)`
 
 **Аргументы**
 
@@ -58,10 +58,11 @@ T | evaluate session_count(id, datetime_column, startofday(ago(30d)), startofday
 
 `Id`отображается в определенном `Timeline` слоте, если он является разделителем `Timeline` (временная шкала% ID = = 0).
 
-Это означает, что событие `Id==1` с будет отображаться в `Timeline` любом слоте, `Id==2` событии со `Timeline` вторым слотом и т. д.
+Это означает, что событие с `Id==1` будет отображаться в любом `Timeline` слоте, событии со `Id==2` вторым `Timeline` слотом и т. д.
 
 Ниже приведено несколько 20 строк данных:
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 let _data = range Timeline from 1 to 10000 step 1
 | extend __key = 1
@@ -74,7 +75,7 @@ _data
 | limit 20
 ```
 
-|Временная шкала|Идентификатор|
+|Сроки|Идентификатор|
 |---|---|
 |1|1|
 |2|1|
@@ -97,10 +98,11 @@ _data
 |8|4|
 |8|8|
 
-Давайте определим сеанс в следующих терминах: сеанс считается активным, пока пользователь (`Id`) отображается по крайней мере один раз в интервале времени 100, а окно просмотра сеанса — 41.
+Давайте определим сеанс в следующих терминах: сеанс считается активным, пока пользователь ( `Id` ) отображается по крайней мере один раз в интервале времени 100, а окно просмотра сеанса — 41.
 
 Следующий запрос показывает количество активных сеансов в соответствии с указанным выше определением.
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 let _data = range Timeline from 1 to 9999 step 1
 | extend __key = 1

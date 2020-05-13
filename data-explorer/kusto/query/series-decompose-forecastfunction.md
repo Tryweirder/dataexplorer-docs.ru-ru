@@ -1,5 +1,5 @@
 ---
-title: series_decompose_forecast () — Azure обозреватель данных | Документация Майкрософт
+title: series_decompose_forecast () — обозреватель данных Azure
 description: В этой статье описывается series_decompose_forecast () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/26/2019
-ms.openlocfilehash: 97f87a7390ab099886e84642b2eb46a8087b6da9
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 9676da9d12e2654cd4d92538f183a2630971d078
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82618855"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372880"
 ---
 # <a name="series_decompose_forecast"></a>series_decompose_forecast()
 
@@ -23,7 +23,7 @@ ms.locfileid: "82618855"
  
 **Синтаксис**
 
-`series_decompose_forecast(`*Series* `,` *Точки* `,` *Seasonality_threshold* *Trend* *Seasonality* ряда сезонности`,` тренд Seasonality_threshold `[,``])`
+`series_decompose_forecast(`*Ряд* `,` *Точки* `[,` *Сезонности* `,` *Тенденция* `,` *Seasonality_threshold*`])`
 
 **Аргументы**
 
@@ -37,7 +37,7 @@ ms.locfileid: "82618855"
     * "линефит": извлечение компонента тренда с использованием линейной регрессии (по умолчанию).    
     * "AVG": определение компонента тренда как среднего (x).
     * "None": нет тренда, пропустите извлечение этого компонента.   
-* *Seasonality_threshold*: пороговое значение для оценки сезонности, если для *сезонности* задано автоматическое обнаружение, пороговое `0.6`значение оценки по умолчанию —. Дополнительные сведения см. в разделе [series_periods_detect](series-periods-detectfunction.md).
+* *Seasonality_threshold*: пороговое значение для оценки сезонности, если для *сезонности* задано автоматическое обнаружение, пороговое значение оценки по умолчанию — `0.6` . Дополнительные сведения см. в разделе [series_periods_detect](series-periods-detectfunction.md).
 
 **Вернул**
 
@@ -52,8 +52,9 @@ ms.locfileid: "82618855"
 
 **Пример**
 
-В следующем примере мы создаем серию из 4 недель в почасовом Гране с еженедельным сезонностиом и небольшой последующей тенденцией, `make-series` затем используем и добавляем еще одну пустую неделю к ряду. `series_decompose_forecast`вызывается с неделей (24 * 7 точек), она автоматически обнаруживает сезонности и тенденцию и создает прогноз на протяжении всего 5 недель. 
+В следующем примере мы создаем серию из 4 недель в почасовом Гране с еженедельным сезонностиом и небольшой последующей тенденцией, затем используем `make-series` и добавляем еще одну пустую неделю к ряду. `series_decompose_forecast`вызывается с неделей (24 * 7 точек), она автоматически обнаруживает сезонности и тенденцию и создает прогноз на протяжении всего 5 недель. 
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let ts=range t from 1 to 24*7*4 step 1 // generate 4 weeks of hourly data
 | extend Timestamp = datetime(2018-03-01 05:00) + 1h * t 

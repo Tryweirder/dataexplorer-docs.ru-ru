@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: fbc67bbc0523b208f717936a184cfa3b4be9db2d
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: c591c4f774f3af99004d398898b288256861bb75
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83226250"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83373718"
 ---
 # <a name="data-formats-supported-by-azure-data-explorer-for-ingestion"></a>Форматы данных, поддерживаемые обозреватель данных Azure для приема
 
@@ -56,7 +56,7 @@ ms.locfileid: "83226250"
 > [!NOTE]
 > Некоторые форматы сжатия сохраняют исходное расширение файла в потоке сжатых данных. Эти сведения о расширении обычно игнорируются при определении формата файла. Если формат файла нельзя определить по имени сжатого большого двоичного объекта или файла, его нужно указать в свойстве приема `format`.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
-* Дополнительные сведения о приеме [данных](/azure/data-explorer/ingest-data-overview)
+* Дополнительные сведения о приеме [данных](ingest-data-overview.md)
 * Дополнительные сведения о [свойствах приема данных Обозреватель данных Azure](ingestion-properties.md)

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 211ac6cb078e2f61243f4616f9141a6f4834d464
-ms.sourcegitcommit: 4f68d6dbfa6463dbb284de0aa17fc193d529ce3a
+ms.openlocfilehash: bc26c61b9a94c6f21d2c53cae8fc80805b235f75
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82741804"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372818"
 ---
 # <a name="series_fill_backward"></a>series_fill_backward()
 
@@ -23,13 +23,13 @@ ms.locfileid: "82741804"
 
 **Синтаксис**
 
-`series_fill_backward(`*x*`[, `*missing_value_placeholder* x`])`
+`series_fill_backward(`*x* `[, ` *missing_value_placeholder*`])`
 * Возвратит ряд *x* со всеми экземплярами *missing_value_placeholder* заполните обратную сторону.
 
 **Аргументы**
 
 * *x*: скалярное выражение с динамическим массивом, представляющее собой массив числовых значений.
-* *missing_value_placeholder*: Этот необязательный параметр указывает заполнитель для отсутствующих значений. Значение по умолчанию `double`— (*null*).
+* *missing_value_placeholder*: Этот необязательный параметр указывает заполнитель для отсутствующих значений. Значение по умолчанию — `double` (*null*).
 
 **Примечания**
 
@@ -39,12 +39,13 @@ ms.locfileid: "82741804"
 make-series num=count() default=long(null) on TimeStamp in range(ago(1d), ago(1h), 1h) by Os, Browser
 ```
 
-* *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Оба `double`значения (*null*) `long`, (*null*) `int`и (*null*) имеют одинаковое значение.
-* Если *missing_value_placeholder* имеет `double`*значение (NULL*) (или опущено, то есть имеет то же значение), результат может содержать значения *null* . Для заполнения этих значений *null* используйте другие функции интерполяции. В настоящее время только [series_outliers ()](series-outliersfunction.md) поддерживают значения *null* во входных массивах.
+* *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Оба `double` значения (*null*), `long` (*null*) и `int` (*null*) имеют одинаковое значение.
+* Если *missing_value_placeholder* имеет `double` *значение (NULL*) (или опущено, то есть имеет то же значение), результат может содержать значения *null* . Для заполнения этих значений *null* используйте другие функции интерполяции. В настоящее время только [series_outliers ()](series-outliersfunction.md) поддерживают значения *null* во входных массивах.
 * Функция сохраняет исходный тип элементов массива.
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let data = datatable(arr: dynamic)
 [

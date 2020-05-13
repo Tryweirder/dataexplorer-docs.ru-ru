@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: db99d1d46c321bff0f5d7b370766900ea7d1d5a0
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 1c7670dfb06e95f227a4b828a86b980005eeeac9
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227729"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83373360"
 ---
 # <a name="external-tables-in-azure-storage-or-azure-data-lake"></a>Внешние таблицы в службе хранилища Azure или Azure Data Lake
 
@@ -27,7 +27,7 @@ ms.locfileid: "83227729"
 ( `.create`  |  `.alter` ) `external` `table` *TableName* (*схема*)  
 `kind` `=` (`blob` | `adl`)  
 [ `partition` `by` *Partition* [ `,` ....]]  
-`dataformat``=` *Формат*  
+`dataformat` `=` *Формат*  
 `(`  
 *StorageConnectionString* [ `,` ...]  
 `)`  
@@ -40,7 +40,7 @@ ms.locfileid: "83227729"
 * *TableName* — имя внешней таблицы. Должны соответствовать правилам для [имен сущностей](../query/schema-entities/entity-names.md). Имя внешней таблицы не может совпадать с именем обычной таблицы в той же базе данных.
 * *Схема* -внешняя схема данных в формате: `ColumnName:ColumnType[, ColumnName:ColumnType ...]` . Если схема внешних данных неизвестна, используйте подключаемый модуль [infer_storage_schema](../query/inferstorageschemaplugin.md) , который может вывести схему на основе содержимого внешнего файла.
 * *Partition* — одно или несколько определений секций (необязательно). См. синтаксис раздела ниже.
-* *Format* — формат данных. Для запросов поддерживается любой из [форматов приема](https://docs.microsoft.com/azure/data-explorer/ingestion-supported-formats) . Использование внешней таблицы для [сценария экспорта](data-export/export-data-to-an-external-table.md) ограничено следующими форматами: `CSV` , `TSV` , `JSON` , `Parquet` .
+* *Format* — формат данных. Для запросов поддерживается любой из [форматов приема](../../ingestion-supported-formats.md) . Использование внешней таблицы для [сценария экспорта](data-export/export-data-to-an-external-table.md) ограничено следующими форматами: `CSV` , `TSV` , `JSON` , `Parquet` .
 * *StorageConnectionString* — один или несколько путей к контейнерам больших двоичных объектов хранилища BLOB-объектов Azure или Azure Data Lake Store файловых системах (виртуальные каталоги или папки), включая учетные данные. Дополнительные сведения см. в разделе [строки подключения к хранилищу](../api/connection-strings/storage.md) . Предоставьте более одной учетной записи хранения, чтобы избежать регулирования хранилища при [экспорте](data-export/export-data-to-an-external-table.md) больших объемов данных во внешнюю таблицу. При экспорте будут распределяться операции записи между всеми предоставленными учетными записями. 
 
 **Синтаксис раздела**
@@ -60,7 +60,7 @@ ms.locfileid: "83227729"
 
 **Необязательные свойства**:
 
-| Свойство         | Type     | Описание       |
+| Свойство.         | Тип     | Описание       |
 |------------------|----------|-------------------------------------------------------------------------------------|
 | `folder`         | `string` | Папка таблицы                                                                     |
 | `docString`      | `string` | Строка документирования таблицы                                                       |
@@ -221,9 +221,9 @@ dataformat=parquet
 
 **Выходные данные**
 
-| Выходной параметр | Type   | Описание                       |
+| Выходной параметр | Тип   | Описание                       |
 |------------------|--------|-----------------------------------|
-| URI              | строка | URI внешнего артефакта хранилища |
+| URI              | string | URI внешнего артефакта хранилища |
 
 **Примеры:**
 

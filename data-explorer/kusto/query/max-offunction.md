@@ -1,6 +1,6 @@
 ---
-title: max_of () - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описаны max_of() в Azure Data Explorer.
+title: max_of () — обозреватель данных Azure
+description: В этой статье описывается max_of () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 68188ccd5eb814a22be166b8847d80193172813f
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 4b912b1bdc68d7b3071ace8547f0aaf7c679a86a
+ms.sourcegitcommit: 733bde4c6bc422c64752af338b29cd55a5af1f88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81512501"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83271610"
 ---
 # <a name="max_of"></a>max_of()
 
-Возвращает максимальное значение нескольких оцененных численных выражений.
+Возвращает максимальное значение нескольких вычисленных числовых выражений.
 
 ```kusto
 max_of(10, 1, -3, 17) == 17
@@ -25,14 +25,14 @@ max_of(10, 1, -3, 17) == 17
 
 **Синтаксис**
 
-`max_of``(` *expr_1* expr_1`,` *expr_2* ...`)`
+`max_of``(` *expr_1* `,` *expr_2* ...`)`
 
 **Аргументы**
 
-* *expr_i*: Выражаемый выражение, который будет оценен.
+* *expr_i*— скалярное выражение для вычисления.
 
 - Все аргументы должны быть одного типа.
-- Поддерживается максимум 64 аргумента.
+- Поддерживается не более 64 аргументов.
 
 **Возвращает**
 
@@ -40,10 +40,11 @@ max_of(10, 1, -3, 17) == 17
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net/Samples  -->
 ```kusto
 print result = max_of(10, 1, -3, 17) 
 ```
 
-|набор по|
+|result|
 |---|
 |17|

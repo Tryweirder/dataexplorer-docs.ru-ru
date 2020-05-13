@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: 7e1c7dd313f42884132fe014367c0402418be708
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 1853b85215da63a753a7867cb9d4354c5b99731a
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81497204"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83373964"
 ---
 # <a name="connect-to-azure-data-explorer-from-azure-databricks-by-using-python"></a>Подключение к Azure Data Explorer из Azure Databricks с помощью Python
 
@@ -20,8 +20,8 @@ ms.locfileid: "81497204"
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-- [Создайте кластер и базу данных Azure Data Explorer.](/azure/data-explorer/create-cluster-database-portal)
-- [Создайте рабочее пространство Azure Databricks.](/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace) В разделе **Служба Azure Databricks** в раскрывающемся списке **Ценовая категория** выберите **Премиум**. Это дает возможность использовать секреты Azure Databricks для хранения учетных данных и ссылаться на них в записных книжках и заданиях.
+- [Создайте кластер Azure обозреватель данных и базу данных](create-cluster-database-portal.md).
+- [Создайте рабочую область Azure Databricks](/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace). В разделе **Служба Azure Databricks** в раскрывающемся списке **Ценовая категория** выберите **Премиум**. Это дает возможность использовать секреты Azure Databricks для хранения учетных данных и ссылаться на них в записных книжках и заданиях.
 
 - [Создайте кластер](https://docs.azuredatabricks.net/user-guide/clusters/create.html) в Azure Databricks со следующими спецификациями (минимальные параметры, необходимые для запуска примеров записных книжек):
 
@@ -73,9 +73,9 @@ https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ### <a name="store-and-secure-your-azure-ad-app-id-and-key"></a>Хранение и защита идентификатора и ключа приложения Azure AD 
 
 Храните и защищайте идентификатор и ключ приложения Azure AD с помощью [секретов](https://docs.azuredatabricks.net/user-guide/secrets/index.html#secrets) Azure Databricks следующим образом:
-1. [Настройка CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-the-cli).
-1. [Установите CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
-1. [Настройка аутентификации.](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-authentication)
+1. [Настройте интерфейс командной строки](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-the-cli).
+1. [Установите интерфейс командной строки](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+1. [Настройка проверки подлинности](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-authentication).
 1. Настройте [секреты](https://docs.azuredatabricks.net/user-guide/secrets/index.html#secrets) с помощью приведенных ниже примеров команд:
 
     ```databricks secrets create-scope --scope adx```

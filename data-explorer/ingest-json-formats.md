@@ -1,40 +1,40 @@
 ---
-title: Ingest JSON отформатировал данные в Azure Data Explorer
-description: Узнайте о том, как глотать отформатированные jSON данные в Azure Data Explorer.
+title: Прием данных в формате JSON в Azure обозреватель данных
+description: Узнайте, как принимать данные в формате JSON в обозреватель данных Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 36c7616ee3d79cebaea96ca67787466cbd401cab
-ms.sourcegitcommit: 436cd515ea0d83d46e3ac6328670ee78b64ccb05
+ms.openlocfilehash: 24c32467b3d8f9a5ab0caae812d766e14e135544
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81663182"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83373748"
 ---
-# <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Ingest JSON отформатировал выборочные данные в Azure Data Explorer
+# <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Получение демонстрационных данных в формате JSON в Azure обозреватель данных
 
-В этой статье показано, как глотать отформатированные jSON данные в базу данных Azure Data Explorer. Вы начнете с простых примеров необработанных и отображенных JSON, продолжите многострочую JSON, а затем будете решать более сложные схемы JSON, содержащие массивы и словари.  В примерах подробно описывается процесс проема отформатированных jSON данных с помощью языка запросов Kusto (K'L), C' или Python. Команды управления языком `ingest` запроса Kusto выполняются непосредственно к конечному пункту двигателя. В производственных сценариях проглатывание выполняется в службу управления данными с использованием клиентских библиотек или соединений данных. Прочитайте [данные Ingest с помощью библиотеки Azure Data Explorer Python](/azure/data-explorer/python-ingest-data) и [данных Ingest с помощью Azure Data Explorer .NET Standard SDK](/azure/data-explorer/net-standard-ingest-data) для прохождения в этих клиентских библиотеках.
+В этой статье показано, как получать данные в формате JSON в базу данных Azure обозреватель данных. Вы начинаете с простых примеров необработанных и сопоставленных JSON, переходите к нескольким строкам JSON, а затем разберем более сложные схемы JSON, содержащие массивы и словари.  В примерах подробно рассматривается процесс приема данных в формате JSON с использованием языка запросов Kusto (ККЛ), C# или Python. Команды управления языком запросов Kusto `ingest` выполняются непосредственно в конечной точке обработчика. В рабочих сценариях прием выполняется в службе Управление данными с помощью клиентских библиотек или подключений к данным. Пошаговое руководство по приему данных для этих клиентских библиотек см. в статье прием данных с [помощью библиотеки azure обозреватель данных Python](python-ingest-data.md) и прием [данных с помощью пакета SDK для Azure обозреватель данных .NET Standard](net-standard-ingest-data.md) .
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-[Кластер тестирования и база данных](create-cluster-database-portal.md)
+[Тестовый кластер и база данных](create-cluster-database-portal.md)
 
 ## <a name="the-json-format"></a>Формат JSON
 
-Azure Data Explorer поддерживает два формата файлов JSON:
-* `json`: Линия отделила JSON. Каждая строка в входных данных имеет ровно одну запись JSON.
-* `multijson`: Многослойный JSON. Парсер игнорирует линейные сепараторы и читает запись от предыдущей позиции до конца действительного JSON.
+Azure обозреватель данных поддерживает два формата файлов JSON:
+* `json`: JSON, разделенный строками. Каждая строка входных данных содержит только одну запись JSON.
+* `multijson`: JSON с несколькими строками. Средство синтаксического анализа игнорирует разделители строк и считывает запись из предыдущей точки в конец допустимого JSON.
 
-### <a name="ingest-and-map-json-formatted-data"></a>Проглокание и карта отформатированных данных JSON
+### <a name="ingest-and-map-json-formatted-data"></a>Прием и отображение данных в формате JSON
 
-Использование отформатированных данных JSON требует указания *формата* с помощью [свойства приема.](ingestion-properties.md) Использование данных JSON требует [отображения,](kusto/management/mappings.md)которое отображает запись источника JSON в целевой столбец. При глотании данных используйте заранее `jsonMappingReference` определенное `jsonMapping`свойство приема или укажите свойство приема. В этой статье `jsonMappingReference` будет использовано свойство приема, которое предварительно определено на столе, используемом для приема. В приведенных ниже примерах мы начнем с поимки записей JSON в качестве необработанных данных в одну таблицу столбцов. Затем мы будем использовать отображение для проема каждого свойства в его отображенном столбце. 
+Для приема данных в формате JSON необходимо указать *Формат* с помощью [Свойства приема](ingestion-properties.md). Для приема данных JSON требуется [сопоставление](kusto/management/mappings.md), которое сопоставляет исходную запись JSON со своим целевым столбцом. При приеме данных используйте предварительно определенное `jsonMappingReference` свойство приема или укажите `jsonMapping` свойство приема. В этой статье будет использоваться `jsonMappingReference` свойство приема, которое предварительно определено в таблице, используемой для приема. В приведенных ниже примерах мы начнем с приема записей JSON в виде необработанных данных в таблицу с одним столбцом. Затем мы будем использовать сопоставление для приема каждого свойства в сопоставленном столбце. 
 
-### <a name="simple-json-example"></a>Простой пример JSON
+### <a name="simple-json-example"></a>Пример простого JSON
 
-Следующим примером является простой JSON, с плоской структурой. Данные имеют информацию о температуре и влажности, собранную несколькими устройствами. Каждая запись отмечена идентификатором и меткой времени.
+В следующем примере показан простой код JSON с плоской структурой. Данные содержат сведения о температуре и влажности, собранные несколькими устройствами. Каждая запись помечается ИДЕНТИФИКАТОРом и меткой времени.
 
 ```json
 {
@@ -46,13 +46,13 @@ Azure Data Explorer поддерживает два формата файлов 
 }
 ```
 
-## <a name="ingest-raw-json-records"></a>Проглоки сырых записей JSON 
+## <a name="ingest-raw-json-records"></a>Прием необработанных записей JSON 
 
-В этом примере вы глотаете записи JSON в качестве необработанных данных в одну таблицу столбцов. Манипуляция данными, использование запросов и политика обновления выполняются после попавания данных.
+В этом примере вы принимаете записи JSON в виде необработанных данных в таблицу с одним столбцом. Обработка данных, использование запросов и политика обновления выполняются после приема данных.
 
-# <a name="kql"></a>[Kql](#tab/kusto-query-language)
+# <a name="kql"></a>[ккл](#tab/kusto-query-language)
 
-Используйте язык запросов Kusto для поимки данных в сыром формате JSON.
+Используйте язык запросов Kusto для приема данных в необработанном формате JSON.
 
 1. Выполните вход на странице [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
@@ -60,23 +60,23 @@ Azure Data Explorer поддерживает два формата файлов 
 
 1. В диалоговом окне **Добавить кластер** введите URL-адрес кластера в форму `https://<ClusterName>.<Region>.kusto.windows.net/`, а затем выберите **Добавить**.
 
-1. Вставьте в следующую команду и выберите **Run** для создания таблицы.
+1. Вставьте следующую команду и выберите **Run (выполнить** ), чтобы создать таблицу.
 
     ```kusto
     .create table RawEvents (Event: dynamic)
     ```
 
-    Этот запрос создает таблицу `Event` с одним столбцом [динамического](kusto/query/scalar-data-types/dynamic.md) типа данных.
+    Этот запрос создает таблицу с одним `Event` столбцом [динамического](kusto/query/scalar-data-types/dynamic.md) типа данных.
 
-1. Создайте отображение JSON.
+1. Создайте сопоставление JSON.
 
     ```kusto
     .create table RawEvents ingestion json mapping 'RawEventMapping' '[{"column":"Event","path":"$"}]'
     ```
 
-    Эта команда создает отображение и `$` отображает `Event` путь корня JSON к столбику.
+    Эта команда создает сопоставление и сопоставляет корневой путь JSON со `$` `Event` столбцом.
 
-1. Проем данных `RawEvents` в таблицу.
+1. Прием данных в `RawEvents` таблицу.
 
     ```kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
@@ -84,7 +84,7 @@ Azure Data Explorer поддерживает два формата файлов 
 
 # <a name="c"></a>[C#](#tab/c-sharp)
 
-Используйте C-е для глотания данных в сыром формате JSON.
+Используйте C# для приема данных в необработанном формате JSON.
 
 1. Создайте `RawEvents` таблицу.
 
@@ -113,7 +113,7 @@ Azure Data Explorer поддерживает два формата файлов 
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Создайте отображение JSON.
+1. Создайте сопоставление JSON.
     
     ```csharp
     var tableMapping = "RawEventMapping";
@@ -128,9 +128,9 @@ Azure Data Explorer поддерживает два формата файлов 
 
     kustoClient.ExecuteControlCommand(command);
     ```
-    Эта команда создает отображение и `$` отображает `Event` путь корня JSON к столбику.
+    Эта команда создает сопоставление и сопоставляет корневой путь JSON со `$` `Event` столбцом.
 
-1. Проем данных `RawEvents` в таблицу.
+1. Прием данных в `RawEvents` таблицу.
 
     ```csharp
     var ingestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/";
@@ -157,11 +157,11 @@ Azure Data Explorer поддерживает два формата файлов 
     ```
 
 > [!NOTE]
-> Данные агрегируются в соответствии с [политикой пакетирования,](kusto/management/batchingpolicy.md)что приводит к задержке в несколько минут.
+> Статистические данные вычисляются в соответствии с [политикой пакетной обработки](kusto/management/batchingpolicy.md), что приводит к задержке в несколько минут.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Используйте Python для глотания данных в сыром формате JSON.
+Используйте Python для приема данных в необработанном формате JSON.
 
 1. Создайте `RawEvents` таблицу.
 
@@ -176,7 +176,7 @@ Azure Data Explorer поддерживает два формата файлов 
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Создайте отображение JSON.
+1. Создайте сопоставление JSON.
 
     ```python
     MAPPING = "RawEventMapping"
@@ -185,7 +185,7 @@ Azure Data Explorer поддерживает два формата файлов 
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Проем данных `RawEvents` в таблицу.
+1. Прием данных в `RawEvents` таблицу.
 
     ```python
     INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/"
@@ -200,41 +200,41 @@ Azure Data Explorer поддерживает два формата файлов 
     ```
 
     > [!NOTE]
-    > Данные агрегируются в соответствии с [политикой пакетирования,](kusto/management/batchingpolicy.md)что приводит к задержке в несколько минут.
+    > Статистические данные вычисляются в соответствии с [политикой пакетной обработки](kusto/management/batchingpolicy.md), что приводит к задержке в несколько минут.
 
 ---
 
-## <a name="ingest-mapped-json-records"></a>Проглотядные записи JSON
+## <a name="ingest-mapped-json-records"></a>Получение сопоставленных записей JSON
 
-В этом примере вы глотаете данные записей JSON. Каждое свойство JSON отображается в одном столбце в таблице. 
+В этом примере вы принимаете данные записей JSON. Каждое свойство JSON сопоставляется с одним столбцом в таблице. 
 
-# <a name="kql"></a>[Kql](#tab/kusto-query-language)
+# <a name="kql"></a>[ккл](#tab/kusto-query-language)
 
-1. Создайте новую таблицу с аналогичной схемой с входными данными JSON. Мы будем использовать эту таблицу для всех следующих примеров и глотание команд. 
+1. Создайте новую таблицу с аналогичной схемой входных данных JSON. Мы будем использовать эту таблицу для всех следующих примеров и команд приема. 
 
     ```kusto
     .create table Events (Time: datetime, Device: string, MessageId: string, Temperature: double, Humidity: double)
     ```
 
-1. Создайте отображение JSON.
+1. Создайте сопоставление JSON.
 
     ```kusto
     .create table Events ingestion json mapping 'FlatEventMapping' '[{"column":"Time","path":"$.timestamp"},{"column":"Device","path":"$.deviceId"},{"column":"MessageId","path":"$.messageId"},{"column":"Temperature","path":"$.temperature"},{"column":"Humidity","path":"$.humidity"}]'
     ```
 
-    В этом отображении, как это `timestamp` определено схемой таблицы, `Time` записи будут познаваться в столбец в виде `datetime` типов данных.
+    В этом сопоставлении, как определено схемой таблицы, `timestamp` записи будут приприниматься к столбцу `Time` как к `datetime` типам данных.
 
-1. Проем данных `Events` в таблицу.
+1. Прием данных в `Events` таблицу.
 
     ```kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=FlatEventMapping)
     ```
 
-    Файл 'simple.json' имеет несколько линейных записей JSON. `json`Формат, и отображение, используемое в `FlatEventMapping` глотании команды вы создали.
+    Файл simple. JSON содержит несколько записей JSON, разделенных строками. Формат — `json` , а сопоставление, используемое в команде приема, — `FlatEventMapping` созданное вами.
 
 # <a name="c"></a>[C#](#tab/c-sharp)
 
-1. Создайте новую таблицу с аналогичной схемой с входными данными JSON. Мы будем использовать эту таблицу для всех следующих примеров и глотание команд. 
+1. Создайте новую таблицу с аналогичной схемой входных данных JSON. Мы будем использовать эту таблицу для всех следующих примеров и команд приема. 
 
     ```csharp
     var table = "Events";
@@ -253,7 +253,7 @@ Azure Data Explorer поддерживает два формата файлов 
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Создайте отображение JSON.
+1. Создайте сопоставление JSON.
 
     ```csharp
     var tableMapping = "FlatEventMapping";
@@ -273,9 +273,9 @@ Azure Data Explorer поддерживает два формата файлов 
     kustoClient.ExecuteControlCommand(command);
     ```
 
-    В этом отображении, как это `timestamp` определено схемой таблицы, `Time` записи будут познаваться в столбец в виде `datetime` типов данных.    
+    В этом сопоставлении, как определено схемой таблицы, `timestamp` записи будут приприниматься к столбцу `Time` как к `datetime` типам данных.    
 
-1. Проем данных `Events` в таблицу.
+1. Прием данных в `Events` таблицу.
 
     ```csharp
     var blobPath = "https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
@@ -289,11 +289,11 @@ Azure Data Explorer поддерживает два формата файлов 
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
 
-    Файл 'simple.json' имеет несколько линейных записей JSON. `json`Формат, и отображение, используемое в `FlatEventMapping` глотании команды вы создали.
+    Файл simple. JSON содержит несколько записей JSON, разделенных строками. Формат — `json` , а сопоставление, используемое в команде приема, — `FlatEventMapping` созданное вами.
 
 # <a name="python"></a>[Python](#tab/python)
 
-1. Создайте новую таблицу с аналогичной схемой с входными данными JSON. Мы будем использовать эту таблицу для всех следующих примеров и глотание команд. 
+1. Создайте новую таблицу с аналогичной схемой входных данных JSON. Мы будем использовать эту таблицу для всех следующих примеров и команд приема. 
 
     ```python
     TABLE = "RawEvents"
@@ -302,7 +302,7 @@ Azure Data Explorer поддерживает два формата файлов 
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Создайте отображение JSON.
+1. Создайте сопоставление JSON.
 
     ```python
     MAPPING = "FlatEventMapping"
@@ -311,7 +311,7 @@ Azure Data Explorer поддерживает два формата файлов 
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Проем данных `Events` в таблицу.
+1. Прием данных в `Events` таблицу.
 
     ```python
     BLOB_PATH = 'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D'
@@ -322,16 +322,16 @@ Azure Data Explorer поддерживает два формата файлов 
         BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
     ```
 
-    Файл 'simple.json' имеет несколько строк разделенных записей JSON. `json`Формат, и отображение, используемое в `FlatEventMapping` глотании команды вы создали.    
+    Файл simple. JSON содержит несколько разделенных строк записей JSON. Формат — `json` , а сопоставление, используемое в команде приема, — `FlatEventMapping` созданное вами.    
 ---
 
-## <a name="ingest-multi-lined-json-records"></a>Глотать многоподкладные записи JSON
+## <a name="ingest-multi-lined-json-records"></a>Прием записей JSON с несколькими строками
 
-В этом примере вы глотаете многоподкладные записи JSON. Каждое свойство JSON отображается в одном столбце в таблице. Файл 'multilined.json' имеет несколько отступных записей JSON. Формат `multijson` говорит движку читать записи по структуре JSON.
+В этом примере вы принимаете многострочные записи JSON. Каждое свойство JSON сопоставляется с одним столбцом в таблице. Файл "многострочный. JSON" содержит несколько отступов в формате JSON. Формат `multijson` указывает обработчику читать записи по структуре JSON.
 
-# <a name="kql"></a>[Kql](#tab/kusto-query-language)
+# <a name="kql"></a>[ккл](#tab/kusto-query-language)
 
-Проем данных `Events` в таблицу.
+Прием данных в `Events` таблицу.
 
 ```kusto
 .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=FlatEventMapping)
@@ -339,7 +339,7 @@ Azure Data Explorer поддерживает два формата файлов 
 
 # <a name="c"></a>[C#](#tab/c-sharp)
 
-Проем данных `Events` в таблицу.
+Прием данных в `Events` таблицу.
 
 ```csharp
 var tableMapping = "FlatEventMapping";
@@ -356,7 +356,7 @@ ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingest
 
 # <a name="python"></a>[Python](#tab/python)
 
-Проем данных `Events` в таблицу.
+Прием данных в `Events` таблицу.
 
 ```python
 MAPPING = "FlatEventMapping"
@@ -369,9 +369,9 @@ INGESTION_CLIENT.ingest_from_blob(
 
 ---
 
-## <a name="ingest-json-records-containing-arrays"></a>Записи Ingest JSON, содержащие массивы
+## <a name="ingest-json-records-containing-arrays"></a>Прием записей JSON, содержащих массивы
 
-Тип данных "массив" представляет собой упорядоченную коллекцию значений. Загласка массива JSON осуществляется [по политике обновления.](kusto/management/update-policy.md) JSON попадает как есть в промежуточную таблицу. Политика обновления выполняет заранее определенную `RawEvents` функцию на столе, переназначая результаты в целевую таблицу. Мы будем глотать данные со следующей структурой:
+Тип данных "массив" представляет собой упорядоченную коллекцию значений. Прием массива JSON выполняется [политикой обновления](kusto/management/update-policy.md). JSON принимается "как есть" в промежуточную таблицу. Политика обновления запускает в таблице предварительно определенную функцию, возвращающую `RawEvents` результаты в целевую таблицу. Мы будем принимать данные со следующей структурой:
 
 ```json
 {
@@ -395,9 +395,9 @@ INGESTION_CLIENT.ingest_from_blob(
 }
 ```
 
-# <a name="kql"></a>[Kql](#tab/kusto-query-language)
+# <a name="kql"></a>[ккл](#tab/kusto-query-language)
 
-1. Создайте `update policy` функцию, которая `records` расширяет коллекцию так, чтобы каждое значение `mv-expand` в коллекции получало отдельную строку с помощью оператора. Мы будем использовать `RawEvents` таблицу как `Events` исходную таблицу и как целевую таблицу.
+1. Создайте `update policy` функцию, которая расширяет коллекцию `records` таким образом, чтобы каждое значение в коллекции получало отдельную строку с помощью `mv-expand` оператора. Таблица будет использоваться в `RawEvents` качестве исходной таблицы и `Events` целевой таблицы.
 
     ```kusto
     .create function EventRecordsExpand() {
@@ -412,25 +412,25 @@ INGESTION_CLIENT.ingest_from_blob(
     }
     ```
 
-1. Схема, полученная функцией, должна соответствовать схеме целевой таблицы. Используйте `getschema` оператора для просмотра схемы.
+1. Схема, полученная функцией, должна соответствовать схеме целевой таблицы. `getschema`Для просмотра схемы используйте оператор.
 
     ```kusto
     EventRecordsExpand() | getschema
     ```
 
-1. Добавьте политику обновления для целевой таблицы. Эта политика автоматически запустит запрос на любые вновь `RawEvents` проникнутые данные `Events` в промежуточной таблице и будет вовлять результаты в таблицу. Определите политику нулевого удержания, чтобы избежать сохранения промежуточной таблицы.
+1. Добавьте политику обновления для целевой таблицы. Эта политика автоматически запускает запрос для всех вновь принимаемых данных в `RawEvents` промежуточной таблице и принимает результаты в `Events` таблицу. Определите политику нулевого хранения, чтобы избежать сохранения промежуточной таблицы.
 
     ```kusto
     .alter table Events policy update @'[{"Source": "RawEvents", "Query": "EventRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
-1. Проем данных `RawEvents` в таблицу.
+1. Прием данных в `RawEvents` таблицу.
 
     ```kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
     ```
 
-1. Просмотрите данные `Events` в таблице.
+1. Проверьте данные в `Events` таблице.
 
     ```kusto
     Events
@@ -438,7 +438,7 @@ INGESTION_CLIENT.ingest_from_blob(
 
 # <a name="c"></a>[C#](#tab/c-sharp)
 
-1. Создайте функцию обновления, которая `records` расширяет коллекцию так, чтобы каждое `mv-expand` значение в коллекции получало отдельную строку с помощью оператора. Мы будем использовать `RawEvents` таблицу как `Events` исходную таблицу и как целевую таблицу.   
+1. Создайте функцию Update, которая расширяет коллекцию `records` таким образом, чтобы каждое значение в коллекции получало отдельную строку с помощью `mv-expand` оператора. Таблица будет использоваться в `RawEvents` качестве исходной таблицы и `Events` целевой таблицы.   
 
     ```csharp
     var command =
@@ -463,7 +463,7 @@ INGESTION_CLIENT.ingest_from_blob(
     > [!NOTE]
     > Схема, полученная функцией, должна соответствовать схеме целевой таблицы.
 
-1. Добавьте политику обновления для целевой таблицы. Эта политика автоматически запустит запрос на любые вновь `RawEvents` проникнутые данные `Events` в промежуточной таблице и внигает его результаты в таблицу. Определите политику нулевого удержания, чтобы избежать сохранения промежуточной таблицы.
+1. Добавьте политику обновления для целевой таблицы. Эта политика автоматически запустит запрос для всех вновь принимаемых данных в `RawEvents` промежуточной таблице и будет принимать результаты в `Events` таблицу. Определите политику нулевого хранения, чтобы избежать сохранения промежуточной таблицы.
 
     ```csharp
     var command =
@@ -472,7 +472,7 @@ INGESTION_CLIENT.ingest_from_blob(
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Проем данных `RawEvents` в таблицу.
+1. Прием данных в `RawEvents` таблицу.
 
     ```csharp
     var table = "RawEvents";
@@ -488,11 +488,11 @@ INGESTION_CLIENT.ingest_from_blob(
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
     
-1. Просмотрите данные `Events` в таблице.
+1. Проверьте данные в `Events` таблице.
 
 # <a name="python"></a>[Python](#tab/python)
 
-1. Создайте функцию обновления, которая `records` расширяет коллекцию так, чтобы каждое `mv-expand` значение в коллекции получало отдельную строку с помощью оператора. Мы будем использовать `RawEvents` таблицу как `Events` исходную таблицу и как целевую таблицу.   
+1. Создайте функцию Update, которая расширяет коллекцию `records` таким образом, чтобы каждое значение в коллекции получало отдельную строку с помощью `mv-expand` оператора. Таблица будет использоваться в `RawEvents` качестве исходной таблицы и `Events` целевой таблицы.   
 
     ```python
     CREATE_FUNCTION_COMMAND = 
@@ -513,7 +513,7 @@ INGESTION_CLIENT.ingest_from_blob(
     > [!NOTE]
     > Схема, полученная функцией, должна соответствовать схеме целевой таблицы.
 
-1. Добавьте политику обновления для целевой таблицы. Эта политика автоматически запустит запрос на любые вновь `RawEvents` проникнутые данные `Events` в промежуточной таблице и внигает его результаты в таблицу. Определите политику нулевого удержания, чтобы избежать сохранения промежуточной таблицы.
+1. Добавьте политику обновления для целевой таблицы. Эта политика автоматически запустит запрос для всех вновь принимаемых данных в `RawEvents` промежуточной таблице и будет принимать результаты в `Events` таблицу. Определите политику нулевого хранения, чтобы избежать сохранения промежуточной таблицы.
 
     ```python
     CREATE_UPDATE_POLICY_COMMAND = 
@@ -522,7 +522,7 @@ INGESTION_CLIENT.ingest_from_blob(
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Проем данных `RawEvents` в таблицу.
+1. Прием данных в `RawEvents` таблицу.
 
     ```python
     TABLE = "RawEvents"
@@ -534,13 +534,13 @@ INGESTION_CLIENT.ingest_from_blob(
         BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
     ```
 
-1. Просмотрите данные `Events` в таблице.
+1. Проверьте данные в `Events` таблице.
 
 ---    
 
-## <a name="ingest-json-records-containing-dictionaries"></a>Записи Ingest JSON, содержащие словари
+## <a name="ingest-json-records-containing-dictionaries"></a>Принимающие записи JSON, содержащие словари
 
-Словарь структурированный JSON содержит пары ключевых значений. Записи Json проходят отображение `JsonPath`с помощью логического выражения в . Вы можете глотать данные со следующей структурой:
+JSON, структурированный по словарю, содержит пары "ключ-значение". JSON регистрирует сопоставление приема с помощью логического выражения в `JsonPath` . Вы можете принимать данные со следующей структурой:
 
 ```json
 {
@@ -570,15 +570,15 @@ INGESTION_CLIENT.ingest_from_blob(
 }
 ```
 
-# <a name="kql"></a>[Kql](#tab/kusto-query-language)
+# <a name="kql"></a>[ккл](#tab/kusto-query-language)
 
-1. Создайте отображение JSON.
+1. Создайте сопоставление JSON.
 
     ```kusto
     .create table Events ingestion json mapping 'KeyValueEventMapping' '[{"column":"Time","path":"$.event[?(@.Key == 'timestamp')]"},{"column":"Device","path":"$.event[?(@.Key == 'deviceId')]"},{"column":"MessageId","path":"$.event[?(@.Key == 'messageId')]"},{"column":"Temperature","path":"$.event[?(@.Key == 'temperature')]"},{"column":"Humidity","path":"$.event[?(@.Key == 'humidity')]"}]'
     ```
 
-1. Проем данных `Events` в таблицу.
+1. Прием данных в `Events` таблицу.
 
     ```kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=KeyValueEventMapping)
@@ -586,7 +586,7 @@ INGESTION_CLIENT.ingest_from_blob(
 
 # <a name="c"></a>[C#](#tab/c-sharp)
 
-1. Создайте отображение JSON.
+1. Создайте сопоставление JSON.
 
     ```csharp
     var tableName = "Events";
@@ -607,7 +607,7 @@ INGESTION_CLIENT.ingest_from_blob(
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Проем данных `Events` в таблицу.
+1. Прием данных в `Events` таблицу.
 
     ```csharp
     var blobPath = "https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
@@ -623,7 +623,7 @@ INGESTION_CLIENT.ingest_from_blob(
 
 # <a name="python"></a>[Python](#tab/python)
 
-1. Создайте отображение JSON.
+1. Создайте сопоставление JSON.
 
     ```python
     MAPPING = "KeyValueEventMapping"
@@ -632,7 +632,7 @@ INGESTION_CLIENT.ingest_from_blob(
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Проем данных `Events` в таблицу.
+1. Прием данных в `Events` таблицу.
 
      ```python
     MAPPING = "KeyValueEventMapping"

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: cdf9b84f684a2a4dfdb508f1ac5762039da8275d
-ms.sourcegitcommit: 4f68d6dbfa6463dbb284de0aa17fc193d529ce3a
+ms.openlocfilehash: dc421c8321985d001bb08ba85965cf017b1d51c6
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82741710"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372773"
 ---
 # <a name="series_fill_forward"></a>series_fill_forward()
 
@@ -23,28 +23,30 @@ ms.locfileid: "82741710"
 
 **Синтаксис**
 
-`series_fill_forward(`*x*`[, `*missing_value_placeholder* x`])`
+`series_fill_forward(`*x* `[, ` *missing_value_placeholder*`])`
 * Возвратит ряд *x* со всеми экземплярами *missing_value_placeholder* заполненные вперед.
 
 **Аргументы**
 
 * *x*: скалярное выражение с динамическим массивом, представляющее собой массив числовых значений. 
-* *missing_value_placeholder*: необязательный параметр, который указывает заполнитель для замены отсутствующего значения. Значение по умолчанию — `double`(*null*).
+* *missing_value_placeholder*: необязательный параметр, который указывает заполнитель для замены отсутствующего значения. Значение по умолчанию — `double` (*null*).
 
 **Примечания**
 
 * Укажите значение *null* в качестве значения по умолчанию, чтобы применить функции интерполяции после [создания рядов](make-seriesoperator.md): 
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 make-series num=count() default=long(null) on TimeStamp in range(ago(1d), ago(1h), 1h) by Os, Browser
 ```
 
-* *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Оба `double`значения*null*(NULL `long`) (*null*) `int`и (*null*) имеют одинаковое значение.
+* *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Оба значения `double` (*null*) `long` (*null*) и `int` (*null*) имеют одинаковое значение.
 * Если missing_value_placeholder имеет значение (null) (или опущено, то есть имеет то же значение), результат может содержать значения *null* . Для заполнения этих значений *null* используйте другие функции интерполяции. В настоящее время только [series_outliers ()](series-outliersfunction.md) поддерживают значения *null* во входных массивах.
 * Функции сохраняют исходный тип элементов массива.
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 let data = datatable(arr: dynamic)
 [

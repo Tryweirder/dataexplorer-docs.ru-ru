@@ -1,6 +1,6 @@
 ---
-title: unixtime_nanoseconds_todatetime () - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описаны unixtime_nanoseconds_todatetime () в Azure Data Explorer.
+title: unixtime_nanoseconds_todatetime () — обозреватель данных Azure
+description: В этой статье описывается unixtime_nanoseconds_todatetime () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 11/25/2019
-ms.openlocfilehash: cd9dadca7ab4455f8a90d5a7842293b2d6c8bcc2
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 6c56d588ec9635b8225161ffdd47dc90eabdca3d
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81505242"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83370496"
 ---
 # <a name="unixtime_nanoseconds_todatetime"></a>unixtime_nanoseconds_todatetime()
 
-Преобразует наносекунды эпохи unix в utC.
+Преобразует наносекундах в формате UNIX в формат UTC DateTime.
 
 **Синтаксис**
 
@@ -25,20 +25,21 @@ ms.locfileid: "81505242"
 
 **Аргументы**
 
-* *наносекунды*: Реальное число представляет собой эпоха timestamp в наносекундах. `Datetime`что происходит до эпохи времени (1970-01-01 00:00:00) имеет отрицательное значение метки времени.
+* *наносекундах*: вещественное число представляет метку времени эпохи в наносекундах. `Datetime`Это происходит до момента времени эпохи (1970-01-01 00:00:00) с отрицательным значением отметки времени.
 
 **Возвращает**
 
-Если конверсия выполнена успешно, результатом будет значение [времени даты.](./scalar-data-types/datetime.md) Если конверсия не будет успешной, результат будет нулевым.
+Если преобразование выполнено успешно, результатом будет значение [DateTime](./scalar-data-types/datetime.md) . Если преобразование не выполнено, результатом будет NULL.
 
 **См. также:**
 
-* Преобразуйте секунды unix-эпохи в время дат UTC, используя [unixtime_seconds_todatetime()](unixtime-seconds-todatetimefunction.md).
-* Преобразуйте миллисекунды unix-эпохи в utC datetime с помощью [unixtime_milliseconds_todatetime()](unixtime-milliseconds-todatetimefunction.md).
-* Преобразуйте микросекунды unix-эпохи в время дат UTC с помощью [unixtime_microseconds_todatetime()](unixtime-microseconds-todatetimefunction.md).
+* Преобразование секунды UNIX-эпохи в формат UTC DateTime с помощью [unixtime_seconds_todatetime ()](unixtime-seconds-todatetimefunction.md).
+* Преобразуйте миллисекунды в формате UNIX в формат UTC DateTime с помощью [unixtime_milliseconds_todatetime ()](unixtime-milliseconds-todatetimefunction.md).
+* Преобразуйте микросекунды UNIX-эпохи в формат UTC DateTime с помощью [unixtime_microseconds_todatetime ()](unixtime-microseconds-todatetimefunction.md).
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net/Samples  -->
 ```kusto
 print date_time = unixtime_nanoseconds_todatetime(1546300800000000000)
 ```

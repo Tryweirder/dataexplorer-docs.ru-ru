@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: f8cc5771890247291f6c9e1183a57fc7e1341874
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 9de01863ddb832421c5b6dbfe65b8ae451382fb7
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227746"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83373374"
 ---
 # <a name="external-sql-table"></a>Внешняя таблица SQL
 
@@ -40,7 +40,7 @@ ms.locfileid: "83227746"
 
 ## <a name="optional-properties"></a>Необязательные свойства
 
-| Свойство            | Type            | Описание                          |
+| Свойство.            | Тип            | Описание                          |
 |---------------------|-----------------|---------------------------------------------------------------------------------------------------|
 | `folder`            | `string`        | Папка таблицы.                  |
 | `docString`         | `string`        | Строка, задокументированная в таблице.      |
@@ -81,7 +81,7 @@ with
 
 ## <a name="querying-an-external-table-of-type-sql"></a>Запрос к внешней таблице типа SQL 
 
-Поддерживается выполнение запросов к внешней таблице SQL. См. раздел [запросы к внешним таблицам](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data). 
+Поддерживается выполнение запросов к внешней таблице SQL. См. раздел [запросы к внешним таблицам](../../data-lake-query-data.md). 
 
 > [!Note]
 > Реализация запроса к внешней таблице SQL выполнит полное "SELECT *" (или выберите соответствующие столбцы) из таблицы SQL. Остальная часть запроса будет выполняться на стороне Kusto. 

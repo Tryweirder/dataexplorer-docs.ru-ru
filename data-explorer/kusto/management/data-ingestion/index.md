@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/30/2020
-ms.openlocfilehash: f41304ae4ac51081cd61c41856ed5e7e08ed6f7a
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: f0fb68395ec5ed647e1f28cc1c93d46083d405c6
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81490384"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83373450"
 ---
 # <a name="data-ingestion"></a>Прием данных
 
@@ -41,8 +41,8 @@ ms.locfileid: "81490384"
 > К принятым в таблицу Kusto данным применяется действующая для таблицы **политика хранения**.
 > Если политика хранения не задана для таблицы явным образом, она создается на основе политики хранения базы данных. Таким образом, когда вы принимаете данные в Kusto, убедитесь, что политика хранения базы данных соответствует вашим потребностям. В противном случае явно переопределите ее на уровне таблицы. Несоблюдение этого требования может привести к удалению данных без предупреждения. Дополнительные сведения см. в статье о [политике хранения](https://kusto.azurewebsites.net/docs/concepts/retentionpolicy.html).
 
-См. сведения о [свойствах приема данных](https://docs.microsoft.com/azure/data-explorer/ingestion-properties).
-См. список поддерживаемых [форматов для приема данных](https://docs.microsoft.com/azure/data-explorer/ingestion-supported-formats).
+См. сведения о [свойствах приема данных](../../../ingestion-properties.md).
+См. список поддерживаемых [форматов для приема данных](../../../ingestion-supported-formats.md).
 
 
 

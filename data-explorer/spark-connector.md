@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 1/14/2020
-ms.openlocfilehash: 6e7879948fb7683210859c84970f31bc5adb4a90
-ms.sourcegitcommit: e1e35431374f2e8b515bbe2a50cd916462741f49
+ms.openlocfilehash: 28dee67b6ac412a9c0497d5713a69c9617d3ae55
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82108326"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83370469"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark"></a>Соединитель Azure обозреватель данных для Apache Spark
 
@@ -27,9 +27,9 @@ ms.locfileid: "82108326"
 > [!NOTE]
 > Хотя некоторые из приведенных ниже примеров относятся к кластеру [Azure Databricks](https://docs.azuredatabricks.net/) Spark, соединитель Azure обозреватель данных Spark не принимает прямые зависимости от кирпичей данных или других дистрибутивов Spark.
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
-* [Создание кластера Azure обозреватель данных и базы данных](/azure/data-explorer/create-cluster-database-portal) 
+* [Создание кластера Azure обозреватель данных и базы данных](create-cluster-database-portal.md) 
 * Создание кластера Spark
 * Установка библиотеки соединителей Azure обозреватель данных:
     * Предварительно созданные библиотеки для [Spark 2,4, Scala 2,11](https://github.com/Azure/azure-kusto-spark/releases) 
@@ -89,7 +89,7 @@ mvn clean install
     
 1. Установите последнюю версию библиотеки Spark-kusto-Connector из Maven:
     
-    ![Импорт библиотек](media/spark-connector/db-libraries-view.png) ![выберите Spark-Kusto-Connector](media/spark-connector/db-dependencies.png)
+    ![Импорт библиотек ](media/spark-connector/db-libraries-view.png) ![ выберите Spark-Kusto-Connector](media/spark-connector/db-dependencies.png)
 
 1. Убедитесь, что установлены все необходимые библиотеки:
 
@@ -268,7 +268,7 @@ mvn clean install
         display(dfFiltered)
         ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 * Дополнительные сведения о [соединителе Azure обозреватель данных Spark](https://github.com/Azure/azure-kusto-spark/tree/master/docs)
 * [Пример кода для Java и Python](https://github.com/Azure/azure-kusto-spark/tree/master/samples/src/main)

@@ -1,6 +1,6 @@
 ---
-title: percentrank_tdigest () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны percentrank_tdigest() в Azure Data Explorer.
+title: percentrank_tdigest () — обозреватель данных Azure
+description: В этой статье описывается percentrank_tdigest () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,40 +8,41 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/10/2019
-ms.openlocfilehash: fe356ddb2e6301bbb283d2e6aa59b5c98f8bf3fe
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 8220c52b70eec8a0a297c5826fff3a6e2a0483b3
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81511192"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83373240"
 ---
 # <a name="percentrank_tdigest"></a>percentrank_tdigest()
 
-Высчитывает приблизительный ранг значения в наборе, где ранг выражается в процентах от размера набора. Эту функцию можно рассматривать как обратную процентиль.
+Вычисляет приблизительный ранг значения в наборе, где ранг выражается в процентах от размера набора. Эта функция может быть просмотрена как обратная часть процентиля.
 
 **Синтаксис**
 
-`percentrank_tdigest(`*TDigest* `,` *Expr*`)`
+`percentrank_tdigest(`*Тдижест* `,` *Выражение*`)`
 
 **Аргументы**
 
-* *TDigest*: Выражение, которое было сгенерировано [tdigest()](tdigest-aggfunction.md) или [tdigest_merge()](tdigest-merge-aggfunction.md).
-* *Expr*: Выражение, представляющее значение, используемое для расчета процентного ранжирования.
+* *Тдижест*: выражение, созданное [тдижест ()](tdigest-aggfunction.md) или [tdigest_merge ()](tdigest-merge-aggfunction.md).
+* *Expr*: выражение, представляющее значение, используемое для вычисления процентного рейтинга.
 
 **Возвращает**
 
-Процентное значение в наборе данных.
+Процентный ранг значения в наборе данных.
 
-**Советы**
+**"Советы"**
 
-1) Тип второго параметра и тип элементов в tdigest должны быть одинаковыми.
+1) Тип второго параметра и тип элементов в тдижест должны совпадать.
 
-2) Первый параметр должен быть TDigest, который был создан [tdigest()](tdigest-aggfunction.md) или [tdigest_merge()](tdigest-merge-aggfunction.md)
+2) Первым параметром должен быть Тдижест, созданный [тдижест ()](tdigest-aggfunction.md) или [tdigest_merge ()](tdigest-merge-aggfunction.md)
 
 **Примеры**
 
-Получение percentrank_tdigest () ущерба имущества, которое оценивается в 4490 $ составляет 85%:
+Получение percentrank_tdigest () свойства ущерба, которое имеет значение $4490, равно ~ 85%:
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents
 | summarize tdigestRes = tdigest(DamageProperty)
@@ -54,8 +55,9 @@ StormEvents
 |85.0015237192293|
 
 
-Использование процентили 85 над ущербом имущество должно дать 4490 $:
+Использование процентиля 85 над свойством ущерба должно дать $4490:
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents
 | summarize tdigestRes = tdigest(DamageProperty)

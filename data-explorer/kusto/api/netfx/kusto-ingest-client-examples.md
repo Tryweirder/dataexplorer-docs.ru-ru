@@ -1,6 +1,6 @@
 ---
-title: Kusto. прием ссылок — примеры кода приема — Azure обозреватель данных | Документация Майкрософт
-description: В этой статье описываются примеры кода приема Kusto. принимаемые материалы в Azure обозреватель данных.
+title: Примеры кода приема Kusto. приема в Azure обозреватель данных
+description: В этой статье описываются примеры кода приема Kusto. приема в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,26 +8,25 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/15/2019
-ms.openlocfilehash: ba3232ca1c8a3f587f53ee1c3c6aad3fc12283ad
-ms.sourcegitcommit: 061eac135a123174c85fe1afca4d4208c044c678
+ms.openlocfilehash: caeebf0a94d4e8144f1d00f84ea78f8727947416
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82799685"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83373646"
 ---
-# <a name="kustoingest-reference---ingestion-code-examples"></a>Примеры кода приема Kusto. приема
-Это набор коротких фрагментов кода, демонстрирующих различные методы приема данных в таблицу Kusto
+# <a name="kustoingest-ingestion-code-examples"></a>Примеры кода приема Kusto. приема
 
->Напоминание. Эти примеры выглядят так, как если бы принимающий клиент уничтожаться сразу после приема. Не передавайте это буквально.<BR>Принимающие клиенты являются повторными, потокобезопасными и не должны создаваться в больших числах. Рекомендуемая кратность экземпляров приема клиента — одна для каждого процесса размещения на целевом кластере Kusto.
+В этой коллекции коротких фрагментов кода демонстрируются различные методы приема данных в таблицу Kusto.
 
-### <a name="useful-references"></a>Полезные ссылки
-* [Ссылка на клиент Kusto. приема](kusto-ingest-client-reference.md)
-* [Состояние операции Kusto. приема](kusto-ingest-client-errors.md)
-* [Исключения Kusto. приема](kusto-ingest-client-errors.md)
-* [Строки подключения Kusto](../connection-strings/kusto.md)
-* [Модель авторизации Kusto](../../management/security-roles.md)
+> [!NOTE]
+> Эти примеры выглядят так, как если бы принимающий клиент уничтожаться сразу после приема. Не выдавайте это буквально.
+> Принимающие клиенты являются повторными и потокобезопасными и не должны создаваться в больших числах. Рекомендуемая кратность экземпляров приема клиента — один для каждого процесса размещения на целевом кластере Kusto.
 
-### <a name="async-ingestion-from-a-single-azure-blob-using-kustoqueuedingestclient-with-optional-retrypolicy"></a>Асинхронное получение из одного большого двоичного объекта Azure с помощью Кустокуеуединжестклиент с (необязательно) RetryPolicy:
+## <a name="async-ingestion-from-a-single-azure-blob"></a>Асинхронное получение из одного большого двоичного объекта Azure
+
+Используйте Кустокуеуединжестклиент с дополнительным RetryPolicy для асинхронного приема из одного большого двоичного объекта Azure.
+
 ```csharp
 //Create Kusto connection string with App Authentication
 var kustoConnectionStringBuilderDM =
@@ -56,9 +55,13 @@ await client.IngestFromStorageAsync(uri: @"BLOB-URI-WITH-SAS-KEY", ingestionProp
 client.Dispose();
 ```
 
-### <a name="ingest-from-local-file-using-kustodirectingestclient"></a>Прием из локального файла с помощью Кустодиректинжестклиент 
+## <a name="ingest-from-local-file"></a>Прием из локального файла 
 
-Этот метод рекомендуется для приема с ограниченным объемом и низкой частотой.
+Используйте Кустодиректинжестклиент для приема из локального файла.
+
+
+> [!NOTE]
+> Мы советуем использовать этот метод для приема с ограниченным объемом и низкой частотой.
 
 ```csharp
 // Create Kusto connection string with App Authentication
@@ -78,7 +81,10 @@ using (IKustoIngestClient client = KustoIngestFactory.CreateDirectIngestClient(k
 }
 ```
 
-### <a name="ingest-from-local-files-using-kustoqueuedingestclient-and-ingestion-validation"></a>Прием из локальных файлов с помощью Кустокуеуединжестклиент и проверки приема 
+## <a name="ingest-from-local-files-and-validate-ingestion"></a>Прием из локальных файлов и проверка приема
+
+Используйте Кустокуеуединжестклиент для приема из локальных файлов и последующей проверки приема.
+
 ```csharp
 // Create Kusto connection string with App Authentication
 var kustoConnectionStringBuilderDM =
@@ -110,7 +116,9 @@ Ensure.IsTrue((ingestionFailures.Count() > 0), "Failures expected");
 client.Dispose();
 ```
 
-### <a name="ingest-from-a-local-files-using-kustoqueuedingestclient-and-report-status-to-a-queue"></a>Прием из локальных файлов с помощью Кустокуеуединжестклиент и состояние отчета в очередь
+### <a name="ingest-from-local-files-and-report-status-to-a-queue"></a>Прием из локальных файлов и состояние отчета в очередь
+
+Используйте Кустокуеуединжестклиент для приема из локальных файлов, а затем сообщите о состоянии очереди.
 
 ```csharp
 // Create Kusto connection string with App Authentication
@@ -157,7 +165,9 @@ Ensure.ConditionIsMet((ingestionSuccesses.Count() > 0),
 client.Dispose();
 ```
 
-### <a name="ingest-from-a-local-file-using-kustoqueuedingestclient-and-report-status-to-a-table"></a>Прием из локального файла с помощью Кустокуеуединжестклиент и отчета о состоянии в таблицу
+### <a name="ingest-from-local-files-and-report-status-to-a-table"></a>Прием из локальных файлов и состояние отчета в таблицу
+
+Используйте Кустокуеуединжестклиент для приема из локальных файлов и отчета о состоянии в таблицу.
 
 ```csharp
 // Create Kusto connection string with App Authentication
@@ -206,3 +216,11 @@ Ensure.ConditionIsMet(ingestionStatus.Status == Status.Succeeded,
 // Dispose of the client
 client.Dispose();
 ```
+
+## <a name="next-steps"></a>Следующие шаги
+
+* [Ссылка на клиент Kusto. приема](kusto-ingest-client-reference.md)
+* [Состояние операции Kusto. приема](kusto-ingest-client-errors.md)
+* [Исключения Kusto. приема](kusto-ingest-client-errors.md)
+* [Строки подключения Kusto](../connection-strings/kusto.md)
+* [Модель авторизации Kusto](../../management/security-roles.md)

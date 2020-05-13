@@ -1,6 +1,6 @@
 ---
-title: set_intersect () - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описаны set_intersect () в Azure Data Explorer.
+title: set_intersect () — обозреватель данных Azure
+description: В этой статье описывается set_intersect () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,31 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/02/2019
-ms.openlocfilehash: 0a1ef86573a408f644e26b3b23f0db42e327573a
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 23b751dce38f5b595ba081c9a29e1b1a5442c96f
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81507758"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372358"
 ---
 # <a name="set_intersect"></a>set_intersect()
 
-Возвращает `dynamic` массив (JSON) из набора всех различных значений, которые находятся во всех массивах - (arr1 и arr2 ...).
+Возвращает `dynamic` массив (JSON) набора всех различных значений, которые находятся во всех массивах (arr1 ∩ arr2 ∩...).
 
 **Синтаксис**
 
-`set_intersect(`*arr1*`, `*arr2*`[`,` *arr3*, ...])`
+`set_intersect(`*arr1* `, ` *arr2* `[` ,` *arr3*, ...])`
 
 **Аргументы**
 
-* *arr1... arrN*: Входные массивы для создания набора пересекающихся (по крайней мере, двух массивов). Все аргументы должны быть динамическими массивами [(см. pack_array).](packarrayfunction.md) 
+* *arr1... Аррн*: входные массивы для создания пересекающихся наборов (по крайней мере два массива). Все аргументы должны быть динамическими массивами (см. [pack_array](packarrayfunction.md)). 
 
 **Возвращает**
 
-Возвращает динамический массив набора всех различных значений, которые находятся во всех массивах. Увидеть [`set_union()`](setunionfunction.md) [`set_difference()`](setdifferencefunction.md)и .
+Возвращает динамический массив набора всех различных значений, которые находятся во всех массивах. См [`set_union()`](setunionfunction.md) . раздел и [`set_difference()`](setdifferencefunction.md) .
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 range x from 1 to 3 step 1
 | extend y = x * 2
@@ -45,13 +46,14 @@ range x from 1 to 3 step 1
 |Column1|
 |---|
 |[1]|
-|[2]|
+|открыт|
 |[3]|
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 print arr = set_intersect(dynamic([1, 2, 3]), dynamic([4,5]))
 ```
 
-|Arr|
+|маленькая|
 |---|
 |[]|

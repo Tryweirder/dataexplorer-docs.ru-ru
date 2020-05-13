@@ -1,6 +1,6 @@
 ---
-title: series_greater () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны series_greater () в Azure Data Explorer.
+title: series_greater () — обозреватель данных Azure
+description: В этой статье описывается series_greater () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,31 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/01/2020
-ms.openlocfilehash: b3f8be234cc196d55320bcace6bfca579c11a44c
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 7181e703ff6085d463f80bd169ae064066031d66
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81508387"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83372639"
 ---
 # <a name="series_greater"></a>series_greater()
 
-Вычисляет элемент-мудрый больше ()`>`логика операции двух численных ввода серии.
+Вычисляет логику поэлементного выполнения ( `>` ) с двумя входными числовыми последовательностями.
 
 **Синтаксис**
 
-`series_greater (`*Серия1* `,` *Серия2*`)`
+`series_greater (`*Series1* `,` *Series2*`)`
 
 **Аргументы**
 
-* *Series1, Series2*: Числовые наборы для ввода, чтобы быть по сравнению с элементами. Все аргументы должны быть динамическими массивами. 
+* *Series1, Series2*. входные числовые массивы для поэлементного сравнения. Все аргументы должны быть динамическими массивами. 
 
 **Возвращает**
 
-Динамический массив булеанов, содержащий вычисленная элементосчитанная большая логическая операция между двумя входами. Любой нечислоный элемент или несуществующий элемент (массивы разных размеров) дает значение элемента. `null`
+Динамический массив логических значений, содержащий вычисляемую поэлементную логику операций над двумя входными значениями. Любой нечисловой элемент или несуществующий элемент (массивы разного размера) дает `null` значение элемента.
 
 **Пример**
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 print s1 = dynamic([1,2,4]), s2 = dynamic([4,2,1])
 | extend s1_greater_s2 = series_greater(s1, s2)
@@ -40,10 +41,10 @@ print s1 = dynamic([1,2,4]), s2 = dynamic([4,2,1])
 
 |s1|s2|s1_greater_s2|
 |---|---|---|
-|[1,2,4]|[4,2,1]|(ложный, ложный, истинный)|
+|[1, 2, 4]|[4, 2, 1]|[false, false, true]|
 
 **См. также:**
 
-Для сравнения статистики в целом серии см.:
+Сравнение статистики по всем рядам см. в следующих статьях:
 * [series_stats()](series-statsfunction.md)
 * [series_stats_dynamic()](series-stats-dynamicfunction.md)
