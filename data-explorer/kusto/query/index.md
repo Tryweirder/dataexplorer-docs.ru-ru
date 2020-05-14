@@ -1,5 +1,5 @@
 ---
-title: Обзор Azure Data Explorer | Документация Майкрософт
+title: Общие сведения — Azure Data Explorer
 description: В этой статье приводится основная информация об Azure Data Explorer.
 services: data-explorer
 author: orspod
@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/07/2019
-ms.openlocfilehash: 1c6c3cafef35c1292292e86da69a4d6ec03bb87c
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 7f36e5239ba183b87ab04349b873a0182363def7
+ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81490282"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83226488"
 ---
 # <a name="overview"></a>Обзор
 
@@ -26,6 +26,7 @@ ms.locfileid: "81490282"
 
 Например, следующий запрос Kusto содержит один оператор, который является оператором табличного выражения. Оператор начинается со ссылки на таблицу с именем `StormEvents` (базы данных, в которой размещена эта таблица, указана неявно, и входит в информацию о соединении). Данные (строки) для этой таблицы затем фильтруются по значению столбца `StartTime` и затем фильтруются по значению столбца `State`. Запрос возвращает количество "выживших" строк.
 
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 StormEvents 
 | where StartTime >= datetime(2007-11-01) and StartTime < datetime(2007-12-01)
