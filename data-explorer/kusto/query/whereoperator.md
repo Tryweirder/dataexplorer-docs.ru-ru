@@ -1,6 +1,6 @@
 ---
-title: Оператор WHERE в Azure обозреватель данных | Документация Майкрософт
-description: В этой статье описывается, как оператор WHERE (содержит, Contains, startsWith, EndsWith, соответствует регулярному выражению) в Azure обозреватель данных.
+title: Оператор WHERE в языке запросов Kusto — Azure обозреватель данных
+description: В этой статье описывается оператор WHERE в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: fadf8aa8c21dac364793c73a38e68d55fc2a6f6d
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 7dc9d7166a1f286e14c81f269f32f894cbe9ff9d
+ms.sourcegitcommit: da7c699bb62e1c4564f867d4131d26286c5223a8
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83370373"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404179"
 ---
 # <a name="where-operator"></a>Оператор where
 
@@ -61,9 +61,9 @@ Traces
     and ActivityId == SubActivityId 
 ```
 
-Записи, которые не старше 1 часа и поступают из источника с именем «MyCluster» и имеют два столбца с одинаковым значением. 
+В этом примере извлекаются записи, которые не старше 1 часа, берутся из источника с именем `MyCluster` и имеют два столбца с одинаковым значением. 
 
-Обратите внимание: сравнение двух столбцов вводится в последнюю очередь, так как эта операция не предполагает использование индекса и запуска проверки.
+Обратите внимание, что сравнение двух столбцов выполняется последним, так как оно не может использовать индекс и вызывает проверку.
 
 **Пример**
 

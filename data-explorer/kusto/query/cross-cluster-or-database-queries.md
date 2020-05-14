@@ -1,5 +1,5 @@
 ---
-title: Запросы между базами данных и перекрестными кластерами в Azure обозреватель данных | Документация Майкрософт
+title: Межбазовые & запросы между кластерами — обозреватель данных Azure
 description: В этой статье описываются запросы между базами данных и перекрестными кластерами в Azure обозреватель данных.
 services: data-explorer
 author: orspod
@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 834fd81e1832b8ab624da8d99cb5cc32407db84f
-ms.sourcegitcommit: 4f68d6dbfa6463dbb284de0aa17fc193d529ce3a
+ms.openlocfilehash: bb25fd556ab59dc5bdf5c533435f99deb6b32fdb
+ms.sourcegitcommit: da7c699bb62e1c4564f867d4131d26286c5223a8
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82741756"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404223"
 ---
 # <a name="cross-database-and-cross-cluster-queries"></a>Запросы между базами данных и между кластерами
 
 ::: zone pivot="azuredataexplorer"
 
 Каждый запрос Kusto работает в контексте текущего кластера и базы данных по умолчанию.
-* В [обозревателе Kusto](../tools/kusto-explorer.md) база данных по умолчанию выбрана на [панели подключения](../tools/kusto-explorer.md#connections-panel) , а текущий кластер — это подключение, содержащее эту базу данных.
-* При использовании [клиентской библиотеки Kusto](../api/netfx/about-kusto-data.md) текущий кластер и база данных по умолчанию `Data Source` задаются `Initial Catalog` свойствами и [строк подключения Kusto](../api/connection-strings/kusto.md) соответственно.
+* В [обозревателе Kusto](../tools/kusto-explorer.md)база данных по умолчанию выбрана на [панели подключения](../tools/kusto-explorer.md#connections-panel) , а текущий кластер — это подключение, содержащее эту базу данных.
+* При использовании [клиентской библиотеки Kusto](../api/netfx/about-kusto-data.md)текущий кластер и база данных по умолчанию задаются `Data Source` `Initial Catalog` свойствами и [строк подключения Kusto](../api/connection-strings/kusto.md) соответственно.
 
 ## <a name="queries"></a>Запросы
 Для доступа к таблицам из любой базы данных, отличной от используемой по умолчанию, необходимо использовать синтаксис *полного имени* : для доступа к базе данных в текущем кластере:
@@ -38,9 +38,9 @@ cluster("<cluster name>").database("<database name>").<table name>
 *имя базы данных* чувствительно к регистру
 
 *имя кластера* не учитывает регистр и может быть одной из следующих форм:
-* URL-адрес правильного формата: `http://contoso.kusto.windows.net:1234/`например, поддерживаются только схемы HTTP и HTTPS.
-* Полное доменное имя (FQDN): для экземпляра `contoso.kusto.windows.net` , который будет эквивалентен`https://`**`contoso.kusto.windows.net`**`:443/`
-* Краткое имя (имя узла [и регион] без доменной части): для экземпляра `contoso` , который интерпретируется как `https://` **`contoso`** `.kusto.windows.net:443/`, или `contoso.westus` , который интерпретируется как`https://`**`contoso.westus`**`.kusto.windows.net:443/`
+* URL-адрес правильного формата, например `http://contoso.kusto.windows.net:1234/` . Поддерживаются только схемы HTTP и HTTPS.
+* Полное доменное имя, например `contoso.kusto.windows.net` . Эта строка эквивалентна `https://` **`contoso.kusto.windows.net`** `:443/` .
+* Краткое имя (имя узла [и регион] без доменной части), например `contoso` или `contoso.westus` . Эти строки интерпретируется как `https://` **`contoso`** `.kusto.windows.net:443/` и `https://` **`contoso.westus`** `.kusto.windows.net:443/` .
 
 > [!NOTE]
 > Доступ между базами данных зависит от обычных проверок разрешений.
@@ -81,7 +81,7 @@ restrict access to (my*, database("MyOther*").*, cluster("OtherCluster").databas
 
 ## <a name="functions-and-views"></a>Функции и представления
 
-Функции и представления (постоянные и созданные встроенные) могут Справочник функциям таблицы между границами базы данных и кластера. Допустимы следующие действия:
+Функции и представления (постоянные и созданные встроенные) могут ссылаться на таблицы в границах базы данных и кластера. Следующий код является допустимым:
 
 ```kusto
 let MyView = Table1 join database("OtherDb").Table2 on Key | join cluster("OtherCluster").database("SomeDb").Table3 on Key;
@@ -90,13 +90,13 @@ MyView | where ...
 
 К постоянным функциям и представлениям можно обращаться из другой базы данных в том же кластере:
 
-Табличная функция (представление) `OtherDb`в:
+Табличная функция (представление) в `OtherDb` :
 
 ```kusto
 .create function MyView(v:string) { Table1 | where Column1 has v ...  }  
 ```
 
-Скалярная функция `OtherDb`в:
+Скалярная функция в `OtherDb` :
 ```kusto
 .create function MyCalc(a:double, b:double, c:double) { (a + b) / c }  
 ```
@@ -109,7 +109,7 @@ database("OtherDb").MyView("exception") | extend CalCol=database("OtherDb").MyCa
 
 ## <a name="limitations-of-cross-cluster-function-calls"></a>Ограничения вызовов функций между кластерами
 
-На табличные функции и представления можно ссылаться в разных кластерах. Применяются следующие ограничения.
+На табличные функции и представления можно ссылаться в разных кластерах. Действительны следующие ограничения.
 
 1. Удаленная функция должна возвращать табличную схему. Доступ к скалярным функциям может осуществляться только в одном кластере.
 2. Удаленная функция может принимать только скалярные параметры. Функции, получающие один или несколько табличных аргументов, доступны только в одном кластере.
@@ -121,24 +121,24 @@ database("OtherDb").MyView("exception") | extend CalCol=database("OtherDb").MyCa
 cluster("OtherCluster").database("SomeDb").MyView("exception") | count
 ```
 
-Следующий запрос вызывает удаленную скалярную `MyCalc`функцию.
-Это нарушает правило #1, поэтому оно является **недопустимым**:
+Следующий запрос вызывает удаленную скалярную функцию `MyCalc` .
+Этот вызов нарушает правило #1, поэтому он **недействителен**:
 
 ```kusto
 MyTable | extend CalCol=cluster("OtherCluster").database("OtherDb").MyCalc(Col1, Col2, Col3) | limit 10
 ```
 
 Следующий запрос вызывает удаленную функцию `MyCalc` и предоставляет табличный параметр.
-Это нарушает правило #2, поэтому оно является **недопустимым**:
+Этот вызов нарушает правило #2, поэтому он **недействителен**:
 
 ```kusto
 cluster("OtherCluster").database("OtherDb").MyCalc(datatable(x:string, y:string)["x","y"] ) 
 ```
 
-Следующий запрос вызывает удаленную функцию `SomeTable` с выходными данными схемы на основе параметра `tablename`.
-Это нарушает правило #3, поэтому оно является **недопустимым**:
+Следующий запрос вызывает удаленную функцию `SomeTable` с выходными данными схемы на основе параметра `tablename` .
+Этот вызов нарушает правило #3, поэтому он **недействителен**:
 
-Табличная функция `OtherDb`в:
+Табличная функция в `OtherDb` :
 ```kusto
 .create function SomeTable(tablename:string) { table(tablename)  }  
 ```
@@ -149,9 +149,9 @@ cluster("OtherCluster").database("OtherDb").SomeTable("MyTable")
 ```
 
 Следующий запрос вызывает удаленную функцию `GetDataPivot` , имеющую переменную вывод схемы на основе данных (в[подключаемом модуле Pivot ()](pivotplugin.md) есть динамический выход).
-Это нарушает правило #3, поэтому оно является **недопустимым**:
+Этот вызов нарушает правило #3, поэтому он **недействителен**:
 
-Табличная функция `OtherDb`в:
+Табличная функция в `OtherDb` :
 ```kusto
 .create function GetDataPivot() { T | evaluate pivot(PivotColumn) }  
 ```
@@ -171,6 +171,6 @@ cluster("OtherCluster").database("OtherDb").GetDataPivot()
 
 ::: zone pivot="azuremonitor"
 
-Эта возможность не поддерживается в Azure Monitor
+Запросы между базами данных и между кластерами не поддерживаются в Azure Monitor.
 
 ::: zone-end
