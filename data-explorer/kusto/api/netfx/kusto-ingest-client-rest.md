@@ -1,5 +1,5 @@
 ---
-title: Получение данных без Kusto. Принимающая библиотека — Azure обозреватель данных | Документация Майкрософт
+title: Прием данных Kusto без библиотеки приема — Azure обозреватель данных
 description: В этой статье описывается способ приема данных без библиотеки Kusto. приема в Azure обозреватель данных.
 services: data-explorer
 author: orspod
@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 ms.date: 02/19/2020
-ms.openlocfilehash: 80fe504311ee847afa7244e179974d80485efe46
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
-ms.translationtype: HT
+ms.openlocfilehash: 96409849823850ef9fd939f9e359d75d3e6d5bf1
+ms.sourcegitcommit: fd3bf300811243fc6ae47a309e24027d50f67d7e
+ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373562"
+ms.locfileid: "83382154"
 ---
 # <a name="ingestion-without-kustoingest-library"></a>Прием без Kusto. Принимающая Библиотека
 
