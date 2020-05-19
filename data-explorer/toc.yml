@@ -1572,53 +1572,53 @@
                 - name: Анализатор кода
                   href: ./kusto/tools/kusto-explorer-code-analyzer.md
             - name: Веб-интерфейс
-              href: 'https://docs.microsoft.com/azure/data-explorer/web-query-data'
+              href: ./web-query-data.md
             - name: Kusto.Cli
               href: ./kusto/tools/kusto-cli.md
         - name: 'Средства визуализации, мониторинга и отчетности'
           items:
             - name: Записные книжки Azure
-              href: 'https://docs.microsoft.com/azure/data-explorer/azure-notebooks'
+              href: ./azure-notebooks.md
             - name: Excel
               items:
                 - name: Пустой запрос Excel
-                  href: 'https://docs.microsoft.com/azure/data-explorer/excel-blank-query'
+                  href: ./excel-blank-query.md
                 - name: Соединитель Excel
-                  href: 'https://docs.microsoft.com/azure/data-explorer/excel-connector'
+                  href: ./excel-connector.md
             - name: Grafana
-              href: 'https://docs.microsoft.com/azure/data-explorer/grafana'
+              href: ./grafana.md
             - name: Power BI
               items:
                 - name: Power BI. Рекомендации
-                  href: 'https://docs.microsoft.com/azure/data-explorer/power-bi-best-practices'
+                  href: ./power-bi-best-practices.md
                 - name: "Соединитель Power\_BI"
-                  href: 'https://docs.microsoft.com/azure/data-explorer/power-bi-connector'
+                  href: ./power-bi-connector.md
                 - name: Power BI. Импортированный запрос
-                  href: 'https://docs.microsoft.com/azure/data-explorer/power-bi-imported-query'
+                  href: ./power-bi-imported-query.md
                 - name: Power BI. SQL-запрос
-                  href: 'https://docs.microsoft.com/azure/data-explorer/power-bi-sql-query'
+                  href: ./power-bi-sql-query.md
         - name: Оркестрация
           items:
             - name: Microsoft Flow (предварительная версия)
               items:
                 - name: Соединитель Microsoft Flow
-                  href: 'https://docs.microsoft.com/azure/data-explorer/flow'
+                  href: ./flow.md
                 - name: Примеры использования соединителя Microsoft Flow
-                  href: 'https://docs.microsoft.com/azure/data-explorer/flow-usage'
+                  href: ./flow-usage.md
             - name: Microsoft Logic Apps (предварительная версия)
               href: ./kusto/tools/logicapps.md
         - name: Прием данных
           items:
             - name: LightIngest
-              href: 'https://docs.microsoft.com/azure/data-explorer/lightingest'
+              href: ./lightingest.md
             - name: Соединитель Apache Spark
-              href: 'https://docs.microsoft.com/azure/data-explorer/spark-connector'
+              href: ./spark-connector.md
         - name: Интеграция системы управления версиями
           items:
             - name: Синхронизация Kusto
               href: ./kusto/tools/synckusto.md
             - name: Azure Pipelines/DevOps
-              href: 'https://docs.microsoft.com/azure/data-explorer/devops'
+              href: ./devops.md
 - name: Ресурсы
   items:
     - name: Блог
