@@ -1,6 +1,6 @@
 ---
-title: MS-TDS (поддержка T-SQL) в Azure Data Explorer | Документация Майкрософт
-description: В этой статье описывается MS-TDS (поддержка T-SQL) в Azure Data Explorer.
+title: Поддержка MS-TDS T-SQL в Azure Data Explorer
+description: В этой статье описывается поддержка MS-TDS T-SQL в Azure Data Explorer.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,27 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/06/2019
-ms.openlocfilehash: 8aaea26b6c4e8a7f76c4129faeb681791f25ae7e
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: a128db995c78c0583bc7c7712c06292a2f6598d1
+ms.sourcegitcommit: 974d5f2bccabe504583e387904851275567832e7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81490554"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83550543"
 ---
-# <a name="ms-tds-t-sql-support"></a>MS-TDS (поддержка T-SQL)
+# <a name="ms-tds-t-sql-support"></a>Поддержка MS-TDS T-SQL
 
-Kusto поддерживает подмножество возможностей протокола связи MS-TDS (который используется в Microsoft SQL Server) и подмножество языка запросов T-SQL, чтобы с Kusto могли работать существующие средства, которые умеют выполнять запросы к SQL Server. Поддерживаются такие клиенты, как Microsoft Excel, Microsoft Power BI и многие другие.
+Azure Data Explorer (Kusto) поддерживает подмножество протокола связи Microsoft SQL Server (MS-TDS) и языка запросов T-SQL. Microsoft Excel и Microsoft Power BI — лишь некоторые из многих средств, которые можно использовать с Azure Data Explorer (Kusto). Эти приложения Майкрософт также поддерживают отправку запросов в SQL Server.
 
-Обратите внимание, что для запросов к Kusto из клиентского средства через MS-TDS клиент должен поддерживать встроенную проверку подлинности Azure Active Directory.
+> [!NOTE]
+> Используйте встроенную проверку подлинности Azure Active Directory (Azure AD) в качестве клиентского средства для отправки запросов к Kusto по протоколу MS-TDS.
 
-Дополнительные сведения о реализации языка запросов T-SQL в Kusto см. в [этой статье](./t-sql.md). 
+## <a name="next-steps"></a>Дальнейшие действия
 
-Примеры использования Kusto из некоторых популярных клиентов с помощью MS-TDS/T-SQL см. [здесь](./clients.md).
+* [T-SQL.](./t-sql.md) Сведения о реализации языка запросов T-SQL в Kusto. 
 
-Настройка кластера Kusto в качестве сервера в локальной среде, связанного с SQL Server, описана [здесь](./linkedserver.md).
+* [Отправка запросов KQL через TDS.](./tdskql.md) Сведения о выполнении собственных запросов KQL через конечные точки TDS.
 
-Дополнительные сведения об использовании AAD через TDS для подключения к Kusto см. в [этой статье](./aad.md).
+* [Клиенты MS-TDS и Kusto.](./clients.md) Применение Azure Data Explorer из известных клиентов, использующих MS-TDS/T-SQL.
 
-Сведения о запуске собственных запросов KQL через конечную точку TDS см. [здесь](./tdskql.md). 
+* [Использование Azure Data Explorer (Kusto) в качестве сервера, связанного с SQL Server.](./linkedserver.md) Настройка кластера в качестве сервера в локальной среде, связанного с SQL Server. 
 
-И наконец, [здесь](./sqlknownissues.md) вы найдете основные сведения об отличиях между реализацией T-SQL в SQL Server и в Kusto.
+* [Использование MS-TDS с Azure Active Directory.](./aad.md) Использование Azure AD через протокол TDS для подключения к Azure Data Explorer.
+
+* [Известные проблемы с SQL.](./sqlknownissues.md) Сведения об основных отличиях между реализацией T-SQL в SQL Server и в Azure Data Explorer.
