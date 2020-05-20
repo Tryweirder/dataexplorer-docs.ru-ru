@@ -1,6 +1,6 @@
 ---
-title: isnull() - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается isnull() в Azure Data Explorer.
+title: IsNull () — Azure обозреватель данных
+description: В этой статье описывается функция IsNull () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: e26dca661ceac1ad209358b24b3f8d497a5c3049
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 4c57c7aba2bff2dfaecfa72b20ab76cc84ed17d6
+ms.sourcegitcommit: 974d5f2bccabe504583e387904851275567832e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81513419"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83550594"
 ---
 # <a name="isnull"></a>isnull()
 
-Оценивает его единственный `bool` аргумент и возвращает значение, указывающее, оценивается ли аргумент в нулевую величину.
+Вычисляет свой единственный аргумент и возвращает `bool` значение, указывающее, имеет ли аргумент значение null.
 
 ```kusto
 isnull(parse_json("")) == true
@@ -25,15 +25,15 @@ isnull(parse_json("")) == true
 
 **Синтаксис**
 
-`isnull(`*Expr*`)`
+`isnull(`*Выражения*`)`
 
 **Возвращает**
 
-Значение true или false в зависимости от того, равен ли аргумент null.
+Значение true или false в зависимости от того, является ли значение нулевым.
 
 **Примечания**
 
-* `string`значения не могут быть нулевыми. Чтобы определить, является ли значение типа `string` пустым, используйте параметр [isempty](./isemptyfunction.md).
+* `string`значения не могут быть неопределенными. Чтобы определить, является ли значение типа `string` пустым, используйте параметр [isempty](./isemptyfunction.md).
 
 |x                |`isnull(x)`|
 |-----------------|-----------|

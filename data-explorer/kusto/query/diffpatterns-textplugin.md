@@ -78,7 +78,7 @@ StormEvents
 | evaluate diffpatterns_text(EpisodeNarrative, EventType == "Extreme Cold/Wind Chill", 2)
 ```
 
-|Count_of_True|Count_of_False|Percent_of_True|Percent_of_False|Шаблон|
+|Count_of_True|Count_of_False|Percent_of_True|Percent_of_False|Модель|
 |---|---|---|---|---|
 |11|0|6,29|0|Подойдет к концу смены Северо-Западного в * спящий режим * траугх, в сновфалл довнвинд|
 |9|0|5,14|0|В канадском высоком замедленном нажиме * * регион * были получены холодное температуры с февраля * 2006. Длительность * замораживание температур|

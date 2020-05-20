@@ -1,6 +1,6 @@
 ---
-title: toint() - Azure Data Explorer Документы Майкрософт
-description: Эта статья описывает toint() в Azure Data Explorer.
+title: тоинт () — Azure обозреватель данных
+description: В этой статье описывается тоинт () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 570e13dc816c8a7e6d5baa488912fd8def5d2883
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 7f0ede908be2689165f641038b2b6f699c0eb543
+ms.sourcegitcommit: 974d5f2bccabe504583e387904851275567832e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506109"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83550611"
 ---
 # <a name="toint"></a>toint()
 
-Преобразует входные данные в целый ряд (подписанный 32-разрядный) номерпредставления.
+Преобразует входные данные в целочисленное (со знаком 32-разрядное) представление числа.
 
 ```kusto
-toint("123") == 123
+toint("123") == 123s
 ```
 
 **Синтаксис**
 
-`toint(`*Expr*`)`
+`toint(`*Выражения*`)`
 
 **Аргументы**
 
-* *Expr*: Выражение, которое будет преобразовано в ряды. 
+* *Expr*: выражение, которое будет преобразовано в тип Integer. 
 
 **Возвращает**
 
-Если конверсия будет успешной, результат будет целым числом.
-Если конверсия не будет `null`успешной, результат будет .
+Если преобразование прошло успешно, результатом будет целое число.
+Если преобразование завершилось неудачно, результатом будет `null` .
  
-*Примечание*: Предпочитаюиспользовать использование [int()](./scalar-data-types/int.md) когда это возможно.
+*Примечание*. предпочитать использование [int ()](./scalar-data-types/int.md) , если это возможно.

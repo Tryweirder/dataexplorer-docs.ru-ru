@@ -1,42 +1,60 @@
 ---
-title: Microsoft Logic App и Kusto - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описаны microsoft Logic App и Kusto в Azure Data Explorer.
-services: data-explorer
+title: Использование Logic Apps для автоматического выполнения запросов Kusto
+description: Узнайте, как использовать Logic Apps для автоматического запуска запросов и команд Kusto и планирования их выполнения.
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: docohe
 ms.service: data-explorer
-ms.topic: reference
-ms.date: 10/30/2019
-ms.openlocfilehash: f7d719ece5df6eb3f6d4060a2fb07e7092902601
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.topic: conceptual
+ms.date: 04/14/2020
+ms.openlocfilehash: 8765635e0eea8c1d41640bc0393d39a0afa5f971
+ms.sourcegitcommit: e66c5f4b833b4f6269bb7bfa5695519fcb11d9fa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81523823"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83630123"
 ---
-# <a name="microsoft-logic-app-and-kusto"></a>Microsoft Logic App и Kusto
+# <a name="microsoft-logic-app-and-azure-data-explorer"></a>Приложение логики (Майкрософт) и Azure обозреватель данных
 
-Разъем Azure Kusto Logic App позволяет пользователям автоматически запускать запросы и команды Kusto в рамках запланированной или срабатывающей задачи, используя [Microsoft Logic App.](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)
+Соединитель приложения логики Azure Kusto позволяет автоматически выполнять запросы и команды Kusto в рамках запланированной или активируемой задачи с помощью соединителя [приложения логики (Майкрософт](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps) ).
 
-Разъемы Logic App и Flow построены поверх одного и того же разъема, поэтому те же [ограничения,](flow.md#limitations) [действия,](flow.md#azure-kusto-flow-actions) [аутентификация](flow.md#authentication) и [примеры использования](flow.md#usage-examples) применяются как для упомянутых на [странице документации потока.](flow.md)
+Приложение логики и поток построены на одном и том же соединителе. Таким образом, [ограничения](flow.md#limitations), [действия](flow.md#azure-kusto-flow-actions), примеры [проверки подлинности](flow.md#authentication) и [использования](flow.md#azure-kusto-flow-actions) , применяемые к потоку, также применяются к Logic Apps, как упоминалось на [странице документации по Flow](flow.md).
 
+## <a name="how-to-create-a-logic-app-with-azure-data-explorer"></a>Как создать приложение логики с помощью Azure обозреватель данных
 
-## <a name="how-to-create-a-logic-app-with-azure-kusto"></a>Как создать logic App с Azure Kusto
+1. Откройте [портал Microsoft Azure](https://ms.portal.azure.com/). 
+1. Найдите `logic app` и выберите его.
 
-Откройте портал Azure и нажмите кнопку создания нового ресурса Logic App.
-Добавьте нужное имя, подписку, группу и месторасположение и нажмите создать.
+    [![](./Images/logicapps/logicapp-search.png "Search for logic app")](./Images/logicapps/logicapp-search.png#lightbox)
 
-![Создание приложения логики](./Images/KustoTools-LogicApp/logicapp-createlogicapp.png "logicapp-createlogicapp")
+1. Щелкните **+Добавить**.
 
-После создания logic App нажмите кнопку «Отодвинет кнопку»
+    ![Добавление приложения логики](./Images/logicapps/logicapp-add.png)
 
-![Отодвило ели разработчик приложения для логики](./Images/KustoTools-LogicApp/logicapp-editdesigner.png "logicapp-editdesigner")
+1. Введите необходимые сведения в форме:
+    * Подписка
+    * Группа ресурсов
+    * Имя приложения логики
+    * Регион или среда службы интеграции
+    * Расположение
+    * Включить или отключить анализ журнала
+1. Выберите **Review + create** (Просмотреть и создать).
 
-Создание пустого приложения логики
+    ![Создание приложения логики](./Images/logicapps/logicapp-create-new.png)
 
-![Чистый шаблон приложения логики](./Images/KustoTools-LogicApp/logicapp-blanktemplate.png "logicapp-blanktemplate")
+1. При создании приложения логики выберите **изменить**.
 
-Добавить действие повторения, а затем выбрать 'Azure Kusto'
+    ![Изменить конструктор приложений логики](./Images/logicapps/logicapp-editdesigner.png "logicapp — едитдесигнер")
 
-![Логика приложение Кусто поток разъем](./Images/KustoTools-LogicApp/logicapp-kustoconnector.png "logicapp-kustoconnector")
+1. Создайте пустое приложение логики.
+
+    ![Пустой шаблон приложения логики](./Images/logicapps/logicapp-blanktemplate.png "logicapp — бланктемплате")
+
+1. Добавьте действие повторения и выберите **Azure Kusto**.
+
+    ![Соединитель потока Kusto приложения логики](./Images/logicapps/logicapp-kustoconnector.png "logicapp — кустоконнектор")
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+* Дополнительные сведения о настройке действия повторения см. на [странице документации по потокам](flow.md) .
+* Ознакомьтесь с [примерами использования](flow.md#azure-kusto-flow-actions) для получения идей по настройке действий приложения логики.

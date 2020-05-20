@@ -1,5 +1,5 @@
 ---
-title: dcount_hll () — Azure обозреватель данных | Документация Майкрософт
+title: dcount_hll () — обозреватель данных Azure
 description: В этой статье описывается dcount_hll () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/15/2019
-ms.openlocfilehash: d4a76a30526f5fecbafafd735cf72de92aae7644
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 1b1b0c2313f32044a7988e0992c00786885ce2aa
+ms.sourcegitcommit: 974d5f2bccabe504583e387904851275567832e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225196"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83550305"
 ---
 # <a name="dcount_hll"></a>dcount_hll()
 
-Вычисляет DCount из результатов ХЛЛ (которые были созданы [ХЛЛ](hll-aggfunction.md) или [hll_merge](hll-merge-aggfunction.md)).
+Вычисляет DCount из результатов ХЛЛ (созданных с помощью [ХЛЛ](hll-aggfunction.md) или [hll_merge](hll-merge-aggfunction.md)).
 
 Прочтите сведения о [базовом алгоритме (*H*ИПЕР*l*OG*l*OG) и точности оценки](dcount-aggfunction.md#estimation-accuracy).
 

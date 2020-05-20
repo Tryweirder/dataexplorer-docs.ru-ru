@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/04/2020
-ms.openlocfilehash: e2a550f0ea755181d39524876833cff4281608b4
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 899e54b46dd231db0bf1272c0eb1933dad474a47
+ms.sourcegitcommit: 2ebd83369f247cf6dd91709f26e4ecd873489eaa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82618349"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83555021"
 ---
 # <a name="show-table-schema"></a>.show table schema
 
@@ -25,7 +25,7 @@ ms.locfileid: "82618349"
 .show table TableName cslschema 
 ```
 
-| Выходной параметр | Тип   | Описание                                               |
+| Выходной параметр | Type   | Описание                                               |
 |------------------|--------|-----------------------------------------------------------|
 | TableName        | Строка | Имя таблицы.                                    |
 | схема           | Строка | Схема таблицы должна использоваться для создания/изменения таблицы |
@@ -41,10 +41,10 @@ ms.locfileid: "82618349"
 Требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
 
 ```kusto
-.show table TableName schema as JSON
+.show table TableName schema as json
 ```
 
-| Выходной параметр | Тип   | Описание                             |
+| Выходной параметр | Type   | Описание                             |
 |------------------|--------|-----------------------------------------|
 | TableName        | Строка | Имя таблицы.                   |
 | схема           | Строка | Схема таблицы в формате JSON         |

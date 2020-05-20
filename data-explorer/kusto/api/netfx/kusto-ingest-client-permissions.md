@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 6b649a06262153f80c4c35374e55a206be02c781
-ms.sourcegitcommit: fd3bf300811243fc6ae47a309e24027d50f67d7e
+ms.openlocfilehash: 2e88ba9af0b9563274e15eff8d1c1f6e997fb45c
+ms.sourcegitcommit: e66c5f4b833b4f6269bb7bfa5695519fcb11d9fa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83382290"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83630013"
 ---
-# <a name="kustoingest---ingestion-permissions"></a>Разрешения на прием Kusto. приема
+# <a name="kustoingest---ingestion-permissions"></a>Разрешения на прием Kusto. приема 
 
 В этой статье объясняется, какие разрешения следует настроить в службе для `Native` работы.
 
-## <a name="prerequisites"></a>Предварительные требования
-
+## <a name="prerequisites"></a>Предварительные условия
+ 
 * Сведения о просмотре и изменении параметров авторизации в службах и базах данных Kusto см. в разделе [команды управления Kusto](../../management/security-roles.md).
 
 * Azure Active Directory приложения (Azure AD), используемые в качестве примеров участников, в следующих примерах:
     * Тестовая Azure AD App (2a904276-1234-5678-9012-66fc53add60b; microsoft.com)
     * Azure AD App внутреннего приема Kusto (76263cdb-1234-5678-9012-545644e9c404; microsoft.com)
-
+ 
 ## <a name="ingestion-permission-mode-for-queued-ingestion"></a>Режим разрешения приема для приема в очереди
 
 Режим разрешения приема определяется в [икустокуеуединжестклиент](kusto-ingest-client-reference.md#interface-ikustoqueuedingestclient). Этот режим ограничивает зависимость клиентского кода от службы обозреватель данных Azure. Прием выполняется путем отправки сообщения приема Kusto в очередь Azure. Очередь, также известная как служба приема, поступила из службы обозреватель данных Azure. Принимающий клиент будет создавать промежуточные артефакты хранилища, используя ресурсы, выделенные службой обозреватель данных Azure.
 
 На схеме показано взаимодействие клиента приема в очереди с Kusto.
 
-:::image type="content" source="../images/queued-ingest.jpg" alt-text="приема в очереди":::
+:::image type="content" source="../images/kusto-ingest-client-permissions/queued-ingest.png" alt-text="Прием с постановкой в очередь":::
 
 ### <a name="permissions-on-the-engine-service"></a>Разрешения для службы Engine
 
@@ -55,3 +55,4 @@ ms.locfileid: "83382290"
 .add database DB1 ingestors ('aadapp=2a904276-1234-5678-9012-66fc53add60b;microsoft.com') 'Test Azure AD App'
 .add table T1 ingestors ('aadapp=2a904276-1234-5678-9012-66fc53add60b;microsoft.com') 'Test Azure AD App'
 ```
+ 
