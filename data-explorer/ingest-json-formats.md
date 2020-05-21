@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.openlocfilehash: 24c32467b3d8f9a5ab0caae812d766e14e135544
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.date: 05/19/2020
+ms.openlocfilehash: 856749fc15a89ffe18c6b0cba92b62579c3ea8b0
+ms.sourcegitcommit: ee90472a4f9d751d4049744d30e5082029c1b8fa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373748"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722139"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Получение демонстрационных данных в формате JSON в Azure обозреватель данных
 
@@ -30,7 +30,7 @@ Azure обозреватель данных поддерживает два фо
 
 ### <a name="ingest-and-map-json-formatted-data"></a>Прием и отображение данных в формате JSON
 
-Для приема данных в формате JSON необходимо указать *Формат* с помощью [Свойства приема](ingestion-properties.md). Для приема данных JSON требуется [сопоставление](kusto/management/mappings.md), которое сопоставляет исходную запись JSON со своим целевым столбцом. При приеме данных используйте предварительно определенное `jsonMappingReference` свойство приема или укажите `jsonMapping` свойство приема. В этой статье будет использоваться `jsonMappingReference` свойство приема, которое предварительно определено в таблице, используемой для приема. В приведенных ниже примерах мы начнем с приема записей JSON в виде необработанных данных в таблицу с одним столбцом. Затем мы будем использовать сопоставление для приема каждого свойства в сопоставленном столбце. 
+Для приема данных в формате JSON необходимо указать *Формат* с помощью [Свойства приема](ingestion-properties.md). Для приема данных JSON требуется [сопоставление](kusto/management/mappings.md), которое сопоставляет исходную запись JSON со своим целевым столбцом. При приеме данных используйте `IngestionMapping` свойство со свойством `ingestionMappingReference` приема (для предварительно определенного сопоставления) или его `IngestionMappings` свойством. В этой статье будет использоваться `ingestionMappingReference` свойство приема, которое предварительно определено в таблице, используемой для приема. В приведенных ниже примерах мы начнем с приема записей JSON в виде необработанных данных в таблицу с одним столбцом. Затем мы будем использовать сопоставление для приема каждого свойства в сопоставленном столбце. 
 
 ### <a name="simple-json-example"></a>Пример простого JSON
 
@@ -71,7 +71,7 @@ Azure обозреватель данных поддерживает два фо
 1. Создайте сопоставление JSON.
 
     ```kusto
-    .create table RawEvents ingestion json mapping 'RawEventMapping' '[{"column":"Event","path":"$"}]'
+    .create table RawEvents ingestion json mapping 'RawEventMapping' '[{"column":"Event","Properties":{"path":"$"}}]'
     ```
 
     Эта команда создает сопоставление и сопоставляет корневой путь JSON со `$` `Event` столбцом.
@@ -79,7 +79,7 @@ Azure обозреватель данных поддерживает два фо
 1. Прием данных в `RawEvents` таблицу.
 
     ```kusto
-    .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
+    .ingest into table RawEvents (h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D') with '{"format":json, "ingestionMappingReference":"DiagnosticRawRecordsMapping"}'
     ```
 
 # <a name="c"></a>[C#](#tab/c-sharp)
@@ -118,13 +118,14 @@ Azure обозреватель данных поддерживает два фо
     ```csharp
     var tableMapping = "RawEventMapping";
     var command =
-        CslCommandGenerator.GenerateTableJsonMappingCreateCommand(
+        CslCommandGenerator.GenerateTableMappingCreateCommand(
+            Data.Ingestion.IngestionMappingKind.Json,
             tableName,
             tableMapping,
-            new[]
-            {
-                new JsonColumnMapping {ColumnName = "Events", JsonPath = "$"},
-            });
+            new[] {
+            new ColumnMapping {ColumnName = "Events", Properties = new Dictionary<string, string>() {
+                {"path","$"} }
+            } });
 
     kustoClient.ExecuteControlCommand(command);
     ```
@@ -150,10 +151,13 @@ Azure обозреватель данных поддерживает два фо
         new KustoQueuedIngestionProperties(database, table)
         {
             Format = DataSourceFormat.json,
-            IngestionMappingReference = tableMapping
+            IngestionMapping = new IngestionMapping()
+            {
+                IngestionMappingReference = tableMapping
+            }
         };
 
-    ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
+    ingestClient.IngestFromStorageAsync(blobPath, properties);
     ```
 
 > [!NOTE]
@@ -219,7 +223,7 @@ Azure обозреватель данных поддерживает два фо
 1. Создайте сопоставление JSON.
 
     ```kusto
-    .create table Events ingestion json mapping 'FlatEventMapping' '[{"column":"Time","path":"$.timestamp"},{"column":"Device","path":"$.deviceId"},{"column":"MessageId","path":"$.messageId"},{"column":"Temperature","path":"$.temperature"},{"column":"Humidity","path":"$.humidity"}]'
+    .create table Events ingestion json mapping 'FlatEventMapping' '[{"column":"Time","Properties":{"path":"$.timestamp"}},{"column":"Device","Properties":{"path":"$.deviceId"}},{"column":"MessageId","Properties":{"path":"$.messageId"}},{"column":"Temperature","Properties":{"path":"$.temperature"}},{"column":"Humidity","Properties":{"path":"$.humidity"}}]'
     ```
 
     В этом сопоставлении, как определено схемой таблицы, `timestamp` записи будут приприниматься к столбцу `Time` как к `datetime` типам данных.
@@ -227,7 +231,7 @@ Azure обозреватель данных поддерживает два фо
 1. Прием данных в `Events` таблицу.
 
     ```kusto
-    .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=FlatEventMapping)
+    .ingest into table Events (h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D') with '{"format":"json", "ingestionMappingReference":"FlatEventMapping"}'
     ```
 
     Файл simple. JSON содержит несколько записей JSON, разделенных строками. Формат — `json` , а сопоставление, используемое в команде приема, — `FlatEventMapping` созданное вами.
@@ -258,16 +262,17 @@ Azure обозреватель данных поддерживает два фо
     ```csharp
     var tableMapping = "FlatEventMapping";
     var command =
-        CslCommandGenerator.GenerateTableJsonMappingCreateCommand(
-            tableName,
+         CslCommandGenerator.GenerateTableMappingCreateCommand(
+            Data.Ingestion.IngestionMappingKind.Json,
+            "",
             tableMapping,
             new[]
             {
-                        new JsonColumnMapping {ColumnName = "Time", JsonPath = "$.timestamp"},
-                        new JsonColumnMapping {ColumnName = "Device", JsonPath = "$.deviceId"},
-                        new JsonColumnMapping {ColumnName = "MessageId", JsonPath = "$.messageId"},
-                        new JsonColumnMapping {ColumnName = "Temperature", JsonPath = "$.temperature"},
-                        new JsonColumnMapping {ColumnName = "Humidity", JsonPath = "$.humidity"},
+               new ColumnMapping() {ColumnName = "Time", Properties = new Dictionary<string, string>() {{ MappingConsts.Path, "$.timestamp"} } },
+               new ColumnMapping() {ColumnName = "Device", Properties = new Dictionary<string, string>() {{ MappingConsts.Path, "$.deviceId" } } },
+               new ColumnMapping() {ColumnName = "MessageId", Properties = new Dictionary<string, string>() {{ MappingConsts.Path, "$.messageId" } } },
+               new ColumnMapping() {ColumnName = "Temperature", Properties = new Dictionary<string, string>() {{ MappingConsts.Path, "$.temperature" } } },
+               new ColumnMapping() { ColumnName= "Humidity", Properties = new Dictionary<string, string>() {{ MappingConsts.Path, "$.humidity" } } },
             });
 
     kustoClient.ExecuteControlCommand(command);
@@ -283,10 +288,13 @@ Azure обозреватель данных поддерживает два фо
         new KustoQueuedIngestionProperties(database, table)
         {
             Format = DataSourceFormat.json,
-            IngestionMappingReference = tableMapping
+            IngestionMapping = new IngestionMapping()
+            {
+                IngestionMappingReference = tableMapping
+            }
         };
 
-    ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
+    ingestClient.IngestFromStorageAsync(blobPath, properties);
     ```
 
     Файл simple. JSON содержит несколько записей JSON, разделенных строками. Формат — `json` , а сопоставление, используемое в команде приема, — `FlatEventMapping` созданное вами.
@@ -306,7 +314,7 @@ Azure обозреватель данных поддерживает два фо
 
     ```python
     MAPPING = "FlatEventMapping"
-    CREATE_MAPPING_COMMAND = ".create table Events ingestion json mapping '" + MAPPING + """' '[{"column":"Time","path":"$.timestamp"},{"column":"Device","path":"$.deviceId"},{"column":"MessageId","path":"$.messageId"},{"column":"Temperature","path":"$.temperature"},{"column":"Humidity","path":"$.humidity"}]'""" 
+    CREATE_MAPPING_COMMAND = ".create table Events ingestion json mapping '" + MAPPING + """' '[{"column":"Time","Properties":{"path":"$.timestamp"}},{"column":"Device","Properties":{"path":"$.deviceId"}},{"column":"MessageId","Properties":{"path":"$.messageId"}},{"column":"Temperature","Properties":{"path":"$.temperature"}},{"column":"Humidity","Properties":{"path":"$.humidity"}}]'""" 
     RESPONSE = KUSTO_CLIENT.execute_mgmt(DATABASE, CREATE_MAPPING_COMMAND)
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
@@ -334,7 +342,7 @@ Azure обозреватель данных поддерживает два фо
 Прием данных в `Events` таблицу.
 
 ```kusto
-.ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=FlatEventMapping)
+.ingest into table Events (h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D') with '{"format":"multijson", "ingestionMappingReference":"FlatEventMapping"}'
 ```
 
 # <a name="c"></a>[C#](#tab/c-sharp)
@@ -348,10 +356,13 @@ var properties =
     new KustoQueuedIngestionProperties(database, table)
     {
         Format = DataSourceFormat.multijson,
-        IngestionMappingReference = tableMapping
+        IngestionMapping = new IngestionMapping()
+        {
+            IngestionMappingReference = tableMapping
+        }
     };
 
-ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
+ingestClient.IngestFromStorageAsync(blobPath, properties);
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -427,7 +438,7 @@ INGESTION_CLIENT.ingest_from_blob(
 1. Прием данных в `RawEvents` таблицу.
 
     ```kusto
-    .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
+    .ingest into table RawEvents (h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D') with '{"format":"multijson", "ingestionMappingReference":"RawEventMapping"}'
     ```
 
 1. Проверьте данные в `Events` таблице.
@@ -482,10 +493,13 @@ INGESTION_CLIENT.ingest_from_blob(
         new KustoQueuedIngestionProperties(database, table)
         {
             Format = DataSourceFormat.multijson,
-            IngestionMappingReference = tableMapping
+            IngestionMapping = new IngestionMapping()
+            {
+                IngestionMappingReference = tableMapping
+            }
         };
 
-    ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
+    ingestClient.IngestFromStorageAsync(blobPath, properties);
     ```
     
 1. Проверьте данные в `Events` таблице.
@@ -575,13 +589,13 @@ JSON, структурированный по словарю, содержит �
 1. Создайте сопоставление JSON.
 
     ```kusto
-    .create table Events ingestion json mapping 'KeyValueEventMapping' '[{"column":"Time","path":"$.event[?(@.Key == 'timestamp')]"},{"column":"Device","path":"$.event[?(@.Key == 'deviceId')]"},{"column":"MessageId","path":"$.event[?(@.Key == 'messageId')]"},{"column":"Temperature","path":"$.event[?(@.Key == 'temperature')]"},{"column":"Humidity","path":"$.event[?(@.Key == 'humidity')]"}]'
+    .create table Events ingestion json mapping 'KeyValueEventMapping' '[{"column":"a","Properties":{"path":"$.event[?(@.Key == \'timestamp\')]"}},{"column":"b","Properties":{"path":"$.event[?(@.Key == \'deviceId\')]"}},{"column":"c","Properties":{"path":"$.event[?(@.Key == \'messageId\')]"}},{"column":"d","Properties":{"path":"$.event[?(@.Key == \'temperature\')]"}},{"column":"Humidity","datatype":"string","Properties":{"path":"$.event[?(@.Key == \'humidity\')]"}}]'
     ```
 
 1. Прием данных в `Events` таблицу.
 
     ```kusto
-    .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=KeyValueEventMapping)
+    .ingest into table Events (h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D') with '{"format":"multijson", "ingestionMappingReference":"KeyValueEventMapping"}'
     ```
 
 # <a name="c"></a>[C#](#tab/c-sharp)
@@ -592,16 +606,29 @@ JSON, структурированный по словарю, содержит �
     var tableName = "Events";
     var tableMapping = "KeyValueEventMapping";
     var command =
-        CslCommandGenerator.GenerateTableJsonMappingCreateCommand(
-            tableName,
+         CslCommandGenerator.GenerateTableMappingCreateCommand(
+            Data.Ingestion.IngestionMappingKind.Json,
+            "",
             tableMapping,
             new[]
             {
-                        new JsonColumnMapping {ColumnName = "Time", JsonPath = "$.event[?(@.Key == 'timestamp')]"},
-                        new JsonColumnMapping {ColumnName = "Device", JsonPath = "$.event[?(@.Key == 'deviceId')]"},
-                        new JsonColumnMapping {ColumnName = "MessageId", JsonPath = "$.event[?(@.Key == 'messageId')]"},
-                        new JsonColumnMapping {ColumnName = "Temperature", JsonPath = "$.event[?(@.Key == 'temperature')]"},
-                        new JsonColumnMapping {ColumnName = "Humidity", JsonPath = "$.event[?(@.Key == 'humidity')]"},
+                new ColumnMapping() { ColumnName = "Time", Properties = new Dictionary<string, string>() { {
+                    MappingConsts.Path,
+                    "$.event[?(@.Key == 'timestamp')]"
+                } } },
+                    new ColumnMapping() { ColumnName = "Device", Properties = new Dictionary<string, string>() { {
+                    MappingConsts.Path,
+                    "$.event[?(@.Key == 'deviceId')]"
+                } } }, new ColumnMapping() { ColumnName = "MessageId", Properties = new Dictionary<string, string>() { {
+                    MappingConsts.Path,
+                    "$.event[?(@.Key == 'messageId')]"
+                } } }, new ColumnMapping() { ColumnName = "Temperature", Properties = new Dictionary<string, string>() { {
+                    MappingConsts.Path,
+                    "$.event[?(@.Key == 'temperature')]"
+                } } }, new ColumnMapping() { ColumnName = "Humidity", Properties = new Dictionary<string, string>() { {
+                    MappingConsts.Path,
+                    "$.event[?(@.Key == 'humidity')]"
+                } } },
             });
 
     kustoClient.ExecuteControlCommand(command);
@@ -615,10 +642,12 @@ JSON, структурированный по словарю, содержит �
         new KustoQueuedIngestionProperties(database, table)
         {
             Format = DataSourceFormat.multijson,
-            IngestionMappingReference = tableMapping
+            IngestionMapping = new IngestionMapping()
+            {
+                IngestionMappingReference = tableMapping
+            }
         };
-
-    ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
+    ingestClient.IngestFromStorageAsync(blobPath, properties);
     ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -645,7 +674,7 @@ JSON, структурированный по словарю, содержит �
 
 ---    
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Общие сведения о приеме данных](ingest-data-overview.md)
 * [Написание запросов](write-queries.md)

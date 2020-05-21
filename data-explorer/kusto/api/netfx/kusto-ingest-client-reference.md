@@ -4,27 +4,26 @@ description: В этой статье описывается Kusto. приема
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: ohbitton
 ms.service: data-explorer
 ms.topic: reference
-ms.date: 03/24/2020
-ms.openlocfilehash: d2e42ce3de656a3e137245786596e454c36ccbef
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.date: 05/19/2020
+ms.openlocfilehash: 3a89af281b2376e7fc06d07643af8e95a6c97cd2
+ms.sourcegitcommit: ee90472a4f9d751d4049744d30e5082029c1b8fa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373609"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722105"
 ---
-# <a name="kustoingest-client-interfaces-and-factory-classes"></a>Kusto. приема клиентских интерфейсов и классов фабрики
+# <a name="kustoingest-client-interfaces-and-classes"></a>Клиентские интерфейсы и классы Kusto. приема
 
-Основные интерфейсы и классы фабрик в библиотеке Kusto. приема:
+Основные интерфейсы и классы в библиотеке Kusto. приема:
 
 * [интерфейс икустоинжестклиент](#interface-ikustoingestclient): основной интерфейс приема.
 * [Класс екстендедкустоинжестклиент](#class-extendedkustoingestclient): расширения основного интерфейса приема.
 * [класс кустоинжестфактори](#class-kustoingestfactory): основная фабрика для клиентов приема.
 * [класс кустоинжестионпропертиес](#class-kustoingestionproperties): класс, используемый для предоставления общих свойств приема.
-* [Класс жсонколумнмаппинг](#class-jsoncolumnmapping): класс, используемый для описания сопоставления схемы, применяемого при приеме из источника данных JSON.
-* [Класс ксвколумнмаппинг](#class-csvcolumnmapping): класс, используемый для описания сопоставления схемы, применяемого при приеме из источника данных CSV.
+* класс Инжестионмаппинг: класс, используемый для описания сопоставления данных для приема.
 * [Enum датасаурцеформат](#enum-datasourceformat): Поддерживаемые форматы источников данных (например, CSV, JSON)
 * [Интерфейс икустокуеуединжестклиент](#interface-ikustoqueuedingestclient): интерфейс, описывающий операции, которые применяются только для приема в очереди.
 * [Класс кустокуеуединжестионпропертиес](#class-kustoqueuedingestionproperties): свойства, которые применяются только к постановке в очередь.
@@ -70,13 +69,13 @@ public interface IKustoIngestClient : IDisposable
 
 ## <a name="class-extendedkustoingestclient"></a>Класс Екстендедкустоинжестклиент
 
-* Инжестфромсинглеблоб — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromStorageAsync`.
-* Инжестфромсинглеблобасинк — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromStorageAsync`.
-* Инжестфромдатареадер — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromDataReaderAsync`.
+* Инжестфромсинглеблоб — не рекомендуется. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromStorageAsync`.
+* Инжестфромсинглеблобасинк — не рекомендуется. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromStorageAsync`.
+* Инжестфромдатареадер — не рекомендуется. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromDataReaderAsync`.
 * инжестфромдатареадерасинк
-* Инжестфромсинглефиле — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromStorageAsync`.
-* Инжестфромсинглефилеасинк — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromStorageAsync`.
-* Инжестфромстреам — не рекомендуется. Используйте вместо этого `IKustoIngestClient.IngestFromStreamAsync`.
+* Инжестфромсинглефиле — не рекомендуется. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromStorageAsync`.
+* Инжестфромсинглефилеасинк — не рекомендуется. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromStorageAsync`.
+* Инжестфромстреам — не рекомендуется. Взамен рекомендуется использовать `IKustoIngestClient.IngestFromStreamAsync`.
 * инжестфромстреамасинк
 
 ```csharp
@@ -346,17 +345,15 @@ public static class KustoIngestFactory
 
 Класс Кустоинжестионпропертиес содержит базовые свойства приема для тонкого контроля над процессом приема и способ, которым механизм Kusto обрабатывает его.
 
-|Свойство.   |Значение    |
+|Свойство   |Значение    |
 |-----------|-----------|
 |имя_базы_данных |Имя базы данных для приема |
 |TableName |Имя таблицы для приема |
 |дропбитагс |Теги, которые будут иметься в каждом экстенте. Дропбитагс являются постоянными и могут использоваться следующим образом: `.show table T extents where tags has 'some tag'` или`.drop extents <| .show table T extents where tags has 'some tag'` |
 |инжестбитагс |Теги, записываемые на экстент. Позднее можно использовать со `IngestIfNotExists` свойством, чтобы избежать одновременного приема одних и тех же данных |
+|инжестионмаппинг|Содержит либо ссылку на выход, либо список сопоставлений столбцов.|
 |аддитионалтагс |Дополнительные теги по мере необходимости |
 |инжестифнотексистс |Список тегов, которые не нужно принимать повторно (для каждой таблицы) |
-|ксвмаппинг |Для каждого столбца определяет тип данных и порядковый номер столбца. Релевантно только для приема CSV (необязательно) |
-|жсонмаппинг |Для каждого столбца определяет путь JSON и параметры преобразования. **Обязательно для приема JSON** |
-|авромаппинг |Для каждого столбца определяет имя поля в записи Avro. **Обязательно для приема AVRO** |
 |валидатионполици |Определения проверки данных. Дополнительные сведения см. в разделе [TODO] |
 |Формат |Формат приема данных |
 |AdditionalProperties | Другие свойства, которые будут переданы в качестве [свойств приема](../../../ingestion-properties.md) в команду приема. Свойства будут передаваться, так как не все свойства приема представлены в отдельном члене этого класса|
@@ -370,51 +367,13 @@ public class KustoIngestionProperties
     public IEnumerable<string> IngestByTags { get; set; }
     public IEnumerable<string> AdditionalTags { get; set; }
     public IEnumerable<string> IngestIfNotExists { get; set; }
-    public IEnumerable<CsvColumnMapping> CSVMapping { get; set; }
-    public IEnumerable<JsonColumnMapping> JsonMapping { get; set; } // Must be set for DataSourceFormat.json format
-    public IEnumerable<AvroColumnMapping> AvroMapping { get; set; } // Must be set for DataSourceFormat.avro format
+    public IngestionMapping IngestionMapping { get; set; }
     public ValidationPolicy ValidationPolicy { get; set; }
     public DataSourceFormat? Format { get; set; }
     public bool IgnoreSizeLimit { get; set; } // Determines whether the limit of 4GB per single ingestion source should be ignored. Defaults to false.
     public IDictionary<string, string> AdditionalProperties { get; set; }
 
     public KustoIngestionProperties(string databaseName, string tableName);
-}
-```
-
-## <a name="class-jsoncolumnmapping"></a>Класс Жсонколумнмаппинг
-
-```csharp
-public class JsonColumnMapping
-{
-    /// The column name (in the Kusto table)
-    public string ColumnName { get; set; }
-
-    /// The JsonPath to the desired property in the JSON document
-    public string JsonPath { get; set; }
-}
-```
-
-## <a name="class-csvcolumnmapping"></a>Класс Ксвколумнмаппинг
-
-```csharp
-public class CsvColumnMapping
-{
-    /// The column name (in the Kusto table)
-    public string ColumnName { get; set; }
-
-    /// The column's data type in the table (CSL term), if empty, the current column data type will be used.
-    /// If column doesn't exist, a new one will be created (alter table) with this data type, if empty, StorageDataType.StringBuffer will be used.
-    public string CslDataType { get; set; }
-
-    /// The CSV column dataType (not in use for now)
-    public string CsvColumnDataType { get; set; }
-
-    /// CSV ordinal number
-    public int Ordinal { get; set; }
-
-    /// This column has a const value (the Ordinal field is ignored, if this value is not null or empty)
-    public string ConstValue { get; set; }
 }
 ```
 
@@ -428,11 +387,13 @@ public enum DataSourceFormat
     scsv,       // Data is in a SCSV(-semicolon-separated values) format
     sohsv,      // Data is in a SOHSV(-SOH (ASCII 1) separated values) format
     psv,        // Data is in a PSV (pipe-separated values) format
+    tsve,       // Tab-separated value with '\' escaping character.
     txt,        // Each record is a line and has just one field
     raw,        // The entire stream/file/blob is a single record having a single field
     json,       // Data is in a JSON-line format (each line is record with a single JSON value)
     multijson,  // The data stream is a concatenation of JSON documents (property bags all)
     avro,       // Data is in a AVRO format
+    orc,        // Data is in a ORC format
     parquet,    // Data is in a Parquet format
 }
 ```
@@ -448,9 +409,15 @@ var kustoIngestionProperties = new KustoIngestionProperties("TargetDatabase", "T
     IngestByTags = new List<string> { guid },
     AdditionalTags = new List<string> { "some tags" },
     IngestIfNotExists = new List<string> { guid },
-    CSVMapping = new List<CsvColumnMapping> { new CsvColumnMapping { ColumnName = "columnA", CslDataType = "Dynamic", Ordinal = 1 } },
-    JsonMapping = new List<JsonColumnMapping> { new JsonColumnMapping { ColumnName = "columnA" , JsonPath = "$.path" } }, // You can only one of CSV/JSON/AVRO mappings
-    AvroMapping = new List<AvroColumnMapping> { new AvroColumnMapping { ColumnName = "columnA" , FieldName = "AvroFieldName" } }, // You can only one of CSV/JSON/AVRO mappings
+    IngestionMapping = new IngestionMapping() {
+        IngestionMappingKind = Data.Ingestion.IngestionMappingKind.Csv,
+        IngestionMappings = new ColumnMapping[] { new ColumnMapping() {
+            ColumnName = "stringColumn",
+            Properties = new Dictionary<string, string>() {
+            { MappingConsts.Ordinal, "1"} }
+        } },
+        // IngestionMappingReference = mappingName, the pre-created mapping name
+    },
     ValidationPolicy = new ValidationPolicy { ValidationImplications = ValidationImplications.Fail, ValidationOptions = ValidationOptions.ValidateCsvInputConstantColumns },
     Format = DataSourceFormat.csv
 };
@@ -500,11 +467,11 @@ public interface IKustoQueuedIngestClient : IKustoIngestClient
 
 Класс Кустокуеуединжестионпропертиес расширяет Кустоинжестионпропертиес с помощью нескольких контрольных регуляторов, которые можно использовать для точной настройки поведения приема.
 
-|Свойство.   |Значение    |
+|Свойство   |Значение    |
 |-----------|-----------|
-|флушиммедиатели |По умолчанию — `false`. Если задано значение `true` , обход механизма агрегирования для службы Управление данными |
+|флушиммедиатели |По умолчанию имеет значение `false`. Если задано значение `true` , обход механизма агрегирования для службы Управление данными |
 |инжестионрепортлевел |Управляет уровнем создания отчетов о состоянии приема (по умолчанию — `FailuresOnly` ). Для обеспечения высокой производительности и использования хранилища рекомендуется не задавать для Инжестионрепортлевел значение.`FailuresAndSuccesses` |
-|инжестионрепортмесод |Управляет целевым объектом отчетов о состоянии приема. Доступные варианты: "очередь Azure", "Таблица Azure" или "оба". По умолчанию — `Queue`.
+|инжестионрепортмесод |Управляет целевым объектом отчетов о состоянии приема. Доступные варианты: "очередь Azure", "Таблица Azure" или "оба". По умолчанию имеет значение `Queue`.
 
 ```csharp
 public class KustoQueuedIngestionProperties : KustoIngestionProperties
@@ -521,6 +488,12 @@ public class KustoQueuedIngestionProperties : KustoIngestionProperties
     /// </summary>
     public IngestionReportLevel ReportLevel { get; set; }
 
+    /// <summary>
+    /// Controls the target of the ingestion status reporting. Available options are Azure Queue, Azure Table, or both.
+    /// Defaults to 'Queue'.
+    /// </summary>
+    public IngestionReportMethod ReportMethod { get; set; }
+    
     /// <summary>
     /// Controls the target of the ingestion status reporting. Available options are Azure Queue, Azure Table, or both.
     /// Defaults to 'Queue'.

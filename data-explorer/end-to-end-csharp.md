@@ -1,41 +1,41 @@
 ---
-title: 'Сквозное проглатывание капли в Azure Data Explorer через C #'
-description: В этой статье вы узнаете, как глотать капли в Azure Data Explorer с сквозным примером, который использует C.
+title: 'Прием сквозного большого двоичного объекта в Azure обозреватель данных с помощью C #'
+description: Из этой статьи вы узнаете, как получать большие двоичные объекты в Azure обозреватель данных с помощью сквозного примера, использующего C#.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.openlocfilehash: 8df2202d3a127c58cee90353a628bf933ea30a10
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.date: 05/19/2020
+ms.openlocfilehash: 53504f51f1a5bd80967c510bd4bff1ba47cd8e58
+ms.sourcegitcommit: ee90472a4f9d751d4049744d30e5082029c1b8fa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81499258"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722173"
 ---
-# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>Сквозное проглатывание капли в Azure Data Explorer через C #
+# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>Прием сквозного большого двоичного объекта в Azure обозреватель данных с помощью C #
 
 > [!div class="op_single_selector"]
 > * [C#](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-Azure Data Explorer — это быстрая и масштабируемая служба для изучения данных журналов и телеметрии. В этой статье приводится сквозной пример того, как можно глотать данные из хранилища Azure Blob в Azure Data Explorer. 
+Azure Data Explorer — это быстрая и масштабируемая служба для изучения данных журналов и телеметрии. В этой статье приводится полный пример приема данных из хранилища BLOB-объектов Azure в обозреватель данных Azure. 
 
-Вы узнаете, как программно создать группу ресурсов, учетную запись хранения и контейнер, концентратор событий и кластер и базу данных Azure Data Explorer. Вы также узнаете, как программно настроить Azure Data Explorer для поимки данных из новой учетной записи хранилища.
+Вы узнаете, как программным способом создать группу ресурсов, учетную запись хранения и контейнер, концентратор событий и кластер Azure обозреватель данных и базу данных. Вы также узнаете, как программно настроить обозреватель данных Azure для приема данных из новой учетной записи хранения.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 
-## <a name="install-c-nuget"></a>Установка СЗ NuGet
+## <a name="install-c-nuget"></a>Установка NuGet C#
 
-* Установка [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Установка [Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-* Установка [Microsoft.Azure.Management.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/).
-* Установка [Microsoft.Azure.Storage.Blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/).
-* Установите [Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) для проверки подлинности.
+* Установите [Microsoft. Azure. Management. kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Установите [Microsoft. Azure. Management. ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+* Установите [Microsoft. Azure. Management. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/).
+* Установите [Microsoft. Azure. Storage. BLOB](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/).
+* Установите [Microsoft. RESTful. ClientRuntime. Azure. Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) для проверки подлинности.
 
 [!INCLUDE [data-explorer-authentication](includes/data-explorer-authentication.md)]
 
@@ -43,9 +43,9 @@ Azure Data Explorer — это быстрая и масштабируемая �
 
 ## <a name="code-example"></a>Пример кода 
 
-Следующий пример кода дает пошаговое процесс, который приводит к ввозу данных в Azure Data Explorer. 
+В следующем примере кода вы получите пошаговый процесс, который приводит к приему данных в Azure обозреватель данных. 
 
-Сначала создается группа ресурсов. Вы также создаете ресурсы Azure, такие как учетная запись хранения и контейнер, концентратор событий и кластер и база данных Azure Data Explorer, а также добавляете принципы. Затем в базе данных Azure Data Explorer создается подписка Azure Event Grid, а также отображение таблицы и столбца. Наконец, необходимо создать соединение данных для настройки Azure Data Explorer для поимки данных из новой учетной записи хранилища. 
+Сначала создайте группу ресурсов. Вы также создадите ресурсы Azure, такие как учетная запись хранения и контейнер, концентратор событий и кластер Azure обозреватель данных и база данных, и добавьте участников. Затем вы создадите подписку службы "Сетка событий Azure" вместе с сопоставлением таблиц и столбцов в базе данных Azure обозреватель данных. Наконец, создайте подключение к данным, чтобы настроить обозреватель данных Azure для приема данных из новой учетной записи хранения. 
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -153,14 +153,14 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 
     kustoClient.ExecuteControlCommand(command);
 
-    command = CslCommandGenerator.GenerateTableCsvMappingCreateCommand(
+    command = CslCommandGenerator.GenerateTableMappingCreateCommand(
+        Data.Ingestion.IngestionMappingKind.Csv,
         kustoTableName,
         kustoColumnMappingName,
-        new[]
-        {
-            new CsvColumnMapping { ColumnName = "EventTime", CslDataType="dateTime", Ordinal = 0 },
-            new CsvColumnMapping { ColumnName = "EventId", CslDataType="int", Ordinal = 1 },
-            new CsvColumnMapping { ColumnName = "EventSummary", CslDataType="string", Ordinal = 2 },
+        new ColumnMapping[] {
+            new ColumnMapping() { ColumnName = "EventTime", ColumnType = "dateTime", Properties = new Dictionary<string, string>() { { MappingConsts.Ordinal, "0" } } },
+            new ColumnMapping() { ColumnName = "EventId", ColumnType = "int", Properties = new Dictionary<string, string>() { { MappingConsts.Ordinal, "1" } } },
+            new ColumnMapping() { ColumnName = "EventSummary", ColumnType = "string", Properties = new Dictionary<string, string>() { { MappingConsts.Ordinal, "2" } } },
         });
     kustoClient.ExecuteControlCommand(command);
 }
@@ -176,14 +176,14 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 ```
 | **Параметр** | **Описание поля** |
 |---|---|---|
-| tenantId | Идентификатор клиента. Он также известен как идентификатор каталога.|
-| subscriptionId | Идентификатор подписки, который используется для создания ресурсов.|
-| clientid | Идентификатор клиента приложения, который может получить доступ к ресурсам в вашем арендаторе.|
-| clientSecret | Секрет клиента приложения, которое может получить доступ к ресурсам в вашем арендаторе. |
+| tenantId | Идентификатор клиента. Он также называется ИДЕНТИФИКАТОРом каталога.|
+| subscriptionId | Идентификатор подписки, используемый для создания ресурсов.|
+| clientid | Идентификатор клиента приложения, которое может получать доступ к ресурсам в клиенте.|
+| clientSecret | Секрет клиента приложения, которое может получить доступ к ресурсам в клиенте. |
 
-## <a name="test-the-code-example"></a>Проверьте пример кода
+## <a name="test-the-code-example"></a>Тестирование примера кода
 
-1. Загрузите файл в учетную запись хранилища.
+1. Отправьте файл в учетную запись хранения.
 
     ```csharp
     string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=xxxxxxxxxxxxxx;AccountKey=xxxxxxxxxxxxxx;EndpointSuffix=core.windows.net";
@@ -197,9 +197,9 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
     ```
     |**Параметр** | **Описание поля**|
     |---|---|---|
-    | хранениеВии | Строка подключения программно созданной учетной записи хранилища.|
+    | storageConnectionString | Строка подключения для программно созданной учетной записи хранения.|
 
-2. Выполнить тестовый запрос в Azure Data Explorer.
+2. Выполните тестовый запрос в обозреватель данных Azure.
 
     ```csharp
     var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
@@ -232,9 +232,9 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 await resourceManagementClient.ResourceGroups.DeleteAsync(resourceGroupName);
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-*  Чтобы узнать о других способах создания кластера и базы данных, смотрите [Создать кластер и базу данных Azure Data Explorer.](create-cluster-database-csharp.md)
-* Чтобы узнать больше о методах приема, смотрите [в azure Data Explorer.](ingest-data-overview.md)
-* Чтобы узнать о веб-приложении, [см.](web-query-data.md)
+*  Дополнительные сведения о других способах создания кластера и базы данных см. в статье [Создание кластера и базы данных Azure обозреватель данных](create-cluster-database-csharp.md).
+* Дополнительные сведения о методах приема см. в статье прием [данных в Azure обозреватель данных](ingest-data-overview.md).
+* Дополнительные сведения о веб-приложении см. в разделе [Краткое руководство. запрос данных в пользовательском веб-интерфейсе Azure обозреватель данных](web-query-data.md).
 * [Написание запросов](write-queries.md) с помощью языка запросов Kusto.

@@ -1,6 +1,6 @@
 ---
-title: dayofweek () - Azure Data Explorer Документы Майкрософт
-description: Эта статья описывает dayofweek () в Azure Data Explorer.
+title: DayOfWeek () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается DayOfWeek () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 31d3f525653f6e0979229e4355cdec6cb76833f8
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 4e445a86b976f251de2beef4726c4840bcec8e44
+ms.sourcegitcommit: ee90472a4f9d751d4049744d30e5082029c1b8fa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81516309"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722037"
 ---
 # <a name="dayofweek"></a>dayofweek()
 
-Возвращает целый ряд дней с предыдущего воскресенья, как `timespan`.
+Возвращает целое число дней с момента предыдущего воскресенья в виде `timespan` .
 
 ```kusto
 dayofweek(datetime(2015-12-14)) == 1d  // Monday
@@ -38,6 +38,6 @@ dayofweek(datetime(2015-12-14)) == 1d  // Monday
 **Примеры**
 
 ```kusto
-dayofweek(1947-11-29 10:00:05)  // time(6.00:00:00), indicating Saturday
-dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
+dayofweek(datetime(1947-11-30 10:00:05))  // time(0.00:00:00), indicating Sunday
+dayofweek(datetime(1970-05-11))           // time(1.00:00:00), indicating Monday
 ```
