@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 03/29/2020
-ms.openlocfilehash: 5f424716a9227f22b4ec5b148d29798b0a55fa27
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 16db3eb2d925d12ba8eefa605b27566e9b4c1b04
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82618383"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83373823"
 ---
 # <a name="what-is-one-click-ingestion"></a>Что такое прием данных одним щелчком? 
 
@@ -26,7 +26,7 @@ ms.locfileid: "82618383"
 
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 * Создайте [кластер и базу данных Azure Data Explorer](create-cluster-database-portal.md).
-* Войдите в [пользовательский веб-интерфейс Azure Data Explorer](https://dataexplorer.azure.com/) и [добавьте подключение к кластеру](/azure/data-explorer/web-query-data#add-clusters).
+* Войдите в [пользовательский веб-интерфейс Azure Data Explorer](https://dataexplorer.azure.com/) и [добавьте подключение к кластеру](web-query-data.md#add-clusters).
 
 ## <a name="file-formats"></a>Форматы файлов
 
@@ -74,5 +74,5 @@ ms.locfileid: "82618383"
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Выберите, будет ли использоваться функция приема данных одним щелчком для приема данных в [имеющуюся](one-click-ingestion-existing-table.md) или [новую таблицу](one-click-ingestion-new-table.md).
-* [Краткое руководство. Запрос данных в пользовательском веб-интерфейсе Azure Data Explorer](/azure/data-explorer/web-query-data)
-* [Написание запросов для Azure Data Explorer на языке запросов Kusto](/azure/data-explorer/write-queries)
+* [Краткое руководство. Запрос данных в пользовательском веб-интерфейсе Azure Data Explorer](web-query-data.md)
+* [Написание запросов для Azure Data Explorer на языке запросов Kusto](write-queries.md)

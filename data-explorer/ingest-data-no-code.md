@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 01/29/2020
-ms.openlocfilehash: 59a42c2a3e4efa8c8642bccf96b0040767753e65
-ms.sourcegitcommit: e1e35431374f2e8b515bbe2a50cd916462741f49
+ms.date: 05/19/2020
+ms.openlocfilehash: 0808d0dadd410ae6d220b03ef54191192b925a21
+ms.sourcegitcommit: ee90472a4f9d751d4049744d30e5082029c1b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82108343"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722190"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Руководство по приему данных мониторинга и созданию к ним запросов в Azure Data Explorer 
 
@@ -196,7 +196,7 @@ ms.locfileid: "82108343"
 
 ## <a name="set-up-an-ingestion-pipeline-in-azure-data-explorer"></a>Настройка конвейера приема данных в Azure Data Explorer
 
-Настройка конвейера Azure Data Explorer включает несколько этапов, в том числе [создание таблиц и прием данных](/azure/data-explorer/ingest-sample-data#ingest-data). Вы также можете работать с данными, сопоставлять и обновлять их.
+Настройка конвейера Azure Data Explorer включает несколько этапов, в том числе [создание таблиц и прием данных](ingest-sample-data.md#ingest-data). Вы также можете работать с данными, сопоставлять и обновлять их.
 
 ### <a name="connect-to-the-azure-data-explorer-web-ui"></a>Подключение к пользовательскому веб-интерфейсу Azure Data Explorer
 
@@ -290,7 +290,7 @@ ms.locfileid: "82108343"
 Чтобы сопоставить данные журналов и метрик диагностики с таблицей, выполните следующий запрос:
 
 ```kusto
-.create table DiagnosticRawRecords ingestion json mapping 'DiagnosticRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
+.create table DiagnosticRawRecords ingestion json mapping 'DiagnosticRawRecordsMapping' '[{"column":"Records","Properties":{"path":"$.records"}}]'
 ```
 
 # <a name="activity-logs"></a>[Журналы действий](#tab/activity-logs)
@@ -299,7 +299,7 @@ ms.locfileid: "82108343"
 Чтобы сопоставить данные журнала действий с таблицей, выполните следующий запрос:
 
 ```kusto
-.create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
+.create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","Properties":{"path":"$.records"}}]'
 ```
 ---
 
@@ -336,7 +336,7 @@ ms.locfileid: "82108343"
 # <a name="diagnostic-logs"></a>[Журналы диагностики](#tab/diagnostic-logs)
 #### <a name="create-data-update-policy-for-diagnostics-logs"></a>Создание политики обновления данных для журналов диагностики
 
-1. Создайте [функцию](kusto/management/functions.md), которая развертывает коллекцию записей журналов диагностики таким образом, чтобы каждое значение в коллекции получало отдельную строку. Журналы приема можно включить в кластере Azure Data Explorer и использовать [схему журналов приема](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema). Вы создадите одну таблицу для успешной и одну для неудачной операции приема, а некоторые поля будут пустыми для успешной операции приема (например, ErrorCode). Используйте оператор [`mv-expand`](kusto/query/mvexpandoperator.md):
+1. Создайте [функцию](kusto/management/functions.md), которая развертывает коллекцию записей журналов диагностики таким образом, чтобы каждое значение в коллекции получало отдельную строку. Журналы приема можно включить в кластере Azure Data Explorer и использовать [схему журналов приема](using-diagnostic-logs.md#diagnostic-logs-schema). Вы создадите одну таблицу для успешной и одну для неудачной операции приема, а некоторые поля будут пустыми для успешной операции приема (например, ErrorCode). Используйте оператор [`mv-expand`](kusto/query/mvexpandoperator.md):
 
     ```kusto
     .create function DiagnosticLogsExpand() {

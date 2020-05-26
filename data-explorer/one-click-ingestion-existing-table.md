@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 03/29/2020
-ms.openlocfilehash: bd919c43c847ed6e0078752e0b6a0b88edbf68f3
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: a26e48520f5cc577a52f877da16996df0d03d2b8
+ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81492299"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374366"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-to-an-existing-table-in-azure-data-explorer"></a>Использование обработки "одним щелчком" для приема данных в существующую таблицу Azure Data Explorer
 
@@ -97,5 +97,5 @@ ms.locfileid: "81492299"
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Краткое руководство. Запрос данных в пользовательском веб-интерфейсе Azure Data Explorer](/azure/data-explorer/web-query-data)
-* [Написание запросов для Azure Data Explorer](/azure/data-explorer/write-queries)
+* [Краткое руководство. Запрос данных в пользовательском веб-интерфейсе Azure Data Explorer](web-query-data.md)
+* [Написание запросов для Azure Data Explorer](write-queries.md)
