@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: d46a8669c523955f74d3f489c7b10e5b0f7ccef6
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: e35245cf767e3cf82ab61d5ce0704015d996cd7c
+ms.sourcegitcommit: 283cce0e7635a2d8ca77543f297a3345a5201395
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373283"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84011385"
 ---
 # <a name="externaldata-operator"></a>Оператор externaldata
 
@@ -33,7 +33,7 @@ ms.locfileid: "83373283"
 
 * *StorageConnectionString*: [строка подключения к хранилищу](../api/connection-strings/storage.md) описывает артефакт хранилища, содержащий возвращаемые данные.
 
-* *Prop1*, *Значение1*,...: дополнительные свойства, описывающие способ интерпретации данных, полученных из хранилища, как указано в разделе [Свойства приема](../management/data-ingestion/index.md).
+* *Prop1*, *Значение1*,...: дополнительные свойства, описывающие способ интерпретации данных, полученных из хранилища, как указано в разделе [Свойства приема](../../ingestion-properties.md).
     * Поддерживаемые сейчас свойства: `format` и `ignoreFirstRecord` .
     * Поддерживаемые форматы данных: поддерживаются любые [форматы данных приема](../../ingestion-supported-formats.md) , включая,,, `csv` `tsv` `json` `parquet` , `avro` .
 

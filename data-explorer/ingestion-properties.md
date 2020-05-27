@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: c66d7e11b3f64633a0dda33f7a3fa2f974536caa
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 25e80458dc4f0432e0f9e4c385fb71c4b8bf3997
+ms.sourcegitcommit: 283cce0e7635a2d8ca77543f297a3345a5201395
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373729"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84011573"
 ---
 # <a name="azure-data-explorer-data-ingestion-properties"></a>Свойства приема данных обозреватель данных Azure 
 
@@ -22,7 +22,7 @@ ms.locfileid: "83373729"
 
 В следующей таблице перечислены свойства, поддерживаемые обозреватель данных Azure, описываются их и приводятся примеры. 
 
-|Свойство.              |Описание                                              |Пример                                             |
+|Свойство              |Описание                                              |Пример                                             |
 |----------------------|---------------------------------------------------------|----------------------------------------------------|
 |`ingestionMapping`    |Строковое значение, которое описывает сопоставление данных из исходного файла с фактическими столбцами в таблице. Определите `format` значение с соответствующим типом сопоставления. Дополнительные сведения см. в разделе [о сопоставлении данных](kusto/management/mappings.md).|`with (format="json", ingestionMapping = "[{\"column\":\"rownumber\", \"Properties\":{\"Path\":\"$.RowNumber\"}}, {\"column\":\"rowguid\", \"Properties\":{\"Path\":\"$.RowGuid\"}}]")`<br>(Не рекомендуется: `avroMapping`, `csvMapping`, `jsonMapping`.) |
 |`ingestionMappingReference`|Строковое значение, которое описывает сопоставление данных из исходного файла с фактическими столбцами в таблице через именованный объект политики сопоставления. Определите `format` значение с соответствующим типом сопоставления. Дополнительные сведения см. в разделе [о сопоставлении данных](kusto/management/mappings.md).|`with (format="csv", ingestionMappingReference = "Mapping1")`<br>(Не рекомендуется: `avroMappingReference`, `csvMappingReference`, `jsonMappingReference`.)|
@@ -32,14 +32,14 @@ ms.locfileid: "83373729"
 |`format` |Формат данных (см. раздел [Поддерживаемые форматы данных](ingestion-supported-formats.md)).|`with (format="csv")`|
 |`ingestIfNotExists`|Строковое значение, которое (при наличии) запрещает считать прием успешным, если в таблице уже есть данные с тегом `ingest-by:` и идентичным значением. Это гарантирует идемпотентность приема данных. Дополнительные сведения см. в разделе прием [: Теги](kusto/management/extents-overview.md#ingest-by-extent-tags).|Свойства `with (ingestIfNotExists='["Part0001"]', tags='["ingest-by:Part0001"]')` указывают, что если данные с тегом `ingest-by:Part0001` уже существуют, то не следует завершать текущее приема. Если он еще не существует, этот новый прием должен иметь этот набор тегов (в случае, если в будущем будет предпринята попытка повторного приема одних и тех же данных).|
 |`ignoreFirstRecord` |Логическое значение. Вариант `true` означает, что при приеме следует игнорировать первую запись каждого файла. Это свойство полезно для файлов в `CSV` и аналогичных форматах, если первая запись в файле представляет собой имена столбцов. По умолчанию `false` предполагается.|`with (ignoreFirstRecord=false)`|
-|`persistDetails` |Логическое значение, которое (при наличии) указывает, что команда должна сохранять подробные результаты (даже при успешном выполнении), чтобы команда [.show operation details](kusto/management/operations.md#show-operation-details) могла их получить. По умолчанию — `false`.|`with (persistDetails=true)`|
-|`policy_ingestiontime`|Логическое значение, которое (при наличии) указывает, следует ли включить [политику времени приема](kusto/management/ingestiontimepolicy.md) для таблицы, созданной этой командой. Значение по умолчанию — `true`.|`with (policy_ingestiontime=false)`|
+|`persistDetails` |Логическое значение, которое (при наличии) указывает, что команда должна сохранять подробные результаты (даже при успешном выполнении), чтобы команда [.show operation details](kusto/management/operations.md#show-operation-details) могла их получить. По умолчанию имеет значение `false`.|`with (persistDetails=true)`|
+|`policy_ingestiontime`|Логическое значение, которое (при наличии) указывает, следует ли включить [политику времени приема](kusto/management/ingestiontimepolicy.md) для таблицы, созданной этой командой. Значение по умолчанию — `true`.|`with (policy_ingestiontime=false)`|
 |`recreate_schema` |Логическое значение, которое (при наличии) разрешает команде воссоздать схему таблицы. Это свойство применяется только к `.set-or-replace` команде. Это свойство имеет приоритет над `extend_schema` свойством, если оба заданы.|`with (recreate_schema=true)`|
 |`tags`|Список [тегов](kusto/management/extents-overview.md#extent-tagging) , связываемых с полученными данными в формате строки JSON |`with (tags="['Tag1', 'Tag2']")`|
-|`validationPolicy`|Строка JSON, которая указывает, какие проверки будут выполняться во время приема. Описание различных параметров см. в разделе прием [данных](kusto/management/data-ingestion/index.md) .| `with (validationPolicy='{"ValidationOptions":1, "ValidationImplications":1}')`(на самом деле это политика по умолчанию)|
+|`validationPolicy`|Строка JSON, которая указывает, какие проверки будут выполняться во время приема. Описание различных параметров см. в разделе прием [данных](ingest-data-overview.md) .| `with (validationPolicy='{"ValidationOptions":1, "ValidationImplications":1}')`(на самом деле это политика по умолчанию)|
 |`zipPattern`|Это свойство используется при приеме данных из хранилища, в котором есть ZIP-архив. Это строковое значение, указывающее регулярное выражение, используемое при выборе файлов в ZIP-архиве для приема.  Все остальные файлы в архиве будут игнорироваться.|`with (zipPattern="*.csv")`|
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о приеме [данных](ingest-data-overview.md)
 * Дополнительные сведения о [поддерживаемых форматах данных](ingestion-supported-formats.md)

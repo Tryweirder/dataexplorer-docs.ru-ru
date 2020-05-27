@@ -1,6 +1,6 @@
 ---
-title: таблицы .create-merge - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны таблицы .create-merge в Azure Data Explorer.
+title: . Создание и объединение таблиц — Azure обозреватель данных
+description: В этой статье описывается команда. CREATE-merge Tables в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,30 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/04/2020
-ms.openlocfilehash: 408046e198710c4b825a399fcb90960411de1041
-ms.sourcegitcommit: e94be7045d71a0435b4171ca3a7c30455e6dfa57
+ms.openlocfilehash: 2f80ea54ece66440dc7a6b40d9d571f04bd3e26b
+ms.sourcegitcommit: 283cce0e7635a2d8ca77543f297a3345a5201395
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81744445"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84011522"
 ---
-# <a name="create-merge-tables"></a>таблицы .create-merge
+# <a name="create-merge-tables"></a>. CREATE — merge Tables
 
-Позволяет создавать и/или расширять схемы существующих таблиц в одной операции в контексте конкретной базы данных.
+Позволяет создавать и расширять схемы существующих таблиц в одной массовой операции в контексте определенной базы данных.
 
-Требуется [разрешение пользователя базы данных,](../management/access-control/role-based-authorization.md)а также [разрешение администрирования интерфейса таблицы](../management/access-control/role-based-authorization.md) для расширения существующих таблиц.
+> [!NOTE]
+> Требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
+> Требуется [разрешение администратора таблицы](../management/access-control/role-based-authorization.md) для расширения существующих таблиц.
 
 **Синтаксис**
 
-`.create-merge``tables` *TableName1* («columnName:columnType»,,...) `,` *TableName2* («columnName:columnType»,, ...)...
+`.create-merge``tables` *TableName1* ([имя_столбца: columnType],...) [ `,` *TableName2* ([ColumnName: ColumnType],...)...]
 
-* Будут созданы определенные таблицы, которые не существуют.
-* Указанные таблицы, которые уже существуют, будут расширены:
-    * Несуществующие столбцы будут добавлены в _конце_ схемы существующей таблицы.
+* Будут созданы указанные таблицы, которые не существуют.
+* Для указанных таблиц, которые уже существуют, будут расширены их схемы.
+    * Несуществующие столбцы будут добавлены в _конец_ схемы существующей таблицы.
     * Существующие столбцы, не указанные в команде, не будут удалены из схемы существующей таблицы.
-    * Существующие столбцы, указанные с другим типом данных в команде, к тому, что в схеме существующей таблицы приведет к сбою (таблицы не будут создаваться или расширяться).
+    * Существующие столбцы, которые указаны с типом данных в команде, отличной от той, которая есть в схеме существующей таблицы, приведут к сбою. Ни одна таблица не будет создана или расширена.
 
-**Пример** 
+**Пример**
 
 ```kusto
 .create-merge tables 
@@ -39,9 +41,9 @@ ms.locfileid: "81744445"
   MyUsers (UserId:string, Name:string)
 ```
 
-**Выход возврата**
+**Возврат выходных данных**
 
 | TableName | имя_базы_данных  | Папка | DocString |
 |-----------|---------------|--------|-----------|
-| MyLogs    | ТопСравнени |        |           |
-| MyUsers   | ТопСравнени |        |           |
+| милогс    | топкомпарисон |        |           |
+| мюсерс   | топкомпарисон |        |           |

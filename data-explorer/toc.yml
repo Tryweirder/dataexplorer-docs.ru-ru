@@ -220,8 +220,6 @@
               href: language-extensions.md
         - name: База данных
           items:
-            - name: Базы данных подписчиков
-              href: follower.md
             - name: Управление разрешениями базы данных
               href: manage-database-permissions.md
             - name: Добавление субъекта базы данных
@@ -254,6 +252,12 @@
           href: using-metrics.md
         - name: Использование Работоспособности ресурсов для мониторинга работоспособности кластера
           href: monitor-with-resource-health.md
+    - name: Совместное использование данных
+      items:
+        - name: Использование Azure Data Share
+          href: data-share.md
+        - name: Базы данных подписчиков
+          href: follower.md
     - name: Интеграция с другими средствами
       items:
         - name: Фабрика данных Azure
@@ -1248,11 +1252,11 @@
                   href: ./kusto/management/show-table-schema-command.md
             - name: Внешние таблицы
               items:
-                - name: Команды управления для внешних таблиц
+                - name: Общие команды управления для внешних таблиц
                   href: ./kusto/management/externaltables.md
-                - name: Внешние таблицы SQL
+                - name: Создание и изменение внешних таблиц SQL
                   href: ./kusto/management/external-sql-tables.md
-                - name: Внешние таблицы в службе хранилища Azure или Azure Data Lake
+                - name: Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
                   href: ./kusto/management/external-tables-azurestorage-azuredatalake.md
             - name: Столбцы
               items:
@@ -1561,9 +1565,12 @@
         - name: Специализированные запросы
           items:
             - name: Kusto.Explorer
-              href: ./kusto/tools/kusto-explorer.md
               items:
-                - name: Параметры обозревателя Kusto
+                - name: Установка и пользовательский интерфейс Kusto.Explorer
+                  href: ./kusto/tools/kusto-explorer.md
+                - name: Использование Kusto.Explorer
+                  href: ./kusto/tools/kusto-explorer-using.md
+                - name: Параметры Kusto.Explorer
                   href: ./kusto/tools/kusto-explorer-options.md
                 - name: сочетания клавиш
                   href: ./kusto/tools/kusto-explorer-shortcuts.md
@@ -1573,6 +1580,8 @@
                   href: ./kusto/tools/kusto-explorer-codenav.md
                 - name: Анализатор кода
                   href: ./kusto/tools/kusto-explorer-code-analyzer.md
+                - name: Устранение неполадок с Kusto.Explorer
+                  href: ./kusto/tools/kusto-explorer-troubleshooting.md
             - name: Веб-интерфейс
               href: ./web-query-data.md
             - name: Kusto.Cli

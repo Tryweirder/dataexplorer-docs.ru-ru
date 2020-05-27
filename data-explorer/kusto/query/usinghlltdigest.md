@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: ce86e24fbd13221fe333f281dac3ba3b6ac73a1f
-ms.sourcegitcommit: da7c699bb62e1c4564f867d4131d26286c5223a8
+ms.openlocfilehash: 3f1371fe298b2d0e066fc3a278cc3b560050416c
+ms.sourcegitcommit: 283cce0e7635a2d8ca77543f297a3345a5201395
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83404248"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84011590"
 ---
 # <a name="partitioning-and-composing-intermediate-results-of-aggregations"></a>Секционирование и составление промежуточных результатов агрегатов
 
@@ -133,7 +133,7 @@ PageViewsHllTDigest
 
 ::: zone pivot="azuredataexplorer"
 
-Чтобы решить эту проблему, новые добавленные данные могут быть добавлены во временную таблицу как `hll` или `tdigest` значения с помощью [`hll()`](hll-aggfunction.md) , если требуемая операция — `dcount` или [`tdigest()`](tdigest-aggfunction.md) Если требуемая операция является процентилем с помощью [`set/append`](../management/data-ingestion/index.md) или [`update policy`](../management/updatepolicy.md) . В этом случае промежуточные результаты `dcount` или `tdigest` сохраняются в другом наборе данных, который должен быть меньше целевого размера.
+Чтобы решить эту проблему, новые добавленные данные могут быть добавлены во временную таблицу как `hll` или `tdigest` значения с помощью [`hll()`](hll-aggfunction.md) , если требуемая операция — `dcount` или [`tdigest()`](tdigest-aggfunction.md) Если требуемая операция является процентилем с помощью [`set/append`](../../ingest-data-overview.md) или [`update policy`](../management/updatepolicy.md) . В этом случае промежуточные результаты `dcount` или `tdigest` сохраняются в другом наборе данных, который должен быть меньше целевого размера.
 
 ::: zone-end
 

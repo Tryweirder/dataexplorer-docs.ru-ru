@@ -1,6 +1,6 @@
 ---
-title: Политика вызова вызова - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описана политика вызова в Azure Data Explorer.
+title: Политика выноски — обозреватель данных Azure
+description: В этой статье описывается политика вызова в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,73 +8,70 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/01/2020
-ms.openlocfilehash: df57c4901cef74d574108d2c6e75672d1faba75c
-ms.sourcegitcommit: e94be7045d71a0435b4171ca3a7c30455e6dfa57
+ms.openlocfilehash: 42254e00e629a19dfceeef2d4a6c2d1877400c05
+ms.sourcegitcommit: 283cce0e7635a2d8ca77543f297a3345a5201395
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81744511"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84011556"
 ---
 # <a name="callout-policy"></a>Политика внешних вызовов
 
-## <a name="overview"></a>Обзор
+Кластеры Azure обозреватель данных могут взаимодействовать с внешними службами во многих разных сценариях.
+Администраторы кластера могут управлять полномочными доменами для внешних вызовов путем обновления политики выноски кластера.
 
-Кластеры Azure Data Explorer могут общаться с внешними службами в различных сценариях.
-Кластерные админы могут управлять разрешенными доменами для внешних вызовов, обновляя политику вызова кластера.
+Политики выноски управляются на уровне кластера и классифицируются в следующие типы.
+* `kusto`— Управляет обозреватель данных запросов между кластерами в Azure.
+* `sql`— Управляет [подключаемым модулем SQL](../query/sqlrequestplugin.md).
 
-Политики вызова управляются на уровне кластеров и классифицируются по следующим типам:
-* `kusto`- управление запросами по межкластерным кластерам Azure Data Explorer.
-* `sql`- контролирует [плагин S'L](../query/sqlrequestplugin.md).
+* `webapi`— Управляет другими внешними веб-вызовами.
+* `sandbox_artifacts`— Управляет изолированными подключаемыми модулями ([Python](../query/pythonplugin.md)  |  [R](../query/rplugin.md)).
 
+Политика выноски состоит из следующих элементов.
 
-* `webapi`- контролирует другие внешние веб-звонки.
-* `sandbox_artifacts`- контролирует песочницы плагинов[(питон](../query/pythonplugin.md) | [R](../query/rplugin.md)).
+* **Каллауттипе** — определяет тип выноски и может иметь значение `kusto` , `sql` или`webapi`
+* **Каллаутурирежекс** — Указывает разрешенное регулярное выражение для домена выноски
+* **Канкалл** — указывает, разрешены ли в выноске внешние вызовы.
 
-Политика вызова состоит из следующих компонентов:
-* **CalloutType** определяет тип вызова и может быть одним из следующих: kusto, sql или webapi
-* **CalloutUriRegex** указывает разрешенный Regex домена callout
-* **CanCall** указывает, позволяет ли вызов внешних вызовов.
+## <a name="predefined-callout-policies"></a>Стандартные политики выноски
 
-## <a name="predefined-callout-policies"></a>Предопределенные политики Callout
+В таблице показан набор стандартных политик выноски, которые предварительно настроены во всех кластерах Azure обозреватель данных для включения выносок для выбора служб.
 
-Существует набор предопределенных политик вызова, непреложно настроенных на все кластеры Azure Data Explorer для облегчения вызовов для выбора служб.
-
-|Служба      |Облако        |Категория  |Разрешенные домены |
+|Служба      |Cloud        |Категория  |Разрешенные домены |
 |-------------|-------------|-------------|-------------|
-|Kusto |Public Azure (Общедоступные Azure) |Перекрестные кластерные запросы |`^[^.]*\.kusto\.windows\.net$` <br> `^[^.]*\.kustomfa\.windows\.net$` |
-|Kusto |Шварцвальд |Перекрестные кластерные запросы |`^[^.]*\.kusto\.cloudapi\.de$` <br> `^[^.]*\.kustomfa\.cloudapi\.de$` |
-|Kusto |Fairfax |Перекрестные кластерные запросы |`^[^.]*\.kusto\.usgovcloudapi\.net$` <br> `^[^.]*\.kustomfa\.usgovcloudapi\.net$` |
-|Kusto |Mooncake |Перекрестные кластерные запросы |`^[^.]*\.kusto\.chinacloudapi\.cn$` <br> `^[^.]*\.kustomfa\.chinacloudapi\.cn$` |
-|Azure DB |Public Azure (Общедоступные Azure) |Запросы на S'L |`^[^.]*\.database\.windows\.net$` <br> `^[^.]*\.databasemfa\.windows\.net$` |
-|Azure DB |Шварцвальд |Запросы на S'L |`^[^.]*\.database\.cloudapi\.de$` <br> `^[^.]*\.databasemfa\.cloudapi\.de$` |
-|Azure DB |Fairfax |Запросы на S'L |`^[^.]*\.database\.usgovcloudapi\.net$` <br> `^[^.]*\.databasemfa\.usgovcloudapi\.net$` |
-|Azure DB |Mooncake |Запросы на S'L |`^[^.]*\.database\.chinacloudapi\.cn$` <br> `^[^.]*\.databasemfa\.chinacloudapi\.cn$` |
-|Базовый сервис |Public Azure (Общедоступные Azure) |Базовые запросы |`baseliningsvc-int.azurewebsites.net` <br> `baseliningsvc-ppe.azurewebsites.net` <br> `baseliningsvc-prod.azurewebsites.net` |
-
+|Kusto |`Public Azure` |Запросы между кластерами |`^[^.]*\.kusto\.windows\.net$` <br> `^[^.]*\.kustomfa\.windows\.net$` |
+|Kusto |`Black Forest` |Запросы между кластерами |`^[^.]*\.kusto\.cloudapi\.de$` <br> `^[^.]*\.kustomfa\.cloudapi\.de$` |
+|Kusto |`Fairfax` |Запросы между кластерами |`^[^.]*\.kusto\.usgovcloudapi\.net$` <br> `^[^.]*\.kustomfa\.usgovcloudapi\.net$` |
+|Kusto |`Mooncake` |Запросы между кластерами |`^[^.]*\.kusto\.chinacloudapi\.cn$` <br> `^[^.]*\.kustomfa\.chinacloudapi\.cn$` |
+|База данных Azure |`Public Azure` |Запросы SQL |`^[^.]*\.database\.windows\.net$` <br> `^[^.]*\.databasemfa\.windows\.net$` |
+|База данных Azure |`Black Forest` |Запросы SQL |`^[^.]*\.database\.cloudapi\.de$` <br> `^[^.]*\.databasemfa\.cloudapi\.de$` |
+|База данных Azure |`Fairfax` |Запросы SQL |`^[^.]*\.database\.usgovcloudapi\.net$` <br> `^[^.]*\.databasemfa\.usgovcloudapi\.net$` |
+|База данных Azure |`Mooncake` |Запросы SQL |`^[^.]*\.database\.chinacloudapi\.cn$` <br> `^[^.]*\.databasemfa\.chinacloudapi\.cn$` |
+|Служба задания базовых показателей |Public Azure (Общедоступные Azure) |Запросы задания базовых показателей |`baseliningsvc-int.azurewebsites.net` <br> `baseliningsvc-ppe.azurewebsites.net` <br> `baseliningsvc-prod.azurewebsites.net` |
 
 ## <a name="control-commands"></a>Управляющие команды
 
-Команды требуют разрешений [AllDatabasesAdmin.](access-control/role-based-authorization.md)
+Для команд требуются разрешения [аллдатабасесадмин](access-control/role-based-authorization.md) .
 
-**Отображайте все настроенные политики вызова**
+**Показывать все настроенные политики выноски**
 
 ```kusto
 .show cluster policy callout
 ```
 
-**Изменение политики выхода вызывающего вызова**
+**Изменение политик выноски**
 
 ```kusto
 .alter cluster policy callout @'[{"CalloutType": "webapi","CalloutUriRegex": "en\\.wikipedia\\.org","CanCall": true}]'
 ```
 
-**Добавление набора допустимых вызовов**
+**Добавление набора разрешенных выносок**
 
 ```kusto
 .alter-merge cluster policy callout @'[{"CalloutType": "webapi","CalloutUriRegex": "en\\.wikipedia\\.org","CanCall": true}, {"CalloutType": "webapi","CalloutUriRegex": "bing\\.com","CanCall": true}]'
 ```
 
-**Удалить все непреложные политики вызова**
+**Удалить все неизменяемые политики выноски**
 
 ```kusto
 .delete cluster policy callout
