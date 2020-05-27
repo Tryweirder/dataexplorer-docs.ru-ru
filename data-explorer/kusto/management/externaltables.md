@@ -7,21 +7,17 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
-ms.date: 03/24/2020
-ms.openlocfilehash: e8c2cbcfbf6ff4fb45402f34f6031e655aa041d0
-ms.sourcegitcommit: b4d6c615252e7c7d20fafd99c5501cb0e9e2085b
+ms.date: 05/26/2020
+ms.openlocfilehash: a08f1f154c0efa17164d15a075456e2b6fab3212
+ms.sourcegitcommit: a562ce255ac706ca1ca77d272a97b5975235729d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 05/26/2020
-ms.locfileid: "83863359"
+ms.locfileid: "83867092"
 ---
-# <a name="external-table-general-commands"></a>Общие команды внешней таблицы
+# <a name="external-table-general-control-commands"></a>Команды для общего управления внешней таблицей
 
-Общие сведения о внешних таблицах см. в разделе [внешние таблицы](../query/schema-entities/externaltables.md) . 
-
-## <a name="common-external-tables-control-commands"></a>Команды управления общими внешними таблицами
-
-Следующие команды относятся к _любой_ внешней таблице (любого типа).
+Общие сведения о внешних таблицах см. в разделе [внешние таблицы](../query/schema-entities/externaltables.md) . Следующие команды относятся к _любой_ внешней таблице (любого типа).
 
 ## <a name="show-external-tables"></a>. показывать внешние таблицы
 
