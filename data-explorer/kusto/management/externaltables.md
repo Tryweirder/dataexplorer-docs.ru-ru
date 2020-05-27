@@ -1,6 +1,6 @@
 ---
-title: Команды управления внешними таблицами — Azure обозреватель данных
-description: В этой статье описываются команды управления внешними таблицами в обозреватель данных Azure.
+title: Общие команды управления внешней таблицы Kusto — Azure обозреватель данных
+description: В этой статье описаны общие команды управления внешними таблицами.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 580f675360b96d56d43e1100cbba97d09a95c945
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: e8c2cbcfbf6ff4fb45402f34f6031e655aa041d0
+ms.sourcegitcommit: b4d6c615252e7c7d20fafd99c5501cb0e9e2085b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227712"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83863359"
 ---
-# <a name="external-table-control-commands"></a>Команды управления внешними таблицами
+# <a name="external-table-general-commands"></a>Общие команды внешней таблицы
 
 Общие сведения о внешних таблицах см. в разделе [внешние таблицы](../query/schema-entities/externaltables.md) . 
 
@@ -32,11 +32,11 @@ ms.locfileid: "83227712"
 
 `.show` `external` `tables`
 
-`.show``external` `table` *TableName*
+`.show` `external` `table` *TableName*
 
 **Выходные данные**
 
-| Выходной параметр | Type   | Описание                                                         |
+| Выходной параметр | Тип   | Описание                                                         |
 |------------------|--------|---------------------------------------------------------------------|
 | TableName        | строка | Имя внешней таблицы                                             |
 | TableType        | строка | Тип внешней таблицы                                              |
@@ -54,7 +54,7 @@ ms.locfileid: "83227712"
 
 | TableName | TableType | Папка         | DocString | Свойства |
 |-----------|-----------|----------------|-----------|------------|
-| T         | BLOB-объект      | екстерналтаблес | Docs      | {}         |
+| T         | BLOB-объект      | екстерналтаблес | Документы      | {}         |
 
 
 ## <a name="show-external-table-schema"></a>. отобразить схему внешней таблицы
@@ -66,11 +66,11 @@ ms.locfileid: "83227712"
 
 `.show``external` `table` *TableName* `schema` `as` ( `json`  |  `csl` )
 
-`.show``external` `table` *TableName*`cslschema`
+`.show` `external` `table` *TableName* `cslschema`
 
 **Выходные данные**
 
-| Выходной параметр | Type   | Описание                        |
+| Выходной параметр | Тип   | Описание                        |
 |------------------|--------|------------------------------------|
 | TableName        | строка | Имя внешней таблицы            |
 | схема           | строка | Схема таблицы в формате JSON |
@@ -95,14 +95,14 @@ ms.locfileid: "83227712"
 
 | TableName | схема    | имя_базы_данных | Папка         | DocString |
 |-----------|----------------------------------|--------------|----------------|-----------|
-| T         | {"Имя": "Екстерналблоб",<br>"Папка": "Екстерналтаблес",<br>"DocString": "документы",<br>"Ордередколумнс": [{"имя": "x", "Type": "System. Int64", "Кслтипе": "Long", "DocString": ""}, {"имя": "s", "Type": "System. String", "Кслтипе": "строка", "DocString": ""}]} | DB           | екстерналтаблес | Docs      |
+| T         | {"Имя": "Екстерналблоб",<br>"Папка": "Екстерналтаблес",<br>"DocString": "документы",<br>"Ордередколумнс": [{"имя": "x", "Type": "System. Int64", "Кслтипе": "Long", "DocString": ""}, {"имя": "s", "Type": "System. String", "Кслтипе": "строка", "DocString": ""}]} | DB           | екстерналтаблес | Документы      |
 
 
 *CSL*
 
 | TableName | схема          | имя_базы_данных | Папка         | DocString |
 |-----------|-----------------|--------------|----------------|-----------|
-| T         | КС:Лонг, с:стринг | DB           | екстерналтаблес | Docs      |
+| T         | КС:Лонг, с:стринг | DB           | екстерналтаблес | Документы      |
 
 ## <a name="drop-external-table"></a>. Удаление внешней таблицы
 
@@ -112,7 +112,7 @@ ms.locfileid: "83227712"
 
 **Синтаксис**  
 
-`.drop``external` `table` *TableName*
+`.drop` `external` `table` *TableName*
 
 **Выходные данные**
 
@@ -126,5 +126,9 @@ ms.locfileid: "83227712"
 
 | TableName | TableType | Папка         | DocString | схема       | Свойства |
 |-----------|-----------|----------------|-----------|-----------------------------------------------------|------------|
-| T         | BLOB-объект      | екстерналтаблес | Docs      | [{"Name": "x", "Кслтипе": "Long"},<br> {"Name": "s", "Кслтипе": "String"}] | {}         |
+| T         | BLOB-объект      | екстерналтаблес | Документы      | [{"Name": "x", "Кслтипе": "Long"},<br> {"Name": "s", "Кслтипе": "String"}] | {}         |
 
+## <a name="next-steps"></a>Дальнейшие действия
+
+* [Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake](external-tables-azurestorage-azuredatalake.md)
+* [Создание и изменение внешних таблиц SQL](external-sql-tables.md)

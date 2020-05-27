@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: bf31d8573266de1217ce93944a357c716d3ba508
-ms.sourcegitcommit: e1e35431374f2e8b515bbe2a50cd916462741f49
+ms.openlocfilehash: 8c5ade644f383a5a0d9e846b1a3143027d1eb467
+ms.sourcegitcommit: b4d6c615252e7c7d20fafd99c5501cb0e9e2085b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82108173"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83863189"
 ---
 # <a name="kusto-connection-strings"></a>Строки подключения Kusto
 
@@ -27,21 +27,21 @@ https://help.kusto.windows.net/Samples; Fed=true; Accept=true
 
 Универсальный код ресурса (URI) предоставляет конечную точку службы для взаимодействия:
 
-* (`https://help.kusto.windows.net`) — значение `Data Source` свойства.
-* `Samples`(база данных по умолчанию) —`Initial Catalog` значение свойства.
+* ( `https://help.kusto.windows.net` ) — значение `Data Source` Свойства.
+* `Samples`(база данных по умолчанию) — значение `Initial Catalog` Свойства.
 
 При использовании синтаксиса имени/значения предоставляются два дополнительных свойства: 
 
-* `Fed`свойство (также называемое `AAD Federated Security`) имеет `true`значение.
-* `Accept`для `true`свойства задано значение.
+* `Fed`свойство (также называемое `AAD Federated Security` ) имеет значение `true` .
+* `Accept`для свойства задано значение `true` .
 
 > [!NOTE]
 >
 > * Имена свойств не чувствительны к регистру, а пробелы между парами имен и значений игнорируются.
-> * **Значения свойств чувствительны к** регистру. Значение свойства, содержащее точку с запятой (`;`), одинарную кавычку (`'`) или двойную кавычку (`"`), должно быть заключено в двойные кавычки.
+> * **Значения свойств чувствительны к** регистру. Значение свойства, содержащее точку с запятой ( `;` ), одинарную кавычку ( `'` ) или двойную кавычку ( `"` ), должно быть заключено в двойные кавычки.
 
 Несколько клиентских средств Kusto поддерживают расширение по префиксу URI строки подключения, в котором они позволяют использовать сокращенный формат `@` _имя_кластера_ `/` _InitialCatalog_ .
-Например, строка `@help/Samples` подключения преобразуется этими инструментами в `https://help.kusto.windows.net/Samples; Fed=true`, что указывает на три свойства (`Data Source`, `Initial Catalog`и `AAD Federated Security`).
+Например, строка подключения `@help/Samples` преобразуется этими инструментами в `https://help.kusto.windows.net/Samples; Fed=true` , что указывает на три свойства ( `Data Source` , `Initial Catalog` и `AAD Federated Security` ).
 
 В программном коде строки подключения Kusto можно анализировать и обрабатывать с помощью класса C# `Kusto.Data.KustoConnectionStringBuilder` . Этот класс проверяет все строки подключения и создает исключение во время выполнения, если проверка завершается неудачно.
 Эта функция доступна во всех разновидностях пакета SDK для Kusto.
@@ -56,9 +56,9 @@ https://help.kusto.windows.net/Samples; Fed=true; Accept=true
 | Имя свойства              | Альтернативные имена                      | Программное имя  | Описание                                                                                                                          |
 |----------------------------|----------------------------------------|--------------------|---------------------------------------------------|
 | Версия клиента для трассировки |                                        | трацеклиентверсион | При трассировке версии клиента используйте это значение.   |
-| Источник данных                | Адрес, адрес, сетевой адрес, сервер | DataSource         | URI, указывающий конечную точку службы Kusto. Например, `https://mycluster.kusto.windows.net` или `net.tcp://localhost`.               |
+| источника данных                | Адрес, адрес, сетевой адрес, сервер | DataSource         | URI, указывающий конечную точку службы Kusto. Например, `https://mycluster.kusto.windows.net` или `net.tcp://localhost`.               |
 | Исходный каталог            | База данных                               | InitialCatalog     | Имя базы данных, используемой по умолчанию. Например, MyDatabase|
-| Согласованность запросов          | куериконсистенци                       | куериконсистенци   | Задайте значение `strongconsistency` или `weakconsistency` , чтобы определить, должен ли запрос синхронизироваться с метаданными перед выполнением |
+| Согласованность запросов          | куериконсистенци                       | куериконсистенци   | Задайте значение `strongconsistency` или, `weakconsistency` чтобы определить, должен ли запрос синхронизироваться с метаданными перед выполнением |
 
 ### <a name="user-authentication-properties"></a>Свойства проверки подлинности пользователя
 
@@ -114,9 +114,6 @@ https://help.kusto.windows.net/Samples; Fed=true; Accept=true
 1. В противном случае проверка подлинности не выполняется.
 
 
-
-
-
 ### <a name="aad-federated-application-authentication-with-application-certificate"></a>Аутентификация федеративного приложения AAD с сертификатом приложения
 
 1. Проверка подлинности на основе сертификата приложения поддерживается только для веб-приложений (а не для собственных клиентских приложений).
@@ -127,45 +124,65 @@ https://help.kusto.windows.net/Samples; Fed=true; Accept=true
 
 ## <a name="aad-based-authentication-examples"></a>Примеры проверки подлинности на основе AAD
 
-**Федеративная проверка подлинности AAD на основе удостоверения текущего вошедшего пользователя (при необходимости пользователю будет предложено)**
+**Федеративная проверка подлинности AAD с использованием удостоверения пользователя, выполнившего вход в систему (при необходимости пользователю будет предложено)**
 
 ```csharp
-// Option 1
-var serviceName = "help";
+var serviceUri = "Service URI, typically of the form https://cluster.region.kusto.windows.net";
 var authority = "contoso.com"; // Or the AAD tenant GUID: "..."
-var kustoConnectionStringBuilder = new KustoConnectionStringBuilder($"https://{serviceNameAndRegion}.kusto.windows.net")
+
+// Recommended syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
   .WithAadUserPromptAuthentication(authority);
 
-// Option 2
-var serviceName = "help";
-var authority = "contoso.com"; // Or the AAD tenant GUID: "..."
-var kustoConnectionStringBuilder = new KustoConnectionStringBuilder($"https://{serviceNameAndRegion}.kusto.windows.net")
+// Legacy syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
 {
     FederatedSecurity = true,
     InitialCatalog = "NetDefaultDB",
     Authority = authority,
 };
 
-// Equivalent Kusto connection string: $"Data Source=https://{serviceNameAndRegion}.kusto.windows.net:443;Database=NetDefaultDB;Fed=True;authority={authority}"
+// Equivalent Kusto connection string: $"Data Source={serviceUri};Database=NetDefaultDB;Fed=True;Authority Id={authority}"
 ```
 
-**Проверка подлинности федеративного приложения AAD на основе заданных Аппликатионклиентид и ApplicationKey**
+**Федеративная проверка подлинности AAD с указанием идентификатора пользователя (при необходимости пользователю будет предложено)**
 
 ```csharp
-// Option 1
-var serviceName = "help";
+var serviceUri = "Service URI, typically of the form https://cluster.region.kusto.windows.net";
 var authority = "contoso.com"; // Or the AAD tenant GUID: "..."
-var applicationClientId = APP_GUID;
-var applicationKey = secret;
-var kustoConnectionStringBuilder = new KustoConnectionStringBuilder($"https://{serviceNameAndRegion}.kusto.windows.net")
-    .WithAadApplicationKeyAuthentication(applicationClientId, applicationKey, authority);
+var userUPN = "johndoe@contoso.com";
 
-// Option 2
-var serviceName = "help";
+// Recommended syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
+  .WithAadUserPromptAuthentication(authority);
+kustoConnectionStringBuilder.UserID = userUPN;
+
+// Legacy syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
+{
+    FederatedSecurity = true,
+    InitialCatalog = "NetDefaultDB",
+    UserID = userUPN,
+    Authority = authority,
+};
+
+// Equivalent Kusto connection string: $"Data Source={serviceUri};Database=NetDefaultDB;Fed=True;User ID={userUPN};Authority Id={authority}"
+```
+
+**Аутентификация федеративного приложения AAD с помощью Аппликатионклиентид и ApplicationKey**
+
+```csharp
+var serviceUri = "Service URI, typically of the form https://cluster.region.kusto.windows.net";
 var authority = "contoso.com"; // Or the AAD tenant GUID: "..."
 var applicationClientId = <ApplicationClientId>;
 var applicationKey = <ApplicationKey>;
-var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(@"https://{serviceNameAndRegion}.kusto.windows.net")
+
+// Recommended syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
+    .WithAadApplicationKeyAuthentication(applicationClientId, applicationKey, authority);
+
+// Legacy syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
 {
     FederatedSecurity = true,
     InitialCatalog = "NetDefaultDB",
@@ -174,74 +191,119 @@ var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(@"https://{s
     Authority = authority,
 };
 
-// Equivalent Kusto connection string: $"Data Source=https://{serviceNameAndRegion}.kusto.windows.net:443;Database=NetDefaultDB;Fed=True;AppClientId={applicationClientId};AppKey={applicationKey};authority={authority}"
+// Equivalent Kusto connection string: $"Data Source={serviceUri};Database=NetDefaultDB;Fed=True;AppClientId={applicationClientId};AppKey={applicationKey};Authority Id={authority}"
 ```
 
-**Федеративная проверка подлинности AAD на основе маркера указанного пользователя или приложения**
+**Федеративная проверка подлинности AAD с использованием токена пользователя или приложения**
 
 ```csharp
-var serviceNameAndRegion = "help";
-var databaseName = "NetDefaultDB";
-var clusterAndDatabase = string.Format(
-    "https://{0}.kusto.windows.net/{1}",
-    serviceNameAndRegion, databaseName);
-
-// AAD User - Option 1
-var userToken = "<UserToken>";
-var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(clusterAndDatabase)
-    .WithAadUserTokenAuthentication(userToken);
-
-// AAD User - Option 2
-var userToken = "<UserToken>";
+var serviceUri = "Service URI, typically of the form https://cluster.region.kusto.windows.net";
 var authority = "contoso.com"; // Or the AAD tenant GUID: "..."
-var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(clusterAndDatabase)
+var access_token = "<access token obtained from AAD>"
+
+// Recommended syntax - AAD User token
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
+    .WithAadUserTokenAuthentication(access_token, authority);
+
+// Legacy syntax - AAD User token
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
 {
     FederatedSecurity = true,
-    UserToken = userToken,
+    UserToken = access_token,
     Authority = authority,
 };
 
-// Equivalent Kusto connection string: "Data Source=https://{serviceNameAndRegion}.kusto.windows.net:443;Database=NetDefaultDB;Fed=True;UserToken={user_token};authority={authority}"
+// Equivalent Kusto connection string: "Data Source={serviceUri};Database=NetDefaultDB;Fed=True;UserToken={access_token};Authority Id={authority}"
 
-// AAD Application - Option 1
-var applicationToken = "<ApplicationToken>";
-var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(clusterAndDatabase)
-    .WithAadApplicationTokenAuthentication();
+// Recommended syntax - AAD Application token
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
+    .WithAadApplicationTokenAuthentication(access_token, authority);
 
-// AAD Application - Option 2
-var authority = "contoso.com"; // Or the AAD tenant GUID: "..."
-var applicationToken = "<UserToken>";
-var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(clusterAndDatabase)
+// Legacy syntax - AAD Application token
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
 {
     FederatedSecurity = true,
-    ApplicationToken = applicationToken,
+    ApplicationToken = access_token,
     Authority = authority,
 };
 
-// Equivalent Kusto connection string: $"Data Source=https://{serviceNameAndRegion}.kusto.windows.net:443;Database=NetDefaultDB;Fed=True;AppToken={applicationToken};authority={authority}"
+// Equivalent Kusto connection string: $"Data Source={serviceUri};Database=NetDefaultDB;Fed=True;AppToken={applicationToken};Authority Id={authority}"
 ```
 
-**Использование отпечатка сертификата (клиент пытается загрузить сертификат из локального хранилища)**
+**Использование обратного вызова поставщика маркеров (будет вызываться каждый раз, когда требуется токен)**
 
 ```csharp
-var serviceNameAndRegion = "help";
-var databaseName = "Samples";
-var clusterAndDatabase = string.Format(
-    "https://{0}.kusto.windows.net/{1}",
-    serviceNameAndRegion, databaseName);
+var serviceUri = "Service URI, typically of the form https://cluster.region.kusto.windows.net";
+Func<string> tokenProviderCallback; // User-defined method to retrieve the access token
 
+// Recommended syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
+    .WithAadTokenProviderAuthentication(tokenProviderCallback);
+
+// Legacy syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
+{
+    FederatedSecurity = true,
+    TokenProviderCallback = () => Task.FromResult(tokenProviderCallback()),
+};
+```
+
+**Использование управляемого удостоверения**
+
+```csharp
+var serviceUri = "Service URI, typically of the form https://cluster.region.kusto.windows.net";
+var managedIdentity = "<managed identity>"; // For system-assigned identity use "system"
+
+// Recommended syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
+    .WithAadManagedIdentity(managedIdentity);
+
+// Legacy syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
+{
+    FederatedSecurity = true,
+    EmbeddedManagedIdentity = managedIdentity,
+};
+```
+
+**Использование сертификата X. 509**
+
+```csharp
+var serviceUri = "Service URI, typically of the form https://cluster.region.kusto.windows.net";
+var authority = "contoso.com"; // Or the AAD tenant GUID: "..."
+string applicationClientId = "<applicationClientId>";
+X509Certificate2 applicationCertificate = "<certificate blob>";
+bool sendX5c = <desired value>; // Set too 'True' to use Trusted Issuer feature of AAD
+
+// Recommended syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
+    .WithAadApplicationCertificateAuthentication(applicationClientId, applicationCertificate, authority, sendX5c);
+
+// Legacy syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
+{
+    FederatedSecurity = true,
+    ApplicationClientId = applicationClientId,
+    ApplicationCertificateBlob = applicationCertificate,
+    ApplicationCertificateSendX5c = sendX5c,
+    Authority = authority,
+};
+```
+
+**Использование сертификата X. 509 по отпечатку (клиент пытается загрузить сертификат из локального хранилища)**
+
+```csharp
+var serviceUri = "Service URI, typically of the form https://cluster.region.kusto.windows.net";
+var authority = "contoso.com"; // Or the AAD tenant GUID: "..."
 string applicationClientId = "<applicationClientId>";
 string applicationCertificateThumbprint = "<ApplicationCertificateThumbprint>";
 
-// Option 1
-var serviceName = "help";
-var authority = "contoso.com"; // Or the AAD tenant GUID: "..."
-var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(clusterAndDatabase)
+// Recommended syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
     .WithAadApplicationThumbprintAuthentication(applicationClientId, applicationCertificateThumbprint, authority);
 
-// Option 2
-var authority = "contoso.com"; // Or the AAD tenant GUID: "..."
-var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(clusterAndDatabase)
+// Legacy syntax
+var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(serviceUri)
 {
     FederatedSecurity = true,
     ApplicationClientId = applicationClientId,
@@ -249,6 +311,5 @@ var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(clusterAndDa
     Authority = authority,
 };
 
-// Equivalent Kusto connection string: $"Data Source=https://{serviceNameAndRegion}.kusto.windows.net:443;Database=NetDefaultDB;Fed=True;AppClientId={applicationClientId};AppCert={applicationCertificateThumbprint};authority={authority}"
+// Equivalent Kusto connection string: $"Data Source={serviceUri};Database=NetDefaultDB;Fed=True;AppClientId={applicationClientId};AppCert={applicationCertificateThumbprint};Authority Id={authority}"
 ```
-

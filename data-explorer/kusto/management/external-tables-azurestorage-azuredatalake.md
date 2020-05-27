@@ -1,6 +1,6 @@
 ---
-title: Внешние таблицы в службе хранилища Azure или Azure Data Lake Azure обозреватель данных
-description: В этой статье описывается управление внешними таблицами в Azure обозреватель данных.
+title: Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake Azure обозреватель данных
+description: В этой статье описывается создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 1c7670dfb06e95f227a4b828a86b980005eeeac9
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 2ef238d863f2f3fe181814ac14e3605de21a5aff
+ms.sourcegitcommit: b4d6c615252e7c7d20fafd99c5501cb0e9e2085b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373360"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83863376"
 ---
-# <a name="external-tables-in-azure-storage-or-azure-data-lake"></a>Внешние таблицы в службе хранилища Azure или Azure Data Lake
+# <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
 
 Следующая команда описывает создание внешней таблицы. Таблицу можно найти в хранилище BLOB-объектов Azure, Azure Data Lake Store Gen1 или Azure Data Lake Store Gen2. 
 [Строки подключения к хранилищу](../api/connection-strings/storage.md) . Описание создания строки подключения для каждого из этих параметров. 
@@ -60,7 +60,7 @@ ms.locfileid: "83373360"
 
 **Необязательные свойства**:
 
-| Свойство.         | Тип     | Описание       |
+| Свойство         | Тип     | Описание       |
 |------------------|----------|-------------------------------------------------------------------------------------|
 | `folder`         | `string` | Папка таблицы                                                                     |
 | `docString`      | `string` | Строка документирования таблицы                                                       |
@@ -170,7 +170,7 @@ with
 
 |TableName|TableType|Папка|DocString|Свойства|ConnectionStrings|Секции|
 |---|---|---|---|---|---|---|
-|екстерналмултиплепартитионс|BLOB-объект|екстерналтаблес|Docs|{"Format": "CSV", "сжатый": false, "Компрессионтипе": NULL, "FileExtension": "CSV", "Инклудехеадерс": "None", "Encoding": NULL, "NamePrefix": NULL}|["https://storageaccount.blob.core.windows.net/container1;*******"]}|[{"StringFormat": "CustomerName = {0} ", "ColumnName": "CustomerName", "Ordinal": 0}, PartitionBy ":" 1,00:00:00 "," ColumnName ":" timestamp "," Ordinal ": 1}]|
+|екстерналмултиплепартитионс|BLOB-объект|екстерналтаблес|Документы|{"Format": "CSV", "сжатый": false, "Компрессионтипе": NULL, "FileExtension": "CSV", "Инклудехеадерс": "None", "Encoding": NULL, "NamePrefix": NULL}|["https://storageaccount.blob.core.windows.net/container1;*******"]}|[{"StringFormat": "CustomerName = {0} ", "ColumnName": "CustomerName", "Ordinal": 0}, PartitionBy ":" 1,00:00:00 "," ColumnName ":" timestamp "," Ordinal ": 1}]|
 
 ### <a name="artifact-filtering-logic"></a>Логика фильтрации артефактов
 
@@ -217,13 +217,13 @@ dataformat=parquet
 
 **Синтаксис** 
 
-`.show``external` `table` *TableName*`artifacts`
+`.show` `external` `table` *TableName* `artifacts`
 
 **Выходные данные**
 
 | Выходной параметр | Тип   | Описание                       |
 |------------------|--------|-----------------------------------|
-| URI              | string | URI внешнего артефакта хранилища |
+| URI              | строка | URI внешнего артефакта хранилища |
 
 **Примеры:**
 
@@ -306,3 +306,7 @@ dataformat=parquet
 ```kusto
 .drop external table MyExternalTable JSON mapping "Mapping1" 
 ```
+## <a name="next-steps"></a>Дальнейшие действия
+
+* [Команды для общего управления внешней таблицей](externaltables.md)
+* [Создание и изменение внешних таблиц SQL](external-sql-tables.md)

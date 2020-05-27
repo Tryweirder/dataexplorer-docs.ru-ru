@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/22/2020
-ms.openlocfilehash: cfcf8a18bac1f6369b75538f2172fe8f25cb9660
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 7f74732ed38d0b41a857fc549f549ce54ad4dce6
+ms.sourcegitcommit: b4d6c615252e7c7d20fafd99c5501cb0e9e2085b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372944"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83863716"
 ---
 # <a name="external-tables"></a>Внешние таблицы
 
@@ -21,7 +21,7 @@ ms.locfileid: "83372944"
 
 Как и в случае с [таблицами](tables.md), внешняя таблица имеет четко определенную схему (упорядоченный список пар «имя столбца» и «тип данных»). В отличие от таблиц, данные хранятся и управляются вне кластера Kusto. Чаще всего данные хранятся в определенном стандартном формате, например CSV, Parquet, Avro и не принимаются Kusto.
 
-**Внешняя таблица** создается один раз (см. раздел [команды управления внешней таблицы](../../management/externaltables.md)), и на нее можно ссылаться по имени с помощью функции [external_table ()](../../query/externaltablefunction.md) . 
+**Внешняя таблица** создается один раз (см. [раздел внешние таблицы общие команды управления](../../management/externaltables.md), [Создание и изменение внешних таблиц SQL](../../management/external-sql-tables.md), [Создание и изменение таблиц в хранилище](../../management/external-tables-azurestorage-azuredatalake.md)) и на них можно ссылаться по имени с помощью функции [external_table ()](../../query/externaltablefunction.md) . 
 
 **Примечания**
 

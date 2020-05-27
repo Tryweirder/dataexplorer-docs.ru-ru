@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: bb25fd556ab59dc5bdf5c533435f99deb6b32fdb
-ms.sourcegitcommit: da7c699bb62e1c4564f867d4131d26286c5223a8
+ms.openlocfilehash: 26c6d660cb254ec2df6600e90437d7db7ca748f4
+ms.sourcegitcommit: b4d6c615252e7c7d20fafd99c5501cb0e9e2085b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83404223"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83863155"
 ---
 # <a name="cross-database-and-cross-cluster-queries"></a>Запросы между базами данных и между кластерами
 
 ::: zone pivot="azuredataexplorer"
 
 Каждый запрос Kusto работает в контексте текущего кластера и базы данных по умолчанию.
-* В [обозревателе Kusto](../tools/kusto-explorer.md)база данных по умолчанию выбрана на [панели подключения](../tools/kusto-explorer.md#connections-panel) , а текущий кластер — это подключение, содержащее эту базу данных.
-* При использовании [клиентской библиотеки Kusto](../api/netfx/about-kusto-data.md)текущий кластер и база данных по умолчанию задаются `Data Source` `Initial Catalog` свойствами и [строк подключения Kusto](../api/connection-strings/kusto.md) соответственно.
+* В [обозревателе Kusto](../tools/kusto-explorer.md) база данных по умолчанию выбрана на [панели подключения](../tools/kusto-explorer.md#connections-panel) , а текущий кластер — это подключение, содержащее эту базу данных.
+* При использовании [клиентской библиотеки Kusto](../api/netfx/about-kusto-data.md) текущий кластер и база данных по умолчанию задаются `Data Source` `Initial Catalog` свойствами и [строк подключения Kusto](../api/connection-strings/kusto.md) соответственно.
 
 ## <a name="queries"></a>Запросы
 Для доступа к таблицам из любой базы данных, отличной от используемой по умолчанию, необходимо использовать синтаксис *полного имени* : для доступа к базе данных в текущем кластере:

@@ -8,12 +8,12 @@ ms.reviewer: ohbitton
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/19/2020
-ms.openlocfilehash: 3a89af281b2376e7fc06d07643af8e95a6c97cd2
-ms.sourcegitcommit: ee90472a4f9d751d4049744d30e5082029c1b8fa
+ms.openlocfilehash: 49a689b88e508285f2876f2e86208afceda0872b
+ms.sourcegitcommit: b4d6c615252e7c7d20fafd99c5501cb0e9e2085b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722105"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83863257"
 ---
 # <a name="kustoingest-client-interfaces-and-classes"></a>Клиентские интерфейсы и классы Kusto. приема
 
@@ -23,7 +23,7 @@ ms.locfileid: "83722105"
 * [Класс екстендедкустоинжестклиент](#class-extendedkustoingestclient): расширения основного интерфейса приема.
 * [класс кустоинжестфактори](#class-kustoingestfactory): основная фабрика для клиентов приема.
 * [класс кустоинжестионпропертиес](#class-kustoingestionproperties): класс, используемый для предоставления общих свойств приема.
-* класс Инжестионмаппинг: класс, используемый для описания сопоставления данных для приема.
+* [класс инжестионмаппинг](#class-ingestionmapping): класс, используемый для описания сопоставления данных для приема.
 * [Enum датасаурцеформат](#enum-datasourceformat): Поддерживаемые форматы источников данных (например, CSV, JSON)
 * [Интерфейс икустокуеуединжестклиент](#interface-ikustoqueuedingestclient): интерфейс, описывающий операции, которые применяются только для приема в очереди.
 * [Класс кустокуеуединжестионпропертиес](#class-kustoqueuedingestionproperties): свойства, которые применяются только к постановке в очередь.
@@ -377,6 +377,28 @@ public class KustoIngestionProperties
 }
 ```
 
+## <a name="class-ingestionmapping"></a>Класс Инжестионмаппинг
+
+Содержит ссылку на существующее сопоставление или список сопоставлений столбцов.
+
+|Свойство   |Значение    |
+|-----------|-----------|
+|инжестионмаппингс | Сопоставления столбцов, каждый из которых описывает данные целевого столбца и его источник |
+|инжестионмаппингкинд | Тип сопоставления, описанный в свойстве Инжестионмаппингс — один из следующих форматов: CSV, JSON, Avro, Parquet, SStream, ORC, Апачеавро или W3CLogFile. |
+|инжестионмаппингреференце | Предварительно созданное имя сопоставления |
+
+```csharp
+public class IngestionMapping
+{
+    public IEnumerable<ColumnMapping> IngestionMappings { get; set; }
+    public IngestionMappingKind IngestionMappingKind { get; set; }
+    public string IngestionMappingReference { get; set; }
+
+    public IngestionMapping()
+    public IngestionMapping(IngestionMapping ingestionMapping)
+}
+```
+
 ## <a name="enum-datasourceformat"></a>Перечисление Датасаурцеформат
 
 ```csharp
@@ -416,7 +438,6 @@ var kustoIngestionProperties = new KustoIngestionProperties("TargetDatabase", "T
             Properties = new Dictionary<string, string>() {
             { MappingConsts.Ordinal, "1"} }
         } },
-        // IngestionMappingReference = mappingName, the pre-created mapping name
     },
     ValidationPolicy = new ValidationPolicy { ValidationImplications = ValidationImplications.Fail, ValidationOptions = ValidationOptions.ValidateCsvInputConstantColumns },
     Format = DataSourceFormat.csv
