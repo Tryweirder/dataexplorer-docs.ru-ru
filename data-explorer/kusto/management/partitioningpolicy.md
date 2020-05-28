@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/30/2020
-ms.openlocfilehash: e6f103d8957416c55a4562fb646e8ccb17ddf1e5
-ms.sourcegitcommit: 9810acae3f1c83b8efe7b952d3bada2ff496b024
+ms.openlocfilehash: b2bb03511afed386e4c7519471481b7ecf5b6291
+ms.sourcegitcommit: e82e1bcfcb456e89a1afb19fc6e874ca9d70c575
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83444721"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84110900"
 ---
 # <a name="data-partitioning-policy-preview"></a>Политика секционирования данных (Предварительная версия)
 
@@ -24,7 +24,7 @@ ms.locfileid: "83444721"
 
 Основной целью политики является повышение производительности запросов, которые можно сократить до небольшого подмножества значений в секционированных столбцах и (или) статистической обработки или объединения в столбце с большим количеством элементов. Вторичное потенциальное преимущество — это лучшее сжатие данных.
 
-> [!WARNING]
+> [!CAUTION]
 > В то время как не существует жестко заданных ограничений на объем таблиц, для которых может быть определена политика, во всех дополнительных таблицах в фоновый процесс секционирования данных, выполняющийся на узлах кластера, добавляются дополнительные ресурсы, которые могут потребовать дополнительных ресурсов кластера. см. раздел [емкость](#capacity).
 
 ## <a name="partition-keys"></a>Ключи секции
@@ -33,7 +33,7 @@ ms.locfileid: "83444721"
 
 |Вид                                                   |Тип столбца |Свойства раздела                    |Значение секции                                        |
 |-------------------------------------------------------|------------|----------------------------------------|-------------------------------------------------------|
-|[Хэш](#hash-partition-key)                            |`string`    |`Function`, `MaxPartitionCount`, `Seed` | `Function`(`ColumnName`, `MaxPartitionCount`, `Seed`) |
+|[Hash](#hash-partition-key)                            |`string`    |`Function`, `MaxPartitionCount`, `Seed` | `Function`(`ColumnName`, `MaxPartitionCount`, `Seed`) |
 |[Однородный диапазон](#uniform-range-datetime-partition-key) |`datetime`  |`RangeSize`, `Reference`                | `bin_at`(`ColumnName`, `RangeSize`, `Reference`)      |
 
 ### <a name="hash-partition-key"></a>Ключ хэш-секции
@@ -217,6 +217,6 @@ ms.locfileid: "83444721"
 
 В обоих случаях следует либо исправить данные, либо отфильтровать любые несущественные записи в данных до или во время приема (например, с помощью [политики обновления](updatepolicy.md)), чтобы снизить затраты на секционирование данных в кластере.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 Используйте [команды управления политиками секционирования](../management/partitioning-policy.md) для управления политиками секционирования данных для таблиц.
