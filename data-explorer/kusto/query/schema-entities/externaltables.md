@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/22/2020
-ms.openlocfilehash: a3d95d3cb90b6a834b1f1538aa28da1f1ac2a97f
-ms.sourcegitcommit: a562ce255ac706ca1ca77d272a97b5975235729d
+ms.openlocfilehash: 2b03f4e0ef426b07f88d7c179caecca6e7dd3034
+ms.sourcegitcommit: 9fe6e34ef3321390ee4e366819ebc9b132b3e03f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83867058"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84257830"
 ---
 # <a name="external-tables"></a>Внешние таблицы
 
@@ -29,4 +29,5 @@ ms.locfileid: "83867058"
 * Имена внешних таблиц не могут пересекаться с именами таблиц Kusto.
 * Имена внешних таблиц соответствуют правилам для [имен сущностей](./entity-names.md).
 * Максимальное ограничение внешних таблиц на базу данных — 1 000.
-* Kusto поддерживает [Экспорт данных во внешнюю таблицу](../../management/data-export/export-data-to-an-external-table.md) , а также [запросы к внешним таблицам](../../../data-lake-query-data.md).
+* Kusto поддерживает [Экспорт](../../management/data-export/export-data-to-an-external-table.md) и [непрерывный экспорт](../../management/data-export/continuous-data-export.md) во внешнюю таблицу, а также [запросы к внешним таблицам](../../../data-lake-query-data.md).
+    * [Очистка данных](../../concepts/data-purge.md) не применяется к внешним таблицам. Записи никогда не удаляются из внешних таблиц.

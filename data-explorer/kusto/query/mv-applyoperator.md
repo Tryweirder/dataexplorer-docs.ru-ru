@@ -8,21 +8,24 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 80e38c1782a4476181fe73c5f77d6460f2ef539f
-ms.sourcegitcommit: 733bde4c6bc422c64752af338b29cd55a5af1f88
+ms.openlocfilehash: 8fd83615de466c238a590273b228c118e2cd1b46
+ms.sourcegitcommit: 9fe6e34ef3321390ee4e366819ebc9b132b3e03f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83271236"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84257846"
 ---
 # <a name="mv-apply-operator"></a>Оператор mv-apply
 
-`mv-apply`Оператор разворачивает каждую запись во входной таблице в подтаблице, применяет вложенный запрос к каждой подтаблице и возвращает объединение результатов всех вложенных запросов.
+Применяет вложенный запрос к каждой записи и возвращает объединение результатов всех вложенных запросов.
 
 Например, предположим, что `T` у таблицы есть столбец `Metric` типа `dynamic` , значения которого являются массивами `real` чисел. Следующий запрос найдет два крупнейших значения в каждом `Metric` значении и возвратит записи, соответствующие этим значениям.
 
 ```kusto
-T | mv-apply Metric to typeof(real) on (top 2 by Metric desc)
+T | mv-apply Metric to typeof(real) on 
+(
+   top 2 by Metric desc
+)
 ```
 
 `mv-apply`Оператор имеет следующие этапы обработки:

@@ -1,6 +1,6 @@
 ---
-title: Политика RowOrder - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описывается политика RowOrder в Azure Data Explorer.
+title: Политика Ровордер — Azure обозреватель данных
+description: В этой статье описывается политика Ровордер в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: cda4c9a6017071878832fab376a0376d250f3ed6
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 63aad71854c73a3d1f1837c3665a152db8b48d13
+ms.sourcegitcommit: 9fe6e34ef3321390ee4e366819ebc9b132b3e03f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81520253"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258034"
 ---
 # <a name="roworder-policy"></a>Политика RowOrder
 
-В этой статье описаны команды управления, используемые для создания и изменения [политики порядка строк.](../management/roworderpolicy.md)
+В этой статье описываются управляющие команды, используемые для создания и изменения [политики порядка строк](../management/roworderpolicy.md).
 
-## <a name="show-roworder-policy"></a>Показать политику RowOrder
+## <a name="show-roworder-policy"></a>Отображение политики Ровордер
 
 ```kusto
 .show table <table_name> policy roworder
@@ -27,13 +27,13 @@ ms.locfileid: "81520253"
 .show table * policy roworder
 ```
 
-## <a name="delete-roworder-policy"></a>Удаление политики RowOrder
+## <a name="delete-roworder-policy"></a>Удалить политику Ровордер
 
 ```kusto
 .delete table <table_name> policy roworder
 ```
 
-## <a name="alter-roworder-policy"></a>Политика Alter RowOrder
+## <a name="alter-roworder-policy"></a>Изменение политики Ровордер
 
 ```kusto
 .alter table <table_name> policy roworder (<row_order_policy>)
@@ -43,9 +43,9 @@ ms.locfileid: "81520253"
 .alter-merge table <table_name> policy roworder (<row_order_policy>)
 ```
 
-**Примеры**
+**Примеры** 
 
-Следующий пример устанавливает, что политика `TenantId` порядка строк должна быть на столбце `Timestamp` (восходящем) в качестве основного ключа, а на столбце (восходящем) в качестве вторичного ключа; затем он запрашивает политику:
+В следующем примере устанавливается политика порядка строк для `TenantId` столбца (по возрастанию) в качестве первичного ключа, а в `Timestamp` столбце (по возрастанию) — в качестве вторичного ключа. Затем выполняется запрос политики.
 
 ```kusto
 .alter table events policy roworder (TenantId asc, Timestamp desc)
@@ -55,6 +55,6 @@ ms.locfileid: "81520253"
 .show table events policy roworder 
 ```
 
-|TableName|RowOrderПолитика| 
+|TableName|ровордерполици| 
 |---|---|
-|события|(TenantId asc, Timestamp desc)| 
+|события|(TenantId ASC, timestamp DESC)|

@@ -196,6 +196,8 @@
               href: customer-managed-keys-csharp.md
             - name: Шаблон Azure Resource Manager
               href: customer-managed-keys-resource-manager.md
+            - name: Azure CLI
+              href: customer-managed-keys-cli.md
         - name: Создание приложения Azure AD
           href: provision-azure-ad-app.md
     - name: Управление

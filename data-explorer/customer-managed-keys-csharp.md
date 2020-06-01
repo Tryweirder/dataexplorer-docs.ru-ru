@@ -1,55 +1,56 @@
 ---
-title: 'Настройка управляемых клиентами ключей с помощью C #'
-description: В этой статье описывается, как настроить шифрование ключей, управляемых клиентом, на данных в Azure Data Explorer.
+title: 'Настройка ключей, управляемых клиентом, с помощью C #'
+description: В этой статье описывается, как настроить шифрование ключей, управляемых клиентом, на основе данных в Azure обозреватель данных.
 author: saguiitay
 ms.author: itsagui
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: e394d928774624ac3c7faacab7726570272da82a
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: ff2edd1e64aa3ef44c96ecf15d6a859eadd49e69
+ms.sourcegitcommit: 9fe6e34ef3321390ee4e366819ebc9b132b3e03f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81497490"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84257881"
 ---
-# <a name="configure-customer-managed-keys-using-c"></a>Настройка управляемых клиентами ключей с помощью C #
+# <a name="configure-customer-managed-keys-using-c"></a>Настройка ключей, управляемых клиентом, с помощью C #
 
 > [!div class="op_single_selector"]
 > * [Портал](customer-managed-keys-portal.md)
 > * [C#](customer-managed-keys-csharp.md)
 > * [Шаблон Azure Resource Manager](customer-managed-keys-resource-manager.md)
+> * [CLI](customer-managed-keys-cli.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](includes/data-explorer-configure-customer-managed-keys.md)]
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys part 2](includes/data-explorer-configure-customer-managed-keys-b.md)]
 
-## <a name="configure-encryption-with-customer-managed-keys"></a>Настройка шифрования с помощью ключей, управляемых клиентом
+## <a name="configure-encryption-with-customer-managed-keys"></a>Настройка шифрования с помощью управляемых клиентом ключей
 
-В этом разделе показано, как настроить шифрование ключей, управляемых клиентом, с помощью клиента Azure Data Explorer C. 
+В этом разделе показано, как настроить шифрование ключей, управляемых клиентом, с помощью клиента Azure обозреватель данных C#. 
 
 ### <a name="prerequisites"></a>Предварительные требования
 
-* Если вы еще не установили Visual Studio 2019, вы можете скачать и использовать **бесплатный** [выпуск Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Убедитесь, что вы **включите разработку Azure** во время установки Visual Studio.
+* Если вы еще не установили Visual Studio 2019, вы можете скачать и использовать **бесплатный** [выпуск Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). При установке Visual Studio необходимо включить возможность **разработки для Azure**.
 
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 
-### <a name="install-c-nuget"></a>Установка СЗ NuGet
+### <a name="install-c-nuget"></a>Установка NuGet C#
 
-* Установите [пакет Azure Data Explorer (Kusto) NuGet.](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)
+* Установите [пакет NuGet для Azure обозреватель данных (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
-* Установите [пакет Microsoft.IdentityModel.Customers.ActiveDirectory NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) для проверки подлинности.
+* Установите [пакет NuGet Microsoft. IdentityModel. Clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) для проверки подлинности.
 
 ### <a name="authentication"></a>Аутентификация
 
-Чтобы выполнить примеры в этой статье, [создайте приложение Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal) и принцип службы, который может получить доступ к ресурсам. Вы можете добавить назначение ролей в `Directory (tenant) ID`области `Application ID`подписки и получить требуемое, и `Client Secret`.
+Чтобы выполнить примеры в этой статье, [Создайте приложение Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal) и субъект-службу, которые могут получать доступ к ресурсам. Можно добавить назначение ролей в области подписки и получить необходимые `Directory (tenant) ID` , `Application ID` и `Client Secret` .
 
 ### <a name="configure-cluster"></a>Настройка кластера
 
-По умолчанию шифрование Azure Data Explorer использует управляемые Корпорацией Майкрософт ключи. Нанастройка кластера Azure Data Explorer для использования ключей, управляемых клиентами, и укажите ключ для ассоциированного с кластером.
+По умолчанию в Azure обозреватель данных Encryption используются ключи, управляемые корпорацией Майкрософт. Настройте кластер Azure обозреватель данных для использования ключей, управляемых клиентом, и укажите ключ, связываемый с кластером.
 
-1. Обновление кластера с помощью следующего кода:
+1. Обновите кластер, используя следующий код:
 
     ```csharp
     var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -77,23 +78,23 @@ ms.locfileid: "81497490"
     await kustoManagementClient.Clusters.UpdateAsync(resourceGroupName, clusterName, clusterUpdate);
     ```
 
-1. Выполнить следующую команду, чтобы проверить, был ли успешно обновлен кластер:
+1. Выполните следующую команду, чтобы проверить успешность обновления кластера:
 
     ```csharp
     kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
     ```
 
-    Если результат `ProvisioningState` содержит `Succeeded` значение, то кластер был успешно обновлен.
+    Если результат содержит `ProvisioningState` `Succeeded` значение, значит, кластер успешно обновлен.
 
-## <a name="update-the-key-version"></a>Обновление ключевой версии
+## <a name="update-the-key-version"></a>Обновление версии ключа
 
-При создании новой версии ключа необходимо обновить кластер, чтобы использовать новую версию. Во-первых, позвоните, `Get-AzKeyVaultKey` чтобы получить последнюю версию ключа. Затем обновите свойства ключа хранилища кластера, чтобы использовать новую версию ключа, как показано в [кластере Настройка.](#configure-cluster)
+При создании новой версии ключа необходимо обновить кластер для использования новой версии. Сначала вызовите метод, `Get-AzKeyVaultKey` чтобы получить последнюю версию ключа. Затем обновите свойства хранилища ключей кластера, чтобы использовать новую версию ключа, как показано в разделе [Настройка кластера](#configure-cluster).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* [Защита кластеров Исследователей данных Azure в Azure](security.md)
-* [Настройка управляемых идентификаторов для кластера Azure Data Explorer](managed-identities.md)
-* [Защитите свой кластер на портале Azure Data Explorer - Azure,](manage-cluster-security.md) включив шифрование в состоянии покоя.
-* [Настройка управляемых клиентами ключей с помощью шаблона управления ресурсами Azure](customer-managed-keys-resource-manager.md)
+* [Защита кластеров Azure обозреватель данных в Azure](security.md)
+* [Настройка управляемых удостоверений для кластера Azure обозреватель данных](managed-identities.md)
+* [Защитите свой кластер в Azure обозреватель данных — портал Azure](manage-cluster-security.md) , включив шифрование неактивных компонентов.
+* [Настройка ключей, управляемых клиентом, с помощью шаблона Azure Resource Manager](customer-managed-keys-resource-manager.md)
 
 

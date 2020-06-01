@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/09/2019
-ms.openlocfilehash: 2c4443c0a9301dbc6bb3e65392163da0cc237f74
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 55864dd408f35c59398ea1b93f18c0834a611a90
+ms.sourcegitcommit: 9fe6e34ef3321390ee4e366819ebc9b132b3e03f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82617890"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258102"
 ---
 # <a name="kql-over-tds"></a>KQL через TDS
 
@@ -49,7 +49,7 @@ Kusto позволяет выполнять [хранимые функции](..
   }
 ```
 
-> [! Примечание.] вызывайте хранимые функции с явной `kusto`схемой с именем, чтобы различать хранимые функции Kusto и эмулированные системные хранимые процедуры SQL.
+> [! Примечание.] вызывайте хранимые функции с явной схемой с именем `kusto` , чтобы различать хранимые функции Kusto и эмулированные системные хранимые процедуры SQL.
 
 Вы также можете вызывать хранимые функции Kusto из T-SQL, например табличные функции SQL:
 
@@ -61,7 +61,7 @@ SELECT * FROM kusto.MyFunction(10)
 
 ## <a name="executing-kql-query"></a>Выполнение запроса ККЛ
 
-Хранимая процедура `sp_execute_kql` выполняет запросы [ККЛ](../../query/index.md) (включая параметризованные запросы). Эта процедура аналогична SQL Server `sp_executesql`.
+Хранимая процедура `sp_execute_kql` выполняет запросы [ККЛ](../../query/index.md) (включая параметризованные запросы). Эта процедура аналогична SQL Server `sp_executesql` .
 
 Первым параметром `sp_execute_kql` является запрос ККЛ. Можно ввести дополнительные параметры, которые будут действовать как [Параметры запроса](../../query/queryparametersstatement.md).
 
@@ -88,4 +88,5 @@ SELECT * FROM kusto.MyFunction(10)
   }
 ```
 
-> [! Примечание.] нет необходимости объявлять параметры при вызове через TDS, так как типы параметров устанавливаются через протокол.
+> [!NOTE]
+> При вызове через TDS нет необходимости объявлять параметры, так как типы параметров устанавливаются через протокол.

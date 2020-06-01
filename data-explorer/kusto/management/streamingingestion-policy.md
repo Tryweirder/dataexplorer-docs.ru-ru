@@ -8,27 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 1c3ce0c0d383d07375333b08de336503d1578b1a
-ms.sourcegitcommit: fd3bf300811243fc6ae47a309e24027d50f67d7e
+ms.openlocfilehash: 55ed390a1c98a307d2bb38476458f29fc9c92997
+ms.sourcegitcommit: 9fe6e34ef3321390ee4e366819ebc9b132b3e03f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83382001"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258017"
 ---
 # <a name="streaming-ingestion-policy-management"></a>Управление политиками приема потоковой передачи
 
-Политику приема потоковой передачи можно присоединить к базе данных или таблице, чтобы разрешить прием потоковой передачи в эти расположения. Политика также определяет хранилища строк, используемые для приема потоковой передачи.
+Политику приема потоковой передачи можно задать для таблицы, чтобы разрешить прием потоковой передачи в эту таблицу. Политику также можно установить на уровне базы данных, чтобы применить тот же параметр к текущим и будущим таблицам.
 
-Дополнительные сведения о приеме потоковой передачи см. в разделе [потокового приема (Предварительная версия)](../../ingest-data-streaming.md). Дополнительные сведения о политике приема потоковой передачи см. в разделе [потоковая политика приема потоков](streamingingestionpolicy.md).
+Дополнительные сведения см. в разделе [потокового приема](../../ingest-data-streaming.md). Дополнительные сведения о политике приема потоковой передачи см. в разделе [потоковая политика приема потоков](streamingingestionpolicy.md).
 
-## <a name="show-policy-streamingingestion"></a>. показывать политику стреамингинжестион
+## <a name="display-the-policy"></a>Отображение политики
 
 `.show policy streamingingestion`Команда показывает политику приема потоковой передачи для базы данных или таблицы.
-
+ 
 **Синтаксис**
 
-`.show``database` `policy` `streamingingestion` 
- MyDatabase `.show` `table`MyTable `policy``streamingingestion`
+`.show``{database|table}` &lt; имя &gt; сущности `policy``streamingingestion`
 
 **Возвращает**
 
@@ -38,77 +37,84 @@ ms.locfileid: "83382001"
 |---|---|---
 |PolicyName|`string`|Имя политики — Стреамингинжестионполици.
 |EntityName|`string`|Имя базы данных или таблицы
-|Политика    |`string`|Объект JSON, определяющий политику приема потоковой передачи, в формате [объект политики приема потоковой передачи](#streaming-ingestion-policy-object)
+|Политика    |`string`|[объект политики приема потоковой передачи](#streaming-ingestion-policy-object)
 
-**Пример**
+**Примеры**
 
 ```kusto
-.show database DB1 policy streamingingestion 
-.show table T1 policy streamingingestion 
+.show database DB1 policy streamingingestion
+
+.show table T1 policy streamingingestion
 ```
 
 |PolicyName|EntityName|Политика|чилдентитиес|EntityType|
 |---|---|---|---|---|
-|стреамингинжестионполици|БД1|{"Нумберофровсторес": 4}
+|стреамингинжестионполици|БД1|{"Onenableed": true, "Хинталлокатедрате": NULL}
 
-### <a name="streaming-ingestion-policy-object"></a>Объект политики приема потоковой передачи
+## <a name="change-the-policy"></a>изменить политику;
 
-|Свойство.  |Тип    |Описание                                                       |
-|----------|--------|------------------------------------------------------------------|
-|нумберофровсторес |`int`  |Число хранилищ строк, назначенных сущности|
-|сеалинтерваллимит|`TimeSpan?`|Необязательный предел интервала между операциями запечатывания таблицы. Допустимый диапазон: от 1 до 24 часов. Значение по умолчанию — 24 часа.|
-|сеалсрешолдбитес|`int?`|Необязательное ограничение объема данных для одной операции запечатывания таблицы. Допустимый диапазон значений — от 10 до 200 МБ. Значение по умолчанию: 200 МБ.|
-
-## <a name="alter-policy-streamingingestion"></a>. ALTER Policy стреамингинжестион
-
-`.alter policy streamingingestion`Команда задает политику стреамингинжестион для базы данных или таблицы.
+`.alter[-merge] policy streamingingestion`Семейство команд предоставляет средства для изменения политики приема потоковой передачи базы данных или таблицы.
 
 **Синтаксис**
 
-* `.alter``database` `policy` MyDatabase `streamingingestion` *Стреамингинжестионполициобжект*
+* `.alter``{database|table}` &lt; имя &gt; сущности `policy` `streamingingestion``[enable|disable]`
 
-* `.alter``database` `policy` MyDatabase `streamingingestion``enable`
+* `.alter``{database|table}` &lt; &gt; `policy` `streamingingestion` &lt; [объект политики приема потоков](#streaming-ingestion-policy-object) имен сущностей&gt;
 
-* `.alter``database` `policy` MyDatabase `streamingingestion``disable`
+* `.alter-merge``{database|table}` &lt; &gt; `policy` `streamingingestion` &lt; [объект политики приема потоков](#streaming-ingestion-policy-object) имен сущностей&gt;
 
-* `.alter``table` `policy` MyTable `streamingingestion` *Стреамингинжестионполициобжект*
-
-* `.alter``table` `policy` MyTable `streamingingestion``enable`
-
-* `.alter``table` `policy` MyTable `streamingingestion``disable`
-
-**Примечания**
-
-1. *Стреамингинжестионполициобжект* — это объект JSON, в котором определен объект политики приема потоковой передачи.
-
-2. `enable`— Задайте политику приема потоковой передачи с 4 ровсторес, если политика не определена или уже определена с 0 ровсторес, в противном случае команда не выполняет никаких действий.
-
-3. `disable`— Задайте для политики приема потоковой передачи значение 0 ровсторес, если политика уже определена с положительным ровсторес, в противном случае команда не выполняет никаких действий.
-
-**Пример**
-
-```kusto
-.alter database MyDatabase policy streamingingestion '{  "NumberOfRowStores": 4}'
-
-.alter table MyTable policy streamingingestion '{  "NumberOfRowStores": 4}'
-```
-
-## <a name="delete-policy-streamingingestion"></a>. Удалите политику стреамингинжестион
-
-`.delete policy streamingingestion`Команда удаляет политику стреамингинжестион из базы данных или таблицы.
-
-**Синтаксис** 
-
-`.delete``database`MyDatabase `policy``streamingingestion`
-
-`.delete``table`MyTable `policy``streamingingestion`
+> [!Note]
+>
+> * Позволяет изменить включенное или отключенное состояние приема потоковой передачи без изменения других свойств политики или установки свойств на значения по умолчанию, если политика ранее не была определена для сущности.
+>
+> * Позволяет заменить всю политику приема потоковой передачи для сущности. [объект политики приема потоковой передачи](#streaming-ingestion-policy-object) должен включать все обязательные свойства.
+>
+> * Позволяет заменять только указанные свойства политики приема потоковой передачи для сущности. [Объект политики приема потоковой передачи](#streaming-ingestion-policy-object) может включать некоторые или никакие из обязательных свойств.
 
 **Возвращает**
 
-Команда удаляет таблицу или объект политики стреамингинжестион базы данных, а затем возвращает выходные данные соответствующей команды [. показывать политику стреамингинжестион](#show-policy-streamingingestion) .
+Команда изменяет таблицу или объект политики базы данных `streamingingestion` , а затем возвращает выходные данные соответствующей [ `.show policy` `streamingingestion` ](#display-the-policy) команды.
 
-**Пример**
+**Примеры**
 
 ```kusto
-.delete database MyDatabase policy streamingingestion 
+.alter database DB1 policy streamingingestion enable
+
+.alter table T1 policy streamingingestion disable
+
+.alter database DB1 policy streamingingestion '{"IsEnabled": true, "HintAllocatedRate": 2.1}'
+
+.alter table T1 streamingingestion '{"IsEnabled": true}'
+
+.alter-merge database DB1 policy streamingingestion '{"IsEnabled": false}'
+
+.alter-merge table T1 policy streamingingestion '{"HintAllocatedRate": 1.5}'
 ```
+
+## <a name="delete-the-policy"></a>Удаление политики
+
+`.delete policy streamingingestion`Команда удаляет политику стреамингинжестион из базы данных или таблицы.
+
+**Синтаксис**
+
+`.delete``{database|table}` &lt; имя &gt; сущности `policy``streamingingestion`
+
+**Возвращает**
+
+Команда удаляет таблицу или объект политики стреамингинжестион базы данных, а затем возвращает выходные данные соответствующей команды [. показывать политику стреамингинжестион](#display-the-policy) .
+
+**Примеры**
+
+```kusto
+.delete database DB1 policy streamingingestion
+
+.delete table T1 policy streamingingestion
+```
+
+### <a name="streaming-ingestion-policy-object"></a>Объект политики приема потоковой передачи
+
+При вводе и выходе команд управления объект политики приема потоков представляет собой строку в формате JSON, которая включает следующие свойства.
+|Свойство  |Тип    |Описание                                                       |Обязательный/необязательный |
+|----------|--------|------------------------------------------------------------------|-------|
+|IsEnabled |`bool`  |Включено приема потоков для сущности| Обязательно|
+|хинталлокатедрате|`double`|Предполагаемая скорость передает данных в ГБ/час| Необязательно|
