@@ -8,19 +8,21 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/01/2020
-ms.openlocfilehash: ce7751d7ac60d23f9ffa0fc84992050fe1036131
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: b6bc95158c1dd161a17572342c6a99bdf9d37235
+ms.sourcegitcommit: 9fe6e34ef3321390ee4e366819ebc9b132b3e03f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83370490"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84257915"
 ---
 # <a name="azure-data-explorer-tools"></a>Средства Azure Data Explorer
 
 ## <a name="ad-hoc-query-tools"></a>Средства для специализированных запросов
 
-
-* [Kusto.Explorer](./kusto-explorer.md) — основное средство для запросов и управления в Kusto.
+* Kusto.Explorer
+   * [Установка и пользовательский интерфейс Kusto.Explorer](./kusto-explorer.md) — основное классическое средство для создания запросов и управления в Kusto.
+   * [Использование Kusto.Explorer](./kusto-explorer-using.md)
+   * [Устранение неполадок с Kusto.Explorer](kusto-explorer-troubleshooting.md)
 * [Веб-интерфейс](../../web-query-data.md) — интерфейс для запросов в Kusto.
 
 ## <a name="visualizations-dashboards-and-reporting-tools"></a>Средства визуализации, мониторинга и отчетности
@@ -39,6 +41,7 @@ ms.locfileid: "83370490"
    * [Power BI. SQL-запрос](../../power-bi-sql-query.md)
 
 * [Grafana](../../grafana.md)
+* [Соединитель K2Bridge с открытым кодом](../../k2bridge.md) для визуализации данных из Azure Data Explorer в Kibana.
 
 ## <a name="orchestration-tools"></a>Средства оркестрации
 
@@ -54,8 +57,8 @@ ms.locfileid: "83370490"
 
 
 * [LightIngest](../../lightingest.md) — служебная программа для специализированных операций приема данных в Azure Data Explorer.
- 
-
+* [Функция приема данных одним щелчком](../../ingest-data-one-click.md) — средство, позволяющее быстро принимать данные и автоматически предлагать таблицы и структуры сопоставления.
+* [Фабрика данных Azure](azure-data-factory.md).
 
 
 ## <a name="source-control-integration-tools"></a>Средства интеграции систем управления версиями
