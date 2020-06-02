@@ -1,40 +1,39 @@
 ---
-title: parse_ipv4_mask () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны parse_ipv4_mask () в Azure Data Explorer.
+title: parse_ipv4_mask () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается функция parse_ipv4_mask () в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
-ms.date: 02/24/2020
-ms.openlocfilehash: 994c1e551d7c38bb1493579bcf10438acd2923f2
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.date: 05/27/2020
+ms.openlocfilehash: fd6bd97befc376d13573a0a85169524cf01b9d2d
+ms.sourcegitcommit: 41cd88acc1fd79f320a8fe8012583d4c8522db78
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81511787"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84294616"
 ---
 # <a name="parse_ipv4_mask"></a>parse_ipv4_mask()
 
-Преобразует строку ввода IPv4 и netmask в длинное представление чине (подписано 64-битным).
+Преобразует входную строку IPv4 и сетевой маски в длинное представление чисел (со знаком 64 бит).
 
 ```kusto
 parse_ipv4_mask("127.0.0.1", 24) == 2130706432
-
-parse_ipv4_mask('192.1.168.2', 31) == parse_ipv4_mask('192.1.168.3', 31) 
+parse_ipv4_mask('192.1.168.2', 31) == parse_ipv4_mask('192.1.168.3', 31)
 ```
 
 **Синтаксис**
 
-`parse_ipv4_mask(`*Expr*`, `*PrefixMask*`)`
+`parse_ipv4_mask(`*`Expr`*`, `*`PrefixMask`*`)`
 
 **Аргументы**
 
-* *Expr*: Строка представления адреса IPv4, который будет преобразован в длинный. 
-* *PrefixMask*: Целый ряд от 0 до 32 представляющих количество наиболее значительных битов, которые принимаются во внимание.
+* *`Expr`*: Строковое представление адреса IPv4, которое будет преобразовано в значение long. 
+* *`PrefixMask`*: Целое число от 0 до 32, представляющее количество наиболее значимых битов, которые учитываются в учетной записи.
 
 **Возвращает**
 
-Если конверсия будет успешной, результат будет длинным числом.
-Если конверсия не будет `null`успешной, результат будет .
+Если преобразование выполнено успешно, результатом будет целое число.
+Если преобразование не выполнено, результатом будет `null` .

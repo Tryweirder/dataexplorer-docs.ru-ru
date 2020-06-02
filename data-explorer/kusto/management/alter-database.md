@@ -1,6 +1,6 @@
 ---
-title: .alter база данных довольное имя - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье в Azure Data Explorer описывается база данных .alter.
+title: . ALTER DATABASE преттинаме — Azure обозреватель данных
+description: В этой статье описывается `.alter` команда для довольно имени базы данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,27 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 1b362b547dc980676108ec169a0abb97f189375b
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 0fc445a7d85f52d672b92163cc358d8f3a741c68
+ms.sourcegitcommit: 41cd88acc1fd79f320a8fe8012583d4c8522db78
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81522599"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84294514"
 ---
-# <a name="alter-database-prettyname"></a>.alter база данных довольное имя
+# <a name="alter-database-prettyname"></a>. ALTER DATABASE преттинаме
 
-Изменяет красивое (дружественное) имя базы данных.
+Изменяет достаточное (понятное) имя базы данных.
 
-Требуется [разрешение DatabaseAdmin](../management/access-control/role-based-authorization.md).
+Требуется [разрешение датабасеадмин](../management/access-control/role-based-authorization.md).
 
 **Синтаксис**
 
-`.alter``database` База `prettyname` `'` *данныхНаистомы* *DatabaseName*`'`
+`.alter``database` *DatabaseName* `prettyname` DatabaseName `'` *Датабасепреттинаме*`'`
 
-**Выход возврата**
+**Возврат выходных данных**
  
-|Выходной параметр |Тип |Описание 
+|Выходной параметр |Type |Описание 
 |---|---|---
-|имя_базы_данных |Строка |Имя базы данных.
-|PrettyName |Строка |Красивое название базы данных.
-
+|имя_базы_данных |Строка |Имя базы данных
+|преттинаме |Строка |Имя базы данных
