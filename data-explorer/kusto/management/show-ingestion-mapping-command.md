@@ -1,5 +1,5 @@
 ---
-title: . Отображение сопоставлений приема — Azure обозреватель данных | Документация Майкрософт
+title: . Отображение сопоставлений приема — Azure обозреватель данных
 description: В этой статье описывается отображение сопоставлений приема в Azure обозреватель данных.
 services: data-explorer
 author: orspod
@@ -8,24 +8,24 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/04/2020
-ms.openlocfilehash: 711861a07896b7bdc4cf57bebbf1cdd0e01d064a
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 3c19426410046d7ff2357b4967333db8b039d9e6
+ms.sourcegitcommit: f7101c6b41ec250d05f4cb6092e2939958b37b40
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82617176"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84328999"
 ---
 # <a name="show-ingestion-mappings"></a>. показывать сопоставления приема
 
 Отображение сопоставлений приема (все или указанное по имени).
 
-* `.show``table` *TableName* TableName `ingestion` *маппингкинд*  `mappings`
+* `.show``table` *TableName* `ingestion` *маппингкинд*  `mappings`
 
-* `.show``table` *TableName* TableName `ingestion` *MappingKind* маппингкинд`mapping` *MappingName*   
+* `.show``table` *TableName* `ingestion` *маппингкинд* `mapping` *MappingName*   
 
-Показывать все сопоставления приема из всех типов сопоставления:
+Показывать все сопоставления приема из всех типов сопоставлений:
 
-* `.show``table` *TableName*`ingestion`  `mapping`
+* `.show` `table` *TableName* `ingestion`  `mapping`
  
 **Пример** 
  
@@ -41,4 +41,4 @@ ms.locfileid: "82617176"
 
 | Имя     | Вид | Сопоставление     |
 |----------|------|-------------|
-| mapping1 | CSV  | [{"Name": "RowNumber", "Тип_данных": "int", "Ксвдататипе": NULL, "Ordinal": 0, "ConstValue": NULL}, {"имя": "ROWGUID", "DataType": "строка", "Ксвдататипе": NULL, "Ordinal": 1, "ConstValue": NULL}] |
+| mapping1 | CSV  | `[{"Name":"rownumber","DataType":"int","CsvDataType":null,"Ordinal":0,"ConstValue":null},{"Name":"rowguid","DataType":"string","CsvDataType":null,"Ordinal":1,"ConstValue":null}]` |
