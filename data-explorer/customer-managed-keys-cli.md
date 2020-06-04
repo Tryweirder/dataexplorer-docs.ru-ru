@@ -7,12 +7,12 @@ ms.reviewer: astauben
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 570ec818a330074cdf46075571d831c718273e64
-ms.sourcegitcommit: 9fe6e34ef3321390ee4e366819ebc9b132b3e03f
+ms.openlocfilehash: 7a4d1bd4f6f112bbe4129e48ddc59886b8b6a12b
+ms.sourcegitcommit: 8953d09101f4358355df60ab09e55e71bc255ead
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262132"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84420889"
 ---
 # <a name="configure-customer-managed-keys-using-azure-cli"></a>Настройка ключей, управляемых клиентом, с помощью Azure CLI
 
@@ -24,8 +24,7 @@ ms.locfileid: "84262132"
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](includes/data-explorer-configure-customer-managed-keys.md)]
 
-## <a name="enable-encryption-with-customer-managed-keys-in-the-azure-portal"></a>Включение шифрования с помощью управляемых клиентом ключей в портал Azure
-
+## <a name="enable-encryption-with-customer-managed-keys-using-azure-cli"></a>Включение шифрования с использованием управляемых клиентом ключей с помощью Azure CLI
 В этой статье показано, как включить шифрование ключей, управляемых клиентом, с помощью клиента Azure CLI. По умолчанию в Azure обозреватель данных Encryption используются ключи, управляемые корпорацией Майкрософт. Настройте кластер Azure обозреватель данных для использования ключей, управляемых клиентом, и укажите ключ, связываемый с кластером.
 
 1. Выполните следующую команду, чтобы войти в Azure:

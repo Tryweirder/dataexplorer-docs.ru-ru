@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 94b8c3931d3c460dcc172e91ab0ae5e31a426a87
-ms.sourcegitcommit: 41cd88acc1fd79f320a8fe8012583d4c8522db78
+ms.openlocfilehash: 67887aac4ab04e016ed63045e66ebcfab343c135
+ms.sourcegitcommit: 8953d09101f4358355df60ab09e55e71bc255ead
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84294650"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84420872"
 ---
-# <a name="ipv4_compare"></a>ipv4_compare ()
+# <a name="ipv4_compare"></a>ipv4_compare()
 
 Сравнивает две строки IPv4. Две строки IPv4 анализируются и сравниваются при учете общей маски IP-префикса, вычисленной из префиксов аргументов, и необязательного `PrefixMask` аргумента.
 
@@ -91,10 +91,3 @@ datatable(ip1_string:string, ip2_string:string, prefix:long)
 |192.168.1.1/24|192.168.1.255|31|0|
 |192.168.1.1|192.168.1.255|24|0|
 
-
-## <a name="next-steps"></a>Следующие шаги
-
-Другие аналогичные функции см. в следующих статьях:
-
-* [ipv6_compare ()](ipv6-comparefunction.md)
-* [ipv4_is_match ()](ipv4-is-matchfunction.md)
