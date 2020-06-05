@@ -7,12 +7,12 @@ ms.reviewer: astauben
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 7a4d1bd4f6f112bbe4129e48ddc59886b8b6a12b
-ms.sourcegitcommit: 8953d09101f4358355df60ab09e55e71bc255ead
+ms.openlocfilehash: bc8ce7a3d85a64a2a19e4194e7c9e6ab23b0fef6
+ms.sourcegitcommit: a7e040fc844098323aa1c00e254bcbcd41fe587f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 06/04/2020
-ms.locfileid: "84420889"
+ms.locfileid: "84426531"
 ---
 # <a name="configure-customer-managed-keys-using-azure-cli"></a>Настройка ключей, управляемых клиентом, с помощью Azure CLI
 
@@ -21,6 +21,7 @@ ms.locfileid: "84420889"
 > * [C#](customer-managed-keys-csharp.md)
 > * [Шаблон Azure Resource Manager](customer-managed-keys-resource-manager.md)
 > * [CLI](customer-managed-keys-cli.md)
+> * [PowerShell](customer-managed-keys-powershell.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](includes/data-explorer-configure-customer-managed-keys.md)]
 

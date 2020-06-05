@@ -7,12 +7,12 @@ ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: a75329c6aaad4fa31301104f9407ac36d25c3002
-ms.sourcegitcommit: 9fe6e34ef3321390ee4e366819ebc9b132b3e03f
+ms.openlocfilehash: f5f44f427f21cdea4b0fea382c41df23925b3549
+ms.sourcegitcommit: a7e040fc844098323aa1c00e254bcbcd41fe587f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84257898"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84426569"
 ---
 # <a name="configure-customer-managed-keys-using-the-azure-portal"></a>Настройка ключей, управляемых клиентом, с помощью портал Azure
 
@@ -21,6 +21,7 @@ ms.locfileid: "84257898"
 > * [C#](customer-managed-keys-csharp.md)
 > * [Шаблон Azure Resource Manager](customer-managed-keys-resource-manager.md)
 > * [CLI](customer-managed-keys-cli.md)
+> * [PowerShell](customer-managed-keys-powershell.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](includes/data-explorer-configure-customer-managed-keys.md)]
 
@@ -33,13 +34,13 @@ ms.locfileid: "84257898"
 1. На панели **Шифрование** выберите значение **вкл** для параметра **ключ, управляемого клиентом** .
 1. Нажмите кнопку **выбрать ключ**.
 
-    ![Настройка управляемых клиентом ключей](media/customer-managed-keys-portal/cmk-encryption-setting.png)
+    ![Настройка ключей, управляемых клиентом](media/customer-managed-keys-portal/cmk-encryption-setting.png)
 
 1. В окне **Выбор ключа из Azure Key Vault** выберите существующее **хранилище ключей** из раскрывающегося списка. Если выбрать **создать** новый для [создания Key Vault](/azure/key-vault/quick-create-portal#create-a-vault), вы будете направлены на экран **Создание Key Vault** .
 
 1. Выберите **ключ**.
 1. Выберите **версию**.
-1. Нажмите кнопку **Выбрать**.
+1. Щелкните **Выбрать**.
 
     ![Выберите ключ из Azure Key Vault](media/customer-managed-keys-portal/cmk-key-vault.png)
 
@@ -52,7 +53,7 @@ ms.locfileid: "84257898"
 > [!NOTE]
 > Выберите **Отключить** , чтобы удалить ключ, управляемый клиентом, после его создания.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
 * [Защитите свой кластер в Azure обозреватель данных — портал Azure](manage-cluster-security.md) , включив шифрование неактивных компонентов.
