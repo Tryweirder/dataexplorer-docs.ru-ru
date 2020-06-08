@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 7dc9d7166a1f286e14c81f269f32f894cbe9ff9d
-ms.sourcegitcommit: da7c699bb62e1c4564f867d4131d26286c5223a8
+ms.openlocfilehash: 116f585fe8a09b4befddd7d1429229ad1bac886f
+ms.sourcegitcommit: 188f89553b9d0230a8e7152fa1fce56c09ebb6d6
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83404179"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84512476"
 ---
 # <a name="where-operator"></a>Оператор where
 
@@ -38,7 +38,9 @@ T | where fruit=="apple"
 
 Строки из таблицы *T*, для которых *Predicate* имеет значение `true`.
 
-**Примечания** Значения NULL. при сравнении со значениями null все функции фильтрации возвращают значение false. С помощью специальных функций, поддерживающих значение null, можно создавать запросы, принимающие значения NULL в учетную запись: [IsNull ()](./isnullfunction.md), [isnotnull ()](./isnotnullfunction.md), [IsEmpty ()](./isemptyfunction.md), [иснотемпти ()](./isnotemptyfunction.md). 
+**Примечания** Значения NULL. при сравнении со значениями null все функции фильтрации возвращают значение false. Для написания запросов, обрабатывающих значения NULL, можно использовать специальные функции, поддерживающие значение null.
+
+[IsNull ()](./isnullfunction.md), [isnotnull ()](./isnotnullfunction.md), [IsEmpty ()](./isemptyfunction.md), [иснотемпти ()](./isnotemptyfunction.md). 
 
 **"Советы"**
 
@@ -72,3 +74,4 @@ Traces | where * has "Kusto"
 ```
 
 Все строки, в которых слово «Kusto» отображается в любом столбце.
+ 

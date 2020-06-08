@@ -1,6 +1,6 @@
 ---
-title: hll_merge() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается hll_merge (функция агрегирования) в Azure Data Explorer.
+title: hll_merge () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается hll_merge () (статистическая функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,33 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/15/2019
-ms.openlocfilehash: 4700d5c87bf0f29f7bba86d56114a6a61092da94
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 59c6f6a11b108cf6e74ceb59d3483ea1a95f7002
+ms.sourcegitcommit: 188f89553b9d0230a8e7152fa1fce56c09ebb6d6
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81514116"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84512390"
 ---
-# <a name="hll_merge-aggregation-function"></a>hll_merge() (функция агрегирования)
+# <a name="hll_merge-aggregation-function"></a>hll_merge () (агрегатная функция)
 
-Слияние результатов HLL по всей группе в одно значение HLL.
+Объединяет `HLL` результаты по группе в одно `HLL` значение.
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md).
+* Может использоваться только в контексте статистической обработки внутри [итоговых](summarizeoperator.md)данных.
 
-Читайте о [базовом алгоритме (*H*yper*L*og*L*og) и точности оценки.](dcount-aggfunction.md#estimation-accuracy)
+Дополнительные сведения см. в разделе [базовый алгоритм (*H*ИПЕР*l*OG*l*OG) и точность оценки](dcount-aggfunction.md#estimation-accuracy).
 
 **Синтаксис**
 
-`summarize``hll_merge(` *Expr*`)`
+`summarize``hll_merge(` *Выражение*`)`
 
 **Аргументы**
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации. 
+* `*Expr*`: Выражение, которое будет использоваться для вычисления статистической обработки.
 
 **Возвращает**
 
-Слияние значений hll *Expr* по всей группе.
+Функция возвращает объединенные `hll` значения `*Expr*` по всей группе.
  
-**Советы**
+**"Советы"**
 
-1) Вы можете использовать функцию «dcount_hll» (dcount-hllfunction.md), которая будет вычислять количество от функций агрегации hll/hll-merge.
+1) Используйте функцию [dcount_hll] (DCount-hllfunction.md), чтобы вычислить `dcount` из `hll`  /  `hll-merge` агрегатных функций.
