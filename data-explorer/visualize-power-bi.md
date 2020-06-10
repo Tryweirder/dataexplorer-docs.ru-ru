@@ -1,26 +1,26 @@
 ---
-title: Руководство. Визуализация данных из обозревателя данных Azure в Power BI
+title: Руководство по Визуализация данных из Azure Data Explorer в Power BI
 description: В этом руководстве вы узнаете, как подключиться к обозревателю данных Azure с помощью Power BI и визуализировать ваши данные.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: d37cef094bfc1200182f7cf23dc68d396c126eb2
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.date: 06/02/2020
+ms.openlocfilehash: bde567a3c41a226ca0a8304d7ab4ed42f3fa65bf
+ms.sourcegitcommit: 8953d09101f4358355df60ab09e55e71bc255ead
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81491959"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84420923"
 ---
-# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Руководство. Визуализация данных из обозревателя данных Azure в Power BI
+# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Руководство по Визуализация данных из Azure Data Explorer в Power BI
 
 Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Power BI — это решение бизнес-аналитики, позволяющее визуализировать данные и делиться результатами с коллегами. В этом руководстве вы сначала научитесь отображать визуальные элементы в обозревателе данных Azure. Затем вы подключитесь к обозревателю данных Azure с помощью Power BI, создадите отчет на основе примера данных и опубликуете отчет в службе Power BI.
 
 Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу. Если вы не зарегистрированы в Power BI Pro, [зарегистрируйтесь для получения бесплатной пробной версии](https://app.powerbi.com/signupredirect?pbi_source=web), прежде чем начать.
 
-В этом руководстве описано следующее.
+В этом руководстве описано следующее:
 
 > [!div class="checklist"]
 > * Отображение визуальных элементов в обозревателе данных Azure
@@ -29,7 +29,7 @@ ms.locfileid: "81491959"
 > * Создание отчета с визуальными элементами
 > * Публикация и совместное использование отчета
 
-## <a name="prerequisites"></a>предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 
 В дополнение к подпискам Azure и Power BI для работы с этим руководством вам потребуется следующее:
 
@@ -85,7 +85,7 @@ ms.locfileid: "81491959"
 
     ![Получение данных](media/visualize-power-bi/get-data-more.png)
 
-1. Выполните поисковой запрос *Azure Data Explorer*, выберите **Azure Data Explorer (Beta)** и нажмите **Подключиться**.
+1. Выполните поиск по запросу *Azure Data Explorer*, выберите **Azure Data Explorer** и нажмите **Подключиться**.
 
     ![Поиск и получение данных](media/visualize-power-bi/search-get-data.png)
 
