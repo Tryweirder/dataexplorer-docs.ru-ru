@@ -1,28 +1,27 @@
 ---
 title: материализация () — Azure обозреватель данных
-description: В этой статье описываются материализации () в Azure обозреватель данных.
+description: В этой статье описывается функция материализации () в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
-ms.date: 03/21/2019
-ms.openlocfilehash: 0cf510a8a7a6042d99587b51ee62eb30d4b7b7a7
-ms.sourcegitcommit: 733bde4c6bc422c64752af338b29cd55a5af1f88
+ms.date: 06/06/2020
+ms.openlocfilehash: f5ea896d4701aa5aec1b22c1ff20853aea18f065
+ms.sourcegitcommit: be1bbd62040ef83c08e800215443ffee21cb4219
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83271304"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84664948"
 ---
 # <a name="materialize"></a>materialize()
 
 Позволяет кэшировать результат вложенного запроса во время выполнения запроса таким образом, чтобы другие вложенные запросы могли ссылаться на частичный результат.
-
  
 **Синтаксис**
 
-`materialize(`*выражение*`)`
+`materialize(`*expression*`)`
 
 **Аргументы**
 
@@ -36,6 +35,7 @@ ms.locfileid: "83271304"
 
 * Материализация может использоваться только в инструкциях let, если присвоить кэшированному результату имя.
 
+**Примечание**
 
 * Материализация имеет ограничение размера кэша, равное **5 ГБ**. 
   Это ограничение устанавливается для каждого узла кластера и является взаимным для всех запросов, выполняющихся одновременно.
@@ -43,22 +43,68 @@ ms.locfileid: "83271304"
 
 **Примеры**
 
-Мы хотим создать случайный набор значений и хотите иметь представление: 
- * сколько уникальных значений 
- * сумма всех этих значений 
- * три верхних значения
+В следующем примере показано `materialize()` , как можно использовать для повышения производительности запроса.
+Выражение `_detailed_data` определяется с помощью `materialize()` функции и, следовательно, вычисляется только один раз.
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
+```kusto
+let _detailed_data = materialize(StormEvents | summarize Events=count() by State, EventType);
+_detailed_data
+| summarize TotalStateEvents=sum(Events) by State
+| join (_detailed_data) on State
+| extend EventPercentage = Events*100.0 / TotalStateEvents
+| project State, EventType, EventPercentage, Events
+| top 10 by EventPercentage
+```
+
+|Состояние|EventType|евентперцентаже|События|
+|---|---|---|---|
+|ГАВАЙИ РАЗВЕДЫВАЕТЕ|ватерспаут|100|2|
+|LAKE ОНТАРИО|Моря Сундерсторм Ветер|100|8|
+|ЗАЛИВА АЛЯСКА|ватерспаут|100|4|
+|АТЛАНТИЧЕСКОЕ ПОБЕРЕЖЬЕ|Моря Сундерсторм Ветер|95.2127659574468|179|
+|LAKE ЕРИЕ|Моря Сундерсторм Ветер|92.5925925925926|25|
+|ПО ТИХООКЕАНСКОМУ ВРЕМЕНИ|ватерспаут|90|9|
+|LAKE МИЧИГАНА|Моря Сундерсторм Ветер|85.1648351648352|155|
+|LAKE ХУРОН|Моря Сундерсторм Ветер|79.3650793650794|50|
+|ЗАЛИВА МЕКСИКИ|Моря Сундерсторм Ветер|71.7504332755633|414|
+|Гавайи|Высокая просматривайте|70.0218818380744|320|
+
+
+В следующем примере создается набор случайных чисел и вычисляется: 
+* количество различных значений в наборе (DCount)
+* три верхних значения в наборе 
+* сумма всех этих значений в наборе 
+ 
 Эту операцию можно выполнить с помощью [пакетов](batches.md) и материализации:
 
-<!-- csl: https://help.kusto.windows.net:443/Samples -->
- ```kusto
-let randomSet = materialize(range x from 1 to 30000000 step 1
-| project value = rand(10000000));
-randomSet
-| summarize dcount(value);
-randomSet
-| top 3 by value;
-randomSet
-| summarize sum(value)
-
+<!-- csl: https://help.kusto.windows.net/Samples -->
+```kusto
+let randomSet = 
+    materialize(
+        range x from 1 to 3000000 step 1
+        | project value = rand(10000000));
+randomSet | summarize Dcount=dcount(value);
+randomSet | top 3 by value;
+randomSet | summarize Sum=sum(value)
 ```
+
+Результирующий набор 1:  
+
+|DCount|
+|---|
+|2578351|
+
+Результирующий набор 2: 
+
+|value|
+|---|
+|9999998|
+|9999998|
+|9999997|
+
+Результирующий набор 3: 
+
+|SUM|
+|---|
+|15002960543563|

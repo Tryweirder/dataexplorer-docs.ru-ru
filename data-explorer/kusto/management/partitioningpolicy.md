@@ -7,20 +7,17 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
-ms.date: 03/30/2020
-ms.openlocfilehash: e8125c6d0c327c98b80c4aeed6c587df12fdf91d
-ms.sourcegitcommit: aaada224e2f8824b51e167ddb6ff0bab92e5485f
+ms.date: 06/10/2020
+ms.openlocfilehash: 768f07307a6f43c2af2db79bc1221c140b7c9a6f
+ms.sourcegitcommit: be1bbd62040ef83c08e800215443ffee21cb4219
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84626652"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84664982"
 ---
-# <a name="data-partitioning-policy-preview"></a>Политика секционирования данных (Предварительная версия)
+# <a name="data-partitioning-policy"></a>Политика секционирования данных
 
 Политика секционирования определяет, следует ли секционировать [экстенты (сегменты данных)](../management/extents-overview.md) для определенной таблицы.
-
-> [!NOTE]
-> Функция секционирования данных доступна в *предварительной версии*.
 
 Основная цель политики — повысить производительность запросов, которые известны для ограничения набора данных значений в секционированных столбцах, или статистической обработки или объединения в столбце с большим количеством элементов. Кроме того, политика может привести к более эффективному сжатию данных.
 
@@ -188,21 +185,21 @@ ms.locfileid: "84626652"
 
 #### <a name="monitoring"></a>Наблюдение
 
-* Можно отслеживать ход выполнения или состояние секционирования в кластере. Используйте команду [. показывать диагностику](../management/diagnostics.md#show-diagnostics) .
+Используйте команду [. показывать диагностику](../management/diagnostics.md#show-diagnostics) , чтобы отслеживать ход выполнения или состояние секционирования в кластере.
 
-```kusto
-.show diagnostics
-| project MinPartitioningPercentageInSingleTable,
-          TableWithMinPartitioningPercentage
-```
+    ```kusto
+    .show diagnostics
+    | project MinPartitioningPercentageInSingleTable,
+              TableWithMinPartitioningPercentage
+    ```
 
-Выходные данные включают:
+    The output includes:
 
-  * `MinPartitioningPercentageInSingleTable`: Минимальный процент секционированных данных во всех таблицах, имеющих политику секционирования данных в кластере.
+    * `MinPartitioningPercentageInSingleTable`: Минимальный процент секционированных данных во всех таблицах, имеющих политику секционирования данных в кластере.
       * Если этот процент постоянно находится под 90%, оцените емкость секционирования кластера (см. раздел [емкость](partitioningpolicy.md#capacity)).
-  * `TableWithMinPartitioningPercentage`— Полное имя таблицы, в которой показано процент секционирования.
+    * `TableWithMinPartitioningPercentage`— Полное имя таблицы, в которой показано процент секционирования.
 
-* Чтобы отслеживать команды секционирования и их использование ресурсов, можно использовать [команду. показывать команды](commands.md). Пример.
+Используйте [команды. показ команд](commands.md) для наблюдения за командами секционирования и их использованием ресурсов. Пример.
 
 ```kusto
 .show commands 

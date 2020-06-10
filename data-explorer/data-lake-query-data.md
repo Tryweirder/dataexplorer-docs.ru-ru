@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: b7ca4a41bb15e9fb8a4f55a9d674b1536dddd5ae
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: a4a1d1f507f0b76ba1647eb3db78a4fe8a2bd944
+ms.sourcegitcommit: be1bbd62040ef83c08e800215443ffee21cb4219
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83226403"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84665067"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Запрос данных в Azure Data Lake с помощью обозреватель данных Azure
 
@@ -65,12 +65,6 @@ Azure обозреватель данных интегрируется с хра
     ( 
        h@'http://storageaccount.blob.core.windows.net/container1;secretKey'
     )
-    with 
-    (
-       docstring = "Docs",
-       folder = "ExternalTables",
-       namePrefix="Prefix"
-    ) 
     ```
  
 1. Формат JSON требует второго шага создания сопоставления со столбцами, как показано ниже. В следующем запросе создайте определенное сопоставление JSON с именем *mappingName*:

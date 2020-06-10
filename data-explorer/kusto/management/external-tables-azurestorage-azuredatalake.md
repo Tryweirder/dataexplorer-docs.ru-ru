@@ -8,222 +8,273 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 2ef238d863f2f3fe181814ac14e3605de21a5aff
-ms.sourcegitcommit: b4d6c615252e7c7d20fafd99c5501cb0e9e2085b
+ms.openlocfilehash: 296c6e245b7157c09c7af59132fd8bfa686fc9f7
+ms.sourcegitcommit: be1bbd62040ef83c08e800215443ffee21cb4219
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83863376"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84665050"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
 
-Следующая команда описывает создание внешней таблицы. Таблицу можно найти в хранилище BLOB-объектов Azure, Azure Data Lake Store Gen1 или Azure Data Lake Store Gen2. 
-[Строки подключения к хранилищу](../api/connection-strings/storage.md) . Описание создания строки подключения для каждого из этих параметров. 
+Следующая команда описывает создание внешней таблицы, расположенной в хранилище BLOB-объектов Azure, Azure Data Lake Store Gen1 или Azure Data Lake Store Gen2. 
 
 ## <a name="create-or-alter-external-table"></a>. Create или. ALTER External Table
 
 **Синтаксис**
 
-( `.create`  |  `.alter` ) `external` `table` *TableName* (*схема*)  
+( `.create`  |  `.alter` ) `external` `table` *[TableName](#table-name)* `(` *[Схема](#schema)* TableName`)`  
 `kind` `=` (`blob` | `adl`)  
-[ `partition` `by` *Partition* [ `,` ....]]  
-`dataformat` `=` *Формат*  
-`(`  
-*StorageConnectionString* [ `,` ...]  
-`)`  
-[ `with` `(` [ `docstring` `=` *Документация*] [ `,` `folder` `=` *имя_папки*], *property_name* `=` *значение* `,` ... `)` ]
+[ `partition` `by` `(` *[Секции](#partitions)* `)` [ `pathformat` `=` `(` *[пасформат](#path-format)* `)` ]]  
+`dataformat``=` * [Формат](#format)*  
+`(`*[StorageConnectionString](#connection-string)* [ `,` ...]`)`   
+[ `with` `(` *[PropertyName](#properties)* `=` *[value](#properties)* `,` ... `)` ]  
 
 Создает или изменяет новую внешнюю таблицу в базе данных, в которой выполняется команда.
-
-**Параметры**
-
-* *TableName* — имя внешней таблицы. Должны соответствовать правилам для [имен сущностей](../query/schema-entities/entity-names.md). Имя внешней таблицы не может совпадать с именем обычной таблицы в той же базе данных.
-* *Схема* -внешняя схема данных в формате: `ColumnName:ColumnType[, ColumnName:ColumnType ...]` . Если схема внешних данных неизвестна, используйте подключаемый модуль [infer_storage_schema](../query/inferstorageschemaplugin.md) , который может вывести схему на основе содержимого внешнего файла.
-* *Partition* — одно или несколько определений секций (необязательно). См. синтаксис раздела ниже.
-* *Format* — формат данных. Для запросов поддерживается любой из [форматов приема](../../ingestion-supported-formats.md) . Использование внешней таблицы для [сценария экспорта](data-export/export-data-to-an-external-table.md) ограничено следующими форматами: `CSV` , `TSV` , `JSON` , `Parquet` .
-* *StorageConnectionString* — один или несколько путей к контейнерам больших двоичных объектов хранилища BLOB-объектов Azure или Azure Data Lake Store файловых системах (виртуальные каталоги или папки), включая учетные данные. Дополнительные сведения см. в разделе [строки подключения к хранилищу](../api/connection-strings/storage.md) . Предоставьте более одной учетной записи хранения, чтобы избежать регулирования хранилища при [экспорте](data-export/export-data-to-an-external-table.md) больших объемов данных во внешнюю таблицу. При экспорте будут распределяться операции записи между всеми предоставленными учетными записями. 
-
-**Синтаксис раздела**
-
-[ `format_datetime =` *Датетимепартитионформат*] `bin(` *Тиместампколумннаме*, *партитионбитимеспан*`)`  
-|   
-[*Стрингформатпрефикс*] *Стрингколумннаме* [*стрингформатсуффикс*])
-
-**Параметры секции**
-
-* *Датетимепартитионформат* — формат требуемой структуры каталогов в выходном пути (необязательно). Если определено секционирование и формат не указан, по умолчанию используется значение гггг/мм/дд/чч/мм. Этот формат основан на Партитионбитимеспан. Например, если секционировать по 1d, структура будет иметь значение "гггг/мм/дд". При секционировании по 1 h структура будет иметь значение "гггг/мм/дд/чч".
-* Столбец *тиместампколумннаме* -DateTime, по которому секционирована таблица. Столбец отметок времени должен существовать во внешнем определении схемы таблицы и выходных данных запроса экспорта при экспорте во внешнюю таблицу.
-* *Партитионбитимеспан* -литерал TimeSpan, по которому следует секционировать.
-* *Стрингформатпрефикс* — константный строковый литерал, который будет входить в путь к артефакту, Объединенный перед табличным значением (необязательно).
-* *Стрингформатсуффикс* — константный строковый литерал, который будет входить в путь к артефакту, Объединенный после табличного значения (необязательно).
-* *Стрингколумннаме* — строковый столбец, на котором секционирована таблица. Столбец String должен существовать в определении схемы внешней таблицы.
-
-**Необязательные свойства**:
-
-| Свойство         | Тип     | Описание       |
-|------------------|----------|-------------------------------------------------------------------------------------|
-| `folder`         | `string` | Папка таблицы                                                                     |
-| `docString`      | `string` | Строка документирования таблицы                                                       |
-| `compressed`     | `bool`   | Если задано, указывает, сжимаются ли большие двоичные объекты как `.gz` файлы                  |
-| `includeHeaders` | `string` | Для больших двоичных объектов CSV или TSV указывает, содержат ли большие двоичные объекты заголовок.                     |
-| `namePrefix`     | `string` | Если задано, указывает префикс больших двоичных объектов. При операциях записи все большие двоичные объекты будут записаны с этим префиксом. При операциях чтения считываются только большие двоичные объекты с этим префиксом. |
-| `fileExtension`  | `string` | Если задано, указывает расширения файлов больших двоичных объектов. При записи имена больших двоичных объектов будут заканчиваться этим суффиксом. При чтении будут считываться только большие двоичные объекты с этим расширением файла.           |
-| `encoding`       | `string` | Указывает, как текст кодируется: `UTF8NoBOM` (по умолчанию) или `UTF8BOM` .             |
-
-Дополнительные сведения о параметрах внешней таблицы в запросах см. в разделе [логика фильтрации артефактов](#artifact-filtering-logic).
 
 > [!NOTE]
 > * Если таблица существует, команда завершится ошибкой `.create` . Используйте `.alter` для изменения существующих таблиц. 
 > * Изменение схемы, формата или определения секции внешней таблицы больших двоичных объектов не поддерживается. 
+> * Для операции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md) для `.create` и [разрешения администратора таблицы](../management/access-control/role-based-authorization.md) для `.alter` . 
 
-Требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md) для `.create` и [разрешения администратора таблицы](../management/access-control/role-based-authorization.md) для `.alter` . 
+**Параметры**
+
+<a name="table-name"></a>
+*TableName*
+
+Имя внешней таблицы, которое соответствует правилам [имен сущностей](../query/schema-entities/entity-names.md) .
+Имя внешней таблицы не может совпадать с именем обычной таблицы в той же базе данных.
+
+<a name="schema"></a>
+*Схемы*
+
+Схема внешних данных описывается в следующем формате:
+
+&nbsp;&nbsp;*ColumnName* `:` *ColumnType* [ `,` *ColumnName* `:` *ColumnType* ...]
+
+где *ColumnName* соответствует правилам [именования сущностей](../query/schema-entities/entity-names.md) , а *ColumnType* — один из [поддерживаемых типов данных](../query/scalar-data-types/index.md).
+
+> [!TIP]
+> Если схема внешних данных неизвестна, используйте подключаемый модуль [ \_ \_ схемы хранилища](../query/inferstorageschemaplugin.md) , который помогает вывести схему на основе содержимого внешнего файла.
+
+<a name="partitions"></a>
+*Partition*
+
+Разделенный запятыми список столбцов, по которым секционируется внешняя таблица. Столбец секционирования может существовать в самом файле данных или быть частью пути к файлу по сопоставлению безопасности (см. Дополнительные сведения в [виртуальных столбцах](#virtual-columns)).
+
+Список секций — это любое сочетание столбцов секционирования, заданное с помощью одной из следующих форм:
+
+* Секция, представляющая [виртуальный столбец](#virtual-columns).
+
+  *PartitionName* `:` (`datetime` | `string`)
+
+* Секция, основанная на значении строкового столбца.
+
+  *PartitionName* `:` `string` `=` *ColumnName*
+
+* Секция, основанная на [хэш-](../query/hashfunction.md)значении столбца строки, *номер*остатка от деления.
+
+  *PartitionName* `:` `long` `=` `hash` `(` *ColumnName* `,` *Номер* ColumnName`)`
+
+* Секция, основанная на усеченном значении столбца типа DateTime. См. документацию по функциям [startofyear](../query/startofyearfunction.md), [StartOfMonth](../query/startofmonthfunction.md), [startofweek](../query/startofweekfunction.md), [стартофдай](../query/startofdayfunction.md) или [bin](../query/binfunction.md) .
+
+  *PartitionName* `:` `datetime` `=` ( `startofyear` \| `startofmonth` \| `startofweek` \| `startofday` ) `(` *ColumnName*`)`  
+  *PartitionName* `:` `datetime` `=` `bin` `(` *ColumnName* `,` *Интервал* времени ColumnName`)`
+
+
+<a name="path-format"></a>
+*пасформат*
+
+Формат пути к файлу внешних URI данных, который можно указать в дополнение к секциям. Формат пути — это последовательность элементов раздела и разделителей текста:
+
+&nbsp;&nbsp;[*Стрингсепаратор*] *Partition* [*Стрингсепаратор*] [*Секция* [*стрингсепаратор*]...]  
+
+где *Partition* ссылается на секцию, объявленную в `partition` `by` предложении, а *стрингсепаратор* — любой текст, заключенный в кавычки.
+
+Исходный префикс пути к файлу может быть создан с помощью элементов секции, отображаемых в виде строк и разделенных соответствующими разделителями текста. Чтобы указать формат, используемый для визуализации значения секции DateTime, можно использовать следующий макрос:
+
+&nbsp;&nbsp;`datetime_pattern``(` *DateTimeFormatое* `,` *PartitionName*`)`  
+
+где *DateTimeFormat* соответствует спецификации формата .NET с расширением, позволяющим заключать описатели формата в фигурные скобки. Например, следующие два формата эквивалентны:
+
+&nbsp;&nbsp;`'year='yyyy'/month='MM`перетаскивани`year={yyyy}/month={MM}`
+
+По умолчанию значения DateTime подготавливаются к просмотру в следующих форматах:
+
+| Функция секционирования    | Формат по умолчанию |
+|-----------------------|----------------|
+| `startofyear`         | `yyyy`         |
+| `startofmonth`        | `yyyy/MM`      |
+| `startofweek`         | `yyyy/MM/dd`   |
+| `startofday`          | `yyyy/MM/dd`   |
+| `bin(`*Рубрик*`, 1d)` | `yyyy/MM/dd`   |
+| `bin(`*Рубрик*`, 1h)` | `yyyy/MM/dd/HH` |
+| `bin(`*Рубрик*`, 1m)` | `yyyy/MM/dd/HH/mm` |
+
+Если *пасформат* опущен из определения внешней таблицы, предполагается, что все секции в точно том же порядке, в котором они определены, разделяются с помощью `/` разделителя. Секции подготавливаются к просмотру с помощью представления строки по умолчанию.
+
+<a name="format"></a>
+*Формат*
+
+Формат данных, любой из [форматов приема](../../ingestion-supported-formats.md).
+
+> [!NOTE]
+> Использование внешней таблицы для [сценария экспорта](data-export/export-data-to-an-external-table.md) ограничено следующими форматами: `CSV` , `TSV` `JSON` и `Parquet` .
+
+<a name="connection-string"></a>
+*StorageConnectionString*
+
+Один или несколько путей к контейнерам больших двоичных объектов хранилища BLOB-объектов Azure или Azure Data Lake Store файловых системах (виртуальные каталоги или папки), включая учетные данные.
+Дополнительные сведения см. в разделе [строки подключения к хранилищу](../api/connection-strings/storage.md) .
+
+> [!TIP]
+> Предоставьте более одной учетной записи хранения, чтобы избежать регулирования хранилища при [экспорте](data-export/export-data-to-an-external-table.md) больших объемов данных во внешнюю таблицу. При экспорте будут распределяться операции записи между всеми предоставленными учетными записями. 
+
+<a name="properties"></a>
+*Необязательные свойства*
+
+| Свойство         | Type     | Описание       |
+|------------------|----------|-------------------------------------------------------------------------------------|
+| `folder`         | `string` | Папка таблицы                                                                     |
+| `docString`      | `string` | Строка документирования таблицы                                                       |
+| `compressed`     | `bool`   | Если задано, указывает, сжаты ли файлы как `.gz` файлы (используется только в [сценарии экспорта](data-export/export-data-to-an-external-table.md) ). |
+| `includeHeaders` | `string` | Для CSV-или TSV-файлов указывает, содержат ли файлы заголовок                     |
+| `namePrefix`     | `string` | Если задано, указывает префикс файлов. При операциях записи все файлы будут записаны с помощью этого префикса. При операциях чтения считываются только файлы с этим префиксом. |
+| `fileExtension`  | `string` | Если задано, указывает расширения файлов. При записи имена файлов будут заканчиваться этим суффиксом. При чтении будут считываться только файлы с этим расширением.           |
+| `encoding`       | `string` | Указывает, как текст кодируется: `UTF8NoBOM` (по умолчанию) или `UTF8BOM` .             |
+
+> [!TIP]
+> Дополнительные сведения о роли `namePrefix` и `fileExtension` свойствах, воспроизводимых в фильтрации файлов данных во время запроса, см. в разделе [логика фильтрации файлов](#file-filtering) .
  
-**Пример** 
+<a name="examples"></a>
+**Примеров** 
 
-Внешняя таблица, не относящаяся к секционированию. Все артефакты должны находиться непосредственно под определенными контейнерами:
+Внешняя таблица, не относящаяся к секционированию. Предполагается, что файлы данных помещаются непосредственно под определенными контейнерами:
 
 ```kusto
-.create external table ExternalBlob (x:long, s:string) 
-kind=blob
-dataformat=csv
+.create external table ExternalTable (x:long, s:string)  
+kind=blob 
+dataformat=csv 
 ( 
-   h@'https://storageaccount.blob.core.windows.net/container1;secretKey'
-)
-with 
-(
-   docstring = "Docs",
-   folder = "ExternalTables"
-)  
+   h@'https://storageaccount.blob.core.windows.net/container1;secretKey' 
+) 
 ```
 
-Внешняя таблица, секционированная по dateTime. Артефакты находятся в каталогах в формате "гггг/мм/дд" под определенными путями:
+Внешняя таблица, секционированная по датам. Предполагается, что файлы даты помещаются в каталоги по умолчанию в формате DateTime `yyyy/MM/dd` :
 
 ```kusto
-.create external table ExternalAdlGen2 (Timestamp:datetime, x:long, s:string) 
+.create external table ExternalTable (Timestamp:datetime, x:long, s:string) 
 kind=adl
-partition by bin(Timestamp, 1d)
-dataformat=csv
+partition by (Date:datetime = bin(Timestamp, 1d)) 
+dataformat=csv 
 ( 
    h@'abfss://filesystem@storageaccount.dfs.core.windows.net/path;secretKey'
 )
-with 
-(
-   docstring = "Docs",
-   folder = "ExternalTables"
-)  
 ```
 
-Внешняя таблица, секционированная по dateTime с форматом каталога «year = гггг/месяц = MM/Day = DD»:
+Внешняя таблица, секционированная по месяцам, с форматом каталога `year=yyyy/month=MM` :
 
 ```kusto
-.create external table ExternalPartitionedBlob (Timestamp:datetime, x:long, s:string) 
-kind=blob
-partition by format_datetime="'year='yyyy/'month='MM/'day='dd" bin(Timestamp, 1d)
-dataformat=csv
+.create external table ExternalTable (Timestamp:datetime, x:long, s:string) 
+kind=blob 
+partition by (Month:datetime = startofmonth(Timestamp)) 
+pathformat = (datetime_pattern("'year='yyyy'/month='MM", Month)) 
+dataformat=csv 
+( 
+   h@'https://storageaccount.blob.core.windows.net/container1;secretKey' 
+) 
+```
+
+Внешняя таблица, секционированная сначала по имени клиента, затем по дате. Ожидаемая структура каталогов —, например `customer_name=Softworks/2019/02/01` :
+
+```kusto
+.create external table ExternalTable (Timestamp:datetime, CustomerName:string) 
+kind=blob 
+partition by (CustomerNamePart:string = CustomerName, Date:datetime = startofday(Timestamp)) 
+pathformat = ("customer_name=" CustomerNamePart "/" Date)
+dataformat=csv 
+(  
+   h@'https://storageaccount.blob.core.windows.net/container1;secretKey' 
+)
+```
+
+Внешняя таблица, секционированная сначала по хэшу имени клиента (по модулю 10), затем по дате. Ожидаемая структура каталогов —, например `customer_id=5/dt=20190201` . Имена файлов данных оканчиваются на `.txt` расширение:
+
+```kusto
+.create external table ExternalTable (Timestamp:datetime, CustomerName:string) 
+kind=blob 
+partition by (CustomerId:long = hash(CustomerName, 10), Date:datetime = startofday(Timestamp)) 
+pathformat = ("customer_id=" CustomerId "/dt=" datetime_pattern("yyyyMMdd", Date)) 
+dataformat=csv 
 ( 
    h@'https://storageaccount.blob.core.windows.net/container1;secretKey'
 )
-with 
-(
-   docstring = "Docs",
-   folder = "ExternalTables"
-)
+with (fileExtension = ".txt")
 ```
 
-Внешняя таблица с ежемесячными секциями данных и форматом каталога "гггг/мм":
+**Образец вывода**
+
+|TableName|TableType|Папка|DocString|Свойства|ConnectionStrings|Секции|пасформат|
+|---------|---------|------|---------|----------|-----------------|----------|----------|
+|екстерналтабле|BLOB-объект|екстерналтаблес|Docs|{"Format": "CSV", "сжатый": false, "Компрессионтипе": NULL, "FileExtension": NULL, "Инклудехеадерс": "None", "Encoding": NULL, "NamePrefix": NULL}|["https://storageaccount.blob.core.windows.net/container1;\*\*\*\*\*\*\*"]|[{"Mod": 10, "Name": "CustomerId", "ColumnName": "CustomerName", "Ordinal": 0}, {"функция": "Стартофдай", "Name": "Date", "имя_столбца": "timestamp", "Ordinal": 1}]|"Customer \_ ID =" CustomerID "/DT =" шаблон даты и времени \_ ("ГГГГММДД", Date)|
+
+<a name="virtual-columns"></a>
+**Виртуальные столбцы**
+
+При экспорте данных из Spark столбцы секционирования (заданные в методе модуля записи данных в кадре `partitionBy` ) не записываются в файлы данных. Этот процесс позволяет избежать дублирования данных, поскольку данные уже находятся в именах папок. Например, `column1=<value>/column2=<value>/` и Spark может распознать его при чтении.
+
+Внешние таблицы поддерживают следующий синтаксис для указания виртуальных столбцов:
 
 ```kusto
-.create external table ExternalPartitionedBlob (Timestamp:datetime, x:long, s:string) 
-kind=blob
-partition by format_datetime="yyyy/MM" bin(Timestamp, 1d)
-dataformat=csv
-( 
-   h@'https://storageaccount.blob.core.windows.net/container1;secretKey'
-)
-with 
-(
-   docstring = "Docs",
-   folder = "ExternalTables"
-)
-```
-
-Внешняя таблица с двумя секциями. Структура каталогов — это объединение обеих секций: форматированный CustomerName, за которым следует формат dateTime по умолчанию. Например, "CustomerName = софтворкс/2011/11/11":
-
-```kusto
-.create external table ExternalMultiplePartitions (Timestamp:datetime, CustomerName:string) 
-kind=blob
-partition by 
-   "CustomerName="CustomerName,
-   bin(Timestamp, 1d)
-dataformat=csv
-( 
-   h@'https://storageaccount.blob.core.windows.net/container1;secretKey'
-)
-with 
-(
-   docstring = "Docs",
-   folder = "ExternalTables"   
-)
-```
-
-**Выходные данные**
-
-|TableName|TableType|Папка|DocString|Свойства|ConnectionStrings|Секции|
-|---|---|---|---|---|---|---|
-|екстерналмултиплепартитионс|BLOB-объект|екстерналтаблес|Документы|{"Format": "CSV", "сжатый": false, "Компрессионтипе": NULL, "FileExtension": "CSV", "Инклудехеадерс": "None", "Encoding": NULL, "NamePrefix": NULL}|["https://storageaccount.blob.core.windows.net/container1;*******"]}|[{"StringFormat": "CustomerName = {0} ", "ColumnName": "CustomerName", "Ordinal": 0}, PartitionBy ":" 1,00:00:00 "," ColumnName ":" timestamp "," Ordinal ": 1}]|
-
-### <a name="artifact-filtering-logic"></a>Логика фильтрации артефактов
-
-При запросе к внешней таблице механизм запросов повышает производительность, отфильтровывая ненужные внешние артефакты хранилища (BLOB-объекты). Ниже описан процесс выполнения итерации по BLOB-объектам и принятия решения о том, следует ли обрабатывать большой двоичный объект.
-
-1. Создайте шаблон URI, представляющий место, где находятся большие двоичные объекты. Изначально шаблон URI равен строке подключения, предоставленной как часть определения внешней таблицы. Если определены какие бы то ни было секции, они добавляются к шаблону URI.
-Например, если строка подключения имеет значение `https://storageaccount.blob.core.windows.net/container1` и определена секция даты и времени: `partition by format_datetime="yyyy-MM-dd" bin(Timestamp, 1d)` , соответствующий шаблон URI будет выглядеть так: `https://storageaccount.blob.core.windows.net/container1/yyyy-MM-dd` , и мы будем искать большие двоичные объекты в расположениях, соответствующих этому шаблону.
-Если определена дополнительная строковая Секция `"CustomerId" customerId` , соответствующий шаблон URI будет следующим: `https://storageaccount.blob.core.windows.net/container1/yyyy-MM-dd/CustomerId=*` .
-
-1. Для всех *прямых* BLOB-объектов, найденных в созданных шаблонах URI, проверьте следующее:
-
-   * Значения секций соответствуют предикатам, используемым в запросе.
-   * Имя большого двоичного объекта начинается с `NamePrefix` , если такое свойство определено.
-   * Имя большого двоичного объекта заканчивается на `FileExtension` , если такое свойство определено.
-
-После соблюдения всех условий большой двоичный объект извлекается и обрабатывается обработчиком запросов.
-
-### <a name="spark-virtual-columns-support"></a>Поддержка виртуальных столбцов Spark
-
-При экспорте данных из Spark столбцы секционирования (заданные в методе модуля записи данных в кадре `partitionBy` ) не записываются в файлы данных. Этот процесс позволяет избежать дублирования данных, поскольку данные уже находятся в именах папок. Например, `column1=<value>/column2=<value>/` и Spark может распознать его при чтении. Однако Kusto требует, чтобы столбцы секционирования присутствовали в самих данных. Планируется поддержка виртуальных столбцов в Kusto. До этого следует использовать следующее решение: при экспорте данных из Spark создайте копию всех столбцов, на которые секционированы данные, перед записью кадра данных.
-
-```kusto
-df.withColumn("_a", $"a").withColumn("_b", $"b").write.partitionBy("_a", "_b").parquet("...")
-```
-
-При определении внешней таблицы в Kusto укажите столбцы секционирования, как в следующем примере:
-
-```kusto
-.create external table ExternalSparkTable(a:string, b:datetime) 
-kind=blob
-partition by 
-   "_a="a,
-   format_datetime="'_b='yyyyMMdd" bin(b, 1d)
+.create external table ExternalTable (EventName:string, Revenue:double)  
+kind=blob  
+partition by (CustomerName:string, Date:datetime)  
+pathformat = ("customer=" CustomerName "/date=" datetime_pattern("yyyyMMdd", Date))  
 dataformat=parquet
 ( 
    h@'https://storageaccount.blob.core.windows.net/container1;secretKey'
 )
 ```
 
+<a name="file-filtering"></a>
+**Логика фильтрации файлов**
+
+При запросе к внешней таблице механизм запросов повышает производительность, отфильтровывая ненужные файлы внешнего хранилища. Ниже описан процесс выполнения итерации по файлам и принятия решения о необходимости обработки файла.
+
+1. Создайте шаблон URI, представляющий место, где находятся файлы. Изначально шаблон URI равен строке подключения, предоставленной как часть определения внешней таблицы. Если определенные секции определены, они подготавливаются к просмотру с помощью *[пасформат](#path-format)*, а затем добавляются к шаблону URI.
+
+2. Для всех файлов, найденных в созданных шаблонах URI, проверьте следующее:
+
+   * Значения секций соответствуют предикатам, используемым в запросе.
+   * Имя большого двоичного объекта начинается с `NamePrefix` , если такое свойство определено.
+   * Имя большого двоичного объекта заканчивается на `FileExtension` , если такое свойство определено.
+
+После выполнения всех условий файл извлекается и обрабатывается обработчиком запросов.
+
+> [!NOTE]
+> Исходный шаблон URI создается с помощью значений предиката запроса. Это лучше подходит для ограниченного набора строковых значений, а также для закрытых диапазонов времени. 
+
 ## <a name="show-external-table-artifacts"></a>. Отображение артефактов внешней таблицы
 
-* Возвращает список всех артефактов, которые будут обработаны при запросе данной внешней таблицы.
-* Требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
+Возвращает список всех файлов, которые будут обрабатываться при запросе данной внешней таблицы.
+
+> [!NOTE]
+> Для операции требуются [разрешения пользователя базы данных](../management/access-control/role-based-authorization.md).
 
 **Синтаксис** 
 
-`.show` `external` `table` *TableName* `artifacts`
+`.show``external` `table` *TableName* `artifacts` [ `limit` *MaxResults*]
+
+где *MaxResults* — необязательный параметр, который можно задать для ограничения количества результатов.
 
 **Выходные данные**
 
-| Выходной параметр | Тип   | Описание                       |
+| Выходной параметр | Type   | Описание                       |
 |------------------|--------|-----------------------------------|
-| URI              | строка | URI внешнего артефакта хранилища |
+| URI              | строка | URI внешнего файла данных хранилища |
+
+> [!TIP]
+> Итерация по всем файлам, на которые ссылается внешняя таблица, может быть довольно дорогостоящей в зависимости от числа файлов. Обязательно используйте `limit` параметр, если вы просто хотите увидеть некоторые примеры URI.
 
 **Примеры:**
 
