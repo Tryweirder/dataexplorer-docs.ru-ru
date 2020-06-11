@@ -145,7 +145,11 @@
     - name: Визуализируйте данные
       items:
         - name: Панели мониторинга Azure Data Explorer
-          href: azure-data-explorer-dashboards.md
+          items:
+            - name: Использование панелей мониторинга
+              href: azure-data-explorer-dashboards.md
+            - name: Использование параметров панели мониторинга
+              href: dashboard-parameters.md
         - name: Power BI
           items:
             - name: Рекомендации
@@ -1233,7 +1237,7 @@
                 - name: Общие сведения о таблицах
                   href: ./kusto/management/tables.md
                 - name: .alter merge table
-                  href: ./kusto/management/alter-table-command.md
+                  href: ./kusto/management/alter-merge-table-command.md
                 - name: .alter table
                   href: ./kusto/management/alter-table-command.md
                 - name: .alter table docstring
