@@ -1,6 +1,6 @@
 ---
-title: оператора сериализации - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описывается оператор сериализации в Azure Data Explorer.
+title: Сериализация оператора в Azure обозреватель данных
+description: В этой статье описывается оператор Serialize в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 5402d1e1fcceb42f02643bf24918ed07beddaed7
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 708a5ccd5f8402dedb074a6ab8c17b1d7762839c
+ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81509118"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84717127"
 ---
 # <a name="serialize-operator"></a>Оператор serialize
 
-Отметки, что порядок набора строк ввода является безопасным для использования оконных функций.
+Помечает, что порядок входных строк безопасности можно использовать в качестве оконных функций.
 
-Оператор имеет декларативное значение, и он отмечает набор строк ввода как сериализованный (упорядоченный), чтобы [функции окна](./windowsfunctions.md) могли быть применены к нему.
+Оператор имеет декларативное значение. Он помечает входной набор строк как сериализованный (упорядоченный), чтобы к нему можно было применить [функции окон](./windowsfunctions.md) .
 
 ```kusto
 T | serialize rn=row_number()
@@ -27,9 +27,9 @@ T | serialize rn=row_number()
 
 **Синтаксис**
 
-`serialize`*Name1* `=` *Expr1* `,` - *Name2* `=` *Expr2*
+`serialize`[*Name1* `=` *Выражение1* [ `,` *имя2* `=` *Expr2*]...]
 
-* Пары *Name*/*Expr* аналогичны парам в [операторе расширения.](./extendoperator.md)
+* Пары *Name* / *expr* Name аналогичны этим парам в [операторе Extend](./extendoperator.md).
 
 **Пример**
 
@@ -43,12 +43,12 @@ Traces
 | serialize rn = row_number()
 ```
 
-Набор строк вывода следующих операторов помечен как сериализованный:
+Набор выходных строк следующих операторов помечен как сериализованный.
 
-[диапазон,](./rangeoperator.md) [сортировка,](./sortoperator.md) [заказ,](./orderoperator.md) [топ-хиттеров,](./tophittersoperator.md) [getschema](./getschemaoperator.md). [top](./topoperator.md)
+[диапазон](./rangeoperator.md), [Сортировка](./sortoperator.md), [порядок](./orderoperator.md), [верхний](./topoperator.md), [верхний — hitters](./tophittersoperator.md), [GetSchema](./getschemaoperator.md).
 
-Набор строк вывода следующих операторов помечен как несерийный:
+Набор выходных строк следующих операторов помечается как несериализуемый.
 
-[образец](./sampleoperator.md), [образец-отличный](./sampledistinctoperator.md), [различные](./distinctoperator.md), [присоединиться](./joinoperator.md), [топ-вложенных](./topnestedoperator.md), [кол,](./countoperator.md) [обобщить](./summarizeoperator.md), [аспект](./facetoperator.md), [mv-расширить](./mvexpandoperator.md), [оценить,](./evaluateoperator.md) [уменьшить,](./reduceoperator.md) [сделать-серии](./make-seriesoperator.md)
+[Пример](./sampleoperator.md), [Пример-DISTINCT](./sampledistinctoperator.md), [DISTINCT](./distinctoperator.md), [Join](./joinoperator.md), [нисходящее вложение](./topnestedoperator.md), [количество](./countoperator.md), [Сводка](./summarizeoperator.md), [аспект](./facetoperator.md), [MV — развернуть](./mvexpandoperator.md), [оценить](./evaluateoperator.md), [сократить на](./reduceoperator.md), [создать ряд](./make-seriesoperator.md)
 
-Все остальные операторы сохраняют свойство сериализации (если набор строк ввода сериализован, то и набор строк вывода).
+Все остальные операторы сохраняют свойство Serialization. Если входной набор строк сериализуется, то также сериализуется набор выходных строк.

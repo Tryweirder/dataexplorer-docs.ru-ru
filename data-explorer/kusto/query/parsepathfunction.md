@@ -8,21 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 16b80c86f526cb05514577359603e9e21de80064
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: ba74b7c1e78d568cc34845d56dc9768f2628192f
+ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83224890"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84717382"
 ---
 # <a name="parse_path"></a>parse_path()
 
-Анализирует путь к файлу `string` и возвращает [`dynamic`](./scalar-data-types/dynamic.md) объект, который содержит следующие части пути: схема, rootpath, DirectoryPath, Директоринаме, имя файла, расширение, алтернатедатастреамнаме.
-Помимо простых путей с косыми чертами, поддерживает пути со схемами (например, "file://..."), общими путями (например " \\ шареддриве\усерс..."), длинными путями (например " \\ ? \c:..."), дополнительными потоками данных (например, "file1. exe: file2. exe").
+Анализирует путь к файлу `string` и возвращает [`dynamic`](./scalar-data-types/dynamic.md) объект, содержащий следующие части пути:
+* Схема
+* RootPath
+* DirectoryPath
+* DirectoryName
+* FileName
+* Расширение
+* алтернатедатастреамнаме
+
+Помимо простых путей с косыми чертами, функция поддерживает пути с:
+* Схемы. Например, "file://..."
+* Общие пути. Например, " \\ шареддриве\усерс..."
+* Длинные пути. Например, " \\ ? \c:..."
+* Альтернативные потоки данных. Например, "file1.exe:file2.exe"
 
 **Синтаксис**
 
-`parse_path(`*путь*`)`
+`parse_path(`*path*`)`
 
 **Аргументы**
 
@@ -50,8 +62,8 @@ datatable(p:string)
 
 |p|path_parts
 |---|---
-|к:\темп\филе.ткст|{"Схема": "", "RootPath": "C:", "DirectoryPath": "C: \\ TEMP", "директоринаме": "Temp", "filename": "файл. txt", "Extension": "txt", "алтернатедатастреамнаме": ""}
-|темп\филе.ткст|{"Схема": "", "RootPath": "", "DirectoryPath": "Temp", "Директоринаме": "Temp", "имя_файла": "File. txt", "Extension": "txt", "Алтернатедатастреамнаме": ""}
-|file://C:/temp/file.txt:some.exe|{"Схема": "File", "RootPath": "C:", "DirectoryPath": "C:/Temp", "Директоринаме": "Temp", "filename": "файл. txt", "Extension": "txt", "Алтернатедатастреамнаме": "часть. exe"}
-|\\шаред\усерс\темп\филе.ткст.гз|{"Схема": "", "RootPath": "", "DirectoryPath": " \\ \\ Общие \\ Пользователи \\ TEMP "," директоринаме ":" Temp "," filename ":" файл. txt. gz "," Extension ":" GZ "," алтернатедатастреамнаме ":" "}
-|/уср/либ/темп/филе.ткст|{"Схема": "", "RootPath": "", "DirectoryPath": "/УСР/либ/темп", "Директоринаме": "Temp", "имя_файла": "File. txt", "Extension": "txt", "Алтернатедатастреамнаме": ""}
+|C:\temp\file.txt|{"Схема": "", "RootPath": "C:", "DirectoryPath": "C: \\ TEMP", "директоринаме": "Temp", "имя_файла": "file.txt", "Extension": "txt", "алтернатедатастреамнаме": ""}
+|temp\file.txt|{"Схема": "", "RootPath": "", "DirectoryPath": "Temp", "Директоринаме": "Temp", "имя_файла": "file.txt", "Extension": "txt", "Алтернатедатастреамнаме": ""}
+|file://C:/temp/file.txt:some.exe|{"Схема": "File", "RootPath": "C:", "DirectoryPath": "C:/Temp", "Директоринаме": "Temp", "имя_файла": "file.txt", "Extension": "txt", "Алтернатедатастреамнаме": "some.exe"}
+|\\shared\users\temp\file.txt. gz|{"Схема": "", "RootPath": "", "DirectoryPath": " \\ \\ Общие \\ Пользователи \\ TEMP "," директоринаме ":" Temp "," имя_файла ":" file.txt. gz "," Extension ":" GZ "," алтернатедатастреамнаме ":" "}
+|/УСР/либ/темп/file.txt|{"Схема": "", "RootPath": "", "DirectoryPath": "/УСР/либ/темп", "Директоринаме": "Temp", "имя_файла": "file.txt", "Extension": "txt", "Алтернатедатастреамнаме": ""}

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/20/2020
-ms.openlocfilehash: e81afc50c752ac1b673bcaac38a77c2712ce9ff4
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: a06bd3719fba4f9f61cf7b1c9501f96b17a48d58
+ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82619025"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84717229"
 ---
 # <a name="summarize-operator"></a>Оператор summarize
 
@@ -33,12 +33,12 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 **Синтаксис**
 
-*T* `| summarize` [[*столбец* `=`] *агрегирование* [`,` ...]] [`by` [*Столбец* `=`] *GroupExpression* [`,` ...]]
+*T* `| summarize` [[*столбец* `=` ] *агрегирование* [ `,` ...]] [ `by` [*столбец* `=` ] *GroupExpression* [ `,` ...]]
 
 **Аргументы**
 
 * *Column* — необязательное имя итогового столбца. По умолчанию это имя, получаемое из выражения.
-* *Статистическая обработка:* Вызов [агрегатной функции](summarizeoperator.md#list-of-aggregation-functions) , такой как `count()` или `avg()`, с именами столбцов в качестве аргументов. См. [список статистических функций](summarizeoperator.md#list-of-aggregation-functions).
+* *Статистическая обработка:* Вызов [агрегатной функции](summarizeoperator.md#list-of-aggregation-functions) , такой как `count()` или `avg()` , с именами столбцов в качестве аргументов. См. [список статистических функций](summarizeoperator.md#list-of-aggregation-functions).
 * *GroupExpression* — выражение для столбцов, предоставляющее набор уникальных значений. Обычно это имя столбца, который уже содержит ограниченный набор значений, либо функция `bin()` с числовым или временным столбцом в качестве аргумента. 
 
 > [!NOTE]
@@ -53,7 +53,7 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 Результат содержит столько строк, сколько существует различных сочетаний `by` значений (которые могут быть равны нулю). Если ключи группы не указаны, результат будет иметь одну запись.
 
-Для суммирования диапазонов числовых значений используйте `bin()` , чтобы сократить диапазоны до дискретных значений.
+Для суммирования диапазонов числовых значений используйте, `bin()` чтобы сократить диапазоны до дискретных значений.
 
 > [!NOTE]
 > * Для агрегатных выражений и выражений группирования допускаются произвольные выражения, но эффективнее использовать простые имена столбцов или функцию `bin()` для числовых столбцов.
@@ -61,13 +61,13 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 ## <a name="list-of-aggregation-functions"></a>Список статистических функций
 
-|Функция|Описание|
+|Компонент|Описание|
 |--------|-----------|
 |[Any ()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
 |[anyif()](anyif-aggfunction.md)|Возвращает случайное непустое значение группы (с предикатом with)|
 |[arg_max()](arg-max-aggfunction.md)|Возвращает одно или несколько выражений, если аргумент является развернутым|
 |[arg_min()](arg-min-aggfunction.md)|Возвращает одно или несколько выражений, если аргумент является минимальным|
-|[AVG ()](avg-aggfunction.md)|Возвращает среднее значение в группе|
+|[avg()](avg-aggfunction.md)|Возвращает среднее значение в группе|
 |[avgif()](avgif-aggfunction.md)|Возвращает среднее значение в группе (с предикатом)|
 |[binary_all_and](binary-all-and-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `AND` объекта группы|
 |[binary_all_or](binary-all-or-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `OR` объекта группы|
@@ -84,15 +84,15 @@ T | summarize count() by price_range=bin(price, 10.0)
 |[make_list_with_nulls()](make-list-with-nulls-aggfunction.md)|Возвращает список всех значений в группе, включая значения NULL.|
 |[make_set()](makeset-aggfunction.md)|Возвращает набор различных значений в группе|
 |[make_set_if()](makesetif-aggfunction.md)|Возвращает набор различных значений в группе (с предикатом with).|
-|[Max ()](max-aggfunction.md)|Возвращает максимальное значение в группе|
+|[max()](max-aggfunction.md)|Возвращает максимальное значение в группе.|
 |[maxif()](maxif-aggfunction.md)|Возвращает максимальное значение в группе (с предикатом)|
-|[min ()](min-aggfunction.md)|Возвращает минимальное значение в группе|
+|[min()](min-aggfunction.md)|Возвращает минимальное значение в группе.|
 |[minif()](minif-aggfunction.md)|Возвращает минимальное значение в группе (с предикатом)|
 |[percentiles()](percentiles-aggfunction.md)|Возвращает приблизительное значение процентиля группы|
 |[percentiles_array ()](percentiles-aggfunction.md)|Возвращает процентили приблизительную часть группы|
 |[перцентилесв ()](percentiles-aggfunction.md)|Возвращает приближенное взвешенное значение процентиля группы|
 |[percentilesw_array ()](percentiles-aggfunction.md)|Возвращает взвешенное процентилиное приближение группы|
-|[STDEV ()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
+|[stdev()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
 |[stdevif()](stdevif-aggfunction.md)|Возвращает стандартное отклонение по группе (с предикатом)|
 |[Sum ()](sum-aggfunction.md)|Возвращает сумму элементов с группой|
 |[sumif()](sumif-aggfunction.md)|Возвращает сумму элементов с помощью группы (предикат WITH)|
@@ -177,11 +177,10 @@ Activities | summarize count() by ActivityType, length=bin(Duration, 10m)
 
 Если входные данные `summarize` оператора имеют по крайней мере один пустой ключ Group-By, результат также будет пустым.
 
-Если входные данные `summarize` оператора не имеют пустого ключа Group-By, результатом являются значения по умолчанию для статистических выражений, используемых в `summarize`:
+Если входные данные `summarize` оператора не имеют пустого ключа Group-By, результатом являются значения по умолчанию для статистических выражений, используемых в `summarize` :
 
 ```kusto
-range x from 1 to 10 step 1
-| where 1 == 2
+datatable(x:long)[]
 | summarize any(x), arg_max(x, x), arg_min(x, x), avg(x), buildschema(todynamic(tostring(x))), max(x), min(x), percentile(x, 55), hll(x) ,stdev(x), sum(x), sumif(x, x > 0), tdigest(x), variance(x)
 ```
 
@@ -190,8 +189,7 @@ range x from 1 to 10 step 1
 |||||||||||||||||
 
 ```kusto
-range x from 1 to 10 step 1
-| where 1 == 2
+datatable(x:long)[]
 | summarize  count(x), countif(x > 0) , dcount(x), dcountif(x, x > 0)
 ```
 
@@ -200,8 +198,7 @@ range x from 1 to 10 step 1
 |0|0|0|0|
 
 ```kusto
-range x from 1 to 10 step 1
-| where 1 == 2
+datatable(x:long)[]
 | summarize  make_set(x), make_list(x)
 ```
 

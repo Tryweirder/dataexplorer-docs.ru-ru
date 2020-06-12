@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/22/2019
-ms.openlocfilehash: 332ff6bedd268dd79be020ff1dc4d0591ed486f7
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: c414f1bdb83850bc6ec6065314bc7c8662ab0ed2
+ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225315"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84717093"
 ---
 # <a name="base64_encode_tostring"></a>base64_encode_tostring()
 
@@ -31,7 +31,7 @@ ms.locfileid: "83225315"
 
 Возвращает строку, закодированную как строка Base64.
 
-* Сведения о декодировании строк Base64 в строку UTF-8 см. в разделе [base64_decode_tostring ()](base64_decode_tostringfunction.md) .
+* Сведения о декодировании строк Base64 в строки UTF-8 см. в разделе [base64_decode_tostring ()](base64_decode_tostringfunction.md) .
 * Сведения о декодировании строк Base64 в массив длинных значений см. в разделе [base64_decode_toarray ()](base64_decode_toarrayfunction.md) .
 
 
@@ -45,3 +45,4 @@ print Quine=base64_encode_tostring("Kusto")
 |куине   |
 |--------|
 |S3VzdG8 =|
+

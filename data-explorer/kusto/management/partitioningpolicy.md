@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/10/2020
-ms.openlocfilehash: 768f07307a6f43c2af2db79bc1221c140b7c9a6f
-ms.sourcegitcommit: be1bbd62040ef83c08e800215443ffee21cb4219
+ms.openlocfilehash: 2a54d6e8bdb891500778f2043f2b1aa4094162d2
+ms.sourcegitcommit: 743e8b1def28bc8f875b22b857ec345eeb7e5acc
 ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84664982"
+ms.locfileid: "84671450"
 ---
 # <a name="data-partitioning-policy"></a>Политика секционирования данных
 
@@ -187,19 +187,18 @@ ms.locfileid: "84664982"
 
 Используйте команду [. показывать диагностику](../management/diagnostics.md#show-diagnostics) , чтобы отслеживать ход выполнения или состояние секционирования в кластере.
 
-    ```kusto
-    .show diagnostics
-    | project MinPartitioningPercentageInSingleTable,
-              TableWithMinPartitioningPercentage
-    ```
+```kusto
+.show diagnostics
+| project MinPartitioningPercentageInSingleTable, TableWithMinPartitioningPercentage
+```
 
-    The output includes:
+Выходные данные включают:
 
-    * `MinPartitioningPercentageInSingleTable`: Минимальный процент секционированных данных во всех таблицах, имеющих политику секционирования данных в кластере.
-      * Если этот процент постоянно находится под 90%, оцените емкость секционирования кластера (см. раздел [емкость](partitioningpolicy.md#capacity)).
-    * `TableWithMinPartitioningPercentage`— Полное имя таблицы, в которой показано процент секционирования.
+  * `MinPartitioningPercentageInSingleTable`: Минимальный процент секционированных данных во всех таблицах, имеющих политику секционирования данных в кластере.
+    * Если этот процент постоянно находится под 90%, оцените емкость секционирования кластера (см. раздел [емкость](partitioningpolicy.md#capacity)).
+  * `TableWithMinPartitioningPercentage`— Полное имя таблицы, в которой показано процент секционирования.
 
-Используйте [команды. показ команд](commands.md) для наблюдения за командами секционирования и их использованием ресурсов. Пример.
+Используйте [команды. показ команд](commands.md) для наблюдения за командами секционирования и их использованием ресурсов. Пример:
 
 ```kusto
 .show commands 
