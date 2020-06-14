@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 00802cc3c90335688a9d56d64eb572e88ecfa15e
-ms.sourcegitcommit: 974d5f2bccabe504583e387904851275567832e7
+ms.openlocfilehash: a364361ee5e5e260436486db24f1b61e2c21cbc9
+ms.sourcegitcommit: 9fc3d8b396dddd2e1d9912845ba7bcc8e31c0267
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83550645"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84720916"
 ---
 # <a name="series_fit_2lines"></a>series_fit_2lines()
 
@@ -48,8 +48,11 @@ ms.locfileid: "83550645"
 
 проект `series_fit_2lines(` *x*`)`
 * Возвратит все упомянутые выше столбцы со следующими именами: series_fit_2lines_x_rsquare, series_fit_2lines_x_split_idx и т. д.
+
 Project (RS, Si, v) = `series_fit_2lines(` *x*`)`
-* Возвращает следующие столбцы: RS (r-Square), Si (разделение индекса), v (вариативность), а остальное будет выглядеть как series_fit_2lines_x_rvariance, series_fit_2lines_x_line_fit и т. д. расширения (RS, Si, v) = `series_fit_2lines(` *x*`)`
+* Возвращает следующие столбцы: RS (r-Square), Si (разделение индекса), v (вариативность) и остальное будет выглядеть как series_fit_2lines_x_rvariance, series_fit_2lines_x_line_fit и т. д.
+
+extend (RS, Si, v) = `series_fit_2lines(` *x*`)`
 * Возвращает только: rs (R-квадрат), si (индекс разбиения) и v (дисперсия).
   
 **Аргументы**
