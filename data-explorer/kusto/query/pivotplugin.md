@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: a046cc369dd466defa50916ee78b2c29f5f88ea0
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 4662b1bd9f68778cab1f799f564499e23add5812
+ms.sourcegitcommit: 6a0bd5b84f9bd739510c6a75277dec3a9e851edd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373216"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84788908"
 ---
 # <a name="pivot-plugin"></a>подключаемый модуль Pivot
 
@@ -30,7 +30,7 @@ T | evaluate pivot(PivotColumn)
 **Аргументы**
 
 * *пивотколумн*: столбец для поворота. каждое уникальное значение из этого столбца будет столбцом в выходной таблице.
-* *статистическая функция*: (необязательно) объединяет несколько строк во входной таблице в одну строку в выходной таблице. Поддерживаемые в настоящее время функции: `min()` , `max()` , `any()` , `sum()` , `dcount()` , `avg()` , `stdev()` , `variance()` и `count()` (по умолчанию — `count()` ).
+* *статистическая функция*: (необязательно) объединяет несколько строк во входной таблице в одну строку в выходной таблице. Поддерживаемые в настоящее время функции: `min()` , `max()` , `any()` , `sum()` , `dcount()` , `avg()` , `stdev()` , `variance()` , `make_list()` , `make_bag()` , `make_set()` , `count()` (по умолчанию — `count()` ).
 * *Столбец1*, *Столбец2*,... (необязательно) имена столбцов. Выходная таблица будет содержать дополнительный столбец для каждого указанного столбца. по умолчанию: все столбцы, кроме сведенного столбца и столбца агрегирования.
 
 **Возвращает**

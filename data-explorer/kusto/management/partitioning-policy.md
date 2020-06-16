@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/04/2020
-ms.openlocfilehash: 1ad9b359422b51084f1be1c64d27d656313d9296
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 51068a63adb16626c8b2812fde40782d2ac4a8f1
+ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82616326"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84780581"
 ---
 # <a name="data-partitioning-policy-management"></a>Управление политиками секционирования данных
 
@@ -25,7 +25,7 @@ ms.locfileid: "82616326"
 .show table [table_name] policy partitioning
 ```
 
-`.show` Команда отображает политику секционирования, применяемую к таблице.
+`.show`Команда отображает политику секционирования, применяемую к таблице.
 
 ### <a name="output"></a>Выходные данные
 
@@ -41,7 +41,7 @@ ms.locfileid: "82616326"
 .alter-merge table [table_name] policy partitioning @'partial policy object, serialized as JSON'
 ```
 
-`.alter` Команда позволяет изменить политику секционирования, применяемую к таблице.
+`.alter`Команда позволяет изменить политику секционирования, применяемую к таблице.
 
 Для команды требуются разрешения [датабасеадмин](access-control/role-based-authorization.md) .
 
@@ -49,7 +49,41 @@ ms.locfileid: "82616326"
 
 ### <a name="examples"></a>Примеры
 
-#### <a name="setting-all-properties-of-the-policy-explicitly-at-table-level"></a>Явное задание всех свойств политики на уровне таблицы
+#### <a name="setting-a-policy-with-a-hash-partition-key"></a>Настройка политики с ключом хэш-секции
+
+```kusto
+.alter table [table_name] policy partitioning @'{'
+  '"PartitionKeys": ['
+    '{'
+      '"ColumnName": "my_string_column",'
+      '"Kind": "Hash",'
+      '"Properties": {'
+        '"Function": "XxHash64",'
+        '"MaxPartitionCount": 256,'
+      '}'
+    '}'
+  ']'
+'}'
+```
+
+#### <a name="setting-a-policy-with-a-uniform-range-datetime-partition-key"></a>Задание политики с равномерным ключом секции даты и времени
+
+```kusto
+.alter table [table_name] policy partitioning @'{'
+  '"PartitionKeys": ['
+    '{'
+      '"ColumnName": "my_datetime_column",'
+      '"Kind": "UniformRange",'
+      '"Properties": {'
+        '"Reference": "1970-01-01T00:00:00",'
+        '"RangeSize": "1.00:00:00"'
+      '}'
+    '}'
+  ']'
+'}'
+```
+
+#### <a name="setting-a-policy-with-both-kinds-of-partition-keys"></a>Настройка политики для обоих типов ключей секций
 
 ```kusto
 .alter table [table_name] policy partitioning @'{'
@@ -88,4 +122,4 @@ ms.locfileid: "82616326"
 .delete table [table_name] policy partitioning
 ```
 
-`.delete` Команда удаляет политику секционирования для заданной таблицы.
+`.delete`Команда удаляет политику секционирования для заданной таблицы.

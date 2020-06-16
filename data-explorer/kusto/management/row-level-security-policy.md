@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/25/2020
-ms.openlocfilehash: f8f6f820090bde91b9ed6479e0677a893a682983
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 3f36fa4c35ceb88c82b4dfcb7557e4839fed4aa2
+ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82617380"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84780547"
 ---
 # <a name="rowlevelsecurity-policy-preview"></a>Политика Ровлевелсекурити (Предварительная версия)
 
@@ -48,15 +48,15 @@ ms.locfileid: "82617380"
 Это полезно, если требуется использовать различные запросы для row_level_security, но не нужно, чтобы они действовали на пользователей. Убедившись в запросе, включите политику.
 
 > [!NOTE]
-> К следующим ограничениям относятся `query`:
+> К следующим ограничениям относятся `query` :
 >
 > * Запрос должен создавать точно такую же схему, как и таблица, в которой определена политика. То есть результат запроса должен возвращать те же столбцы, что и исходная таблица в том же порядке, что и те же имена и типы.
-> * В `extend`запросе могут использоваться только следующие операторы:, `where`, `project`, `project-away` `project-rename`, `project-reorder` и. `union`
-> * Запрос не может ссылаться на таблицы, отличные от тех, в которых определена политика.
+> * В запросе могут использоваться только следующие операторы: `extend` , `where` , `project` ,,, `project-away` `project-rename` `project-reorder` `join` и `union` .
+> * Запрос не может ссылаться на другие таблицы, для которых включена RLS.
 > * Запрос может быть любым из следующих элементов или их сочетанием:
->    * Запрос (например, `<table_name> | extend CreditCardNumber = "****"`)
->    * Функция (например, `AnonymizeSensitiveData`)
->    * DataTable (например, `datatable(Col1:datetime, Col2:string) [...]`)
+>    * Запрос (например, `<table_name> | extend CreditCardNumber = "****"` )
+>    * Функция (например, `AnonymizeSensitiveData` )
+>    * DataTable (например, `datatable(Col1:datetime, Col2:string) [...]` )
 
 > [!TIP]
 > Эти функции часто используются для row_level_securityных запросов:
@@ -77,7 +77,7 @@ ms.locfileid: "82617380"
 .alter table Customers policy row_level_security enable "TrimCreditCardNumbers"
 ```
 
-**Примечание**о производительности `UserCanSeeFullNumbers` . вычисляется сначала, а затем либо `AllData` вычисляется, либо `PartialData` будет оцениваться, но не оба сразу, что является ожидаемым результатом.
+**Примечание о производительности**. `UserCanSeeFullNumbers` вычисляется сначала, а затем либо `AllData` `PartialData` вычисляется, либо будет оцениваться, но не оба сразу, что является ожидаемым результатом.
 Дополнительные сведения о влиянии на производительность RLS можно получить [здесь](rowlevelsecuritypolicy.md#performance-impact-on-queries).
 
 ## <a name="deleting-the-policy"></a>Удаление политики

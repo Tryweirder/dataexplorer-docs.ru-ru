@@ -1,6 +1,6 @@
 ---
-title: schema_merge плагин - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описывается schema_merge плагин в Azure Data Explorer.
+title: подключаемый модуль schema_merge — Azure обозреватель данных
+description: В этой статье описывается подключаемый модуль schema_merge в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,20 +8,20 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: 67326a0e7a92d064613ee3a3de2851addb502fc9
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: b1f3ef10ac5cee3eb9bc1c1dca4c0de26bd85477
+ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81509254"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84780207"
 ---
-# <a name="schema_merge-plugin"></a>schema_merge плагин
+# <a name="schema_merge-plugin"></a>подключаемый модуль schema_merge
 
-Слияние табликовых определений схемы в единую схему. 
+Объединяет определения табличной схемы в единую схему. 
 
-Ожидается, что определения схембудут будут в формате, производимом оператором [getschema.](./getschemaoperator.md)
+Определения схемы должны быть в формате, созданном [`getschema`](./getschemaoperator.md) оператором.
 
-Столбики соединений операций schema, которые отображаются в схемах ввода и пытаются уменьшить типы данных до общего типа данных (в случае, если типы данных не могут быть уменьшены, ошибка отображается на проблемном столбце).
+`schema merge`Операция соединяет столбцы во входных схемах и пытается сократить типы данных до общих. Если типы данных не могут быть сокращены, на проблемном столбце отображается ошибка.
 
 ```kusto
 let Schema1=Table1 | getschema;
@@ -31,19 +31,19 @@ union Schema1, Schema2 | evaluate schema_merge()
 
 **Синтаксис**
 
-`T``schema_merge(` *PreserveOrder* Заповедник `|` `evaluate``)`
+`T``|` `evaluate` `schema_merge(` *Пресервеордер*`)`
 
 **Аргументы**
 
-* *PreserveOrder*: (Опционально) При установке `true`на, направляет на плагин для проверки этого порядка столбца, как это определено первой таббуларной схемой сохраняется. Другими словами, если один и тот же столбец отображается в нескольких схемах, то столбец должен быть таким, как в первой схеме, которая появилась. Значение по умолчанию — `true`.
+* *Пресервеордер*(необязательный). Если задано значение `true` , направляет подключаемый модуль для проверки порядка столбцов в соответствии с определением первой хранимой табличной схемы. Если один и тот же столбец находится в нескольких схемах, порядковый номер столбца должен быть похож на порядковый номер первой схемы, в которой он появился. Значение по умолчанию: `true`.
 
 **Возвращает**
 
-Плагин `schema_merge` возвращает выход simiar к тому, что [получает оператор](./getschemaoperator.md) возвращается.
+`schema_merge`Подключаемый модуль возвращает выходные данные, аналогичные [`getschema`](./getschemaoperator.md) возвращаемым оператором.
 
 **Примеры**
 
-Слияние со схемой, которая имеет новый столбец добавлен:
+Выполнить слияние со схемой, к которой добавлен новый столбец.
 
 ```kusto
 let schema1 = datatable(Uri:string, HttpStatus:int)[] | getschema;
@@ -59,7 +59,7 @@ union schema1, schema2 | evaluate schema_merge()
 |HttpStatus|1|System.Int32|INT|
 |Referrer|2|System.String|строка|
 
-Слияние со схемой, которая имеет`HttpStatus` различные заказы столбцов (порядковые изменения от `1` к `2` в новом варианте):
+Слияние с схемой, которая имеет другой порядок столбцов ( `HttpStatus` порядковый номер изменяется с `1` на `2` в новом варианте).
 
 ```kusto
 let schema1 = datatable(Uri:string, HttpStatus:int)[] | getschema;
@@ -73,9 +73,9 @@ union schema1, schema2 | evaluate schema_merge()
 |---|---|---|---|
 |URI|0|System.String|строка|
 |Referrer|1|System.String|строка|
-|HttpStatus|-1|ERROR (неизвестный тип CSL:ERROR (столбцы вышли из строя))|ERROR (столбцы вышли из строя)|
+|HttpStatus|-1|Ошибка (неизвестный тип CSL: ошибка (неупорядоченные столбцы))|Ошибка (неупорядоченные столбцы)|
 
-Слияние со схемой, которая имеет различные `PreserveOrder` заказы `false` столбца, но с набором на этот раз:
+Выполнить слияние с схемой, которая имеет другой порядок столбцов, но с параметром `PreserveOrder` `false` .
 
 ```kusto
 let schema1 = datatable(Uri:string, HttpStatus:int)[] | getschema;
