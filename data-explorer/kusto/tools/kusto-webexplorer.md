@@ -1,6 +1,6 @@
 ---
-title: Kusto.WebExplorer - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описывается Kusto.WebExplorer в Azure Data Explorer.
+title: Kusto. просматривает обозреватель данных Azure | Документация Майкрософт
+description: В этой статье описывается Kusto. обозреватель данных в Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,62 +8,62 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 1f6926df09a207cfea2b9201ef57f36932a63f74
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: d53f12c4a0c4dd2bce669dbe004b8f325db27af5
+ms.sourcegitcommit: 4986354cc1ba25c584e4f3c7eac7b5ff499f0cf1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81523874"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84856387"
 ---
-# <a name="kustowebexplorer"></a>Kusto.WebExplorer
+# <a name="kustowebexplorer"></a>Kusto.
 
-Kusto.WebExplorer — это веб-приложение, которое можно использовать для отправки запросов и команд управления в службу Kusto. Приложение размещаетсяhttps://dataexplorer.azure.com/по ссылке наhttps://aka.ms/kwe«К» и коротко связано с помощью .
+Kusto. WebService — это веб-приложение, которое можно использовать для отправки запросов и управления командами в службу Kusto. Приложение размещается в https://dataexplorer.azure.com/ и является коротким, связанным с https://aka.ms/kwe .
 
 
 
-Kusto.WebExplorer также может быть размещен на других веб-порталах в HTML IFRAME.
-(Например, это делается [порталом Azure](https://portal.azure.com).) Подробную информацию о том, как его принимать у себя, читайте в материале [журнала "Огонек" "Монако".](../api/monaco/monaco-kusto.md)
+Kusto. веб-проводник может также размещаться на других порталах в окне IFRAME в формате HTML.
+(Например, это можно сделать с помощью [портал Azure](https://portal.azure.com).) Дополнительные сведения о том, как разместить и использовать редактор Монако, см. в статье [Монако IDE](../api/monaco/monaco-kusto.md) .
 
 ## <a name="connect-to-multiple-clusters"></a>Подключение к нескольким кластерам
 
-Теперь можно подключить несколько кластеров и переключаться между базами данных и кластерами.
-Инструмент предназначен для легкой идентификации кластера и базы данных, к которой вы подключены.
+Теперь можно подключать несколько кластеров и переключаться между базами данных и кластерами.
+Средство предназначено для простого обнаружения кластера и базы данных, к которым вы подключены.
 
-![альт текст](./Images/KustoTools-WebExplorer/AddingCluster.gif "ДобавлениеКластера")
+![Замещающий текст](./Images/KustoTools-WebExplorer/AddingCluster.gif "аддингклустер")
 
-## <a name="recall-results"></a>Отзыв результатов
+## <a name="recall-results"></a>Результаты отзыва
 
-Часто во время анализа мы запускаем несколько запросов и, возможно, придется пересмотреть результаты предыдущих запросов. Эту функцию можно использовать для отзыва результатов без повторного выполнения запроса. Данные подаются из локального кэша на стороне клиента.
+Часто во время анализа выполняется несколько запросов, и может потребоваться повторное посещение результатов предыдущих запросов. Эту функцию можно использовать для отзыва результатов без необходимости повторного выполнения запроса. Данные обслуживаются из локального кэша на стороне клиента.
 
-![альт текст](./Images/KustoTools-WebExplorer/RecallResults.gif "ОтзывРезультаты")
+![Замещающий текст](./Images/KustoTools-WebExplorer/RecallResults.gif "рекаллресултс")
 
-## <a name="enhanced-results-grid-control"></a>Улучшенный контроль сетки результатов
+## <a name="enhanced-results-grid-control"></a>Элемент управления таблицы улучшенных результатов
 
-Таблица позволяет выбрать несколько строк, столбцов и ячеек. Вычислите агрегаты, выбрав несколько ячеек (например, Excel) и разобрав данные.
+Сетка таблицы позволяет выбрать несколько строк, столбцов и ячеек. Вычисление агрегатов путем выбора нескольких ячеек (например, Excel) и сведение данных.
 
-![альт текст](./Images/KustoTools-WebExplorer/EnhancedGrid.gif "EnhancedGrid")
+![Замещающий текст](./Images/KustoTools-WebExplorer/EnhancedGrid.gif "енханцедгрид")
 
-## <a name="intellisense--formatting"></a>Интеллиsense & Форматирование
+## <a name="intellisense--formatting"></a>Форматирование & IntelliSense
 
-Вы можете использовать формат pretty-print, используя клавишу ярлыка "Shift и Alt s F", складывание кода (изложение) и IntelliSense.
+Можно использовать формат для печати в удобном формате, используя сочетание клавиш SHIFT + ALT + F, свертывание кода (структурирование) и IntelliSense.
 
-![альт текст](./Images/KustoTools-WebExplorer/Formating.gif "Форматирования")
+![Замещающий текст](./Images/KustoTools-WebExplorer/Formating.gif "Форматирование")
 
-## <a name="deep-linking"></a>Глубокая связь
+## <a name="deep-linking"></a>Глубокая компоновка
 
-Вы можете скопировать только глубокую ссылку или глубокую ссылку и запрос. Можно также отформатировать URL-адрес для включения кластера, базы данных и запроса с помощью следующего шаблона:
+Можно скопировать только глубокую ссылку или глубокую ссылку и запрос. Можно также отформатировать URL-адрес для включения кластера, базы данных и запроса с помощью следующего шаблона:
 
-`https://dataexplorer.azure.com/`Кластер`clusters/` *Cluster* -`/databases/` База`?` *данных* и *варианты*
+`https://dataexplorer.azure.com/`[ `clusters/` *Cluster* [ `/databases/` *Database* `?` *Параметры*]]]
 
-Возможны следующие варианты:
+Можно указать следующие параметры:
 
-* `workspace=empty`: Указывает на создание нового пустого рабочего пространства (не будет выполнен отзыв предыдущих кластеров, вкладок и запросов).
+* `workspace=empty`: Указывает на создание пустой рабочей области (без отзыва предыдущих кластеров, вкладок и запросов).
 
 
 
-![альт текст](./Images/KustoTools-WebExplorer/DeepLink.gif "DeepLink")
+![Замещающий текст](./Images/KustoTools-WebExplorer/DeepLink.gif "DeepLink")
 
 ## <a name="feedback"></a>Отзывы
 
-Вы можете отправить свои отзывы с помощью инструмента.
-![альт текст](./Images/KustoTools-WebExplorer/Feedback.gif "Отзывы")
+Вы можете отправить отзыв с помощью средства.
+![Замещающий текст](./Images/KustoTools-WebExplorer/Feedback.gif "Отзывы")

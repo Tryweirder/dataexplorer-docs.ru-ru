@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/30/2019
-ms.openlocfilehash: f51e05abac44b85ab328e7df5645eeab51d2a274
-ms.sourcegitcommit: 974d5f2bccabe504583e387904851275567832e7
+ms.openlocfilehash: fa97777da8173034098037f1aceec385a4c206de
+ms.sourcegitcommit: 3848b8db4c3a16bda91c4a5b7b8b2e1088458a3a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83550628"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84818604"
 ---
 # <a name="tables"></a>Таблицы
 
@@ -60,3 +60,6 @@ cluster("https://help.kusto.windows.net").database("Samples").StormEvents
 let counter=(TableName:string) { table(TableName) | count };
 counter("StormEvents")
 ```
+
+> [!NOTE]
+> Используйте `table()` специальную функцию, чтобы явно указать область данных таблицы. Например, с помощью этой функции можно ограничить обработку данными в таблице, которая попадает в оперативный кэш.

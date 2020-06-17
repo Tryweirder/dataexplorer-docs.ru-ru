@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/22/2019
-ms.openlocfilehash: d2e1c5dbb845e67a5306ccb16c234de383d3ca69
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: ffef2fd609075b0d5e5af5c4064e079c27cd8c94
+ms.sourcegitcommit: 3848b8db4c3a16bda91c4a5b7b8b2e1088458a3a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225349"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84818501"
 ---
 # <a name="base64_decode_tostring"></a>base64_decode_tostring()
 
@@ -32,7 +32,7 @@ ms.locfileid: "83225349"
 Возвращает строку в кодировке UTF-8, декодированную из строки Base64.
 
 * Сведения о декодировании строк Base64 в массив длинных значений см. в разделе [base64_decode_toarray ()](base64_decode_toarrayfunction.md) .
-* Сведения о кодировке строк в строку Base64 см. в разделе [base64_encode_tostring ()](base64_encode_tostringfunction.md) .
+* Сведения о декодировании строк в строку Base64 см. в разделе [base64_encode_tostring ()](base64_encode_tostringfunction.md) .
 
 **Пример**
 
