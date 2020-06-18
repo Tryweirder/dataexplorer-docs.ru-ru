@@ -325,6 +325,8 @@
               href: ./kusto/query/best-practices.md
             - name: Запросы между базами данных и между кластерами
               href: ./kusto/query/cross-cluster-or-database-queries.md
+            - name: Кэш результатов запроса
+              href: ./kusto/query/query-results-cache.md
         - name: Сущности
           items:
             - name: Типы сущностей
@@ -1447,6 +1449,13 @@
               href: ./kusto/management/data-export/continuous-data-export.md
         - name: Курсоры баз данных
           href: ./kusto/management/databasecursor.md
+        - name: Кэш результатов запроса
+          href: ./kusto/management/query-results-cache-commands.md
+          items:
+            - name: Отображение кэша
+              href: ./kusto/management/show-query-results-cache-command.md
+            - name: Очистка кэша
+              href: ./kusto/management/clear-query-results-cache-command.md
         - name: Сведения о системе
           href: ./kusto/management/systeminfo.md
           items:
