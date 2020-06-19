@@ -4,20 +4,21 @@ description: В этой статье описывается оператор Pa
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 8255f3d0c3dc0006029f06c7a0da4b41dfbaa1b7
-ms.sourcegitcommit: 733bde4c6bc422c64752af338b29cd55a5af1f88
+ms.openlocfilehash: 07318a64781678410374f902ff8fe5514a4bdd17
+ms.sourcegitcommit: f9d3f54114fb8fab5c487b6aea9230260b85c41d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83271345"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85071911"
 ---
 # <a name="parse-operator"></a>Оператор parse
 
-оценивает выражение строки и разбирает его на один или несколько вычисляемых столбцов. Для неудачно проанализированных строк вычисляемые столбцы будут иметь значения NULL.
+оценивает выражение строки и разбирает его на один или несколько вычисляемых столбцов. Для неудачно проанализированных строк вычисляемые столбцы будут иметь значения NULL. 
+
 См. раздел оператор [Parse-WHERE](parsewhereoperator.md) , который отфильтровывает неудачно проанализированные строки.
 
 ```kusto
