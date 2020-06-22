@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 11/19/2019
-ms.openlocfilehash: d31765d72d37b0146cf7ba8a42e02722296bf80e
-ms.sourcegitcommit: 436cd515ea0d83d46e3ac6328670ee78b64ccb05
+ms.openlocfilehash: a69362b590acee99fbe9b57d9303099f0033d458
+ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81663467"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85128501"
 ---
-# <a name="entities"></a>Сущности
+# <a name="entity-types"></a>Типы сущностей
 
 Запросы Kusto выполняются в контексте определенных баз данных Kusto, подключенных к кластеру Kusto. Данные в базе данных упорядочены в таблицы, на которые может ссылаться запрос, а сами таблицы организованы в формате прямоугольной сетки из столбцов и строк. Кроме того, запросы могут ссылаться на хранимые функции в базе данных, то есть доступные для многократного использования фрагменты запросов.
 
