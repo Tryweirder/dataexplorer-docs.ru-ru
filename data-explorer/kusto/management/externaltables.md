@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/26/2020
-ms.openlocfilehash: 293ee468f31fafafdf08da1632c93b04b0a8adf2
-ms.sourcegitcommit: f7101c6b41ec250d05f4cb6092e2939958b37b40
+ms.openlocfilehash: 8e419d471419a291b3680c4b91d3e6908b2e7f2e
+ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84329016"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85128841"
 ---
 # <a name="external-table-general-control-commands"></a>Команды для общего управления внешней таблицей
 
@@ -50,7 +50,7 @@ ms.locfileid: "84329016"
 
 | TableName | TableType | Папка         | DocString | Свойства |
 |-----------|-----------|----------------|-----------|------------|
-| T         | BLOB-объект      | екстерналтаблес | Документы      | {}         |
+| T         | BLOB-объект      | екстерналтаблес | Docs      | {}         |
 
 
 ## <a name="show-external-table-schema"></a>. отобразить схему внешней таблицы
@@ -69,7 +69,7 @@ ms.locfileid: "84329016"
 | Выходной параметр | Тип   | Описание                        |
 |------------------|--------|------------------------------------|
 | TableName        | строка | Имя внешней таблицы            |
-| Схема           | строка | Схема таблицы в формате JSON |
+| схема           | строка | Схема таблицы в формате JSON |
 | имя_базы_данных     | строка | Имя базы данных таблицы             |
 | Папка           | строка | Папка таблицы                    |
 | DocString        | строка | Строка документирования таблицы      |
@@ -85,20 +85,20 @@ ms.locfileid: "84329016"
 .show external table T cslschema
 ```
 
-**Проверки**
+**Выходные данные:**
 
 *формат*
 
-| TableName | Схема    | имя_базы_данных | Папка         | DocString |
+| TableName | схема    | имя_базы_данных | Папка         | DocString |
 |-----------|----------------------------------|--------------|----------------|-----------|
-| T         | {"Имя": "Екстерналблоб",<br>"Папка": "Екстерналтаблес",<br>"DocString": "документы",<br>"Ордередколумнс": [{"имя": "x", "Type": "System. Int64", "Кслтипе": "Long", "DocString": ""}, {"имя": "s", "Type": "System. String", "Кслтипе": "строка", "DocString": ""}]} | DB           | екстерналтаблес | Документы      |
+| T         | {"Имя": "Екстерналблоб",<br>"Папка": "Екстерналтаблес",<br>"DocString": "документы",<br>"Ордередколумнс": [{"имя": "x", "Type": "System. Int64", "Кслтипе": "Long", "DocString": ""}, {"имя": "s", "Type": "System. String", "Кслтипе": "строка", "DocString": ""}]} | DB           | екстерналтаблес | Docs      |
 
 
 *CSL*
 
-| TableName | Схема          | имя_базы_данных | Папка         | DocString |
+| TableName | схема          | имя_базы_данных | Папка         | DocString |
 |-----------|-----------------|--------------|----------------|-----------|
-| T         | КС:Лонг, с:стринг | DB           | екстерналтаблес | Документы      |
+| T         | КС:Лонг, с:стринг | DB           | екстерналтаблес | Docs      |
 
 ## <a name="drop-external-table"></a>. Удаление внешней таблицы
 
@@ -108,7 +108,7 @@ ms.locfileid: "84329016"
 
 **Синтаксис**  
 
-`.drop` `external` `table` *TableName*
+`.drop``external` `table` *TableName* [ `ifexists` ]
 
 **Выходные данные**
 
@@ -120,9 +120,9 @@ ms.locfileid: "84329016"
 .drop external table ExternalBlob
 ```
 
-| TableName | TableType | Папка         | DocString | Схема       | Свойства |
+| TableName | TableType | Папка         | DocString | схема       | Свойства |
 |-----------|-----------|----------------|-----------|-----------------------------------------------------|------------|
-| T         | BLOB-объект      | екстерналтаблес | Документы      | [{"Name": "x", "Кслтипе": "Long"},<br> {"Name": "s", "Кслтипе": "String"}] | {}         |
+| T         | BLOB-объект      | екстерналтаблес | Docs      | [{"Name": "x", "Кслтипе": "Long"},<br> {"Name": "s", "Кслтипе": "String"}] | {}         |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -1,6 +1,6 @@
 ---
-title: prev() - Azure Data Explorer Документы Майкрософт
-description: В этой статье описанprev() в Azure Data Explorer.
+title: назад () — Azure обозреватель данных
+description: В этой статье описываются предыдущие () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,33 +8,35 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 33f6045333826b21ddc0092e2cc7d5e033c12a96
-ms.sourcegitcommit: e94be7045d71a0435b4171ca3a7c30455e6dfa57
+ms.openlocfilehash: 4216f691345c7dffd3bb1974e5f82e877ffb70f2
+ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81744595"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85128994"
 ---
 # <a name="prev"></a>prev()
 
-Возвращает значение столбца в строку, которое он в некоторой смещении до текущего ряда в [наборе серийного ряда.](./windowsfunctions.md#serialized-row-set)
+Возвращает значение указанного столбца в указанной строке.
+Указанная строка находится в указанном смещении от текущей строки в [сериализованном наборе строк](./windowsfunctions.md#serialized-row-set).
 
 **Синтаксис**
 
-`prev(column)`
+Существует несколько возможностей.
 
-`prev(column, offset)`
+* `prev(column)`
 
-`prev(column, offset, default_value)`
+* `prev(column, offset)`
+
+* `prev(column, offset, default_value)`
 
 **Аргументы**
 
-* `column`: столбец, чтобы получить значения от.
+* `column`: Столбец, из которого нужно получить значения.
 
-* `offset`: смещение, чтобы вернуться в ряды. При отсутствии смещения указывается, используется смещение по умолчанию 1.
+* `offset`: Смещение для возврата в строках. Если смещение не указано, используется смещение по умолчанию 1.
 
-* `default_value`: значение по умолчанию, используемое при отсутствии предыдущих строк, из которые можно было бы взять значение. Когда значение по умолчанию не указано, используется null.
-
+* `default_value`: Значение по умолчанию, используемое при отсутствии предыдущих строк для получения значения. Если значение по умолчанию не указано, используется значение null.
 
 **Примеры**
 

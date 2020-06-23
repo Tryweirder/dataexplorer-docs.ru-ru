@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: fb842bcda70c2986bd754f55184413eec594d412
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: a93a8b493959b6d335f01b9d3fcda24ae7c31748
+ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373115"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85128943"
 ---
-# <a name="queries"></a>Запросы
+# <a name="query-operators"></a>Операторы запросов
 
 Запрос — это операция, доступная только для чтения, к принимающим данным кластера Kusto Engine. Запросы всегда выполняются в контексте определенной базы данных в кластере (хотя они также могут ссылаться на данные в другой базе данных или даже в другом кластере).
 

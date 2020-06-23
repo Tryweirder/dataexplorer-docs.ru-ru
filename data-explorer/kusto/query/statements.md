@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 12/10/2019
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 6e383ce9fdcf373452c0b7d710302669e7987395
-ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
+ms.openlocfilehash: 778b8c276d6264b890c0b0be7b127f578663a64d
+ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737850"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85129062"
 ---
-# <a name="query-statements"></a>Инструкции запросов
+# <a name="query-statement-types"></a>Типы инструкций запросов
 
 ::: zone pivot="azuredataexplorer"
 
-Запрос состоит из одной или нескольких **инструкций запроса**, разделенных точкой с запятой (`;`).
+Запрос состоит из одной или нескольких **инструкций запроса**, разделенных точкой с запятой ( `;` ).
 По крайней мере один из этих инструкций запроса должен быть [оператором табличного выражения](./tabularexpressionstatements.md).
 Оператор табличного выражения формирует один или несколько табличных результатов.
 Если запрос содержит несколько инструкций табличного выражения, то запрос содержит [пакет](./batches.md) инструкций табличных выражений, а табличные результаты, формируемые этими инструкциями, возвращаются запросом.

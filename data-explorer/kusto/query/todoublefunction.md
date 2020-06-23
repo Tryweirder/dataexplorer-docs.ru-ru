@@ -1,6 +1,6 @@
 ---
-title: удвоить()/тореальную() - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается дубль()/тореальный() в Azure Data Explorer.
+title: ToDouble ()/тореал () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается ToDouble ()/тореал () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: eb9c976f1646f71fcf8b345899037461f58f4ef0
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: e62432773d99d74a46022cad3199f3bab0cae50b
+ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506330"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85128477"
 ---
-# <a name="todoubletoreal"></a>удвоить()/тореальную()
+# <a name="todouble-toreal"></a>ToDouble (), тореал ()
 
-Преобразует входные значения в значение `real`типа. `todouble()` (и `toreal()` являются синонимами.)
+Преобразует входные данные в значение типа `real` . ( `todouble()` и `toreal()` являются синонимами.)
 
 ```kusto
 toreal("123.4") == 123.4
@@ -25,16 +25,16 @@ toreal("123.4") == 123.4
 
 **Синтаксис**
 
-`toreal(`*Expr*`)`
-`todouble(`*Expr*`)`
+`toreal(`*Expr* `)` 
+ Выражение `todouble(` *Выражение*`)`
 
 **Аргументы**
 
-* *Expr*: Выражение, значение которого будет `real`преобразовано в значение типа.
+* *Expr*: выражение, значение которого будет преобразовано в значение типа `real` .
 
 **Возвращает**
 
-Если преобразование успешно, результатом `real`является значение типа .
-Если преобразование не является успешным, результатом является значение `real(null)`.
+Если преобразование выполнено успешно, результатом является значение типа `real` .
+Если преобразование не выполнено, результатом является значение `real(null)` .
 
-*Примечание*: Предпочитаюиспользовать использование [двойной () или реальной ()](./scalar-data-types/real.md) когда это возможно.
+*Примечание*. предпочитать использование [Double () или Real ()](./scalar-data-types/real.md) , если это возможно.

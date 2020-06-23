@@ -4,16 +4,16 @@ description: В этой статье описываются скалярные 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/27/2020
-ms.openlocfilehash: 3ef87217beee62fe4cecf7ee95dfe8daba49af7a
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 95bb28c81ec3221569758ead8a289bdf81d32d3d
+ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81490248"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85128654"
 ---
 # <a name="scalar-data-types"></a>Скалярные типы данных
 
@@ -26,22 +26,22 @@ Kusto предоставляет набор системных типов дан
 
 В следующей таблице перечислены все поддерживаемые в Kusto типы данных, а также дополнительные псевдонимы для ссылки на них и приблизительные эквиваленты типов для .NET Framework.
 
-| Тип       | Дополнительные имена   | Эквивалентный тип .NET              | gettype()   |Тип хранилища (внутреннее имя)|
-| ---------- | -------------------- | --------------------------------- | ----------- |----------------------------|
-| `bool`     | `boolean`            | `System.Boolean`                  | `int8`      |`I8`                        |
-| `datetime` | `date`               | `System.DateTime`                 | `datetime`  |`DateTime`                  |
-| `dynamic`  |                      | `System.Object`                   | `array`, `dictionary`, или любое другое значение |`Dynamic`|
-| `guid`     | `uuid`, `uniqueid`   | `System.Guid`                     | `guid`      |`UniqueId`                  |
-| `int`      |                      | `System.Int32`                    | `int`       |`I32`                       |
-| `long`     |                      | `System.Int64`                    | `long`      |`I64`                       |
-| `real`     | `double`             | `System.Double`                   | `real`      |`R64`                       |
-| `string`   |                      | `System.String`                   | `string`    |`StringBuffer`              |
-| `timespan` | `time`               | `System.TimeSpan`                 | `timespan`  |`TimeSpan`                  |
-| `decimal`  |                      | `System.Data.SqlTypes.SqlDecimal` | `decimal`   | `Decimal`                  |
+| Тип       | Дополнительные имена   | Эквивалентный тип .NET              | gettype()   |
+| ---------- | -------------------- | --------------------------------- | ----------- |
+| `bool`     | `boolean`            | `System.Boolean`                  | `int8`      |
+| `datetime` | `date`               | `System.DateTime`                 | `datetime`  |
+| `dynamic`  |                      | `System.Object`                   | `array`, `dictionary`, или любое другое значение |
+| `guid`     | `uuid`, `uniqueid`   | `System.Guid`                     | `guid`      |
+| `int`      |                      | `System.Int32`                    | `int`       |
+| `long`     |                      | `System.Int64`                    | `long`      |
+| `real`     | `double`             | `System.Double`                   | `real`      |
+| `string`   |                      | `System.String`                   | `string`    |
+| `timespan` | `time`               | `System.TimeSpan`                 | `timespan`  |
+| `decimal`  |                      | `System.Data.SqlTypes.SqlDecimal` | `decimal`   |
 
-Все типы данных принимают специальное значение NULL, которое обозначает отсутствие данных или несоответствие данных. Например, попытка приема строки `"abc"` в столбец `int` передает такое значение.
+Все типы данных, кроме строковых, принимают специальное значение NULL, которое обозначает отсутствие данных или несоответствие данных. Например, попытка приема строки `"abc"` в столбец `int` передает такое значение.
 Это значение невозможно вычислить явным образом, но вы можете определить такой результат выражения с помощью функции `isnull()`.
 
 > [!WARNING]
-> На момент написания этой статьи поддержка типа `guid` является неполной. Мы настоятельно рекомендуем разработчикам использовать вместо него значения с типом `string`.
-
+> Тип `guid` поддерживается частично.
+> Мы настоятельно рекомендуем разработчикам использовать вместо него значения с типом `string`.

@@ -310,23 +310,20 @@
           href: troubleshoot-database-table.md
 - name: Справочник
   items:
-    - name: Язык запросов
-      href: ./kusto/query/index.md
+    - name: Запрос Kusto
       items:
         - name: Обзор
-          items:
-            - name: Запрос Kusto
-              href: ./kusto/query/index.md
-            - name: Учебник
-              href: ./kusto/query/tutorial.md
-            - name: Примеры
-              href: ./kusto/query/samples.md
-            - name: Рекомендации
-              href: ./kusto/query/best-practices.md
-            - name: Запросы между базами данных и между кластерами
-              href: ./kusto/query/cross-cluster-or-database-queries.md
-            - name: Кэш результатов запроса
-              href: ./kusto/query/query-results-cache.md
+          href: ./kusto/query/index.md
+        - name: Учебник
+          href: ./kusto/query/tutorial.md
+        - name: Примеры
+          href: ./kusto/query/samples.md
+        - name: Рекомендации
+          href: ./kusto/query/best-practices.md
+        - name: Запросы между базами данных и между кластерами
+          href: ./kusto/query/cross-cluster-or-database-queries.md
+        - name: Кэш результатов запроса
+          href: ./kusto/query/query-results-cache.md
         - name: Сущности
           items:
             - name: Типы сущностей
@@ -347,7 +344,7 @@
               href: ./kusto/query/schema-entities/externaltables.md
         - name: Типы данных
           items:
-            - name: Основные сведения о типах скалярных данных
+            - name: Скалярные типы данных
               href: ./kusto/query/scalar-data-types/index.md
             - name: bool
               href: ./kusto/query/scalar-data-types/bool.md
@@ -372,7 +369,7 @@
             - name: Значения NULL
               href: ./kusto/query/scalar-data-types/null-values.md
             - name: Неподдерживаемые скалярные типы данных
-              href: /kusto/query/scalar-data-types/unsupported-data-types.md
+              href: ./kusto/query/scalar-data-types/unsupported-data-types.md
         - name: Функции
           items:
             - name: Типы функций
@@ -401,7 +398,7 @@
               href: ./kusto/query/batches.md
         - name: Табличные операторы
           items:
-            - name: Табличные данные
+            - name: Операторы запроса
               href: ./kusto/query/queries.md
             - name: Оператор as
               href: ./kusto/query/asoperator.md
@@ -415,7 +412,7 @@
               href: ./kusto/query/distinctoperator.md
             - name: Оператор evaluate
               items:
-                - name: Оператор evaluate для подключаемых модулей
+                - name: Подключаемые модули оператора evaluate
                   href: ./kusto/query/evaluateoperator.md
                 - name: autocluster
                   href: ./kusto/query/autoclusterplugin.md
@@ -465,9 +462,9 @@
               href: ./kusto/query/invokeoperator.md
             - name: Оператор join
               items:
-                - name: Общие сведения об операторе join
+                - name: Оператор join
                   href: ./kusto/query/joinoperator.md
-                - name: shuffle
+                - name: Запрос на перетасовку
                   href: ./kusto/query/shufflequery.md
                 - name: Соединение между кластерами
                   href: ./kusto/query/joincrosscluster.md

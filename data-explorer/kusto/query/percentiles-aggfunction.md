@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/30/2020
-ms.openlocfilehash: dfb957189eb0d9be552cf12b32ef57452a375c51
-ms.sourcegitcommit: 188f89553b9d0230a8e7152fa1fce56c09ebb6d6
+ms.openlocfilehash: b70ee322d4718f78a37144b650a147c5c9965a60
+ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84512560"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85129028"
 ---
-# <a name="percentile-percentiles"></a>процентиль (), процентили ()
+# <a name="percentile-percentiles-aggregation-function"></a>процентиль (), процентили () (агрегатная функция)
 
 Возвращает оценку по заданному [значению ближайшего ранга](#nearest-rank-percentile) Генеральной совокупности, определенной `*Expr*` .
 Точность зависит от плотности заполнения области процентиля. Эта функция может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
