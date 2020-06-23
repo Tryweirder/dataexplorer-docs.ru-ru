@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/22/2020
-ms.openlocfilehash: 348d9d1e9f50beb258138febf064b97b8c18c488
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 693c639ab3240ac555916a5f6862e7d57dba65e5
+ms.sourcegitcommit: 085e212fe9d497ee6f9f477dd0d5077f7a3e492e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372170"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85133436"
 ---
 # <a name="sql-to-kusto-query-translation"></a>Преобразование запросов SQL в Kusto
 
 Kusto поддерживает подмножество языка SQL. Полный список неподдерживаемых функций см. в списке [известных проблем SQL](../api/tds/sqlknownissues.md) .
 
-Основным языком взаимодействия с Kusto является ККл (язык запросов Kusto), и для упрощения перехода и обучения можно использовать службу Kusto для преобразования SQL-запросов в ККЛ. Это можно сделать, отправив SQL Query в Kusto Services в префиксную команду "объяснить".
+Основным языком взаимодействия с Kusto является ККл (язык запросов Kusto). Чтобы упростить процесс перехода и обучения, можно использовать Kusto для преобразования SQL запросов в ККЛ. Отправьте запрос SQL в Kusto, добавив в него команду "объяснить".
 
 Пример:
 
@@ -35,7 +35,7 @@ SELECT COUNT_BIG(*) as C FROM StormEvents
 
 ## <a name="sql-to-kusto-cheat-sheet"></a>Таблица Памятка по SQL в Kusto
 
-В таблице ниже показаны примеры запросов в SQL и их ККЛ екуивалиентс.
+В таблице ниже показаны примеры запросов в SQL и их эквиваленты ККЛ.
 
 |Категория |Запросы SQL |Запрос Kusto
 |---|---|---

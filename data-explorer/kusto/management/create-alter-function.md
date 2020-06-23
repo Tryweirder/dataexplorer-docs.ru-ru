@@ -1,6 +1,6 @@
 ---
-title: функция .create-or-alter - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается функция .create-or-alter в Azure Data Explorer.
+title: . Create-или-ALTER FUNCTION — Azure обозреватель данных
+description: В этой статье описывается, как создать или изменить функцию в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,22 +8,22 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/11/2020
-ms.openlocfilehash: 9e9c24f7fda44d6c44b8f78d8622b525268a341a
-ms.sourcegitcommit: e94be7045d71a0435b4171ca3a7c30455e6dfa57
+ms.openlocfilehash: f19ca38f344f10b9dd8e4491b467eaad5ca022bc
+ms.sourcegitcommit: a034b6a795ed5e62865fcf9340906f91945b3971
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81744290"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85197248"
 ---
 # <a name="create-or-alter-function"></a>.create-or-alter function
 
-Создает функцию хранения или изменяет существующую функцию и хранит ее в метаданных базы данных.
+Создает хранимую функцию или изменяет существующую функцию и сохраняет ее в метаданных базы данных.
 
 ```kusto
 .create-or-alter function [with (docstring = '<description>', folder='<name>')] [FunctionName] ([paramName:paramType], ...) { CSL-statement }
 ```
 
-Если функция с предоставленной *Функцией* Не существует в метаданных базы данных, команда создает новую функцию. Если функция уже существует, эта функция будет изменена.
+Если функция с указанным *FunctionName* не существует в метаданных базы данных, команда создает новую функцию. В противном случае эта функция будет изменена.
 
 **Пример**
 
@@ -36,4 +36,4 @@ ms.locfileid: "81744290"
 
 |Имя|Параметры|Текст|Папка|DocString|
 |---|---|---|---|---|
-|TestFunction|(myLimit:int)|- StormEvents &#124; принять myLimit|MyFolder|Функция демо с параметром|
+|тестфунктион|(Милимит: int)|{Стормевентс &#124; take Милимит}|MyFolder|Демонстрационная функция с параметром|

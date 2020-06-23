@@ -1,31 +1,49 @@
 ---
-title: подсчет () (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается количество () (функция агрегирования) в Azure Data Explorer.
+title: Count () (агрегатная функция) — обозреватель данных Azure | Документация Майкрософт
+description: В этой статье описывается Count () (агрегатная функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
-ms.date: 01/23/2020
-ms.openlocfilehash: 59b898d44507d844db1f714ef15effa004e5546f
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.date: 06/21/2020
+ms.openlocfilehash: 6a06be43773a356e903b25b2697e75b8342ed7f8
+ms.sourcegitcommit: 085e212fe9d497ee6f9f477dd0d5077f7a3e492e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81517006"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85133482"
 ---
-# <a name="count-aggregation-function"></a>кол() (функция агрегирования)
+# <a name="count-aggregation-function"></a>Count () (агрегатная функция)
 
-Возвращает подсчет записей на группу обобщений (или в общей сложности, если обобщение осуществляется без группировки).
+Возвращает количество записей в группе формирования сводных данных (или, в целом, если формирование сводных данных выполняется без группирования).
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
-* Используйте функцию агрегации [countif](countif-aggfunction.md) для подсчета только `true`записей, для которых некоторые предикатные возвраты.
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
+* Функция [СЧЁТЕСЛИ](countif-aggfunction.md) агрегации используется для подсчета только тех записей, для которых возвращается некоторый предикат `true` .
 
 **Синтаксис**
 
-Суммировать`count()`
+SUMMARIZE`count()`
 
 **Возвращает**
 
-Возвращает подсчет записей на группу обобщений (или в общей сложности, если обобщение осуществляется без группировки).
+Возвращает количество записей в группе формирования сводных данных (или, в целом, если формирование сводных данных выполняется без группирования).
+
+**Пример**
+
+Подсчет событий в состояниях, начинающихся с буквы `W` :
+
+<!-- csl: https://help.kusto.windows.net/Samples -->
+```kusto
+StormEvents
+| where State startswith "W"
+| summarize Count=count() by State
+```
+
+|Состояние|Count|
+|---|---|
+|ЗАПАДНАЯ ВИРДЖИНИЯ|757|
+|ШТАТ ВАЙОМИНГ|396|
+|Вашингтон|261|
+|ВИСКОНСИНА|1850|
