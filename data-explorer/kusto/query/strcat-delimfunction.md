@@ -1,6 +1,6 @@
 ---
-title: strcat_delim () - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описывается strcat_delim () в Azure Data Explorer.
+title: strcat_delim () — обозреватель данных Azure
+description: В этой статье описывается strcat_delim () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,31 +8,31 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: f944af741cd5f655c2c9b090ddebc6cc35a47766
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: f6a78a5abb92aa93fe8b1ae15ea8968f71bde07c
+ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506942"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85264561"
 ---
 # <a name="strcat_delim"></a>strcat_delim()
 
-Concatenates между 2 и 64 аргументы, с делимитетом, при условии, в качестве первого аргумента.
+Выполняет сцепление между 2 и 64 аргументами с разделителем, указанным в качестве первого аргумента.
 
- * В случае, если аргументы не имеют типа строки, они будут принудительно преобразованы в строку.
+ * Если аргументы не принадлежат строковому типу, они будут принудительно преобразованы в строку.
 
 **Синтаксис**
 
-`strcat_delim(`*делимитер*,*argument1*,*argument2* , *argumentN*`)`
+`strcat_delim(`*Разделитель*, *argument1*, *argument2*[, *аргументн*]`)`
 
 **Аргументы**
 
-* *делимитер*: выражение строки, которое будет использоваться в качестве сепаратора.
-* *argument1* ... *argumentN* : выражения, которые должны быть сдуманы.
+* *Разделитель*: строковое выражение, которое будет использоваться в качестве разделителя.
+* *argument1* ... *аргументн*: объединяемые выражения.
 
 **Возвращает**
 
-Аргументы, скатированные в одну строку с *делимитетом.*
+Аргументы, Объединенные в одну строку с *разделителем*.
 
 **Примеры**
 

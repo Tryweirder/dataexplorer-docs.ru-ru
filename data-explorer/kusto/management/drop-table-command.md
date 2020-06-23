@@ -1,6 +1,6 @@
 ---
-title: таблица .drop и таблицы .drop - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны таблицы .drop и таблицы .drop в Azure Data Explorer.
+title: . Drop Table и. Drop-таблицы — Azure обозреватель данных
+description: В этой статье описывается, как удалить таблицу и удалить таблицы в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2020
-ms.openlocfilehash: 5f3a488aba5a6785ceb6ad4a093c520ec0509e5e
-ms.sourcegitcommit: e94be7045d71a0435b4171ca3a7c30455e6dfa57
+ms.openlocfilehash: 3e1eb57741302d34664f6cd8f256612a6e70bdd1
+ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81744756"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85264493"
 ---
-# <a name="drop-table-and-drop-tables"></a>таблица .drop и таблицы .drop
+# <a name="drop-table-and-drop-tables"></a>. Drop Table и. Drop, таблицы
 
-Удаляет таблицу (или несколько таблиц) из базы данных.
+Удаляет из базы данных таблицу или несколько таблиц.
 
-Требуется [разрешение на админ-аймин таблицы.](../management/access-control/role-based-authorization.md)
+Требуется [разрешение администратора таблицы](../management/access-control/role-based-authorization.md).
 
 > [!NOTE]
-> Команда `.drop` `table` только мягкая удаляет данные (т.е. данные не могут быть запрошены, но по-прежнему восстанавливается из постоянного хранения). Основные артефакты хранилища трудно удаляются `recoverability` в соответствии с свойством в [политике удержания,](../management/retentionpolicy.md) которая действовала на момент попавания данных в таблицу.
+> `.drop` `table` Команда только мягкая удаляет данные. То есть данные не могут быть запрошены, но по-прежнему можно восстановить из постоянного хранилища. Базовые артефакты хранилища жестко удаляются в соответствии со `recoverability` свойством в [политике хранения](../management/retentionpolicy.md) , которая действовала во время приема данных в таблице.
 
 **Синтаксис**
 
-`.drop``table` *ТаблицаИмя* `ifexists`
+`.drop``table` *TableName* [ `ifexists` ]
 
-`.drop``tables` (*TableName1*, *TableName2*,..) (если не существующие)
+`.drop``tables`(*TableName1*, *TableName2*,..) [IFEXISTS]
 
 > [!NOTE]
-> Если `ifexists` указано, команда не потерпит неудачу, если есть несуществующая таблица.
+> Если `ifexists` указан параметр, команда не будет выполнена, если имеется несуществующая таблица.
 
 **Пример**
 
@@ -42,7 +42,7 @@ ms.locfileid: "81744756"
 
 **Возвращает**
 
-Эта команда возвращает список оставшихся таблиц в базе данных. 
+Эта команда возвращает список оставшихся таблиц в базе данных.
 
 | Выходной параметр | Тип   | Описание                             |
 |------------------|--------|-----------------------------------------|

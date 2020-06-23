@@ -1,6 +1,6 @@
 ---
-title: todate time() - Azure Data Explorer Документы Майкрософт
-description: В этой статье описано time() в Azure Data Explorer.
+title: ToDateTime () — Azure обозреватель данных
+description: В этой статье описывается ToDateTime () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: abe3852195b1a79ab5c86176698099ed6e7ff7af
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: f5c108b670534728f34db8975f16d713848dd8f4
+ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506347"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85264614"
 ---
 # <a name="todatetime"></a>todatetime()
 
-Преобразует входные в [datetime](./scalar-data-types/datetime.md) scalar.
+Преобразует входные данные в скалярные значения [DateTime](./scalar-data-types/datetime.md) .
 
 ```kusto
 todatetime("2015-12-24") == datetime(2015-12-24)
@@ -25,15 +25,16 @@ todatetime("2015-12-24") == datetime(2015-12-24)
 
 **Синтаксис**
 
-`todatetime(`*Expr*`)`
+`todatetime(`*Выражения*`)`
 
 **Аргументы**
 
-* *Expr*: Выражение, которое будет преобразовано в [datetime.](./scalar-data-types/datetime.md) 
+* *Expr*: выражение, которое будет преобразовано в тип [DateTime](./scalar-data-types/datetime.md).
 
 **Возвращает**
 
-Если конверсия успешна, результат будет значением [времени даты.](./scalar-data-types/datetime.md)
-Если конверсия не будет успешной, результат будет нулевым.
+Если преобразование выполнено успешно, результатом будет значение [DateTime](./scalar-data-types/datetime.md) .
+В противном случае результат будет равен null.
  
-*Примечание*: Предпочитаюиспользовать время даты () по [возможности.](./scalar-data-types/datetime.md)
+> [!NOTE]
+> Предпочитать использование [DateTime ()](./scalar-data-types/datetime.md) , если это возможно.

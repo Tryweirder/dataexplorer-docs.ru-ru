@@ -1,6 +1,6 @@
 ---
-title: Оператор externaldata в Azure обозреватель данных | Документация Майкрософт
-description: В этой статье описывается оператор externaldata в Azure обозреватель данных.
+title: Оператор externaldata в Azure обозреватель данных
+description: В этой статье описывается оператор External Data в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: f8878a3c4589dca3cfacf935a787e8c754ab3ede
-ms.sourcegitcommit: a8575e80c65eab2a2118842e59f62aee0ff0e416
+ms.openlocfilehash: 4534705156669447a89cb5d85c360071dfcb2b2a
+ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84942681"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85265003"
 ---
 # <a name="externaldata-operator"></a>Оператор externaldata
 
-`externaldata`Оператор возвращает таблицу, схема которой определена в самом запросе и данные которой считываются из внешнего артефакта хранилища (например, большого двоичного объекта в хранилище BLOB-объектов Azure).
+`externaldata`Оператор возвращает таблицу, схема которой определена в самом запросе и данные которой считываются из внешнего артефакта хранилища, такого как большой двоичный объект в хранилище BLOB-объектов Azure.
 
 **Синтаксис**
 
@@ -25,7 +25,7 @@ ms.locfileid: "84942681"
 
 **Аргументы**
 
-* *ColumnName*, *ColumnType*: определение схемы таблицы.
+* *ColumnName*, *ColumnType*: аргументы определяют схему таблицы.
   Синтаксис совпадает с синтаксисом, используемым при определении таблицы в [таблице. Create](../management/create-table-command.md).
 
 * *StorageConnectionString*: [строка подключения к хранилищу](../api/connection-strings/storage.md) описывает артефакт хранилища, содержащий возвращаемые данные.
@@ -39,7 +39,7 @@ ms.locfileid: "84942681"
 
 **Возвращает**
 
-`externaldata`Оператор возвращает таблицу данных указанной схемы, данные из которой были проанализированы из указанного артефакта хранилища, указанного в строке подключения к хранилищу.
+`externaldata`Оператор возвращает таблицу данных указанной схемы, данные которой были проанализированы из указанного артефакта хранилища, указанного в строке подключения к хранилищу.
 
 **Примеры**
 
@@ -68,7 +68,7 @@ with(format="csv")
 | summarize count() by ProductId
 ```
 
-Приведенный выше пример можно рассматривать как быстрый способ запроса нескольких файлов данных без определения [внешней таблицы](schema-entities/externaltables.md). 
+Приведенный выше пример можно рассматривать как быстрый способ запроса нескольких файлов данных без определения [внешней таблицы](schema-entities/externaltables.md).
 
->[!NOTE]
->Оператор не распознает секционирование данных `externaldata()` .
+> [!NOTE]
+> Секционирование данных не распознается `externaldata()` оператором.

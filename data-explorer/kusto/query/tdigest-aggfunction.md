@@ -8,41 +8,42 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/10/2019
-ms.openlocfilehash: b98c551cb1ded8da291d4510b45a86d560f325b1
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 5a8ce5a66da871dfaa6f65a0fbc8addeb0f42926
+ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83371029"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85264597"
 ---
 # <a name="tdigest-aggregation-function"></a>тдижест () (агрегатная функция)
 
-Вычисляет промежуточные результаты [`percentiles()`](percentiles-aggfunction.md) по группе. 
+Вычисляет промежуточные результаты [`percentiles()`](percentiles-aggfunction.md) по группе.
 
-* Может использоваться только в контексте статистической обработки внутри [итоговых](summarizeoperator.md)данных.
+> [!NOTE]
+> Может использоваться только в контексте агрегирования, внутри [итоговых](summarizeoperator.md)данных.
 
-Узнайте больше о [базовом алгоритме (T-Digest) и предполагаемой ошибке](percentiles-aggfunction.md#estimation-error-in-percentiles).
+Дополнительные сведения см. в разделе [базовый алгоритм (T-Digest) и предполагаемая ошибка](percentiles-aggfunction.md#estimation-error-in-percentiles).
 
 **Синтаксис**
 
-`summarize``tdigest(` *Expr* [ `,` *веигхтекспр*]`)`
+`summarize` `tdigest`(*`Expr`* [`,` *`WeightExpr`*])
 
 **Аргументы**
 
-* *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
-* *Веигхтекспр*: выражение, которое будет использоваться в качестве веса значений для вычисления агрегата.
+* *Expr*: выражение, используемое для вычисления агрегата.
+* *Веигхтекспр*: выражение, используемое в качестве веса значений для вычисления статистической обработки.
 
     
 **Возвращает**
 
-Промежуточные результаты взвешенного процентили *выражения* в группе.
+Промежуточные результаты взвешенного процентили `*Expr*` в группе.
  
  
-**"Советы"**
+**Советы**
 
-1) Можно использовать статистическую функцию [tdigest_merge ()](tdigest-merge-aggfunction.md) для повторного слияния выходных данных тдижест в другой группе.
+* Используйте статистическую функцию [tdigest_merge ()](tdigest-merge-aggfunction.md) для повторного слияния выходных данных в `tdigest` другой группе.
 
-2) Функцию [percentile_tdigest ()](percentile-tdigestfunction.md) можно использовать для вычисления процентиля или перцентилев результатов тдижест.
+* Используйте функцию [percentile_tdigest ()](percentile-tdigestfunction.md) , чтобы вычислить процентиль/перцентилев `tdigest` результатов.
 
 **Примеры**
 
@@ -52,7 +53,7 @@ StormEvents
 | summarize tdigest(DamageProperty) by State
 ```
 
-|State|tdigest_DamageProperty|
+|Состояние|tdigest_DamageProperty|
 |---|---|
 |АТЛАНТИЧЕСКОЕ ЮГО|[[5], [0], [193]]|
 |Флорида|[[5], [250, 10, 600000, 5000, 375000, 15000000, 20000, 6000000, 0, 110000:, 150000, 500, 12000, 30000, 15000, 46000000, 7000000, 6200000, 200000, 40000, 8000, 52000000, 62000000, 1200000, 130000, 1500000, 4000000, 7000, 250000, 875000, 3000, 100000, 10600000, 300000, 1000000, 25 000, 75000, 2000, 170000, 350000, 16000, 50 000 400000], [9, 1, 1, 22, 1, 1, 9, 1842, 1, 3, 7, 2, 4, 7, 1, 1, 1, 2, 5, 3, 3, 1, 1, 1, 1, 2, 2, 1, 1, 9, 7, 1, 1, 2, 5, 2, 9, 2, 27, 1, 1, 7, 27, 1, 1, 1, 1]]|

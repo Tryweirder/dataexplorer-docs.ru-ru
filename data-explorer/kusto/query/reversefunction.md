@@ -1,6 +1,6 @@
 ---
-title: обратный () - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описано обратное () в Azure Data Explorer.
+title: Reverse () — Azure обозреватель данных
+description: В этой статье описывается обратная () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,30 +8,29 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: e95246e0586dff7dd89dc2658c7fae08b1bbaddf
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 22fe505eb8fd391e7a61120dbf42c214cb61c120
+ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81510308"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85264833"
 ---
 # <a name="reverse"></a>reverse()
 
-Функция делает обратную строку ввода.
-
-Если значение ввода не имеет типа строки, функция принудительно отбрасывает значение строки.
+Функция меняет порядок входной строки на обратный.
+Если входное значение не относится `string` к типу, функция принудительно приводит значение к типу `string` .
 
 **Синтаксис**
 
-`reverse(`*Источник*`)`
+`reverse(`*источника*`)`
 
 **Аргументы**
 
-* *источник*: значение ввода.  
+* *Source*: входное значение.  
 
 **Возвращает**
 
-Обратный порядок значения строки.
+Обратный порядок строкового значения.
 
 **Примеры**
 
@@ -40,9 +39,9 @@ print str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 | extend rstr = reverse(str)
 ```
 
-|str|Rstr|
+|str|RSTR|
 |---|---|
-|ABCDEFGHIJKLMNOPQRSTUVWXYZ|ЗИХВУТСР-ПоНЛКЛИХГГФЕДКБА|
+|ABCDEFGHIJKLMNOPQRSTUVWXYZ|зиксввутсркпонмлкжихгфедкба|
 
 
 ```kusto
@@ -52,11 +51,6 @@ print ['int'] = 12345, ['double'] = 123.45,
 rdatetime = reverse(['datetime']), rtimespan = reverse(['timespan'])
 ```
 
-|rint|rdouble|rdatetime|rtimespan|
+|rint|рдаубле|рдатетиме|ртимеспан|
 |---|---|---|---|
-|54321|54.321|0000000.00:21T51-01-7102|00:00:30|
-
-
-
-
- 
+|54321|54,321|Z 0000000.00:00:21T51-01-7102|00:00:30|
