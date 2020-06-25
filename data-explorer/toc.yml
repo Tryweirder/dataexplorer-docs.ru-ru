@@ -414,37 +414,37 @@
               items:
                 - name: Подключаемые модули оператора evaluate
                   href: ./kusto/query/evaluateoperator.md
-                - name: autocluster
+                - name: Подключаемый модуль autocluster
                   href: ./kusto/query/autoclusterplugin.md
-                - name: bag_unpack
+                - name: Подключаемый модуль bag_unpack
                   href: ./kusto/query/bag-unpackplugin.md
-                - name: basket
+                - name: Подключаемый модуль basket
                   href: ./kusto/query/basketplugin.md
-                - name: dcount_intersect
+                - name: Подключаемый модуль dcount_intersect
                   href: ./kusto/query/dcount-intersect-plugin.md
-                - name: diffpatterns
+                - name: Подключаемый модуль diffpatterns
                   href: ./kusto/query/diffpatternsplugin.md
-                - name: diffpatterns_text
+                - name: Подключаемый модуль diffpatterns_text
                   href: ./kusto/query/diffpatterns-textplugin.md
-                - name: infer_storage_schema
+                - name: Подключаемый модуль infer_storage_schema
                   href: ./kusto/query/inferstorageschemaplugin.md
-                - name: narrow
+                - name: Подключаемый модуль narrow
                   href: ./kusto/query/narrowplugin.md
-                - name: pivot
+                - name: Подключаемый модуль pivot
                   href: ./kusto/query/pivotplugin.md
-                - name: предварительный просмотр
+                - name: Подключаемый модуль preview
                   href: ./kusto/query/previewplugin.md
-                - name: python
+                - name: Подключаемый модуль python
                   href: ./kusto/query/pythonplugin.md
-                - name: R
+                - name: Подключаемый модуль R
                   href: ./kusto/query/rplugin.md
-                - name: rolling_percentile
+                - name: Подключаемый модуль rolling_percentile
                   href: ./kusto/query/rolling-percentile-plugin.md
-                - name: schema_merge
+                - name: Подключаемый модуль schema_merge
                   href: ./kusto/query/schemamergeplugin.md
-                - name: sql_request
+                - name: Подключаемый модуль sql_request
                   href: ./kusto/query/sqlrequestplugin.md
-                - name: sequence_detect
+                - name: Подключаемый модуль sequence_detect
                   href: ./kusto/query/sequence-detect-plugin.md
             - name: Оператор extend
               href: ./kusto/query/extendoperator.md
@@ -1060,10 +1060,6 @@
               href: ./kusto/query/rownumberfunction.md
             - name: row_window_session()
               href: ./kusto/query/row-window-session-function.md
-        - name: Агрегаты со скользящим окном
-          items:
-            - name: rolling_percentile()
-              href: ./kusto/query/rolling-percentile-plugin.md
         - name: Аналитика временных рядов
           items:
             - name: Общие сведения об анализе временных рядов
@@ -1132,13 +1128,13 @@
               href: ./kusto/query/series-subtractfunction.md
         - name: Машинное обучение
           items:
-            - name: autocluster
+            - name: Подключаемый модуль autocluster
               href: ./kusto/query/autoclusterplugin.md
-            - name: basket
+            - name: Подключаемый модуль basket
               href: ./kusto/query/basketplugin.md
-            - name: diffpatterns
+            - name: Подключаемый модуль diffpatterns
               href: ./kusto/query/diffpatternsplugin.md
-            - name: diffpatterns_text
+            - name: Подключаемый модуль diffpatterns_text
               href: ./kusto/query/diffpatterns-textplugin.md
         - name: Геопространственные данные
           items:
@@ -1162,25 +1158,25 @@
               href: kusto/query/geo-polygon-to-s2cells-function.md
         - name: Аналитика пользователей
           items:
-            - name: Подключаемые модули для аналитики пользователей
+            - name: Подключаемые модули аналитики пользователей
               href: ./kusto/query/useranalytics.md
-            - name: Число активных пользователей
+            - name: Подключаемый модуль active users count
               href: ./kusto/query/active-users-count-plugin.md
-            - name: 'Метрики количества действий (всего значений, несовпадающие значения, новые значения)'
+            - name: Подключаемый модуль activity counts metrics
               href: ./kusto/query/activity-counts-metrics-plugin.md
-            - name: 'Участие в действиях (DAU, WAU, MAU)'
+            - name: Подключаемый модуль activity engagement
               href: ./kusto/query/activity-engagement-plugin.md
-            - name: 'Метрики действий (хранение, обновление, новые значения)'
+            - name: Подключаемый модуль activity metrics
               href: ./kusto/query/activity-metrics-plugin.md
-            - name: 'Метрики действий — создание (хранение, обновление, новые значения)'
+            - name: Подключаемый модуль activity metrics (новый)
               href: ./kusto/query/new-activity-metrics-plugin.md
-            - name: Завершение последовательности воронки
+            - name: Подключаемый модуль funnel sequence completion
               href: ./kusto/query/funnel-sequence-completion-plugin.md
-            - name: Последовательность воронки
+            - name: Подключаемый модуль funnel sequence
               href: ./kusto/query/funnel-sequence-plugin.md
-            - name: Счетчик сеансов
+            - name: Подключаемый модуль session count
               href: ./kusto/query/session-count-plugin.md
-            - name: Счетчики скользящего окна
+            - name: Подключаемый модуль sliding window counts
               href: ./kusto/query/sliding-window-counts-plugin.md
         - name: Справочные материалы по языку запросов Kusto
           items:

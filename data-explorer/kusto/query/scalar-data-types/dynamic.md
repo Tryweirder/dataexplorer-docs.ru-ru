@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/12/2020
-ms.openlocfilehash: 606d48c4bda583ad82404a1b25119ec9beb4c5a9
-ms.sourcegitcommit: 6f56b169fda0b74f9569004555a574d8973b1021
+ms.openlocfilehash: 8a979d91b008be7a93626aa7f58865cb5466076b
+ms.sourcegitcommit: c3bbb9a6bfd7c5506f05afb4968fdc2043a9fbbf
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84748944"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85332577"
 ---
 # <a name="the-dynamic-data-type"></a>Динамический тип данных
 
@@ -57,7 +57,7 @@ print o=dynamic({"a":123, "b":"hello", "c":[1,2,3], "d":{}})
 print d=dynamic({"a": datetime(1970-05-11)})
 ```
 
-Чтобы проанализировать `string` значение, которое соответствует правилам кодирования JSON `dynamic` , в значение, используйте `parse_json` функцию. Пример:
+Чтобы проанализировать `string` значение, которое соответствует правилам кодирования JSON `dynamic` , в значение, используйте `parse_json` функцию. Пример.
 
 * `parse_json('[43, 21, 65]')` — массив чисел;
 * `parse_json('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`— словарь
@@ -166,8 +166,9 @@ print d=dynamic({"a": datetime(1970-05-11)})
 |---|---|
 | *значение* `in` *массив*| Возвращает значение true, если в массиве *array* есть элемент, который равен значению *value*.<br/>`where City in ('London', 'Paris', 'Rome')`
 | *значение* `!in` *массив*| Возвращает значение true, если в массиве *array* нет ни одного элемента, который равен значению *value*.
-|[`array_length(`inArray`)`](../arraylengthfunction.md)| Возвращает NULL, если это не массив
+|[`array_length(`массиве`)`](../arraylengthfunction.md)| Возвращает NULL, если это не массив
 |[`bag_keys(`контейнера`)`](../bagkeysfunction.md)| Перечисляет все корневые ключи в динамическом объекте контейнера свойств.
+|[`bag_merge(`bag1,..., Багн`)`](../bag-merge-function.md)| Объединяет динамические контейнеры свойств в динамический контейнер свойств со всеми объединенными свойствами.
 |[`extractjson(`путь, объект`)`](../extractjsonfunction.md)|Использует путь path для перехода к объекту object.
 |[`parse_json(`источника`)`](../parsejsonfunction.md)| Преобразует строку формата JSON в динамический объект.
 |[`range(`от, до, шаг`)`](../rangefunction.md)| Массив значений
@@ -179,4 +180,3 @@ print d=dynamic({"a": datetime(1970-05-11)})
 |[`summarize make_list_if(`столбец, предикат `)`](../makelistif-aggfunction.md)| Выполняет сведение групп строк и помещает значения столбца в массив (with предикат).
 |[`summarize make_list_with_nulls(`столбец `)`](../make-list-with-nulls-aggfunction.md)| Выполняет сведение групп строк и помещает значения столбца в массив, включая значения NULL.
 |[`summarize make_set(`рубрик`)`](../makeset-aggfunction.md) | Выполняет сведение групп строк и помещает значения столбца в массив без дублирования значений.
-|[`summarize make_bag(`рубрик`)`](../make-bag-aggfunction.md) | Объединяет значения контейнера свойств (Dictionary) в столбце в один контейнер свойств без дублирования ключа.

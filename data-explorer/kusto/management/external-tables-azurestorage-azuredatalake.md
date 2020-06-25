@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 7bcba1cbcbcbd712278696d897febaee5714703f
-ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
+ms.openlocfilehash: 828f2450db7f6afabf33f72d813af6f0007ada6b
+ms.sourcegitcommit: c3bbb9a6bfd7c5506f05afb4968fdc2043a9fbbf
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780598"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85332591"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
 
@@ -89,7 +89,7 @@ ms.locfileid: "84780598"
 
 &nbsp;&nbsp;[*Стрингсепаратор*] *Partition* [*Стрингсепаратор*] [*Секция* [*стрингсепаратор*]...]  
 
-где *Partition* ссылается на секцию, объявленную в `partition` `by` предложении, а *стрингсепаратор* — любой текст, заключенный в кавычки.
+где *Partition* ссылается на секцию, объявленную в `partition` `by` предложении, а *стрингсепаратор* — любой текст, заключенный в кавычки. Элементы смежных секций должны быть заданы отдельно с помощью *стрингсепаратор*.
 
 Исходный префикс пути к файлу может быть создан с помощью элементов секции, отображаемых в виде строк и разделенных соответствующими разделителями текста. Чтобы указать формат, используемый для визуализации значения секции DateTime, можно использовать следующий макрос:
 
@@ -133,7 +133,7 @@ ms.locfileid: "84780598"
 <a name="properties"></a>
 *Необязательные свойства*
 
-| Свойство.         | Тип     | Описание       |
+| Свойство.         | Type     | Описание:       |
 |------------------|----------|-------------------------------------------------------------------------------------|
 | `folder`         | `string` | Папка таблицы                                                                     |
 | `docString`      | `string` | Строка документирования таблицы                                                       |
@@ -236,6 +236,9 @@ dataformat=parquet
 )
 ```
 
+> [!NOTE]
+> В настоящее время виртуальные столбцы не поддерживаются для следующих форматов данных: `CSV` , `TSV` ,,,, `TSVE` `SCsv` `SOHsv` `PSV` `RAW` и `TXT` .
+
 <a name="file-filtering"></a>
 **Логика фильтрации файлов**
 
@@ -269,7 +272,7 @@ dataformat=parquet
 
 **Выходные данные**
 
-| Выходной параметр | Тип   | Описание                       |
+| Выходной параметр | Type   | Описание                       |
 |------------------|--------|-----------------------------------|
 | URI              | строка | URI внешнего файла данных хранилища |
 
@@ -282,7 +285,7 @@ dataformat=parquet
 .show external table T artifacts
 ```
 
-**Проверки**
+**Выходные данные:**
 
 | URI                                                                     |
 |-------------------------------------------------------------------------|
@@ -357,7 +360,7 @@ dataformat=parquet
 ```kusto
 .drop external table MyExternalTable json mapping "Mapping1" 
 ```
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Команды для общего управления внешней таблицей](externaltables.md)
 * [Создание и изменение внешних таблиц SQL](external-sql-tables.md)
