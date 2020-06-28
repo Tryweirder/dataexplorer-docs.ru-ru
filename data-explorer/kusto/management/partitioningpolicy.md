@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/10/2020
-ms.openlocfilehash: 3ab402833e4aebd5499fcb383dd803e9a6a815ed
-ms.sourcegitcommit: 93510ef1e5570ce4da2cbf76eb77946c93a7dec8
+ms.openlocfilehash: 433d8786ad3664d02387efacd7dcd3865b4deb13
+ms.sourcegitcommit: ddafa58deb79417bd6f36e8bb3ad106d375b63e1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85372491"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85448508"
 ---
 # <a name="data-partitioning-policy"></a>Политика секционирования данных
 
@@ -22,7 +22,7 @@ ms.locfileid: "85372491"
 Основная цель политики — повысить производительность запросов, которые известны для ограничения набора данных значений в секционированных столбцах, или статистической обработки или объединения в столбце с большим количеством элементов. Кроме того, политика может привести к более эффективному сжатию данных.
 
 > [!CAUTION]
-> Жестко запрограммированные ограничения на количество таблиц, для которых может быть определена политика, не заданы. Однако каждая дополнительная таблица добавляет издержки на фоновый процесс секционирования данных, который выполняется на узлах кластера. Это может привести к тому, что будут использоваться больше ресурсов кластеров. Дополнительные сведения см. в разделе [Capacity](#capacity).
+> Жестко запрограммированные ограничения на количество таблиц, для которых может быть определена политика, не заданы. Однако каждая дополнительная таблица добавляет издержки на фоновый процесс секционирования данных, который выполняется на узлах кластера. Это может привести к тому, что будут использоваться больше ресурсов кластеров. Дополнительные сведения см. в разделе [мониторинг](#monitoring) и [емкость](#capacity).
 
 ## <a name="partition-keys"></a>Ключи секции
 
@@ -30,7 +30,7 @@ ms.locfileid: "85372491"
 
 |Вид                                                   |Тип столбца |Свойства раздела                    |Значение секции                                        |
 |-------------------------------------------------------|------------|----------------------------------------|----------------------|
-|[Hash](#hash-partition-key)                            |`string`    |`Function`, `MaxPartitionCount`, `Seed` | `Function`(`ColumnName`, `MaxPartitionCount`, `Seed`) |
+|[Хэш](#hash-partition-key)                            |`string`    |`Function`, `MaxPartitionCount`, `Seed` | `Function`(`ColumnName`, `MaxPartitionCount`, `Seed`) |
 |[Однородный диапазон](#uniform-range-datetime-partition-key) |`datetime`  |`RangeSize`, `Reference`                | `bin_at`(`ColumnName`, `RangeSize`, `Reference`)      |
 
 ### <a name="hash-partition-key"></a>Ключ хэш-секции
