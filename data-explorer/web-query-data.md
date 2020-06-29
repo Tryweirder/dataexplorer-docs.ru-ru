@@ -169,7 +169,7 @@ ms.locfileid: "84780139"
 
 1. В верхней части окна запроса выберите **Поделиться**. 
 
-:::image type="content" source="media/web-query-data/share-menu.png" alt-text="Меню "Общий доступ"":::
+:::image type="content" source="media/web-query-data/share-menu.png" alt-text="Меню Общий доступ":::
 
 В раскрывающемся списке содержатся следующие параметры:
 * Link to clipboard (Копировать ссылку);
