@@ -7,12 +7,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 8fe86f16eef79fca0db22fd3048cc3841c57d189
-ms.sourcegitcommit: 8953d09101f4358355df60ab09e55e71bc255ead
+ms.openlocfilehash: 19ffbe2f5e14a2c003c24d145b713970e6bb31b8
+ms.sourcegitcommit: 4eb64e72861d07cedb879e7b61a59eced74517ec
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84420906"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517772"
 ---
 # <a name="troubleshooting"></a>Устранение неполадок
 
@@ -165,7 +165,7 @@ Following errors were detected during this operation.
 1. Выберите каждый элемент, начинающийся с `Kusto.Explorer` .
 1. Выберите **Удалить**.
 
-   Если эта процедура не позволяет удалить приложение (известная проблема с приложениями ClickOnce), см. [Эта статья о переполнении стека, в которой объясняется, как это сделать.
+   Если эта процедура не позволяет удалить приложение (известная проблема с приложениями ClickOnce), см. [инструкции в этой статье](https://stackoverflow.com/questions/10896223/how-do-i-completely-uninstall-a-clickonce-application-from-my-computer).
 
 1. Удалите папку `%LOCALAPPDATA%\Kusto.Explorer` , которая удаляет все подключения, журнал и т. д.
 
