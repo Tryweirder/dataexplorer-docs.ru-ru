@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: bc26c61b9a94c6f21d2c53cae8fc80805b235f75
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: f5ae36f00e7dc54b67eea5305c65a9ed4e44c572
+ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372818"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85763418"
 ---
 # <a name="series_fill_backward"></a>series_fill_backward()
 
@@ -36,7 +36,7 @@ ms.locfileid: "83372818"
 * Укажите значение *null* в качестве значения по умолчанию, чтобы применить любые функции интерполяции после [создания рядов](make-seriesoperator.md): 
 
 ```kusto
-make-series num=count() default=long(null) on TimeStamp in range(ago(1d), ago(1h), 1h) by Os, Browser
+make-series num=count() default=long(null) on TimeStamp from ago(1d) to ago(1h) step 1h by Os, Browser
 ```
 
 * *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Оба `double` значения (*null*), `long` (*null*) и `int` (*null*) имеют одинаковое значение.

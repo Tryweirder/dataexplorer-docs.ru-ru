@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/02/2019
-ms.openlocfilehash: f611f660a791117159ad5fce4c024914d9e6909b
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: 6739b01f996c04829a1fdb78eab96f6e51b011bb
+ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264748"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85763673"
 ---
 # <a name="set_intersect"></a>set_intersect()
 
@@ -25,7 +25,7 @@ ms.locfileid: "85264748"
 
 **Аргументы**
 
-* *arr1... Аррн*: входные массивы для создания пересекающихся наборов (по крайней мере два массива). Все аргументы должны быть динамическими массивами (см. [pack_array](packarrayfunction.md)). 
+* *arr1... Аррн*: входные массивы для создания пересекающихся наборов (по крайней мере два массива). Все аргументы должны быть динамическими массивами. Дополнительные сведения см. в разделе [pack_array](packarrayfunction.md). 
 
 **Возвращает**
 

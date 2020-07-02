@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2019
-ms.openlocfilehash: bba3c4e82c3c1ac53a6ebafcb9de4c327da77e37
-ms.sourcegitcommit: 4986354cc1ba25c584e4f3c7eac7b5ff499f0cf1
+ms.openlocfilehash: ee9c4b236344e21bbbc1da68b76710b15b519baa
+ms.sourcegitcommit: 56bb7b69654900ed63310ac9537ae08b72bf7209
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84856184"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85814217"
 ---
 # <a name="mv-expand-operator"></a>Оператор mv-expand
 
 Развертывает массив с несколькими значениями или контейнер свойств.
 
-`mv-expand`применяется к столбцу с [динамическим](./scalar-data-types/dynamic.md)типом, так что каждое значение в коллекции получает отдельную строку. Все остальные столбцы в развернутой строке дублируются. 
+`mv-expand`применяется к столбцу в [динамическом](./scalar-data-types/dynamic.md)типизированном массиве или контейнере свойств, поэтому каждое значение в коллекции получает отдельную строку. Все остальные столбцы в развернутой строке дублируются. 
 
 **Синтаксис**
 
@@ -34,8 +34,10 @@ ms.locfileid: "84856184"
 * *Name* — имя нового столбца.
 * *Имя типа:* Указывает базовый тип элементов массива, который станет типом столбца, созданного оператором. Несоответствующие значения в массиве не будут преобразованы. Вместо этого эти значения будут принимать `null` значение.
 * *RowLimit* — максимальное количество строк, созданных из каждой исходной строки. Значение по умолчанию — 2147483647. 
-  > [!Note] 
+
+  > [!Note]
   > Устаревшие и устаревшие формы оператора `mvexpand` имеют ограничение на число строк по умолчанию 128.
+
 * *Индексколумннаме:* Если `with_itemindex` указан параметр, выходные данные будут включать в себя дополнительный столбец (с именем *индексколумннаме*), который содержит индекс (начиная с 0) элемента в исходной расширенной коллекции. 
 
 **Возвращает**
@@ -49,7 +51,9 @@ ms.locfileid: "84856184"
 * `bagexpansion=bag`— контейнеры свойств развертываются в контейнеры свойств с одной записью. Этот режим является расширением по умолчанию.
 * `bagexpansion=array`: Контейнеры свойств разворачиваются по `[` *key* `,` структурам массива*значений* ключей с двумя элементами `]` , что обеспечивает универсальный доступ к ключам и значениям (например, выполнение агрегата Distinct-Count для имен свойств). 
 
-**Примеры**
+## <a name="examples"></a>Примеры
+
+### <a name="single-column"></a>Один столбец
 
 Простое расширение одного столбца:
 
@@ -64,18 +68,23 @@ datatable (a:int, b:dynamic)[1,dynamic({"prop1":"a", "prop2":"b"})]
 |1|{"Prop1": "a"}|
 |1|{"Prop2": "b"}|
 
+### <a name="zipped-two-columns"></a>ZIP-архив двух столбцов
+
 При раскрытии двух столбцов сначала будут почтовыми подходящими столбцами, а затем раскройте их:
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
-datatable (a:int, b:dynamic, c:dynamic)[1,dynamic({"prop1":"a", "prop2":"b"}), dynamic([5])]
-| mv-expand b, c 
+datatable (a:int, b:dynamic, c:dynamic)[1,dynamic({"prop1":"a", "prop2":"b"}), dynamic([5, 4, 3])]
+| mv-expand b, c
 ```
 
-|а|b|c|
+|а|b|с|
 |---|---|---|
 |1|{"Prop1": "a"}|5|
-|1|{"Prop2": "b"}||
+|1|{"Prop2": "b"}|4|
+|1||3|
+
+### <a name="cartesian-product-of-two-columns"></a>Декартово произведение двух столбцов
 
 Если вы хотите получить декартово произведение двух столбцов, разверните один за другим:
 
@@ -86,11 +95,31 @@ datatable (a:int, b:dynamic, c:dynamic)[1,dynamic({"prop1":"a", "prop2":"b"}), d
 | mv-expand c
 ```
 
-|а|b|c|
+|а|b|с|
 |---|---|---|
 |1|{"Prop1": "a"}|5|
 |1|{"Prop2": "b"}|5|
 
+### <a name="convert-output"></a>Преобразование вывода
+
+Если требуется принудительно развернуть выходные данные MV до определенного типа (значение по умолчанию — Dynamic), используйте `to typeof` :
+
+<!-- csl: https://help.kusto.windows.net:443/Samples -->
+```kusto
+datatable (a:string, b:dynamic, c:dynamic)["Constant", dynamic([1,2,3,4]), dynamic([6,7,8,9])]
+| mv-expand b, c to typeof(int)
+| getschema 
+```
+
+ColumnName|ColumnOrdinal|DateType|ColumnType
+-|-|-|-
+а|0|System.String|строка
+b|1|System.Object|Динамический
+с|2|System.Int32|INT
+
+Столбец "Обратите внимание" `b` будет выступающим, пока `dynamic` `c` не истекает `int` .
+
+### <a name="using-with_itemindex"></a>Использование with_itemindex
 
 Расширение массива с помощью `with_itemindex` :
 
@@ -107,14 +136,10 @@ range x from 1 to 4 step 1
 |2|1|
 |3|2|
 |4|3|
+ 
+## <a name="see-also"></a>См. также
 
-
-**Дополнительные примеры**
-
-См. раздел [число активных действий в диаграмме с](./samples.md#chart-concurrent-sessions-over-time)течением времени.
-
-**См. также:**
-
-- Оператор « [MV-Apply»](./mv-applyoperator.md) .
-- [суммировать make_list ()](makelist-aggfunction.md), который выполняет противоположную функцию.
-- подключаемый модуль [bag_unpack ()](bag-unpackplugin.md) для расширения динамических объектов JSON в столбцы с помощью ключей контейнера свойств.
+* Дополнительные примеры см. в разделе [Диаграмма число активных действий с](./samples.md#chart-concurrent-sessions-over-time) течением времени.
+* Оператор « [MV-Apply»](./mv-applyoperator.md) .
+* [обобщить make_list ()](makelist-aggfunction.md), которая является противоположной функцией MV-Expand.
+* подключаемый модуль [bag_unpack ()](bag-unpackplugin.md) для расширения динамических объектов JSON в столбцы с помощью ключей контейнера свойств.
