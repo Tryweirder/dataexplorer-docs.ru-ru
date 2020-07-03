@@ -1,23 +1,23 @@
 ---
-title: Синхронизация Kusto - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описана синхронизация Кусто в Azure Data Explorer.
+title: Синхронизация Kusto в Azure обозреватель данных
+description: В этой статье описывается синхронизация Kusto в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: zivc
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/12/2019
-ms.openlocfilehash: 5f56b47d684441111aae397491336b5d819dedc8
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: d132fd2bbb9f0a5a674955d586a208443a76d197
+ms.sourcegitcommit: 7dd20592bf0e08f8b05bd32dc9de8461d89cff14
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81503287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85902086"
 ---
 # <a name="sync-kusto"></a>Синхронизация Kusto
 
-Sync Kusto — это инструмент, позволяющий пользователям синхронизировать различные объекты схемы Kusto (например, схемы таблицы и сохраненные функции) между локальной файловой системой, базой данных Kusto и репом Azure Dev Ops.
+Sync Kusto — это средство, которое позволяет пользователям синхронизировать различные сущности схемы Kusto, такие как схемы таблиц и хранимые функции. Эта синхронизация выполняется между локальной файловой системой, базой данных Kusto и Azure dev Ops репозиториев.
 
-Синхронизация Kusto доступна на [https://github.com/microsoft/synckusto](https://github.com/microsoft/synckusto)GitHub: .
+Kusto синхронизации доступен [на сайте GitHub](https://github.com/microsoft/synckusto).
 

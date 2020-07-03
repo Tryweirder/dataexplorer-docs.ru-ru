@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: fcab02ee032d1009cf31e36963c44cc6b12358e3
-ms.sourcegitcommit: fd3bf300811243fc6ae47a309e24027d50f67d7e
+ms.openlocfilehash: 1d8766c1fb09ceb64cf4196a92030163eed63694
+ms.sourcegitcommit: d40fe44e7581d87f63cc0cb939f3aa9c3996fc08
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83382018"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85839418"
 ---
 # <a name="the-ingest-into-command-pull-data-from-storage"></a>Команда. приема в (извлечение данных из хранилища)
 
@@ -45,7 +45,7 @@ ms.locfileid: "83382018"
 Результатом выполнения команды является таблица с количеством записей, в котором имеются сегменты данных ("экстенты"), созданные командой.
 Если сегментов данных не было создано, возвращается одна запись с пустым ИДЕНТИФИКАТОРом экстента (с нулевым значением).
 
-|Имя       |Type      |Описание                                                                |
+|Имя       |Тип      |Описание                                                                |
 |-----------|----------|---------------------------------------------------------------------------|
 |екстентид   |`guid`    |Уникальный идентификатор сегмента данных, созданного командой.|
 |итемлоадед |`string`  |Один или несколько артефактов хранилища, связанных с этой записью.             |
@@ -73,8 +73,7 @@ ms.locfileid: "83382018"
 
 ```kusto
 .ingest into table T (
-  'abfss://myfilesystem@contoso.dfs.core.windows.net/path/to/file1.csv;'
-    h'...'
+  'abfss://myfilesystem@contoso.dfs.core.windows.net/path/to/file1.csv;...'
 )
 ```
 
