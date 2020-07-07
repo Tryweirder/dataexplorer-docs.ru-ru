@@ -1,6 +1,6 @@
 ---
-title: Команды управления емкости - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны команды управления системой емкости в Azure Data Explorer.
+title: Команды управления политиками емкости в Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описываются команды управления политиками емкости в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,20 +8,20 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/02/2020
-ms.openlocfilehash: 929cfa885a7373b400b832d908677a7a5fb93ef6
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 512ab14c2abc1f777376d81d4944caf2c3343513
+ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81522089"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85967338"
 ---
-# <a name="capacity-policy-control-commands"></a>Команды управления политикой емкости
+# <a name="capacity-policy-commands"></a>Команды политики емкости
 
 Для управления [политикой емкости](../management/capacitypolicy.md)кластера можно использовать следующие команды управления.
 
-Команды требуют разрешений [AllDatabasesAdmin.](../management/access-control/role-based-authorization.md)
+Для команд требуются разрешения [аллдатабасесадмин](../management/access-control/role-based-authorization.md) .
 
-## <a name="show-cluster-policy-capacity"></a>показать способность кластерной политики
+## <a name="show-cluster-policy-capacity"></a>Отображение емкости политики кластера
 
 ```kusto
 .show cluster policy capacity
@@ -29,25 +29,25 @@ ms.locfileid: "81522089"
 
 Отображает текущую политику емкости для кластера.
 
-**Вывод**
+**Выходные данные**
 
 |Имя политики | Имя сущности | Политика | Дочерние сущности | Тип сущности
 |---|---|---|---|---
-|ЕмкостьПолитика | | Строка формата JSON, представляющая политику | Список баз данных в кластере |Кластер
+|капаЦитиполици | | Строка в формате JSON, представляющая политику | Список баз данных в кластере |Кластер
 
 
-## <a name="alter-cluster-policy-capacity"></a>изменить потенциал кластерной политики
+## <a name="alter-cluster-policy-capacity"></a>изменение емкости политики кластера
 
 ```kusto
 .alter cluster policy capacity @'{ ... capacity policy JSON representation ... }'
 .alter-merge cluster policy capacity @'{ ... capacity policy partial-JSON representation ... }'
 ```
 
-**Примечание**: Изменения в политике емкости кластера могут занять до 1 часа, чтобы ввести в действие.
+**Примечание**. для вступления в силу изменений в политике емкости кластера может потребоваться до 1 часа.
 
 **Примеры:**
 
-* Явноизменяя все свойства кластерной политики:
+* Явное изменение всех свойств политики кластера:
 
 ```kusto
 .alter cluster policy capacity
@@ -72,7 +72,7 @@ ms.locfileid: "81522089"
 '}'
 ```
 
-* Изменение одного свойства политики уровня кластера, сохранение всех других свойств нетронутыми:
+* Изменение одного свойства политики уровня кластера, оставляя все остальные свойства без изменений:
 
 ```kusto
 .alter-merge cluster policy capacity

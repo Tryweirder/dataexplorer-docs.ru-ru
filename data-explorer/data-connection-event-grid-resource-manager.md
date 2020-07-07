@@ -1,20 +1,20 @@
 ---
-title: Создание подключения к данным Event Grid для Исследователя данных Azure с помощью шаблона управления ресурсами Azure
-description: В этой статье вы узнаете, как создать подключение к данным Event Grid для Azure Data Explorer с помощью шаблона Azure Resource Manager.
+title: Создание подключения к данным в сетке событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager
+description: Из этой статьи вы узнаете, как создать подключение к данным в сетке событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: 813ba82ba80aa5057adec3e29101b99a8fb518fe
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: a3b60f5a2dba8e3d8b9c7b299cb371cda9932bf0
+ms.sourcegitcommit: 0d15903613ad6466d49888ea4dff7bab32dc5b23
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81497867"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86013852"
 ---
-# <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Создание подключения к данным Event Grid для Исследователя данных Azure с помощью шаблона управления ресурсами Azure
+# <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Создание подключения к данным в сетке событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager
 
 > [!div class="op_single_selector"]
 > * [Портал](ingest-data-event-grid.md)
@@ -23,19 +23,19 @@ ms.locfileid: "81497867"
 > * [Шаблон Azure Resource Manager](data-connection-event-grid-resource-manager.md)
 
 
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure Data Explorer предлагает проглатывание (загрузку данных) из концентраторов событий, концентраторов IoT и капли, написанные в контейнеры с каплями. В этой статье вы создаете подключение к данным Event Grid для Azure Data Explorer с помощью шаблона Azure Resource Manager.
+Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure обозреватель данных обеспечивает прием (загрузку данных) из концентраторов событий, центров Интернета вещей и больших двоичных объектов, записанных в контейнеры больших двоичных объектов. В этой статье вы создадите подключение к данным в сетке событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 * Создание [кластера и базы данных](create-cluster-database-portal.md)
-* Создание [отображения таблицы и столбца](ingest-data-event-grid.md#create-a-target-table-in-azure-data-explorer)
-* Создание [концентратора событий](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
-* Создайте [учетную запись хранения с подпиской Event Grid.](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account)
+* Создание [сопоставления таблицы и столбца](ingest-data-event-grid.md#create-a-target-table-in-azure-data-explorer)
+* Создание [концентратора событий](/azure/event-hubs/event-hubs-create)
+* Создайте [учетную запись хранения с подпиской службы "Сетка событий](../data-explorer/kusto/management/data-ingestion/eventgrid.md#create-an-event-grid-subscription-in-your-storage-account)".
 
-## <a name="azure-resource-manager-template-for-adding-an-event-grid-data-connection"></a>Шаблон менеджера ресурсов Azure для добавления подключения данных event Grid
+## <a name="azure-resource-manager-template-for-adding-an-event-grid-data-connection"></a>Azure Resource Manager шаблон для добавления подключения к данным в сетке событий
 
-В следующем примере показан шаблон менеджера ресурсов Azure для добавления подключения к данным Event Grid.  Шаблон можно [отсеивать и развертывать на портале Azure,](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) используя форму.
+В следующем примере показан шаблон Azure Resource Manager для добавления подключения к данным сетки событий.  Шаблон можно [изменить и развернуть в портал Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) с помощью формы.
 
 ```json
 {

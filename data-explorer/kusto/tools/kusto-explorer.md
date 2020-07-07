@@ -7,12 +7,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 05/19/2020
-ms.openlocfilehash: 15c9ff61067f25f8a0f63ce4078b158277740db3
-ms.sourcegitcommit: b4d6c615252e7c7d20fafd99c5501cb0e9e2085b
-ms.translationtype: HT
+ms.openlocfilehash: 6c36ace478e9bc026c028bfb6393bcfdf4eebdfa
+ms.sourcegitcommit: 0d15903613ad6466d49888ea4dff7bab32dc5b23
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83863564"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86013932"
 ---
 # <a name="getting-started-with-kustoexplorer"></a>Начало работы с Kusto. Explorer
 
@@ -26,9 +26,9 @@ Kusto. Explorer — это многофункциональное классич
 
 ## <a name="installing-kustoexplorer"></a>Установка Kusto. Explorer
 
-* Установка [средства Kusto. Explorer](https://aka.ms/ke)
+* Установите [средство Kusto. Explorer](https://aka.ms/ke).
 
-* Вместо этого получите доступ к кластеру Kusto в браузере по адресу: [https://<your_cluster>. kusto.Windows.NET](https://your_cluster.kusto.windows.net). Замените <your_cluster> именем кластера Azure обозреватель данных.
+* Вы можете получить доступ к кластеру Kusto в браузере по адресу `https://<your_cluster>.kusto.windows.net` . (Замените `<your_cluster>` именем кластера Azure обозреватель данных.)
 
 ### <a name="using-chrome-and-kustoexplorer"></a>Использование Chrome и Kusto. Explorer
 
@@ -51,9 +51,9 @@ Kusto. Explorer — это многофункциональное классич
 
 Панель меню Kusto. Explorer содержит следующие вкладки:
 
-* [Главная](#home-tab)
+* [Корневая папка](#home-tab)
 * [Файл](#file-tab)
-* [Подключения](#connections-tab)
+* [Соединения](#connections-tab)
 * [Вид](#view-tab)
 * [Инструменты](#tools-tab)
 * [Мониторинг](#monitoring-tab)
@@ -67,7 +67,7 @@ Kusto. Explorer — это многофункциональное классич
 На вкладке Главная отображаются наиболее часто используемые функции, разделенные на разделы.
 
 * [Запрос](#query-section)
-* [Общий ресурс](#share-section)
+* [Общий доступ](#share-section)
 * [Визуализации](#visualizations-section)
 * [Вид](#view-section)
 * [Справка](#help-tab) 
@@ -223,10 +223,10 @@ Kusto. Explorer — это многофункциональное классич
 ||---------*Средства*---------|
 |Аналитические отчеты| Открывает панель мониторинга с несколькими предварительно созданными отчетами для анализа данных.|
 ||---------*Перевести*---------|
-|Запрос к Power BI| Преобразует запрос в формат, подходящий для использования в Power BI|
+|Query to Power BI (Запрос в Power BI).| Преобразует запрос в формат, подходящий для использования в Power BI|
 ||---------*Параметры*---------|
 |Параметры сброса| Задает параметры приложения для значений по умолчанию|
-|Варианты| Открывает средство для настройки параметров приложения. Дополнительные сведения о [параметрах Kusto. Explorer](kusto-explorer-options.md).|
+|Параметры| Открывает средство для настройки параметров приложения. Дополнительные сведения о [параметрах Kusto. Explorer](kusto-explorer-options.md).|
 
 ## <a name="monitoring-tab"></a>Вкладка "Мониторинг"
 
@@ -259,7 +259,7 @@ Kusto. Explorer — это многофункциональное классич
 |-----------------|---------|
 ||---------*По*---------|
 |Справка             | Открывает ссылку на электронную документацию по Kusto.  | 
-|Новое       | Открывает документ со списком всех изменений Kusto. Explorer.|
+|Новые возможности       | Открывает документ со списком всех изменений Kusto. Explorer.|
 |Сообщить о проблеме      |Открывает диалоговое окно с двумя параметрами: <ul><li>Сообщать о проблемах, связанных со службой</li><li>Сообщить о проблемах в клиентском приложении</li></ul> | 
 |Предложить функцию  | Открывает ссылку на форум обратной связи Kusto | 
 |Проверка обновлений     | Проверяет наличие обновлений для версии Kusto. Explorer. | 
@@ -303,7 +303,7 @@ Data Source=https://CLUSTER_NAME.kusto.windows.net;Initial Catalog=DATABASE_NAME
 
 :::image type="content" source="images/kusto-explorer/advanced-connection-string.png" alt-text="Расширенная строка подключения обозревателя Kusto":::
 
-## <a name="keyboard-shortcuts"></a>Сочетания клавиш
+## <a name="keyboard-shortcuts"></a>сочетания клавиш
 
 Может оказаться, что использование сочетаний клавиш позволяет выполнять операции быстрее, чем с помощью мыши. Просмотрите этот [список сочетаний клавиш Kusto. Explorer](kusto-explorer-shortcuts.md) , чтобы получить дополнительные сведения.
 
@@ -319,10 +319,10 @@ Kusto. Explorer пытается интерпретировать уровень
 
 Дополнительные сведения о работе с Kusto. Explorer:
 
-* [Использование Kusto. Explorer](kusto-explorer-using.md)
+* [Использование Kusto.Explorer](kusto-explorer-using.md)
 * [Сочетания клавиш Kusto. Explorer](kusto-explorer-shortcuts.md)
-* [Параметры Kusto. Explorer](kusto-explorer-options.md)
-* [Устранение неполадок Kusto. Explorer](kusto-explorer-troubleshooting.md)
+* [Параметры Kusto.Explorer](kusto-explorer-options.md)
+* [Устранение неполадок с Kusto.Explorer](kusto-explorer-troubleshooting.md)
 
 Дополнительные сведения о средствах и служебных программах Kusto. Explorer:
 * [Анализатор кода Kusto. Explorer](kusto-explorer-code-analyzer.md)

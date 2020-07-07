@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: 5974909b6f5e40a977f935319972e7477a2a5755
-ms.sourcegitcommit: 41cd88acc1fd79f320a8fe8012583d4c8522db78
+ms.openlocfilehash: 6bb4a99b9fe226ce84bd02ee5ba04fc7a82fcd4c
+ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84294378"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85967287"
 ---
-# <a name="update-policy"></a>изменение политики;
+# <a name="update-policy-command"></a>команда политики обновления
 
 [Политика обновления](updatepolicy.md) — это объект политики уровня таблицы, который автоматически выполняет запрос и принимает результаты при получении данных в другую таблицу.
 
@@ -25,7 +25,7 @@ ms.locfileid: "84294378"
 
 **Синтаксис**
 
-* `.show` `table` *TableName* `policy` `update`
+* `.show``table` *TableName* TableName `policy``update`
 * `.show``table` *Имя_базы_данных*, `.` *TableName* TableName `policy``update`
 * `.show` `table` `*` `policy` `update`
 
@@ -148,7 +148,7 @@ MyUpdateFunction()
 
 **Синтаксис**
 
-* `.delete` `table` *TableName* `policy` `update`
+* `.delete``table` *TableName* TableName `policy``update`
 * `.delete``table` *Имя_базы_данных*, `.` *TableName* TableName `policy``update`
 
 **Возвращает**

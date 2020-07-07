@@ -8,17 +8,19 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: aa81df5ca89c1a7dc523d7799050b8a7ad3adaba
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 6d4f4fcdbe60975b8b1c3369a364f062b223f9c6
+ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82617334"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85967372"
 ---
 # <a name="show-functions"></a>. показывать функции
 
 Выводит список всех хранимых функций в выбранной в данный момент базе данных.
 Чтобы получить только одну конкретную функцию, см. раздел [. Показать функцию](#show-function).
+
+## <a name="show-functions"></a>. показывать функции
 
 ```kusto
 .show functions

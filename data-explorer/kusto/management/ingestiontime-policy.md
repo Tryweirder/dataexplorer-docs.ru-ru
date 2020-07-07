@@ -8,19 +8,19 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 907c6ddf84d772f800fce45d3c1245bbd11b0c85
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: f5ffc7ae648a9254564af0705cda84f3c79da99b
+ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82616462"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85966947"
 ---
-# <a name="ingestiontime-policy"></a>Политика времени приема
+# <a name="ingestiontime-policy-command"></a>команда политики времени приема
 
 Политика Инжестионтиме — это необязательная политика, заданная для таблиц (она включена по умолчанию).
 Он предоставляет примерное время приема записей в таблицу.
 
-Доступ к значению времени приема можно получить во время выполнения `ingestion_time()` запроса с помощью функции.
+Доступ к значению времени приема можно получить во время выполнения запроса с помощью `ingestion_time()` функции.
 
 ```kusto
 T | extend ingestionTime = ingestion_time()

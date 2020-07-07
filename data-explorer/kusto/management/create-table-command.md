@@ -1,5 +1,5 @@
 ---
-title: . Создание таблицы — Azure обозреватель данных | Документация Майкрософт
+title: . Создание таблицы — Azure обозреватель данных
 description: В этой статье описывается создание таблицы в обозреватель данных Azure.
 services: data-explorer
 author: orspod
@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/06/2020
-ms.openlocfilehash: 25554b5485562179d849e846fc5e71c587815e86
-ms.sourcegitcommit: e1e35431374f2e8b515bbe2a50cd916462741f49
+ms.openlocfilehash: b071c4af6bc25650d18b1b66130941f73af551ff
+ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82108428"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85967100"
 ---
 # <a name="create-table"></a>.create table
 
@@ -25,7 +25,7 @@ ms.locfileid: "82108428"
 
 **Синтаксис**
 
-`.create``table` *TableName* ([ColumnName: columnType],...)  [`with` `(`[`docstring` `=` *FolderName* *Documentation*`,` Документация] [ `folder` имя_папки] `)`] `=`
+`.create``table` *TableName* ([ColumnName: columnType],...)  [ `with` `(` [ `docstring` `=` *Документация*] [ `,` `folder` `=` *имя_папки*] `)` ]
 
 Если таблица уже существует, команда вернет значение Success.
 
@@ -45,23 +45,3 @@ ms.locfileid: "82108428"
 
 > [!NOTE]
 > Для создания нескольких таблиц используйте команду [. Create Tables](create-tables-command.md) , чтобы повысить производительность и снизить нагрузку на кластер.
-
-## <a name="create-merge-table"></a>. CREATE — merge-таблица
-
-Создание новой таблицы или расширение существующей. 
-
-Команда должна выполняться в контексте определенной базы данных. 
-
-Требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
-
-**Синтаксис**
-
-`.create-merge``table` *TableName* ([ColumnName: columnType],...)  [`with` `(`[`docstring` `=` *FolderName* *Documentation*`,` Документация] [ `folder` имя_папки] `)`] `=`
-
-Если таблица не существует, функция работает точно так же, как и команда ". Create Table".
-
-Если таблица T существует и вы отправляете команду «. CREATE-merge Table T (<columns specification>)», то:
-
-* Любой столбец в <columns specification> , который ранее не существовал в t, будет добавлен в конец схемы t.
-* Любой столбец в T, не <columns specification> являющийся, не будет удален из t.
-* Любой столбец в <columns specification> , который существует в T, но с другим типом данных приведет к сбою команды.

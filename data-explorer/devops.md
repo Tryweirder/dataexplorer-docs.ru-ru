@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: cf6724a0f363eda510b5aa9cde195ec4fd3db65b
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 7d0c45a587a396da934bcb3465d60e101d0150a0
+ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373865"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85967168"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Задача DevOps Azure для Azure обозреватель данных
 
@@ -42,7 +42,7 @@ ms.locfileid: "83373865"
 ![Создайте папки:](media/devops/create-folders.png)
 
 > [!TIP]
-> При создании собственного рабочего процесса рекомендуется сделать код идемпотентными. Например, используйте инструкцию [. CREATE-merge Table](kusto/management/create-table-command.md#create-merge-table) вместо [. CREATE TABLE](kusto/management/create-table-command.md)и используйте [инструкцию. Create-или-ALTER](kusto/management/create-alter-function.md) Function вместо [. Create](kusto/management/create-function.md) .
+> При создании собственного рабочего процесса рекомендуется сделать код идемпотентными. Например, используйте инструкцию [. CREATE-merge Table](kusto/management/create-merge-table-command.md) вместо [. CREATE TABLE](kusto/management/create-table-command.md)и используйте [инструкцию. Create-или-ALTER](kusto/management/create-alter-function.md) Function вместо [. Create](kusto/management/create-function.md) .
 
 ## <a name="create-a-release-pipeline"></a>Создание конвейера выпуска
 
@@ -101,11 +101,11 @@ ms.locfileid: "83373865"
     |**Ключ приложения субъекта-службы**     |    Введите ключ приложения AAD (созданный в качестве необходимого компонента)    |
     |**Идентификатор клиента AAD**    |      Введите клиент AAD (например, microsoft.com, contoso.com...).    |
 
-    Установите флажок **Разрешить всем конвейерам использовать это подключение** . Нажмите кнопку **ОК**.
+    Установите флажок **Разрешить всем конвейерам использовать это подключение** . Щелкните **ОК**.
 
     ![Добавить подключение к службе](media/devops/add-service-connection.png)
 
-1. Повторите шаги 1-5 еще два раза, чтобы развернуть файлы из папок *функции* и *политики* . Нажмите кнопку **Сохранить**. На вкладке **задачи** см. три созданные задачи: **Развертывание таблиц**, **развертывание функций**и **развертывание политик**.
+1. Повторите шаги 1-5 еще два раза, чтобы развернуть файлы из папок *функции* и *политики* . Щелкните **Сохранить**. На вкладке **задачи** см. три созданные задачи: **Развертывание таблиц**, **развертывание функций**и **развертывание политик**.
 
     ![Развернуть все папки](media/devops/deploy-all-folders.png)
 

@@ -1,6 +1,6 @@
 ---
-title: переименование столбца - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается колонка переименований в Azure Data Explorer.
+title: Переименование столбца в Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается переименование столбцов в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/11/2020
-ms.openlocfilehash: 02e692e01bb8eb0abd49c9673b000b722734db90
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 25d0ff106d406c59c24d26542a8dad1e4992e311
+ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81520508"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85967389"
 ---
-# <a name="rename-column"></a>переименование столбца
+# <a name="rename-column"></a>. Переименование столбца
 
-Изменяет название существующего столбца таблицы.
-Чтобы изменить название нескольких столбцов, [см.](#rename-columns)
+Изменяет имя существующего столбца таблицы.
+Чтобы изменить имя нескольких столбцов, см. раздел [ниже](#rename-columns).
 
 **Синтаксис**
 
-`.rename``column` -*База данныхName* `.`- *TableName* `.` *ColumnExistingName* `to` *ColumnNewName*
+`.rename``column`[*DatabaseName* `.` ] *имя_таблицы* `.` *колумнексистингнаме* `to` *колумнневнаме*
 
-Где *DatabaseName,* *TableName,* *ColumnExistingName*и *ColumnNewName* являются именами соответствующих сущностей и следуют [правилам именования идентификаторов.](../query/schema-entities/entity-names.md)
+Где *DatabaseName*, *TableName*, *колумнексистингнаме*и *колумнневнаме* — имена соответствующих сущностей и следуют [правилам именования идентификаторов](../query/schema-entities/entity-names.md).
 
 ## <a name="rename-columns"></a>переименование столбцов
 
-Изменяем имена нескольких существующих столбцов в одной таблице.
+Изменяет имена нескольких существующих столбцов в одной таблице.
 
 **Синтаксис**
 
-`.rename``columns` *Col1* `=` -*База данныхName* `.` - `,` *TableName* `.` *Col2*...
+`.rename``columns` *Col1* `=` [*DatabaseName* `.` [*TableName* `.` *Col2*]] `,` ...
 
-Команда может быть использована для обмена именами двух столбцов (каждый переименован в имя другого).
+Команда может использоваться для замены имен двух столбцов (каждый из них переименовывается именем другого).

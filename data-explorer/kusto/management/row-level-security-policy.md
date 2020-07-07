@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/25/2020
-ms.openlocfilehash: 3f36fa4c35ceb88c82b4dfcb7557e4839fed4aa2
-ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
+ms.openlocfilehash: 2df8178bbc75b9338699c00cdd8a16e7ab3b057f
+ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780547"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85967525"
 ---
-# <a name="rowlevelsecurity-policy-preview"></a>Политика Ровлевелсекурити (Предварительная версия)
+# <a name="row_level_security-policy-command-preview"></a>Команда политики row_level_security (Предварительная версия)
 
 В этой статье описываются команды, используемые для настройки [политики row_level_security](rowlevelsecuritypolicy.md) для таблиц базы данных.
 

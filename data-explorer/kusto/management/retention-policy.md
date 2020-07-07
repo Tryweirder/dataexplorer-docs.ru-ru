@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: e03e529e0c802f0d424deb4048c5809bbe845ddd
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: ebbd9aa5544d97ef1e980bcb3a53f74dbde66547
+ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82617414"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85967542"
 ---
-# <a name="retention-policy"></a>Политика хранения
+# <a name="retention-policy-command"></a>команда политики хранения
 
 В этой статье описываются управляющие команды, используемые для создания и изменения [политики хранения](retentionpolicy.md).
 
@@ -32,7 +32,7 @@ ms.locfileid: "82617414"
 
 **Пример**
 
-Отображение политики хранения для базы данных с именем `MyDatabase`:
+Отображение политики хранения для базы данных с именем `MyDatabase` :
 
 ```kusto
 .show database MyDatabase policy retention
@@ -53,7 +53,7 @@ ms.locfileid: "82617414"
 
 **Пример**
 
-Удалите политику хранения для таблицы с именем `MyTable1`.
+Удалите политику хранения для таблицы с именем `MyTable1` .
 
 ```kusto
 .delete table MyTable policy retention
@@ -74,7 +74,7 @@ ms.locfileid: "82617414"
 
 * `entity_type`: таблица или база данных
 * `database_or_table`: `database_name` или `database_name.table_name` или `table_name` (в контексте базы данных)
-* `table_name`: имя таблицы в контексте базы данных.  Подстановочный знак`*` (допускается здесь).
+* `table_name`: имя таблицы в контексте базы данных.  Подстановочный знак ( `*` допускается здесь).
 * `retention_policy` :
 
 ```kusto
@@ -85,7 +85,7 @@ ms.locfileid: "82617414"
 
 **Примеры**
 
-Отображение политики хранения для базы данных с именем `MyDatabase`:
+Отображение политики хранения для базы данных с именем `MyDatabase` :
 
 ```kusto
 .show database MyDatabase policy retention

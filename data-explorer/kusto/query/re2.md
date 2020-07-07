@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 3bbd14031adbfee3b5fac07194f5ff879ff33693
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 6bdf666b46adea8105b61fc2b907fc060530ba96
+ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373070"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85967593"
 ---
-# <a name="regular-expressions"></a>Регулярные выражения
+# <a name="re2-syntax"></a>Синтаксис RE2
 
 Синтаксис регулярных выражений RE2 описывает синтаксис библиотеки регулярных выражений, используемой Kusto (RE2).
 Существует несколько функций в Kusto, которые выполняют сопоставление строк, выделение и извлечение с помощью регулярного выражения.
