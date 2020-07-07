@@ -295,7 +295,7 @@
           href: spark-connector.md
         - name: Cosmos DB
           href: 'https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration'
-        - name: Подключение из Databricks с помощью Python
+        - name: Подключение из Azure Databricks
           href: connect-from-databricks.md
         - name: Анализ данных в Jupyter Notebook и Kqlmagic
           href: kqlmagic.md
@@ -1163,25 +1163,25 @@
               href: kusto/query/geo-polygon-to-s2cells-function.md
         - name: Аналитика пользователей
           items:
-            - name: Подключаемые модули аналитики пользователей
+            - name: Обзор подключаемых модулей аналитики пользователей
               href: ./kusto/query/useranalytics.md
-            - name: Подключаемый модуль active users count
+            - name: Подключаемый модуль active_users_count
               href: ./kusto/query/active-users-count-plugin.md
-            - name: Подключаемый модуль activity counts metrics
+            - name: Подключаемый модуль activity_counts_metrics
               href: ./kusto/query/activity-counts-metrics-plugin.md
-            - name: Подключаемый модуль activity engagement
+            - name: Подключаемый модуль activity_engagement
               href: ./kusto/query/activity-engagement-plugin.md
-            - name: Подключаемый модуль activity metrics
+            - name: Подключаемый модуль activity_metrics
               href: ./kusto/query/activity-metrics-plugin.md
-            - name: Подключаемый модуль activity metrics (новый)
+            - name: Подключаемый модуль new_activity_metrics
               href: ./kusto/query/new-activity-metrics-plugin.md
-            - name: Подключаемый модуль funnel sequence completion
+            - name: Подключаемый модуль funnel_sequence_completion
               href: ./kusto/query/funnel-sequence-completion-plugin.md
-            - name: Подключаемый модуль funnel sequence
+            - name: Подключаемый модуль funnel_sequence
               href: ./kusto/query/funnel-sequence-plugin.md
-            - name: Подключаемый модуль session count
+            - name: Подключаемый модуль session_count
               href: ./kusto/query/session-count-plugin.md
-            - name: Подключаемый модуль sliding window counts
+            - name: Подключаемый модуль sliding_window_counts
               href: ./kusto/query/sliding-window-counts-plugin.md
         - name: Справочные материалы по языку запросов Kusto
           items:
@@ -1221,34 +1221,33 @@
     - name: Управление
       href: ./kusto/management/index.md
       items:
-        - name: Обзор
+        - name: Сведения об управлении (управляющих командах)
           href: ./kusto/management/index.md
           items:
-            - name: Рекомендации
+            - name: Рекомендации по проектированию схемы
               href: ./kusto/management/best-practices.md
         - name: схема
-          href: ./kusto/management/schema.md
           items:
-            - name: Базы данных
+            - name: Управление базами данных
               href: ./kusto/management/databases.md
               items:
                 - name: .show databases
                   href: ./kusto/management/show-databases.md
                 - name: .show database
                   href: ./kusto/management/show-database.md
-                - name: .show cluster database
+                - name: .show cluster databases
                   href: ./kusto/management/show-cluster-database.md
-                - name: .alter database
+                - name: .alter database prettyname
                   href: ./kusto/management/alter-database.md
-                - name: .show database schema
+                - name: .show database(s) schema
                   href: ./kusto/management/show-schema-database.md
                 - name: .execute database script
                   href: ./kusto/management/execute-database-script.md
             - name: Таблицы
               items:
-                - name: Общие сведения о таблицах
+                - name: Управление таблицами
                   href: ./kusto/management/tables.md
-                - name: .alter merge table
+                - name: .alter-merge table
                   href: ./kusto/management/alter-merge-table-command.md
                 - name: .alter table
                   href: ./kusto/management/alter-table-command.md
@@ -1268,13 +1267,15 @@
                   href: ./kusto/management/create-table-command.md
                 - name: .create tables
                   href: ./kusto/management/create-tables-command.md
+                - name: .create-merge table
+                  href: ./kusto/management/create-merge-table-command.md
                 - name: .create-merge tables
                   href: ./kusto/management/create-merge-tables-command.md
                 - name: .drop table(s)
                   href: ./kusto/management/drop-table-command.md
-                - name: .rename table
+                - name: .rename table(s)
                   href: ./kusto/management/rename-table-command.md
-                - name: .show table
+                - name: .show tables
                   href: ./kusto/management/show-tables-command.md
                 - name: .undo drop table
                   href: ./kusto/management/undo-drop-table-command.md
@@ -1292,7 +1293,7 @@
                   href: ./kusto/management/external-tables-azurestorage-azuredatalake.md
             - name: Столбцы
               items:
-                - name: Общие сведения о столбцах
+                - name: Управление столбцами
                   href: ./kusto/management/columns.md
                 - name: .alter column
                   href: ./kusto/management/alter-column.md
@@ -1302,17 +1303,17 @@
                   href: ./kusto/management/drop-column.md
                 - name: .rename column(s)
                   href: ./kusto/management/rename-column.md
-            - name: Сопоставления
+            - name: Сопоставление данных
               href: ./kusto/management/mappings.md
             - name: Функции
               items:
-                - name: Общие сведения о функциях
+                - name: Общие сведения об управлении хранимыми функциями
                   href: ./kusto/management/functions.md
                 - name: .alter function
                   href: ./kusto/management/alter-function.md
-                - name: .alter docstring function
+                - name: .alter function docstring
                   href: ./kusto/management/alter-docstring-function.md
-                - name: .alter folder function
+                - name: .alter function folder
                   href: ./kusto/management/alter-folder-function.md
                 - name: .create function
                   href: ./kusto/management/create-function.md
@@ -1320,98 +1321,96 @@
                   href: ./kusto/management/create-alter-function.md
                 - name: .drop function
                   href: ./kusto/management/drop-function.md
-                - name: .show function
+                - name: .show functions
                   href: ./kusto/management/show-function.md
         - name: Политики
           items:
-            - name: Обзор политик
-              href: ./kusto/management/policies.md
-            - name: Политика кэширования
-              items:
-                - name: Политика кэширования
-                  href: ./kusto/management/cachepolicy.md
-                - name: команда политики кэширования
-                  href: ./kusto/management/cache-policy.md
-            - name: Политика времени приема
-              items:
-                - name: Политика времени приема
-                  href: ./kusto/management/ingestiontimepolicy.md
-                - name: команда политики времени приема
-                  href: ./kusto/management/ingestiontime-policy.md
-            - name: Политика хранения
-              items:
-                - name: Политика хранения
-                  href: ./kusto/management/retentionpolicy.md
-                - name: команда политики хранения
-                  href: ./kusto/management/retention-policy.md
-            - name: Политика безопасности на уровне строк
-              items:
-                - name: Политика безопасности на уровне строк
-                  href: ./kusto/management/rowlevelsecuritypolicy.md
-                - name: команда политики row_level_security
-                  href: ./kusto/management/row-level-security-policy.md
-            - name: Политика RowOrder
-              items:
-                - name: Политика порядка строк
-                  href: ./kusto/management/roworderpolicy.md
-                - name: Команда порядка строк
-                  href: ./kusto/management/roworder-policy.md
-            - name: изменение политики;
-              items:
-                - name: изменение политики;
-                  href: ./kusto/management/updatepolicy.md
-                - name: команда политики обновления
-                  href: ./kusto/management/update-policy.md
-            - name: Политика пакетной обработки
+            - name: Пакетная обработка приема
               items:
                 - name: Политика пакетной обработки приема
                   href: ./kusto/management/batchingpolicy.md
                 - name: команда политика пакетной обработки приема
                   href: ./kusto/management/batching-policy.md
-            - name: Политика объединения
+            - name: Кэш
+              items:
+                - name: Политика кэширования ("горячее" и "холодное" кэширование)
+                  href: ./kusto/management/cachepolicy.md
+                - name: команда политики кэширования
+                  href: ./kusto/management/cache-policy.md
+            - name: Выноска
+              href: ./kusto/management/calloutpolicy.md
+            - name: Capacity
+              items:
+                - name: Политика емкости
+                  href: ./kusto/management/capacitypolicy.md
+                - name: Команды политики емкости
+                  href: ./kusto/management/capacity-policy.md
+            - name: IngestionTime
+              items:
+                - name: Политика времени приема
+                  href: ./kusto/management/ingestiontimepolicy.md
+                - name: команда политики времени приема
+                  href: ./kusto/management/ingestiontime-policy.md
+            - name: Объединить
               items:
                 - name: Политика объединения
                   href: ./kusto/management/mergepolicy.md
                 - name: команда политики слияния
                   href: ./kusto/management/merge-policy.md
-            - name: Политика секционирования
+            - name: Секционирование
               items:
                 - name: Политика секционирования
                   href: ./kusto/management/partitioningpolicy.md
                 - name: команда политики секционирования
                   href: ./kusto/management/partitioning-policy.md
-            - name: Политика ограниченного доступа для просмотра
+            - name: Сохранение
+              items:
+                - name: Политика хранения
+                  href: ./kusto/management/retentionpolicy.md
+                - name: команда политики хранения
+                  href: ./kusto/management/retention-policy.md
+            - name: Ограниченный доступ для просмотра
               items:
                 - name: Политика ограниченного доступа для просмотра
                   href: ./kusto/management/restrictedviewaccesspolicy.md
                 - name: команда политики restricted_view_access
                   href: ./kusto/management/restrictedviewaccess-policy.md
-            - name: Политика песочницы
+            - name: Безопасность на уровне строк
+              items:
+                - name: Политика безопасности на уровне строк
+                  href: ./kusto/management/rowlevelsecuritypolicy.md
+                - name: Команда политики row_level_security
+                  href: ./kusto/management/row-level-security-policy.md
+            - name: RowOrder
+              items:
+                - name: Политика RowOrder
+                  href: ./kusto/management/roworderpolicy.md
+                - name: Команда политики RowOrder
+                  href: ./kusto/management/roworder-policy.md
+            - name: Песочница
               items:
                 - name: Политика песочницы
                   href: ./kusto/management/sandboxpolicy.md
                 - name: Команда политики песочницы
                   href: ./kusto/management/sandbox-policy.md
-            - name: Политика сегментирования
+            - name: Сегментирование
               items:
                 - name: Политика сегментирования
                   href: ./kusto/management/shardingpolicy.md
                 - name: команда политики сегментирования
                   href: ./kusto/management/sharding-policy.md
-            - name: Политика потокового приема
+            - name: Прием потоковой передачи
               items:
                 - name: Политика потокового приема
                   href: ./kusto/management/streamingingestionpolicy.md
                 - name: команда политики потокового приема
                   href: ./kusto/management/streamingingestion-policy.md
-            - name: Политика внешних вызовов
-              href: ./kusto/management/calloutpolicy.md
-            - name: Политика емкости
+            - name: Update
               items:
-                - name: Политика емкости
-                  href: ./kusto/management/capacitypolicy.md
-                - name: команда политики емкости
-                  href: ./kusto/management/capacity-policy.md
+                - name: изменение политики;
+                  href: ./kusto/management/updatepolicy.md
+                - name: команда политики обновления
+                  href: ./kusto/management/update-policy.md
         - name: Роли безопасности
           href: ./kusto/management/security-roles.md
         - name: Прием данных
@@ -1428,7 +1427,7 @@
               href: ./kusto/management/data-ingestion/eventhub.md
             - name: Прием данных из Центра Интернета вещей
               href: ./kusto/management/data-ingestion/iothub.md
-            - name: Потоковый прием
+            - name: Прием потоковой передачи
               items:
                 - name: Прием потоковой передачи данных и изменения схемы
                   href: ./kusto/management/data-ingestion/streaming-ingestion-schema-changes.md
@@ -1548,14 +1547,14 @@
             - name: Kusto.Data
               href: ./kusto/api/netfx/about-kusto-data.md
               items:
-                - name: 'Request Properties, ClientRequestProperties'
+                - name: 'Свойства запросов, ClientRequestProperties'
                   href: ./kusto/api/netfx/request-properties.md
             - name: Kusto.Ingest
               href: ./kusto/api/netfx/about-kusto-ingest.md
               items:
                 - name: Разрешения
                   href: ./kusto/api/netfx/kusto-ingest-client-permissions.md
-                - name: Справочник по клиенту
+                - name: Справочник клиента
                   href: ./kusto/api/netfx/kusto-ingest-client-reference.md
                 - name: Исключения
                   href: ./kusto/api/netfx/kusto-ingest-client-errors.md
