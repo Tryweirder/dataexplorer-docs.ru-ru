@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/30/2019
-ms.openlocfilehash: 53c3caecc373a646162016fc1717ce1b0b0b85d1
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 9cea718db64c3da998df8b832d886ebd87d0f241
+ms.sourcegitcommit: d6f35df833d5b4f2829a8924fffac1d0b49ce1c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81490078"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058768"
 ---
 # <a name="connection-strings"></a>Строки соединения
 
@@ -27,3 +27,6 @@ ms.locfileid: "81490078"
 * [Строки подключения к хранилищу](./storage.md) описывают, как указывать Kusto во внешней службе хранилища, например в хранилище BLOB-объектов Azure или в Azure Data Lake Storage.
 * Строки подключения SQL используются [подключаемым модулем sql_request](../../query/sqlrequestplugin.md) для Kusto, чтобы создавать запросы к службе Базы данных Azure, и [командой экспорта в SQL](../../management/data-export/export-data-to-sql.md).  
   Эти строки подключения соответствуют спецификации [строк подключения SqlClient](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings).
+
+> [!NOTE]
+> В некоторых строках подключения могут содержаться ссылки на субъекты безопасности. Сведения об указании субъектов безопасности в строках подключения см. в статье [Субъекты и поставщики удостоверений](../../management/access-control/principals-and-identity-providers.md).
