@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/24/2020
-ms.openlocfilehash: bbbf120c0a24a7ed14bc558b7dcd739bf2cae595
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 49041ec72439d8f36b54ece5fcd341fa4ca873fc
+ms.sourcegitcommit: bcb87ed043aca7c322792c3a03ba0508026136b4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374273"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86127319"
 ---
 # <a name="troubleshoot-access-ingestion-and-operation-of-your-azure-data-explorer-cluster-in-your-virtual-network"></a>Устранение неполадок доступа, приема и работы кластера Azure обозреватель данных в виртуальной сети
 
@@ -85,6 +85,10 @@ ms.locfileid: "83374273"
 ## <a name="cluster-creation-and-operations-issues"></a>Проблемы создания и эксплуатации кластера
 
 Если возникают проблемы с созданием кластера или операциями, и вы подозреваете, что она связана с настройкой виртуальной сети, выполните следующие действия для устранения проблемы.
+
+### <a name="check-the-dns-servers-configuration"></a>Проверка конфигурации "DNS-серверы"
+
+Пользовательский DNS-сервер не поддерживается. Используйте параметр по умолчанию в разделе конфигурации **DNS-серверов** виртуальной сети.
 
 ### <a name="diagnose-the-virtual-network-with-the-rest-api"></a>Диагностика виртуальной сети с помощью REST API
 
