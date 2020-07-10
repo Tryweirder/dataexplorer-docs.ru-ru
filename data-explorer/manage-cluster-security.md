@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 3daf9f5af46338a450a1f1a4e9c80a6c83841343
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: aa5aa5c2c370cc56487a242b9c13ef4692295cdc
+ms.sourcegitcommit: 67cb5aabd8100bf3f41e70fc23c338b998b5227e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374016"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86208438"
 ---
 # <a name="secure-your-cluster-in-azure-data-explorer---azure-portal"></a>Защита кластера в Azure обозреватель данных — портал Azure
 
@@ -28,11 +28,15 @@ ms.locfileid: "83374016"
 
 1. В окне **Безопасность** выберите **вкл** . для параметра безопасность **шифрования диска** . 
 
-1. Нажмите кнопку **Сохранить**.
+1. Щелкните **Сохранить**.
  
 > [!NOTE]
 > Выберите **Отключить** , чтобы отключить шифрование после его включения.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="azure-data-explorer-stores-data-within-a-region"></a>обозреватель данных Azure хранит данные в регионе
+
+Каждый кластер Azure обозреватель данных работает на выделенных ресурсах в одном регионе. Все данные хранятся в пределах региона. 
+
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Проверка работоспособности кластера](check-cluster-health.md)

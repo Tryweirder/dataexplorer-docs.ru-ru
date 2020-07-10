@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/29/2019
-ms.openlocfilehash: b454b9453c7afd0835041ac78d13318de73432e2
-ms.sourcegitcommit: fd3bf300811243fc6ae47a309e24027d50f67d7e
+ms.openlocfilehash: 6804b71ff3985de17460dddfa60f081f3bb910c0
+ms.sourcegitcommit: b286703209f1b657ac3d81b01686940f58e5e145
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83382079"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86188427"
 ---
 # <a name="using-the-net-client-libraries-from-powershell"></a>Использование клиентских библиотек .NET из PowerShell
 
@@ -24,9 +24,10 @@ ms.locfileid: "83382079"
 Чтобы начать работу с клиентскими библиотеками Azure обозреватель данных .NET с помощью PowerShell.
 
 1. Скачайте [ `Microsoft.Azure.Kusto.Tools` пакет NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Tools/).
+    * Если вы используете PowerShell 7 (или более позднюю версию), скачайте [ `Microsoft.Azure.Kusto.Tools.NETCore` пакет NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Tools.NETCore/).
 1. Извлеките содержимое каталога Tools в пакете (используйте средство архивации, например `7-zip` ).
 1. Вызовите `[System.Reflection.Assembly]::LoadFrom("path")` из PowerShell, чтобы загрузить необходимую библиотеку. 
-    - `path`Параметр для команды должен указывать расположение извлеченных файлов.
+    * `path`Параметр для команды должен указывать расположение извлеченных файлов.
 1. После загрузки всех зависимых сборок .NET:
    1. Создайте строку подключения Kusto.
    1. Создайте экземпляр *поставщика запроса* или *поставщика администратора*.
@@ -65,6 +66,10 @@ $kcsb = New-Object Kusto.Data.KustoConnectionStringBuilder ($clusterUrl, $databa
 #     $applicationKey = "application key goes here"
 #     $authority = "authority goes here"
 #     $kcsb = $kcsb.WithAadApplicationKeyAuthentication($applicationId, $applicationKey, $authority)
+#
+#   NOTE: if you're running with Powershell 7 (or above) and the .NET Core library,
+#         AAD user authentication with prompt will not work, and you should choose
+#         a different authentication method.
 ```
 
 ### <a name="example-running-an-admin-command"></a>Пример. выполнение команды администратора
@@ -107,7 +112,7 @@ $dataView | Sort StartTime -Descending | Format-Table -AutoSize
 
 Выходные данные:
 
-|StartTime           |EndTime             |еписодеид |EventID |State          |EventType         |инжуриесдирект |инжуриесиндирект |деассдирект |деассиндирект
+|StartTime           |EndTime             |еписодеид |EventID |Состояние          |EventType         |инжуриесдирект |инжуриесиндирект |деассдирект |деассиндирект
 |---------           |-------             |--------- |------- |-----          |---------         |-------------- |---------------- |------------ |--------------
 |2007-12-30 16:00:00 |2007-12-30 16:05:00 |    11749 |  64588 |Грузия        |Шквалистый ветер |             0 |               0 |           0 |             0
 |2007-12-20 07:50:00 |2007-12-20 07:53:00 |    12554 |  68796 |Миссисипи    |Шквалистый ветер |             0 |               0 |           0 |             0

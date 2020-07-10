@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/24/2020
-ms.openlocfilehash: 49041ec72439d8f36b54ece5fcd341fa4ca873fc
-ms.sourcegitcommit: bcb87ed043aca7c322792c3a03ba0508026136b4
+ms.openlocfilehash: 6eab8ab3097876c74cc6aaa9116c8923ca9fc3db
+ms.sourcegitcommit: b286703209f1b657ac3d81b01686940f58e5e145
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86127319"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86188410"
 ---
 # <a name="troubleshoot-access-ingestion-and-operation-of-your-azure-data-explorer-cluster-in-your-virtual-network"></a>Устранение неполадок доступа, приема и работы кластера Azure обозреватель данных в виртуальной сети
 
@@ -28,43 +28,40 @@ ms.locfileid: "86127319"
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-   1. Скачайте [TCping](https://www.elifulkerson.com/projects/tcping.php) на компьютер, подключающийся к кластеру.
-   1. Проверьте связь с местом назначения с исходного компьютера, выполнив следующую команду:
+1. Скачайте [TCping](https://www.elifulkerson.com/projects/tcping.php) на компьютер, подключающийся к кластеру.
+1. Проверьте связь с местом назначения с исходного компьютера, выполнив следующую команду:
 
-    ```cmd
-     C:\> tcping -t yourcluster.kusto.windows.net 443 
-    
-     ** Pinging continuously.  Press control-c to stop **
-    
-     Probing 1.2.3.4:443/tcp - Port is open - time=100.00ms
-     ```
+   ```cmd
+   C:\> tcping -t yourcluster.kusto.windows.net 443 
+   ** Pinging continuously.  Press control-c to stop **
+   Probing 1.2.3.4:443/tcp - Port is open - time=100.00ms
+   ```
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
-   1. Установка *неткат* на компьютере, подключенном к кластеру
+1. Установка *неткат* на компьютере, подключенном к кластеру
 
-    ```bash
-    $ apt-get install netcat
-     ```
+   ```bash
+   $ apt-get install netcat
+   ```
 
-   1. Проверьте связь с местом назначения с исходного компьютера, выполнив следующую команду:
+1. Проверьте связь с местом назначения с исходного компьютера, выполнив следующую команду:
 
-     ```bash
-     $ netcat -z -v yourcluster.kusto.windows.net 443
-    
-     Connection to yourcluster.kusto.windows.net 443 port [tcp/https] succeeded!
-     ```
+   ```bash
+   $ netcat -z -v yourcluster.kusto.windows.net 443
+   Connection to yourcluster.kusto.windows.net 443 port [tcp/https] succeeded!
+   ```
 ---
 
 Если проверка не прошла успешно, перейдите к следующим шагам. Если проверка прошла успешно, это не связано с проблемой подключения по протоколу TCP. Чтобы устранить неполадки, перейдите в раздел " [проблемы в работе](#cluster-creation-and-operations-issues) ".
 
 ### <a name="check-the-network-security-group-nsg"></a>Проверка группы безопасности сети (NSG)
 
-   Убедитесь, что [Группа безопасности сети](/azure/virtual-network/security-overview) (NSG), подключенная к подсети кластера, имеет правило входящего трафика, которое разрешает доступ с IP-адреса клиентского компьютера для порта 443.
+Убедитесь, что [Группа безопасности сети](/azure/virtual-network/security-overview) (NSG), подключенная к подсети кластера, имеет правило входящего трафика, которое разрешает доступ с IP-адреса клиентского компьютера для порта 443.
 
 ### <a name="check-route-table"></a>Проверка таблицы маршрутов
 
-   Если в подсети кластера настроено принудительное туннелирование брандмауэра (подсеть с [таблицей маршрутов](/azure/virtual-network/virtual-networks-udr-overview) , содержащей маршрут по умолчанию "0.0.0.0/0"), убедитесь, что IP-адрес компьютера имеет маршрут с [типом следующего прыжка](/azure/virtual-network/virtual-networks-udr-overview) VirtualNetwork/Интернет. Этот маршрут необходим для предотвращения проблем с асимметричными маршрутами.
+Если в подсети кластера настроено принудительное туннелирование брандмауэра (подсеть с [таблицей маршрутов](/azure/virtual-network/virtual-networks-udr-overview) , содержащей маршрут по умолчанию "0.0.0.0/0"), убедитесь, что IP-адрес компьютера имеет маршрут с [типом следующего прыжка](/azure/virtual-network/virtual-networks-udr-overview) VirtualNetwork/Интернет. Этот маршрут необходим для предотвращения проблем с асимметричными маршрутами.
 
 ## <a name="ingestion-issues"></a>Проблемы приема
 
