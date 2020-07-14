@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 6c09bea9cfe25ea7ebe86170f71593db4db7d9a2
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: a1382703c4c70263ff0d8a066860071fd07ef179
+ms.sourcegitcommit: bf2c9da0c23ebcaec19b229d2079032d54a2cc82
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264357"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86140510"
 ---
 # <a name="getting-started-with-kusto"></a>Начало работы с Kusto
 
@@ -33,7 +33,7 @@ ms.locfileid: "85264357"
 ## <a name="interacting-with-azure-data-explorer"></a>Взаимодействие с Azure Data Explorer
 
 Основной способ взаимодействия пользователей с Azure Data Explorer (Kusto):
-* Используйте один из многих доступных [клиентских средств](../tools/index.md). 
+* Используйте одно из средств [выполнения запросов](../../tools-integrations-overview.md#azure-data-explorer-query-tools). 
 * [Запросы SQL.](../api/tds/t-sql.md)
 *  [Язык запросов Kusto](../query/index.md) является основным средством взаимодействия. Он позволяет отсылать запросы данных и использовать [команды управления](../management/index.md) для управления сущностями, обнаружения метаданных и т. д.
 Эти запросы и управляющие команды являются небольшими программами в текстовом формате.
