@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/06/2020
-ms.openlocfilehash: f5ea896d4701aa5aec1b22c1ff20853aea18f065
-ms.sourcegitcommit: be1bbd62040ef83c08e800215443ffee21cb4219
+ms.openlocfilehash: 0580088bf04bffafd36990a3f42c32aa5c4ede53
+ms.sourcegitcommit: 2126c5176df272d149896ac5ef7a7136f12dc3f3
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84664948"
+ms.lasthandoff: 07/13/2020
+ms.locfileid: "86280474"
 ---
 # <a name="materialize"></a>materialize()
 
@@ -35,13 +35,13 @@ ms.locfileid: "84664948"
 
 * Материализация может использоваться только в инструкциях let, если присвоить кэшированному результату имя.
 
-**Примечание**
+**Примечание**.
 
 * Материализация имеет ограничение размера кэша, равное **5 ГБ**. 
   Это ограничение устанавливается для каждого узла кластера и является взаимным для всех запросов, выполняющихся одновременно.
   Если запрос использует `materialize()` и кэш не может вместить какие-либо данные, запрос будет прерван с ошибкой.
 
-**Примеры**
+## <a name="examples-of-query-performance-improvement"></a>Примеры повышения производительности запросов
 
 В следующем примере показано `materialize()` , как можно использовать для повышения производительности запроса.
 Выражение `_detailed_data` определяется с помощью `materialize()` функции и, следовательно, вычисляется только один раз.
@@ -72,7 +72,7 @@ _detailed_data
 
 
 В следующем примере создается набор случайных чисел и вычисляется: 
-* количество различных значений в наборе (DCount)
+* количество различных значений в наборе ( `Dcount` )
 * три верхних значения в наборе 
 * сумма всех этих значений в наборе 
  
@@ -105,6 +105,66 @@ randomSet | summarize Sum=sum(value)
 
 Результирующий набор 3: 
 
-|SUM|
+|Сумма|
 |---|
 |15002960543563|
+
+## <a name="examples-of-using-materialize"></a>Примеры использования материализации ()
+
+> [!TIP]
+> Собросайте свой столбец во время приема, если большинство запросов извлекают поля из динамических объектов в миллионах строк.
+> 
+> Чтобы использовать `let` инструкцию со значением, которое используется более одного раза, используйте [функцию материализации ()](./materializefunction.md).
+> Дополнительные сведения см. в [разделе рекомендации](best-practices.md)
+
+Попробуйте отправить все возможные операторы, которые будут уменьшать материализованный набор данных и сохранить семантику запроса. Например, фильтры или проектные обязательные столбцы.
+
+```kusto
+    let materializedData = materialize(Table
+    | where Timestamp > ago(1d));
+    union (materializedData
+    | where Text !has "somestring"
+    | summarize dcount(Resource1)), (materializedData
+    | where Text !has "somestring"
+    | summarize dcount(Resource2))
+```
+
+Фильтр по `Text` является взаимным и может быть передан в материализовать выражение.
+Запрос должен иметь только столбцы `Timestamp` , `Text` , `Resource1` и `Resource2` . Проецировать эти столбцы внутри материализованных выражений.
+    
+```kusto
+    let materializedData = materialize(Table
+    | where Timestamp > ago(1d)
+    | where Text !has "somestring"
+    | project Timestamp, Resource1, Resource2, Text);
+    union (materializedData
+    | summarize dcount(Resource1)), (materializedData
+    | summarize dcount(Resource2))
+```
+    
+Если фильтры не идентичны, как в этом запросе:  
+
+```kusto
+    let materializedData = materialize(Table
+    | where Timestamp > ago(1d));
+    union (materializedData
+    | where Text has "String1"
+    | summarize dcount(Resource1)), (materializedData
+    | where Text has "String2"
+    | summarize dcount(Resource2))
+ ```
+
+Если Объединенный фильтр значительно сокращает объем материализованных результатов, объедините оба фильтра в материализованный результат по логическому `or` выражению, как в приведенном ниже запросе. Однако следует сохранять фильтры в каждой части объединения, чтобы сохранить семантику запроса.
+     
+```kusto
+    let materializedData = materialize(Table
+    | where Timestamp > ago(1d)
+    | where Text has "String1" or Text has "String2"
+    | project Timestamp, Resource1, Resource2, Text);
+    union (materializedData
+    | where Text has "String1"
+    | summarize dcount(Resource1)), (materializedData
+    | where Text has "String2"
+    | summarize dcount(Resource2))
+```
+    

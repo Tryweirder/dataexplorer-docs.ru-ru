@@ -7,12 +7,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: fc8e34be3d61c690bc94795e6bd37f2559d247e0
-ms.sourcegitcommit: 0d15903613ad6466d49888ea4dff7bab32dc5b23
+ms.openlocfilehash: 0b2daf955515e4c023cdb7312fbd82039ca598bc
+ms.sourcegitcommit: 2126c5176df272d149896ac5ef7a7136f12dc3f3
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86013905"
+ms.lasthandoff: 07/13/2020
+ms.locfileid: "86280645"
 ---
 # <a name="using-kustoexplorer"></a>Использование Kusto.Explorer
 
@@ -28,11 +28,11 @@ Kusto. Explorer — это классическое приложение, поз
 1. В поле ввода введите фразу для поиска и выберите **Go (перейти**).
 1. Тепловая схема сетки таблицы или временного слота показывает, какие термины отображаются и где они отображаются.
 
-:::image type="content" source="images/kusto-explorer-using/search-plus-plus.png" alt-text="Поиск + + Kusto Explorer":::
+    :::image type="content" source="images/kusto-explorer-using/search-plus-plus.png" alt-text="Поиск + + Kusto Explorer":::
 
 1. Выберите ячейку в сетке и выберите **Просмотреть сведения** , чтобы отобразить соответствующие записи в области результатов.
 
-:::image type="content" source="images/kusto-explorer-using/search-plus-plus-results.png" alt-text="Результаты поиска в Kusto Explorer + +":::
+    :::image type="content" source="images/kusto-explorer-using/search-plus-plus-results.png" alt-text="Результаты поиска в Kusto Explorer + +":::
 
 ## <a name="query-mode"></a>режим запроса
 
@@ -117,17 +117,17 @@ Kusto. Explorer предоставляет удобный способ обме�
 1. [Выполните запрос](#basic-queries) в Kusto. Explorer.
 1. На вкладке Главная в разделе Общий доступ выберите **Экспорт в буфер обмена** (или нажмите клавиши CTRL + SHIFT + C).
 
-:::image type="content" source="images/kusto-explorer-using/menu-export.png" alt-text="Экспорт в буфер обмена":::
+    :::image type="content" source="images/kusto-explorer-using/menu-export.png" alt-text="Экспорт в буфер обмена":::
 
-    Kusto.Explorer pastes the following to the clipboard:
-    * Your query
-    * The query results (table or chart)
-    * The connection details for the Kusto cluster and database
-    * A link that will rerun the query automatically
+    Kusto. Explorer вставит следующий фрагмент в буфер обмена:
+     * Ваш запрос
+     * Результаты запроса (таблица или диаграмма)
+     * Сведения о подключении для кластера и базы данных Kusto
+     * Ссылка для автоматического повторного запуска запроса
 
 1. Вставка содержимого буфера обмена в новое сообщение электронной почты.
 
-:::image type="content" source="images/kusto-explorer-using/share-results-2.png" alt-text="Поделиться результатами по электронной почте":::
+    :::image type="content" source="images/kusto-explorer-using/share-results-2.png" alt-text="Поделиться результатами по электронной почте":::
 
 ### <a name="deep-linking-queries"></a>Запросы с глубокими привязками
 
@@ -164,9 +164,13 @@ https://help.kusto.windows.net/Samples?web=0&query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSs
 Вы можете использовать запросы параметризованным с глубоким связыванием.
 
 1. Создайте запрос, который будет сформирован как запрос параметризованным (например,). `KustoLogs | where Timestamp > ago({Period}) | count` 
-1. Укажите параметр для каждого параметра запроса в URI, например:
+1. Укажите параметр для каждого параметра запроса в URI, например: 
+    
+    `https://<your_cluster>.kusto.windows.net/MyDatabase?
+web=0&query=KustoLogs+%7c+where+Timestamp+>+ago({Period})+%7c+count&Period=1h`
 
-   `https://mycluster.kusto.windows.net/MyDatabase?web=0&query=KustoLogs+%7c+where+Timestamp+>+ago({Period})+%7c+count&Period=1h`
+    Замените &lt; your_cluster &gt; именем кластера Azure обозреватель данных.
+
 
 ### <a name="getting-shorter-links"></a>Получение более коротких ссылок
 
@@ -247,4 +251,4 @@ Kusto.Explorer.exe c:\temp\script.kql uri=https://help.kusto.windows.net/Samples
 * [Анализатор кода Kusto. Explorer](kusto-explorer-code-analyzer.md)
 * [Навигация по коду Kusto. Explorer](kusto-explorer-codenav.md)
 * [Рефакторинг кода Kusto. Explorer](kusto-explorer-refactor.md)
-* [Язык запросов Kusto (ККЛ)](https://docs.microsoft.com/azure/kusto/query/)
+* [Язык запросов Kusto (KQL)](https://docs.microsoft.com/azure/kusto/query/)
