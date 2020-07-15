@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 03/29/2020
-ms.openlocfilehash: 422c930835e4ebe68cb59b27e51934d800fe14c1
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: 4e87ab389179f308642de3b9469544fde6139507
+ms.sourcegitcommit: d6f35df833d5b4f2829a8924fffac1d0b49ce1c2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85265220"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058921"
 ---
 # <a name="use-one-click-ingestion-to-ingest-json-data-from-a-local-file-to-an-existing-table-in-azure-data-explorer"></a>Использование приема данных одним щелчком для приема данных в формате JSON из локального файла в существующую таблицу в Azure Data Explorer
 
@@ -25,9 +25,9 @@ ms.locfileid: "85265220"
 
 ## <a name="ingest-new-data"></a>Прием новых данных
 
-1. В левом меню веб-интерфейса щелкните правой кнопкой мыши *базу данных* или *таблицу* и выберите **Ingest new data (Preview)** (Прием новых данных (предварительная версия)).
+В левом меню веб-интерфейса щелкните правой кнопкой мыши *базу данных* или *таблицу* и выберите **Ingest new data (Preview)** (Прием новых данных (предварительная версия)).
 
-    :::image type="content" source="media/one-click-ingestion-existing-table/one-click-ingestion-in-webui.png" alt-text="Выбор функции приема данных одним щелчком в пользовательском веб-интерфейсе":::
+   :::image type="content" source="media/one-click-ingestion-existing-table/one-click-ingestion-in-webui.png" alt-text="Выбор функции приема данных одним щелчком в пользовательском веб-интерфейсе":::
  
 ## <a name="select-an-ingestion-type"></a>Выберите тип приема данных
 
@@ -42,14 +42,17 @@ ms.locfileid: "85265220"
 
    1. Выберите **from file** (из файла).  
    1. Нажмите кнопку **Browse** (Обзор), чтобы найти файл, или перетащите файл в поле.
-    * Появится пример данных. При необходимости можно отфильтровать эти данные, чтобы отображались только те файлы, имена которых в начале или в конце имеют определенные символы. 
+    
+      :::image type="content" source="media/one-click-ingestion-existing-table/from-file.png" alt-text="Прием данных одним щелчком из файла":::
+
+ 1. Появится пример данных. Их можно отфильтровать, чтобы принимать только те файлы, в начале или в конце имен которых есть определенные символы. 
+   
     >[!NOTE] 
     >Когда вы меняете фильтры, содержимое в окне предварительного просмотра обновляется автоматически.
   
-      :::image type="content" source="media/one-click-ingestion-existing-table/from-file.png" alt-text="Прием данных одним щелчком из файла":::
 
- > [!TIP]
- > Сведения о приеме данных **из контейнера** см. в статье [Использование приема данных одним щелчком для приема данных в формате CSV из контейнера в новую таблицу в Azure Data Explorer](one-click-ingestion-new-table.md#select-an-ingestion-type).
+> [!TIP]
+> Сведения о приеме данных **из контейнера** см. в статье [Использование приема данных одним щелчком для приема данных в формате CSV из контейнера в новую таблицу в Azure Data Explorer](one-click-ingestion-new-table.md#select-an-ingestion-type).
 
 ## <a name="edit-the-schema"></a>Изменение схемы
 
@@ -62,7 +65,7 @@ ms.locfileid: "85265220"
     * В полях **Исходные столбцы** введите имена столбцов, которые нужно сопоставлять со столбцами **Целевые столбцы**.
     * Чтобы удалить столбец из сопоставления, выберите значок удаления.
 
-    :::image type="content" source="media/one-click-ingestion-existing-table/map-columns.png" alt-text="Окно сопоставления столбцов"::: 
+      :::image type="content" source="media/one-click-ingestion-existing-table/map-columns.png" alt-text="Окно сопоставления столбцов"::: 
     
 1. Нажмите кнопку **Обновить**.
 1. На вкладке **Схема** выполните следующие действия:
@@ -70,15 +73,16 @@ ms.locfileid: "85265220"
         
     * Если вы выбрали **JSON**, также задайте для поля **JSON levels** (Уровни JSON) значение от 1 до 10. Уровни определяют разделение данных столбцов в таблице.
 
-    :::image type="content" source="media/one-click-ingestion-existing-table/json-levels.png" alt-text="Выбор уровней JSON":::
+        :::image type="content" source="media/one-click-ingestion-existing-table/json-levels.png" alt-text="Выбор уровней JSON":::
     
-    > [!TIP]
-    > Если вы хотите использовать файлы в формате **CSV**, см. статью [Использование приема данных одним щелчком для приема данных в формате CSV из контейнера в новую таблицу в Azure Data Explorer](one-click-ingestion-new-table.md#edit-the-schema).
+       > [!TIP]
+       > Если вы хотите использовать файлы в формате **CSV**, см. статью [Использование приема данных одним щелчком для приема данных в формате CSV из контейнера в новую таблицу в Azure Data Explorer](one-click-ingestion-new-table.md#edit-the-schema).
 
 ### <a name="table"></a>Таблица 
 
 В таблице выполните следующие действия: 
-    * Выберите новые заголовки столбцов, чтобы добавить **Новый столбец**, **Удалить столбец**, **Сортировать по возрастанию** или **Сортировать по убыванию**. В существующих столбцах доступна только сортировка данных.
+  * Выберите новые заголовки столбцов, чтобы добавить **Новый столбец**, **Удалить столбец**, **Сортировать по возрастанию** или **Сортировать по убыванию**. 
+ * В существующих столбцах доступна только сортировка данных.
 
 [!INCLUDE [data-explorer-one-click-column-table](includes/data-explorer-one-click-column-table.md)]
 
@@ -97,7 +101,7 @@ ms.locfileid: "85265220"
 :::image type="content" source="media/one-click-ingestion-existing-table/one-click-data-ingestion-complete.png" alt-text="Прием данных одним щелчком завершен":::
 
 > [!IMPORTANT]
-> Если вы хотите настроить непрерывный прием данных из контейнера, см. статью [Использование приема данных одним щелчком для приема данных в формате CSV из контейнера в новую таблицу в Azure Data Explorer](one-click-ingestion-new-table.md#continuous-ingestion---container-only).
+> Чтобы настроить непрерывный прием данных из контейнера, см. статью [Использование приема данных одним щелчком для приема данных в формате CSV из контейнера в новую таблицу в Azure Data Explorer](one-click-ingestion-new-table.md#create-continuous-ingestion-for-container).
 
 [!INCLUDE [data-explorer-one-click-ingestion-query-data](includes/data-explorer-one-click-ingestion-query-data.md)]
 
