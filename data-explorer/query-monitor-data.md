@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 1edca77125f46c59402edfde251262cebe5c1b70
-ms.sourcegitcommit: 284152eba9ee52e06d710cc13200a80e9cbd0a8b
+ms.openlocfilehash: e5e4e2642d41d045c7fc49efaca78c35e217b0e5
+ms.sourcegitcommit: f086298a6dd32790910350c7cd3b914b51d51226
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/13/2020
-ms.locfileid: "86291599"
+ms.lasthandoff: 07/14/2020
+ms.locfileid: "86374689"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Запрос данных в Azure Monitor с помощью обозреватель данных Azure (Предварительная версия)
 
@@ -50,6 +50,9 @@ ms.locfileid: "86291599"
 1. После установления подключения на левой панели отобразится кластер LA или AI с собственным кластером ADX. 
 
     ![Кластеры обозреватель данных Log Analytics и Azure](media/adx-proxy/la-adx-clusters.png)
+
+> [!NOTE]
+> Количество Azure Monitor рабочих областей, которые могут быть сопоставлены, ограничено 100.
 
 ## <a name="run-queries"></a>Выполнение запросов
 
@@ -90,8 +93,9 @@ union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 При использовании [ `join` оператора](kusto/query/joinoperator.md)вместо объединения, может потребоваться, [`hint`](kusto/query/joinoperator.md#join-hints) чтобы запустить его в собственном кластере Azure обозреватель данных (а не на прокси-сервере). 
 
 ## <a name="function-supportability"></a>Поддержка функций
+
 Кластер Azure обозреватель данных прокси-сервер поддерживает функции как для Application Insights, так и для Log Analytics.
-Это позволяет запросам между кластерами ссылаться на Azure Monitor табличные функции напрямую.
+Эта возможность позволяет запросам между кластерами ссылаться на Azure Monitor табличные функции напрямую.
 Прокси-сервер поддерживает следующие команды:
 
 ```kusto
