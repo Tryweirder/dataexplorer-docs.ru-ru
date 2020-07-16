@@ -8,12 +8,12 @@ ms.reviewer: olgolden
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 3a2b5cfb9ca02ec255e8cca7d40c103be18a0450
-ms.sourcegitcommit: b286703209f1b657ac3d81b01686940f58e5e145
+ms.openlocfilehash: 166f109f96695380c979dd4060e324187c5b5efc
+ms.sourcegitcommit: 4ae1508bbaa8fe9642dcfc8618d77f009bc8ec9f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86188546"
+ms.lasthandoff: 07/15/2020
+ms.locfileid: "86405476"
 ---
 # <a name="azure-data-explorer-tools-and-integrations-overview"></a>Обзор средств и интеграции Azure обозреватель данных
 
@@ -38,7 +38,7 @@ Azure обозреватель данных предлагает различн�
 ### <a name="ingestion-integrations"></a>Интеграция приема
 
 * Концентратор событий
-    * [Прием из концентратора событий] (Прием[из концентратора событий](kusto/management/data-ingestion/eventhub.md)
+    * [Прием данных из концентратора событий](kusto/management/data-ingestion/eventhub.md)
     * Прием из концентратора событий с помощью шаблона [портал Azure](ingest-data-event-hub.md), [C#](data-connection-event-hub-csharp.md), [Python](data-connection-event-hub-python.md) или [Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 * Сетка событий Azure
     * [Прием из сетки событий](kusto/management/data-ingestion/eventgrid.md)
@@ -58,7 +58,7 @@ Azure обозреватель данных предлагает различн�
 * [База данных Cosmos](https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration)
 * [Power Automate](flow.md)
 
-## <a name="query-data"></a>Запрос данных
+## <a name="query-data"></a>Запросы данных
 
 ### <a name="azure-data-explorer-query-tools"></a>Средства запросов обозреватель данных Azure
 
@@ -78,7 +78,7 @@ Azure обозреватель данных предлагает различн�
 * [Azure Data Lake](data-lake-query-data.md)
 * [Apache Spark](spark-connector.md)
 * Microsoft Power Apps
-* Azure Data Studio
+* [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/notebooks-kqlmagic)
 
 ## <a name="visualizations-dashboards-and-reporting"></a>Средства визуализации, мониторинга и отчетности
 
@@ -87,8 +87,8 @@ Azure обозреватель данных предлагает различн�
 ## <a name="notebook-connectivity"></a>Подключение к записной книжке
 
 * [Записные книжки Azure](azure-notebooks.md)
-* [Записные книжки Jupyter Notebook](kqlmagic.md)
-* Azure Data Studio
+* [Jupyter Notebook](kqlmagic.md)
+* [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/notebooks-kqlmagic)
 
 ## <a name="orchestration"></a>Оркестрация
 
