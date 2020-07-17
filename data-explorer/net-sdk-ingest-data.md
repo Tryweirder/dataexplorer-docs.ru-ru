@@ -7,12 +7,12 @@ ms.reviewer: vladikb
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 7b26d0585e4d6bc2ff8edfb9a906dd305278f967
-ms.sourcegitcommit: 2126c5176df272d149896ac5ef7a7136f12dc3f3
+ms.openlocfilehash: 8a31c4a482f047f9f92edd75fe1119c1729deaf9
+ms.sourcegitcommit: 537a7eaf8c8e06a5bde57503fedd1c3706dd2b45
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/13/2020
-ms.locfileid: "86280632"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86423000"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-sdk"></a>Прием данных с помощью пакета SDK Azure обозреватель данных .NET 
 
@@ -33,7 +33,7 @@ Install-Package Microsoft.Azure.Kusto.Ingest
 
 ## <a name="add-authentication-and-construct-connection-string"></a>Добавление проверки подлинности и создание строки подключения
 
-### <a name="authentication"></a>Проверка подлинности
+### <a name="authentication"></a>Аутентификация
 
 Чтобы проверить подлинность приложения, Azure обозреватель данных SDK использует идентификатор клиента AAD. Чтобы найти идентификатор клиента, используйте следующий URL-адрес, заменив домен на *имя_вашего_домена*.
 
@@ -165,7 +165,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 
 ## <a name="define-batching-policy-for-your-table"></a>Определение политики пакетной обработки для таблицы
 
-Прием обозреватель данных Azure выполняет пакетную обработку входящих данных для оптимизации размера сегмента данных. Этот процесс управляется [политикой пакетной обработки приема](/kusto/management/batchingpolicy) , и ее можно изменить с помощью [команды Control](/kusto/management/batching-policy). Используйте эту политику, чтобы сократить задержку медленных поступающих данных.
+Прием обозреватель данных Azure выполняет пакетную обработку входящих данных для оптимизации размера сегмента данных. Этот процесс управляется [политикой пакетной обработки приема](kusto/management/batchingpolicy.md) , и ее можно изменить с помощью [команды управления политикой пакетной обработки](kusto/management/batching-policy.md). Используйте эту политику, чтобы сократить задержку медленных поступающих данных.
 
 ```kusto
 using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnectionStringBuilder))

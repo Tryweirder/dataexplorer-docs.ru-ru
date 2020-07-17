@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: e5e4e2642d41d045c7fc49efaca78c35e217b0e5
-ms.sourcegitcommit: f086298a6dd32790910350c7cd3b914b51d51226
+ms.openlocfilehash: b3f4ed8e0bb37b62c7f31c9444b373529cf24df9
+ms.sourcegitcommit: 537a7eaf8c8e06a5bde57503fedd1c3706dd2b45
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86374689"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86423024"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Запрос данных в Azure Monitor с помощью обозреватель данных Azure (Предварительная версия)
 
@@ -23,7 +23,7 @@ ms.locfileid: "86374689"
 
 ![Поток прокси-сервера ADX](media/adx-proxy/adx-proxy-flow.png)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Обязательные условия
 
 > [!NOTE]
 > Прокси-сервер ADX находится в режиме предварительного просмотра. [Подключитесь к прокси-](#connect-to-the-proxy) серверу, чтобы включить функцию прокси-сервера ADX для кластеров. Свяжитесь с командой [адкспрокси](mailto:adxproxy@microsoft.com) с любыми вопросами.
@@ -36,7 +36,7 @@ ms.locfileid: "86374689"
 
 1. В пользовательском интерфейсе Azure обозреватель данных ( https://dataexplorer.azure.com/clusters) выберите **Добавить кластер**.
 
-1. В окне **Добавление кластера** добавьте URL-адрес для кластера La или искусственного интеллекта. 
+1. В окне **Добавление кластера** добавьте URL-адрес кластера Ла или искусственного интеллекта. 
     
     * Для LA:`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
     * Для искусственного интеллекта:`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
@@ -67,7 +67,7 @@ ms.locfileid: "86374689"
 ### <a name="direct-query-from-your-la-or-ai-adx-proxy-cluster"></a>Прямой запрос из кластера Ла или ИСКУССТВЕНного прокси-сервера ADX
 
 Выполнение запросов в кластере LA или искусственного интеллекта. Убедитесь, что кластер выбран в левой области. 
-
+ 
 ```kusto
 Perf | take 10 // Demonstrate query through the proxy on the LA workspace
 ```
@@ -98,11 +98,13 @@ union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 Эта возможность позволяет запросам между кластерами ссылаться на Azure Monitor табличные функции напрямую.
 Прокси-сервер поддерживает следующие команды:
 
-```kusto
-.show functions
-.show function {FunctionName}
-.show database {DataBaseName} schema as json
-```
+* `.show functions`
+* `.show function {FunctionName}`
+* `.show database {DatabaseName} schema as json`
+
+На следующем рисунке показан пример запроса табличной функции из пользовательского веб-интерфейса Azure обозреватель данных. Чтобы использовать функцию, запустите ее имя в окне запроса.
+
+  [![Запрос табличной функции из пользовательского веб-интерфейса Azure обозреватель данных](media/adx-proxy/function-query-adx-proxy.png)](media/adx-proxy/function-query-adx-proxy.png#lightbox)
 
 > [!NOTE]
 > Azure Monitor поддерживает только табличные функции. Табличные функции не поддерживают параметры.
