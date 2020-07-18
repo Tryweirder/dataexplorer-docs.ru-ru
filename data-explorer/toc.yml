@@ -78,8 +78,10 @@
               href: one-click-ingestion-existing-table.md
         - name: Прием потоковой передачи
           items:
-            - name: Прием потоковой передачи
+            - name: Портал Azure
               href: ingest-data-streaming.md
+            - name: C#
+              href: ingest-data-streaming-csharp.md
         - name: Использование LightIngest
           href: lightingest.md
         - name: Концентратор событий
@@ -112,8 +114,8 @@
               href: data-connection-iot-hub-python.md
             - name: Шаблон Azure Resource Manager
               href: data-connection-iot-hub-resource-manager.md
-            - name: Фабрика данных Azure
-              items: null
+        - name: Фабрика данных Azure
+          items:
             - name: Интеграция со службой "Фабрика данных"
               href: data-factory-integration.md
             - name: Копирование данных с помощью Фабрики данных Azure
@@ -317,7 +319,7 @@
           href: troubleshoot-database-table.md
 - name: Справочник
   items:
-    - name: Запрос Kusto
+    - name: Язык запросов Kusto
       items:
         - name: Обзор
           href: ./kusto/query/index.md
@@ -1219,45 +1221,14 @@
                   href: ./kusto/tools/kusto-explorer-troubleshooting.md
             - name: Kusto.Cli
               href: ./kusto/tools/kusto-cli.md
-    - name: Основные понятия
-      href: ./kusto/concepts/index.md
-      items:
-        - name: Начало работы
-          href: ./kusto/concepts/index.md
-          items:
-            - name: Песочницы
-              href: ./kusto/concepts/sandboxes.md
-        - name: Прочее и ошибки
-          items:
-            - name: Ограничения на запросы
-              href: ./kusto/concepts/querylimits.md
-            - name: Сбои при частичном выполнении запросов
-              href: ./kusto/concepts/partialqueryfailures.md
-              items:
-                - name: Усечение результата
-                  href: ./kusto/concepts/resulttruncation.md
-                - name: Неконтролируемые запросы
-                  href: ./kusto/concepts/runawayqueries.md
-                - name: Переполнение
-                  href: ./kusto/concepts/overflow.md
-            - name: Запросы между кластерами и изменения схемы
-              href: ./kusto/concepts/crossclusterandschemachanges.md
-            - name: Согласованность запросов
-              href: ./kusto/concepts/queryconsistency.md
-            - name: Ошибки в собственном коде
-              href: ./kusto/concepts/errorsinnativecode.md
-            - name: Таблицы фактов и измерений
-              href: ./kusto/concepts/fact-and-dimension-tables.md
     - name: Управление
-      href: ./kusto/management/index.md
       items:
         - name: Сведения об управлении (управляющих командах)
           href: ./kusto/management/index.md
+        - name: схема
           items:
             - name: Рекомендации по проектированию схемы
               href: ./kusto/management/best-practices.md
-        - name: схема
-          items:
             - name: Управление базами данных
               href: ./kusto/management/databases.md
               items:
@@ -1535,10 +1506,36 @@
               href: ./kusto/management/cluster-follower.md
             - name: Очистка данных
               href: ./kusto/concepts/data-purge.md
-    - name: API
-      href: ./kusto/api/index.md
+    - name: Основные понятия
       items:
-        - name: Обзор
+        - name: Начало работы
+          href: ./kusto/concepts/index.md
+        - name: Прочее и ошибки
+          items:
+            - name: Песочницы
+              href: ./kusto/concepts/sandboxes.md
+            - name: Ограничения на запросы
+              href: ./kusto/concepts/querylimits.md
+            - name: Сбои при частичном выполнении запросов
+              href: ./kusto/concepts/partialqueryfailures.md
+              items:
+                - name: Усечение результата
+                  href: ./kusto/concepts/resulttruncation.md
+                - name: Неконтролируемые запросы
+                  href: ./kusto/concepts/runawayqueries.md
+                - name: Переполнение
+                  href: ./kusto/concepts/overflow.md
+            - name: Запросы между кластерами и изменения схемы
+              href: ./kusto/concepts/crossclusterandschemachanges.md
+            - name: Согласованность запросов
+              href: ./kusto/concepts/queryconsistency.md
+            - name: Ошибки в собственном коде
+              href: ./kusto/concepts/errorsinnativecode.md
+            - name: Таблицы фактов и измерений
+              href: ./kusto/concepts/fact-and-dimension-tables.md
+    - name: API
+      items:
+        - name: Обзор API
           href: ./kusto/api/index.md
           items:
             - name: Клиентские библиотеки

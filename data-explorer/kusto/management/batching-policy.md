@@ -1,6 +1,6 @@
 ---
-title: Управление политиками Инжестионбатчинг Kusto в Azure обозреватель данных
-description: В этой статье описывается политика Инжестионбатчинг в Azure обозреватель данных.
+title: Kusto Инжестионбатчинг "Управление политиками" — Azure обозреватель данных
+description: В этой статье описывается команда Инжестионбатчинг Policy в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: e9823fd0cd44dd2e5bd0731cc59086961ce86d8c
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 04c59b33d780db1c9731ac71d1f905315afbc302
+ms.sourcegitcommit: 4405ae34e119948778e0de5021077638d24da812
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82617771"
+ms.lasthandoff: 07/17/2020
+ms.locfileid: "86448050"
 ---
-# <a name="ingestionbatching-policy"></a>Политика Инжестионбатчинг
+# <a name="ingestionbatching-policy-command"></a>Команда политики Инжестионбатчинг
 
 [Политика инжестионбатчинг](batchingpolicy.md) — это объект политики, определяющий, когда должна останавливаться агрегирование данных во время приема данных в соответствии с заданными параметрами.
 
-Для `null`политики можно задать значение. в этом случае используются значения по умолчанию, установка максимального интервала времени пакетной обработки: 5 минут, 1000 элементов и общий размер пакета (1 ГБ), а параметр кластера по умолчанию, заданный Kusto.
+Для политики можно задать значение `null` . в этом случае используются значения по умолчанию, установка максимального интервала времени пакетной обработки: 5 минут, 1000 элементов и общий размер пакета (1 ГБ), а параметр кластера по умолчанию, заданный Kusto.
 
 Если политика не задана для определенной сущности, она будет искать политику более высокого уровня иерархии, если для параметра ALL задано значение null, то будет использоваться по умолчанию. 
 
@@ -29,8 +29,8 @@ ms.locfileid: "82617771"
 
 Политику можно задать для базы данных или таблицы и отобразить с помощью одной из следующих команд:
 
-* `.show` `database` *DatabaseName* `policy` `ingestionbatching`
-* `.show``table` *DatabaseName*Имя_базы_данных`.`*TableName* , TableName `policy``ingestionbatching`
+* `.show``database` *DatabaseName* DatabaseName `policy``ingestionbatching`
+* `.show``table` *Имя_базы_данных*, `.` *TableName* TableName `policy``ingestionbatching`
 
 ## <a name="altering-the-ingestionbatching-policy"></a>Изменение политики Инжестионбатчинг
 
