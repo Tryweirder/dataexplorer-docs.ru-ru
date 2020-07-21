@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/12/2020
-ms.openlocfilehash: 98841c57c8e7c405eb113e3242df75bedf1ea3b7
-ms.sourcegitcommit: 8611ac88cc42178f2dead5385432d71fa7216c82
+ms.openlocfilehash: 3835cc3e50cc589e13f7d038a7c1f8f83def9d15
+ms.sourcegitcommit: aacea5c4c397479e8254c1fe6ed0b2f333307b14
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86437576"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86470083"
 ---
 # <a name="capacity-policy"></a>Политика емкости
 
@@ -54,7 +54,7 @@ ms.locfileid: "86437576"
 
 `Number of nodes in cluster`x`Concurrent operations per node`
 
-Эффективное значение для `Concurrent operations per node` получается автоматически в соответствии с системой в диапазоне [ `MinimumConcurrentOperationsPerNode` , `MaximumConcurrentOperationsPerNode` ].
+Эффективное значение для `Concurrent operations per node` получается автоматически настраивается системой в диапазоне [ `MinimumConcurrentOperationsPerNode` , `MaximumConcurrentOperationsPerNode` ], если доля успешных операций слияния превышает 90%.
 
 > [!Note]
 > * В кластерах с тремя или более узлами узел Admin не участвует в операциях слияния. Объект `Number of nodes in cluster` уменьшается на единицу.
@@ -95,7 +95,7 @@ ms.locfileid: "86437576"
 
 Общее количество экстентов кластера (как показано в разделе [. Показать емкость](../management/diagnostics.md#show-capacity)).
 
-Эффективное значение для `Concurrent operations` автоматически корректируется системой в диапазоне [ `ClusterMinimumConcurrentOperations` , `ClusterMaximumConcurrentOperations` ].
+Действующее значение для параметра `Concurrent operations` автоматически корректируется системой в диапазоне [ `ClusterMinimumConcurrentOperations` , `ClusterMaximumConcurrentOperations` ], если доля успешных операций секционирования превышает 90%.
 
 ## <a name="defaults"></a>Значения по умолчанию
 

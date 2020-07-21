@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/25/2020
-ms.openlocfilehash: b5bc65b94c45e27087345cfbaf7252ccc4bcaf40
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: c07a2e624d8f2657889431df51958017228774a8
+ms.sourcegitcommit: d79d3aa9aaa70cd23e3107ef12296159322e1eb5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264427"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86475598"
 ---
 # <a name="row-level-security-preview"></a>Безопасность на уровне строк (Предварительная версия)
 
@@ -23,16 +23,22 @@ ms.locfileid: "85264427"
 
 Логика ограничения доступа расположена на уровне базы данных, а не на основе данных на другом уровне приложения. Система базы данных применяет ограничения доступа при каждом попыток доступа к данным с любого уровня. Эта логика делает систему безопасности более надежной и надежной, уменьшая контактную зону системы безопасности.
 
-RLS позволяет предоставлять доступ другим приложениям и пользователям только к определенной части таблицы. Например, может понадобиться:
+RLS позволяет предоставлять доступ другим приложениям и пользователям только к определенной части таблицы. Например, можно сделать следующее:
 
 * Предоставление доступа только строкам, удовлетворяющим определенным условиям
 * Анонимизация данные в некоторых столбцах
-* все вышеперечисленное.
+* Все вышеперечисленное
 
 Дополнительные сведения см. [в разделе Управляющие команды для управления политикой безопасность на уровне строк](../management/row-level-security-policy.md).
 
 > [!NOTE]
 > Политика RLS, настроенная в рабочей базе данных, также вступит в силу в базах данных следующих. В рабочих и последующих базах данных нельзя настроить разные политики RLS.
+
+> [!TIP]
+> Эти функции часто используются для row_level_securityных запросов:
+> * [current_principal()](../query/current-principalfunction.md)
+> * [current_principal_details()](../query/current-principal-detailsfunction.md)
+> * [current_principal_is_member_of()](../query/current-principal-ismemberoffunction.md)
 
 ## <a name="limitations"></a>Ограничения
 
@@ -99,7 +105,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 
 Сначала определите функцию, которая получает имя таблицы в виде строкового параметра, и ссылается на таблицу с помощью `table()` оператора. 
 
-Пример:
+Вот несколько примеров:
 
 ```
 .create-or-alter function RLSForCustomersTables(TableName: string) {
@@ -132,7 +138,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 * Проверки членства в Azure Active Directory
 * Фильтры, применяемые к данным
 
-Пример:
+Вот несколько примеров:
 
 ```kusto
 let IsRestrictedUser = current_principal_is_member_of('aadgroup=some_group@domain.com');

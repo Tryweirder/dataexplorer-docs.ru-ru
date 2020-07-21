@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 942c0577b8fb784af74cf09aec4c8a68a7be8dda
-ms.sourcegitcommit: 41cd88acc1fd79f320a8fe8012583d4c8522db78
+ms.openlocfilehash: b1855d12872c291e1ae45f62da1ad1fe0e792617
+ms.sourcegitcommit: aacea5c4c397479e8254c1fe6ed0b2f333307b14
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84294565"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86470117"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Использование базы данных следующих служб для присоединения баз данных в Azure обозреватель данных
 
@@ -182,7 +182,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
         {
             "name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
             "type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
-            "apiVersion": "2019-09-07",
+            "apiVersion": "2020-02-15",
             "location": "[parameters('location')]",
             "properties": {
                 "databaseName": "[parameters('databaseName')]",
@@ -372,9 +372,9 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 
 |**Вид** |**Описание**  |
 |---------|---------|
-|**Наборов**     |   Присоединенные участники базы данных всегда включают в себя исходные субъекты базы данных, а также дополнительные новые участники, добавленные в базу данных следующих.      |
+|**Union**     |   Присоединенные участники базы данных всегда включают в себя исходные субъекты базы данных, а также дополнительные новые участники, добавленные в базу данных следующих.      |
 |**Восстановить**   |    Нет наследования субъектов от исходной базы данных. Для присоединенной базы данных необходимо создать новые субъекты.     |
-|**None**   |   Присоединенные участники базы данных включают только субъекты исходной базы данных без дополнительных субъектов.      |
+|**Нет**   |   Присоединенные участники базы данных включают только субъекты исходной базы данных без дополнительных субъектов.      |
 
 Дополнительные сведения об использовании команд управления для настройки полномочных участников см. в разделе [Управление командами для управления кластером последующих действий](kusto/management/cluster-follower.md).
 
@@ -393,7 +393,6 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 * Шифрование данных с помощью [управляемых пользователем ключей](security.md#customer-managed-keys-with-azure-key-vault) не поддерживается как в лидерах, так и в кластерах-следах. 
 * Невозможно удалить базу данных, присоединенную к другому кластеру, прежде чем отсоединить ее.
 * Невозможно удалить кластер с базой данных, присоединенной к другому кластеру, прежде чем отсоединить его.
-* Невозможно прикрепить к кластеру, присоединенному к исполнению или выполнительу базы данных. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

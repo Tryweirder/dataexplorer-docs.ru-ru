@@ -7,12 +7,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 19ffbe2f5e14a2c003c24d145b713970e6bb31b8
-ms.sourcegitcommit: 4eb64e72861d07cedb879e7b61a59eced74517ec
+ms.openlocfilehash: dd312c4a36bb095dbe4b5e475e758c141bbab6e0
+ms.sourcegitcommit: aacea5c4c397479e8254c1fe6ed0b2f333307b14
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517772"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86470100"
 ---
 # <a name="troubleshooting"></a>Устранение неполадок
 
@@ -152,7 +152,7 @@ Following errors were detected during this operation.
 
 Иногда, если предыдущие шаги по устранению неполадок не помогут получить Kusto. Explorer для запуска, очистка данных, хранящихся локально, может помочь.
 
-Данные, хранящиеся в приложении Kusto. Explorer, можно найти здесь: `C:\Users\\[your alias]\AppData\Local\Kusto.Explorer` .
+Данные, хранящиеся в приложении Kusto. Explorer, можно найти здесь: `C:\Users\[your username]\AppData\Local\Kusto.Explorer` .
 
 > [!NOTE]
 > Очистка данных приведет к утрате открытых вкладок (папки восстановления), сохраненных подключений (папки Connections) и параметров приложения (папка UserSettings).
