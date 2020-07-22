@@ -7,12 +7,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 05/19/2020
-ms.openlocfilehash: 1f3b273260451dc0ce36730d20f1bc357a453397
-ms.sourcegitcommit: 2126c5176df272d149896ac5ef7a7136f12dc3f3
+ms.openlocfilehash: d5cb54ab0171a7f7a7e6b7353f723abe2caf69ff
+ms.sourcegitcommit: 6db94135b9902ad0ea84f9cef00ded8ec0a90fc3
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/13/2020
-ms.locfileid: "86280547"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86870147"
 ---
 # <a name="getting-started-with-kustoexplorer"></a>Начало работы с Kusto. Explorer
 
@@ -68,7 +68,7 @@ Kusto. Explorer — это многофункциональное классич
 На вкладке Главная отображаются наиболее часто используемые функции, разделенные на разделы.
 
 * [Запрос](#query-section)
-* [Общий доступ](#share-section)
+* [Предоставить общий доступ](#share-section)
 * [Визуализации](#visualizations-section)
 * [Просмотр](#view-section)
 * [Справка](#help-tab) 
@@ -266,7 +266,7 @@ Kusto. Explorer — это многофункциональное классич
 |Меню             | Поведение|
 |-----------------|---------|
 ||---------*По*---------|
-|Помогите             | Открывает ссылку на электронную документацию по Kusto.  | 
+|Справка             | Открывает ссылку на электронную документацию по Kusto.  | 
 |Новые возможности       | Открывает документ со списком всех изменений Kusto. Explorer.|
 |Сообщить о проблеме      |Открывает диалоговое окно с двумя параметрами: <ul><li>Сообщать о проблемах, связанных со службой</li><li>Сообщить о проблемах в клиентском приложении</li></ul> | 
 |Предложить функцию  | Открывает ссылку на форум обратной связи Kusto | 
@@ -306,12 +306,12 @@ Data Source=https://CLUSTER_NAME.kusto.windows.net;Initial Catalog=DATABASE_NAME
 * `AAD_TENANT_OF_CLUSTER`— Это доменное имя или идентификатор клиента AAD (GUID) клиента AAD, в котором размещается кластер. Обычно это доменное имя Организации, владеющей кластером, например `contoso.com` . 
 * USER_DOMAIN — это идентификатор пользователя, приглашаемого в этот клиент (например, `user@example.com` ). 
 
->[!Note]
+>[!NOTE]
 > Доменное имя пользователя не обязательно совпадает с именем клиента, на котором размещается кластер.
 
 :::image type="content" source="images/kusto-explorer/advanced-connection-string.png" alt-text="Расширенная строка подключения обозревателя Kusto":::
 
-## <a name="keyboard-shortcuts"></a>сочетания клавиш
+## <a name="keyboard-shortcuts"></a>Сочетания клавиш
 
 Может оказаться, что использование сочетаний клавиш позволяет выполнять операции быстрее, чем с помощью мыши. Просмотрите этот [список сочетаний клавиш Kusto. Explorer](kusto-explorer-shortcuts.md) , чтобы получить дополнительные сведения.
 

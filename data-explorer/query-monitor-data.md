@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: b3f4ed8e0bb37b62c7f31c9444b373529cf24df9
-ms.sourcegitcommit: 537a7eaf8c8e06a5bde57503fedd1c3706dd2b45
+ms.openlocfilehash: d4f9fe945281eb61c1d1e685d0c2689585951926
+ms.sourcegitcommit: 6db94135b9902ad0ea84f9cef00ded8ec0a90fc3
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86423024"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86870113"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Запрос данных в Azure Monitor с помощью обозреватель данных Azure (Предварительная версия)
 
@@ -23,7 +23,7 @@ ms.locfileid: "86423024"
 
 ![Поток прокси-сервера ADX](media/adx-proxy/adx-proxy-flow.png)
 
-## <a name="prerequisites"></a>Обязательные условия
+## <a name="prerequisites"></a>Предварительные условия
 
 > [!NOTE]
 > Прокси-сервер ADX находится в режиме предварительного просмотра. [Подключитесь к прокси-](#connect-to-the-proxy) серверу, чтобы включить функцию прокси-сервера ADX для кластеров. Свяжитесь с командой [адкспрокси](mailto:adxproxy@microsoft.com) с любыми вопросами.
@@ -41,11 +41,12 @@ ms.locfileid: "86423024"
     * Для LA:`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
     * Для искусственного интеллекта:`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
 
-    * Выберите **Добавить**.
+    * Нажмите **Добавить**.
 
     ![Добавление кластера](media/adx-proxy/add-cluster.png)
 
-    При добавлении подключения к нескольким кластерам прокси-серверов присвойте каждому из них другое имя. В противном случае все они будут иметь одинаковое имя в левой области.
+    >[!NOTE]
+    >При добавлении подключения к нескольким кластерам прокси-серверов присвойте каждому из них другое имя. В противном случае все они будут иметь одинаковое имя в левой области.
 
 1. После установления подключения на левой панели отобразится кластер LA или AI с собственным кластером ADX. 
 
@@ -61,8 +62,8 @@ ms.locfileid: "86423024"
 > [!TIP]
 > * Имя базы данных должно совпадать с именем ресурса, указанного в кластере прокси. В именах учитывается регистр.
 > * В запросах между кластерами убедитесь в правильности именования Application Insights приложений и Log Analytics рабочих областей.
->     * Если имена содержат специальные символы, они заменяются на кодировку URL-адресов в имени кластера прокси-сервера. 
->     * Если имена содержат символы, которые не соответствуют [правилам именования идентификаторов ККЛ](kusto/query/schema-entities/entity-names.md), они заменяются **-** символом дефиса.
+> * Если имена содержат специальные символы, они заменяются на кодировку URL-адресов в имени кластера прокси-сервера. 
+> * Если имена содержат символы, которые не соответствуют [правилам именования идентификаторов ККЛ](kusto/query/schema-entities/entity-names.md), они заменяются **-** символом дефиса.
 
 ### <a name="direct-query-from-your-la-or-ai-adx-proxy-cluster"></a>Прямой запрос из кластера Ла или ИСКУССТВЕНного прокси-сервера ADX
 

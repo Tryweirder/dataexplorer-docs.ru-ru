@@ -7,12 +7,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: dd312c4a36bb095dbe4b5e475e758c141bbab6e0
-ms.sourcegitcommit: aacea5c4c397479e8254c1fe6ed0b2f333307b14
+ms.openlocfilehash: 6dd52dbe9b69000b109f613957d1405190194b13
+ms.sourcegitcommit: 6db94135b9902ad0ea84f9cef00ded8ec0a90fc3
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470100"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86870096"
 ---
 # <a name="troubleshooting"></a>Устранение неполадок
 
@@ -42,7 +42,7 @@ ms.locfileid: "86470100"
 
 Этот симптом может быть результатом повреждения в локальном хранилище ClickOnce. Вы можете очистить локальное хранилище ClickOnce, выполнив следующую команду в командной строке с повышенными привилегиями.
 
-> [!Important]
+> [!IMPORTANT]
 > 1. Если имеются другие экземпляры приложений ClickOnce или `dfsvc.exe` , завершите их перед выполнением этой команды.
 > 1. Все приложения ClickOnce будут переустановлены автоматически при следующем запуске, если у вас есть доступ к исходному расположению установки, сохраненному в ярлыке приложения. Ярлыки приложений удаляться не будут.
 
@@ -159,7 +159,7 @@ Following errors were detected during this operation.
 
 ## <a name="reset-kustoexplorer"></a>Сброс Kusto. Explorer
 
-При необходимости можно полностью сбросить Kusto. Explorer. В следующей процедуре описано, как постепенно сбросить Kusto. Explorer, пока он не будет полностью удален с компьютера и должен быть установлен с нуля.
+При необходимости можно полностью сбросить Kusto. Explorer. В следующей процедуре описано, как выполнить постепенное восстановление Kusto. Explorer, пока он не будет удален с компьютера и должен быть установлен с нуля.
 
 1. В Windows откройте окно **изменение или удаление программы** (также известной как **программы и компоненты**).
 1. Выберите каждый элемент, начинающийся с `Kusto.Explorer` .
