@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/23/2020
-ms.openlocfilehash: fed2616f5fbd32b1c80f936d5689261467a9dc5e
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: c75924ed450b2995f2d35d206951adf05aecec0e
+ms.sourcegitcommit: fb54d71660391a63b0c107a9703adea09bfc7cb9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83224840"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86946127"
 ---
 # <a name="make_list-aggregation-function"></a>make_list () (агрегатная функция)
 
@@ -21,11 +21,11 @@ ms.locfileid: "83224840"
 
 * Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `summarize``make_list(` *Expr* [ `,` *MAXSIZE*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение, которое будет использоваться для вычисления агрегата.
 * *MAXSIZE* — Необязательное целочисленное ограничение на максимальное число возвращаемых элементов (по умолчанию — *1048576*). Значение MaxSize не может превышать 1048576.
@@ -33,7 +33,7 @@ ms.locfileid: "83224840"
 > [!NOTE]
 > Устаревший и устаревший вариант этой функции: `makelist()` имеет ограничение по умолчанию *MaxSize* = 128.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Возвращает массив `dynamic` (JSON) со всеми значениями *Expr* в группе.
 Если входные данные `summarize` оператора не сортируются, порядок элементов в результирующем массиве не определен.
@@ -42,6 +42,86 @@ ms.locfileid: "83224840"
 > [!TIP]
 > Используйте [`mv-apply`](./mv-applyoperator.md) оператор, чтобы создать упорядоченный список с помощью некоторого ключа. Примеры см. [здесь](./mv-applyoperator.md#using-the-mv-apply-operator-to-sort-the-output-of-makelist-aggregate-by-some-key).
 
-**См. также:**
+## <a name="examples"></a>Примеры
+
+### <a name="one-column"></a>Один столбец
+
+Самый простой пример — вывести список из одного столбца:
+
+```kusto
+let shapes = datatable (name: string, sideCount: int)
+[
+    "triangle", 3,
+    "square", 4,
+    "rectangle", 4,
+    "pentagon", 5,
+    "hexagon", 6,
+    "heptagon", 7,
+    "octogon", 8,
+    "nonagon", 9,
+    "decagon", 10
+];
+shapes
+| summarize mylist = make_list(name)
+```
+
+|милист|
+|---|
+|["треугольник", "квадратный", "Rectangle", "пятиугольник", "шестиугольник", "хептагон", "Октогон", "Нонагон", "Декагон"]|
+
+### <a name="using-the-by-clause"></a>Использование предложения "by"
+
+В следующем запросе выполняется группирование с помощью `by` предложения:
+
+```kusto
+let shapes = datatable (name: string, sideCount: int)
+[
+    "triangle", 3,
+    "square", 4,
+    "rectangle", 4,
+    "pentagon", 5,
+    "hexagon", 6,
+    "heptagon", 7,
+    "octogon", 8,
+    "nonagon", 9,
+    "decagon", 10
+];
+shapes
+| summarize mylist = make_list(name) by isEvenSideCount = sideCount % 2 == 0
+```
+
+|милист|исевенсидекаунт|
+|---|---|
+|false|["треугольник", "пятиугольник", "хептагон", "Нонагон"]|
+|true|["квадратный", "Rectangle", "шестиугольник", "Октогон", "Декагон"]|
+
+### <a name="packing-a-dynamic-object"></a>Упаковка динамического объекта
+
+Динамический объект можно [упаковать](./packfunction.md) в столбец перед выводом списка из него, как показано в следующем запросе:
+
+```kusto
+let shapes = datatable (name: string, sideCount: int)
+[
+    "triangle", 3,
+    "square", 4,
+    "rectangle", 4,
+    "pentagon", 5,
+    "hexagon", 6,
+    "heptagon", 7,
+    "octogon", 8,
+    "nonagon", 9,
+    "decagon", 10
+];
+shapes
+| extend d = pack("name", name, "sideCount", sideCount)
+| summarize mylist = make_list(d) by isEvenSideCount = sideCount % 2 == 0
+```
+
+|милист|исевенсидекаунт|
+|---|---|
+|false|[{"Name": "треугольник", "Сидекаунт": 3}, {"Name": "пятиугольник", "Сидекаунт": 5}, {"Name": "хептагон", "Сидекаунт": 7}, {"Name": "Нонагон", "Сидекаунт": 9}]|
+|true|[{"имя": "квадрат", "Сидекаунт": 4}, {"Name": "Rectangle", "Сидекаунт": 4}, {"Name": "шестиугольник", "Сидекаунт": 6}, {"Name": "Октогон", "Сидекаунт": 8}, {"Name": "Декагон", "Сидекаунт": 10}]|
+
+## <a name="see-also"></a>См. также раздел
 
 [`make_list_if`](./makelistif-aggfunction.md)аналогичен оператору `make_list` , за исключением того, что он также принимает предикат.

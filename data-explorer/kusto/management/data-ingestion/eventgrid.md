@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 07/01/2020
-ms.openlocfilehash: 3a69add7e395bbb5b18c390c4089a2e8ad80f674
-ms.sourcegitcommit: 0d15903613ad6466d49888ea4dff7bab32dc5b23
+ms.openlocfilehash: 88a95ea2fc8e1f417114cfcfd89c4e5003d9bef2
+ms.sourcegitcommit: fb54d71660391a63b0c107a9703adea09bfc7cb9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86013820"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86946110"
 ---
 # <a name="ingest-from-storage-using-event-grid-subscription"></a>Прием данных из хранилища с помощью подписки службы "Сетка событий"
 
@@ -113,6 +113,9 @@ blob.UploadFromFile(jsonCompressedLocalFileName);
    * Дополнительные сведения о фильтрации событий см. в разделе [события хранилища BLOB-объектов](/azure/storage/blobs/storage-blob-event-overview#filtering-events) .
     
         :::image type="content" source="../images/eventgrid/filters-tab.png" alt-text="Сетка событий вкладки "фильтры"":::
+
+> [!NOTE]
+> Если конечная точка не подтверждает получение события, служба "Сетка событий Azure" активирует механизм повтора. В случае сбоя доставки повторных попыток сетка событий доставляет недоставленные события в учетную запись хранения, используя процесс *недоставленных сообщений*. Дополнительные сведения см. в разделе [Доставка и повторные попытки доставки сообщений сетки событий](/azure/event-grid/delivery-and-retry#retry-schedule-and-duration).
 
 ### <a name="data-ingestion-connection-to-azure-data-explorer"></a>Подключение приема данных к Azure обозреватель данных
 
