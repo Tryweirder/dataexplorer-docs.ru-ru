@@ -8,12 +8,12 @@ ms.reviewer: kedamari
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/12/2020
-ms.openlocfilehash: ad659f9208bd057719a1adc31f8370c0cb11ffd3
-ms.sourcegitcommit: fb54d71660391a63b0c107a9703adea09bfc7cb9
+ms.openlocfilehash: 86712a2e85f2785666b0b6245962aca39cd82729
+ms.sourcegitcommit: 4507466bdcc7dd07e6e2a68c0707b6226adc25af
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86946144"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87106487"
 ---
 # <a name="data-purge"></a>Очистка данных
 
@@ -76,7 +76,7 @@ ms.locfileid: "86946144"
 
 ## <a name="trigger-the-purge-process"></a>Активация процесса очистки
 
-> [!Note]
+> [!NOTE]
 > Выполнение очистки вызывается путем выполнения команды [Очистить таблицу *TableName* records](#purge-table-tablename-records-command) в управление данными конечной точке https://ingest- [йоурклустернаме]. [ Регион]. kusto. Windows. NET.
 
 ### <a name="purge-table-tablename-records-command"></a>Команда очистки записей таблицы TableName
@@ -85,24 +85,24 @@ ms.locfileid: "86946144"
 
 * Программный вызов: один шаг, который должен вызываться приложениями. Вызов этой команды напрямую запускает последовательность выполнения очистки.
 
-    **Синтаксис**
+  **Синтаксис**
 
-     ```kusto
-     // Connect to the Data Management service
-     #connect "https://ingest-[YourClusterName].[region].kusto.windows.net" 
-     
-     .purge table [TableName] records in database [DatabaseName] with (noregrets='true') <| [Predicate]
-     ```
+  ```kusto
+  // Connect to the Data Management service
+  #connect "https://ingest-[YourClusterName].[region].kusto.windows.net" 
+ 
+  .purge table [TableName] records in database [DatabaseName] with (noregrets='true') <| [Predicate]
+   ```
 
-    > [!NOTE]
-    > Создайте эту команду с помощью API Кслкоммандженератор, доступного как часть пакета NuGet [клиентской библиотеки Kusto](../api/netfx/about-kusto-data.md) .
+  > [!NOTE]
+  > Создайте эту команду с помощью API Кслкоммандженератор, доступного как часть пакета NuGet [клиентской библиотеки Kusto](../api/netfx/about-kusto-data.md) .
 
 * Вызов человеком: двухэтапный процесс, который требует явного подтверждения в качестве отдельного шага. При первом вызове команды возвращается токен проверки, который должен быть предоставлен для выполнения фактической очистки. Эта последовательность снижает риск непреднамеренного удаления неверных данных. Использование этого параметра может занять много времени на больших таблицах с значительными данными холодного кэша.
     <!-- If query times-out on DM endpoint (default timeout is 10 minutes), it is recommended to use the [engine `whatif` command](#purge-whatif-command) directly againt the engine endpoint while increasing the [server timeout limit](../concepts/querylimits.md#limit-on-request-execution-time-timeout). Only after you have verified the expected results using the engine whatif command, issue the purge command via the DM endpoint using the 'noregrets' option. -->
 
-     **Синтаксис**
+  **Синтаксис**
 
-     ```kusto
+  ```kusto
      // Connect to the Data Management service
      #connect "https://ingest-[YourClusterName].[region].kusto.windows.net" 
      
@@ -111,7 +111,7 @@ ms.locfileid: "86946144"
 
      // Step #2 - input the verification token to execute purge
      .purge table [TableName] records in database [DatabaseName] with (verificationtoken='<verification token from step #1>') <| [Predicate]
-     ```
+  ```
     
     | Параметры  | Описание  |
     |---------|---------|
@@ -132,50 +132,50 @@ ms.locfileid: "86946144"
 
 Чтобы начать очистку сценария двухфакторной активации, выполните шаг #1 команды:
 
-    ```kusto
+ ```kusto
     // Connect to the Data Management service
      #connect "https://ingest-[YourClusterName].[region].kusto.windows.net" 
      
     .purge table MyTable records in database MyDatabase <| where CustomerId in ('X', 'Y')
-    ```
+ ```
 
-    **Output**
+**Выходные данные**
 
-    | нумрекордстопурже | естиматедпуржеексекутионтиме| верификатионтокен
-    |--|--|--
-    | 1 596 | 00:00:02 | e43c7184ed22f4f23c7a9d7b124d196be2e570096987e5baadf65057fa65736b
+ | нумрекордстопурже | естиматедпуржеексекутионтиме| верификатионтокен
+ |---|---|---
+ | 1 596 | 00:00:02 | e43c7184ed22f4f23c7a9d7b124d196be2e570096987e5baadf65057fa65736b
 
-    Then, validate the NumRecordsToPurge before running step #2. 
+Затем проверьте Нумрекордстопурже перед выполнением шага #2. 
 
 Чтобы выполнить очистку в сценарии с двумя шагами активации, используйте токен проверки, возвращенный на шаге #1, для выполнения шага #2.
 
-    ```kusto
-    .purge table MyTable records in database MyDatabase
-    with (verificationtoken='e43c7184ed22f4f23c7a9d7b124d196be2e570096987e5baadf65057fa65736b')
-    <| where CustomerId in ('X', 'Y')
-    ```
+```kusto
+.purge table MyTable records in database MyDatabase
+ with(verificationtoken='e43c7184ed22f4f23c7a9d7b124d196be2e570096987e5baadf65057fa65736b')
+<| where CustomerId in ('X', 'Y')
+```
 
-    **Output**
+**Выходные данные**
 
-    | `OperationId` | `DatabaseName` | `TableName`|`ScheduledTime` | `Duration` | `LastUpdatedOn` |`EngineOperationId` | `State` | `StateDetails` |`EngineStartTime` | `EngineDuration` | `Retries` |`ClientRequestId` | `Principal`|
-    |--|--|--|--|--|--|--|--|--|--|--|--|--|--|
-    | c9651d74-3b80-4183-90bb-bbe9e42eadc4 |MyDatabase |MyTable |2019-01-20 11:41:05.4391686 |00:00:00.1406211 |2019-01-20 11:41:05.4391686 | |Запланировано | | | |0 |KE. Рункомманд; 1d0ad28b-f791-4f5a-a60f-0e32318367b7 |Идентификатор приложения AAD =...|
+| `OperationId` | `DatabaseName` | `TableName`|`ScheduledTime` | `Duration` | `LastUpdatedOn` |`EngineOperationId` | `State` | `StateDetails` |`EngineStartTime` | `EngineDuration` | `Retries` |`ClientRequestId` | `Principal`|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| c9651d74-3b80-4183-90bb-bbe9e42eadc4 |MyDatabase |MyTable |2019-01-20 11:41:05.4391686 |00:00:00.1406211 |2019-01-20 11:41:05.4391686 | |Запланировано | | | |0 |KE. Рункомманд; 1d0ad28b-f791-4f5a-a60f-0e32318367b7 |Идентификатор приложения AAD =...|
 
 #### <a name="example-single-step-purge"></a>Пример: Одношаговая очистка
 
 Чтобы активировать очистку в сценарии одношаговой активации, выполните следующую команду:
 
-    ```kusto
-    // Connect to the Data Management service
-     #connect "https://ingest-[YourClusterName].[region].kusto.windows.net" 
-     
-    .purge table MyTable records in database MyDatabase with (noregrets='true') <| where CustomerId in ('X', 'Y')
-    ```
+```kusto
+// Connect to the Data Management service
+ #connect "https://ingest-[YourClusterName].[region].kusto.windows.net" 
+ 
+.purge table MyTable records in database MyDatabase with (noregrets='true') <| where CustomerId in ('X', 'Y')
+```
 
 **Выходные данные**
 
 | `OperationId` |`DatabaseName` |`TableName` |`ScheduledTime` |`Duration` |`LastUpdatedOn` |`EngineOperationId` |`State` |`StateDetails` |`EngineStartTime` |`EngineDuration` |`Retries` |`ClientRequestId` |`Principal`|
-|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | c9651d74-3b80-4183-90bb-bbe9e42eadc4 |MyDatabase |MyTable |2019-01-20 11:41:05.4391686 |00:00:00.1406211 |2019-01-20 11:41:05.4391686 | |Запланировано | | | |0 |KE. Рункомманд; 1d0ad28b-f791-4f5a-a60f-0e32318367b7 |Идентификатор приложения AAD =...|
 
 ### <a name="cancel-purge-operation-command"></a>Команда отмены операции очистки
@@ -189,28 +189,28 @@ ms.locfileid: "86946144"
 
 ```kusto
  .cancel purge <OperationId>
- ```
+```
 
 **Пример**
 
 ```kusto
  .cancel purge aa894210-1c60-4657-9d21-adb2887993e1
- ```
+```
 
 **Выходные данные**
 
 Выходные данные этой команды совпадают с выходными данными команды "Показать очистки с *идентификатором",* в которых отображается обновленное состояние отмененной операции очистки. Если попытка прошла успешно, состояние операции изменится на `Abandoned` . В противном случае состояние операции не изменяется. 
 
 |`OperationId` |`DatabaseName` |`TableName` |`ScheduledTime` |`Duration` |`LastUpdatedOn` |`EngineOperationId` |`State` |`StateDetails` |`EngineStartTime` |`EngineDuration` |`Retries` |`ClientRequestId` |`Principal`
-|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |c9651d74-3b80-4183-90bb-bbe9e42eadc4 |MyDatabase |MyTable |2019-01-20 11:41:05.4391686 |00:00:00.1406211 |2019-01-20 11:41:05.4391686 | |Abandoned | | | |0 |KE. Рункомманд; 1d0ad28b-f791-4f5a-a60f-0e32318367b7 |Идентификатор приложения AAD =...
 
 ## <a name="track-purge-operation-status"></a>Отслеживание состояния операции очистки 
 
-> [!Note]
+> [!NOTE]
 > Операции очистки можно отслеживанию с помощью команды " [отобразить очистки](#show-purges-command) ", выполняемой для управление данными конечной точки https://ingest- [йоурклустернаме]. [ регион]. kusto. Windows. NET.
 
-Status = "Completed" указывает на успешное завершение первого этапа операции очистки, т. е. записи обратимо удалены и больше не доступны для запросов. Клиенты **не** должны отследить и проверить завершение второго этапа (жесткое удаление). Этот этап отслеживается на внутреннем уровне обозреватель данных Azure.
+Status = "Completed" указывает на успешное завершение первого этапа операции очистки, т. е. записи обратимо удалены и больше не доступны для запросов. Клиенты не должны отследить и проверить завершение второго этапа (жесткое удаление). Этот этап отслеживается на внутреннем уровне обозреватель данных Azure.
 
 ### <a name="show-purges-command"></a>Отображать команду "очистки"
 
@@ -223,9 +223,9 @@ Status = "Completed" указывает на успешное завершени
 .show purges from '<StartDate>' to '<EndDate>' [in database <DatabaseName>]
 ```
 
-| Свойства  |Description  |Обязательный или необязательный|
+| Свойства  |Описание  |Обязательный или необязательный|
 |---------|------------|-------|
-|`OperationId `   |      Идентификатор операции Управление данными, выводимый после выполнения одного этапа или второго этапа.   |Обязательный
+|`OperationId `   |      ИДЕНТИФИКАТОР операции Управление данными, выводимый после выполнения одного этапа или второго этапа.   |Обязательный
 |`StartDate`    |   Нижний предел времени для операций фильтрации. Если этот параметр опущен, по умолчанию используется значение 24 часа до текущего времени.      |Необязательно
 |`EndDate`    |  Верхний предел времени для операций фильтрации. Если этот параметр опущен, по умолчанию используется текущее время.       |Необязательно
 |`DatabaseName`    |     Имя базы данных для фильтрации результатов.    |Необязательно
@@ -246,7 +246,7 @@ Status = "Completed" указывает на успешное завершени
 **Выходные данные** 
 
 |`OperationId` |`DatabaseName` |`TableName` |`ScheduledTime` |`Duration` |`LastUpdatedOn` |`EngineOperationId` |`State` |`StateDetails` |`EngineStartTime` |`EngineDuration` |`Retries` |`ClientRequestId` |`Principal`
-|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |c9651d74-3b80-4183-90bb-bbe9e42eadc4 |MyDatabase |MyTable |2019-01-20 11:41:05.4391686 |00:00:33.6782130 |2019-01-20 11:42:34.6169153 |a0825d4d-6b0f-47f3-a499-54ac5681ab78 |Завершено |Очистка успешно завершена (Ожидающие удаления артефактов хранилища) |2019-01-20 11:41:34.6486506 |00:00:04.4687310 |0 |KE. Рункомманд; 1d0ad28b-f791-4f5a-a60f-0e32318367b7 |Идентификатор приложения AAD =...
 
 * `OperationId`— ИДЕНТИФИКАТОР операции DM, возвращенный при выполнении очистки. 
@@ -272,7 +272,7 @@ Status = "Completed" указывает на успешное завершени
 
 Очистка таблицы включает удаление таблицы и пометку ее как очищенную, чтобы процесс жесткого удаления, описанный в [процессе очистки](#purge-process) , выполнялся на нем. Удаление таблицы без очистки не приводит к удалению всех ее артефактов хранилища. Эти артефакты удаляются в соответствии с политикой жесткого хранения, изначально установленной для таблицы. `purge table allrecords`Команда выполняется быстро и эффективно и является предпочтительной для процесса очистки записей, если это применимо для вашего сценария. 
 
-> [!Note]
+> [!NOTE]
 > Команда вызывается путем выполнения команды " [Очистить таблицу *TableName* аллрекордс](#purge-table-tablename-allrecords-command) " в конечной точке управление данными https://ingest- [йоурклустернаме]. [ регион]. kusto. Windows. NET.
 
 ### <a name="purge-table-tablename-allrecords-command"></a>Команда "очистить таблицу *TableName* аллрекордс"
@@ -328,7 +328,7 @@ Status = "Completed" указывает на успешное завершени
     **Выходные данные**
 
     | `VerificationToken`|
-    |--|
+    |---|
     | e43c7184ed22f4f23c7a9d7b124d196be2e570096987e5baadf65057fa65736b|
 
 1.  Чтобы выполнить очистку в сценарии с двумя шагами активации, используйте токен проверки, возвращенный на шаге #1, для выполнения шага #2.

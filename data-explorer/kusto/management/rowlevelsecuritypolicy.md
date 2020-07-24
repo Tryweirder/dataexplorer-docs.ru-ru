@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/25/2020
-ms.openlocfilehash: c07a2e624d8f2657889431df51958017228774a8
-ms.sourcegitcommit: d79d3aa9aaa70cd23e3107ef12296159322e1eb5
+ms.openlocfilehash: 9952a7a7d95f03ee431b699a1833aa23b21d341b
+ms.sourcegitcommit: 4507466bdcc7dd07e6e2a68c0707b6226adc25af
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86475598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87106349"
 ---
 # <a name="row-level-security-preview"></a>Безопасность на уровне строк (Предварительная версия)
 
@@ -105,7 +105,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 
 Сначала определите функцию, которая получает имя таблицы в виде строкового параметра, и ссылается на таблицу с помощью `table()` оператора. 
 
-Вот несколько примеров:
+Пример:
 
 ```
 .create-or-alter function RLSForCustomersTables(TableName: string) {
@@ -123,6 +123,19 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 .alter table Customers3 policy row_level_security enable "RLSForCustomersTables('Customers3')"
 ```
 
+### <a name="produce-an-error-upon-unauthorized-access"></a>Выдавать ошибку при несанкционированном доступе
+
+Если требуется, чтобы несанкционированные пользователи таблиц получали ошибку вместо возврата пустой таблицы, используйте `[assert()](../query/assert-function.md)` функцию. В следующем примере показано, как создать эту ошибку в функции RLS:
+
+```
+.create-or-alter function RLSForCustomersTables() {
+    MyTable
+    | where assert(current_principal_is_member_of('aadgroup=mygroup@mycompany.com') == true, "You don't have access")
+}
+```
+
+Этот подход можно сочетать с другими примерами. Например, можно отобразить разные результаты для пользователей в разных группах AAD и создать ошибку для всех остальных.
+
 ## <a name="more-use-cases"></a>Дополнительные варианты использования
 
 * Сотрудник службы поддержки центра обработки вызовов может выявление абонентов по нескольким цифрам номера социального страхования или номера кредитной карты. Эти номера не должны быть полностью предоставлены специалисту службы поддержки. К таблице можно применить политику RLS, чтобы маскировать все последние четыре цифры любого номера социального страхования или кредитной карты в результирующем наборе любого запроса.
@@ -138,7 +151,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 * Проверки членства в Azure Active Directory
 * Фильтры, применяемые к данным
 
-Вот несколько примеров:
+Пример:
 
 ```kusto
 let IsRestrictedUser = current_principal_is_member_of('aadgroup=some_group@domain.com');
