@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 06/15/2020
-ms.openlocfilehash: 05c9a805e1391a34fe2d751c33178fcac16d15a9
-ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
+ms.openlocfilehash: c1202e4578f9d1d3d4520984e6dc3b6de0ef33b0
+ms.sourcegitcommit: 6db94135b9902ad0ea84f9cef00ded8ec0a90fc3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780139"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86870164"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Краткое руководство. Запрос данных в пользовательском веб-интерфейсе Azure Data Explorer
 
@@ -114,6 +114,12 @@ ms.locfileid: "84780139"
     Результат должен напоминать следующую схему.
 
     ![Гистограмма](media/web-query-data/column-chart.png)
+
+> [!NOTE]
+> Пустые строки в выражении запроса могут влиять на то, какая часть запроса выполняется.
+>
+> Если текст не выбран, предполагается, что запрос или команда разделены пустыми строками.
+> Если текст выбран, будет выполнен выделенный текст.
 
 ## <a name="work-with-the-table-grid"></a>Работа с сеткой таблицы
 
