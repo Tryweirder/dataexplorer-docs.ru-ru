@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 5a21031b07df3a4fa654fd13eb3761618308337b
-ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
+ms.openlocfilehash: 6d325861c7264c77535caf6df6c363ec801dd697
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84717348"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347210"
 ---
 # <a name="isnotempty"></a>isnotempty()
 
@@ -23,7 +23,7 @@ ms.locfileid: "84717348"
 isnotempty("") == false
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `isnotempty(`[*значение*]`)`
 

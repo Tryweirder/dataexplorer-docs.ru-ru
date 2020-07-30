@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/15/2019
-ms.openlocfilehash: 2cddd645b0b89b3356adabae26874f93b41f8815
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: ecf16a714b0466a7ffc2da7b69f117383c90970e
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83226556"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347533"
 ---
 # <a name="hll_merge"></a>hll_merge()
 
@@ -21,19 +21,19 @@ ms.locfileid: "83226556"
 
 Прочтите сведения о [базовом алгоритме (*H*ИПЕР*l*OG*l*OG) и точности оценки](dcount-aggfunction.md#estimation-accuracy).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `hll_merge(`*Выражение1* `,` *Выражение2*`, ...)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * Столбцы, значения которых должны `hll` быть объединены.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Результат объединения столбцов `*Exrp1*` , `*Expr2*` ... `*ExprN*` в одно `hll` значение.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net:443/KustoMonitoringPersistentDatabase -->
 ```kusto

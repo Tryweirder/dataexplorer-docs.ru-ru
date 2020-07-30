@@ -8,24 +8,24 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/15/2020
-ms.openlocfilehash: 45dc0a02aae7cc39c7a287036055e9ca447187f3
-ms.sourcegitcommit: 085e212fe9d497ee6f9f477dd0d5077f7a3e492e
+ms.openlocfilehash: 6c91275320a5ec404b6cd5fcbe8c84b4123bd2de
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85133483"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349352"
 ---
-# <a name="bag_unpack-plugin"></a>подключаемый модуль bag_unpack
+# <a name="bag_unpack-plugin"></a>Подключаемый модуль bag_unpack
 
 `bag_unpack`Подключаемый модуль распаковать один столбец типа `dynamic` , рассматривая каждый слот верхнего уровня каждого свойства как столбец.
 
     T | evaluate bag_unpack(col1)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `|` `evaluate` `bag_unpack(` *столбец* [ `,` *аутпутколумнпрефикс* ] [ `,` *колумнсконфликт* ] [ `,` *игноредпропертиес* ]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: табличный ввод, *столбец* столбцов которого должен быть распакован.
 * *Столбец*: столбец *T* для распаковки. Должен иметь тип `dynamic`.
@@ -36,7 +36,7 @@ ms.locfileid: "85133483"
     - `keep_source`-Исходный столбец хранится
 * *игноредпропертиес*: необязательный набор свойств контейнера, которые следует игнорировать. При указании аргумента ожидается, что он будет константой `dynamic` массива с одним или несколькими строковыми литералами.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 `bag_unpack`Подключаемый модуль возвращает таблицу с количеством записей в качестве табличного ввода (*T*). Схема таблицы совпадает со схемой табличного входа со следующими изменениями:
 
@@ -69,9 +69,9 @@ datatable(d:dynamic)
 | evaluate bag_unpack(d)
 ```
 
-|Имя  |Возраст|
+|Название  |Возраст|
 |------|---|
-|Виталий  |20 |
+|Джон  |20 |
 |Данил  |40 |
 |Jasmine|30 |
 
@@ -93,7 +93,7 @@ datatable(d:dynamic)
 
 |Property_Name|Property_Age|
 |---|---|
-|Виталий|20|
+|Джон|20|
 |Данил|40|
 |Jasmine|30|
 
@@ -112,9 +112,9 @@ datatable(Name:string, d:dynamic)
 | evaluate bag_unpack(d, columnsConflict='replace_source') // Use new name
 ```
 
-|Имя|Возраст|
+|Название|Возраст|
 |---|---|
-|Виталий|20|
+|Джон|20|
 |Данил|40|
 |Jasmine|30|
 
@@ -129,7 +129,7 @@ datatable(Name:string, d:dynamic)
 | evaluate bag_unpack(d, columnsConflict='keep_source') // Keep old name
 ```
 
-|Имя|Возраст|
+|Название|Возраст|
 |---|---|
 |Old_name|20|
 |Old_name|40|
@@ -151,8 +151,8 @@ datatable(d:dynamic)
 | evaluate bag_unpack(d, ignoredProperties=dynamic(['Address', 'Age']))
 ```
 
-|Имя|
+|Название|
 |---|
-|Виталий|
+|Джон|
 |Данил|
 |Jasmine|

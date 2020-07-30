@@ -8,35 +8,35 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/10/2019
-ms.openlocfilehash: 29b35e5bd7265d89e65fe0129317a9f1672c7cad
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 143257a586bb951caeb116882551e55f89c8636e
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373086"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345884"
 ---
 # <a name="rank_tdigest"></a>rank_tdigest()
 
 Вычисляет приблизительный ранг значения в наборе. Ранг значения `v` в наборе `S` определяется как число элементов `S` , которые меньше или равны `v` , `S` представляется его `tdigest` свойством.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `rank_tdigest(`*`TDigest`*`,` *`Expr`*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Тдижест*: выражение, созданное [тдижест ()](tdigest-aggfunction.md) или [tdigest_merge ()](tdigest-merge-aggfunction.md)
 * *Expr*: выражение, представляющее значение, используемое для вычисления ранжирования.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Значение "ранг foreach" в наборе данных.
 
-**"Советы"**
+**Советы**
 
 1) Значения, для которых необходимо получить ранг, должны иметь тот же тип, что и `tdigest` .
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 В отсортированном списке (1-1000) рангом 685 является его индекс:
 

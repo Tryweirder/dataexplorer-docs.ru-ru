@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 72797b54c3ba431b4a846f9e9661e9693359cceb
-ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
+ms.openlocfilehash: 85c39128eeb9b6ded38366ccd3bea228820c67a7
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780462"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347448"
 ---
 # <a name="indexof_regex"></a>indexof_regex()
 
@@ -21,11 +21,11 @@ ms.locfileid: "84780462"
 
 См. раздел [`indexof()`](indexoffunction.md).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `indexof_regex(`*Исходный код* `,` *Уточняющий запрос* `[,` *start_index* `[,` *Длина* `[,` *вхождение*`]]])`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 |Аргументы     | Описание                                     |Обязательный или необязательный|
 |--------------|-------------------------------------------------|--------------------|
@@ -36,7 +36,7 @@ ms.locfileid: "84780462"
 |occurrence    | Найдите индекс N-го вида шаблона. 
                  Значение по умолчанию — 1, индекс первого вхождения |Необязательно            |
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Отсчитываемая от нуля позиция индекса *поиска*.
 
@@ -47,7 +47,7 @@ ms.locfileid: "84780462"
      * параметр длины меньше-1.
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 print

@@ -1,6 +1,6 @@
 ---
-title: atan() - Исследователь данных Azure (ru) Документы Майкрософт
-description: Эта статья описывает атан() в Azure Data Explorer.
+title: ATAN () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается ATAN () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,25 +8,25 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: f76f44abe2667b1d56a2161303570e17ba7da420
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 19118e65f85624c24ce9ab09b3c572491e0ce24f
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81518383"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349437"
 ---
 # <a name="atan"></a>atan()
 
-Возвращает угол, касательной которого является указанное [`tan()`](tanfunction.md)число (обратная операция ).
+Возвращает угол, тангенс которого равен указанному числу (операция обратного [`tan()`](tanfunction.md) ).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`atan(`*X*`)`
+`atan(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *x*: Реальное число.
+* *x*: вещественное число.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-* Значение дуги касательной`x`
+* Значение тангенса дуги`x`

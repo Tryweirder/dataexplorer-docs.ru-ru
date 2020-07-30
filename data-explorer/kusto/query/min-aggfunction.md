@@ -1,6 +1,6 @@
 ---
-title: мин() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается мин(функция агрегации) в Azure Data Explorer.
+title: min () (агрегатная функция) — обозреватель данных Azure | Документация Майкрософт
+description: В этой статье описывается min () (агрегатная функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 07/24/2019
-ms.openlocfilehash: ca50210c84b39f19e6717b27089313d0d116e21a
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: c7b3b189a85f46cb577c37a956c35bc755321d68
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81512416"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346785"
 ---
-# <a name="min-aggregation-function"></a>мин() (функция агрегирования)
+# <a name="min-aggregation-function"></a>min () (агрегатная функция)
 
-Возвращает минимальное значение по всей группе. 
+Возвращает минимальное значение в группе. 
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`summarize``min(` *Expr*`)`
+`summarize``min(` *Выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации. 
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Минимальное значение *Expr* по всей группе.
+Минимальное значение *выражения* в группе.
  
 > [!TIP]
-> Это дает вам мин или макс сам по себе - например, самая высокая или низкая цена. Но если вы хотите другие столбцы в строке - например, имя поставщика с самой низкой ценой - используйте [arg_max](arg-max-aggfunction.md) или [arg_min.](arg-min-aggfunction.md)
+> Это дает минимальный или максимальный собственный, например, самую низкую или наименьшую цену. Но если вам нужны другие столбцы в строке, например, имя поставщика с наименьшей ценой — используйте [arg_max](arg-max-aggfunction.md) или [arg_min](arg-min-aggfunction.md).

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 9fab1ec936e950368667fc3afb133dcd952e44b5
-ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
+ms.openlocfilehash: 0f555cd1ebec8d95a3e7d0e46c986b04154c721e
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737697"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348638"
 ---
 # <a name="cursor_after"></a>cursor_after()
 
@@ -23,17 +23,17 @@ ms.locfileid: "82737697"
 
 Предикат для записей таблицы для сравнения времени приема с курсором базы данных.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `cursor_after``(` *RHS*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *RHS*: пустой строковый литерал или допустимое значение курсора базы данных.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Скалярное значение типа `bool` , указывающее, была ли запись принята после курсора базы данных *RHS* (`true`) или not (`false`).
+Скалярное значение типа `bool` , указывающее, была ли запись принята после курсора базы данных *RHS* ( `true` ) или not ( `false` ).
 
 **Примечания**
 

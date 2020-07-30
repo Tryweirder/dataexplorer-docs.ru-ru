@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 98586f8f8380d4c1fc36a88b288b47798c10e09e
-ms.sourcegitcommit: 4eb64e72861d07cedb879e7b61a59eced74517ec
+ms.openlocfilehash: 4083c304711c4d77b15809221ac4ace4629fb4dd
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517927"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87342110"
 ---
 # <a name="take-operator"></a>Оператор take
 
@@ -25,7 +25,7 @@ T | take 5
 
 Нет гарантии, какие записи возвращаются, если исходные данные не сортируются.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `take`*NumberOfRows* 
  NumberOfRows `limit` *NumberOfRows*

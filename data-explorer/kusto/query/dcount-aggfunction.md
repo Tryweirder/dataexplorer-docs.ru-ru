@@ -8,31 +8,31 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 7f8464ed7dca8d712900bb7a1047875b6292d243
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: 2fc8ee7e8c7ab3ce372d786ec87edf55265e1249
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85265020"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348451"
 ---
 # <a name="dcount-aggregation-function"></a>DCount () (агрегатная функция)
 
 Возвращает оценку количества различающихся значений, полученных скалярным выражением в группе сводки.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 ... `|` `summarize` `dcount` `(`*`Expr`*[, *`Accuracy`*]`)` ...
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: скалярное выражение, различные значения которого должны быть учтены.
 * *Точность*. необязательный `int` литерал, определяющий требуемую точность оценки. Поддерживаемые значения приведены ниже. Если не указано, используется значение по умолчанию `1` .
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает оценку количества различных значений *`Expr`* в группе.
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 PageViewLog | summarize countries=dcount(country) by continent

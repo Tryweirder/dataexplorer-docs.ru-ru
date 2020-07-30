@@ -1,6 +1,6 @@
 ---
-title: avg() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описана функция авг () (функция агрегирования) в Azure Data Explorer.
+title: AVG () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается AVG () (агрегатная функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,28 +8,28 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/26/2019
-ms.openlocfilehash: aadc756bdf4c6cab805f58a8a600815cf29680f7
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: f058af075a856d12a2a6a81419f32b6efbd9ea16
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81518349"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349403"
 ---
-# <a name="avg-aggregation-function"></a>avg() (функция агрегирования)
+# <a name="avg-aggregation-function"></a>AVG () (агрегатная функция)
 
-Рассчитывает среднее значение *Expr* по всей группе. 
+Вычисляет среднее арифметическое для *выражения* в группе. 
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-резюмировать `avg(` *Expr*`)`
+суммировать `avg(` *выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации. Записи `null` со значениями игнорируются и не включаются в расчет.
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата. Записи со `null` значениями игнорируются и не включаются в вычисление.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Среднее значение *Expr* по всей группе.
+Среднее значение *выражения* в группе.
  

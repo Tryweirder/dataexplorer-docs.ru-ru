@@ -1,6 +1,6 @@
 ---
-title: extractjson() - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается extractjson () в Azure Data Explorer.
+title: екстрактжсон () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается екстрактжсон () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 6177a1c8a6ed4390093e6f6fd24c5f5e9fd04f8a
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 21f366e8f211acf9c7c542b420006cfb23e683e7
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81515340"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348043"
 ---
 # <a name="extractjson"></a>extractjson()
 
@@ -25,22 +25,22 @@ ms.locfileid: "81515340"
 extractjson("$.hosts[1].AvailableMB", EventText, typeof(int))
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`extractjson(`*данные jsonPathИсточникИсточник* `,` *dataSource*`)` 
+`extractjson(`*jsonPath* `,` *источник данных*`)` 
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *jsonPath*: строка JsonPath, которая определяет аксессуар в документе JSON.
-* *dataSource*: Документ JSON.
+* *jsonPath*: строка jsonPath, которая определяет метод доступа к документу JSON.
+* *DataSource*: документ JSON.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Эта функция выполняет запрос JsonPath к источнику данных dataSource, который содержит допустимую строку JSON. При необходимости это значение преобразуется в другой тип, в зависимости от третьего аргумента.
 
-**Пример**
+## <a name="example"></a>Пример
 
-Нотаация `[`кронштейна`]` `.`и точка ( нотация эквивалентны:
+`[` `]` Нотация скобок нотататион и Dot ( `.` ) эквивалентна:
 
 ```kusto
 T 

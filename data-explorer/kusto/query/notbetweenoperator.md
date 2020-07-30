@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 213b69d1458d234e987c8a378ade82441e578d5e
-ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
+ms.openlocfilehash: 3ae821e76c78f8beba465651ffc759bfefdfa001
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85128620"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346615"
 ---
 # <a name="not-between-operator-between"></a>Оператор not-between (!between)
 
@@ -26,7 +26,7 @@ Table1 | where Time !between (datetime(2017-01-01) .. datetime(2017-01-01))
 
 `!between`может выполнять операции с любым числовым выражением, типом DateTime или значением типа TimeSpan.
  
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `|` `where` *expr* `!between` `(` *лефтранже* ` .. ` *ригхтранже*`)`   
  
@@ -34,18 +34,18 @@ Table1 | where Time !between (datetime(2017-01-01) .. datetime(2017-01-01))
 
 *T* `|` `where` *expr* `!between` `(` *лефтранжедатетиме* ` .. ` *ригхтранжетимеспан*`)`   
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T* — табличный ввод, записи которого должны быть сопоставлены.
 * *expr* — выражение для фильтрации.
 * *лефтранже* -выражение левого диапазона (включительно).
 * *ригхтранже* -выражение правого диапазона (включительно).
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Строки в *T* , для которых предикат (*expr*  <  *лефтранже* или *expr*  >  *ригхтранже*) принимает значение `true` .
 
-**Примеры**  
+## <a name="examples"></a>Примеры  
 
 **Фильтрация числовых значений с помощью оператора "! Between"**  
 
@@ -72,7 +72,7 @@ StormEvents
 | count 
 ```
 
-|Count|
+|Счетчик|
 |---|
 |58590|
 
@@ -83,6 +83,6 @@ StormEvents
 | count 
 ```
 
-|Count|
+|Счетчик|
 |---|
 |58590|

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: b493f74472454649a557b7e3677b26af169413de
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 90942906908f58f321e5a81ec9ca8419fe9a2ec5
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227559"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348927"
 ---
 # <a name="case"></a>case()
 
@@ -23,21 +23,21 @@ ms.locfileid: "83227559"
 Все нечетные аргументы (число начинается с 1) должны быть выражениями, результатом вычисления которых является `boolean` значение.
 Все даже аргументы ( `then` s) и последний аргумент ( `else` ) должны иметь один и тот же тип.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `case(`*predicate_1* `,` *then_1*, *predicate_2* `,` *then_2*, *predicate_3* `,` *then_3*, *else*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *predicate_i*: выражение, результатом вычисления которого является `boolean` значение.
 * *then_i*: выражение, которое вычисляется, и его значение возвращается из функции, если *predicate_i* является первым предикатом, результатом которого является `true` .
 * *else*: выражение, которое вычисляется, и его значение возвращается из функции, если ни один из *predicate_i* не имеет значение `true` .
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Значение первого *then_i* , для которого *predicate_i* вычисляется `true` , или значение *else* , если ни один из предикатов не удовлетворен.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -54,6 +54,6 @@ range Size from 1 to 15 step 2
 |5|Средний|
 |7|Средний|
 |9|Средний|
-|11|большой|
-|13|большой|
-|15|большой|
+|11|Большой|
+|13|Большой|
+|15|Большой|

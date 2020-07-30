@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: baafca4d8d5711d55838bceae817c36ecb0edd6f
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: c5dffc8695df466dfc1ac9f0c5bcc4a40f687b2a
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82618583"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87342722"
 ---
 # <a name="stdevp-aggregation-function"></a>STDEVP () (агрегатная функция)
 
@@ -25,19 +25,19 @@ ms.locfileid: "82618583"
 
 * Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`stdevp(`суммировать *выражение*`)`
+суммировать `stdevp(` *выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Стандартное значение отклонения *выражения* в группе.
  
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 range x from 1 to 5 step 1

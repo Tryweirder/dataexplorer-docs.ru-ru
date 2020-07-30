@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: f6a78a5abb92aa93fe8b1ae15ea8968f71bde07c
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: 2568196dc20042e95521ed0818bd625f3394599b
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264561"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87342569"
 ---
 # <a name="strcat_delim"></a>strcat_delim()
 
@@ -21,20 +21,20 @@ ms.locfileid: "85264561"
 
  * Если аргументы не принадлежат строковому типу, они будут принудительно преобразованы в строку.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `strcat_delim(`*Разделитель*, *argument1*, *argument2*[, *аргументн*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Разделитель*: строковое выражение, которое будет использоваться в качестве разделителя.
 * *argument1* ... *аргументн*: объединяемые выражения.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Аргументы, Объединенные в одну строку с *разделителем*.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 print st = strcat_delim('-', 1, '2', 'A', 1s)

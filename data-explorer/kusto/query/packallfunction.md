@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: f34f2ac316f122034fcf8ee19a8e82e51b6221df
-ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
+ms.openlocfilehash: 6c157c014ec3b83aa39d4bdfcadda12e97e84f3e
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780479"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346547"
 ---
 # <a name="pack_all"></a>pack_all()
 
 Создает `dynamic` объект (контейнер свойств) из всех столбцов табличного выражения.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `pack_all()`
 
@@ -27,7 +27,7 @@ ms.locfileid: "84780479"
 
 В представлении возвращаемого объекта не гарантируется совместимость с байтовыми уровнями между запусками. Например, свойства, отображаемые в контейнере, могут отображаться в другом порядке.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 При наличии таблицы Смсмессажес 
 

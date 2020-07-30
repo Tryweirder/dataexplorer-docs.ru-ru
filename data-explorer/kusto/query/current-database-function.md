@@ -1,6 +1,6 @@
 ---
-title: current_database () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны current_database() в Azure Data Explorer.
+title: current_database () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается current_database () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,26 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: c61717bbc8d202624b36088df5aed2ba3f3a8d2d
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: d68c35547c840cc1e16224c376e90dfabec296d7
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81516751"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348706"
 ---
 # <a name="current_database"></a>current_database()
 
-Возвращает имя базы данных в области (база данных, против которую все объекты запроса разрешаются, если не указана другая база данных).
+Возвращает имя базы данных в области (база данных, для которой разрешаются все сущности запроса, если не указана другая база данных).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `current_database()`
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Название базы данных в области как `string`значение типа .
+Имя базы данных в области в виде значения типа `string` .
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 print strcat("Database in scope: ", current_database())

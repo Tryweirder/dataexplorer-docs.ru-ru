@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9dc64e6d91d6832dd57345bf58200848ad5a5db4
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 5c736492745d47428b5919d9791aa6115aaf8566
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373094"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345901"
 ---
 # <a name="range-operator"></a>Оператор range
 
@@ -21,11 +21,11 @@ ms.locfileid: "83373094"
 
 Обратите внимание: входные данные конвейера отсутствуют. 
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `range`*ColumnName* `from` *Запуск* `to` *Завершение* `step` *шаг*
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *ColumnName*: имя одного столбца в выходной таблице.
 * *Start*— наименьшее значение в выходных данных.
@@ -34,11 +34,11 @@ ms.locfileid: "83373094"
 
 Аргументы должны иметь числовые значения, значения даты или временного диапазона. Они не могут ссылаться на столбцы таблицы. (Если необходимо вычислить диапазон на основе входной таблицы, используйте функцию Range, возможно, с оператором MV-Expand.) 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Таблица с одним столбцом с именем *ColumnName*, значения которого *начинаются*, *начинаются* `+` *,*... до и до окончания *.*
 
-**Пример**  
+## <a name="example"></a>Пример  
 
 Таблица со значениями в полночь за последние семь дней. Функция bin (floor) позволяет сократить время до начала каждого дня.
 

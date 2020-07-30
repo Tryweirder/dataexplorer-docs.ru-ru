@@ -8,20 +8,20 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/30/2019
-ms.openlocfilehash: d01b3b5178801fe1b5e55f51987564674ce4aeae
-ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
+ms.openlocfilehash: 519ac6b38a73cfc7334094ef503d1d20c7d2ecb9
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85128637"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348230"
 ---
-# <a name="evaluate-operator-plugins"></a>Оценка подключаемых модулей оператора
+# <a name="evaluate-operator-plugins"></a>Подключаемые модули оператора evaluate
 
 Вызывает расширение запроса на стороне службы (подключаемый модуль).
 
 `evaluate`Оператор является табличным оператором, который предоставляет возможность вызывать расширения языка запросов, известные как **подключаемые модули**. Подключаемые модули можно включать или отключать (в отличие от других языковых конструкций, которые всегда доступны) и не привязаны к реляционной природе языка (например, они могут не иметь заранее определенной статически определяемой схемы вывода).
 
-**Синтаксис** 
+## <a name="syntax"></a>Синтаксис 
 
 [*T* `|` ] `evaluate` [ *евалуатепараметерс* ] *PluginName* `(` [*PluginArg1* [ `,` *PluginArg2*]...`)`
 

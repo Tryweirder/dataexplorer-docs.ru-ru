@@ -1,6 +1,6 @@
 ---
-title: bin() - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описывается бен() в Azure Data Explorer.
+title: bin () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается bin () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,34 +8,34 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 3fb827c71fa63fde031a91bc9aec7f0ed108fd5c
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 434d32a3b6597d71ea22c182a468d64d7971e6cb
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81517431"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348978"
 ---
 # <a name="bin"></a>bin()
 
 Округляет значения до целого, кратного указанному размеру группы. 
 
-Часто используется в [`summarize by ...`](./summarizeoperator.md)сочетании с .
+Часто используется в сочетании с [`summarize by ...`](./summarizeoperator.md) .
 При наличии разрозненного набора значений они будут сгруппированы в меньший набор определенных значений.
 
-Нулевые значения, размер нулевой ячейки или отрицательный размер янина приведут к нулю. 
+Значения NULL, размер ячейки null или отрицательный размер ячейки приводят к значению NULL. 
 
-Прозвище `floor()` для функционирования.
+Псевдоним для `floor()` функции.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`bin(`*значение*`,`*roundTo*`)`
+`bin(`*значение* `,` *roundTo*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *значение*: число, дата или временной промежуток. 
-* *roundTo*: "размер бин". Число, дата или временной диапазон, на который делится *value*. 
+* *value*: число, дата или интервал времени. 
+* *roundTo*: "размер ячейки". Число, дата или временной диапазон, на который делится *value*. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Ближайшее число, кратное *roundTo* и меньшее *value*.  
  
@@ -43,7 +43,7 @@ ms.locfileid: "81517431"
 (toint((value/roundTo))) * roundTo`
 ```
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 Выражение | Результат
 ---|---

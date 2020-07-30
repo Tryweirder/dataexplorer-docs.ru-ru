@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: e3f874ecfc0bb1872f08efa3269c73b02971e4f3
-ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
+ms.openlocfilehash: 1bfe42e18cfe0bb424e933b266eb9861c7676cea
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737646"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348587"
 ---
 # <a name="database-scope-function"></a>Database () (Функция scope)
 
@@ -28,13 +28,13 @@ database('Sample').StormEvents
 cluster('help').database('Sample').StormEvents
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `database(`*стрингконстант*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *стрингконстант*: имя базы данных, на которую указывает ссылка. Возможно, база данных имеет `DatabaseName` значение `PrettyName`или. Аргумент должен быть _константой_ до выполнения запроса, т. е. не может быть результатом вычисления вложенного запроса.
+* *стрингконстант*: имя базы данных, на которую указывает ссылка. Возможно, база данных имеет значение `DatabaseName` или `PrettyName` . Аргумент должен быть _константой_ до выполнения запроса, т. е. не может быть результатом вычисления вложенного запроса.
 
 **Примечания**
 
@@ -55,7 +55,7 @@ database('Samples').StormEvents | count
 
 ### <a name="use-database-inside-let-statements"></a>Использование базы данных () внутри инструкций Let 
 
-Тот же запрос, который приведен выше, может быть переписан для использования встроенной функции (оператор Let), принимающей параметр `dbName` , который передается в функцию Database ().
+Тот же запрос, который приведен выше, может быть переписан для использования встроенной функции (оператор Let), принимающей параметр, `dbName` который передается в функцию Database ().
 
 ```kusto
 let foo = (dbName:string)
@@ -71,7 +71,7 @@ foo('help')
 
 ### <a name="use-database-inside-functions"></a>Использование базы данных () в функциях 
 
-Тот же запрос, который приведен выше, можно переписывать для использования в функции, принимающей параметр `dbName` , который передается в функцию Database ().
+Тот же запрос, который приведен выше, можно переписывать для использования в функции, принимающей параметр, `dbName` который передается в функцию Database ().
 
 ```kusto
 .create function foo(dbName:string)

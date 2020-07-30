@@ -8,33 +8,33 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/29/2020
-ms.openlocfilehash: c09f30a4f13f16e15cfcc826f6976f1208fdabf1
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: 17b3e0d13f8048ccac90add4eee6f02f3d2e2959
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85793635"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346802"
 ---
-# <a name="hash_md5"></a>hash_md5 ()
+# <a name="hash_md5"></a>hash_md5()
 
 Возвращает хэш-значение MD5 для входного значения.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `hash_md5(`*источника*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Source*: значение, которое необходимо хэшировать.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Хэш-значение MD5 для данного скаляра, закодированное как шестнадцатеричная строка (строка символов, каждая из которых представляет одно шестнадцатеричное число от 0 до 255).
 
 > [!WARNING]
 > Алгоритм, используемый этой функцией (MD5), гарантированно не изменяется в будущем, но он очень сложен для вычисления. Пользователям, которым требуется "упрощенная" хэш-функция в течение одного запроса, рекомендуется использовать функцию [Hash ()](./hashfunction.md) .
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

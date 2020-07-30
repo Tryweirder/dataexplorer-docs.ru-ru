@@ -1,6 +1,6 @@
 ---
-title: binary_xor() - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается binary_xor () в Azure Data Explorer.
+title: binary_xor () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается binary_xor () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,29 +8,29 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: c2f487aa44f8885cbb443c31b8bb3a503e1a76fa
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 6f988fa3d14dab3188bf96825615972995291655
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81517533"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349012"
 ---
 # <a name="binary_xor"></a>binary_xor()
 
-Возвращает результат битовой `xor` работы двух значений.
+Возвращает результат побитовой `xor` операции двух значений.
 
 ```kusto
 binary_xor(x,y)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `binary_xor(`*num1* `,` *num2*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *num1*, *num2*: длинные числа.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Возвращает логическую операцию XOR на пару чисел: num1 и num2.
+Возвращает логическую операцию XOR для пары чисел: num1 ^ num2.

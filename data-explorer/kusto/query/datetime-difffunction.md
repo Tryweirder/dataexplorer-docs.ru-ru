@@ -1,6 +1,6 @@
 ---
-title: datetime_diff () - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описаны datetime_diff () в Azure Data Explorer.
+title: datetime_diff () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается datetime_diff () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,45 +8,45 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: fd62e27ac4f9ef0ec813a311ddb2b16f0a6c9a65
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 2e116661610e343c90276a43421d263bf74cd1b5
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81516445"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348536"
 ---
 # <a name="datetime_diff"></a>datetime_diff()
 
-Вычисляет календарную разницу между двумя значениями [дат.](./scalar-data-types/datetime.md)
+Вычисляет календариан разницу между двумя значениями [типа DateTime](./scalar-data-types/datetime.md) .
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`datetime_diff(`*период*`,`*datetime_1*`,`*datetime_2*`)`
+`datetime_diff(`*период времени* `,` *datetime_1* `,` *datetime_2*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * `period`: `string`. 
-* `datetime_1`значение [дат.](./scalar-data-types/datetime.md)
-* `datetime_2`значение [дат.](./scalar-data-types/datetime.md)
+* `datetime_1`: значение [DateTime](./scalar-data-types/datetime.md) .
+* `datetime_2`: значение [DateTime](./scalar-data-types/datetime.md) .
 
 Возможные значения *периода*: 
-- Год
-- Квартал
-- Месяц
+- Year
+- Quarter
+- Month
 - Неделя
 - День
-- Час
+- Hour
 - Минута
-- Секунда
+- Second
 - Миллисекунда
-- Мкс
-- Наносекундных
+- Микросекунды
+- Потребовавшееся
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Неразрывная мера, которая `periods` представляет собой количество в`datetime_1` - `datetime_2`результате вычитания ( ).
+Целое число, представляющее величину `periods` результата вычитания ( `datetime_1`  -  `datetime_2` ).
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 print
@@ -65,7 +65,7 @@ nanosecond = datetime_diff('nanosecond',datetime(2017-10-30 23:00:00.0000000),da
 
 |year|квартал|month|week|day|hour|minute|second|миллисекунда|микросекунда|наносекунда|
 |---|---|---|---|---|---|---|---|---|---|---|
-|17|2|13|5|29|2|5|10|100|100|-700|
+|17|2|13|5|29|2|5|10|100|100|— 700|
 
 
 

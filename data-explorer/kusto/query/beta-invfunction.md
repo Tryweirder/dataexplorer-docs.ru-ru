@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 60b054bbd234a77f81c47e375b98be0a5df103a5
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: b69fed2b3d7028fdc29d8098e8358c0088fcd8bb
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227661"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349216"
 ---
 # <a name="beta_inv"></a>beta_inv()
 
@@ -27,17 +27,17 @@ beta_inv(0.1, 10.0, 50.0)
 
 Бета-распределение можно использовать в планировании проекта для моделирования вероятного времени выполнения, учитывающего ожидаемое время завершения и вариативность.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `beta_inv(`*вероятность* `, ` *альфа-канал* `, ` *бета-версия*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *вероятность*: вероятность, связанная с бета-распределением.
 * *альфа*— параметр распределения.
 * *бета*— параметр распределения.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 * Обратная функция бета-версии интегральной функции плотности вероятности [beta_cdf ()](./beta-cdffunction.md)
 
@@ -51,7 +51,7 @@ beta_inv(0.1, 10.0, 50.0)
 
 Учитывая значение вероятности, beta_inv () ищет значение x таким, чтобы beta_cdf (x, Alpha, бета-версия) = вероятность.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
@@ -64,11 +64,11 @@ datatable(p:double, alpha:double, beta:double, comment:string)
 | extend b = beta_inv(p, alpha, beta)
 ```
 
-|p|alpha|beta|comment|b|
+|p|alpha|бета-версия|comment|b|
 |---|---|---|---|---|
-|0,1|10|20|Допустимые входные данные|0.226415022388749|
+|0.1|10|20|Допустимые входные данные|0.226415022388749|
 |1.5|10|20|p > 1, дает значение null||
-|0,1|-1|20|Альфа-< 0, возвращает NaN|NaN|
+|0.1|-1|20|Альфа-< 0, возвращает NaN|Не число|
 
 **См. также:**
 

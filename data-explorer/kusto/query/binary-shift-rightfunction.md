@@ -1,6 +1,6 @@
 ---
-title: binary_shift_right () - Исследователь данных Azure Документы Майкрософт
-description: Эта статья описывает binary_shift_right () в Azure Data Explorer.
+title: binary_shift_right () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается binary_shift_right () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: a94c8c695f1c5d16ee0a7e3a92882486b8a8ef5d
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 96da8894aa4320a2d423d072acc048994463a7b3
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81517550"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349029"
 ---
 # <a name="binary_shift_right"></a>binary_shift_right()
 
-Возвращает двоичную операцию сдвига на пару чисел.
+Возвращает бинарную операцию сдвига вправо для пары чисел.
 
 ```kusto
 binary_shift_right(x,y) 
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `binary_shift_right(`*num1* `,` *num2*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *num1*, *num2*: длинные числа.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Возвращает правую операцию бинарного сдвига на пару чисел: num1 >>  (num2%64).
+Возвращает бинарную операцию сдвига вправо для пары чисел: num1 >>  (num2% 64).
 Если n является отрицательным, возвращается значение NULL.

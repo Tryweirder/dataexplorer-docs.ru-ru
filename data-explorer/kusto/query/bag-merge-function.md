@@ -3,35 +3,35 @@ title: bag_merge () — обозреватель данных Azure
 description: В этой статье описывается bag_merge () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
-ms.author: orspod
+ms.author: orspodek
 ms.reviewer: elgevork
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/18/2020
-ms.openlocfilehash: 0a23f6ece8be3ba451c1f61a90eb65452b68f9ce
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: 66a05cdc03b155b8fceace0af8d86807a10d0da4
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85265069"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349369"
 ---
 # <a name="bag_merge"></a>bag_merge()
 
 Объединяет `dynamic` Свойства-контейнеры в `dynamic` контейнер свойств со всеми объединенными свойствами.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `bag_merge(`*bag1* `, ` *bag2* `[` ,` *bag3*, ...])`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *bag1... Багн*: Входное `dynamic` свойство — контейнеры. Функция принимает от 2 до 64 аргументов.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает `dynamic` контейнер свойств. Результаты слияния всех входных объектов контейнера свойств. Если ключ встречается в нескольких входных объектах, будет выбрано произвольное значение (из возможных значений для этого ключа).
 
-**Пример**
+## <a name="example"></a>Пример
 
 Выражение:
 

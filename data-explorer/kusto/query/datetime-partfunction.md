@@ -1,6 +1,6 @@
 ---
-title: datetime_part () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны datetime_part () в Azure Data Explorer.
+title: datetime_part () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается datetime_part () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,53 +8,53 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2020
-ms.openlocfilehash: c64208725f0d5c49a7ea7733f8eb5a208e19225b
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 2c1a73d2d7e31eb180b37fae3d392fd5792cd69b
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81516377"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348519"
 ---
 # <a name="datetime_part"></a>datetime_part()
 
-Извлекает запрашиваемую часть даты в качестве значения целых.
+Извлекает запрошенную часть даты как целочисленное значение.
 
 ```kusto
 datetime_part("Day",datetime(2015-12-14))
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`datetime_part(`*время даты части*`,`*datetime*`)`
+`datetime_part(`*часть* `,` *Дата и время*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * `date`: `datetime`
 * `part`: `string`
 
-Возможные `part`значения: 
-- Год
-- Квартал
-- Месяц
+Возможные значения `part` : 
+- Year
+- Quarter
+- Month
 - week_of_year
 - День
 - DayOfYear
-- Час
+- Hour
 - Минута
-- Секунда
+- Second
 - Миллисекунда
-- Мкс
-- Наносекундных
+- Микросекунды
+- Потребовавшееся
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Цель, представляющая извлеченную часть.
+Целое число, представляющее извлеченную часть.
 
 **Примечание**
 
-`week_of_year`возвращает целый ряд, который представляет номер недели. Недельное число рассчитывается с первой недели года, которая включает в себя первый четверг.
+`week_of_year`Возвращает целое число, представляющее номер недели. Номер недели вычисляется с первой недели года, которая включает первый четверг.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 let dt = datetime(2017-10-30 01:02:03.7654321); 
@@ -79,5 +79,5 @@ nanosecond = datetime_part("nanosecond", dt)
 |2017|4|10|44|30|303|1|2|3|765|765432|765432100|
 
 > [!NOTE]
-> `weekofyear`является устаревшим `week_of_year` вариантом детали. `weekofyear`ISO 8601 не соответствовала требованиям; первая неделя года была определена как неделя с первой средой года в нем.
-`week_of_year`ISO 8601 соответствует требованиям; первая неделя года определяется как неделя с первым четвергом года в нем. [Для получения дополнительной информации](https://en.wikipedia.org/wiki/ISO_8601#Week_dates).
+> `weekofyear`является устаревшим вариантом `week_of_year` части. `weekofyear`не соответствует стандарту ISO 8601; Первая неделя года была определена как неделя с первой в году.
+`week_of_year`соответствует стандарту ISO 8601; Первая неделя года определяется как неделя с первым четверг года в нем. [Дополнительные сведения](https://en.wikipedia.org/wiki/ISO_8601#Week_dates).

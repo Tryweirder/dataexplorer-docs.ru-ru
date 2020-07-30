@@ -1,6 +1,6 @@
 ---
-title: current_cluster_endpoint () - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описаны current_cluster_endpoint () в Azure Data Explorer.
+title: current_cluster_endpoint () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается current_cluster_endpoint () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,26 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 65ce130b4dd3e0a3125eefc6c410775647f9b964
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 2c3ddbee55e729ae8afbb6c1fbcc213bd6bfd9ce
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81516853"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348723"
 ---
 # <a name="current_cluster_endpoint"></a>current_cluster_endpoint()
 
-Возвращает конечную точку сети (имя DNS) запрашиваемого текущего кластера.
+Возвращает конечную точку сети (DNS-имя) текущего запрашиваемого кластера.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `current_cluster_endpoint()`
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Конечная точка сети (dNS-имя) запрашиваемого текущего кластера как значение типа. `string`
+Конечная точка сети (DNS-имя) текущего кластера, к которому выполняется запрос, в виде значения типа `string` .
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 print strcat("This query executed on: ", current_cluster_endpoint())

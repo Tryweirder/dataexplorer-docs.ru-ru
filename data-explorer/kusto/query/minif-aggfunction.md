@@ -1,6 +1,6 @@
 ---
-title: minif() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны minif() (функция агрегирования) в Azure Data Explorer.
+title: миниф () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается миниф () (статистическая функция) в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,35 +8,35 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 0aad254ec01e83bdb07734e5b309c1450512b446
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 91764aeb8c825a272c414df7a0572d3b8310e79f
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81512365"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346751"
 ---
-# <a name="minif-aggregation-function"></a>миниф() (функция агрегирования)
+# <a name="minif-aggregation-function"></a>миниф () (агрегатная функция)
 
-Возвращает минимальное значение по всей группе, `true`для которой *Predicate* оценивается в .
+Возвращает минимальное значение в группе, для которой вычисляется *предикат* `true` .
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-Смотрите также - [мин()](min-aggfunction.md) функция, которая возвращает минимальное значение по всей группе без выражения предиката.
+См. также функция [min ()](min-aggfunction.md) , которая возвращает минимальное значение в группе без выражения предиката.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`summarize``minif(` *Expr*`,`*Предикат*`)`
+`summarize``minif(` *Expr*, `,` *предикат*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации.
-* *Предикат*: Предикат, что если это правда, вычисленное значение *Expr* будет проверено на минимум.
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата.
+* *Предикат*: predicate, если true, вычисляемое значение *expr* будет проверяться как минимум.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Минимальное значение *Expr* по всей группе, `true`для которой *Predicate* оценивается в .
+Минимальное значение *выражения* в группе, для которого вычисляется *предикат* `true` .
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 range x from 1 to 100 step 1

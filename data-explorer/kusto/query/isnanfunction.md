@@ -1,6 +1,6 @@
 ---
-title: isnan () - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны isnan() в Azure Data Explorer.
+title: isNaN () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается isNaN () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,36 +8,36 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 123d9cd32d645bb1225983138973a17b6bb9ecf3
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 5597f21d5e426329e2793978a6b207efc3868d13
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81513572"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347227"
 ---
 # <a name="isnan"></a>isnan()
 
-Возвращает значение ввода не номера (NaN).  
+Возвращает, является ли входное значение нечисловым (NaN).  
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`isnan(`*X*`)`
+`isnan(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *x*: Реальное число.
+* *x*: вещественное число.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Ненулевое значение (истинное), если x naN; и ноль (ложный) в противном случае.
+Ненулевое значение (true), если x — NaN; и ноль (false) в противном случае.
 
 **См. также:**
 
-* Для проверки, если значение является нулевым, [см. isnull()](isnullfunction.md).
-* Для проверки, если значение является конечным, [см. isfinite()](isfinitefunction.md).
-* Для проверки, если значение бесконечно, [см. isinf()](isinffunction.md).
+* Для проверки, имеет ли значение null, см. раздел [IsNull ()](isnullfunction.md).
+* Чтобы проверить, является ли значение конечным, см. раздел с [ограничением ()](isfinitefunction.md).
+* Чтобы проверить, является ли значение бесконечным, см. раздел [исинф ()](isinffunction.md).
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 range x from -1 to 1 step 1
@@ -46,8 +46,8 @@ range x from -1 to 1 step 1
 | extend isnan=isnan(div)
 ```
 
-|x|y|div|isnan|
+|x|y|div|IsNaN|
 |---|---|---|---|
 |-1|1|-1|0|
-|0|0|NaN|1|
+|0|0|Не число|1|
 |1|-1|-1|0|

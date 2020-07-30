@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/20/2020
-ms.openlocfilehash: a06bd3719fba4f9f61cf7b1c9501f96b17a48d58
-ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
+ms.openlocfilehash: a200d0619b25fe7410a82a941a3b1bf6e35d60ac
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84717229"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87342620"
 ---
 # <a name="summarize-operator"></a>Оператор summarize
 
@@ -31,11 +31,11 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 В таблице отображено количество элементов с ценами в каждом интервале [0,10.0], [10.0,20.0] и т. д. Пример включает один столбец для подсчета и один столбец для диапазон цен. Все остальные входные столбцы игнорируются.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| summarize` [[*столбец* `=` ] *агрегирование* [ `,` ...]] [ `by` [*столбец* `=` ] *GroupExpression* [ `,` ...]]
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Column* — необязательное имя итогового столбца. По умолчанию это имя, получаемое из выражения.
 * *Статистическая обработка:* Вызов [агрегатной функции](summarizeoperator.md#list-of-aggregation-functions) , такой как `count()` или `avg()` , с именами столбцов в качестве аргументов. См. [список статистических функций](summarizeoperator.md#list-of-aggregation-functions).
@@ -47,7 +47,7 @@ T | summarize count() by price_range=bin(price, 10.0)
 > * Если *GroupExpression* не указан, то выходные данные будут одной (пустой) строкой.
 > * Если указан параметр *GroupExpression* , выходные данные не будут иметь строк.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Входные строки объединяются в группы с одинаковыми значениями выражений `by` . Затем указанные агрегатные функции выполняют вычисления и создают строку для каждой группы. Результат содержит столбцы `by` и хотя бы один столбец для каждого вычисленного статистического выражения. (Некоторые агрегатные функции возвращают несколько столбцов).
 
@@ -67,7 +67,7 @@ T | summarize count() by price_range=bin(price, 10.0)
 |[anyif()](anyif-aggfunction.md)|Возвращает случайное непустое значение группы (с предикатом with)|
 |[arg_max()](arg-max-aggfunction.md)|Возвращает одно или несколько выражений, если аргумент является развернутым|
 |[arg_min()](arg-min-aggfunction.md)|Возвращает одно или несколько выражений, если аргумент является минимальным|
-|[avg()](avg-aggfunction.md)|Возвращает среднее значение в группе|
+|[AVG ()](avg-aggfunction.md)|Возвращает среднее значение в группе|
 |[avgif()](avgif-aggfunction.md)|Возвращает среднее значение в группе (с предикатом)|
 |[binary_all_and](binary-all-and-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `AND` объекта группы|
 |[binary_all_or](binary-all-or-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `OR` объекта группы|
@@ -88,11 +88,11 @@ T | summarize count() by price_range=bin(price, 10.0)
 |[maxif()](maxif-aggfunction.md)|Возвращает максимальное значение в группе (с предикатом)|
 |[min()](min-aggfunction.md)|Возвращает минимальное значение в группе.|
 |[minif()](minif-aggfunction.md)|Возвращает минимальное значение в группе (с предикатом)|
-|[percentiles()](percentiles-aggfunction.md)|Возвращает приблизительное значение процентиля группы|
+|[процентили ()](percentiles-aggfunction.md)|Возвращает приблизительное значение процентиля группы|
 |[percentiles_array ()](percentiles-aggfunction.md)|Возвращает процентили приблизительную часть группы|
 |[перцентилесв ()](percentiles-aggfunction.md)|Возвращает приближенное взвешенное значение процентиля группы|
 |[percentilesw_array ()](percentiles-aggfunction.md)|Возвращает взвешенное процентилиное приближение группы|
-|[stdev()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
+|[STDEV ()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
 |[stdevif()](stdevif-aggfunction.md)|Возвращает стандартное отклонение по группе (с предикатом)|
 |[Sum ()](sum-aggfunction.md)|Возвращает сумму элементов с группой|
 |[sumif()](sumif-aggfunction.md)|Возвращает сумму элементов с помощью группы (предикат WITH)|
@@ -115,7 +115,7 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 :::image type="content" source="images/summarizeoperator/summarize-price-by-supplier.png" alt-text="Суммировать цены по фруктовам и поставщикам":::
 
-**Пример**
+## <a name="example"></a>Пример
 
 Определите уникальные сочетания `ActivityType` и `CompletionStatus` в таблице. Нет статистических функций, просто сгруппированных по ключам. В выходных данных будут показаны только столбцы для этих результатов:
 
@@ -130,7 +130,7 @@ Activities | summarize by ActivityType, completionStatus
 |`dancing`|`abandoned`
 |`singing`|`completed`
 
-**Пример**
+## <a name="example"></a>Пример
 
 Находит минимальную и максимальную отметку времени всех записей в таблице действий. Предложение group by отсутствует, поэтому в выходных данных всего одна строка:
 
@@ -142,7 +142,7 @@ Activities | summarize Min = min(Timestamp), Max = max(Timestamp)
 |---|---
 |`1975-06-09 09:21:45` | `2015-12-24 23:45:00`
 
-**Пример**
+## <a name="example"></a>Пример
 
 Создайте строку для каждого континента, показывающую количество городов, в которых выполняются действия. Так как существует несколько значений для "континент", в предложении "by" не требуется никакой функции группирования:
 
@@ -155,7 +155,7 @@ Activities | summarize Min = min(Timestamp), Max = max(Timestamp)
 |`2673`|`North America`|
 
 
-**Пример**
+## <a name="example"></a>Пример
 
 В следующем примере вычисляется гистограмма для каждого типа действия. Поскольку `Duration` имеет много значений, используйте `bin` для группирования его значений в 10-минутные интервалы:
 

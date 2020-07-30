@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 8ebd4cb0ab8a5bffec717f83892a3ea11b35f409
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 1b94f661973d1ec89fe7f60edc9063b8c0f36d3c
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227644"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349199"
 ---
 # <a name="beta_pdf"></a>beta_pdf()
 
@@ -25,17 +25,17 @@ beta_pdf(0.2, 10.0, 50.0)
 
 Бета-распределение обычно используется для изучения вариативности в процентном отношении чего-либо в образцах, например часть дня, которую люди проводят перед телевизором.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `beta_pdf(`*x* `, ` *альфа-канал* `, ` *бета-версия*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: значение, для которого вычисляется функция.
 * *альфа*— параметр распределения.
 * *бета*— параметр распределения.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 * [Функция плотности бета-версии](https://en.wikipedia.org/wiki/Beta_distribution#Probability_density_function).
 
@@ -47,7 +47,7 @@ beta_pdf(0.2, 10.0, 50.0)
 
 Если альфа ≤ 0 или бета ≤ 0, beta_pdf () возвращает значение NaN.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
@@ -61,14 +61,14 @@ datatable(x:double, alpha:double, beta:double, comment:string)
 | extend r = beta_pdf(x, alpha, beta)
 ```
 
-|x|alpha|beta|comment|r|
+|x|alpha|бета-версия|comment|r|
 |---|---|---|---|---|
 |0,5|10|20|Допустимые входные данные|0.746176019310951|
-|1.5|10|20|x > 1, возвращает NaN|NaN|
-|–10|10|20|x < 0, возвращает NaN|NaN|
-|0,1|-1|20|Альфа-< 0, возвращает NaN|NaN|
+|1.5|10|20|x > 1, возвращает NaN|Не число|
+|–10|10|20|x < 0, возвращает NaN|Не число|
+|0.1|-1|20|Альфа-< 0, возвращает NaN|Не число|
 
-**Ссылки**
+**Справочные материалы**
 
 * Вычисление обратной функции бета-интегральной плотности см. в статье [Beta – Inv ()](./beta-invfunction.md).
 * Сведения о стандартной интегральной функции бета-распределения см. в статье [Beta-CDF ()](./beta-cdffunction.md).

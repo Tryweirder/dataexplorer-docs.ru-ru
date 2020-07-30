@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 2603aab066a7f77ff36553d8898bb713ace990b7
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: 67e408653a4873dce3b5e8f21a91775573affbe2
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763809"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347023"
 ---
 # <a name="make_bag_if-aggregation-function"></a>make_bag_if () (агрегатная функция)
 
@@ -22,17 +22,17 @@ ms.locfileid: "85763809"
 > [!NOTE]
 > Может использоваться только в контексте статистической обработки внутри [итоговых](summarizeoperator.md)данных.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `summarize``make_bag_if(` *Expr*, *предикат* [ `,` *MAXSIZE*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение типа `dynamic` , которое будет использоваться для вычисления статистической обработки.
 * *Предикат*: предикат, который должен вычислять `true` , чтобы *выражение "expr"* было добавлено к результату.
 * *MAXSIZE*: Необязательное целочисленное ограничение на максимальное число возвращаемых элементов (по умолчанию — *1048576*). Значение MaxSize не может превышать 1048576.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает `dynamic` контейнер свойств (JSON) для всех значений *"expr"* в группе, которые являются контейнерами свойств (словари), для которых *предикат* принимает значение `true` .
 Значения, не являющиеся словарными, будут пропущены.
@@ -41,7 +41,7 @@ ms.locfileid: "85763809"
 > [!NOTE]
 > [`make_bag`](./make-bag-aggfunction.md)Функция аналогична функции make_bag_if () без выражения предиката.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 let T = datatable(prop:string, value:string, predicate:bool)

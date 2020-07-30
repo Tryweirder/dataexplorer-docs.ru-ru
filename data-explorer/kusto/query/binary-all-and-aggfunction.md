@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 9f0e1665010885a64e6d97151b074d3a03df829b
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 9086d00ecbc800174ce2b9cda2b4ae1ba59d52b5
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227576"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349148"
 ---
 # <a name="binary_all_and-aggregation-function"></a>binary_all_and () (агрегатная функция)
 
@@ -21,19 +21,19 @@ ms.locfileid: "83227576"
 
 * Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 суммировать `binary_all_and(` *выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: длинное число.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает значение, агрегированное с помощью двоичной `AND` операции над записями для группы формирования сводных данных (или в целом, если формирование сводных данных выполняется без группирования).
 
-**Пример**
+## <a name="example"></a>Пример
 
 Создание "кафе-Food" с помощью бинарных `AND` операций:
 

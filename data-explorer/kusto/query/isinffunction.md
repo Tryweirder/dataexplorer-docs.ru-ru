@@ -1,6 +1,6 @@
 ---
-title: isinf() - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны isinf() в Azure Data Explorer.
+title: исинф () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается исинф () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,36 +8,36 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: d93697890ee05cabf9ca1830ac047d90d8c9e844
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 71a37d7a1bd700b5f929c009197a382315099e08
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81513589"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347244"
 ---
 # <a name="isinf"></a>isinf()
 
-Возвращает ли вход новейшом уликнутовом (положительном или отрицательном) значением.  
+Возвращает, является ли входное значение бесконечным (положительным или отрицательным).  
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`isinf(`*X*`)`
+`isinf(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *x*: Реальное число.
+* *x*: вещественное число.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Ненулевое значение (истинное), если x является положительным или отрицательным бесконечным; и ноль (ложный) в противном случае.
+Ненулевое значение (true), если x является положительным или отрицательным бесконечным; и ноль (false) в противном случае.
 
 **См. также:**
 
-* Для проверки, если значение является нулевым, [см. isnull()](isnullfunction.md).
-* Для проверки, если значение является конечным, [см. isfinite()](isfinitefunction.md).
-* Для проверки, является ли значение NaN (Не-номер), см. [isnan()](isnanfunction.md).
+* Для проверки, имеет ли значение null, см. раздел [IsNull ()](isnullfunction.md).
+* Чтобы проверить, является ли значение конечным, см. раздел с [ограничением ()](isfinitefunction.md).
+* Для проверки, является ли значение NaN (нечисловое), см. раздел [isNaN ()](isnanfunction.md).
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 range x from -1 to 1 step 1
@@ -49,5 +49,5 @@ range x from -1 to 1 step 1
 |x|y|div|isinf|
 |---|---|---|---|
 |-1|0|-∞|1|
-|0|0|NaN|0|
+|0|0|Не число|0|
 |1|0|∞|1|

@@ -1,6 +1,6 @@
 ---
-title: maxif() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны maxif() (функция агрегирования) в Azure Data Explorer.
+title: максиф () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается максиф () (статистическая функция) в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,35 +8,35 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9be25615f9da61aec6b4d56543f624fa0c24c1c4
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 471ca0e3d6623b77fd2d799949bfe060643798e2
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81512450"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346819"
 ---
-# <a name="maxif-aggregation-function"></a>maxif() (функция агрегирования)
+# <a name="maxif-aggregation-function"></a>максиф () (агрегатная функция)
 
-Возвращает максимальное значение по всей группе, `true`для которой *Predicate* оценивается в .
+Возвращает максимальное значение в группе, для которой вычисляется *предикат* `true` .
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-Смотрите также - [max()](max-aggfunction.md) функция, которая возвращает максимальное значение по всей группе без выражения предиката.
+См. также функция- [Max ()](max-aggfunction.md) , которая возвращает максимальное значение в группе без выражения предиката.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`summarize``maxif(` *Expr*`,`*Предикат*`)`
+`summarize``maxif(` *Expr*, `,` *предикат*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации. 
-* *Предикат*: Предикат, что если это правда, вычисленное значение *Expr* будет проверено на максимум.
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
+* *Предикат*: predicate, если true, вычисляемое значение *expr* будет проверяться для максимального значения.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Максимальное значение *Expr* по всей группе, `true`для которой *Predicate* оценивается в .
+Максимальное значение *выражения expr* в группе, для которой вычисляется *предикат* `true` .
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 range x from 1 to 100 step 1

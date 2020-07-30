@@ -8,19 +8,19 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 4216f691345c7dffd3bb1974e5f82e877ffb70f2
-ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
+ms.openlocfilehash: fb781834d77aee678103a14714721ff0d46f7b3a
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85128994"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346105"
 ---
 # <a name="prev"></a>prev()
 
 Возвращает значение указанного столбца в указанной строке.
 Указанная строка находится в указанном смещении от текущей строки в [сериализованном наборе строк](./windowsfunctions.md#serialized-row-set).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 Существует несколько возможностей.
 
@@ -30,7 +30,7 @@ ms.locfileid: "85128994"
 
 * `prev(column, offset, default_value)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * `column`: Столбец, из которого нужно получить значения.
 
@@ -38,7 +38,7 @@ ms.locfileid: "85128994"
 
 * `default_value`: Значение по умолчанию, используемое при отсутствии предыдущих строк для получения значения. Если значение по умолчанию не указано, используется значение null.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 Table | serialize | extend prevA = prev(A,1)

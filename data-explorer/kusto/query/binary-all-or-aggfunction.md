@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: e00d170db7cbafb36f04dfeb14f64caf2b8abcff
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 35478b435814fe716f7130576c16714403490be6
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225264"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349131"
 ---
 # <a name="binary_all_or-aggregation-function"></a>binary_all_or () (агрегатная функция)
 
@@ -21,19 +21,19 @@ ms.locfileid: "83225264"
 
 * Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 суммировать `binary_all_or(` *выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: длинное число.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает значение, агрегированное с помощью двоичной `OR` операции над записями для группы формирования сводных данных (или в целом, если формирование сводных данных выполняется без группирования).
 
-**Пример**
+## <a name="example"></a>Пример
 
 Создание "кафе-Food" с помощью бинарных `OR` операций:
 

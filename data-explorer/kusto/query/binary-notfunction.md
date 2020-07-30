@@ -1,6 +1,6 @@
 ---
-title: binary_not () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается binary_not () в Azure Data Explorer.
+title: binary_not () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается binary_not () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,29 +8,29 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: ae808d3d9964b8e63053ed40d65d08f39adf6668
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: b0672652836edce82be0fc13cd17d6d5d6fe5b62
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81517669"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349080"
 ---
 # <a name="binary_not"></a>binary_not()
 
-Возвращает битное отрицание вхоза.
+Возвращает побитовое отрицание входного значения.
 
 ```kusto
 binary_not(x)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`binary_not(`*num1*`)`
+`binary_not(`*NUM1*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *num1*: числовая 
+* *num1*: numeric 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Возвращает логическую НЕ операцию на номер: num1.
+Возвращает логическое не операцию для числа: num1.

@@ -1,6 +1,6 @@
 ---
-title: сейчас () - Исследователь данных Azure (ru) Документы Майкрософт
-description: Эта статья описывает сявра () в исследователе данных Лазурных данных.
+title: Now () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается Now () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: c1a130cfbd45c35ff1ba26ed6c47986fc186c89c
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 9beae6edd1361715dfe84f851ca0a9bb69f4299c
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81512059"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346581"
 ---
 # <a name="now"></a>now()
 
-Возвращает текущее время часов UTC, дополнительно компенсируемое заданным временным span.
+Возвращает текущее время в формате UTC, при необходимости смещается на заданный интервал времени.
 Эта функция может использоваться в выражении несколько раз, и значение времени будет одинаковым для всех случаев.
 
 ```kusto
@@ -25,21 +25,21 @@ now()
 now(-2d)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`now(`-*смещение*`)`
+`now(`[*offset*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *смещения*: A `timespan`, добавлено к текущему времени часов UTC. По умолчанию: 0.
+* *offset*: а `timespan` , добавленное к текущему времени UTC. По умолчанию: 0.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Текущее время UTC в формате `datetime`.
 
-`now()` + *Смещение* 
+`now()` + *собой* 
 
-**Пример**
+## <a name="example"></a>Пример
 
 Определяет интервал с момента события, определенного предикатом.
 

@@ -8,26 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/22/2019
-ms.openlocfilehash: c414f1bdb83850bc6ec6065314bc7c8662ab0ed2
-ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
+ms.openlocfilehash: 218f87a3c11695c4aa8135f98b0c445580de9ad0
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84717093"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349267"
 ---
 # <a name="base64_encode_tostring"></a>base64_encode_tostring()
 
 Кодирует строку как строку Base64.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `base64_encode_tostring(`*Строка*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *String*: входная строка для кодирования в виде строки Base64.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает строку, закодированную как строка Base64.
 
@@ -35,7 +35,7 @@ ms.locfileid: "84717093"
 * Сведения о декодировании строк Base64 в массив длинных значений см. в разделе [base64_decode_toarray ()](base64_decode_toarrayfunction.md) .
 
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

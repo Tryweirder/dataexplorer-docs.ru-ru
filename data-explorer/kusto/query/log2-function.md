@@ -1,6 +1,6 @@
 ---
-title: log2() - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описан журнал2() в Azure Data Explorer.
+title: log2 () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается log2 () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,31 +8,31 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/11/2019
-ms.openlocfilehash: 41e9a1457f97fa04a4daa54e1929f27d8a448ae3
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: a404dfba70f3a624acc08e70ee4b24935d1d7135
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81513130"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347108"
 ---
 # <a name="log2"></a>log2()
 
-`log2()`возвращает функцию базы-2 logarithm.  
+`log2()`Возвращает функцию логарифма по основанию 2.  
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`log2(`*X*`)`
+`log2(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *x*: Реальное число > 0.
+* *x*: вещественное число > 0.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-* Logarithm будет основанием-2 logarithm: обратная экспоненциальной функции (exp) с основанием 2.
-* `null`если аргумент отрицательный или нулевый или `real` не может быть преобразован в значение. 
+* Логарифм является логарифмом по основанию 2: обратная функция экспоненциальной функции (exp) с основанием 2.
+* `null`значение, если аргумент имеет отрицательное значение или равен null или не может быть преобразован к `real` значению. 
 
 **См. также:**
 
-* Для естественных (базовых) логарифмов [см.](log-function.md)
-* Для общих (базовых-10) логарифмов см. [log10()](log10-function.md).
+* Для натуральных логарифмов (с основанием e) см. раздел [log ()](log-function.md).
+* Общие логарифмы (по основанию 10) см. в разделе [LOG10 ()](log10-function.md).

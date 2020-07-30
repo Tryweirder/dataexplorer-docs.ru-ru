@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: a94629ae8f4795e28cbfb0c41f06596731cdd8d9
-ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
+ms.openlocfilehash: 560f7ca9f423eb57fd9be0478e0e51dc2ce26755
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84717331"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346513"
 ---
 # <a name="pack"></a>pack()
 
@@ -21,16 +21,16 @@ ms.locfileid: "84717331"
 
 Псевдоним для `pack_dictionary()` функции.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `pack(`*Key1* `,` *Значение1* `,` *key2* `,` *Значение2*`,... )`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * Чередующийся список ключей и значений (Общая длина списка должна быть четной)
 * Все ключи должны быть непустыми константными строками
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 В следующем примере возвращается `{"Level":"Information","ProcessID":1234,"Data":{"url":"www.bing.com"}}`.
 

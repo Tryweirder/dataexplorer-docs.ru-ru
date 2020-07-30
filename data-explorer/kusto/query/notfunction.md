@@ -1,6 +1,6 @@
 ---
-title: not() - Azure Data Explorer Документы Майкрософт
-description: В этой статье нет () в Azure Data Explorer.
+title: not () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается not () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,29 +8,29 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 539e409a9e922afc390b097c863146b7fc30d7b3
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: fed2a55c8fa1c7689c087ccdeaa64ff576bea401
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81512042"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346598"
 ---
 # <a name="not"></a>not()
 
-Меняет значение его `bool` аргумента.
+Изменяет значение аргумента на противоположное `bool` .
 
 ```kusto
 not(false) == true
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`not(`*Expr*`)`
+`not(`*выражения*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *expr*: `bool` Выражение, необходимое для обращения вспять.
+* *expr*: `bool` выражение, которое должно быть отменено.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Возвращает обратное логическое `bool` значение его аргумента.
+Возвращает Инвертированное логическое значение `bool` аргумента.

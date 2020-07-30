@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 5fd6221e4b877d066050f932a564f71d56d8c168
-ms.sourcegitcommit: c3bbb9a6bfd7c5506f05afb4968fdc2043a9fbbf
+ms.openlocfilehash: f5ad4cdc2b74ddb62a4572249bb06fab6c656243
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85332560"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347431"
 ---
 # <a name="infer_storage_schema-plugin"></a>Подключаемый модуль infer_storage_schema
 
@@ -30,11 +30,11 @@ let options = dynamic({
 evaluate infer_storage_schema(options)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `evaluate` `infer_storage_schema(` *Параметры* `)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 Единственный аргумент *параметров* — это постоянное значение типа `dynamic` , которое содержит контейнер свойств, указывающий свойства запроса:
 
@@ -46,7 +46,7 @@ evaluate infer_storage_schema(options)
 |`FileNamePrefix`|Нет|Проверять только файлы, начинающиеся с этого префикса. Это необязательно, но указание может ускорить процесс|
 |`Mode`|Нет|Стратегия определения схемы, одна из следующих: `any` , `last` , `all` . Вывести схему данных из любого (первого найденного) файла, из последнего записанного файла или из всех файлов соответственно. Значение по умолчанию — `last`.|
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 `infer_storage_schema`Подключаемый модуль возвращает одну таблицу результатов, содержащую одну строку или столбец со строкой схемы CSL.
 
@@ -55,7 +55,7 @@ evaluate infer_storage_schema(options)
 > * Стратегия вывода схемы "все" является очень дорогостоящей операцией, так как она подразумевает чтение из *всех* обнаруженных артефактов и объединение их схемы.
 > * Некоторые возвращаемые типы могут не быть реальными в результате неправильного подбора типа (или в результате процесса слияния схемы). Именно поэтому перед созданием внешней таблицы следует внимательно проанализировать результат.
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 let options = dynamic({

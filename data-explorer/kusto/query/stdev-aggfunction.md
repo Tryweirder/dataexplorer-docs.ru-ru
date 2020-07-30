@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 3a29621a18a364145585022b1f0651100cadab1c
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 18722a544ea3bbd0e19922d1d8988a3604b4d200
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82618549"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87342909"
 ---
 # <a name="stdev-aggregation-function"></a>STDEV () (агрегатная функция)
 
@@ -25,19 +25,19 @@ ms.locfileid: "82618549"
 
 * Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`stdev(`суммировать *выражение*`)`
+суммировать `stdev(` *выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Стандартное значение отклонения *выражения* в группе.
  
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 range x from 1 to 5 step 1

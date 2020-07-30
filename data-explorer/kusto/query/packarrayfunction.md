@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: f20fa8f07368052691334ab65eec666e9a3d568e
-ms.sourcegitcommit: 733bde4c6bc422c64752af338b29cd55a5af1f88
+ms.openlocfilehash: ad6403a70a8f71eee05bc56789cae2d6287a6605
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83271355"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346530"
 ---
 # <a name="pack_array"></a>pack_array()
 
 Упаковывает все входные значения в динамический массив.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `pack_array(`*Выражение1* `[` , ` *Expr2*]` ) '
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Выражение1... N*: входные выражения для упаковки в динамический массив.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Динамический массив, содержащий значения Выражение1, выражение2,..., Експрн.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

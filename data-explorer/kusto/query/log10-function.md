@@ -1,6 +1,6 @@
 ---
-title: log10() - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описан журнал10() в Azure Data Explorer.
+title: log10 () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается log10 () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,31 +8,31 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/11/2019
-ms.openlocfilehash: 9ccc83ff466d0414f793b7cfbbcf10d2ca169348
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 9db15900ea258d42e377f47de9ad12eecf52386d
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81513198"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347125"
 ---
 # <a name="log10"></a>log10()
 
-`log10()`возвращает общую (базовую-10) функцию logarithm.  
+`log10()`Возвращает стандартную функцию логарифма (Base-10).  
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`log10(`*X*`)`
+`log10(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *x*: Реальное число > 0.
+* *x*: вещественное число > 0.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-* Общим logarithm будет основанием-10 logarithm: обратная экспоненциальной функции (exp) с основанием 10.
-* `null`если аргумент отрицательный или нулевый или `real` не может быть преобразован в значение. 
+* Обычный логарифм является десятичным логарифмом: обратное значение экспоненциальной функции (exp) с основанием 10.
+* `null`значение, если аргумент имеет отрицательное значение или равен null или не может быть преобразован к `real` значению. 
 
 **См. также:**
 
-* Для естественных (базовых) логарифмов [см.](log-function.md)
-* Для баз-2 логарифмов [см. log2()](log2-function.md)
+* Для натуральных логарифмов (с основанием e) см. раздел [log ()](log-function.md).
+* Для логарифмов с основанием 2 см. раздел [log2 ()](log2-function.md) .

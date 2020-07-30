@@ -8,33 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/22/2019
-ms.openlocfilehash: df10ea2bbdf4e48d32c087d35eb9361fc4d697b8
-ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
+ms.openlocfilehash: 4cfe690b5ee2d32462552fb90300c9e3168b1f1d
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84717212"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349318"
 ---
 # <a name="base64_decode_toarray"></a>base64_decode_toarray()
 
 Декодирует строку Base64 в массив длинных значений.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `base64_decode_toarray(`*Строка*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *String*: входная строка для декодирования из Base64 в UTF8.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает массив длинных значений, декодированных из строки Base64.
 
 * Сведения о декодировании строк Base64 в строку UTF-8 см. в разделе [base64_decode_tostring ()](base64_decode_tostringfunction.md) .
 * Сведения о кодировании строк в строку Base64 см. в разделе [base64_encode_tostring ()](base64_encode_tostringfunction.md) .
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -53,6 +53,6 @@ print Quine=base64_decode_toarray("S3VzdG8=")
 print Empty=base64_decode_toarray("U3RyaW5n0KHR0tGA0L7Rh9C60LA=")
 ```
 
-|Empty|
+|Пусто|
 |-----|
 ||

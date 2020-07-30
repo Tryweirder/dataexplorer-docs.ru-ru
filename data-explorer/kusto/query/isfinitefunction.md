@@ -1,6 +1,6 @@
 ---
-title: isfinite () - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается изфинит() в Azure Data Explorer.
+title: с ограничением () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описываются ограничения () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,36 +8,36 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 5a17a39cce91fe039b2cf55cc5c98dba111cc334
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: f53c74fd2ac56219351c4d194c93e9fa4b627cf4
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81513606"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347261"
 ---
 # <a name="isfinite"></a>isfinite()
 
-Возвращает ли вход конечное значение (не является ни бесконечным, ни NaN).
+Возвращает значение, указывающее, является ли вход конечным значением (не является ни бесконечным, ни NaN).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`isfinite(`*X*`)`
+`isfinite(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *x*: Реальное число.
+* *x*: вещественное число.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Ненулевое значение (истинное), если x конечно; и ноль (ложный) в противном случае.
+Ненулевое значение (true), если x является конечным; и ноль (false) в противном случае.
 
 **См. также:**
 
-* Для проверки, если значение является нулевым, [см. isnull()](isnullfunction.md).
-* Для проверки, если значение бесконечно, [см. isinf()](isinffunction.md).
-* Для проверки, является ли значение NaN (Не-номер), см. [isnan()](isnanfunction.md).
+* Для проверки, имеет ли значение null, см. раздел [IsNull ()](isnullfunction.md).
+* Чтобы проверить, является ли значение бесконечным, см. раздел [исинф ()](isinffunction.md).
+* Для проверки, является ли значение NaN (нечисловое), см. раздел [isNaN ()](isnanfunction.md).
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 range x from -1 to 1 step 1
@@ -46,8 +46,8 @@ range x from -1 to 1 step 1
 | extend isfinite=isfinite(div)
 ```
 
-|x|y|div|исфинит|
+|x|y|div|isFinite|
 |---|---|---|---|
 |-1|0|-∞|0|
-|0|0|NaN|0|
+|0|0|Не число|0|
 |1|0|∞|0|

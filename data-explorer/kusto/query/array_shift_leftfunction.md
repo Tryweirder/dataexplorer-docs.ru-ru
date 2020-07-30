@@ -8,28 +8,28 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/11/2019
-ms.openlocfilehash: f901775dc8bb26c6fb863eefa9b221a89ecf5d1b
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 76fcb66e25ba9279e1b98fe60ba3a5e59a299845
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225706"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349641"
 ---
 # <a name="array_shift_left"></a>array_shift_left()
 
 `array_shift_left()`Сдвигает значения внутри массива влево.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `array_shift_left(`*`arr`*, *`shift_count`* `[,` *`fill_value`* ]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *`arr`*: Входной массив для разбиения должен быть динамическим массивом.
 * *`shift_count`*: Целое число, указывающее количество позиций, на которое элементы массива будут смещены влево. Если значение отрицательное, элементы будут перемещены вправо.
 * *`fill_value`*: Скалярное значение, используемое для вставки элементов вместо тех, которые были сдвинуты и удалены. Значение по умолчанию: NULL или пустая строка (в зависимости от *`arr`* типа).
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Динамический массив, содержащий то же количество элементов, что и в исходном массиве. Каждый элемент был смещен в соответствии с *shift_count*. Новые элементы, добавляемые вместо удаленных элементов, будут иметь значение *fill_value*.
 
@@ -39,7 +39,7 @@ ms.locfileid: "83225706"
 * Сведения о повороте массива вправо см. в разделе [array_rotate_right ()](array_rotate_rightfunction.md).
 * Сведения о повороте массива Left см. в разделе [array_rotate_left ()](array_rotate_leftfunction.md).
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 * Сдвиг влево на две позиции:
 

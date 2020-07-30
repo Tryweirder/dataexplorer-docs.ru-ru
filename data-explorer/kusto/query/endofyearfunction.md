@@ -1,6 +1,6 @@
 ---
-title: endofyear() - Azure Data Explorer Документы Майкрософт
-description: Эта статья описывает endofyear() в Azure Data Explorer.
+title: endofyear () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается endofyear () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,38 +8,38 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: d4a14d1cc42d5b9116e8a144e2b67fb74c1932ee
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: a76a402725eaefe9f12cbb67228381e3b0c25351
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81515782"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348264"
 ---
 # <a name="endofyear"></a>endofyear()
 
-Возвращает конец года, содержащий дату, сдвинутую на смещение, если это предусмотрено.
+Возвращает конец года, содержащего дату, смещенную по смещению, если оно предоставлено.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`endofyear(`*Дата* `,`и*смещение*`)`
+`endofyear(`*Дата* [ `,` *смещение*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* `date`: Дата ввода.
-* `offset`: Дополнительное количество офсетных лет с даты ввода (целый ряд, по умолчанию - 0).
+* `date`: Входная дата.
+* `offset`: Необязательное число лет смещения от даты ввода (целое число, по умолчанию — 0).
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Время дат, представляющее конец года для данной *даты,* с смещением, если указано.
+Значение типа DateTime, представляющее конец года для заданного значения *даты* и смещение, если оно указано.
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
   range offset from -1 to 1 step 1
  | project yearEnd = endofyear(datetime(2017-01-01 10:10:17), offset) 
 ```
 
-|yearEnd|
+|еаренд|
 |---|
 |2016-12-31 23:59:59.9999999|
 |2017-12-31 23:59:59.9999999|

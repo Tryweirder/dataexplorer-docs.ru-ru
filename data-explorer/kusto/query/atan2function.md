@@ -1,6 +1,6 @@
 ---
-title: atan2() - Исследователь данных Azure (англ.) Документы Майкрософт
-description: Эта статья описывает atan2() в Azure Data Explorer.
+title: atan2 () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается atan2 () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,31 +8,31 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: c8b49191c9d955cf5a91bde2032798f4703f7910
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 60b500109f140290427a6d1ad3baba8e25849b57
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81518400"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349454"
 ---
 # <a name="atan2"></a>atan2()
 
-Высчитывает угол, в радианов, между положительной x-оси и луч от происхождения до точки (y, x).
+Вычисляет угол в радианах между положительной осью x и лучом от начала до точки (y, x).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`atan2(`*y*`,`*x*`)`
+`atan2(`по *оси y* `,` *x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *x*: X координаты (реальное число).
-* *y*: Y координаты (реальное число).
+* Координата *x*: x (вещественное число).
+* *y*: координата y (вещественное число).
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-* Угол, в радианов, между положительной оси х и луч от происхождения до точки (y, x).
+* Угол в радианах между положительной осью x и лучом от начала до точки (y, x).
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 print atan2_0 = atan2(1,1) // Pi / 4 radians (45 degrees)
@@ -42,4 +42,4 @@ print atan2_0 = atan2(1,1) // Pi / 4 radians (45 degrees)
 
 |atan2_0|atan2_1|atan2_2|
 |---|---|---|
-|0.785398163397448|3.14159265358979|-1.5707963267949|
+|0.785398163397448|3,14159265358979)|-1,5707963267949|

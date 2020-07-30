@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/16/2020
-ms.openlocfilehash: 9a34734ebfee94646b2b2f15730f14f9d2709c6d
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 969efc142f1cd823b319a5c98494542fb2603f24
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227520"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348740"
 ---
 # <a name="count-operator"></a>Оператор count
 
 Возвращает количество записей во входном наборе записей.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `T | count`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 *T*— табличные данные, записи которых будут подсчитаны.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Эта функция возвращает таблицу с одной записью и столбцом типа `long`. Значение единственной ячейки — количество записей в *T*. 
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
