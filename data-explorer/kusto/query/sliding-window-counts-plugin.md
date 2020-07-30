@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 4d90bc3b6222896d45374d771ce5f87f4bdf6786
-ms.sourcegitcommit: 7dd20592bf0e08f8b05bd32dc9de8461d89cff14
+ms.openlocfilehash: af223d31f008b972bc1b61a6a9ace7e19c988ff7
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85902027"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351052"
 ---
-# <a name="sliding_window_counts-plugin"></a>подключаемый модуль sliding_window_counts
+# <a name="sliding_window_counts-plugin"></a>Подключаемый модуль sliding_window_counts
 
 Вычисляет количество и число различных значений в скользящем окне за лукбакк период с помощью описываемого [здесь](samples.md#perform-aggregations-over-a-sliding-window)метода.
 
@@ -25,11 +25,11 @@ ms.locfileid: "85902027"
 T | evaluate sliding_window_counts(id, datetime_column, startofday(ago(30d)), startofday(now()), 7d, 1d, dim1, dim2, dim3)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| evaluate` `sliding_window_counts(` *идколумн* `,` *тимелинеколумн* `,` *Start* `,` *End* `,` *лукбакквиндов* `,` *bin* `,` [*Dim1* `,` *dim2* `,` ...]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: Входное табличное выражение.
 * *Идколумн*: имя столбца со значениями идентификаторов, представляющими действия пользователя. 
@@ -40,7 +40,7 @@ T | evaluate sliding_window_counts(id, datetime_column, startofday(ago(30d)), st
 * *Bin*: скалярное постоянное значение периода анализа. Это значение может быть числовым значением, DateTime или timestamp. Если значение является строкой с форматом `week` / `month` / `year` , все точки будут [startofweek](startofweekfunction.md) / [StartOfMonth](startofmonthfunction.md) / [startofyear](startofyearfunction.md). 
 * *Dim1*, *dim2*,...: (необязательно) список столбцов измерений, которые срезируют вычисление метрик действия.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает таблицу, которая содержит значения Count и Distinct Count идентификаторов в лукбакк периоде для каждого периода временной шкалы (по ячейке) и для каждой комбинации существующих измерений.
 
@@ -51,7 +51,7 @@ T | evaluate sliding_window_counts(id, datetime_column, startofday(ago(30d)), st
 |Тип: от *тимелинеколумн*|..|..|..|long|long|
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 Вычислите количество и `dcounts` для пользователей за прошлую неделю за каждый день анализа. 
 
@@ -83,7 +83,7 @@ T | evaluate sliding_window_counts(UserId, Timestamp, start, end, lookbackWindow
 
 ```
 
-|Отметка времени|Count|`dcount`|
+|Timestamp|Счетчик|`dcount`|
 |---|---|---|
 |2017-08-01 00:00:00.0000000|5|3|
 |2017-08-02 00:00:00.0000000|8|5|

@@ -1,15 +1,15 @@
 ---
-author: sptramer
+author: orspod
 ms.service: azure
 ms.topic: include
 ms.date: 06/13/2019
-ms.author: sttramer
-ms.openlocfilehash: 7da122465c9842ad580808ff713b75e775bde96b
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.author: orspodek
+ms.openlocfilehash: c0db2c9ab2395e91cd7138b0bc96ac875593d96d
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81497113"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350331"
 ---
 ## <a name="use-azure-cloud-shell"></a>Использование Azure Cloud Shell
 
@@ -20,7 +20,7 @@ ms.locfileid: "81497113"
 | Параметр | Пример и ссылка |
 |-----------------------------------------------|---|
 | Нажмите кнопку **Попробовать** в правом верхнем углу блока с кодом. При нажатии кнопки **Попробовать** код не копируется в Cloud Shell автоматически. | ![Открытие Azure Cloud Shell с помощью кнопки "Попробовать"](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
-| Перейдите к [https://shell.azure.com](https://shell.azure.com)или нажмите кнопку **запустить Cloud Shell** , чтобы открыть Cloud Shell в браузере. | [![Запуск Cloud Shell в новом окне](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Перейдите по адресу [https://shell.azure.com](https://shell.azure.com) или нажмите кнопку **Запуск Cloud Shell**, чтобы открыть Cloud Shell в браузере. | [![Запуск Cloud Shell в новом окне](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
 | Нажмите кнопку **Cloud Shell** в строке меню в правом верхнем углу окна [портала Azure](https://portal.azure.com). | ![Кнопка "Cloud Shell" на портале Azure](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
 Чтобы выполнить код из этой статьи в Azure Cloud Shell, выполните следующие действия:
@@ -29,6 +29,6 @@ ms.locfileid: "81497113"
 
 1. В блоке кода нажмите кнопку **Копировать**, чтобы скопировать код.
 
-1. Вставьте код в Cloud Shell сеанс, нажав **клавиши CTRL**+**SHIFT**+**v** в Windows и Linux или выбрав **cmd**+**SHIFT**+**v** в macOS.
+1. Вставьте код в окно сеанса Cloud Shell, нажав клавиши **CTRL**+**SHIFT**+**V** в Windows и Linux или **CMD**+**SHIFT**+**V** в macOS.
 
 1. Нажмите клавишу **ВВОД**, чтобы выполнить код.

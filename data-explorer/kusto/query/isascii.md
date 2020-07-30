@@ -1,6 +1,6 @@
 ---
-title: isascii() - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается isascii() в Azure Data Explorer.
+title: -ASCII () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описываются символы-ASCII () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: daba0f4015a4847155309964f8ac0909ff4bc9d0
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: d8a060e4a332988fd966e0dec9ed07b3c76d0e3f
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81513725"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347295"
 ---
 # <a name="isascii"></a>isascii()
 
-Возвращает, `true` если аргумент является допустимой строкой ascii.
+Возвращает значение, `true` Если аргумент является допустимой строкой ASCII.
     
 ```kusto
 isascii("some string") == true
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`isascii(`Значение*value*`)`
+`isascii(`[*значение*]`)`
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Указывает, является ли аргумент допустимой строкой ascii.
+Указывает, является ли аргумент допустимой строкой ASCII.
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 T

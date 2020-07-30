@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 90b2a08d4fdde6ab6a74b12632c9310029f8fc1b
-ms.sourcegitcommit: 7dd20592bf0e08f8b05bd32dc9de8461d89cff14
+ms.openlocfilehash: cf10a18a699e1e93521b4927008858cbebd2baf8
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85902108"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345850"
 ---
 # <a name="render-operator"></a>Оператор render
 
@@ -30,7 +30,7 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 > * Оператор Render не изменяет данные. Он вставляет аннотацию ("Визуализация") в расширенные свойства результата. Заметка содержит сведения, предоставленные оператором в запросе.
 > * Интерпретация данных визуализации выполняется агентом пользователя. Различные агенты (например, Kusto. Explorer, Kusto.) могут поддерживать различные визуализации.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `|` `render` *визуализация* [ `with` `(` *PropertyName* `=` *propertyvalue* [ `,` ...] `)` ]
 
@@ -110,7 +110,7 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 ::: zone-end
 
 Некоторые визуализации можно дополнительно проделать, предоставив `kind` свойство.
-Эти особые значения приведены ниже.
+два типа пулов узлов.
 
 |*Визуализация*|`kind`             |Описание                        |
 |---------------|-------------------|-----------------------------------|
@@ -155,7 +155,7 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 > * Отсортируйте данные, чтобы определить порядок оси x.
 > * Агенты пользователя могут выгадать значения свойств, не указанных в запросе. В частности, наличие "неинтересных" столбцов в схеме результата может привести к неправильному подбору. Попробуйте выполнить проецирование таких столбцов, когда это произойдет. 
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

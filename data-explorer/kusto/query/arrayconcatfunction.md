@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 681178cc12d145b1c574357e87ae4f7b33d736c4
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: ecaca4aea221ca2b880b798757de64787901a0cb
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225655"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349607"
 ---
 # <a name="array_concat"></a>array_concat()
 
 Сцепляет несколько динамических массивов в один массив.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `array_concat(`*arr1* `[` , ` *arr2*, ...]` )
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *arr1... Аррн*: входные массивы, объединяемые в динамический массив. Все аргументы должны быть динамическими массивами (см. [pack_array](packarrayfunction.md)). 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Динамический массив массивов с arr1, arr2,..., Аррн.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

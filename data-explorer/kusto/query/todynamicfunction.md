@@ -1,6 +1,6 @@
 ---
-title: todynamic(), toobject() - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны тодинамические (), тообъект() в Azure Data Explorer.
+title: todynamic (), тубжект () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается todynamic (), тубжект () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 138b0f978df699817c5dc5c14bafc4c06a95afc7
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: e11a4d450275fb4d596bd9618c20ef6cefcb0531
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506160"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350743"
 ---
-# <a name="todynamic-toobject"></a>тодинамический(), объект()
+# <a name="todynamic-toobject"></a>todynamic(), toobject()
 
-Интерпретирует `string` значение [JSON](https://json.org/) и возвращает [`dynamic`](./scalar-data-types/dynamic.md)значение как . 
+Интерпретирует `string` как [значение JSON](https://json.org/) и возвращает значение в виде [`dynamic`](./scalar-data-types/dynamic.md) . 
 
-Он превосходит [функцию extractjson()](./extractjsonfunction.md) при необходимости извлечения более одного элемента объекта соединения JSON.
+Если необходимо извлечь более одного элемента составного объекта JSON, лучше использовать [функцию екстрактжсон ()](./extractjsonfunction.md) .
 
-Прозвища [parse_json ()](./parsejsonfunction.md) функции.
+Псевдонимы для функции [parse_json ()](./parsejsonfunction.md) .
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`todynamic(`*Json*`)`
-`toobject(`*Json*`)`
+`todynamic(`*Формат* `)` 
+ JSON `toobject(` *Формат JSON*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *json*: Документ JSON.
+* *JSON*: документ JSON.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Объект типа `dynamic` , определенный в *json*.
 
-*Примечание*: Предпочитаюиспользовать [динамические ()](./scalar-data-types/dynamic.md) по возможности.
+*Примечание*. предпочтительнее использовать [dynamic ()](./scalar-data-types/dynamic.md) , если это возможно.
