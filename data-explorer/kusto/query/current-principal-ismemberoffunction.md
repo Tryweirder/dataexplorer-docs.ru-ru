@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/09/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: fdd062abc02ff1d98ba935fc9016d0a1505e69c3
-ms.sourcegitcommit: 974d5f2bccabe504583e387904851275567832e7
+ms.openlocfilehash: 67d589f15a414ed715a75cc1871549b06f3dba9b
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83550407"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348672"
 ---
 # <a name="current_principal_is_member_of"></a>current_principal_is_member_of()
 
@@ -31,22 +31,22 @@ print current_principal_is_member_of(
     )
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `current_principal_is_member_of`(`*list of string literals*`)
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *список выражений* — разделенный запятыми список строковых литералов, где каждый литерал является строкой полного имени участника (FQN), сформированной следующим образом:  
 *ПринЦиплатипе* `=` *PrincipalId* `;` *ИД* клиента
 
-| PrincipalType   | Префикс FQN  |
+| принЦипалтипе   | Префикс FQN  |
 |-----------------|-------------|
 | Пользователь AAD        | `aaduser=`  |
 | Группа AAD       | `aadgroup=` |
 | Приложение AAD | `aadapp=`   |
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
   
 Функция возвращает:
 * `true`: если текущий участник, выполняющий запрос, был успешно сопоставлен по крайней мере с одним входным аргументом.
@@ -60,7 +60,7 @@ print current_principal_is_member_of(
 > * `where current_principal_is_member_of('non-existing-group') != false` 
 
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 1aca8cda34e1ee8506d5be6633cfd46fd912c6c3
-ms.sourcegitcommit: 733bde4c6bc422c64752af338b29cd55a5af1f88
+ms.openlocfilehash: debd0a83f4c27fa05415805404ad450bab1d3ca1
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83271525"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347380"
 ---
 # <a name="invoke-operator"></a>Оператор invoke
 
@@ -23,17 +23,17 @@ ms.locfileid: "83271525"
 T | invoke foo(param1, param2)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `T | invoke`*функция* `(` [*param1* `,` *Param2*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: табличный источник.
 * *Function*: имя лямбда-выражения или имени функции для оценки.
 * *param1*, *Param2* ...: дополнительные лямбда-аргументы.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Возвращает результат вычисленного выражения.
 
@@ -41,7 +41,7 @@ T | invoke foo(param1, param2)
 
 Дополнительные сведения об объявлении лямбда-выражений, которые могут принимать табличные аргументы, см. в разделе [инструкции Let](./letstatement.md) .
 
-**Пример**
+## <a name="example"></a>Пример
 
 В следующем примере показано, как использовать `invoke` оператор для вызова лямбда-выражения:
 

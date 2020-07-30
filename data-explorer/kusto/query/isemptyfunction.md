@@ -1,6 +1,6 @@
 ---
-title: isempty () - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается пусто () в Azure Data Explorer.
+title: IsEmpty () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается процедура IsEmpty () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,38 +8,38 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 2cb0e53aa16257398c20661c31494ca9dda17c1e
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: ac2bf5d5ea55172cbdb07bf90704ae5ad497e925
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81513623"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347278"
 ---
 # <a name="isempty"></a>isempty()
 
-Возвращает, `true` если аргумент является пустой строкой или является нулевым.
+Возвращает, `true` Если аргумент является пустой строкой или имеет значение null.
     
 ```kusto
 isempty("") == true
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`isempty(`Значение*value*`)`
+`isempty(`[*значение*]`)`
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Указывает, является ли аргумент пустой строкой или имеет значение null.
 
 |x|isempty(x)
 |---|---
-| "" | Да
+| "" | true
 |"x" | false
-|parsejson("")|Да
+|parsejson("")|true
 |parsejson("[]")|false
-|парсейсон("){}|false
+|parseJSON (" {} ")|false
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 T

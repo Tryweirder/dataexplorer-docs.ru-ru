@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 0d5f44d621612e90d83a93f2f5831630520d4ba0
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: ba61537de8925b3eeaaffc8b5337e2ecfa343d88
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83371734"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87342399"
 ---
 # <a name="table-scope-function"></a>Table () (Функция scope)
 
@@ -25,11 +25,11 @@ ms.locfileid: "83371734"
 table('StormEvent')
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `table``(` *TableName* [ `,` *область действия*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 ::: zone pivot="azuredataexplorer"
 

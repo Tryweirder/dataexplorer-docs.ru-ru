@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 11/19/2019
-ms.openlocfilehash: 1925d9b27382dd3a888e14243bfecad51d37db0d
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: f71a0d0cdfa4fe0ca8cdb84e65a271ee42bc7dc7
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83226709"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347618"
 ---
 # <a name="hash_combine"></a>hash_combine()
 
 Объединяет хэш-значения двух или более хэшей.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `hash_combine(`*H1* `,` *H2* [ `,` *H3* ...]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *H1*: длинное значение, представляющее первое значение хэша.
 * *H2*: длинное значение, представляющее второе хэш-значение.
 * *HN*: длинное значение, представляющее n-значное значение.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Объединенное хэш-значение заданных скаляров.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 092915c08b4b3d1e72722a4303e911403b2defd2
-ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
+ms.openlocfilehash: 3e1f74d6605b4916a2718a00fd252141060d748f
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737204"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348893"
 ---
 # <a name="cluster-scope-function"></a>Cluster () (Функция scope)
 
@@ -27,13 +27,13 @@ ms.locfileid: "82737204"
 cluster('help').database('Sample').SomeTable
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `cluster(`*стрингконстант*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *стрингконстант*: имя кластера, на который указывает ссылка. Имя кластера может быть либо полным DNS-именем, либо строкой, которая будет иметь суффикс `.kusto.windows.net`. Аргумент должен быть _константой_ до выполнения запроса, т. е. не может поступать от вычисления вложенного запроса.
+* *стрингконстант*: имя кластера, на который указывает ссылка. Имя кластера может быть либо полным DNS-именем, либо строкой, которая будет иметь суффикс `.kusto.windows.net` . Аргумент должен быть _константой_ до выполнения запроса, т. е. не может поступать от вычисления вложенного запроса.
 
 **Примечания**
 
@@ -58,7 +58,7 @@ cluster('help.kusto.windows.net').database('Samples').StormEvents | count
 
 ### <a name="use-cluster-inside-let-statements"></a>Использование Cluster () в инструкциях Let 
 
-Тот же запрос, который приведен выше, можно переписывать, чтобы использовать встроенную функцию (оператор Let), `clusterName` которая получает параметр, который передается в функцию Cluster ().
+Тот же запрос, который приведен выше, можно переписывать, чтобы использовать встроенную функцию (оператор Let), которая получает параметр, `clusterName` который передается в функцию Cluster ().
 
 ```kusto
 let foo = (clusterName:string)
@@ -74,7 +74,7 @@ foo('help')
 
 ### <a name="use-cluster-inside-functions"></a>Использование Cluster () в функциях 
 
-Тот же запрос, который приведен выше, можно переписывать для использования в функции, принимающей параметр `clusterName` , который передается в функцию Cluster ().
+Тот же запрос, который приведен выше, можно переписывать для использования в функции, принимающей параметр, `clusterName` который передается в функцию Cluster ().
 
 ```kusto
 .create function foo(clusterName:string)

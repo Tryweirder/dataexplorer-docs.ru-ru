@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: b5847fec10eb76a6fe5a139809766d2a3ca4f089
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 7b6de7d141f02703c5f369dd831d1fbac82cb45e
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372919"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345527"
 ---
 # <a name="series_add"></a>series_add()
 
 Вычисляет Поэлементное добавление двух входных числовых рядов.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_add(`*Series1* `,` *Series2*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Series1, Series2*: входные числовые массивы, которые должны быть поэлементно добавлены в результат динамического массива. Все аргументы должны быть динамическими массивами. 
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Динамический массив вычисляемого элемента операции добавления на основе двух входных значений. Любой нечисловой элемент или несуществующий элемент (массивы разного размера) дает `null` значение элемента.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

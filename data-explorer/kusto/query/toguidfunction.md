@@ -1,6 +1,6 @@
 ---
-title: toguid() - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны тогиды () в Azure Data Explorer.
+title: тогуид () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается тогуид () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: fb1df5fe91b75e5d3b7d1a9f40b8b3079cac9944
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: a2eec6a582c4c8fc6cda6b3cf9a304f41ab48143
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506143"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350742"
 ---
 # <a name="toguid"></a>toguid()
 
-Преобразует входные [`guid`](./scalar-data-types/guid.md) данные в представление.
+Преобразует входные данные в [`guid`](./scalar-data-types/guid.md) представление.
 
 ```kusto
 toguid("70fc66f7-8279-44fc-9092-d364d70fce44") == guid("70fc66f7-8279-44fc-9092-d364d70fce44")
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`toguid(`*Expr*`)`
+`toguid(`*Выражения*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Expr*: Выражение, которое будет преобразовано в [`guid`](./scalar-data-types/guid.md) scalar. 
+* *Expr*: выражение, которое будет преобразовано в [`guid`](./scalar-data-types/guid.md) скалярное значение. 
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
-Если преобразование успешно, [`guid`](./scalar-data-types/guid.md) результат будет scalar.
-Если конверсия не будет `null`успешной, результат будет .
+Если преобразование выполнено успешно, результат будет [`guid`](./scalar-data-types/guid.md) скалярным.
+Если преобразование не выполнено, результатом будет `null` .
 
-*Примечание*: Предпочитаюиспользовать использование [гида ()](./scalar-data-types/guid.md) по возможности.
+*Примечание*. предпочитать использование [GUID ()](./scalar-data-types/guid.md) , если это возможно.

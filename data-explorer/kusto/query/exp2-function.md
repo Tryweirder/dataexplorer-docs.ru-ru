@@ -1,6 +1,6 @@
 ---
-title: exp2() - Исследователь данных Azure (англ.) Документы Майкрософт
-description: Эта статья описывает exp2() в Azure Data Explorer.
+title: EXP2 () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается EXP2 () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,27 +8,27 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 1302a64d52962d080dcf32403362125e60eceed2
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 1c2fbf2067aa83963801b6d5ec7b9f4204e99f4d
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81515612"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348179"
 ---
 # <a name="exp2"></a>exp2()
 
-База-2 экспоненциальной функции x, которая составляет 2 подняты на мощность х: 2 х.  
+Экспоненциальная функция x, которая равна 2, порождается в степень x: 2 ^ x.  
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`exp2(`*X*`)`
+`exp2(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *x*: Реальное число, значение экспонента.
+* *x*: вещественное число, значение экспоненты.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
-* Экспоненциальная стоимость x.
-* Для естественных (базовых-2) логарифмов см. [log2()](log2-function.md).
-* Для экспоненциальных функций базового и базового-10 логарифмов [см.](exp-function.md) [exp10()](exp10-function.md)
+* Экспоненциальное значение x.
+* Для естественного (основание 2) логарифмов см. в разделе [log2 ()](log2-function.md).
+* Сведения о экспоненциальных функциях логарифмов Base-e и Base-10 см. в разделе [exp ()](exp-function.md), [EXP10 ()](exp10-function.md) .

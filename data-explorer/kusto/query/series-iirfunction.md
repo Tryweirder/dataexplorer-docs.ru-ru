@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/20/2019
-ms.openlocfilehash: fbdf7b1a9a9f5b65e6c6ee7a78fe64afba2893af
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: e1b863b83e08fae680e1a387ca2fdd2a93d111a8
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264799"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351443"
 ---
 # <a name="series_iir"></a>series_iir()
 
@@ -26,11 +26,11 @@ ms.locfileid: "85264799"
 
 Функция принимает в качестве входных данных столбец, содержащий динамический массив, и два статических динамических массива коэффициентов *a* и *b* фильтра и применяют фильтр к столбцу. Она выводит новый столбец динамического массива, содержащий отфильтрованные результаты.  
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_iir(`*x* `,` *b* `,` *a*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: ячейка динамического массива, которая представляет собой массив числовых значений, обычно результирующий результат операторов [make-Series](make-seriesoperator.md) или [make_list](makelist-aggfunction.md) .
 * *б*: константное выражение, содержащее коэффициенты числителя фильтра (хранимые в виде динамического массива числовых значений).
@@ -64,8 +64,8 @@ print x=x, y = series_iir(x, dynamic([1]), dynamic([1,-1]))
 |:--|:--|
 |1.0|1.0|
 |2.0|3.0|
-|3.0|6,0|
-|4,0|10,0|
+|3.0|6.0|
+|4.0|10.0|
 
 Вот как обернуть его в функцию:
 

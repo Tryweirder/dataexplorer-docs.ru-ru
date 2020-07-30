@@ -8,26 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 11/08/2019
-ms.openlocfilehash: f71770d2cc9d44987731a247fa8eb945ed323391
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: cf10fcfd66b7a9240746a904e4979c8091c3518b
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227522"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348689"
 ---
 # <a name="current_principal_details"></a>current_principal_details()
 
 Возвращает сведения об участнике, выполняющем запрос.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `current_principal_details()`
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Сведения о текущем участнике в виде `dynamic` .
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

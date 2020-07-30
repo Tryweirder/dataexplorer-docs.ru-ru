@@ -1,6 +1,6 @@
 ---
-title: tdigest_merge() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описана tdigest_merge (функция агрегирования) в Azure Data Explorer.
+title: tdigest_merge () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается tdigest_merge () (статистическая функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,38 +8,38 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 0b7de916dd53c19a49301c8048e2d8867d1b1249
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 6f15e0028bda40a2d65349a7840861c9060ff805
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506398"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87341250"
 ---
-# <a name="tdigest_merge-aggregation-function"></a>tdigest_merge() (функция агрегирования)
+# <a name="tdigest_merge-aggregation-function"></a>tdigest_merge () (агрегатная функция)
 
-Слияния tdigest результаты по всей группе. 
+Слияние результатов тдижест в группе. 
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md).
+* Может использоваться только в контексте статистической обработки внутри [итоговых](summarizeoperator.md)данных.
 
-Узнайте больше о базовом алгоритме (T-Digest) и предполагаемой ошибке [здесь](percentiles-aggfunction.md#estimation-error-in-percentiles).
+Дополнительные сведения о базовом алгоритме (T-Digest) и предполагаемой ошибке см. [здесь](percentiles-aggfunction.md#estimation-error-in-percentiles).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-резюмировать `tdigest_merge(` *Expr*`)`.
+суммировать `tdigest_merge(` *выражение* `)` .
 
-резюмировать `tdigest_merge(` *Expr* `)` - псевдоним.
+суммировать `tdigest_merge(` *выражение* `)` — псевдоним.
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации. 
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Слияние значений tdigest *Expr* по всей группе.
+Объединенные значения тдижест типа *expr* в группе.
  
 
 **Советы**
 
-1) Вы можете использовать`percentile_tdigest()`эту функцию (percentile-tdigestfunction.md).
+1) Вы можете использовать функцию [ `percentile_tdigest()` ] (percentile-tdigestfunction.md).
 
-2) Все tdigests, которые включены в ту же группу должны быть одного и того же типа.
+2) Все тдижестс, входящие в одну и ту же группу, должны иметь один и тот же тип.

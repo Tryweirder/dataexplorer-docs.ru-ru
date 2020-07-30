@@ -1,6 +1,6 @@
 ---
-title: stdevif() (функция агрегации) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описанstdevif() (функция агрегирования) в Azure Data Explorer.
+title: стдевиф () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается стдевиф () (статистическая функция) в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,33 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 4a64cf1bb69860a2a8bd64de91cb00c2f0ec296f
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: a158a623768a7beb6ec497ca8d8467aecd7c3b61
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506976"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87342824"
 ---
-# <a name="stdevif-aggregation-function"></a>stdevif() (функция агрегирования)
+# <a name="stdevif-aggregation-function"></a>стдевиф () (агрегатная функция)
 
-Вычисляет [stdev](stdev-aggfunction.md) *Expr* по всей группе, `true`для которой *Predicate* оценивает .
+Вычисляет отклонение *выражения* [в группе](stdev-aggfunction.md) , для которой *предикат* возвращает значение `true` .
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-резюмировать `stdevif(` *Expr*`, `*Predicate*`)`
+суммировать `stdevif(` *Expr* `, ` *предикат* выражения`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации. 
-* *Предикат*: Предикат, что если это правда, вычисленное значение *Expr* будет добавлено к стандартному отклонению.
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
+* *Предикат*: predicate, если true, вычисляемое значение *expr* будет добавлено к стандартному отклонению.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
-Стандартное значение отклонения *Expr* по всей группе, где *Predicate* оценивает . `true`
+Стандартное значение отклонения в *выражении* для *предиката* WHERE группы равно `true` .
  
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 range x from 1 to 100 step 1

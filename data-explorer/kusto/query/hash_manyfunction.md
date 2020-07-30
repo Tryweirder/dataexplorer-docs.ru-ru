@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/06/2020
-ms.openlocfilehash: 66ca1e5ff330a4b39ab769b0e3e8d6359eed9c00
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 3d0f389264d078d2b55ac06214bb3b820fcf7f13
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83226675"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347601"
 ---
 # <a name="hash_many"></a>hash_many()
 
 Возвращает объединенное хэш-значение нескольких значений.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `hash_many(`*S1* `,` *S2* [ `,` *S3* ...]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *S1*, *S2*,..., *SN*: входные значения, которые будут хэшированы вместе.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Объединенное хэш-значение заданных скаляров.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

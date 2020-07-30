@@ -1,6 +1,6 @@
 ---
-title: startofmonth() - Azure Data Explorer Документы Майкрософт
-description: Эта статья описывает startofmonth() в Azure Data Explorer.
+title: StartOfMonth () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается StartOfMonth () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,38 +8,38 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: e220919f6b09dbcd2519c67f48148a6375395e7b
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: e965e0ae8b3783b396cfc4ea5e0ecf1e34b818a9
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81507248"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87343844"
 ---
 # <a name="startofmonth"></a>startofmonth()
 
-Возвращает начало месяца, содержащего дату, сдвинутую на смещение, если это предусмотрено.
+Возвращает начало месяца, содержащего дату, смещенную по смещению, если оно предоставлено.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`startofmonth(`*Дата* `,`и*смещение*`)`
+`startofmonth(`*Дата* [ `,` *смещение*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* `date`: Дата ввода.
-* `offset`: Дополнительное количество смещенных месяцев с даты ввода (целый ряд, по умолчанию - 0).
+* `date`: Входная дата.
+* `offset`: Необязательное число месяцев смещения от даты ввода (целое число, по умолчанию — 0).
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Время даты, представляющее начало месяца для данной *даты,* с смещением, если указано.
+Значение типа DateTime, представляющее начало месяца для заданного значения *даты* со смещением, если оно указано.
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
   range offset from -1 to 1 step 1
  | project monthStart = startofmonth(datetime(2017-01-01 10:10:17), offset) 
 ```
 
-|месяцНачало|
+|монсстарт|
 |---|
 |2016-12-01 00:00:00.0000000|
 |2017-01-01 00:00:00.0000000|

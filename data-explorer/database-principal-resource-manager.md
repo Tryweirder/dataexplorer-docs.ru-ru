@@ -1,36 +1,36 @@
 ---
-title: Добавление основной базы данных для исследователя данных Azure с помощью шаблона управления ресурсами Azure
-description: В этой статье вы узнаете, как добавить принципы базы данных для Azure Data Explorer с помощью шаблона Управления ресурсами Azure.
-author: lucygoldbergmicrosoft
-ms.author: lugoldbe
-ms.reviewer: orspodek
+title: Добавление участника базы данных для обозреватель данных Azure с помощью шаблона Azure Resource Manager
+description: Из этой статьи вы узнаете, как добавить субъекты базы данных для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
+author: orspod
+ms.author: orspodek
+ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 80fcf4b6c5d64dde7bd1c5475fb6a3dbafd7f907
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 5ed9900a33fe90dbb04be3725ddd8e19bfb63b07
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81496437"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349998"
 ---
-# <a name="add-database-principals-for-azure-data-explorer-by-using-an-azure-resource-manager-template"></a>Добавление основ базы данных для исследователя данных Azure с помощью шаблона управления ресурсами Azure
+# <a name="add-database-principals-for-azure-data-explorer-by-using-an-azure-resource-manager-template"></a>Добавление участников базы данных для обозреватель данных Azure с помощью шаблона Azure Resource Manager
 
 > [!div class="op_single_selector"]
 > * [C#](database-principal-csharp.md)
 > * [Python](database-principal-python.md)
 > * [Шаблон Azure Resource Manager](database-principal-resource-manager.md)
 
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. В этой статье вы добавляете принципы базы данных для Azure Data Explorer с помощью шаблона Azure Resource Manager.
+Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. В этой статье вы добавите участников базы данных для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 * Создание [кластера и базы данных](create-cluster-database-portal.md)
 
-## <a name="azure-resource-manager-template-for-adding-a-database-principal"></a>Шаблон менеджера ресурсов Azure для добавления основного принципа базы данных
+## <a name="azure-resource-manager-template-for-adding-a-database-principal"></a>Шаблон Azure Resource Manager для добавления участника базы данных
 
-В следующем примере показан шаблон менеджера ресурсов Azure для добавления основного элемента базы данных.  Шаблон можно [отсеивать и развертывать на портале Azure,](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) используя форму.
+В следующем примере показан шаблон Azure Resource Manager для добавления участника базы данных.  Шаблон можно [изменить и развернуть в портал Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) с помощью формы.
 
 ```json
 {
@@ -102,6 +102,6 @@ ms.locfileid: "81496437"
 }
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Прием данных из концентратора событий в Azure Data Explorer](ingest-data-event-hub.md)

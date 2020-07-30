@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/12/2020
-ms.openlocfilehash: 48231d24ca1e49938629dd9912804c5858d11ae1
-ms.sourcegitcommit: f9d3f54114fb8fab5c487b6aea9230260b85c41d
+ms.openlocfilehash: c2936ec7461850aaad6fdb4e9daa7624dd561c49
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85071883"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346258"
 ---
 # <a name="parse-where-operator"></a>Оператор parse-where
 
@@ -25,11 +25,11 @@ ms.locfileid: "85071883"
 T | parse-where Text with "ActivityName=" name ", ActivityType=" type
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| parse-where` [ `kind=regex` [ `flags=regex_flags` ] | `simple` ] *выражение* `with` `*` (*стрингконстант* *ColumnName* [ `:` *ColumnType*]) `*` ...
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: входная таблица.
 
@@ -47,14 +47,14 @@ T | parse-where Text with "ActivityName=" name ", ActivityType=" type
   
 * *ColumnType:* должен быть необязательным скалярным типом, указывающим тип, в который нужно преобразовать значение. Значение по умолчанию — строковый тип.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Входная таблица, которая расширяется в соответствии со списком столбцов, предоставленных оператору.
 
 > [!Note] 
 > В выходных данных будут только успешно проанализированные строки. Строки, которые не соответствуют шаблону, будут отфильтрованы.
 
-**"Советы"**
+**Советы**
 
 * `parse-where`анализирует строки так же, как [синтаксический анализ](parseoperator.md)и отфильтровывает строки, которые не были успешно проанализированы.
 

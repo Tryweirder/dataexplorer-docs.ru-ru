@@ -1,6 +1,6 @@
 ---
-title: градусов () - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны степени () в Azure Data Explorer.
+title: градусы () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается градусы () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,36 +8,36 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 1365d6c6629f4f4769d7c4b62491eaec25e4ec59
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 41d679ea1add3706de5012f4e4fbf382e1f7b3ee
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81516037"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348383"
 ---
 # <a name="degrees"></a>degrees()
 
 Преобразует значение угла в радианах в значение в градусах, используя формулу`degrees = (180 / PI ) * angle_in_radians`
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`degrees(`*a*`)`
+`degrees(`*конкретного*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *a*: Угол в радиане (реальное число).
+* *a*: угол в радианах (вещественное число).
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
-* Соответствующий угол в градусах для угла, указанного в радиане. 
+* Соответствующий угол в градусах для угла, указанного в радианах. 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 print degrees0 = degrees(pi()/4), degrees1 = degrees(pi()*1.5), degrees2 = degrees(0)
 
 ```
 
-|градусов0|градусов1|градусов2|
+|degrees0|degrees1|degrees2|
 |---|---|---|
 |45|270|0|

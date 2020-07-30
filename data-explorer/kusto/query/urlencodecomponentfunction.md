@@ -1,6 +1,6 @@
 ---
-title: url_encode_component () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны url_encode_component () в Azure Data Explorer.
+title: url_encode_component () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается url_encode_component () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,42 +8,42 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/17/2020
-ms.openlocfilehash: bfdb40f362aa680a68bd8871769eecb5a2da19e6
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 44e77e2a0e34b66506852bd82d65e4a108b520fd
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81505072"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338462"
 ---
 # <a name="url_encode_component"></a>url_encode_component()
 
-Функция преобразует символы URL-адреса ввода в формат, который может передаваться через Интернет. 
+Функция преобразует символы входного URL-адреса в формат, который может быть передан через Интернет. 
 
-Подробную информацию о кодировании и расшифровке URL можно найти [здесь](https://en.wikipedia.org/wiki/Percent-encoding).
-Отличается от [url_encode](./urlencodefunction.md) кодированием пространств как «20%», а не как «К».
+Подробные сведения о кодировке и декодировании URL-адресов можно найти [здесь](https://en.wikipedia.org/wiki/Percent-encoding).
+Отличается от [url_encode](./urlencodefunction.md) путем кодирования пробелов как "20%", а не "+".
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`url_encode_component(`*Url*`)`
+`url_encode_component(`*URL-адрес*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *URL*: URL-адрес (строка).  
+* *URL-* адрес: входной URL-адрес (строка).  
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
-URL (строка) преобразуется в формат, который может передаваться через Интернет.
+URL-адрес (строка), преобразованный в формат, который может быть передан через Интернет.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 let url = @'https://www.bing.com/hello word/';
 print original = url, encoded = url_encode_component(url)
 ```
 
-|оригинальный|Закодированные|
+|оригинальный|кодировке|
 |---|---|
-|https://www.bing.com/helloслово/|https%3a%2f%2fwww.bing.com%2fhello%20word|
+|https://www.bing.com/helloсловам|HTTPS %3 a %2 f %2 f www. Bing. com% 2fhello% 20word|
 
 
  

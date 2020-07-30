@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 4da07433be5a052d71740931d4dedd9df0399f56
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: f19883335149603fe7fc7429dabb62f565a0b402
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227374"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347992"
 ---
 # <a name="format_bytes"></a>format_bytes()
 
@@ -23,21 +23,21 @@ ms.locfileid: "83227374"
 format_bytes(1024) == '1 KB'"
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `format_bytes(`*значение* [ `,` *точность* [ `,` *единицы*]]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * `value`: число, которое форматируется как размер данных в байтах.
 * `precision`: (необязательно) число разрядов, до которого будет округляться значение. (значение по умолчанию — 0).
 * `units`: (необязательно) единицы целевого размера данных, которые будут использоваться форматированием строки ( `Bytes` , `KB` ,,, `MB` `GB` `TB` , `PB` ). Если параметр пуст, единицы будут выбраны на основе входного значения.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Строка с результатом форматирования.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

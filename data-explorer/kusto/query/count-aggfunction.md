@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/21/2020
-ms.openlocfilehash: 6a06be43773a356e903b25b2697e75b8342ed7f8
-ms.sourcegitcommit: 085e212fe9d497ee6f9f477dd0d5077f7a3e492e
+ms.openlocfilehash: a5f5f554373331d66a08e7166249e8e24c4fbd7c
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85133482"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348791"
 ---
 # <a name="count-aggregation-function"></a>Count () (агрегатная функция)
 
@@ -22,15 +22,15 @@ ms.locfileid: "85133482"
 * Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 * Функция [СЧЁТЕСЛИ](countif-aggfunction.md) агрегации используется для подсчета только тех записей, для которых возвращается некоторый предикат `true` .
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 SUMMARIZE`count()`
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает количество записей в группе формирования сводных данных (или, в целом, если формирование сводных данных выполняется без группирования).
 
-**Пример**
+## <a name="example"></a>Пример
 
 Подсчет событий в состояниях, начинающихся с буквы `W` :
 
@@ -41,7 +41,7 @@ StormEvents
 | summarize Count=count() by State
 ```
 
-|Состояние|Count|
+|Состояние|Счетчик|
 |---|---|
 |ЗАПАДНАЯ ВИРДЖИНИЯ|757|
 |ШТАТ ВАЙОМИНГ|396|

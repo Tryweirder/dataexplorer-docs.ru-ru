@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: a364361ee5e5e260436486db24f1b61e2c21cbc9
-ms.sourcegitcommit: 9fc3d8b396dddd2e1d9912845ba7bcc8e31c0267
+ms.openlocfilehash: 89e93a3c4365e0f215a797ee0b01669e6bcbdcfa
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84720916"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87343895"
 ---
 # <a name="series_fit_2lines"></a>series_fit_2lines()
 
@@ -44,7 +44,7 @@ ms.locfileid: "84720916"
 > [!Note]
 > Эта функция возвращает несколько столбцов, поэтому не может использоваться в качестве аргумента для другой функции.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 проект `series_fit_2lines(` *x*`)`
 * Возвратит все упомянутые выше столбцы со следующими именами: series_fit_2lines_x_rsquare, series_fit_2lines_x_split_idx и т. д.
@@ -55,14 +55,14 @@ Project (RS, Si, v) = `series_fit_2lines(` *x*`)`
 extend (RS, Si, v) = `series_fit_2lines(` *x*`)`
 * Возвращает только: rs (R-квадрат), si (индекс разбиения) и v (дисперсия).
   
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: динамический массив числовых значений.  
 
 > [!TIP]
 > Наиболее удобный способ использования этой функции — применение ее к результатам оператора [make-Series](make-seriesoperator.md) .
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

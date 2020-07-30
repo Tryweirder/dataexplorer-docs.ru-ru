@@ -1,27 +1,27 @@
 ---
-author: lucygoldbergmicrosoft
+author: orspod
 ms.service: data-explorer
 ms.topic: include
 ms.date: 11/28/2019
-ms.author: lugoldbe
-ms.openlocfilehash: de8a37b1b27dc1bff377c6212c0bfea0a13c7de2
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.author: orspodek
+ms.openlocfilehash: d55077b5d1938caf6df49d34e68ece7e32c56f85
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81496489"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350079"
 ---
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
 Если ресурсы Azure больше не нужны, их можно удалить. Для этого необходимо удалить группу ресурсов. 
 
-### <a name="clean-up-resources-using-the-azure-portal"></a>Очистка ресурсов с помощью портала Azure
+### <a name="clean-up-resources-using-the-azure-portal"></a>Очистка ресурсов с помощью портал Azure
 
-Удалите ресурсы на портале Azure, выяснив следующие действия по [очистке ресурсов.](../create-cluster-database-portal.md#clean-up-resources)
+Удалите ресурсы в портал Azure, выполнив действия, описанные в разделе [Очистка ресурсов](../create-cluster-database-portal.md#clean-up-resources).
 
 ### <a name="clean-up-resources-using-powershell"></a>Очистка ресурсов с помощью PowerShell
 
-Если облачная оболочка по-прежнему открыта, вам не нужно копировать/запускать первую строку (Read-Host).
+Если вы не закрывали Cloud Shell, вам не нужно копировать или выполнять первую строку (для чтения и размещения).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"

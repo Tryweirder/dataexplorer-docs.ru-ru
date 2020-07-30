@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 333c4d59a7ed62fd031ab52019c10abd821fd858
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 4fe19148ef8f410f04dc68f435734a2c2c425cca
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83226760"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347686"
 ---
 # <a name="getschema-operator"></a>Оператор getschema 
 
@@ -23,11 +23,11 @@ ms.locfileid: "83226760"
 T | summarize MyCount=count() by Country | getschema 
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| ``getschema`
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -38,7 +38,7 @@ StormEvents
 
 |ColumnName|ColumnOrdinal|DataType|ColumnType|
 |---|---|---|---|
-|Отметка времени|0|System.DateTime|DATETIME|
+|Timestamp|0|System.DateTime|DATETIME|
 |Язык|1|System.String|строка|
 |Страница|2|System.String|строка|
 |Представления|3|System.Int64|long

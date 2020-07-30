@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: ec4c398d9079cd5e01875bd1d92ae06db0bb0908
-ms.sourcegitcommit: 188f89553b9d0230a8e7152fa1fce56c09ebb6d6
+ms.openlocfilehash: a6c17f0505927c38d26c37a5e9872747541d129a
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84512577"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346445"
 ---
 # <a name="parse_ipv6_mask"></a>parse_ipv6_mask()
  
@@ -24,11 +24,11 @@ parse_ipv6_mask("127.0.0.1", 24) == '0000:0000:0000:0000:0000:ffff:7f00:0000'
 parse_ipv6_mask(":fe80::85d:e82c:9446:7994", 120) == 'fe80:0000:0000:0000:085d:e82c:9446:7900'
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `parse_ipv6_mask(`*`Expr`*`, `*`PrefixMask`*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *`Expr`*: Строковое выражение, представляющее сетевой адрес IPv6/IPv4, который будет преобразован в каноническое представление IPv6. Строка может включать в себя NET-Mask с использованием [нотации префикса IP](#ip-prefix-notation).
 * *`PrefixMask`*: Целое число от 0 до 128, представляющее количество наиболее значимых битов, которые учитываются в учетной записи.
@@ -38,12 +38,12 @@ parse_ipv6_mask(":fe80::85d:e82c:9446:7994", 120) == 'fe80:0000:0000:0000:085d:e
 IP-адреса можно определять с `IP-prefix notation` помощью символа косой черты ( `/` ).
 IP-адрес, расположенный слева от косой черты ( `/` ), является базовым IP-адресом. Число (от 1 до 127) справа от косой черты ( `/` ) — это число непрерывных 1 бита в маске.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Если преобразование выполнено успешно, результатом будет строка, представляющая канонический сетевой адрес IPv6.
 Если преобразование не выполнено, результатом будет `null` .
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

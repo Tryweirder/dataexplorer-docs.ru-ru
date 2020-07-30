@@ -1,6 +1,6 @@
 ---
-title: parse_xml () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается parse_xml () в Azure Data Explorer.
+title: parse_xml () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается parse_xml () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,49 +8,49 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9743cbcb8d3c25707d97a4a6844f947352e63b0b
-ms.sourcegitcommit: e94be7045d71a0435b4171ca3a7c30455e6dfa57
+ms.openlocfilehash: 5e294a60545a081861597e772c39d2e7e99824e8
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81744638"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346377"
 ---
 # <a name="parse_xml"></a>parse_xml()
 
-Интерпретирует `string` значение XML, преобразует значение в Значение JSON `dynamic`и возвращает значение как .
+Интерпретирует `string` как значение XML, преобразует значение в JSON и возвращает значение в виде `dynamic` .
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`parse_xml(`*Xml*`)`
+`parse_xml(`*xml*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *xml*: Выражение `string`типа, представляющее значение XML-формата.
+* *XML*: выражение типа `string` , представляющее значение в формате XML.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
-Объект [типдинамической,](./scalar-data-types/dynamic.md) которая определяется значением *xml*, или недействительным, если формат XML является недействительным.
+Объект типа [dynamic](./scalar-data-types/dynamic.md) , который определяется значением *XML*или значением NULL, если формат XML является недопустимым.
 
-Преобразование XML в JSON осуществляется с помощью библиотеки [xml2json.](https://github.com/Cheedoong/xml2json)
+Преобразование XML в JSON выполняется с помощью библиотеки [xml2json](https://github.com/Cheedoong/xml2json) .
 
-Преобразование выполняется следующим образом:
+Преобразование выполняется следующим образом.
 
 XML                                |JSON                                            |Доступ
 -----------------------------------|------------------------------------------------|--------------         
-`<e/>`                             | "е": null                                  | o.e
-`<e>text</e>`                      | "е": "текст"                                | o.e
-`<e name="value" />`               | "е":@name": "значение"                     | o.e"@name""
-`<e name="value">text</e>`         | "е": ":@name"значение", "#text": "текст" | o.e"@name"о.е"#text"
-`<e> <a>text</a> <b>text</b> </e>` | "е": "а": "текст", "б": "текст"          | o.e.a o.e.b
-`<e> <a>text</a> <a>text</a> </e>` | "е": "а": "текст", "текст"             | o.e.a.0" o.e.a
-`<e> text <a>text</a> </e>`        | "е": "#text": "текст", "а": "текст"      | 1'o.e"#text" o.e.a
+`<e/>`                             | {"e": NULL}                                  | o. e
+`<e>text</e>`                      | {"e": "Text"}                                | o. e
+`<e name="value" />`               | {"e": {" @name ": "value"}}                     | o. e [" @name "]
+`<e name="value">text</e>`         | {"e": {" @name ": "value", "#text": "Text"}} | o. e [" @name "] o. e ["#text"]
+`<e> <a>text</a> <b>text</b> </e>` | {"e": {"a": "Text", "b": "Text"}}          | o. e. a o. e. b
+`<e> <a>text</a> <a>text</a> </e>` | {"e": {"a": ["Text", "Text"]}}             | o. e. a [0] o. e. a [1]
+`<e> text <a>text</a> </e>`        | {"e": {"#text": "Text", "a": "Text"}}      | 1 "o. e [" #text "] o. e. a
 
 **Примечания**
 
-* Максимальная длина `string` `parse_xml` ввода составляет 128 кБ. Более длинная интерпретация строк приведет к нулю объекта 
-* Будут переведены только элементные узлы, атрибуты и текстовые узлы. Все остальное будет пропущено
+* Максимальный размер входных данных `string` для `parse_xml` — 128 КБ. Более длинная интерпретация строк приведет к пустому объекту 
+* Будут переведены только узлы элементов, атрибуты и текстовые узлы. Все остальное будет пропущено
  
-**Пример**
+## <a name="example"></a>Пример
 
 В следующем примере `context_custom_metrics` представляет собой `string`, который выглядит следующим образом. 
 
@@ -67,7 +67,7 @@ XML                                |JSON                                        
 </duration>
 ```
 
-затем следующий фрагмент CSL переводит XML на следующий JSON:
+затем следующий фрагмент CSL преобразует XML в следующий JSON:
 
 ```json
 {
@@ -83,7 +83,7 @@ XML                                |JSON                                        
 }
 ```
 
-и получает значение `duration` слота в объекте, и от этого он `duration.value` получает `duration.min` `118.0` два `110.0`слота, и (и , соответственно).
+и извлекает значение `duration` слота в объекте и получает два слота `duration.value` и `duration.min` ( `118.0` и `110.0` соответственно).
 
 ```kusto
 T

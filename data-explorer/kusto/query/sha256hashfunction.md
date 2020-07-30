@@ -8,33 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: cf47fd98027859ebb5f0cf22208b790a5396dc61
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: b813ce4c0901ef66177e8e7bdaa42a1744bd5912
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763753"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351120"
 ---
 # <a name="hash_sha256"></a>hash_sha256()
 
 Возвращает значение хэша SHA256 для входного значения.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `hash_sha256(`*источника*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Source*: значение, которое необходимо хэшировать.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Значение хэша SHA256 данного скаляра, закодированное как шестнадцатеричная строка (строка символов, каждая из которых представляет одно шестнадцатеричное число от 0 до 255).
 
 > [!WARNING]
 > Алгоритм, используемый этой функцией (SHA256), гарантированно не изменяется в будущем, но он очень сложен для вычисления. Пользователям, которым требуется "упрощенная" хэш-функция в течение одного запроса, рекомендуется использовать функцию [Hash ()](./hashfunction.md) .
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

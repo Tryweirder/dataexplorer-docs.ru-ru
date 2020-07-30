@@ -1,6 +1,6 @@
 ---
-title: column_ifexists () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны column_ifexists () в Azure Data Explorer.
+title: column_ifexists () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается column_ifexists () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: c4f7d4a2114aa2b9b3bb8ae3e951306a3ffb725e
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 5eeecf9e4756ac18cdeb5c6297aea1bcca5bac14
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81517176"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348859"
 ---
 # <a name="column_ifexists"></a>column_ifexists()
 
-Принимает имя столбца в виде строки и значения по умолчанию. Возвращает ссылку на столбец, если она существует, в противном случае - возвращает значение по умолчанию.
+Принимает имя столбца в виде строки и значение по умолчанию. Возвращает ссылку на столбец, если он существует; в противном случае — возвращает значение по умолчанию.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`column_ifexists(`*columnName*`, `*defaultValue*)
+`column_ifexists(`*ColumnName* `, ` *DefaultValue*)
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *ColumnName*: Название столбца
-* *значение значения по умолчанию:* значение для использования, если столбец не существует в контексте, в котором была использована функция.
+* *ColumnName*: имя столбца.
+* *DefaultValue*: значение, используемое, если столбец не существует в контексте, в котором была использована функция.
                   Это значение может быть любым скалярным выражением (например, ссылка на другой столбец).
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Если *столбецИмя* существует, то столбец, к которого он относится. В противном случае - *defaultValue*.
+Если *ColumnName* существует, то столбец, на который он ссылается. В противном случае — *DefaultValue*.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 .create function with (docstring = "Wraps a table query that allows querying the table even if columnName doesn't exist ", folder="My Functions")

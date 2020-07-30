@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: e8da8a61b285b31f63f346ec82e5ba8a4ac00d27
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 7b4b3d2b43bea2eeb96c9bbca94131cb7887db8c
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372930"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345697"
 ---
-# <a name="sequence_detect-plugin"></a>подключаемый модуль sequence_detect
+# <a name="sequence_detect-plugin"></a>Подключаемый модуль sequence_detect
 
 Обнаруживает вхождения последовательности на основе предоставленных предикатов.
 
@@ -23,11 +23,11 @@ ms.locfileid: "83372930"
 T | evaluate sequence_detect(datetime_column, 10m, 1h, e1 = (Col1 == 'Val'), e2 = (Col2 == 'Val2'), Dim1, Dim2)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| evaluate` `sequence_detect` `(` *тимелинеколумн* `,` *макссекуенцестепвиндов* `,` *макссекуенцеспан* `,` *Выражение1* `,` *выражение2* `,` ..., *Dim1* `,` *Dim2* `,` ...`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: Входное табличное выражение.
 * *Тимелинеколумн*: ссылка на столбец, представляющая временную шкалу, должна присутствовать в исходном выражении
@@ -36,7 +36,7 @@ T | evaluate sequence_detect(datetime_column, 10m, 1h, e1 = (Col1 == 'Val'), e2 
 * *Выражение1*, *выражение2*,...: выражения с логическими предикатами, определяющие шаги последовательности
 * *Dim1*, *Dim2*,...: выражения измерений, используемые для корреляции последовательностей
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает одну таблицу, в которой каждая строка в таблице представляет одно вхождение последовательности:
 
@@ -44,7 +44,7 @@ T | evaluate sequence_detect(datetime_column, 10m, 1h, e1 = (Col1 == 'Val'), e2 
 * *Выражение1*_*тимелинеколумн*, *выражение2*_*тимелинеколумн*,...: столбцы со значениями времени, представляющими временную шкалу каждого шага последовательности.
 * *Длительность*: общее окно времени последовательности
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ### <a name="exploring-storm-events"></a>Просмотр событий с более подробной информацией 
 
@@ -62,7 +62,7 @@ StormEvents
         State)
 ```
 
-|State|heat_StartTime|wildfire_StartTime|Duration|
+|Состояние|heat_StartTime|wildfire_StartTime|Duration|
 |---|---|---|---|
 |Калифорния|2007-05-08 00:00:00.0000000|2007-05-08 16:02:00.0000000|16:02:00|
 |Калифорния|2007-05-08 00:00:00.0000000|2007-05-10 11:30:00.0000000|2.11:30:00|

@@ -8,22 +8,22 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/03/2018
-ms.openlocfilehash: 612829f2cbcd8b3f495d516b254faf7a9cf6919a
-ms.sourcegitcommit: 02236d1f23f48f9dd41cc7433f46991356a869fc
+ms.openlocfilehash: e2216361022f055078be66f37f3d2b084afaa4c6
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84306577"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349539"
 ---
 # <a name="array_slice"></a>array_slice()
 
 Извлекает срез динамического массива.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `array_slice`(*`arr`*, *`start`*, *`end`*)
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *`arr`*: Входной массив для извлечения среза должен быть динамическим массивом.
 * *`start`*: Отсчитываемый от нуля (включительно) начальный индекс среза, отрицательные значения преобразуются в array_length + Start.
@@ -31,11 +31,11 @@ ms.locfileid: "84306577"
 
 Примечание. индексы вне границ игнорируются.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Динамический массив значений в диапазоне [ `start..end` ] из `arr` .
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

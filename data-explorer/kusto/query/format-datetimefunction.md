@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 073bf45977648bd654f72fff47b62f92ac1b3d27
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: d0a60a61e5319d9a190f6172b9c0bd8fb7fe1300
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227389"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347975"
 ---
 # <a name="format_datetime"></a>format_datetime()
 
@@ -23,16 +23,16 @@ ms.locfileid: "83227389"
 format_datetime(datetime(2015-12-14 02:03:04.12345), 'y-M-d h:m:s.fffffff') == "15-12-14 2:3:4.1234500"
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `format_datetime(`*Дата и время* `,` *Формат*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * `datetime`: значение типа `datetime` .
 * `format`: Строка описателя формата, состоящая из одного или нескольких [элементов формата](#supported-formats).
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Строка с результатом форматирования.
 
@@ -87,7 +87,7 @@ format_datetime(datetime(2015-12-14 02:03:04.12345), 'y-M-d h:m:s.fffffff') == "
 |`'['`||
 |`']'`||
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

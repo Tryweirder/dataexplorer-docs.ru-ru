@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/18/2020
-ms.openlocfilehash: 4915371127acd229845cc9eac1ea1400484c313f
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: b5d0624504744bb28dfdb68ee27c48b2119242b8
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372982"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351511"
 ---
 # <a name="sample-operator"></a>Оператор sample
 
@@ -23,11 +23,11 @@ ms.locfileid: "83372982"
 T | sample 5
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 _T_ `| sample` _NumberOfRows_
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 - _NumberOfRows_: число возвращаемых строк _T_ . Можно указать любое числовое выражение.
 
@@ -61,7 +61,7 @@ union (_sample), (_sample)
 | 34  |
 | 34  |
 
-**"Советы"**
+**Советы**
 
 - Если требуется вычислить определенный процент данных (а не заданное число строк), можно использовать
 
@@ -72,7 +72,7 @@ StormEvents | where rand() < 0.1
 
 - Если необходимо выполнить выборку ключей, а не строк (например, 10 идентификаторов и получить все строки для этих идентификаторов), можно использовать [`sample-distinct`](./sampledistinctoperator.md) в сочетании с `in` оператором.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

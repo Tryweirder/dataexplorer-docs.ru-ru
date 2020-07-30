@@ -1,6 +1,6 @@
 ---
-title: startofyear () - Azure Data Explorer Документы Майкрософт
-description: Эта статья описывает startofyear() в Azure Data Explorer.
+title: startofyear () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается startofyear () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,38 +8,38 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: f91c749cc3833954d902eb4ebd7e230e32e3a991
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: c4ff0509f0ed7de98daf9bcec6c40ed5b8d76fd3
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81507214"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87343368"
 ---
 # <a name="startofyear"></a>startofyear()
 
-Возвращает начало года, содержащее дату, сдвинутую на смещение, если это предусмотрено.
+Возвращает начало года, содержащего дату, смещенную по смещению, если оно предоставлено.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`startofyear(`*Дата* `,`и*смещение*`)`
+`startofyear(`*Дата* [ `,` *смещение*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* `date`: Дата ввода.
-* `offset`: Дополнительное количество офсетных лет с даты ввода (целый ряд, по умолчанию - 0). 
+* `date`: Входная дата.
+* `offset`: Необязательное число лет смещения от даты ввода (целое число, по умолчанию — 0). 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Время дат, представляющее начало года для данной *даты,* с смещением, если указано.
+Значение типа DateTime, представляющее начало года для заданного значения *даты* , со смещением, если оно указано.
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
   range offset from -1 to 1 step 1
  | project yearStart = startofyear(datetime(2017-01-01 10:10:17), offset) 
 ```
 
-|годНачало|
+|еарстарт|
 |---|
 |2016-01-01 00:00:00.0000000|
 |2017-01-01 00:00:00.0000000|

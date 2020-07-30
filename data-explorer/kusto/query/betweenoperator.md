@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: ef64818c9c5e345ffb60999c97273670026be022
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 84858a28d1676306a34b2bfa7dfe9563e46227fb
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227627"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349182"
 ---
 # <a name="between-operator"></a>Оператор between
 
@@ -26,7 +26,7 @@ Table1 | where Time between (datetime(2017-01-01) .. datetime(2017-01-01))
 
 `between`может выполнять операции с любым числовым выражением, типом DateTime или значением типа TimeSpan.
  
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `|` `where` *expr* `between` `(` *лефтранже* ` .. ` *ригхтранже*`)`   
  
@@ -34,18 +34,18 @@ Table1 | where Time between (datetime(2017-01-01) .. datetime(2017-01-01))
 
 *T* `|` `where` *expr* `between` `(` *лефтранжедатетиме* ` .. ` *ригхтранжетимеспан*`)`   
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T* — табличный ввод, записи которого должны быть сопоставлены.
 * *expr* — выражение для фильтрации.
 * *лефтранже* -выражение левого диапазона (включительно).
 * *ригхтранже* -выражение правого диапазона (включительно).
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Строки в *T* , для которых предикат (*expr*  >=  *лефтранже* и *expr*  <=  *ригхтранже*) принимает значение `true` .
 
-**Примеры**  
+## <a name="examples"></a>Примеры  
 
 **Фильтрация числовых значений с помощью оператора "Between"**  
 

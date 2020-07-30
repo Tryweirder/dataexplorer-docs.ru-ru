@@ -8,22 +8,22 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 4534705156669447a89cb5d85c360071dfcb2b2a
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: 698acc481a6313160602c939774a6029978df483
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85265003"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348111"
 ---
 # <a name="externaldata-operator"></a>Оператор externaldata
 
 `externaldata`Оператор возвращает таблицу, схема которой определена в самом запросе и данные которой считываются из внешнего артефакта хранилища, такого как большой двоичный объект в хранилище BLOB-объектов Azure.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `externaldata``(` *ColumnName* `:` *ColumnType* [ `,` ...] `)` `[` *StorageConnectionString* `]` [ `with` `(` *Prop1* `=` *Значение1* [ `,` ...] `)` ]
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *ColumnName*, *ColumnType*: аргументы определяют схему таблицы.
   Синтаксис совпадает с синтаксисом, используемым при определении таблицы в [таблице. Create](../management/create-table-command.md).
@@ -37,11 +37,11 @@ ms.locfileid: "85265003"
 > [!NOTE]
 > У этого оператора нет входных данных конвейера.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 `externaldata`Оператор возвращает таблицу данных указанной схемы, данные которой были проанализированы из указанного артефакта хранилища, указанного в строке подключения к хранилищу.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 В следующем примере показано, как найти все записи в таблице, `UserID` столбец которой попадает в известный набор идентификаторов (по одному на строку) во внешнем большом двоичном объекте.
 Так как запрос косвенно ссылается на этот набор, он может быть большим.

@@ -1,6 +1,6 @@
 ---
-title: avgif() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описана функция avgif() (функция агрегирования) в Azure Data Explorer.
+title: авгиф () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается авгиф () (статистическая функция) в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,33 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 61352be628b7c5a05085c092d0c022deaa0d9b6e
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 587af53de774332db70ef9bffcadf74d9e2c069d
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81518264"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349386"
 ---
-# <a name="avgif-aggregation-function"></a>avgif() (функция агрегирования)
+# <a name="avgif-aggregation-function"></a>авгиф () (агрегатная функция)
 
-Рассчитывает [среднее значение](avg-aggfunction.md) *Expr* по всей группе, `true`для которой *Predicate* оценивается в .
+Вычисляет [среднее значение](avg-aggfunction.md) *выражения* в группе, для которого вычисляется *предикат* `true` .
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-резюмировать `avgif(` *Expr*`, `*Predicate*`)`
+суммировать `avgif(` *Expr* `, ` *предикат* выражения`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации. Записи `null` со значениями игнорируются и не включаются в расчет.
-* *Предикат*: Предикат, что если это правда, вычисленное значение *Expr* будет добавлено к среднему.
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата. Записи со `null` значениями игнорируются и не включаются в вычисление.
+* *Предикат*: predicate, если true, вычисляемое значение *expr* будет добавлено к среднему значению.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
-Среднее значение *Expr* по всей группе, `true`где *Predicate* оценивает .
+Среднее значение *выражения* в *предикате* Group WHERE, равное `true` .
  
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 range x from 1 to 100 step 1

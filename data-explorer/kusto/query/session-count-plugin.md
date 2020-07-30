@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 1e173dcba48e8748562bad61e0f16786e957ca83
-ms.sourcegitcommit: 974d5f2bccabe504583e387904851275567832e7
+ms.openlocfilehash: c46430fe7acc75685b90d2322d709392c91ed6dc
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83550560"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351222"
 ---
 # <a name="session_count-plugin"></a>Подключаемый модуль session_count
 
@@ -23,11 +23,11 @@ ms.locfileid: "83550560"
 T | evaluate session_count(id, datetime_column, startofday(ago(30d)), startofday(now()), 1min, 30min, dim1, dim2, dim3)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| evaluate` `session_count(` *идколумн* `,` *тимелинеколумн* `,` *Start* `,` *End* `,` *Bin* `,` *лукбакквиндов* [ `,` *Dim1* `,` *dim2* `,` ...]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: Входное табличное выражение.
 * *Идколумн*: имя столбца со значениями идентификаторов, представляющими действия пользователя. 
@@ -38,7 +38,7 @@ T | evaluate session_count(id, datetime_column, startofday(ago(30d)), startofday
 * *Лукбакквиндов*: скалярное постоянное значение, представляющее период лукбакк сеанса. Если идентификатор из `IdColumn` отображается в окне времени в `LookBackWindow` , то сеанс считается существующим. Если идентификатор не отображается, то сеанс считается новым.
 * *Dim1*, *dim2*,...: (необязательно) список столбцов измерений, которые срезируют вычисление количества сеансов.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Возвращает таблицу со значениями счетчика сеансов для каждого периода временной шкалы и для каждого сочетания существующих измерений.
 
@@ -49,7 +49,7 @@ T | evaluate session_count(id, datetime_column, startofday(ago(30d)), startofday
 |Тип: от *тимелинеколумн*|..|..|..|long|
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 В этом примере данные детерминированы, и мы используем таблицу с двумя столбцами:
 - Временная шкала: число с интервалом от 1 до 10 000
@@ -74,7 +74,7 @@ _data
 | limit 20
 ```
 
-|Временная шкала|Идентификатор|
+|Сроки|Идентификатор|
 |---|---|
 |1|1|
 |2|1|

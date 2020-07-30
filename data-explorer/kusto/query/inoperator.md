@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 3f45f579ad47dbdc9bf1fca707826948a598f63d
-ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
+ms.openlocfilehash: ab2132908dad26f5f21cf945a1af4af1b8a049cd
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780173"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347397"
 ---
 # <a name="in-and-in-operators"></a>Операторы in и !in
 
@@ -23,7 +23,7 @@ ms.locfileid: "84780173"
 Table1 | where col in ('value1', 'value2')
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *Синтаксис с учетом регистра:*
 
@@ -41,14 +41,14 @@ Table1 | where col in ('value1', 'value2')
 *T* `|` `where` *Col* `!in~` `(` *список скалярных выражений*`)`  
 *T* `|` `where` *col* `!in~` `(` *Табличное выражение* T Col`)`   
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T* — табличный ввод, записи которого должны быть отфильтрованы.
 * *Col* — столбец для фильтрации.
 * *список выражений* — разделенный запятыми список табличных, скалярных или литеральных выражений.
 * *табличное выражение* — табличное выражение, имеющее набор значений. Если выражение содержит несколько столбцов, используется первый столбец.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Строки в *T* , для которых предикат имеет значение `true` .
 
@@ -70,7 +70,7 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |4775|  
 
@@ -84,7 +84,7 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |4775|  
 
@@ -97,7 +97,7 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |54291|  
 
@@ -112,7 +112,7 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |3218|
 
@@ -145,7 +145,7 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |14242|  
 
@@ -177,7 +177,7 @@ StormEvents | where State in (InterestingStates()) | count
 
 ```
 
-|Count|
+|Счетчик|
 |---|
 |4775|  
 

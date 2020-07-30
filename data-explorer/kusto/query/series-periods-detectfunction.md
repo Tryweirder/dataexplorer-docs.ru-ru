@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2019
-ms.openlocfilehash: 876966391e67ad2f8f25a900dfc4c92bf0bfd11e
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: 2ee587bfa7d01ae0602cc870e6c0b776593d53c0
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763259"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351341"
 ---
 # <a name="series_periods_detect"></a>series_periods_detect()
 
@@ -29,11 +29,11 @@ ms.locfileid: "85763259"
 * *Periods*: динамический массив, содержащий периоды, которые были найдены, в единицах размера ячейки, упорядоченных по оценкам.
 * *scores*: динамический массив, содержащий значения от 0 до 1. Каждый массив измеряет значимость точки в его соответствующей точке в массиве *Periods* .
  
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_periods_detect(`*x* `,` *min_period* `,` *max_period* min_period x `,` *num_periods*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: динамическое скалярное выражение массива, которое представляет собой массив числовых значений, обычно результирующий результат операторов [make-Series](make-seriesoperator.md) или [make_list](makelist-aggfunction.md) .
 * *min_period*: `real` число, указывающее минимальный период поиска.
@@ -47,7 +47,7 @@ ms.locfileid: "85763259"
 >
 > * Входной ряд времени должен быть регулярным. Это происходит в постоянных ячейках, которые всегда имеют место, если она была создана с помощью [make-Series](make-seriesoperator.md). В противном случае выходные данные не имеют смысла.
 
-**Пример**
+## <a name="example"></a>Пример
 
 Следующий запрос внедряет моментальный снимок месяца трафика приложения, агрегированного дважды в день. Размер ячейки составляет 12 часов.
 

@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 388f24f12993bcdc91d86bfc3f3f20967e0b1cc5
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 9276b3d920259b4a73d3fb45c056837439b43fba
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372423"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351239"
 ---
 # <a name="series_subtract"></a>series_subtract()
 
 Вычисляет поэлементное вычитание двух входных числовых рядов.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_subtract(`*Series1* `,` *Series2*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Series1, Series2*: входные числовые массивы, второй — поэлементное вычитание из первого в результат динамического массива. Все аргументы должны быть динамическими массивами. 
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Динамический массив вычисляемой операции вычитания по элементам между двумя входными значениями. Любой нечисловой элемент или несуществующий элемент (массивы разного размера) дает `null` значение элемента.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

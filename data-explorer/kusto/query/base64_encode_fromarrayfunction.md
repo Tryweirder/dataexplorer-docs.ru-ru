@@ -8,26 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/11/2020
-ms.openlocfilehash: bee6471ef2cf2a2cd484af8ce84d70cce749d5e0
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: ede35223b9cc57fddc5318659e6902130a80c011
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225332"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349284"
 ---
 # <a name="base64_encode_fromarray"></a>base64_encode_fromarray()
 
 Кодирует строку Base64 из массива байтов.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `base64_encode_fromarray(`*битесаррай*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Битесаррай*: массив входных байтов для кодирования в строку Base64.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Возвращает строку в кодировке Base64, закодированную из массива байтов.
 
@@ -35,7 +35,7 @@ ms.locfileid: "83225332"
 * Сведения о кодировке строк в строку Base64 см. в разделе [base64_encode_tostring ()](base64_encode_tostringfunction.md) .
 * Эта функция является инверсией [base64_decode_toarray ()](base64_decode_toarrayfunction.md)
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

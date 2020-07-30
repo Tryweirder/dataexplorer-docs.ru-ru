@@ -1,20 +1,20 @@
 ---
-title: Создание соединения концентратора IoT для исследователя данных Azure с помощью шаблона управления ресурсами Azure
-description: В этой статье вы узнаете, как создать соединение концентратора IoT для Исследователя данных Azure, используя шаблон Azure Resource Manager.
-author: lucygoldbergmicrosoft
-ms.author: lugoldbe
-ms.reviewer: orspodek
+title: Создание подключения к данным центра Интернета вещей для Azure обозреватель данных с помощью шаблона Azure Resource Manager
+description: Из этой статьи вы узнаете, как создать подключение к данным центра Интернета вещей для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
+author: orspod
+ms.author: orspodek
+ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: 8c91808de3f3f32139c4d46047fa39d952ca953a
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: f38e6ffe4cec263585c3fe6e06bbb92c9127bbba
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81497919"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350080"
 ---
-# <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Создание соединения концентратора IoT для исследователя данных Azure с помощью шаблона управления ресурсами Azure
+# <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Создание подключения к данным центра Интернета вещей для Azure обозреватель данных с помощью шаблона Azure Resource Manager
 
 > [!div class="op_single_selector"]
 > * [Портал](ingest-data-iot-hub.md)
@@ -22,18 +22,18 @@ ms.locfileid: "81497919"
 > * [Python](data-connection-iot-hub-python.md)
 > * [Шаблон Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure Data Explorer предлагает проглатывание (загрузку данных) из концентраторов событий, концентраторов IoT и капли, написанные в контейнеры с каплями. В этой статье вы создаете соединение данных Концентратора IoT для Azure Data Explorer с помощью шаблона Azure Resource Manager.
+Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure обозреватель данных обеспечивает прием (загрузку данных) из концентраторов событий, центров Интернета вещей и больших двоичных объектов, записанных в контейнеры больших двоичных объектов. В этой статье вы создадите подключение к данным центра Интернета вещей для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 * Создание [кластера и базы данных](create-cluster-database-portal.md)
-* Создание [отображения таблицы и столбца](ingest-data-iot-hub.md#create-a-target-table-in-azure-data-explorer)
-* Создание [концентратора IoT с настроенной общей политикой доступа.](ingest-data-iot-hub.md#create-an-iot-hub)
+* Создание [сопоставления таблицы и столбца](ingest-data-iot-hub.md#create-a-target-table-in-azure-data-explorer)
+* Создайте [центр Интернета вещей с настроенной политикой общего доступа](ingest-data-iot-hub.md#create-an-iot-hub).
 
-## <a name="azure-resource-manager-template-for-adding-an-iot-hub-data-connection"></a>Шаблон менеджера ресурсов Azure для добавления соединения данных Iot Hub
+## <a name="azure-resource-manager-template-for-adding-an-iot-hub-data-connection"></a>Шаблон Azure Resource Manager для добавления подключения к данным центра Интернета вещей
 
-В следующем примере показан шаблон менеджера ресурсов Azure для добавления соединения данных Концентратора IoT.  Шаблон можно [отсеивать и развертывать на портале Azure,](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) используя форму.
+В следующем примере показан шаблон Azure Resource Manager для добавления подключения к данным центра Интернета вещей.  Шаблон можно [изменить и развернуть в портал Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) с помощью формы.
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: external_table () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается external_table () в Azure Data Explorer.
+title: external_table () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается external_table () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,36 +8,36 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/21/2019
-ms.openlocfilehash: 9fd03fb3c8452702c3db27a5e0466e8608c04eb9
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 4a3a1150996000742f5065df0eddc385074eaa48
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81515459"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348094"
 ---
 # <a name="external_table"></a>external_table()
 
-Ссылки на внешнюю таблицу по имени.
+Ссылается на внешнюю таблицу по имени.
 
 ```kusto
 external_table('StormEvent')
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`external_table``(` *Название таблицы* -`,` *ОтображениеИмя*`)`
+`external_table``(` *TableName* [ `,` *MappingName* ]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *TableName*: Название запрашиваемой внешней таблицы.
-  Должно быть строка буквально ссылаясь на внешний стол рода `blob` или `adl`. <!-- TODO: Document data formats supported -->
+* *TableName*: Имя запрашиваемой внешней таблицы.
+  Должен быть строковым литералом, ссылающимся на внешнюю таблицу типа `blob` или `adl` . <!-- TODO: Document data formats supported -->
 
-* *MappingName*: Дополнительное имя объекта отображения, который отображает поля в фактических (внешних) осколков данных к выдавливам столбцов этой функции.
+* *MappingName*: необязательное имя объекта сопоставления, который сопоставляет поля в фактических (внешних) сегментах данных со столбцами, выводимыми этой функцией.
 
 **Примечания**
 
-Дополнительные сведения о внешних таблицах прознакомитесь с [внешними таблицами.](schema-entities/externaltables.md)
+Дополнительные сведения о внешних таблицах см. в разделе [внешние таблицы](schema-entities/externaltables.md) .
 
-Смотрите также [команды для управления внешними таблицами.](../management/externaltables.md)
+См. также [команды для управления внешними таблицами](../management/externaltables.md).
 
-Функция `external_table` имеет те же ограничения, что и функция [таблицы.](tablefunction.md)
+`external_table`Функция имеет аналогичные ограничения, чем [Табличная](tablefunction.md) функция.

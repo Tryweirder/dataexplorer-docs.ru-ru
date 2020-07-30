@@ -1,6 +1,6 @@
 ---
-title: как оператор - Azure Data Explorer Документы Майкрософт
-description: В этой статье оператор описывается как оператор в Azure Data Explorer.
+title: Оператор as в Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается оператор as в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,34 +8,34 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 05dc96fb7eec773d1e55d8b94a33cdda928622ff
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: f9d7a60b3c39fb0b7357c2bbe68533252f794347
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81518434"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349488"
 ---
 # <a name="as-operator"></a>Оператор as
 
-Связывает имя с входной табулярным выражением оператора, что позволяет запросу ссылаться на значение табличныго выражения несколько раз, не нарушая запрос и связывая имя через [оператор](letstatement.md)let.
+Привязывает имя к входному табличному выражению оператора, тем самым позволяя запросу ссылаться на значение табличного выражения несколько раз, не нарушая запрос и привязывая имя с помощью [инструкции Let](letstatement.md).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-*T* `|` Т `as` `hint.materialized` `=` з `true` *именем*
+*T* `|` `as` [ `hint.materialized` `=` `true` ] *имя*
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *T*: Табулярное выражение.
-* *Имя*: Временное название табулярного выражения.
-* `hint.materialized`: Если `true`установить, значение табловидного выражения будет материализовано, как если бы он был обернут [материализовать ()](./materializefunction.md) вызов функции.
+* *T*: табличное выражение.
+* *Имя*: временное имя табличного выражения.
+* `hint.materialized`: Если задано `true` значение, то значением табличного выражения будет материализоваться, как если бы оно было заключено в вызов функции [материализации ()](./materializefunction.md) .
 
 **Примечания**
 
-* Название, данное `as` будет использоваться `withsource=` в колонке `source_` [союза,](./unionoperator.md)колонке `$table` [находки,](./findoperator.md)и колонке [поиска.](./searchoperator.md)
+* Имя, заданное параметром, `as` будет использоваться в `withsource=` столбце [Union](./unionoperator.md), `source_` столбце поиска и [find](./findoperator.md) `$table` столбце [поиска](./searchoperator.md).
 
 * Табличное выражение с именем, использующее оператор в внешних табличных входных данных [объединения](./joinoperator.md) (`$left`), может также использоваться в табличных внутренних входных данных объединения (`$right`).
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 // 1. In the following 2 example the union's generated TableName column will consist of 'T1' and 'T2'

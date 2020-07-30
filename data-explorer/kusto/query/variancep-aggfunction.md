@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 80f3f900649d2c4c36c7a50831e011f0ee018860
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 70118746a079d76b1b6729bed3aae96c48399538
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82618022"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338666"
 ---
 # <a name="variancep-aggregation-function"></a>VarianceP () (агрегатная функция)
 
@@ -25,19 +25,19 @@ ms.locfileid: "82618022"
 
 * Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`variancep(`суммировать *выражение*`)`
+суммировать `variancep(` *выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Значение дисперсии *выражения* в группе.
  
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 range x from 1 to 5 step 1

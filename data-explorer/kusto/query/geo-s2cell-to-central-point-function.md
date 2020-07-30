@@ -8,12 +8,12 @@ ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/27/2020
-ms.openlocfilehash: 7eabcb3cb0c3fd001290848e73bb534ff8ea4218
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 30075b5a75e273061423a6f1540f44947ef93cec
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83226828"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347720"
 ---
 # <a name="geo_s2cell_to_central_point"></a>geo_s2cell_to_central_point()
 
@@ -21,22 +21,22 @@ ms.locfileid: "83226828"
 
 Узнайте больше о [иерархии ячеек S2](https://s2geometry.io/devguide/s2cell_hierarchy).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `geo_s2cell_to_central_point(`*s2cell*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 *s2cell*: строковое значение токена ячейки S2 в том виде, в котором оно было вычислено [geo_point_to_s2cell ()](geo-point-to-s2cell-function.md). Максимальная длина строки токена ячейки S2 составляет 16 символов.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Значения геопространственных координат в [формате геоjson](https://tools.ietf.org/html/rfc7946) и [динамического](./scalar-data-types/dynamic.md) типа данных. Если токен ячейки S2 является недопустимым, запрос приведет к результату NULL.
 
 > [!NOTE]
 > В формате геоjson сначала указывается Долгота и Широта секунд.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
@@ -45,7 +45,7 @@ print point = geo_s2cell_to_central_point("1234567")
 | extend longitude = coordinates[0], latitude = coordinates[1]
 ```
 
-|point|координаты|долгота|широта|
+|point|Координаты|долгота|широта|
 |---|---|---|---|
 |{<br>  "тип": "точка",<br>  "координаты": [<br>    9.86830731850408,<br>    27.468392925827604<br>  ]<br>}|[<br>  9.86830731850408,<br>  27.468392925827604<br>]|9.86830731850408|27.4683929258276|
 

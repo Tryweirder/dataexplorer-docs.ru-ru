@@ -1,20 +1,20 @@
 ---
-title: Создание соединения данных концентратора событий для Исследователя данных Azure с помощью шаблона управления ресурсами Azure
-description: В этой статье вы узнаете, как создать соединение данных концентратора событий для Azure Data Explorer с помощью шаблона Azure Resource Manager.
-author: lucygoldbergmicrosoft
-ms.author: lugoldbe
-ms.reviewer: orspodek
+title: Создание подключения к данным концентратора событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager
+description: Из этой статьи вы узнаете, как создать подключение к данным концентратора событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
+author: orspod
+ms.author: orspodek
+ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: 03f07ffaa41b99734d85ec9a1e04fd86118d040b
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 63ec87f48697721d4559d57148eebb5219231ef7
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81497737"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350134"
 ---
-# <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Создание соединения данных концентратора событий для Исследователя данных Azure с помощью шаблона управления ресурсами Azure
+# <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Создание подключения к данным концентратора событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager
 
 > [!div class="op_single_selector"]
 > * [Портал](ingest-data-event-hub.md)
@@ -22,18 +22,18 @@ ms.locfileid: "81497737"
 > * [Python](data-connection-event-hub-python.md)
 > * [Шаблон Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure Data Explorer предлагает проглатывание (загрузку данных) из концентраторов событий, концентраторов IoT и капли, написанные в контейнеры с каплями. В этой статье вы создаете подключение к данным Концентратора событий для Azure Data Explorer с помощью шаблона Azure Resource Manager.
+Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure обозреватель данных обеспечивает прием (загрузку данных) из концентраторов событий, центров Интернета вещей и больших двоичных объектов, записанных в контейнеры больших двоичных объектов. В этой статье вы создадите подключение к данным концентратора событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 * Создание [кластера и базы данных](create-cluster-database-portal.md)
-* Создание [отображения таблицы и столбца](ingest-data-event-hub.md#create-a-target-table-in-azure-data-explorer)
+* Создание [сопоставления таблицы и столбца](ingest-data-event-hub.md#create-a-target-table-in-azure-data-explorer)
 * Создание [концентратора событий](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
-## <a name="azure-resource-manager-template-for-adding-an-event-hub-data-connection"></a>Шаблон менеджера ресурсов Azure для добавления подключения концентратора событий
+## <a name="azure-resource-manager-template-for-adding-an-event-hub-data-connection"></a>Шаблон Azure Resource Manager для добавления подключения к данным концентратора событий
 
-В следующем примере показан шаблон менеджера ресурсов Azure для добавления соединения данных Концентратора событий.  Шаблон можно [отсеивать и развертывать на портале Azure,](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) используя форму.
+В следующем примере показан шаблон Azure Resource Manager для добавления подключения к данным концентратора событий.  Шаблон можно [изменить и развернуть в портал Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) с помощью формы.
 
 ```json
 {

@@ -8,28 +8,28 @@ ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/11/2020
-ms.openlocfilehash: b4a30aa4285b8f6e22e5d4057fe7d408d548a27b
-ms.sourcegitcommit: 2126c5176df272d149896ac5ef7a7136f12dc3f3
+ms.openlocfilehash: a7796c14098f773b73bd16735a3d2c9c879c8fd2
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/13/2020
-ms.locfileid: "86280549"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347873"
 ---
 # <a name="geo_distance_point_to_line"></a>geo_distance_point_to_line()
 
 Вычисляет кратчайшее расстояние между координатами и линией на земле.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `geo_distance_point_to_line(`*Долгота* `, ` *Широта* `, ` *lineString*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Долгота*: значение долготы геопространственной координаты в градусах. Допустимые значения — вещественное число и в диапазоне [-180, + 180].
 * *Широта*: Геопространственное значение координаты широты в градусах. Допустимые значения — вещественное число и в диапазоне [-90, + 90].
 * *lineString*: строка в [формате геоjson](https://tools.ietf.org/html/rfc7946) и тип [динамических](./scalar-data-types/dynamic.md) данных.
 
-**Возвращает**
+## <a name="returns"></a>Возвращаемое значение
 
 Кратчайшее расстояние в метрах между координатами и линией на земле. Если координата или lineString являются недопустимыми, запрос выдаст результат NULL.
 
@@ -49,7 +49,7 @@ Dynamic ({"Type": "LineString", "координаты": [[lng_1, lat_1], [lng_2,
 > [!TIP]
 > Для повышения производительности используйте литеральные строки.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 В следующем примере выполняется поиск кратчайшего расстояния между руководством по северу Лас-деньги и ближайшим поездкам.
 

@@ -1,6 +1,6 @@
 ---
-title: countif() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны countif() (функция агрегирования) в Azure Data Explorer.
+title: СЧЁТЕСЛИ () (агрегатная функция) — обозреватель данных Azure | Документация Майкрософт
+description: В этой статье описываются функции СЧЁТЕСЛИ () (статистическая функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 03b6f1cb959706463a73d8aa18a11144e2123492
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: a5b69b50c0cf4c07934d7900937675bf6338eab9
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81516989"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348774"
 ---
-# <a name="countif-aggregation-function"></a>countif() (функция агрегирования)
+# <a name="countif-aggregation-function"></a>СЧЁТЕСЛИ () (агрегатная функция)
 
 Возвращает число строк, для которых предикат *Predicate* принимает значение `true`.
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-Смотрите также - [кол-во ()](count-aggfunction.md) функция, которая считает строки без выражения предиката.
+См. также функция- [Count ()](count-aggfunction.md) , которая подсчитывает строки без выражения предиката.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-резюмировать `countif(` *Предикат*`)`
+Итоговый `countif(` *предикат*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Предикат*: Выражение, которое будет использоваться для расчета агрегации. 
+* *Predicate*: выражение, которое будет использоваться для вычисления агрегата. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает число строк, для которых предикат *Predicate* принимает значение `true`.
 
