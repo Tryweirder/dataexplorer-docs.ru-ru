@@ -1,6 +1,6 @@
 ---
-title: знак () - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описывается знак () в Azure Data Explorer.
+title: Sign () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается знакомство () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 86a57ed2fb7d43daf300731fe48233eca318bded
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 8d6761cc2ffa9a8c28151c00720bbd1340a56875
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81507571"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351086"
 ---
 # <a name="sign"></a>sign()
 
-Знак численного выражения
+Знак числового выражения
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`sign(`*X*`)`
+`sign(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *x*: Реальное число.
+* *x*: вещественное число.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-* Положительный (No1), ноль (0) или отрицательный (-1) знак указанного выражения. 
+* Положительный (+ 1), ноль (0) или отрицательный (-1) знак указанного выражения. 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 print s1 = sign(-42), s2 = sign(0), s3 = sign(11.2)

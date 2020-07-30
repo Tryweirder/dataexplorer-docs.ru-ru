@@ -1,6 +1,6 @@
 ---
-title: treepath () - Лазурный исследователь данных (ru) Документы Майкрософт
-description: В этой статье описаны древесные пути () в Azure Data Explorer.
+title: TreePath () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается TreePath () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 27a0edc61a1d2317427454aaf74531ec395d067d
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: e52caa6da7d5746119e363d1676b39fcd9da0340
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81505701"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350661"
 ---
 # <a name="treepath"></a>treepath()
 
@@ -21,11 +21,11 @@ ms.locfileid: "81505701"
 
 `treepath(`*динамический объект*`)`
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Массив выражений пути.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 |Выражение|Результат|
 |---|---|

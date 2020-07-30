@@ -1,18 +1,18 @@
 ---
 title: Создание кластера Azure обозреватель данных & DB с Azure CLI
 description: Сведения о создании кластера и базы данных Azure Data Explorer с помощью Azure CLI
-author: radennis
-ms.author: radennis
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: radennis
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: b7e8611ba6427880f15d57137e31010047c39e01
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 673bf418bf38bf04d8b8fb9e81204f4db3499e19
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83224618"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350372"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Создание кластера и базы данных Azure Data Explorer с помощью Azure CLI
 

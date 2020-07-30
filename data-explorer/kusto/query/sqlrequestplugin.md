@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: c43f816cdf1ed2ef9504f93d2bb56edd52ea18bc
-ms.sourcegitcommit: 7dd20592bf0e08f8b05bd32dc9de8461d89cff14
+ms.openlocfilehash: e412c1ec4f08af9820018f4c8dc172bd8c748a7f
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85901966"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350984"
 ---
 # <a name="sql_request-plugin"></a>Подключаемый модуль sql_request
 
@@ -25,7 +25,7 @@ ms.locfileid: "85901966"
 
 `sql_request`Подключаемый модуль ОТПРАВЛЯЕТ SQL-запрос в SQL Serverную конечную точку сети и возвращает первый набор строк в результатах.
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *ConnectionString*: `string` литерал, указывающий строку подключения, которая указывает на конечную точку сети SQL Server. См. раздел [допустимые методы проверки подлинности](#authentication) и указание [конечной точки сети](#specify-the-network-endpoint).
 

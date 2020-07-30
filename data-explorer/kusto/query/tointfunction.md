@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 1efd06b8fa2961528be65b630933aae74614e9a0
-ms.sourcegitcommit: 0d15903613ad6466d49888ea4dff7bab32dc5b23
+ms.openlocfilehash: 2daea4d190ed349c41a8eecf2eef53b2c2b93716
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86013593"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350695"
 ---
 # <a name="toint"></a>toint()
 
@@ -23,15 +23,15 @@ ms.locfileid: "86013593"
 toint("123") == int(123)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `toint(`*Выражения*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение, которое будет преобразовано в тип Integer. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Если преобразование прошло успешно, результатом будет целое число.
 Если преобразование завершилось неудачно, результатом будет `null` .

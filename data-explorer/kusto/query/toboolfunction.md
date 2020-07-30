@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: f99406d94e1cd64da8605e5000aa99136c2b119a
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: e0343ae5cb98e1cb3114e24c963fe2981be82c5b
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763773"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350797"
 ---
 # <a name="tobool"></a>tobool()
 
@@ -26,16 +26,16 @@ tobool(1) == true
 tobool(123) == true
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `tobool(`*Expr* `)` 
  Выражение `toboolean(` *Выражение* `)` псевдоним
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение, которое будет преобразовано в тип Boolean. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Если преобразование выполнено успешно, результатом будет логическое значение.
 Если преобразование не выполнено, результатом будет `null` .

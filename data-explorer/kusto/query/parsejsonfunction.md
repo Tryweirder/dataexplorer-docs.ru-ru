@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: ac6bf9a8dbd54c3afca1c00f487e6ba564e65ce9
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: abe49795b7b997abf677fd0fafff10ae38787f44
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264986"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346343"
 ---
 # <a name="parse_json"></a>parse_json()
 
@@ -21,7 +21,7 @@ ms.locfileid: "85264986"
 
 Эта функция лучше, чем [функция екстрактжсон ()](./extractjsonfunction.md) , если необходимо извлечь более одного элемента составного объекта JSON.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `parse_json(`*json*`)`
 
@@ -29,18 +29,18 @@ ms.locfileid: "85264986"
 - [todynamic()](./todynamicfunction.md)
 - [тубжект ()](./todynamicfunction.md)
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *JSON*: выражение типа `string` . Он представляет [значение в формате JSON](https://json.org/)или выражение типа [dynamic](./scalar-data-types/dynamic.md), представляющее фактическое `dynamic` значение.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Объект типа `dynamic` , определяемый значением *JSON*:
 * Если *JSON* имеет тип `dynamic` , его значение используется как есть.
 * Если *JSON* имеет тип `string` и является [правильно отформатированной строкой JSON](https://json.org/), то строка анализируется, и возвращается полученное значение.
 * Если *JSON* имеет тип `string` , но не является [правильно форматированной строкой JSON](https://json.org/), возвращаемое значение является объектом типа `dynamic` , который содержит исходное `string` значение.
 
-**Пример**
+## <a name="example"></a>Пример
 
 В следующем примере `context_custom_metrics` представляет собой `string`, который выглядит следующим образом.
 

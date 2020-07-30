@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/10/2020
-ms.openlocfilehash: 3fe88a5d53faaca4512d614d3e62204ac26e6fc5
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 69e09ec9528e99e250986657bf5d7cc0756b14f8
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372436"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351256"
 ---
 # <a name="series_stats"></a>series_stats()
 
@@ -31,18 +31,18 @@ ms.locfileid: "83372436"
 > [!NOTE] 
 > Эта функция возвращает несколько столбцов, поэтому ее нельзя использовать в качестве аргумента для другой функции.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 проект `series_stats(` *x* `[,` *ignore_nonfinite* `])` или Extend `series_stats(` *x* `)` возвращает все упомянутые выше столбцы со следующими именами: series_stats_x_min, series_stats_x_min_idx и т. д.
  
 Project (m, MI) = `series_stats(` *x* `)` или extend (m, MI) = `series_stats(` *x* `)` возвращает следующие столбцы: m (min) и MI (min_idx).
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: ячейка динамического массива, представляющая собой массив числовых значений. 
 * *ignore_nonfinite*: логический флаг (необязательный, по умолчанию: `false` ), указывающий, следует ли вычислять статистику при игнорировании неконечных значений (*null*, *NaN*, *INF*и т. д.). Если задано значение `false` , возвращаемые значения будут иметь значение, `null` Если в массиве имеются неконечные значения.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

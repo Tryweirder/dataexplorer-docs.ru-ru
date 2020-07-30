@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 7d97d31b2fb97d5541400bc0605ee40e83807b62
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: cd9900b5087ed0d6ae7e97d2f2dad809bb909331
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83371898"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350814"
 ---
 # <a name="sumif-aggregation-function"></a>СУММЕСЛИ () (агрегатная функция)
 
@@ -23,20 +23,20 @@ ms.locfileid: "83371898"
 
 Можно также использовать функцию [Sum ()](sum-aggfunction.md) , которая суммирует строки без выражения предиката.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 суммировать `sumif(` *Expr* `,` *предикат* выражения`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение для вычисления агрегата. 
 * *Предикат*: predicate, при значении true вычисляемое значение *expr*будет добавлено к сумме. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Итоговое значение *выражения expr* , для *Predicate* которого вычисляется предикат `true` .
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 let T = datatable(name:string, day_of_birth:long)

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: b61934ec2efbfb22c17fe93a4f3969a1592cefab
-ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
+ms.openlocfilehash: eddf893d3c0d8096f57a3f624ddedf753fe35f91
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780666"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346360"
 ---
 # <a name="parse_csv"></a>parse_csv()
 
@@ -23,15 +23,15 @@ ms.locfileid: "84780666"
 parse_csv("aaa,bbb,ccc") == ["aaa","bbb","ccc"]
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `parse_csv(`*источника*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Source*: исходная строка, представляющая одну запись значений с разделителями-запятыми.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Массив строк, содержащий разделенные значения.
 
@@ -39,7 +39,7 @@ parse_csv("aaa,bbb,ccc") == ["aaa","bbb","ccc"]
 
 Встроенные строки, запятые и кавычки могут быть экранированы с помощью двойных кавычек (""). Эта функция не поддерживает несколько записей в строке (используется только первая запись).
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

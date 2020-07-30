@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 5303801b983b326310065ea2a6ce6ded7d098001
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 3cb1de08604964d4d71c5868ef7564c728b1f2c4
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372993"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351545"
 ---
 # <a name="sample-distinct-operator"></a>Оператор sample-distinct
 
@@ -25,14 +25,14 @@ ms.locfileid: "83372993"
 T | sample-distinct 5 of DeviceId
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| sample-distinct` *нумберофвалуес* `of` *ColumnName*
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 * *Нумберофвалуес*: количество различных значений *T* для возврата. Можно указать любое числовое выражение.
 
-**"Советы"**
+**Советы**
 
  Можно использовать для выборки заполнения, поместив `sample-distinct` инструкцию Let и последующий фильтр с помощью `in` оператора (см. пример). 
 
@@ -40,7 +40,7 @@ T | sample-distinct 5 of DeviceId
 
  Если требуется вычислить образцы строк данных (а не значения определенного столбца), см. [оператор Sample](sampleoperator.md) .
 
-**Примеры**  
+## <a name="examples"></a>Примеры  
 
 Получение 10 различных значений из Генеральной совокупности
 

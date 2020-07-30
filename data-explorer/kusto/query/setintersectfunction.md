@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/02/2019
-ms.openlocfilehash: 6739b01f996c04829a1fdb78eab96f6e51b011bb
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: 709da983599b4e8b0c8b06cf7bff4276ba03b5cf
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763673"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351171"
 ---
 # <a name="set_intersect"></a>set_intersect()
 
 Возвращает `dynamic` массив из набора всех различных значений, которые находятся во всех массивах (arr1 ∩ arr2 ∩...).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `set_intersect(`*arr1* `, ` *arr2* `[` ,` *arr3*, ...])`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *arr1... Аррн*: входные массивы для создания пересекающихся наборов (по крайней мере два массива). Все аргументы должны быть динамическими массивами. Дополнительные сведения см. в разделе [pack_array](packarrayfunction.md). 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает динамический массив набора всех различных значений, которые находятся во всех массивах. См [`set_union()`](setunionfunction.md) . раздел и [`set_difference()`](setdifferencefunction.md) .
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/01/2020
-ms.openlocfilehash: 7b17d9b7150d6d58ae3b3b3be7abf83dc9979038
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 1c362dd57cc804e0705023f4744602d93ad47c0b
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372554"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351375"
 ---
 # <a name="series_not_equals"></a>series_not_equals()
 
 Вычисляет операцию логического элемента Not Equals ( `!=` ) с двумя входными числовыми последовательностями.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_not_equals (`*Series1* `,` *Series2*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Series1, Series2*. входные числовые массивы для поэлементного сравнения. Все аргументы должны быть динамическими массивами. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Динамический массив логических значений, содержащий вычисляемую операцию поэлементного выполнения не равной логике между двумя входными значениями. Любой нечисловой элемент или несуществующий элемент (массивы разного размера) дает `null` значение элемента.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

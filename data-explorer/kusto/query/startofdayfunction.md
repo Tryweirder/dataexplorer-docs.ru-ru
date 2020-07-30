@@ -1,6 +1,6 @@
 ---
-title: startofday() - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описывается начало дня () в Azure Data Explorer.
+title: стартофдай () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается стартофдай () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,38 +8,38 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 6517b50ca880085761212ae9037cee96d20a3269
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 3b44da313c50360c73f63f1244ce2be959af2eb4
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81507282"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350950"
 ---
 # <a name="startofday"></a>startofday()
 
-Возвращает начало дня, содержащего дату, сдвинутую на смещение, если это предусмотрено.
+Возвращает начало дня, содержащего дату, смещенную по смещению, если оно предоставлено.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`startofday(`*Дата* `,`и*смещение*`)`
+`startofday(`*Дата* [ `,` *смещение*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* `date`: Дата ввода.
-* `offset`: Дополнительное количество офсетных дней с даты ввода (целый ряд, по умолчанию - 0). 
+* `date`: Входная дата.
+* `offset`: Необязательное число дней смещения от даты ввода (целое число, по умолчанию — 0). 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Время даты, представляющее начало дня для данной *даты,* с смещением, если указано.
+Значение типа DateTime, представляющее начало дня для заданного значения *даты* , со смещением, если оно указано.
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
   range offset from -1 to 1 step 1
  | project dayStart = startofday(datetime(2017-01-01 10:10:17), offset) 
 ```
 
-|дневной старт|
+|дайстарт|
 |---|
 |2016-12-31 00:00:00.0000000|
 |2017-01-01 00:00:00.0000000|

@@ -8,31 +8,31 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/23/2020
-ms.openlocfilehash: 8e96b97754600d308526a4cb059907521fda0521
-ms.sourcegitcommit: b4d6c615252e7c7d20fafd99c5501cb0e9e2085b
+ms.openlocfilehash: 314244c58eca6082b9042b263e6b3e6faeb69840
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83862934"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351205"
 ---
 # <a name="set_has_element"></a>set_has_element()
 
 Определяет, содержит ли указанный набор указанный элемент.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `set_has_element(`*массив*,*значение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *массив*: входной массив для поиска.
 * *значение*: искомое значение. Значение должно иметь тип `long` , `integer` ,,, `double` `datetime` `timespan` , `decimal` , `string` или `guid` .
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Значение true или false в зависимости от того, существует ли значение в массиве.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/20/2019
-ms.openlocfilehash: 80e20e70bc51045f68fd3ef2068f099d750b2b3f
-ms.sourcegitcommit: 188f89553b9d0230a8e7152fa1fce56c09ebb6d6
+ms.openlocfilehash: c5ada33d74f5ed3e1c7b357321b23bd7a76be64e
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84512441"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351358"
 ---
 # <a name="series_outliers"></a>series_outliers()
 
@@ -21,11 +21,11 @@ ms.locfileid: "84512441"
 
 Функция принимает выражение с динамическим числовым массивом в качестве входных данных и создает динамический числовой массив с такой же длиной. Каждое значение массива указывает оценку возможной аномалии с помощью ["Tukey Test"](https://en.wikipedia.org/wiki/Outlier#Tukey.27s_test). Значение, превышающее 1,5 в одном элементе входных данных, указывает на аномалию подъема или отклонения. Значение меньше-1,5 указывает на аномалию отклонения.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_outliers(`*x* `, ` *тип* `, ` *ignore_val* `, ` *min_percentile* `, ` *max_percentile*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: ячейка динамического массива, которая является массивом числовых значений
 * *тип*: алгоритм обнаружения выбросов. В настоящее время поддерживает `"tukey"` (традиционный "Tukey") и `"ctukey"` (Custom "Tukey"). Значение по умолчанию — `"ctukey"`.
@@ -43,7 +43,7 @@ ms.locfileid: "84512441"
 > [!TIP]
 > Лучший способ использовать эту функцию — применить ее к результатам оператора [make-Series](make-seriesoperator.md) .
 
-**Пример**
+## <a name="example"></a>Пример
 
 Временные ряды с некоторыми шумами создают выбросы. Если вы хотите заменить эти выбросы (шум) средним значением, используйте series_outliers () для обнаружения выбросов, а затем замените их.
 

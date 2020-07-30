@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: dd70b2135a485303cbf52d984e0b406052c4023a
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: f9dc6e49e9e3d04aadb5aecf8507b7132d8a366a
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264955"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346326"
 ---
 # <a name="parse-operator"></a>Оператор parse
 
@@ -24,11 +24,11 @@ ms.locfileid: "85264955"
 T | parse Text with "ActivityName=" name ", ActivityType=" type
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| parse` [ `kind=regex` [ `flags=regex_flags` ] | `simple` | `relaxed` ] *выражение* `with` `*` (*стрингконстант* *ColumnName* [ `:` *ColumnType*]) `*` ...
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: входная таблица.
 * особого
@@ -47,7 +47,7 @@ T | parse Text with "ActivityName=" name ", ActivityType=" type
   
 * *ColumnType:* Используемых. Скалярное значение, указывающее тип, в который необходимо преобразовать значение. По умолчанию используется `string` тип.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Входная таблица, расширенная в соответствии со списком столбцов, предоставленных оператору.
 
@@ -81,7 +81,7 @@ T | parse Text with "ActivityName=" name ", ActivityType=" type
         
     * `long`был преобразован в `\-\d+` .
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 `parse`Оператор предоставляет упрощенный способ для `extend` таблицы, используя несколько `extract` приложений в одном `string` выражении. Этот результат полезен, если в таблице есть `string` столбец, содержащий несколько значений, которые необходимо разделить на отдельные столбцы. Например, столбец, созданный оператором трассировки разработчика (" `printf` "/" `Console.WriteLine` ").
 

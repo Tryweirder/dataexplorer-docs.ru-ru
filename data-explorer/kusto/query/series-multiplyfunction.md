@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 1f88cdfc1490f8b00d8104286441e366aaf46f3f
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 112fe4135b6ed996c798e5f03a34120e4078c623
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372570"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351392"
 ---
 # <a name="series_multiply"></a>series_multiply()
 
 Вычисляет поэлементное умножение двух входных числовых рядов.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_multiply(`*Series1* `,` *Series2*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Series1, Series2*: входные числовые массивы для поэлементного умножения в результат динамического массива. Все аргументы должны быть динамическими массивами. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Динамический массив вычисляемой операции умножения на уровне элементов между двумя входными значениями. Любой нечисловой элемент или несуществующий элемент (массивы разного размера) дает `null` значение элемента.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

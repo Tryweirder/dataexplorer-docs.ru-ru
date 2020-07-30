@@ -1,6 +1,6 @@
 ---
-title: string_size () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны string_size() в Azure Data Explorer.
+title: string_size () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается string_size () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,36 +8,36 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 7886e7b8fd5039c9b197ae435bce4f40b93e5038
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 4832d00703ab9e6d1478af5b3f45ec294dfb79ce
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506891"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350916"
 ---
 # <a name="string_size"></a>string_size()
 
-Возвращает размер, в байтах, входиной строки.
+Возвращает размер входной строки в байтах.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`string_size(`*Источник*`)`
+`string_size(`*источника*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *источник*: Строка источника, которая будет измерена для размера строки.
+* *Source*: исходная строка, которая будет измеряться для размера строки.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Возвращает длину, в байтах, входиной строки.
+Возвращает длину входной строки в байтах.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 print size = string_size("hello")
 ```
 
-|size|
+|размер;|
 |---|
 |5|
 
@@ -45,6 +45,6 @@ print size = string_size("hello")
 print size = string_size("⒦⒰⒮⒯⒪")
 ```
 
-|size|
+|размер;|
 |---|
 |15|

@@ -1,18 +1,18 @@
 ---
 title: 'Прием сквозного большого двоичного объекта в Azure обозреватель данных с помощью C #'
 description: Из этой статьи вы узнаете, как получать большие двоичные объекты в Azure обозреватель данных с помощью сквозного примера, использующего C#.
-author: lucygoldbergmicrosoft
-ms.author: lugoldbe
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 53504f51f1a5bd80967c510bd4bff1ba47cd8e58
-ms.sourcegitcommit: ee90472a4f9d751d4049744d30e5082029c1b8fa
+ms.openlocfilehash: 2a7416a2f86963ab30f84ce0a7e2fd098af52108
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722173"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350453"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>Прием сквозного большого двоичного объекта в Azure обозреватель данных с помощью C #
 

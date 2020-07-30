@@ -1,6 +1,6 @@
 ---
-title: todecimal () - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны тодецимальные () в Azure Data Explorer.
+title: тодеЦимал () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается тодеЦимал () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 2d5ac70dfe71f80c3963292516e1b8516a297875
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: f699508436c9e2533661a440be2ac8f5f8d94688
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506313"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350780"
 ---
 # <a name="todecimal"></a>todecimal()
 
-Преобразует входные данные в представительство десятичных чиней.
+Преобразует входные данные в десятичное число.
 
 ```kusto
 todecimal("123.45678") == decimal(123.45678)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`todecimal(`*Expr*`)`
+`todecimal(`*Выражения*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Expr*: Выражение, которое будет преобразовано в десятичную. 
+* *Expr*: выражение, которое будет преобразовано в десятичное. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Если преобразование успешно, результат будет десятичным числом.
-Если конверсия не будет `null`успешной, результат будет .
+Если преобразование выполнено успешно, результатом будет десятичное число.
+Если преобразование не выполнено, результатом будет `null` .
  
-*Примечание*: Предпочитаюиспользовать [реальные ()](./scalar-data-types/real.md) по возможности.
+*Примечание*. по возможности рекомендуется использовать [Real ()](./scalar-data-types/real.md) .

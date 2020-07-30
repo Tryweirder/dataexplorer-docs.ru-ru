@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: e62432773d99d74a46022cad3199f3bab0cae50b
-ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
+ms.openlocfilehash: 34734f3975b1720c1d009f190d4fae2ebc54283f
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85128477"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350763"
 ---
-# <a name="todouble-toreal"></a>ToDouble (), тореал ()
+# <a name="todouble-toreal"></a>todouble(), toreal()
 
 Преобразует входные данные в значение типа `real` . ( `todouble()` и `toreal()` являются синонимами.)
 
@@ -23,16 +23,16 @@ ms.locfileid: "85128477"
 toreal("123.4") == 123.4
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `toreal(`*Expr* `)` 
  Выражение `todouble(` *Выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение, значение которого будет преобразовано в значение типа `real` .
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Если преобразование выполнено успешно, результатом является значение типа `real` .
 Если преобразование не выполнено, результатом является значение `real(null)` .

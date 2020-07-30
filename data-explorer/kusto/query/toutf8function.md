@@ -1,6 +1,6 @@
 ---
-title: to_utf8 () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается to_utf8 () в Azure Data Explorer.
+title: to_utf8 () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается to_utf8 () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,37 +8,37 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9d48ed99e517e0b1e5d498e80deaa48dc1cd3601
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 891a2bb079136d9a7c21c1992b79e3e0eab4c970
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81505837"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350678"
 ---
 # <a name="to_utf8"></a>to_utf8()
 
-Возвращает динамический массив символов unicode входиной строки (обратная операция make_string).
+Возвращает динамический массив символов Юникода входной строки (обратная операция make_string).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`to_utf8(`*Источник*`)`
+`to_utf8(`*источника*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *источник*: Строка источника для преобразования.
+* *Source*: исходная строка для преобразования.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Возвращает динамический массив символов единокода, вкоторыехав строку, предоставленную этой функции.
-См.) [`make_string()`](makestringfunction.md)
+Возвращает динамический массив символов Юникода, которые составляют строку, предоставленную данной функции.
+См. раздел [`make_string()`](makestringfunction.md) )
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 print arr = to_utf8("⒦⒰⒮⒯⒪")
 ```
 
-|Arr|
+|маленькая|
 |---|
 |[9382, 9392, 9390, 9391, 9386]|
 
@@ -46,7 +46,7 @@ print arr = to_utf8("⒦⒰⒮⒯⒪")
 print arr = to_utf8("קוסטו - Kusto")
 ```
 
-|Arr|
+|маленькая|
 |---|
 |[1511, 1493, 1505, 1496, 1493, 32, 45, 32, 75, 117, 115, 116, 111]|
 

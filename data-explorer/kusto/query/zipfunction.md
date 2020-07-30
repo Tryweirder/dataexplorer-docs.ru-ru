@@ -1,6 +1,6 @@
 ---
-title: почтовый индекс () - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описана застежка-молния () в Azure Data Explorer.
+title: ZIP () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается ZIP () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,26 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: bd407ce652d41471be5b30a15c2c09b9f608edb1
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 28fc477d4dfc5432434261e493f36985514ea28b
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81504239"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350559"
 ---
 # <a name="zip"></a>zip()
 
-Функция `zip` принимает любое `dynamic` количество массивов и возвращает массив, элементы которого являются массивом, держащим элементы входных массивов одного и того же индекса.
+`zip`Функция принимает любое количество `dynamic` массивов и возвращает массив, элементы которого содержат массивы элементов входных массивов одного индекса.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`zip(`*array1* `,` *array2*`, ... )`
+`zip(`*массив1* `,` *массив2*`, ... )`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-От 2 до 16 динамических массивов.
+Между 2 и 16 динамическими массивами.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 В следующем примере возвращается `[[1,2],[3,4],[5,6]]`.
 

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 5e4b318743380b13a26e90a7e83549c998926bd8
-ms.sourcegitcommit: 7dd20592bf0e08f8b05bd32dc9de8461d89cff14
+ms.openlocfilehash: ae5268a4a062a6f45adb715650028d952cb89e0b
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85902110"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346394"
 ---
 # <a name="parse_version"></a>parse_version()
 
@@ -23,15 +23,15 @@ ms.locfileid: "85902110"
 parse_version("0.0.0.1")
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `parse_version``(` *Выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *`Expr`*: Скалярное выражение типа `string` , указывающее версию для синтаксического анализа.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Если преобразование выполнено успешно, результат будет десятичным.
 Если преобразование завершилось неудачно, результатом будет `null` .
@@ -44,7 +44,7 @@ parse_version("0.0.0.1")
 
 Если число частей меньше 4, все недостающие части считаются конечными ( `1.0`  ==  `1.0.0.0` ).
 
-**Пример**
+## <a name="example"></a>Пример
 ```kusto
 let dt = datatable(v:string)
 ["0.0.0.5","0.0.7.0","0.0.3","0.2","0.1.2.0","1.2.3.4","1","99999999.0.0.0"];

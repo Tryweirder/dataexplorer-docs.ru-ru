@@ -1,6 +1,6 @@
 ---
-title: url_encode () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны url_encode() в Azure Data Explorer.
+title: url_encode () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается url_encode () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,42 +8,42 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/17/2020
-ms.openlocfilehash: 913be2d20af413f8ba89192f4db57e60fc6d7b27
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 8ccc93286073003bdaf8324611888d32f60910fb
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81505055"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350576"
 ---
 # <a name="url_encode"></a>url_encode()
 
-Функция преобразует символы URL-адреса ввода в формат, который может передаваться через Интернет. 
+Функция преобразует символы входного URL-адреса в формат, который может быть передан через Интернет. 
 
-Подробную информацию о кодировании и расшифровке URL можно найти [здесь](https://en.wikipedia.org/wiki/Percent-encoding).
-Отличается от [url_encode_component](./urlencodecomponentfunction.md) кодированием пространств как «я», а не как «20%» (см. приложение/x-www-form-urlencoded [здесь).](https://en.wikipedia.org/wiki/Percent-encoding)
+Подробные сведения о кодировке и декодировании URL-адресов можно найти [здесь](https://en.wikipedia.org/wiki/Percent-encoding).
+Отличается от [url_encode_component](./urlencodecomponentfunction.md) с помощью кодирования пробелов как "+", а не "20%" (см. Application/x-www-Form-UrlEncoded [здесь](https://en.wikipedia.org/wiki/Percent-encoding)).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`url_encode(`*Url*`)`
+`url_encode(`*URL-адрес*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *URL*: URL-адрес (строка).  
+* *URL-* адрес: входной URL-адрес (строка).  
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-URL (строка) преобразуется в формат, который может передаваться через Интернет.
+URL-адрес (строка), преобразованный в формат, который может быть передан через Интернет.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 let url = @'https://www.bing.com/hello word';
 print original = url, encoded = url_encode(url)
 ```
 
-|оригинальный|Закодированные|
+|оригинальный|кодировке|
 |---|---|
-|https://www.bing.com/helloслово/|https%3a%2f%2fwww.bing.com%2fhello|
+|https://www.bing.com/helloсловам|HTTPS %3 a %2 f %2 f www. Bing. com% 2fhello + Word|
 
 
  

@@ -1,18 +1,18 @@
 ---
 title: Настройка управляемых удостоверений для кластера Azure обозреватель данных
 description: Узнайте, как настроить управляемые удостоверения для кластера Azure обозреватель данных.
-author: saguiitay
-ms.author: itsagui
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 523330f5ace4d9f2d652eccbd746b039d66df749
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: bed04e084621116033aa3dd2814192957032c26e
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374300"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351579"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Настройка управляемых удостоверений для кластера Azure обозреватель данных
 
@@ -21,7 +21,7 @@ ms.locfileid: "83374300"
 > [!Note]
 > Управляемые удостоверения для Azure обозреватель данных не будут работать должным образом, если кластер Azure обозреватель данных переносится между подписками или клиентами. Приложению потребуется получить новое удостоверение, которое можно сделать, [отключив](#disable-a-system-assigned-identity) и [повторно включив](#add-a-system-assigned-identity) функцию. Кроме того, для использования нового удостоверения необходимо обновить политики доступа к нижестоящим ресурсам.
 
-## <a name="add-a-system-assigned-identity"></a>Добавление удостоверения, назначенного системой
+## <a name="add-a-system-assigned-identity"></a>Добавление назначаемого системой удостоверения
                                                                                                     
 Назначьте назначенное системой удостоверение, привязанное к кластеру, и удаляется, если кластер удален. Кластер может иметь только одно назначенное системой удостоверение. Для создания кластера с удостоверением, назначенным системой, требуется задать дополнительное свойство в кластере. Назначенное системой удостоверение добавляется с помощью C#, шаблонов ARM или портал Azure, как описано ниже.
 
@@ -207,7 +207,7 @@ await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clus
 
 ---
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
 * [Защитите свой кластер в Azure обозреватель данных — портал Azure](manage-cluster-security.md) , включив шифрование неактивных компонентов.

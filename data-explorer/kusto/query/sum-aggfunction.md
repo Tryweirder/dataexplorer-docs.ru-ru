@@ -1,6 +1,6 @@
 ---
-title: сумма () (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается сумма () (функция агрегирования) в Azure Data Explorer.
+title: Sum () (агрегатная функция) — обозреватель данных Azure | Документация Майкрософт
+description: В этой статье описывается Sum () (агрегатная функция) в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,28 +8,28 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: b729d9be8aba9683a053ef80acb3936c0c64d6a8
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 3053a2c3bd423a2e1b8a2690bcdf54de9f1a1e36
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81506687"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350831"
 ---
-# <a name="sum-aggregation-function"></a>сумма() (функция агрегирования)
+# <a name="sum-aggregation-function"></a>Sum () (агрегатная функция)
 
-Рассчитывает сумму *Expr* по всей группе. 
+Вычисляет сумму *выражения expr* по всей группе. 
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-резюмировать `sum(` *Expr*`)`
+суммировать `sum(` *выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации. 
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Сумма значение *Expr* по всей группе.
+Значение суммы *выражения expr* по группе.
  

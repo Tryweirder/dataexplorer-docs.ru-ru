@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: ba74b7c1e78d568cc34845d56dc9768f2628192f
-ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
+ms.openlocfilehash: e2914e913402de7442d2533cf5159c2bd30fac60
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84717382"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346309"
 ---
 # <a name="parse_path"></a>parse_path()
 
@@ -32,19 +32,19 @@ ms.locfileid: "84717382"
 * Длинные пути. Например, " \\ ? \c:..."
 * Альтернативные потоки данных. Например, "file1.exe:file2.exe"
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `parse_path(`*path*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *path*: строка, представляющая путь к файлу.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Объект типа `dynamic` , включающий компоненты пути, перечисленные выше.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

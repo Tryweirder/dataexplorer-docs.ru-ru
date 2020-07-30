@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/27/2020
-ms.openlocfilehash: 6de336566f58f5cb0435ca22250cd7a07e8601cd
-ms.sourcegitcommit: 188f89553b9d0230a8e7152fa1fce56c09ebb6d6
+ms.openlocfilehash: 25ed06f738e6b2e090ff92be9df026a85a27a89f
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84512594"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346428"
 ---
 # <a name="parse_ipv6"></a>parse_ipv6()
 
@@ -24,11 +24,11 @@ parse_ipv6("127.0.0.1") == '0000:0000:0000:0000:0000:ffff:7f00:0001'
 parse_ipv6(":fe80::85d:e82c:9446:7994") == 'fe80:0000:0000:0000:085d:e82c:9446:7994'
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `parse_ipv6(`*`Expr`*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *`Expr`*: Строковое выражение, представляющее сетевой адрес IPv6/IPv4, который будет преобразован в каноническое представление IPv6. Строка может включать в себя NET-Mask с использованием [нотации префикса IP](#ip-prefix-notation).
 
@@ -37,12 +37,12 @@ parse_ipv6(":fe80::85d:e82c:9446:7994") == 'fe80:0000:0000:0000:085d:e82c:9446:7
 IP-адреса можно определять с `IP-prefix notation` помощью символа косой черты ( `/` ).
 IP-адрес, расположенный слева от косой черты ( `/` ), является базовым IP-адресом. Число (от 1 до 127) справа от косой черты ( `/` ) — это число непрерывных 1 бит в маске сети.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Если преобразование выполнено успешно, результатом будет строка, представляющая канонический сетевой адрес IPv6.
 Если преобразование не выполнено, результатом будет `null` .
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

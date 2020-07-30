@@ -1,24 +1,24 @@
 ---
 title: Подключение к обозреватель данных Azure из Azure Databricks
 description: В этом разделе показано, как использовать Azure Databricks для доступа к данным из обозреватель данных Azure.
-author: manojraheja
-ms.author: maraheja
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: maraheja
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 11db44424b86e4ca946ea104301bcd074797ca40
-ms.sourcegitcommit: b4d6c615252e7c7d20fafd99c5501cb0e9e2085b
+ms.openlocfilehash: 74f80ef6dd05380e73215d1edb27f5117060bc58
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83863206"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350355"
 ---
 # <a name="connect-to-azure-data-explorer-from-azure-databricks"></a>Подключение к обозреватель данных Azure из Azure Databricks
 
 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) — это платформа аналитики на основе Apache Spark, оптимизированная для платформы Microsoft Azure. В этой статье показано, как использовать Azure Databricks для доступа к данным из обозреватель данных Azure. Существует несколько способов выполнения проверки подлинности в Azure Data Explorer, включая имя пользователя устройства и приложение Azure Active Directory (Azure AD).
  
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
 - [Создайте кластер Azure обозреватель данных и базу данных](create-cluster-database-portal.md).
 - [Создайте рабочую область Azure Databricks](/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace). В разделе **Служба Azure Databricks** в раскрывающемся списке **Ценовая категория** выберите **Премиум**. Это дает возможность использовать секреты Azure Databricks для хранения учетных данных и ссылаться на них в записных книжках и заданиях.

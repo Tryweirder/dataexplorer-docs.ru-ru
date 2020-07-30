@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/31/2019
-ms.openlocfilehash: 9187c10ad62b4d925bf6211e64657fba5ae17b63
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 3b65dff40e644852555465fe6ce07ed94c4920ea
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372508"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351324"
 ---
 # <a name="series_pearson_correlation"></a>series_pearson_correlation()
 
@@ -21,19 +21,19 @@ ms.locfileid: "83372508"
 
 См. раздел [коэффициент корреляции Пирсона](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_pearson_correlation(`*Series1* `,` *Series2*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Series1, Series2*: входные числовые массивы для вычисления коэффициента корреляции. Все аргументы должны быть динамическими массивами одинаковой длины. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Вычисленный коэффициент корреляции Пирсона между двумя входными значениями. Любой нечисловой элемент или несуществующий элемент (массивы разного размера) дает `null` результат.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

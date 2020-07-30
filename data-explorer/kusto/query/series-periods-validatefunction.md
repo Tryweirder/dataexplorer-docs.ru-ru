@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2019
-ms.openlocfilehash: 0e93383cf1c9ff11fdf4a14ebad5d83c0dfa7a74
-ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
+ms.openlocfilehash: 24b47981e90c15e8a0f295d845ca28a03f324a88
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84717416"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351307"
 ---
 # <a name="series_periods_validate"></a>series_periods_validate()
 
@@ -27,11 +27,11 @@ ms.locfileid: "84717416"
 * *Periods*: динамический массив, содержащий точки для проверки (указывается во входных данных).
 * *scores*— динамический массив, содержащий оценку от 0 до 1. Оценка показывает значимость периода в его соответствующей точке в массиве *Periods* .
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_periods_validate(`*x* `,` *period1* [ `,` *period2* `,` . . . ] `)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: динамическое скалярное выражение массива, которое представляет собой массив числовых значений, обычно результирующий результат операторов [make-Series](make-seriesoperator.md) или [make_list](makelist-aggfunction.md) .
 * *period1*, *period2*и т. д. `real` числа, указывающие период для проверки, в единицах размера ячейки. Например, если ряд находится в ячейках 1 ч, еженедельный период составляет 168 ячеек.
@@ -43,7 +43,7 @@ ms.locfileid: "84717416"
 > 
 > * Функция принимает до 16 периодов для проверки.
 
-**Пример**
+## <a name="example"></a>Пример
 
 Следующий запрос внедряет моментальный снимок месяца трафика приложения, агрегированного дважды в день (размер ячейки составляет 12 часов).
 

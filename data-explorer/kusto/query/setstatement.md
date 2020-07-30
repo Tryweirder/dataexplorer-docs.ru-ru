@@ -10,29 +10,29 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 028bfb5a2d0ddf25f65cd16bca2c498d9dcb7059
-ms.sourcegitcommit: d885c0204212dd83ec73f45fad6184f580af6b7e
+ms.openlocfilehash: fbb5d3765b4be20b55cd7e3fa155a26e429c61e8
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737867"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351154"
 ---
 # <a name="set-statement"></a>Инструкция set
 
 ::: zone pivot="azuredataexplorer"
 
-`set` Оператор используется для задания параметра запроса на время выполнения запроса.
+`set`Оператор используется для задания параметра запроса на время выполнения запроса.
 Параметры запроса управляют выполнением запроса и возвращением результатов. Они могут быть логическими флагами (отключены по умолчанию) или иметь целочисленное значение. Запрос может содержать один или несколько операторов set либо не содержать ни одного. Инструкции SET влияют только на операторы табличных выражений, которые были в конце их порядка в программе.
 
 * Параметры запроса можно также включить программно, задав их в `ClientRequestProperties` объекте. См. [здесь](../api/netfx/request-properties.md).
   
 * Параметры запроса не формально являются частью языка Kusto и могут быть изменены без необходимости рассматриваться как коренное изменение языка.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`set`*OptionName* [`=` *OptionValue*]
+`set`*OptionName* [ `=` *OptionValue*]
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 set querytrace;

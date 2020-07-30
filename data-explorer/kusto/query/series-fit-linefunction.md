@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: f0401a5b10d2feb74c629e6b04b127e6d36057ad
-ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
+ms.openlocfilehash: 0158753d3d2496e425247202d906633837aa023a
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84717182"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351494"
 ---
 # <a name="series_fit_line"></a>series_fit_line()
 
@@ -27,18 +27,18 @@ ms.locfileid: "84717182"
 * `interception`: Перехват приближенной строки ("b" от y = ax + b).
 * `line_fit`: Числовой массив, содержащий ряд значений наиболее подходящей строки. Длина ряда равна длине входного массива. Значение, используемое для построения диаграмм.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_fit_line(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: динамический массив числовых значений.
 
 > [!TIP]
 > Самый удобный способ использования этой функции — применить его к результатам оператора [make-Series](make-seriesoperator.md) .
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -49,6 +49,6 @@ print id=' ', x=range(bin(now(), 1h)-11h, bin(now(), 1h), 1h), y=dynamic([2,5,6,
 
 :::image type="content" source="images/series-fit-line/series-fit-line.png" alt-text="Линия подгонки ряда":::
 
-| RSquare | Slope | Variance | RVariance | Interception | LineFit                                                                                     |
+| RSquare | Кривизна | Variance | RVariance | Interception | LineFit                                                                                     |
 |---------|-------|----------|-----------|--------------|---------------------------------------------------------------------------------------------|
 | 0,982   | 2,730 | 98,628   | 1,686     | -1,666       | 1,064, 3,7945, 6,526, 9,256, 11,987, 14,718, 17,449, 20,180, 22,910, 25,641, 28,371, 31,102 |

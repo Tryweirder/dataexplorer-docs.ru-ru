@@ -8,30 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/01/2020
-ms.openlocfilehash: b1f51f30825ceecfc025219f61d181c39ab0268f
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 5eb1dae8c45aee918ccec5a18d9f6ce16834acf6
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372594"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87351409"
 ---
 # <a name="series_less"></a>series_less()
 
 Вычисляет логическую операцию "меньше элемента" ( `<` ) с двумя входными числовыми последовательностями.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_less (`*Series1* `,` *Series2*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Series1, Series2*. входные числовые массивы для поэлементного сравнения. Все аргументы должны быть динамическими массивами. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Динамический массив логических значений, содержащий вычисляемую операцию с меньшей поэлементной логикой между двумя входными значениями. Любой нечисловой элемент или несуществующий элемент (массивы разного размера) дает `null` значение элемента.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
