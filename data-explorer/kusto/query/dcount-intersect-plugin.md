@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: c431f17184570b294b9c8077028ac792719b4abd
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: de75014fb408b3d31acab37ad8e16923cabaadfd
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225213"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348417"
 ---
-# <a name="dcount_intersect-plugin"></a>подключаемый модуль dcount_intersect
+# <a name="dcount_intersect-plugin"></a>Подключаемый модуль dcount_intersect
 
 Вычисляет пересечение между N наборами на основе `hll` значений (N в диапазоне [2.. 16]) и возвращает N `dcount` значений.
 
@@ -27,21 +27,21 @@ S<sub>1</sub> ∩ s<sub>2</sub> ∩... ∩ S<sub>n</sub>
 
     T | evaluate dcount_intersect(hll_1, hll_2, hll_3)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| evaluate` `dcount_intersect(` *hll_1*, *hll_2*, [ `,` *hll_3* `,` ...]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: Входное табличное выражение.
 * *hll_i*: значения<sub>Set S,</sub> вычисленные с помощью [`hll()`](./hll-aggfunction.md) функции.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает таблицу со значениями N `dcount` (для каждого столбца), представляющими собой набор пересечения.
 Имена столбцов: S0, S1,... (до n – 1).
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

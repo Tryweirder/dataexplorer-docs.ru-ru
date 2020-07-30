@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/16/2020
-ms.openlocfilehash: 57cceb2fabb16956090430161b98c1287efdef97
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 3511d15ebf0f5e3708deeeed981a8a6808da2e48
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227329"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347941"
 ---
 # <a name="funnel_sequence_completion-plugin"></a>Подключаемый модуль funnel_sequence_completion
 
@@ -23,11 +23,11 @@ ms.locfileid: "83227329"
 T | evaluate funnel_sequence_completion(id, datetime_column, startofday(ago(30d)), startofday(now()), 1d, state_column, dynamic(['S1', 'S2', 'S3']), dynamic([10m, 30min, 1h]))
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| evaluate` `funnel_sequence_completion(` *идколумн* `,` *тимелинеколумн* `,` *Начало* `,` *конечного* `,` *шага* `,` *статеколумн* `,` *Sequence* `,` *макссекуенцестепвиндовс*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: Входное табличное выражение.
 * *Идколум*: ссылка на столбец должна присутствовать в исходном выражении.
@@ -39,7 +39,7 @@ T | evaluate funnel_sequence_completion(id, datetime_column, startofday(ago(30d)
 * *Sequence*: константный динамический массив со значениями последовательности (значения ищутся в `StateColumn` ).
 * *Макссекуенцестепвиндовс*: скалярная константа динамического массива со значениями максимального допустимого интервала времени между первым и последним последовательным этапами последовательности. Каждое окно (точка) в массиве формирует результат анализа воронки.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает одну таблицу, полезную для создания схемы воронки для проанализированной последовательности:
 
@@ -48,7 +48,7 @@ T | evaluate funnel_sequence_completion(id, datetime_column, startofday(ago(30d)
 * `Period`: максимальный период (окно), допустимый для выполнения шагов в последовательности воронки, измеряемой на первом шаге последовательности. Каждое значение в *макссекуенцестепвиндовс* создает воронку анализа с отдельным периодом. 
 * `dcount`: число различных объектов `IdColumn` в окне времени, переданных из состояния первой последовательности в значение `StateColumn` .
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ### <a name="exploring-storm-events"></a>Просмотр событий с более подробной информацией 
 

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 68581cfe4b3828823ced7d4704eb08df5d2aefa7
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 9bc000ffa57d906c3e65e54e9daac5431f8dc276
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373178"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346020"
 ---
 # <a name="project-rename-operator"></a>Оператор project-rename
 
@@ -23,22 +23,22 @@ ms.locfileid: "83373178"
 T | project-rename new_column_name = column_name
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| project-rename` *невколумннаме*  =  *ексистингколумннаме* [ `,` ...]
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: входная таблица.
 * *Невколумннаме:* Новое имя столбца. 
 * *Ексистингколумннаме:* Существующее имя столбца. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Таблица, в которой столбцы находятся в том же порядке, что и в существующей таблице, с переименованными столбцами.
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
@@ -48,4 +48,4 @@ print a='a', b='b', c='c'
 
 |new_a|new_b|с|
 |---|---|---|
-|а|b|с|
+|a|b|с|

@@ -1,18 +1,18 @@
 ---
 title: Создание подключения к данным в сетке событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager
 description: Из этой статьи вы узнаете, как создать подключение к данным в сетке событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
-author: lucygoldbergmicrosoft
-ms.author: lugoldbe
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: a3b60f5a2dba8e3d8b9c7b299cb371cda9932bf0
-ms.sourcegitcommit: 0d15903613ad6466d49888ea4dff7bab32dc5b23
+ms.openlocfilehash: b5196e126ffa36e3d767bfaacb79ce819ff9fa29
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86013852"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350185"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Создание подключения к данным в сетке событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager
 

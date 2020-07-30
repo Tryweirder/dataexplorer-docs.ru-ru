@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 74acab0dc4f0fbdaf7c77e609db3e41f875f2cad
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 233f5f7f6e6064b10d1385eaef8a28302368e74b
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373157"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346003"
 ---
 # <a name="project-reorder-operator"></a>Оператор project-reorder
 
@@ -23,17 +23,17 @@ ms.locfileid: "83373157"
 T | project-reorder Col2, Col1, Col* asc
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| project-reorder` *колумннамеорпаттерн* [ `asc` | `desc` ] [ `,` ...]
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: входная таблица.
 * *Колумннамеорпаттерн:* Имя шаблона столбца или столбца, добавленного к выходу.
 * Для шаблонов с подстановочными знаками: указание `asc` или `desc` Упорядочивание столбцов с использованием их имен в порядке возрастания или убывания. Если параметр `asc` или `desc` не указан, порядок определяется совпадающими столбцами, как они отображаются в исходной таблице.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Таблица, содержащая столбцы в порядке, указанном аргументами оператора. `project-reorder`не переименовывает и не удаляет столбцы из таблицы, поэтому все столбцы, которые существовали в исходной таблице, отображаются в таблице результатов.
 
@@ -46,7 +46,7 @@ T | project-reorder Col2, Col1, Col* asc
 * Используйте [`project-rename`](projectrenameoperator.md) для переименования столбцов.
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 Переупорядочение таблицы с тремя столбцами (a, b, c), поэтому второй столбец (b) будет отображаться первым.
 
@@ -56,9 +56,9 @@ print a='a', b='b', c='c'
 |  project-reorder b
 ```
 
-|b|а|с|
+|b|a|с|
 |---|---|---|
-|b|а|с|
+|b|a|с|
 
 Переупорядочение столбцов таблицы, чтобы столбцы, начинающиеся с, `a` отображались перед другими столбцами.
 

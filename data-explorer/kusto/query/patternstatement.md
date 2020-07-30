@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: c8031cd28a04949515ed50dbe37d3f8171d595d8
-ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
+ms.openlocfilehash: a4aae88f6ad435469719f8444bae9123975ee618
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85129011"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346224"
 ---
 # <a name="pattern-statement"></a>pattern, инструкция
 
@@ -46,7 +46,7 @@ app("ApplicationX").StartEvents
 
 Этот запрос выдаст ошибку от Kusto, указывающую, что не удается разрешить следующие вызовы шаблона: `app("ApplicationX")["StartEvents"]` и `app("ApplicationX")["StopEvents"]` .
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `declare``pattern` *Паттерннаме*
 
@@ -67,7 +67,7 @@ app("ApplicationX").StartEvents
 
 Выражение, предоставляемое для каждого совпадающего шаблона, является либо именем таблицы, либо ссылкой на [инструкцию Let](letstatement.md).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `declare``pattern` *PatternName*  =  Паттерннаме `(` *Аргнаме* `:` *Аргтипе* [ `,` ...] `)` [ `[` *PathName* `:` *пасаргтипе* `]` ]`{`
 &nbsp;&nbsp;&nbsp;&nbsp;`(` *ArgValue1* [ `,` *ArgValue2* ...] `)` [ `.[` * пасвалуе `]` ] `=` `{` *выражение* `};` &nbsp; &nbsp; &nbsp; &nbsp; [ &nbsp; &nbsp; &nbsp; &nbsp; `(` *ArgValue1_2* [ `,` *ArgValue2_2* ...] `)` [ `.[` *PathValue_2* `]` ] `=` `{` *expression_2* `};` &nbsp; &nbsp; &nbsp; &nbsp; ... &nbsp; &nbsp; &nbsp; &nbsp; ]        `}`
@@ -113,7 +113,7 @@ union
 
 Это также означает, что их нельзя определить вместе, так как они считаются одинаковыми.
 
-**Знаки подстановки**
+**подстановочные знаки;**
 
 Kusto не обрабатывает подстановочные знаки в шаблоне каким-либо особым способом. Например, в следующем запросе.
 

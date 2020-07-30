@@ -8,12 +8,12 @@ ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/27/2020
-ms.openlocfilehash: eb59eae0bc014c6ce9060d65f6c3aced80e4275c
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 40f3daa208c3c7ce18252d8c4f7276346206b250
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227134"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347856"
 ---
 # <a name="geo_geohash_to_central_point"></a>geo_geohash_to_central_point()
 
@@ -21,22 +21,22 @@ ms.locfileid: "83227134"
 
 Дополнительные сведения см [`geohash`](https://en.wikipedia.org/wiki/Geohash) . в статье.  
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `geo_geohash_to_central_point(`*геохэш*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 *геохэш*: строковое значение геохэш-значения в том виде, в котором оно было вычислено [geo_point_to_geohash ()](geo-point-to-geohash-function.md). Длина строки геохэш-кода может составлять от 1 до 18 символов.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Значения геопространственных координат в [формате геоjson](https://tools.ietf.org/html/rfc7946) и [динамического](./scalar-data-types/dynamic.md) типа данных. Если геохэш является недопустимым, запрос выдает результат NULL.
 
 > [!NOTE]
 > В формате геоjson сначала указывается Долгота и Широта секунд.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
@@ -45,7 +45,7 @@ print point = geo_geohash_to_central_point("sunny")
 | extend longitude = coordinates[0], latitude = coordinates[1]
 ```
 
-|point|координаты|долгота|широта|
+|point|Координаты|долгота|широта|
 |---|---|---|---|
 |{<br>  "тип": "точка",<br>  "координаты": [<br>    42.47314453125,<br>    23.70849609375<br>  ]<br>}|[<br>  42.47314453125,<br>  23.70849609375<br>]|42.47314453125|23.70849609375|
 

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/28/2019
-ms.openlocfilehash: b8f9d6d27643855ba81b2c1791dfd939b53cac9a
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: 2191a26a0ee0bccd708c492690e58767d3cf52e9
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264884"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345629"
 ---
 # <a name="series_decompose_anomalies"></a>series_decompose_anomalies()
 
@@ -22,11 +22,11 @@ ms.locfileid: "85264884"
 
 Функция принимает выражение, содержащее ряд (динамический числовой массив) в качестве входных данных, и извлекает аномальные точки с результатами.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_decompose_anomalies (`*Ряд* `[, ` *Пороговое значение* `,` *Сезонности* `,` *Тенденция* `, ` *Test_points* `, ` *AD_method* `,` *Seasonality_threshold*`])`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Ряд*: ячейка динамического массива, которая представляет собой массив числовых значений, обычно результирующий результат операторов [make-Series](make-seriesoperator.md) или [make_list](makelist-aggfunction.md) .
 * *Пороговое*значение: пороговое значение аномалий, значение по умолчанию 1,5 (k) для обнаружения умеренных или более надежных аномалий

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 708a5ccd5f8402dedb074a6ab8c17b1d7762839c
-ms.sourcegitcommit: ae72164adc1dc8d91ef326e757376a96ee1b588d
+ms.openlocfilehash: 92ee54ce675c2e8396d842fdf029f2d3f3d5380b
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84717127"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345680"
 ---
 # <a name="serialize-operator"></a>Оператор serialize
 
@@ -25,13 +25,13 @@ ms.locfileid: "84717127"
 T | serialize rn=row_number()
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `serialize`[*Name1* `=` *Выражение1* [ `,` *имя2* `=` *Expr2*]...]
 
 * Пары *Name* / *expr* Name аналогичны этим парам в [операторе Extend](./extendoperator.md).
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
 Traces

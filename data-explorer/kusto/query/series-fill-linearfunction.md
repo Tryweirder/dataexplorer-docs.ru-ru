@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 4bf68800cc10bf301f6a5738d47e670905c2c46d
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: 0831251bd38df4475c271cc6bcec9c15668860ea
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763657"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87344179"
 ---
 # <a name="series_fill_linear"></a>series_fill_linear()
 
@@ -21,13 +21,13 @@ ms.locfileid: "85763657"
 
 Принимает выражение, содержащее динамический числовой массив в качестве входных данных, выполняет линейную интерполяцию для всех экземпляров missing_value_placeholder и возвращает результирующий массив. Если начало и конец массива содержат missing_value_placeholder, то он будет заменен ближайшим значением, отличным от missing_value_placeholder. Эта функция может быть отключена. Если весь массив состоит из missing_value_placeholder, массив будет заполнен constant_value или 0, если не указан.  
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_fill_linear(`*x* `[,` *missing_value_placeholder* ` [,` *fill_edges*missing_value_placeholder x ` [,` *constant_value*`]]]))`
 * Будет возвращать линейную интерполяцию по *оси x* с использованием указанных параметров.
  
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: скалярное выражение с динамическим массивом, представляющее собой массив числовых значений.
 * *missing_value_placeholder*: необязательный параметр, который указывает заполнитель для замены отсутствующих значений. Значение по умолчанию — `double` (*null*).
@@ -47,7 +47,7 @@ make-series num=count() default=long(null) on TimeStamp from ago(1d) to ago(1h) 
 * Если *missing_value_placeholder* имеет `double` *значение (NULL*) (или опущено, то есть имеет то же значение), результат может содержать значения *null* . Используйте другие функции интерполяции для заполнения этих значений *null* . В настоящее время только [series_outliers ()](series-outliersfunction.md) поддерживают значения *null* во входных массивах.
 * Функция сохраняет исходный тип элементов массива. Если x содержит только int или long, линейная интерполяция будет возвращать округленные интерполяции значений, а не точные.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

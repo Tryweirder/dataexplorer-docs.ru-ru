@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 8106d419f20dcacdec6386294a5b9ffb8d1bc8e2
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 69ba6a8ce3cd29d7459215184f7488b015d16558
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225910"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349811"
 ---
 # <a name="activity_metrics-plugin"></a>Подключаемый модуль activity_metrics
 
@@ -23,11 +23,11 @@ ms.locfileid: "83225910"
 T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startofday(now()), 1d, dim1, dim2, dim3)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| evaluate` `activity_metrics(` *идколумн* `,` *тимелинеколумн* `,` [*начальный* `,` *конец* `,` ] *Window* [ `,` *Dim1* `,` *dim2* `,` ...]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: Входное табличное выражение.
 * *Идколумн*: имя столбца со значениями идентификаторов, представляющими действия пользователя. 
@@ -37,7 +37,7 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
 * *Window*: скалярный со значением периода окна анализа. Может быть либо числовым, либо значением DateTime или timestamp, либо строкой, которая является одним из `week` / `month` / `year` , в этом случае все периоды будут [startofweek](startofweekfunction.md) / [StartOfMonth](startofmonthfunction.md) / [startofyear](startofyearfunction.md) соответствующим образом. 
 * *Dim1*, *dim2*,...: (необязательно) список столбцов измерений, которые срезируют вычисление метрик действия.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает таблицу с различными значениями числа различных значений, скоростью хранения и частотой обновления для каждого периода временной шкалы и для каждого сочетания существующих измерений.
 
@@ -90,7 +90,7 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
     [Retention rate] = 100.0% - [Churn Rate]
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ### <a name="weekly-retention-rate-and-churn-rate"></a>Еженедельный темп хранения и частота обновлений
 
@@ -114,7 +114,7 @@ range _day from _start to _end  step 1d
 
 |_day|retention_rate|churn_rate|
 |---|---|---|
-|2017-01-02 00:00:00.0000000|NaN|NaN|
+|2017-01-02 00:00:00.0000000|Не число|Не число|
 |2017-01-09 00:00:00.0000000|0.179910044977511|0.820089955022489|
 |2017-01-16 00:00:00.0000000|0.744374437443744|0.255625562556256|
 |2017-01-23 00:00:00.0000000|0.612096774193548|0.387903225806452|

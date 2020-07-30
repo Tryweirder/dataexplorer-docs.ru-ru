@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/15/2019
-ms.openlocfilehash: 1b1b0c2313f32044a7988e0992c00786885ce2aa
-ms.sourcegitcommit: 974d5f2bccabe504583e387904851275567832e7
+ms.openlocfilehash: 2e3847f0ad6c120f076461c5b4774f60349d6125
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83550305"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348434"
 ---
 # <a name="dcount_hll"></a>dcount_hll()
 
@@ -21,19 +21,19 @@ ms.locfileid: "83550305"
 
 Прочтите сведения о [базовом алгоритме (*H*ИПЕР*l*OG*l*OG) и точности оценки](dcount-aggfunction.md#estimation-accuracy).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `dcount_hll(`*Выражения*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение, созданное с помощью [ХЛЛ](hll-aggfunction.md) или [ХЛЛ-Merge](hll-merge-aggfunction.md)
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Число различных значений каждого значения в *expr*
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

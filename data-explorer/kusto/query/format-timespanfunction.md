@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: ba4dffa50c605e9346807f28222809af7637ff09
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 923008d05ebc8c51a39955e29450e55af4100941
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227287"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347958"
 ---
 # <a name="format_timespan"></a>format_timespan()
 
@@ -23,16 +23,16 @@ ms.locfileid: "83227287"
 format_timespan(time(14.02:03:04.12345), 'h:m:s.fffffff') == "2:3:4.1234500"
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `format_timespan(`*интервал* `,` времени *Формат*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * `timespan`: значение типа `timespan` .
 * `format`: Строка описателя формата, состоящая из одного или нескольких [элементов формата](#supported-formats).
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Строка с результатом форматирования.
 
@@ -80,7 +80,7 @@ format_timespan(time(14.02:03:04.12345), 'h:m:s.fffffff') == "2:3:4.1234500"
 |`'['`||
 |`']'`||
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

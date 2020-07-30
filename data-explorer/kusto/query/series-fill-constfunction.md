@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: e078919af16a9d2f7dadba0a309932b3a39b6ced
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: bb3f217b1ec0631f533a10433a7be368945667d7
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763244"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87344541"
 ---
 # <a name="series_fill_const"></a>series_fill_const()
 
@@ -21,12 +21,12 @@ ms.locfileid: "85763244"
 
 Принимает выражение, содержащее динамический числовой массив в качестве входных данных, заменяет все экземпляры missing_value_placeholder заданными constant_value и возвращает результирующий массив.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_fill_const(`*x* `[, ` *constant_value* `[,` *missing_value_placeholder*`]])`
 * Возвратит ряд *x* со всеми экземплярами *missing_value_placeholder* заменяются *constant_value*.
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: скалярное выражение динамического массива, которое является массивом числовых значений.
 * *constant_value*: параметр, указывающий заполнитель для замены отсутствующего значения. Значение по умолчанию — *0*. 
@@ -48,7 +48,7 @@ make-series num=count() default=long(null) on TimeStamp from ago(1d) to ago(1h) 
 * *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Таким образом, оба значения `double` (*null*), `long` (*null*) или `int` (*null*) имеют одинаковое значение.
 * Функция сохраняет исходный тип элементов массива. 
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

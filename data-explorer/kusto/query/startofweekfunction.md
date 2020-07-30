@@ -1,6 +1,6 @@
 ---
-title: startofweek() - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описанstartofweek() в Azure Data Explorer.
+title: startofweek () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается startofweek () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,40 +8,40 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9705b586a0b8c5161b7d4c27735f644b6982c707
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 24763297585a7f043847e3037103a61650f65bd1
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81507231"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87343487"
 ---
 # <a name="startofweek"></a>startofweek()
 
-Возвращает начало недели, содержащее дату, сдвинутую на смещение, если это предусмотрено.
+Возвращает начало недели, содержащей дату, смещенную по смещению, если оно предоставлено.
 
 Начало недели считается воскресеньем.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`startofweek(`*Дата* `,`и*смещение*`)`
+`startofweek(`*Дата* [ `,` *смещение*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* `date`: Дата ввода.
-* `offset`: Дополнительное количество офсетных недель с даты ввода (целый ряд, по умолчанию - 0).
+* `date`: Входная дата.
+* `offset`: Необязательное количество смещенных недель с даты ввода (целое число, по умолчанию — 0).
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Время даты, представляющее начало недели для данной *даты,* с смещением, если указано.
+Значение типа DateTime, представляющее начало недели для заданного значения *даты* со смещением, если оно указано.
 
-**Пример**
+## <a name="example"></a>Пример
 
 ```kusto
   range offset from -1 to 1 step 1
  | project weekStart = startofweek(datetime(2017-01-01 10:10:17), offset) 
 ```
 
-|неделяНачало|
+|викстарт|
 |---|
 |2016-12-25 00:00:00.0000000|
 |2017-01-01 00:00:00.0000000|

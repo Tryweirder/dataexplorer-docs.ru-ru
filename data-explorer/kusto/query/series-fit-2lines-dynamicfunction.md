@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 6f1a6e4a80bfbc02f9e6f552ceca2ba1bb54eb08
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 85a034751c6e29b2ca78f1df9de045c1ac07c7fa
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372727"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87343912"
 ---
 # <a name="series_fit_2lines_dynamic"></a>series_fit_2lines_dynamic()
 
@@ -39,18 +39,18 @@ ms.locfileid: "83372727"
 
 Этот оператор аналогичен [series_fit_2lines](series-fit-2linesfunction.md). В отличие от `series-fit-2lines` , она возвращает динамический контейнер.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_fit_2lines_dynamic(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: динамический массив числовых значений.  
 
 > [!TIP]
 > Наиболее удобный способ использования этой функции — применение его к результатам оператора [make-Series](make-seriesoperator.md) .
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

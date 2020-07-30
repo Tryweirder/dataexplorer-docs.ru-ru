@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9f8afae2413d65618cf6b6e2f400df2500b06078
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 4222e0672290a6d934382dd6f922aec082a19af7
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82618057"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338683"
 ---
 # <a name="variance-aggregation-function"></a>вариативность () (статистическая функция)
 
@@ -25,19 +25,19 @@ ms.locfileid: "82618057"
 
 * Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`variance(`суммировать *выражение*`)`
+суммировать `variance(` *выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Значение дисперсии *выражения* в группе.
  
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 range x from 1 to 5 step 1

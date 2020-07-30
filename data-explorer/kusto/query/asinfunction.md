@@ -1,6 +1,6 @@
 ---
-title: асин () - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описывается asin() в Azure Data Explorer.
+title: ASIN () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается ASIN () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,26 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 5db112daeba59dd841b02df8ba1a41185654ad6a
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 360a936d136cd01760175cdf5b5da2718d0cfd91
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81518553"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349505"
 ---
 # <a name="asin"></a>asin()
 
-Возвращает угол, синусоида которого является указанным числом (обратная [`sin()`](sinfunction.md)операция).
+Возвращает угол, синус которого равен указанному числу (операция обратного [`sin()`](sinfunction.md) ).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`asin(`*X*`)`
+`asin(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *x*: Реальное число в диапазоне No-1, 1".
+* *x*: вещественное число в диапазоне [-1, 1].
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-* Значение дуговой синусовой части`x`
-* `null`если `x` < -1 или `x` > 1
+* Значение синуса дуги`x`
+* `null`Если `x` <-1 или `x` > 1

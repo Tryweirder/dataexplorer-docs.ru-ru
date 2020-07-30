@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 1bb995874bf6ac552350c602c6d3742a08b1273b
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: cc0cc7ca77efeae583adeaf7a983d18498e5af96
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763689"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338275"
 ---
 # <a name="welch_test"></a>welch_test()
 
@@ -31,11 +31,11 @@ print
 // pValue = 0.021
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `welch_test(`*mean1* `, ` *variance1* `, ` *count1* `, ` *mean2* `, ` *variance2* `, ` *count2*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *mean1*: выражение, представляющее среднее значение (среднее) первого ряда
 * *variance1*: выражение, представляющее значение дисперсии для первого ряда
@@ -44,7 +44,7 @@ print
 * *variance2*: выражение, представляющее значение дисперсии второго ряда
 * *count2*: выражение, представляющее количество значений во втором ряде
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Из [Википедии](https://en.wikipedia.org/wiki/Welch%27s_t-test):
 

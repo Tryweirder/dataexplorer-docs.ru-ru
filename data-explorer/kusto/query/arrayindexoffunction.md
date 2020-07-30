@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/22/2020
-ms.openlocfilehash: 99044d8762a1c7c7e86fb2633a8226ef48d66b55
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: a366120428d14c713b18aee6652460817c75433a
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225638"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349573"
 ---
 # <a name="array_index_of"></a>array_index_of()
 
 Выполняет поиск заданного элемента в массиве и возвращает его позицию.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `array_index_of(`*массив*,*значение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *массив*: входной массив для поиска.
 * *значение*: искомое значение. Значение должно иметь тип long, Integer, Double, DateTime, TimeSpan, Decimal, String или GUID.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Отсчитываемая от нуля позиция индекса поиска.
 Возвращает-1, если значение не найдено в массиве.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

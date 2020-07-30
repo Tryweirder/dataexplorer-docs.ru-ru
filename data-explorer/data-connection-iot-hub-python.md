@@ -1,20 +1,20 @@
 ---
-title: Создание соединения концентратора IoT для исследователя данных Azure с помощью Python
-description: В этой статье вы узнаете, как создать соединение концентратора IoT для Azure Data Explorer с помощью Python.
-author: lucygoldbergmicrosoft
-ms.author: lugoldbe
-ms.reviewer: orspodek
+title: Создание подключения к данным центра Интернета вещей для Azure обозреватель данных с помощью Python
+description: Из этой статьи вы узнаете, как создать подключение к данным центра Интернета вещей для Azure обозреватель данных с помощью Python.
+author: orspod
+ms.author: orspodek
+ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 4357e53a36274aaefdfc379c73a0f2dc1e0e2bbc
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: b85ec79c962ab4e63c0831f415ee7c3f2074c970
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81497685"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350100"
 ---
-# <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Создание соединения концентратора IoT для исследователя данных Azure с помощью Python (Preview)
+# <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Создание подключения к данным центра Интернета вещей для Azure обозреватель данных с помощью Python (Предварительная версия)
 
 > [!div class="op_single_selector"]
 > * [Портал](ingest-data-iot-hub.md)
@@ -22,7 +22,7 @@ ms.locfileid: "81497685"
 > * [Python](data-connection-iot-hub-python.md)
 > * [Шаблон Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
-В этой статье вы создаете соединение данных Концентратора IoT для Azure Data Explorer с помощью Python. Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure Data Explorer предлагает проглатывание или загрузку данных из концентраторов событий, Концентраторов IoT и капли, написанные в контейнеры с каплями.
+В этой статье вы создадите подключение к данным центра Интернета вещей для Azure обозреватель данных с помощью Python. Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure обозреватель данных предлагает прием или загрузку данных из концентраторов событий, центров Интернета вещей и больших двоичных объектов, записанных в контейнеры больших двоичных объектов.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -32,19 +32,19 @@ ms.locfileid: "81497685"
 
 * [Кластер и база данных](create-cluster-database-python.md).
 
-* [Таблица и столбец отображение](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
+* [Сопоставление таблиц и столбцов](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 
-* [Политики баз данных и таблиц](database-table-policies-python.md) (необязательно).
+* [Политики базы данных и таблиц](database-table-policies-python.md) (необязательно).
 
-* [Концентратор IoT с настроенной общей политикой доступа.](ingest-data-iot-hub.md#create-an-iot-hub)
+* [Центр Интернета вещей с настроенной политикой общего доступа](ingest-data-iot-hub.md#create-an-iot-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](includes/data-explorer-data-connection-install-package-python.md)]
 
 [!INCLUDE [data-explorer-authentication](includes/data-explorer-authentication.md)]
 
-## <a name="add-an-iot-hub-data-connection"></a>Добавление соединения концентратора IoT 
+## <a name="add-an-iot-hub-data-connection"></a>Добавление подключения к данным центра Интернета вещей 
 
-Ниже приводится следующий пример, как программно добавить соединение данных Концентратора IoT. [Спомощью таблицы Azure Data Explorer с IoT Hub](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) можно добавить подключение к концентратору Iot с помощью портала Azure.
+В следующем примере показано, как программным способом добавить подключение к данным центра Интернета вещей. Дополнительные сведения о добавлении подключения к данным центра Интернета вещей с помощью портал Azure см. в статье [подключение обозреватель данных таблицы Azure к центру Интернета вещей](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) .
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
@@ -88,20 +88,20 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 
 |**Параметр** | **Рекомендуемое значение** | **Описание поля**|
 |---|---|---|
-| tenant_id | *xxxxxxxxxx-xxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx* | Идентификатор клиента. Также известен как идентификатор каталога.|
-| subscriptionId | *xxxxxxxxxx-xxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx* | Идентификатор подписки, который используется для создания ресурсов.|
-| client_id | *xxxxxxxxxx-xxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx* | Идентификатор клиента приложения, который может получить доступ к ресурсам в вашем арендаторе.|
-| client_secret | *xxxxxxxxxxxxxxxxxxxx* | Секрет клиента приложения, которое может получить доступ к ресурсам в вашем арендаторе. |
-| resource_group_name | *testrg* | Название группы ресурсов, содержащей кластер.|
-| cluster_name | *mykustocluster* | Название кластера.|
+| tenant_id | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента. Также известен как идентификатор каталога.|
+| subscriptionId | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор подписки, используемый для создания ресурсов.|
+| client_id | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента приложения, которое может получать доступ к ресурсам в клиенте.|
+| client_secret | *кскскскскскскскскскскскскскс* | Секрет клиента приложения, которое может получить доступ к ресурсам в клиенте. |
+| resource_group_name | *testrg* | Имя группы ресурсов, содержащей кластер.|
+| cluster_name | *mykustocluster* | Имя кластера.|
 | database_name | *mykustodatabase* | Имя целевой базы данных в кластере.|
-| data_connection_name | *myeventhubconnect* | Нужное название подключения к данным.|
-| имя_таблицы | *StormEvents* | Имя целевой таблицы в целевой базе данных.|
-| mapping_rule_name | *StormEvents_CSV_Mapping* | Имя отображения столбца, отображение которого относится к целевой таблице.|
-| data_format | *Csv* | Формат данных сообщения.|
-| iot_hub_resource_id | *Идентификатор ресурса* | Идентификатор ресурса вашего концентратора IoT, в мещавх данных для приема.|
-| shared_access_policy_name | *iothubforread* | Название политики общего доступа, определяющей разрешения на подключение устройств и служб к Концентратору IoT. |
-| consumer_group | *$Default* | Группа потребителей вашего концентратора событий.|
-| location | *Центральная часть США* | Расположение ресурса подключения данных.|
+| data_connection_name | *мевенсубконнект* | Требуемое имя подключения к данным.|
+| имя_таблицы | *стормевентс* | Имя целевой таблицы в целевой базе данных.|
+| mapping_rule_name | *StormEvents_CSV_Mapping* | Имя сопоставления столбцов, связанного с целевой таблицей.|
+| data_format | *-* | Формат данных сообщения.|
+| iot_hub_resource_id | *Идентификатор ресурса* | Идентификатор ресурса центра Интернета вещей, который содержит данные для приема.|
+| shared_access_policy_name | *иосубфорреад* | Имя политики общего доступа, определяющей разрешения для подключения устройств и служб к центру Интернета вещей. |
+| consumer_group | *$Default* | Группа потребителей концентратора событий.|
+| location | *Центральная часть США* | Расположение ресурса подключения к данным.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](includes/data-explorer-data-connection-clean-resources-python.md)]

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 0ff4ad4adbae580e34c946eb9d18ca3337d3c49c
-ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
+ms.openlocfilehash: 8d60ad8a5e2c9a94164fb816db9e9913dcff56ea
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85128892"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345765"
 ---
 # <a name="rolling_percentile-plugin"></a>подключаемый модуль rolling_percentile ()
 
@@ -23,11 +23,11 @@ ms.locfileid: "85128892"
 T | evaluate rolling_percentile(ValueColumn, Percentile, IndexColumn, BinSize, BinsPerWindow)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| evaluate` `rolling_percentile(` *ValueColumn* `,` *процентиль* `,` *индексколумн* `,` *бинсизе* `,` *бинспервиндов* [ `,` *Dim1* `,` *dim2* `,` ...]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: Входное табличное выражение.
 * *ValueColumn*: имя столбца со значениями для вычисления процентиля. 
@@ -37,7 +37,7 @@ T | evaluate rolling_percentile(ValueColumn, Percentile, IndexColumn, BinSize, B
 * *Бинспервиндов*: скалярное число ячеек, включаемых в каждое окно.
 * *Dim1*, *dim2*,... (необязательно) список столбцов измерений для среза.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает таблицу со строкой для каждой ячейки (и комбинацию измерений, если она задана), которая содержит скользящий процентиль значений в окне, завершающемся в ячейке (включительно). значения числа различных объектов, разные счетчики новых значений, агрегированные различные числа для каждого временного интервала.
 
@@ -48,7 +48,7 @@ T | evaluate rolling_percentile(ValueColumn, Percentile, IndexColumn, BinSize, B
 |---|---|---|---|---|
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ### <a name="rolling-3-day-median-value-per-day"></a>Скользящее медиа-значение за 3 дня в день 
 
@@ -64,7 +64,7 @@ range idx from 0 to 24*10-1 step 1
  | evaluate rolling_percentile(val, 50, Timestamp, 1d, 3)
 ```
 
-|Отметка времени|rolling_3_percentile_val_50|
+|Timestamp|rolling_3_percentile_val_50|
 |---|---|
 |2018-01-01 00:00:00.0000000|   12|
 |2018-01-02 00:00:00.0000000|   24|
@@ -91,7 +91,7 @@ range idx from 0 to 24*10-1 step 1
  | evaluate rolling_percentile(val, 50, Timestamp, 1d, 3, EvenOrOdd)
 ```
 
-|Отметка времени| евенородд|  rolling_3_percentile_val_50|
+|Timestamp| евенородд|  rolling_3_percentile_val_50|
 |---|---|---|
 |2018-01-01 00:00:00.0000000|   Разного|   12|
 |2018-01-02 00:00:00.0000000|   Разного|   24|

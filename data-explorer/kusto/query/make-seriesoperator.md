@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: 5c1d25c0eaa0a3f52c18cf2f1e5e4200775b7d9d
-ms.sourcegitcommit: 974d5f2bccabe504583e387904851275567832e7
+ms.openlocfilehash: 4f303726532da7ead1c2416f3d485979d045b0b2
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83550577"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346972"
 ---
 # <a name="make-series-operator"></a>Оператор make-series
 
@@ -23,11 +23,11 @@ ms.locfileid: "83550577"
 T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from datetime(2016-01-01) to datetime(2016-01-10) step 1d by fruit, supplier
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| make-series` [*макесериеспарамтерс*] [*Column* `=` ] *агрегирование* [ `default` `=` *DefaultValue*] [ `,` ...] `on` *AxisColumn* [ `from` *Начало*] [ `to` *конец*] `step` *шаг* [ `by` [*столбец* `=` ] *GroupExpression* [ `,` ...]]
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Column* — необязательное имя итогового столбца. По умолчанию это имя, получаемое из выражения.
 * *DefaultValue:* Значение по умолчанию, которое будет использоваться вместо отсутствия значений. Если нет строки с конкретными значениями *AxisColumn* и *GroupExpression*, то в результатах для соответствующего элемента массива будет присвоено значение *DefaultValue*. Если значение *DefaultValue* опущено, то предполагается значение 0. 
@@ -43,7 +43,7 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
   |---------------|-------------------------------------|------------------------------------------------------------------------------|
   |`kind`          |`nonempty`                               |Создает результат по умолчанию, если входные данные оператора Make-Series пусты|                                
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Входные строки упорядочиваются по группам с одинаковыми значениями `by` выражений и `bin_at(` *AxisColumn* `, ` *шага* `, ` *начала* `)` . Затем указанные агрегатные функции выполняют вычисления и создают строку для каждой группы. Результат содержит столбцы Columns `by` , *AxisColumn* и, по крайней мере, один столбец для каждого вычисляемого агрегата. (Агрегирование, что несколько столбцов или нечисловые результаты не поддерживаются.)
 
@@ -73,22 +73,22 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
 
 ## <a name="list-of-aggregation-functions"></a>Список статистических функций
 
-|Функция|Описание:|
+|Компонент|Описание|
 |--------|-----------|
-|[any()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
+|[Any ()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
 |[AVG ()](avg-aggfunction.md)|Возвращает среднее значение в группе|
 |[Count ()](count-aggfunction.md)|Возвращает количество групп|
 |[countif()](countif-aggfunction.md)|Возвращает число с предикатом группы|
 |[dcount()](dcount-aggfunction.md)|Возвращает приблизительное число различных элементов группы.|
-|[Max ()](max-aggfunction.md)|Возвращает максимальное значение в группе|
-|[min ()](min-aggfunction.md)|Возвращает минимальное значение в группе|
+|[max()](max-aggfunction.md)|Возвращает максимальное значение в группе.|
+|[min()](min-aggfunction.md)|Возвращает минимальное значение в группе.|
 |[STDEV ()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
 |[Sum ()](sum-aggfunction.md)|Возвращает сумму элементов в группе|
 |[variance()](variance-aggfunction.md)|Возвращает дисперсию по группе|
 
 ## <a name="list-of-series-analysis-functions"></a>Список функций анализа рядов
 
-|Функция|Описание:|
+|Компонент|Описание|
 |--------|-----------|
 |[series_fir()](series-firfunction.md)|Применение фильтра [конечного ответа с ограничением](https://en.wikipedia.org/wiki/Finite_impulse_response)|
 |[series_iir()](series-iirfunction.md)|Применяет [бесконечный фильтр ответов с неограниченным импульсом](https://en.wikipedia.org/wiki/Infinite_impulse_response)|
@@ -104,7 +104,7 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
   
 ## <a name="list-of-series-interpolation-functions"></a>Список функций интерполяции ряда
 
-|Функция|Описание|
+|Компонент|Описание|
 |--------|-----------|
 |[series_fill_backward()](series-fill-backwardfunction.md)|Выполняет интерполяцию обратной заливки отсутствующих значений в ряде|
 |[series_fill_const()](series-fill-constfunction.md)|Заменяет отсутствующие значения в ряде с указанным постоянным значением|
@@ -185,7 +185,7 @@ data
 | count 
 ```
 
-|Count|
+|Счетчик|
 |---|
 |0|
 

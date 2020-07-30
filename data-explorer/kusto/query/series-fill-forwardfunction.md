@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 7ea5210f0370b495c48615d28e763bf6e396d46e
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: 711a8eb851e7df8ba5b78bd03c42a77eb05d8510
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763708"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87344508"
 ---
 # <a name="series_fill_forward"></a>series_fill_forward()
 
@@ -21,12 +21,12 @@ ms.locfileid: "85763708"
 
 Входными данными является выражение, содержащее динамический числовой массив. Функция заменяет все экземпляры missing_value_placeholder ближайшим значением из левой части, отличной от missing_value_placeholder, и возвращает результирующий массив. Сохраняются крайние левые экземпляры missing_value_placeholder.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_fill_forward(`*x* `[, ` *missing_value_placeholder*`])`
 * Возвратит ряд *x* со всеми экземплярами *missing_value_placeholder* заполненные вперед.
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *x*: скалярное выражение с динамическим массивом, представляющее собой массив числовых значений. 
 * *missing_value_placeholder*: необязательный параметр, который указывает заполнитель для замены отсутствующего значения. Значение по умолчанию — `double` (*null*).
@@ -44,7 +44,7 @@ make-series num=count() default=long(null) on TimeStamp from ago(1d) to ago(1h) 
 * Если missing_value_placeholder имеет значение (null) (или опущено, то есть имеет то же значение), результат может содержать значения *null* . Для заполнения этих значений *null* используйте другие функции интерполяции. В настоящее время только [series_outliers ()](series-outliersfunction.md) поддерживают значения *null* во входных массивах.
 * Функции сохраняют исходный тип элементов массива.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

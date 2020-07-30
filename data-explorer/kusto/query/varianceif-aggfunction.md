@@ -1,6 +1,6 @@
 ---
-title: дисперсия() (функция агрегирования) - Azure Data Explorer Документы Майкрософт
-description: В этой статье описаны дисперсии () (функция агрегирования) в Azure Data Explorer.
+title: варианцеиф () (агрегатная функция) — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается варианцеиф () (статистическая функция) в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,33 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9dfebb3796f07dec6c91d36d788a018f84f70961
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: bf1009d2d269bf21ea5ae14a9c828724d8bf8c70
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81504681"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338479"
 ---
-# <a name="varianceif-aggregation-function"></a>дисперсия() (функция агрегирования)
+# <a name="varianceif-aggregation-function"></a>варианцеиф () (агрегатная функция)
 
-Вычисляет [дисперсию](variance-aggfunction.md) *Expr* по всей группе, `true`для которой *Predicate* оценивает .
+Вычисляет [дисперсию](variance-aggfunction.md) *выражения* в группе, для которой вычисляется *предикат* `true` .
 
-* Может быть использован только в контексте агрегации внутри [суммировать](summarizeoperator.md)
+* Может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-резюмировать `varianceif(` *Expr*`, `*Predicate*`)`
+суммировать `varianceif(` *Expr* `, ` *предикат* выражения`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *Expr*: Выражение, которое будет использоваться для расчета агрегации. 
-* *Предикат*: Предикат, что если это правда, вычисленное значение *Expr* будет добавлено к дисперсии.
+* *Expr*: выражение, которое будет использоваться для вычисления агрегата. 
+* *Предикат*: predicate, если true, вычисляемое значение *expr* будет добавлено к дисперсии.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Значение дисперсии *Expr* по всей группе, `true`где *Predicate* оценивает .
+Значение дисперсии *выражения* для *предиката* WHERE Group равно `true` .
  
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 range x from 1 to 100 step 1

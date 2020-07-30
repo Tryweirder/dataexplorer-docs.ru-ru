@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2019
-ms.openlocfilehash: ee9c4b236344e21bbbc1da68b76710b15b519baa
-ms.sourcegitcommit: 56bb7b69654900ed63310ac9537ae08b72bf7209
+ms.openlocfilehash: 8358bf9a8eb0dab38b8f5847521e069f21fe4a2c
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85814217"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346700"
 ---
 # <a name="mv-expand-operator"></a>Оператор mv-expand
 
@@ -21,13 +21,13 @@ ms.locfileid: "85814217"
 
 `mv-expand`применяется к столбцу в [динамическом](./scalar-data-types/dynamic.md)типизированном массиве или контейнере свойств, поэтому каждое значение в коллекции получает отдельную строку. Все остальные столбцы в развернутой строке дублируются. 
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| mv-expand ` [ `bagexpansion=` ( `bag`  |  `array` )] [ `with_itemindex=` *индексколумннаме*] *ColumnName* [ `,` *ColumnName* ...] [ `limit` *ровлимит*]
 
 *T* `| mv-expand ` [ `bagexpansion=` ( `bag`  |  `array` )] [*имя* `=` ] *аррайекспрессион* [ `to typeof(` *TypeName* `)` ] [, [*имя* `=` ] *аррайекспрессион* [ `to typeof(` *TypeName* `)` ]...] [ `limit` *ровлимит*]
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *ColumnName* — в выходных данных массивы из этого столбца будут развернуты в несколько строк. 
 * *ArrayExpression* — выражение, которое возвращает массив. Если используется этот аргумент, добавляется новый столбец, а существующий сохраняется.
@@ -40,7 +40,7 @@ ms.locfileid: "85814217"
 
 * *Индексколумннаме:* Если `with_itemindex` указан параметр, выходные данные будут включать в себя дополнительный столбец (с именем *индексколумннаме*), который содержит индекс (начиная с 0) элемента в исходной расширенной коллекции. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Несколько строк для каждого значения в любом массиве, который находится в именованном столбце или в выражении массива.
 Если указано несколько столбцов или выражений, они развертываются параллельно. Для каждой входной строки будет указано столько выходных строк, сколько есть элементов в максимальном развернутом выражении (более короткие списки дополнены значениями NULL). Если значение в строке является пустым массивом, строка расширяется до Nothing (не отображается в результирующем наборе). Однако если значение в строке не является массивом, строка сохраняется в результирующем наборе как есть. 
@@ -63,7 +63,7 @@ datatable (a:int, b:dynamic)[1,dynamic({"prop1":"a", "prop2":"b"})]
 | mv-expand b 
 ```
 
-|а|b|
+|a|b|
 |---|---|
 |1|{"Prop1": "a"}|
 |1|{"Prop2": "b"}|
@@ -78,7 +78,7 @@ datatable (a:int, b:dynamic, c:dynamic)[1,dynamic({"prop1":"a", "prop2":"b"}), d
 | mv-expand b, c
 ```
 
-|а|b|с|
+|a|b|с|
 |---|---|---|
 |1|{"Prop1": "a"}|5|
 |1|{"Prop2": "b"}|4|
@@ -95,7 +95,7 @@ datatable (a:int, b:dynamic, c:dynamic)[1,dynamic({"prop1":"a", "prop2":"b"}), d
 | mv-expand c
 ```
 
-|а|b|с|
+|a|b|с|
 |---|---|---|
 |1|{"Prop1": "a"}|5|
 |1|{"Prop2": "b"}|5|
@@ -113,7 +113,7 @@ datatable (a:string, b:dynamic, c:dynamic)["Constant", dynamic([1,2,3,4]), dynam
 
 ColumnName|ColumnOrdinal|DateType|ColumnType
 -|-|-|-
-а|0|System.String|строка
+a|0|System.String|строка
 b|1|System.Object|Динамический
 с|2|System.Int32|INT
 

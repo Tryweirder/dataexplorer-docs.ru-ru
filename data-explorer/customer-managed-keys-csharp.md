@@ -1,18 +1,18 @@
 ---
 title: 'Настройка ключей, управляемых клиентом, с помощью C #'
 description: В этой статье описывается, как настроить шифрование ключей, управляемых клиентом, на основе данных в Azure обозреватель данных.
-author: saguiitay
-ms.author: itsagui
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 1d562939430aa5040dc2ab96ae59611d2685e057
-ms.sourcegitcommit: a7e040fc844098323aa1c00e254bcbcd41fe587f
+ms.openlocfilehash: 84d21c7cedd77a409e0d5e1c1ca0cc5f93fdad16
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84426542"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350253"
 ---
 # <a name="configure-customer-managed-keys-using-c"></a>Настройка ключей, управляемых клиентом, с помощью C #
 
@@ -91,7 +91,7 @@ ms.locfileid: "84426542"
 
 При создании новой версии ключа необходимо обновить кластер для использования новой версии. Сначала вызовите метод, `Get-AzKeyVaultKey` чтобы получить последнюю версию ключа. Затем обновите свойства хранилища ключей кластера, чтобы использовать новую версию ключа, как показано в разделе [Настройка кластера](#configure-cluster).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
 * [Настройка управляемых удостоверений для кластера Azure обозреватель данных](managed-identities.md)

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/10/2019
-ms.openlocfilehash: 5a8ce5a66da871dfaa6f65a0fbc8addeb0f42926
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: 47b6ab3db5f0ea252fa86ef925026613654afeea
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264597"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87341643"
 ---
 # <a name="tdigest-aggregation-function"></a>тдижест () (агрегатная функция)
 
@@ -24,17 +24,17 @@ ms.locfileid: "85264597"
 
 Дополнительные сведения см. в разделе [базовый алгоритм (T-Digest) и предполагаемая ошибка](percentiles-aggfunction.md#estimation-error-in-percentiles).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `summarize` `tdigest`(*`Expr`* [`,` *`WeightExpr`*])
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение, используемое для вычисления агрегата.
 * *Веигхтекспр*: выражение, используемое в качестве веса значений для вычисления статистической обработки.
 
     
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Промежуточные результаты взвешенного процентили `*Expr*` в группе.
  
@@ -45,7 +45,7 @@ ms.locfileid: "85264597"
 
 * Используйте функцию [percentile_tdigest ()](percentile-tdigestfunction.md) , чтобы вычислить процентиль/перцентилев `tdigest` результатов.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

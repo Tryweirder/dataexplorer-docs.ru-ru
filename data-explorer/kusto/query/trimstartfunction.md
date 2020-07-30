@@ -1,6 +1,6 @@
 ---
-title: trim_start () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описывается trim_start () в Azure Data Explorer.
+title: trim_start () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается trim_start () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,33 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 1d4ae71f73e76005f89766d974192c8eb24cd74d
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 4550fb07da37658ecf11a4eb04ecdf199d8ba989
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81505582"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87339550"
 ---
 # <a name="trim_start"></a>trim_start()
 
-Удаляет ведущее соответствие указанного регулярного выражения.
+Удаляет начальное соответствие указанного регулярного выражения.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`trim_start(`*regex* `,` *текст*`)`
+`trim_start(`*регулярное выражение* `,` *текстовая надпись*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *regex*: Строка или [регулярное выражение,](re2.md) чтобы быть обрезаны с начала *текста*.  
-* *текст*: Строка.
+* *Regex*: строковое или [регулярное выражение](re2.md) , которое должно быть обрезано от начала *текста*.  
+* *Text*: строка.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-*текст* после обрезки матч *regex* найден в начале *текста*.
+*текст* после усечения совпадений *регулярного выражения* , найденного в начале *текста*.
 
-**Пример**
+## <a name="example"></a>Пример
 
-Заявление ниже отделки *подстроки* с начала *string_to_trim:*
+Инструкция ниже обрезает *подстроку* с начала *string_to_trim*:
 
 ```kusto
 let string_to_trim = @"https://bing.com";
@@ -46,7 +46,7 @@ print string_to_trim = string_to_trim,trimmed_string = trim_start(substring,stri
 |---|---|
 |https://bing.com|bing.com|
 
-Следующее утверждение обрезает все символы, не связанные со словом, с начала строки:
+Оператор Next обрезает все символы, не являющиеся словами, из начала строки:
 
 ```kusto
 range x from 1 to 5 step 1
@@ -56,10 +56,10 @@ range x from 1 to 5 step 1
 
 |str|trimmed_str|
 |---|---|
-|- Te st1// $|Te st1// $|
-|- Te st2// $|Te st2// $|
-|- Te st3// $|Te st3// $|
-|- Te st4// $|Te st4// $|
-|- Te st5// $|Te st5// $|
+|-TE ST1//$|TE ST1//$|
+|-TE ST2//$|TE ST2//$|
+|-TE ST3//$|TE ST3//$|
+|-TE ST4//$|TE ST4//$|
+|-TE ST5//$|TE ST5//$|
 
  

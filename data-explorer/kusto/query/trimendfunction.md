@@ -1,6 +1,6 @@
 ---
-title: trim_end () - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описаны trim_end() в Azure Data Explorer.
+title: trim_end () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается trim_end () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,33 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: a6f6ffc264cb436fc61d74f08dfded915caa05d4
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: cab78680a3b996234724bc052d75959928520289
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81505650"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87339856"
 ---
 # <a name="trim_end"></a>trim_end()
 
-Удаляет задняя совпадение указанного регулярного выражения.
+Удаляет конечную совпадающую часть указанного регулярного выражения.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`trim_end(`*regex* `,` *текст*`)`
+`trim_end(`*регулярное выражение* `,` *текстовая надпись*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *regex*: Строка или [регулярное выражение,](re2.md) чтобы быть обрезаны с конца *текста*.  
-* *текст*: Строка.
+* *Regex*: строка или [регулярное выражение](re2.md) для усечения из конца *текста*.  
+* *Text*: строка.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-*текст* после обрезки матчей *regex* найден в конце *текста*.
+*текст* после усечения совпадений *регулярного выражения* , найденного в конце *текста*.
 
-**Пример**
+## <a name="example"></a>Пример
 
-Заявление ниже отделки *подстроки* от конца *string_to_trim:*
+Оператор ниже обрезает *подстроку* с конца *string_to_trim*:
 
 ```kusto
 let string_to_trim = @"bing.com";
@@ -46,7 +46,7 @@ print string_to_trim = string_to_trim,trimmed_string = trim_end(substring,string
 |--------------|--------------|
 |bing.com      |bing          |
 
-Следующее утверждение обрезает все символы, не связанные со словом, из конца строки:
+Оператор Next обрезает все символы, не являющиеся словами, из конца строки:
 
 ```kusto
 print str = strcat("-  ","Te st",x,@"// $")
@@ -55,8 +55,8 @@ print str = strcat("-  ","Te st",x,@"// $")
 
 |str          |trimmed_str|
 |-------------|-----------|
-|- Te st1// $|- Te st1  |
-|- Te st2// $|- Te st2  |
-|- Te st3// $|- Te st3  |
-|- Te st4// $|- Te st4  |
-|- Te st5// $|- Te st5  |
+|-TE ST1//$|-TE ST1  |
+|-TE ST2//$|-TE ST2  |
+|-TE ST3//$|-TE ST3  |
+|-TE ST4//$|-TE ST4  |
+|-TE ST5//$|-TE ST5  |

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 634f54533e83575139d8399124cc068af56d8574
-ms.sourcegitcommit: 4f68d6dbfa6463dbb284de0aa17fc193d529ce3a
+ms.openlocfilehash: 2093ff1117cf7744af550cf93c3fe630fa40a6e6
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82741670"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87340182"
 ---
 # <a name="tostring"></a>tostring()
 
@@ -23,16 +23,16 @@ ms.locfileid: "82741670"
 tostring(123) == "123"
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `tostring(`*`Expr`*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *`Expr`*: Выражение, которое будет преобразовано в строку. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-Если *`Expr`* значение не равно null, результатом будет строковое представление *`Expr`*.
+Если *`Expr`* значение не равно null, результатом будет строковое представление *`Expr`* .
 Если *`Expr`* значение равно null, результатом будет пустая строка.
  

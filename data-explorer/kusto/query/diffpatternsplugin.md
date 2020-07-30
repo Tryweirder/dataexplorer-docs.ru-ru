@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: b3dece66f3bafae989643afd418557aeaaa7d746
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: a02f275dc47e88c7b14b85d19040e907613d1b80
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225043"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348332"
 ---
 # <a name="diff-patterns-plugin"></a>подключаемый модуль шаблонов diff
 
@@ -25,7 +25,7 @@ T | evaluate diffpatterns(splitColumn)
 ```
 
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `T | evaluate diffpatterns(SplitColumn, SplitValueA, SplitValueB [, WeightColumn, Threshold, MaxDimensions, CustomWildcard, ...])` 
 
@@ -76,7 +76,7 @@ T | evaluate diffpatterns(splitColumn)
 
     Пример: `T | extend splitColumn = iff(request-responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))`
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 `Diffpatterns`Возвращает небольшой набор шаблонов, которые захватывают различные части данных в двух наборах (то есть шаблон, захватывает большой процент строк в первом наборе данных, и низкий процент строк во втором наборе). В результатах каждый шаблон соответствует строке.
 
@@ -101,7 +101,7 @@ T | evaluate diffpatterns(splitColumn)
 * Примечание. шаблоны часто не отличаются. Они могут перекрываться и обычно не охватывают все исходные строки. Некоторые строки могут не охватываться ни одним из шаблонов.
 
 
-**"Советы"**
+**Советы**
 
 Используйте [WHERE](./whereoperator.md) и [Project](./projectoperator.md) во входном канале, чтобы уменьшить объем данных до того, что вас интересует.
 
@@ -109,7 +109,7 @@ T | evaluate diffpatterns(splitColumn)
 
 * Примечание. `diffpatterns` нацелены на поиск существенных шаблонов (которые захватывают части различий данных между наборами) и не предназначены для построчных различий.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -120,7 +120,7 @@ StormEvents
 | evaluate diffpatterns(Damage, "0", "1" )
 ```
 
-|Идентификатор сегмента|Число A|Число B|Процент A|Процент B|перцентдиффаб|State|EventType|Источник|DamageCrops|
+|Идентификатор сегмента|Число A|Число B|Процент A|Процент B|перцентдиффаб|Состояние|EventType|Источник|DamageCrops|
 |---|---|---|---|---|---|---|---|---|---|
 |0|2278|93|49,8|7.1|42,7||Град||0|
 |1|779|512|17,03|39,08|22,05||Шквалистый ветер|||

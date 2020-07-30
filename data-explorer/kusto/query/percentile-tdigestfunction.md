@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/10/2019
-ms.openlocfilehash: 1d93535ff2caff096a18e2324fd3015ca91fc5b4
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 814124dc0ae9fa5f26a198fafc1bf1d7fd2b83e4
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373254"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346207"
 ---
 # <a name="percentile_tdigest"></a>percentile_tdigest()
 
 Вычисляет результат процентиля на основе `tdigest` результатов (созданных [тдижест ()](tdigest-aggfunction.md) или [tdigest_merge ()](tdigest-merge-aggfunction.md))
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `percentile_tdigest(`*`Expr`*`,`*Percentile1* [ `,` *типелитерал*]`)`
 
@@ -27,18 +27,18 @@ ms.locfileid: "83373254"
 
 `percentiles_array_tdigest(`*`Expr`*`,`*Динамический массив*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Expr*: выражение, созданное [`tdigest`](tdigest-aggfunction.md) или [tdigest_merge ()](tdigest-merge-aggfunction.md).
 * *Процентиль* — это двойная константа, указывающая процентиль.
 * *типелитерал*: необязательный литерал типа (например, `typeof(long)` ). Если он указан, результирующий набор будет иметь такой тип. 
 * *Динамический массив*. список процентили в динамическом массиве целочисленных значений с плавающей запятой.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Значение процентили/перцентилесв для каждого значения в *`Expr`* .
 
-**"Советы"**
+**Советы**
 
 * Функция должна получить по крайней мере один процент (и, возможно, более, см. синтаксис, приведенный выше: *Percentile1* [ `,` *Percentile2*]... [ `,` *Перцентилен*]), а результат будет динамическим массивом, содержащим результаты. (например, [`percentiles()`](percentiles-aggfunction.md) )
   
@@ -46,7 +46,7 @@ ms.locfileid: "83373254"
 
 * Если *`Expr`* содержит `tdigest` функции различных типов, не следует указывать тип. Результат будет иметь тип Dynamic. Ознакомьтесь с приведенными ниже примерами.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

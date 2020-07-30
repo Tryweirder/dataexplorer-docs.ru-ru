@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 8fd83615de466c238a590273b228c118e2cd1b46
-ms.sourcegitcommit: 9fe6e34ef3321390ee4e366819ebc9b132b3e03f
+ms.openlocfilehash: 1f9cc982c213a9c2143b169dcf8a12103d617257
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84257846"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346717"
 ---
 # <a name="mv-apply-operator"></a>Оператор mv-apply
 
@@ -57,7 +57,7 @@ T | mv-apply Metric to typeof(real) on
 
 `mv-apply`Оператор может рассматриваться как обобщение [`mv-expand`](./mvexpandoperator.md) оператора (на самом деле, второй может быть реализован первым, если вложенный запрос включает только проекции).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `|` `mv-apply` [*итеминдекс*] *колумнстоекспанд* [*ровлимит*] `on` `(` *вложенный запрос*`)`
 
@@ -75,7 +75,7 @@ T | mv-apply Metric to typeof(real) on
 
 и *вложенный запрос* имеют тот же синтаксис, что и любая инструкция запроса.
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Итеминдекс*: Если используется, указывает имя столбца типа `long` , который добавляется к входным данным как часть фазы расширения массива и указывает индекс массива, основанного на 0, для развернутого значения.
 
@@ -98,7 +98,7 @@ T | mv-apply Metric to typeof(real) on
 
 * В отличие от [`mv-expand`](./mvexpandoperator.md) оператора, `mv-apply` оператор поддерживает только расширение массива. Расширять контейнеры свойств не поддерживается.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ## <a name="getting-the-largest-element-from-the-array"></a>Получение самого крупного элемента из массива
 

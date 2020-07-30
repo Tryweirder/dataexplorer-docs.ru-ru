@@ -1,27 +1,27 @@
 ---
-title: Добавление основ базы данных для Исследователя данных Azure с помощью Python
-description: В этой статье вы узнаете, как добавить принципы базы данных для Azure Data Explorer с помощью Python.
-author: lucygoldbergmicrosoft
-ms.author: lugoldbe
-ms.reviewer: orspodek
+title: Добавление участников базы данных для обозреватель данных Azure с помощью Python
+description: Из этой статьи вы узнаете, как добавить субъекты базы данных для Azure обозреватель данных с помощью Python.
+author: orspod
+ms.author: orspodek
+ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 3ddb34692158fdc7e6d4f7786f84b8c059bc0621
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 54b2d05c666c1ac3ed35520ad383f01eff3371cb
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81498699"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350015"
 ---
-# <a name="add-database-principals-for-azure-data-explorer-by-using-python"></a>Добавление основ базы данных для Исследователя данных Azure с помощью Python
+# <a name="add-database-principals-for-azure-data-explorer-by-using-python"></a>Добавление участников базы данных для обозреватель данных Azure с помощью Python
 
 > [!div class="op_single_selector"]
 > * [C#](database-principal-csharp.md)
 > * [Python](database-principal-python.md)
 > * [Шаблон Azure Resource Manager](database-principal-resource-manager.md)
 
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. В этой статье вы добавляете принципы базы данных для Azure Data Explorer с помощью Python.
+Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. В этой статье вы добавите участников базы данных для Azure обозреватель данных с помощью Python.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -39,9 +39,9 @@ pip install azure-mgmt-kusto
 
 [!INCLUDE [data-explorer-authentication](includes/data-explorer-authentication.md)]
 
-## <a name="add-a-database-principal"></a>Добавление основной базы данных
+## <a name="add-a-database-principal"></a>Добавление участника базы данных
 
-Следующий пример показывает, как добавить основную базу данных программно.
+В следующем примере показано, как добавить участника базы данных программным способом.
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
@@ -81,19 +81,19 @@ poller = kusto_management_client.database_principal_assignments.create_or_update
 
 |**Параметр** | **Рекомендуемое значение** | **Описание поля**|
 |---|---|---|
-| tenant_id | *xxxxxxxxxx-xxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx* | Идентификатор клиента. Также известен как идентификатор каталога.|
-| subscription_id | *xxxxxxxxxx-xxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx* | Идентификатор подписки, который используется для создания ресурсов.|
-| client_id | *xxxxxxxxxx-xxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx* | Идентификатор клиента приложения, который может получить доступ к ресурсам в вашем арендаторе.|
-| client_secret | *xxxxxxxxxxxxxxxxxxxx* | Секрет клиента приложения, которое может получить доступ к ресурсам в вашем арендаторе. |
-| resource_group_name | *testrg* | Название группы ресурсов, содержащей кластер.|
-| cluster_name | *mykustocluster* | Название кластера.|
+| tenant_id | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента. Также известен как идентификатор каталога.|
+| subscription_id | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор подписки, используемый для создания ресурсов.|
+| client_id | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента приложения, которое может получать доступ к ресурсам в клиенте.|
+| client_secret | *кскскскскскскскскскскскскскс* | Секрет клиента приложения, которое может получить доступ к ресурсам в клиенте. |
+| resource_group_name | *testrg* | Имя группы ресурсов, содержащей кластер.|
+| cluster_name | *mykustocluster* | Имя кластера.|
 | database_name | *mykustodatabase* | Имя базы данных.|
-| principal_assignment_name | *База данныхПринципиальноеназначение1* | Имя основного ресурса базы данных.|
-| principal_id | *xxxxxxxxxx-xxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx* | Основным идентификатором, который может быть электронной почтой пользователя, идентификатором приложения или именем группы безопасности.|
-| роль | *Администрирование* | Роль основного специалиста базы данных, которая может быть 'Админ', 'Ingestor', 'Монитор', 'Пользователь', 'Неограниченные Зрители', 'Viewer'.|
-| tenant_id_for_principal | *xxxxxxxxxx-xxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx* | Идентификатор арендатора доверителя.|
-| principal_type | *Приложение* | Тип принципала, который может быть 'Пользователь', 'App', или 'Группа'|
+| principal_assignment_name | *databasePrincipalAssignment1* | Имя ресурса участника базы данных.|
+| principal_id | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор участника, который может быть адресом электронной почты пользователя, ИДЕНТИФИКАТОРом приложения или именем группы безопасности.|
+| роль | *Администратор* | Роль участника базы данных, которой может быть "admin", "принимающий", "Monitor", "User", "Унрестриктедвиеверс", "Viewer".|
+| tenant_id_for_principal | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента участника.|
+| principal_type | *Приложение* | Тип участника, который может иметь значение "User", "App" или "Group"|
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* [Проем данных с помощью библиотеки Azure Data Explorer Python](python-ingest-data.md)
+* [Прием данных с помощью библиотеки Azure обозреватель данных Python](python-ingest-data.md)

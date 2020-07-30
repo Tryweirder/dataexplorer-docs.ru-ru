@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9aa85bcb12cd5f8d836f58ea9d16a318d8a40506
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: cdee53ad7f46aacb71b8a8277e5b875e60438874
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225961"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349828"
 ---
 # <a name="activity_engagement-plugin"></a>Подключаемый модуль activity_engagement
 
@@ -25,11 +25,11 @@ ms.locfileid: "83225961"
 T | evaluate activity_engagement(id, datetime_column, 1d, 30d)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| evaluate` `activity_engagement(` *идколумн* `,` *тимелинеколумн* `,` [*начальный* `,` *конец* `,` ] *иннерактивитивиндов* `,` *аутерактивитивиндов* [ `,` *Dim1* `,` *dim2* `,` ...]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: Входное табличное выражение.
 * *Идколумн*: имя столбца со значениями идентификаторов, представляющими действия пользователя. 
@@ -40,7 +40,7 @@ T | evaluate activity_engagement(id, datetime_column, 1d, 30d)
 * *Аутерактивитивиндов*: скалярный со значением периода окна анализа внешней области.
 * *Dim1*, *dim2*,...: (необязательно) список столбцов измерений, которые срезируют вычисление метрик действия.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает таблицу, имеющую (число различных значений ИДЕНТИФИКАТОРов в окне внутренней области, различные значения ИДЕНТИФИКАТОРов в окне внешней области и коэффициент действия) для каждого периода окна внутренней области и для каждого сочетания существующих измерений.
 
@@ -51,7 +51,7 @@ T | evaluate activity_engagement(id, datetime_column, 1d, 30d)
 |Тип: от *тимелинеколумн*|long|long|double|..|..|..|
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ### <a name="dauwau-calculation"></a>Вычисление DAU/WAU
 

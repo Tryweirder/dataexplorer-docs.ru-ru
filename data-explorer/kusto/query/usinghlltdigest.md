@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 8da464bca228df5a813f50e68fab5ddb2aa926cf
-ms.sourcegitcommit: 4f576c1b89513a9e16641800abd80a02faa0da1c
+ms.openlocfilehash: bd3e7a77a4de46b6dcebb2f58c98009a9edddb43
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85128671"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338615"
 ---
 # <a name="using-hll-and-tdigest"></a>Использование hll() и tdigest()
 
@@ -81,7 +81,7 @@ MyTable
 |0|
 
 
-**Пример**
+## <a name="example"></a>Пример
 
 Существует таблица, `PageViewsHllTDigest` содержащая `hll` значения страниц, просматриваемых каждый час. Вы хотите, чтобы эти значения Binned `12h` . Объедините `hll` значения с помощью `hll_merge()` агрегатной функции с меткой времени Binned в `12h` . Используйте функцию, `dcount_hll` чтобы вернуть конечное `dcount` значение:
 
@@ -91,7 +91,7 @@ PageViewsHllTDigest
 | project Timestamp , dcount_hll(merged_hll)
 ```
 
-|Отметка времени|`dcount_hll_merged_hll`|
+|Timestamp|`dcount_hll_merged_hll`|
 |---|---|
 |2016-05-01 12:00:00.0000000|20056275|
 |2016-05-02 00:00:00.0000000|38797623|
@@ -106,7 +106,7 @@ PageViewsHllTDigest
 | project Timestamp , dcount_hll(merged_hll)
 ```
 
-|Отметка времени|`dcount_hll_merged_hll`|
+|Timestamp|`dcount_hll_merged_hll`|
 |---|---|
 |2016-05-01 00:00:00.0000000|20056275|
 |2016-05-02 00:00:00.0000000|64135183|
@@ -120,14 +120,14 @@ PageViewsHllTDigest
 | project Timestamp , percentile_tdigest(merged_tdigests, 95, typeof(long))
 ```
 
-|Отметка времени|`percentile_tdigest_merged_tdigests`|
+|Timestamp|`percentile_tdigest_merged_tdigests`|
 |---|---|
 |2016-05-01 12:00:00.0000000|170200|
 |2016-05-02 00:00:00.0000000|152975|
 |2016-05-02 12:00:00.0000000|181315|
 |2016-05-03 00:00:00.0000000|146817|
  
-**Пример**
+## <a name="example"></a>Пример
 
 Ограничения Kusto достигнуты с использованием слишком больших наборов данных, где необходимо выполнять периодические запросы к набору DataSet, но выполнять обычные запросы для вычисления [`percentile()`](percentiles-aggfunction.md) или [`dcount()`](dcount-aggfunction.md) поверх больших наборов данных.
 
@@ -155,7 +155,7 @@ PageViews
 | summarize percentile(BytesDelivered, 90), dcount(Page,2) by bin(Timestamp, 1d)
 ```
 
-|Отметка времени|percentile_BytesDelivered_90|dcount_Page|
+|Timestamp|percentile_BytesDelivered_90|dcount_Page|
 |---|---|---|
 |2016-05-01 00:00:00.0000000|83634|20056275|
 |2016-05-02 00:00:00.0000000|82770|64135183|
@@ -170,7 +170,7 @@ PageViewsHllTDigest
 | summarize  percentile_tdigest(merge_tdigests(tdigestBytesDel), 90), dcount_hll(hll_merge(hllPage)) by bin(Timestamp, 1d)
 ```
 
-|Отметка времени|`percentile_tdigest_merge_tdigests_tdigestBytesDel`|`dcount_hll_hll_merge_hllPage`|
+|Timestamp|`percentile_tdigest_merge_tdigests_tdigestBytesDel`|`dcount_hll_hll_merge_hllPage`|
 |---|---|---|
 |2016-05-01 00:00:00.0000000|84224|20056275|
 |2016-05-02 00:00:00.0000000|83486|64135183|
@@ -178,7 +178,7 @@ PageViewsHllTDigest
 
 Этот запрос должен быть более производительным, так как он выполняется более чем с таблицей меньшего размера. В этом примере первый запрос выполняется более чем на каждые ~ 215M записей, а второй — только с 32 записями:
 
-**Пример**
+## <a name="example"></a>Пример
 
 Запрос на сохранение.
 Предположим, что у вас есть таблица, которая суммируется при просмотре каждой страницы Википедии (размер выборки — 10 миллионов), и вы хотите найти для каждой таблицы Date1 процент страниц, проверенных в Дата1 и Date2 относительно страниц, просматриваемых в Date1 (Дата1 < Date2).

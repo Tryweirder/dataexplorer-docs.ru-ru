@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/16/2019
-ms.openlocfilehash: d5788ee937fe110b63a8f137fdab0790eb7cb37e
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 9a5a780a6f7bdf277566d1c0421c5ca2a3a93602
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373206"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346071"
 ---
 # <a name="print-operator"></a>Оператор print
 
@@ -24,20 +24,20 @@ ms.locfileid: "83373206"
 print x=1, s=strcat("Hello", ", ", "World!")
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `print`[*ColumnName* `=` ] *Скаларекспрессион* [","...]
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *ColumnName*: имя параметра, присваиваемое единственному столбцу вывода.
 * *Скаларекспрессион*: скалярное выражение для вычисления.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Однострочная таблица с одним столбцом, одна ячейка которой имеет значение вычисленного *скаларекспрессион*.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 `print`Оператор полезен в качестве быстрого способа вычисления одного или нескольких скалярных выражений и создания таблицы с одной строкой из результирующих значений.
 Пример:

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: c68cac70223b4779b4ca0acf33cd9f66d8c91765
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 67a5e05a5720c8a9290523344f793c07c47c5ed2
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227406"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347924"
 ---
 # <a name="funnel_sequence-plugin"></a>Подключаемый модуль funnel_sequence
 
@@ -23,11 +23,11 @@ ms.locfileid: "83227406"
 T | evaluate funnel_sequence(id, datetime_column, startofday(ago(30d)), startofday(now()), 10m, 1d, state_column, dynamic(['S1', 'S2', 'S3']))
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| evaluate` `funnel_sequence(` *идколумн* `,` *тимелинеколумн* `,` *Start* `,` *End* `,` *макссекуенцестепвиндов*, *шаг*, *статеколумн*, *последовательность*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: Входное табличное выражение.
 * *Идколум*: ссылка на столбец должна присутствовать в исходном выражении.
@@ -39,7 +39,7 @@ T | evaluate funnel_sequence(id, datetime_column, startofday(ago(30d)), startofd
 * *Статеколумн*: ссылка на столбец, представляющая состояние, должна присутствовать в исходном выражении.
 * *Sequence*: константный динамический массив со значениями последовательности (значения ищутся в `StateColumn` ).
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает три выходных таблицы, которые полезны для создания диаграммы Sankey для проанализированной последовательности:
 
@@ -57,7 +57,7 @@ T | evaluate funnel_sequence(id, datetime_column, startofday(ago(30d)), startofd
     Примеры: массив идентификаторов (от `IdColumn` ), соответствующий последовательности строки (возвращается не более 128 идентификаторов). 
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ### <a name="exploring-storm-events"></a>Просмотр событий с более подробной информацией 
 

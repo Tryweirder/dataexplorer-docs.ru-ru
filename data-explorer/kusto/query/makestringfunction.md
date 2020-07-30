@@ -8,33 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 035be5910d173c75e585baa0b093dc6276bd4d63
-ms.sourcegitcommit: 3848b8db4c3a16bda91c4a5b7b8b2e1088458a3a
+ms.openlocfilehash: 36d31e88a89f23006dac73b92777b13db4933d06
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84818582"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346887"
 ---
 # <a name="make_string"></a>make_string()
 
 Возвращает строку, сформированную символами Юникода.
     
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `make_string (`*Arg1*[, *ArgN*]...`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Arg1* ... *ArgN*: выражения, являющиеся целыми числами (int или long), или динамическое значение, содержащее массив целых чисел.
 
 * Эта функция получает до 64 аргументов.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает строку, состоящие из символов Юникода, значение codepoint которых указывается в аргументах этой функции. Входные данные должны состоять из допустимого кодовыми точкамиа Юникода.
 Если какой-либо аргумент не сопоставлен с символом Юникода, функция возвращает значение `null` .
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 print str = make_string(75, 117, 115, 116, 111)

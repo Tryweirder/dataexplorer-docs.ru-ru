@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/15/2019
-ms.openlocfilehash: 59c6f6a11b108cf6e74ceb59d3483ea1a95f7002
-ms.sourcegitcommit: 188f89553b9d0230a8e7152fa1fce56c09ebb6d6
+ms.openlocfilehash: 4681f92155181f85cad5c46ed70a79cb173d437f
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84512390"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347550"
 ---
 # <a name="hll_merge-aggregation-function"></a>hll_merge () (агрегатная функция)
 
@@ -23,18 +23,18 @@ ms.locfileid: "84512390"
 
 Дополнительные сведения см. в разделе [базовый алгоритм (*H*ИПЕР*l*OG*l*OG) и точность оценки](dcount-aggfunction.md#estimation-accuracy).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `summarize``hll_merge(` *Выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * `*Expr*`: Выражение, которое будет использоваться для вычисления статистической обработки.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Функция возвращает объединенные `hll` значения `*Expr*` по всей группе.
  
-**"Советы"**
+**Советы**
 
 1) Используйте функцию [dcount_hll] (DCount-hllfunction.md), чтобы вычислить `dcount` из `hll`  /  `hll-merge` агрегатных функций.

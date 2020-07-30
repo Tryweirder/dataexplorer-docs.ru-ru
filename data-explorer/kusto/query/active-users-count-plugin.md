@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: b40ca669df7671b1451166f6bfc1c7c680713166
-ms.sourcegitcommit: 1f50c6688a2b8d8a3976c0cd0ef40cde2ef76749
+ms.openlocfilehash: 75f1c92dfb76c56894d1f38dec24a31690f3f789
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84202965"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349845"
 ---
-# <a name="active_users_count-plugin"></a>подключаемый модуль active_users_count
+# <a name="active_users_count-plugin"></a>Подключаемый модуль active_users_count
 
 Вычисляет различные числа значений, в которых каждое значение присутствовало по крайней мере в минимальном количестве периодов в лукбакк периоде.
 
@@ -25,11 +25,11 @@ ms.locfileid: "84202965"
 T | evaluate active_users_count(id, datetime_column, startofday(ago(30d)), startofday(now()), 7d, 1d, 2, 7d, dim1, dim2, dim3)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| evaluate` `active_users_count(` *идколумн* `,` *тимелинеколумн* `,` *Начало* `,` *окончания* `,` *лукбакквиндов* `,` *периода* `,` *активепериодскаунт* `,` *bin* `,` [*Dim1* `,` *dim2* `,` ...]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: Входное табличное выражение.
 * *Идколумн*: имя столбца со значениями идентификаторов, представляющими действия пользователя. 
@@ -42,7 +42,7 @@ T | evaluate active_users_count(id, datetime_column, startofday(ago(30d)), start
 * *Bin*: скалярное постоянное значение периода анализа. Аргумент может быть числовым значением, DateTime или timestamp, или строкой, которая имеет значение `week` / `month` / `year` . Все периоды будут соответствующими [startofweek](startofweekfunction.md) / [startofmonth](startofmonthfunction.md) / функциями[startofyear](startofyearfunction.md) startofweek StartOfMonth.
 * *Dim1*, *dim2*,...: (необязательно) список столбцов измерений, которые срезируют вычисление метрик действия.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает таблицу с различными значениями числа различных идентификаторов, которые присутствовали в Активепериодкаунтс в следующих периодах: период лукбакк, каждый период временной шкалы и каждое существующее сочетание измерений.
 
@@ -53,7 +53,7 @@ T | evaluate active_users_count(id, datetime_column, startofday(ago(30d)), start
 |Тип: от *тимелинеколумн*|..|..|..|long|
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 Вычислите еженедельное число уникальных пользователей, которые появлялись по крайней мере в трех разных днях, в течение более чем восьми дней. Период анализа: Июль 2018.
 
@@ -83,7 +83,7 @@ T | evaluate active_users_count(User, Timestamp, Start, End, LookbackWindow, Per
 
 ```
 
-|Отметка времени|`dcount`|
+|Timestamp|`dcount`|
 |---|---|
 |2018-07-01 00:00:00.0000000|1|
 |2018-07-15 00:00:00.0000000|1|

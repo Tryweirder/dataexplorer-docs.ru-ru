@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 0373525d0f1e369af31b17595900128e0d4e0bf4
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: 54c09908096f9df4ac8b568cd5e897c6e4ecc8c2
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763352"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345969"
 ---
 # <a name="query-parameters-declaration-statement"></a>Оператор объявления параметров запроса
 
@@ -34,7 +34,7 @@ ms.locfileid: "85763352"
 
 Для ссылки на параметры запроса, текст запроса или функции, которые он использует, сначала необходимо объявить, какой параметр запроса он использует. Для каждого параметра объявление предоставляет имя и скалярный тип. При необходимости параметр также может иметь значение по умолчанию. Значение по умолчанию используется, если запрос не предоставляет конкретного значения для параметра. Затем Kusto анализирует значение параметра запроса в соответствии с обычными правилами анализа для этого типа.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `declare``query_parameters` `(` *Name1* `:` *тип1* [ `=` *DefaultValue1*] [ `,` ...]`);`
 
@@ -46,7 +46,7 @@ ms.locfileid: "85763352"
 > [!NOTE]
 > Как и [определяемые пользователем функции](functions/user-defined-functions.md), параметры запроса типа `dynamic` не могут иметь значения по умолчанию.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 declare query_parameters(UserName:string, Password:string);

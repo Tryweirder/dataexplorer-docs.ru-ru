@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 444710775af405cc63193e0205e573b2ea77de3a
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 40bc5eafee803123ea1d73e763c32b5210f741ca
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373187"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346054"
 ---
 # <a name="project-away-operator"></a>Оператор project-away
 
@@ -25,20 +25,20 @@ T | project-away price, quantity, zz*
 
 Порядок столбцов в результатах определяется их исходным порядком в таблице. Удаляются только те столбцы, которые были указаны в качестве аргументов. В результат включаются другие столбцы.  (См. также сведения об `project`.)
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| project-away` *колумннамеорпаттерн* [ `,` ...]
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: входная таблица
 * *Колумннамеорпаттерн:* Имя шаблона столбца или столбца, который должен быть удален из выходных данных.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Таблица со столбцами, которые не были именованы в качестве аргументов. Содержит то же количество строк, что и входная таблица.
 
-**"Советы"**
+**Советы**
 
 * Используйте [`project-rename`](projectrenameoperator.md) , если ваша цель заключается в переименовании столбцов.
 * Используйте [`project-reorder`](projectreorderoperator.md) , если ваша цель заключается в переупорядочении столбцов.
@@ -46,7 +46,7 @@ T | project-away price, quantity, zz*
 * Можно также иметь `project-away` любые столбцы, которые имеются в исходной таблице или которые были вычислены как часть запроса.
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 Входная таблица `T` содержит три столбца типа `long`: `A`, `B` и `C`.
 

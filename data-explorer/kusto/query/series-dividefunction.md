@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 7d5bdba030687c17c355eb72ce2fc9c358c10ebd
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 39252fb8e7233ddc3532003afc7a131505cd4282
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83372850"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345085"
 ---
 # <a name="series_divide"></a>series_divide()
 
 Вычисляет поэлементное деление двух входных числовых рядов.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `series_divide(`*Series1* `,` *Series2*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Series1, Series2*: входные числовые массивы, первый из которых будет полагаться на поэлементное деление на секунду в результате динамического массива. Все аргументы должны быть динамическими массивами. 
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Динамический массив вычисляемой операции деления на уровне элементов между двумя входными значениями. Любой нечисловой элемент или несуществующий элемент (массивы разного размера) дает `null` значение элемента.
 
 Примечание. результирующий ряд имеет тип Double, даже если входные данные являются целыми числами. Деление на ноль следует за двойным делением на ноль (например, 2/0 возвращает значение Double (+ INF)).
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/11/2019
-ms.openlocfilehash: 19329b8822a1e1d484c5f751f5fbc2f8eb6343ac
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 4485dde5eb77478e5fd75ce388ada7f4232f2ddb
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83226743"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347635"
 ---
 # <a name="has_any-operator"></a>Оператор has_any
 
@@ -23,19 +23,19 @@ ms.locfileid: "83226743"
 Table1 | where col has_any ('value1', 'value2')
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `|` `where` *Col* `has_any` `(` *список скалярных выражений*`)`   
 *T* `|` `where` *col* `has_any` `(` *Табличное выражение* T Col`)`   
  
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T* -табличный ввод, записи которого должны быть отфильтрованы.
 * *столбец для* фильтрации.
 * *список выражений* — список табличных, скалярных и литеральных выражений с разделителями-запятыми  
 * *табличное выражение* — табличное выражение, имеющее набор значений (если выражение содержит несколько столбцов, используется первый столбец)
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Строки в *T* , для которых предикатом является`true`
 
@@ -55,7 +55,7 @@ StormEvents
 | summarize count() by State
 ```
 
-|State|count_|
+|Состояние|count_|
 |---|---|
 |НЬЮ-ЙОРК|1750|
 |СЕВЕРНАЯ КАРОЛИНА|1721|
@@ -77,7 +77,7 @@ StormEvents
 | summarize count() by State
 ```
 
-|State|count_|
+|Состояние|count_|
 |---|---|
 |СЕВЕРНАЯ КАРОЛИНА|1721|
 |ЮЖНАЯ ДАКОТА|1567|

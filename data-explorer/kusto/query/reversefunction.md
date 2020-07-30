@@ -8,31 +8,31 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 22fe505eb8fd391e7a61120dbf42c214cb61c120
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: fa87dae85b158e162cea90c276057abb210ea23b
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264833"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345782"
 ---
 # <a name="reverse"></a>reverse()
 
 Функция меняет порядок входной строки на обратный.
 Если входное значение не относится `string` к типу, функция принудительно приводит значение к типу `string` .
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `reverse(`*источника*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Source*: входное значение.  
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Обратный порядок строкового значения.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ```kusto
 print str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

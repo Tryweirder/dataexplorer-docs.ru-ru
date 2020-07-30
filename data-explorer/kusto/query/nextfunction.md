@@ -1,6 +1,6 @@
 ---
-title: далее () - Исследователь данных Azure (англ.) Документы Майкрософт
-description: Эта статья описывает следующую () в Azure Data Explorer.
+title: Next () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается следующее () в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: f45e88942fdf9eb23451e1391866f57ca5f0e21a
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: a265d536f655df3086ece1b9953eaade4717781c
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81512127"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346632"
 ---
 # <a name="next"></a>next()
 
-Возвращает значение столбца в строку, что он в некоторых смещения после текущего строки в [наборе серийного ряда.](./windowsfunctions.md#serialized-row-set)
+Возвращает значение столбца в строке, который находится в некоторой позиции после текущей строки в [сериализованном наборе строк](./windowsfunctions.md#serialized-row-set).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `next(column)`
 
@@ -27,16 +27,16 @@ ms.locfileid: "81512127"
 
 `next(column, offset, default_value)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* `column`: столбец, чтобы получить значения от.
+* `column`: столбец, из которого нужно получить значения.
 
-* `offset`: смещение, чтобы идти вперед в строках. При отсутствии смещения указывается, используется смещение по умолчанию 1.
+* `offset`: смещение для перехода в строки вперед. Если смещение не указано, используется смещение по умолчанию 1.
 
-* `default_value`: значение по умолчанию, используемое при отсутствии следующих строк, из которые можно было бы взять значение. Когда значение по умолчанию не указано, используется null.
+* `default_value`: значение по умолчанию, используемое при отсутствии следующих строк для получения значения. Если значение по умолчанию не указано, используется значение null.
 
 
-**Примеры**
+## <a name="examples"></a>Примеры
 ```kusto
 Table | serialize | extend nextA = next(A,1)
 | extend diff = A - nextA

@@ -8,26 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 11/25/2019
-ms.openlocfilehash: 26f1eb901798a28996c8cdc148fe68a71fb9d2b8
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 206fe5fb1bacc27210118149e6ec879e5000e6e1
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83370285"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338547"
 ---
 # <a name="unixtime_milliseconds_todatetime"></a>unixtime_milliseconds_todatetime()
 
 Преобразует миллисекунды в формате UNIX в формат UTC DateTime.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `unixtime_milliseconds_todatetime(*milliseconds*)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *миллисекунды*: вещественное число представляет метку времени эпохи в миллисекундах. `Datetime`Это происходит до момента времени эпохи (1970-01-01 00:00:00) с отрицательным значением отметки времени.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Если преобразование выполнено успешно, результатом будет значение [DateTime](./scalar-data-types/datetime.md) . Если преобразование не выполнено, результатом будет NULL.
 
@@ -37,7 +37,7 @@ ms.locfileid: "83370285"
 * Преобразуйте микросекунды UNIX-эпохи в формат UTC DateTime с помощью [unixtime_microseconds_todatetime ()](unixtime-microseconds-todatetimefunction.md).
 * Преобразование наносекунд в формате UNIX в формат UTC DateTime с помощью [unixtime_nanoseconds_todatetime ()](unixtime-nanoseconds-todatetimefunction.md).
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net/Samples  -->
 ```kusto

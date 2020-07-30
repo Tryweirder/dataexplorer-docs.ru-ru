@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 7ef4bf5607979cc02976d00250e8754f3a0c4e69
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: 9321f30d2643f6e398d73cf7960490708626f723
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83225179"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87348366"
 ---
-# <a name="diffpatterns_text-plugin"></a>подключаемый модуль diffpatterns_text
+# <a name="diffpatterns_text-plugin"></a>Подключаемый модуль diffpatterns_text
 
 Сравнивает два набора данных строковых значений и находит текстовые шаблоны, характеризующие различия между двумя наборами данных.
 
@@ -25,7 +25,7 @@ T | evaluate diffpatterns_text(TextColumn, BooleanCondition)
 
 Компонент `diffpatterns_text` возвращает набор текстовых шаблонов, которые захватывают различные фрагменты данных в двух наборах (т. е. шаблон захватывает большой процент строк, когда условие имеет значение `true` , и низкий процент строк, когда условие имеет значение `false` ). Шаблоны создаются на основе последовательных токенов (разделенных пробелами) с маркером из текстового столбца или, `*` представляющего подстановочный знак. В результатах каждый шаблон соответствует строке.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `T | evaluate diffpatterns_text(`Текстколумн, Булеанкондитион [, Минтокенс, порог, Макстокенс]`)` 
 
@@ -55,7 +55,7 @@ T | evaluate diffpatterns_text(TextColumn, BooleanCondition)
 
     Задает максимальное число токенов (от начала) для каждого шаблона результата, при котором Задание нижнего предела сокращает время выполнения запроса.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Результат diffpatterns_text возвращает следующие столбцы:
 
@@ -68,7 +68,7 @@ T | evaluate diffpatterns_text(TextColumn, BooleanCondition)
 > [!NOTE]
 > Шаблоны не обязательно отличаются и могут не обеспечивать полный охват набора данных. Шаблоны могут быть перекрывающимися, а некоторые строки могут не соответствовать ни одному из шаблонов.
 
-**Пример**
+## <a name="example"></a>Пример
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -78,7 +78,7 @@ StormEvents
 | evaluate diffpatterns_text(EpisodeNarrative, EventType == "Extreme Cold/Wind Chill", 2)
 ```
 
-|Count_of_True|Count_of_False|Percent_of_True|Percent_of_False|Модель|
+|Count_of_True|Count_of_False|Percent_of_True|Percent_of_False|Шаблон|
 |---|---|---|---|---|
 |11|0|6,29|0|Подойдет к концу смены Северо-Западного в * спящий режим * траугх, в сновфалл довнвинд|
 |9|0|5,14|0|В канадском высоком замедленном нажиме * * регион * были получены холодное температуры с февраля * 2006. Длительность * замораживание температур|

@@ -8,22 +8,22 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/06/2020
-ms.openlocfilehash: 8858b261cb366842b475a76a1b2c3246b8a3e7b5
-ms.sourcegitcommit: de81b57b6c09b6b7442665e5c2932710231f0773
+ms.openlocfilehash: 0e08857e01ffa3da1bcb23d16d1df4908336f76f
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87264704"
+ms.locfileid: "87346870"
 ---
 # <a name="materialize"></a>materialize()
 
 Позволяет кэшировать результат вложенного запроса во время выполнения запроса таким образом, чтобы другие вложенные запросы могли ссылаться на частичный результат.
  
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `materialize(`*expression*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *выражение*: табличное выражение, которое вычисляется и кэшируется во время выполнения запроса.
 
@@ -92,7 +92,7 @@ randomSet | summarize Sum=sum(value)
 
 Результирующий набор 2: 
 
-|Значение|
+|value|
 |---|
 |9999998|
 |9999998|

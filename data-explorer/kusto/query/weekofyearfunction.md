@@ -1,6 +1,6 @@
 ---
-title: week_of_year () - Исследователь данных Azure Документы Майкрософт
-description: В этой статье описаны week_of_year () в Azure Data Explorer.
+title: week_of_year () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается week_of_year () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,34 +8,34 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2020
-ms.openlocfilehash: 1c3702165f01ab321f80bad900e59968092be2ed
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 82678a68166061fc7b8a30c7cb2e019c8d3d9e0c
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81504545"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338564"
 ---
-# <a name="week_of_year"></a>week_of_year()
+# <a name="week_of_year"></a>week_of_year ()
 
-Возвращает целый ряд, представляющий номер недели. Недельное число рассчитывается с первой недели года, которая включает в себя первый четверг, в соответствии с [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Week_dates).
+Возвращает целое число, представляющее номер недели. Номер недели вычисляется с первой недели года, которая включает первый четверг в соответствии с [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Week_dates).
 
 ```kusto
 week_of_year(datetime("2015-12-14"))
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `week_of_year(`*a_date*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * `a_date` — значение в формате `datetime`.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-`week number`- Номер недели, содержащий указанную дату.
+`week number`— Номер недели, который содержит указанную дату.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 |Входные данные                                    |Выходные данные|
 |-----------------------------------------|------|
@@ -45,5 +45,5 @@ week_of_year(datetime("2015-12-14"))
 |`week_of_year(datetime(2000-01-01))`     |`52`  |
 
 > [!NOTE]
-> `weekofyear()`является устаревшим вариантом этой функции. `weekofyear()`ISO 8601 не соответствовала требованиям; первая неделя года была определена как неделя с первой средой года в нем.
-Текущая версия этой `week_of_year()`функции, iSO 8601 совместима; первая неделя года определяется как неделя с первым четвергом года в нем.
+> `weekofyear()`является устаревшим вариантом этой функции. `weekofyear()`не соответствует стандарту ISO 8601; Первая неделя года была определена как неделя с первой в году.
+Текущей версией этой функции `week_of_year()` является соответствие стандарту ISO 8601. Первая неделя года определяется как неделя с первым четверг года в этом году.

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/01/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: e6439912d323b7677f6febc8b23068c880a735c2
-ms.sourcegitcommit: 7dd20592bf0e08f8b05bd32dc9de8461d89cff14
+ms.openlocfilehash: 984e5c37f3d29a6c56f88c6eb9b6750635e48920
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85902129"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87345986"
 ---
 # <a name="python-plugin"></a>Подключаемый модуль Python
 
@@ -134,7 +134,7 @@ print "This is an example for using 'external_artifacts'"
     * Можно также использовать [оператор Partition](partitionoperator.md) для секционирования входного набора данных.
 * Используйте язык запросов Kusto, когда это возможно, чтобы реализовать логику скрипта Python.
 
-    **Пример**
+    ## <a name="example"></a>Пример
 
     ```kusto    
     .show operations
@@ -152,14 +152,14 @@ print "This is an example for using 'external_artifacts'"
 
 * Чтобы создать многострочные строки, содержащие скрипт Python в `Kusto.Explorer` , скопируйте скрипт Python из любимого редактора Python (*Jupyter*, *Visual Studio Code*, *PyCharm*и т. д.). 
   Теперь выполните одно из следующих действий.
-    * Нажмите клавишу **F2** , чтобы открыть окно *изменить в Python* . Вставьте сценарий в это окно. Нажмите кнопку **ОК**. Сценарий будет дополнен кавычками и новыми строками, поэтому он действителен в Kusto и автоматически вставляется на вкладку запрос.
+    * Нажмите клавишу **F2** , чтобы открыть окно *изменить в Python* . Вставьте сценарий в это окно. Щелкните **ОК**. Сценарий будет дополнен кавычками и новыми строками, поэтому он действителен в Kusto и автоматически вставляется на вкладку запрос.
     * Вставьте код Python непосредственно на вкладку запрос. Выберите эти строки и нажмите клавиши **CTRL + K**, **CTRL + S** , чтобы их снабдить более яркой. Чтобы обратить, нажмите клавиши **CTRL + K**, **CTRL + M** горячие клавиши. См. полный список [ярлыков редактора запросов](../tools/kusto-explorer-shortcuts.md#query-editor).
 * Чтобы избежать конфликтов между разделителями строк Kusto и строковыми литералами Python, используйте:
      * Символы одинарной кавычки ( `'` ) для строковых литералов Kusto в запросах Kusto
      * Символы двойной кавычки ( `"` ) для строковых литералов Python в скриптах Python
 * Используйте [ `externaldata` оператор](externaldata-operator.md) , чтобы получить содержимое скрипта, сохраненного во внешнем расположении, например в хранилище BLOB-объектов Azure.
   
-    **Пример**
+    ## <a name="example"></a>Пример
 
     ```kusto
     let script = 

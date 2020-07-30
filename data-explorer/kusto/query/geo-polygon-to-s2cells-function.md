@@ -3,17 +3,17 @@ title: geo_polygon_to_s2cells () — обозреватель данных Azure
 description: В этой статье описывается geo_polygon_to_s2cells () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
-ms.author: orspod
+ms.author: orspodek
 ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/10/2020
-ms.openlocfilehash: c4396087018e25c57f064e8d2f99a83cc0840c3a
-ms.sourcegitcommit: 2126c5176df272d149896ac5ef7a7136f12dc3f3
+ms.openlocfilehash: d282dc6d25947aa20da3d1f05a1f76ab887ca21c
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/13/2020
-ms.locfileid: "86280592"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347737"
 ---
 # <a name="geo_polygon_to_s2cells"></a>geo_polygon_to_s2cells()
 
@@ -21,16 +21,16 @@ ms.locfileid: "86280592"
 
 Узнайте больше о [иерархии ячеек S2](https://s2geometry.io/devguide/s2cell_hierarchy).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `geo_polygon_to_s2cells(`*многоугольник* `, ` *уровень*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *многоугольник*: многоугольник или Многоугольный в [формате геоjson](https://tools.ietf.org/html/rfc7946) и [динамического](./scalar-data-types/dynamic.md) типа данных. 
 * *Level*: Необязательный `int` параметр, определяющий запрошенный уровень ячейки. Поддерживаемые значения находятся в диапазоне [0, 30]. Если не указано, используется значение по умолчанию `11` .
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Массив строк токена уровня S2, охватывающих многоугольник или Многоугольный. Если многоугольник или уровень являются недопустимыми или число ячеек превышает ограничение, запрос выдает результат NULL.
 
@@ -67,10 +67,10 @@ Polygons | extend dummy=1
 | project longitude, latitude, description
 ```
 
-|долгота|широта|описание|
+|долгота|широта|description|
 |---|---|---|
 |-73,95|40,75|Город Нью Йорк|
-|— 122,3|47,6|Сиэтл|
+|— 122,3|47,6|Seattle|
 |— 115,18|36,16|Лас-Вегас|
 
 Хотя этот метод работает в некоторых случаях, он неэффективен. Этот метод выполняет перекрестное соединение, то есть пытается сопоставить каждый многоугольник с каждой точкой. Этот процесс потребляет большой объем памяти и ресурсов вычислений.
@@ -97,7 +97,7 @@ Polygons | extend dummy=1
 > [!WARNING]
 > Охват большого многоугольника с ячейками, охватывающими небольшие области, может привести к огромному количеству зафиксированных ячеек. В результате запрос может вернуть значение null.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 В следующем примере координаты классифицируются в многоугольники.
 
@@ -129,7 +129,7 @@ Polygons
 | project longitude, latitude, description
 ```
 
-|долгота|широта|описание|
+|долгота|широта|description|
 |---|---|---|
 |— 73,9741|40,7914|Верхний левый край|
 |— 73,995|40,734|GMT центре|

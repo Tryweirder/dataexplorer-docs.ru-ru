@@ -1,18 +1,18 @@
 ---
 title: Настройка ключей, управляемых клиентом, в Azure обозреватель данных с помощью шаблона Azure Resource Manager
 description: В этой статье описывается, как настроить шифрование ключей, управляемых клиентом, на основе данных в Azure обозреватель данных с помощью шаблона Azure Resource Manager.
-author: saguiitay
-ms.author: itsagui
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: dc181e1509f720a8871fd4c41c43f940cef72728
-ms.sourcegitcommit: a7e040fc844098323aa1c00e254bcbcd41fe587f
+ms.openlocfilehash: ad3351045f61f4fb9ddb9ce08c63201746ac05bb
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84426520"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87350236"
 ---
 # <a name="configure-customer-managed-keys-using-the-azure-resource-manager-template"></a>Настройка ключей, управляемых клиентом, с помощью шаблона Azure Resource Manager
 
@@ -81,7 +81,7 @@ ms.locfileid: "84426520"
 
 При создании новой версии ключа необходимо обновить кластер для использования новой версии. Сначала вызовите метод, `Get-AzKeyVaultKey` чтобы получить последнюю версию ключа. Затем обновите свойства хранилища ключей кластера, чтобы использовать новую версию ключа, как показано в разделе [Настройка шифрования с помощью управляемых клиентом ключей](#configure-encryption-with-customer-managed-keys).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
 * [Настройка управляемых удостоверений для кластера Azure обозреватель данных](managed-identities.md)

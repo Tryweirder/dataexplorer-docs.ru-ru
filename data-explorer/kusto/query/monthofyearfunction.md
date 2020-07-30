@@ -1,6 +1,6 @@
 ---
-title: monthofyear() - Исследователь данных Azure (ru) Документы Майкрософт
-description: Эта статья описывает monthofyear () в Azure Data Explorer.
+title: монсофеар () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается монсофеар () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,31 +8,31 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 6ada34d3e6f6c905a1acfb550b02af3dab550fb8
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: af015146bb2f07d83d4333312a96d5b80c67190a
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81512348"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87346734"
 ---
 # <a name="monthofyear"></a>monthofyear()
 
-Возвращает целый номер представляет номер месяца данного года.
+Возвращает целое число, представляющее номер месяца данного года.
 
-Другой псевдоним: getmonth()
+Другой псевдоним:-month ()
 
 ```kusto
 monthofyear(datetime("2015-12-14"))
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `monthofyear(`*a_date*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * `a_date` — значение в формате `datetime`.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
-`month number`данного года.
+`month number`указанного года.

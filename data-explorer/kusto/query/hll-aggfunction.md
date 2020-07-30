@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/15/2020
-ms.openlocfilehash: cbe1b0639a0379fe84bc9c100a629bbadd9c3a63
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: e602a920dd07089f688f39115805a2f99d505c9c
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83226573"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347567"
 ---
 # <a name="hll-aggregation-function"></a>ХЛЛ () (агрегатная функция)
 
@@ -21,11 +21,11 @@ ms.locfileid: "83226573"
 
 Прочтите сведения о [базовом алгоритме (*H*ИПЕР*l*OG*l*OG) и точности оценки](dcount-aggfunction.md#estimation-accuracy).
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `summarize hll(`*`Expr`* `[,` *`Accuracy`*`])`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *`Expr`*: Выражение, которое будет использоваться для вычисления статистической обработки. 
 * *`Accuracy`*, если он указан, управляет балансом между скоростью и точностью.
@@ -33,22 +33,22 @@ ms.locfileid: "83226573"
   |Значение точности |Точность  |Speed  |Error  |
   |---------|---------|---------|---------|
   |`0` | lowest | самым | 1,6% |
-  |`1` | default  | распределяют | 0,8% |
+  |`1` | значение по умолчанию  | распределяют | 0,8% |
   |`2` | high | медленный | 0,4%  |
   |`3` | high | медленный | 0,28% |
   |`4` | очень высокий | самое | 0,2% |
     
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Промежуточные результаты числа различных объектов *`Expr`* в группе.
  
-**"Советы"**
+**Советы**
 
 1. Статистическую функцию можно использовать [`hll_merge`](hll-merge-aggfunction.md) для слияния более чем одного `hll` промежуточного результата (он работает `hll` только на выходе).
 
 1. Вы можете использовать функцию [`dcount_hll`](dcount-hllfunction.md) , которая будет вычислять `dcount` `hll`  /  `hll_merge` статистические функции from.
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

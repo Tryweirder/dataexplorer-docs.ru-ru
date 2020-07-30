@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 15d9056ec21eb6f25ccbc985d659f310d670f02d
-ms.sourcegitcommit: 085e212fe9d497ee6f9f477dd0d5077f7a3e492e
+ms.openlocfilehash: 649d09fcf6d228714fdf20b40c81b2a2552374e6
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85133419"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87340264"
 ---
 # <a name="toscalar"></a>toscalar()
 
@@ -21,15 +21,15 @@ ms.locfileid: "85133419"
 
 Эта функция полезна для запросов, требующих промежуточных вычислений. Например, вычислите общее число событий, а затем используйте результат для фильтрации групп, превышающих определенный процент всех событий.
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 `toscalar(`*Выражение*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *Выражение*: выражение, которое будет вычисляться для скалярного преобразования.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Скалярное константное значение вычисленного выражения.
 Если результат является табличным, то для преобразования будет сделан первый столбец и первая строка.
@@ -42,7 +42,7 @@ ms.locfileid: "85133419"
 `toscalar()`можно вычислить как постоянное число раз во время выполнения запроса.
 `toscalar()`Функция не может быть применена к сценарию на уровне строк (для каждой строки).
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 Оцените `Start` , `End` и `Step` в качестве скалярных констант и используйте результат для `range` вычисления.
 
@@ -53,7 +53,7 @@ let Step = toscalar(2);
 range z from Start to End step Step | extend start=Start, end=End, step=Step
 ```
 
-|з|start|end|Шаг|
+|з|запуск|end|Шаг|
 |---|---|---|---|
 |1|1|9|2|
 |3|1|9|2|

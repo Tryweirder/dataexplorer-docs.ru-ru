@@ -1,6 +1,6 @@
 ---
-title: гамма() - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описана гамма() в Azure Data Explorer.
+title: гамма () — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается гамма () в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,26 +8,26 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: fc8d48c2e2fc5bd290198f27e90a391eac530965
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 8b152d6155f1d453af25cdae3c81faabc4d4b9fb
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81514694"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87347907"
 ---
 # <a name="gamma"></a>gamma()
 
-Вычисляет [гамма-функцию](https://en.wikipedia.org/wiki/Gamma_function)
+[Гамма-функция](https://en.wikipedia.org/wiki/Gamma_function) вычислений
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
-`gamma(`*X*`)`
+`gamma(`*x*`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
-* *x*: Параметр для гамма-функции
+* *x*: параметр для гамма-функции
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 * Гамма-функция x.
-* Для вычислительной функции журнала-гаммы [см.](loggammafunction.md)
+* Вычисление функции-гаммы журнала см. в разделе [логгамма ()](loggammafunction.md).

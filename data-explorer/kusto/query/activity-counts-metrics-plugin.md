@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 167ba8818709f52ccc344452e275405c42b1796e
-ms.sourcegitcommit: 39b04c97e9ff43052cdeb7be7422072d2b21725e
+ms.openlocfilehash: df7b994350297d911a0f3be59c791b6538899d67
+ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83227678"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87349794"
 ---
 # <a name="activity_counts_metrics-plugin"></a>Подключаемый модуль activity_counts_metrics
 
@@ -23,11 +23,11 @@ ms.locfileid: "83227678"
 T | evaluate activity_counts_metrics(id, datetime_column, startofday(ago(30d)), startofday(now()), 1d, dim1, dim2, dim3)
 ```
 
-**Синтаксис**
+## <a name="syntax"></a>Синтаксис
 
 *T* `| evaluate` `activity_counts_metrics(` *идколумн* `,` *тимелинеколумн* `,` *Start* `,` *End* `,` *Window* [ `,` *когорту*] [ `,` *Dim1* `,` *dim2* `,` ...] [ `,` *лукбакк*]`)`
 
-**Аргументы**
+## <a name="arguments"></a>Аргументы
 
 * *T*: Входное табличное выражение.
 * *Идколумн*: имя столбца со значениями идентификаторов, представляющими действия пользователя. 
@@ -37,7 +37,7 @@ T | evaluate activity_counts_metrics(id, datetime_column, startofday(ago(30d)), 
 * *Window*: скалярный со значением периода окна анализа. Аргумент может быть либо числовым значением, либо DateTime/timestamp, либо строкой, которая является одним из `week` / `month` / `year` , в этом случае все периоды будут [startofweek](startofweekfunction.md) / [StartOfMonth](startofmonthfunction.md) или [startofyear](startofyearfunction.md). 
 * *Dim1*, *dim2*,...: (необязательно) список столбцов измерений, которые срезируют вычисление метрик действия.
 
-**Возвращает**
+## <a name="returns"></a>Результаты
 
 Возвращает таблицу, имеющую следующие значения: общее количество значений, число различных значений, количество различных новых значений и агрегированное число различных элементов для каждого временного интервала.
 
@@ -54,7 +54,7 @@ T | evaluate activity_counts_metrics(id, datetime_column, startofday(ago(30d)), 
 * *`new_dcount`*: Уникальные значения идентификатора в окне времени и *Dim (s)* по сравнению со всеми предыдущими окнами времени. 
 * *`aggregated_dcount`*: Общее число уникальных значений ИДЕНТИФИКАТОРов *(Dim)* , заданных с первого периода до текущего (включительно).
 
-**Примеры**
+## <a name="examples"></a>Примеры
 
 ### <a name="daily-activity-counts"></a>Число ежедневных действий 
 
