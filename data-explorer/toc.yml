@@ -138,7 +138,7 @@
           href: ingest-data-logstash.md
         - name: Данные в формате JSON
           href: ingest-json-formats.md
-    - name: Запросы данных
+    - name: Данные запросов
       items:
         - name: Отправка запроса данных в Azure Data Lake
           href: data-lake-query-data.md
@@ -204,8 +204,12 @@
               href: vnet-deployment.md
             - name: 'Устранение неполадок при создании и подключении кластера виртуальной сети, а также при работе с ним'
               href: vnet-deploy-troubleshoot.md
-        - name: Управление безопасностью кластера
-          href: manage-cluster-security.md
+        - name: Шифрование
+          items:
+            - name: 'Шифрование дисков кластера: портал'
+              href: cluster-disk-encryption.md
+            - name: Двойное шифрование
+              href: double-encryption.md
         - name: Настройка управляемых удостоверений
           href: managed-identities.md
         - name: 'Настройка ключей, управляемых клиентом'
