@@ -7,12 +7,12 @@ ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: f5f44f427f21cdea4b0fea382c41df23925b3549
-ms.sourcegitcommit: a7e040fc844098323aa1c00e254bcbcd41fe587f
+ms.openlocfilehash: 4477aba7c661b0bc434d2bb0cc0a635603cc8ad4
+ms.sourcegitcommit: d9fbcd6c9787f90de62e8e832c92d43b8090cbfc
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84426569"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87515829"
 ---
 # <a name="configure-customer-managed-keys-using-the-azure-portal"></a>Настройка ключей, управляемых клиентом, с помощью портал Azure
 
@@ -34,7 +34,7 @@ ms.locfileid: "84426569"
 1. На панели **Шифрование** выберите значение **вкл** для параметра **ключ, управляемого клиентом** .
 1. Нажмите кнопку **выбрать ключ**.
 
-    ![Настройка ключей, управляемых клиентом](media/customer-managed-keys-portal/cmk-encryption-setting.png)
+    ![Настройка управляемых клиентом ключей](media/customer-managed-keys-portal/cmk-encryption-setting.png)
 
 1. В окне **Выбор ключа из Azure Key Vault** выберите существующее **хранилище ключей** из раскрывающегося списка. Если выбрать **создать** новый для [создания Key Vault](/azure/key-vault/quick-create-portal#create-a-vault), вы будете направлены на экран **Создание Key Vault** .
 
@@ -53,10 +53,10 @@ ms.locfileid: "84426569"
 > [!NOTE]
 > Выберите **Отключить** , чтобы удалить ключ, управляемый клиентом, после его создания.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
-* [Защитите свой кластер в Azure обозреватель данных — портал Azure](manage-cluster-security.md) , включив шифрование неактивных компонентов.
+* [Защитите свой кластер с помощью шифрования дисков в Azure обозреватель данных — портал Azure](cluster-disk-encryption.md) , включив шифрование неактивных компонентов.
 * [Настройка ключей, управляемых клиентом, с помощью шаблона Azure Resource Manager](customer-managed-keys-resource-manager.md)
 * [Настройка ключей, управляемых клиентом, с помощью C #](customer-managed-keys-csharp.md)
 

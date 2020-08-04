@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/01/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 984e5c37f3d29a6c56f88c6eb9b6750635e48920
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 98888ddd5dd6155c9476163337e7c031e0f84a1e
+ms.sourcegitcommit: afc369ab4c4bcc74f2dce22b397a340572db8ecf
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87345986"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528152"
 ---
 # <a name="python-plugin"></a>Подключаемый модуль Python
 
@@ -58,7 +58,7 @@ ms.locfileid: "87345986"
 
 * По умолчанию подключаемый модуль отключен.
 * Сведения о включении подключаемого модуля см. в списке [предварительных требований](../concepts/sandboxes.md#prerequisites).
-* Включите или отключите подключаемый модуль в портал Azure на[вкладке конфигурации](../../language-extensions.md)кластера.
+* Включите или отключите подключаемый модуль в портал Azure на [вкладке конфигурации](../../language-extensions.md)кластера.
 
 ## <a name="python-sandbox-image"></a>Образ песочницы Python
 
@@ -152,7 +152,7 @@ print "This is an example for using 'external_artifacts'"
 
 * Чтобы создать многострочные строки, содержащие скрипт Python в `Kusto.Explorer` , скопируйте скрипт Python из любимого редактора Python (*Jupyter*, *Visual Studio Code*, *PyCharm*и т. д.). 
   Теперь выполните одно из следующих действий.
-    * Нажмите клавишу **F2** , чтобы открыть окно *изменить в Python* . Вставьте сценарий в это окно. Щелкните **ОК**. Сценарий будет дополнен кавычками и новыми строками, поэтому он действителен в Kusto и автоматически вставляется на вкладку запрос.
+    * Нажмите клавишу **F2** , чтобы открыть окно *изменить в Python* . Вставьте сценарий в это окно. Выберите **ОК**. Сценарий будет дополнен кавычками и новыми строками, поэтому он действителен в Kusto и автоматически вставляется на вкладку запрос.
     * Вставьте код Python непосредственно на вкладку запрос. Выберите эти строки и нажмите клавиши **CTRL + K**, **CTRL + S** , чтобы их снабдить более яркой. Чтобы обратить, нажмите клавиши **CTRL + K**, **CTRL + M** горячие клавиши. См. полный список [ярлыков редактора запросов](../tools/kusto-explorer-shortcuts.md#query-editor).
 * Чтобы избежать конфликтов между разделителями строк Kusto и строковыми литералами Python, используйте:
      * Символы одинарной кавычки ( `'` ) для строковых литералов Kusto в запросах Kusto

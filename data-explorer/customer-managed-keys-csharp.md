@@ -7,12 +7,12 @@ ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 84d21c7cedd77a409e0d5e1c1ca0cc5f93fdad16
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 5d06b226edd08cbe4696499f6a7ec206fc902608
+ms.sourcegitcommit: d9fbcd6c9787f90de62e8e832c92d43b8090cbfc
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350253"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87515798"
 ---
 # <a name="configure-customer-managed-keys-using-c"></a>Настройка ключей, управляемых клиентом, с помощью C #
 
@@ -43,7 +43,7 @@ ms.locfileid: "87350253"
 
 * Установите [пакет NuGet Microsoft. IdentityModel. Clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) для проверки подлинности.
 
-### <a name="authentication"></a>Аутентификация
+### <a name="authentication"></a>Authentication
 
 Чтобы выполнить примеры в этой статье, [Создайте приложение Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal) и субъект-службу, которые могут получать доступ к ресурсам. Можно добавить назначение ролей в области подписки и получить необходимые `Directory (tenant) ID` , `Application ID` и `Client Secret` .
 
@@ -95,7 +95,7 @@ ms.locfileid: "87350253"
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
 * [Настройка управляемых удостоверений для кластера Azure обозреватель данных](managed-identities.md)
-* [Защитите свой кластер в Azure обозреватель данных — портал Azure](manage-cluster-security.md) , включив шифрование неактивных компонентов.
+* [Защитите свой кластер с помощью шифрования дисков в Azure обозреватель данных — портал Azure](cluster-disk-encryption.md) , включив шифрование неактивных компонентов.
 * [Настройка ключей, управляемых клиентом, с помощью шаблона Azure Resource Manager](customer-managed-keys-resource-manager.md)
 
 

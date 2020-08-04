@@ -7,12 +7,12 @@ ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: f3dfdbeda7ab0d9234c70d4bf5e0aa5613258480
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 0330d0bf51e3bf8844e6545c9b57543274d56ed0
+ms.sourcegitcommit: d9fbcd6c9787f90de62e8e832c92d43b8090cbfc
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349947"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87515742"
 ---
 # <a name="secure-azure-data-explorer-clusters-in-azure"></a>Защита кластеров Azure обозреватель данных в Azure
 
@@ -60,7 +60,7 @@ ms.locfileid: "87349947"
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Защитите свой кластер в Azure обозреватель данных-Portal](manage-cluster-security.md) , включив шифрование неактивных компонентов.
+* [Защитите свой кластер с помощью шифрования дисков в Azure обозреватель данных-Portal](cluster-disk-encryption.md) , включив шифрование неактивных компонентов.
 * [Настройка управляемых удостоверений для кластера Azure обозреватель данных](managed-identities.md)
 * [Настройка ключей, управляемых клиентом, с помощью шаблона Azure Resource Manager](customer-managed-keys-resource-manager.md)
 * [Настройка ключей, управляемых клиентом, с помощью C #](customer-managed-keys-csharp.md)

@@ -7,12 +7,12 @@ ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: bed04e084621116033aa3dd2814192957032c26e
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 59392c8ff555df99ccb7c4a5b7503266cb095552
+ms.sourcegitcommit: d9fbcd6c9787f90de62e8e832c92d43b8090cbfc
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351579"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87515844"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Настройка управляемых удостоверений для кластера Azure обозреватель данных
 
@@ -29,7 +29,7 @@ ms.locfileid: "87351579"
 
 ### <a name="add-a-system-assigned-identity-using-the-azure-portal"></a>Добавление удостоверения, назначенного системой, с помощью портал Azure
 
-1. Войдите на [портал Azure](https://portal.azure.com/).
+1. Войдите на [портал Microsoft Azure](https://portal.azure.com/).
 
 #### <a name="new-azure-data-explorer-cluster"></a>Новый кластер Azure обозреватель данных
 
@@ -172,7 +172,7 @@ ms.locfileid: "87351579"
 
 ### <a name="disable-a-system-assigned-identity-using-the-azure-portal"></a>Отключение назначенного системой удостоверения с помощью портал Azure
 
-1. Войдите на [портал Azure](https://portal.azure.com/).
+1. Войдите на [портал Microsoft Azure](https://portal.azure.com/).
 1. **Settings**  >  На левой панели портала выберите параметры**удостоверение** .
 1. На панели **удостоверение** > вкладке **назначено системой** :
     1. Переместите ползунок **состояния** в **положение выкл**.
@@ -210,6 +210,6 @@ await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clus
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
-* [Защитите свой кластер в Azure обозреватель данных — портал Azure](manage-cluster-security.md) , включив шифрование неактивных компонентов.
+* [Защитите свой кластер с помощью шифрования дисков в Azure обозреватель данных — портал Azure](cluster-disk-encryption.md) , включив шифрование неактивных компонентов.
  * [Настройка ключей, управляемых клиентом, с помощью C #](customer-managed-keys-csharp.md)
  * [Настройка ключей, управляемых клиентом, с помощью шаблона Azure Resource Manager](customer-managed-keys-resource-manager.md)
