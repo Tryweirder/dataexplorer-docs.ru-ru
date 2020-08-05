@@ -13,7 +13,7 @@ ms.locfileid: "81497698"
 ---
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Чтобы удалить соединение данных, используйте следующую команду:
+Чтобы удалить подключение к данным, используйте следующую команду:
 
 ```csharp
 kustoManagementClient.DataConnections.Delete(resourceGroupName, clusterName, databaseName, dataConnectionName);

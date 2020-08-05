@@ -11,6 +11,6 @@ ms.contentlocale: ru-RU
 ms.lasthandoff: 04/15/2020
 ms.locfileid: "81497074"
 ---
-## <a name="install-c-nuget"></a>Установка СЗ NuGet
+## <a name="install-c-nuget"></a>Установка NuGet C#
 
-* Установка [пакета Microsoft.Azure.Management.Kusto NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Установите [пакет NuGet Microsoft. Azure. Management. Kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
