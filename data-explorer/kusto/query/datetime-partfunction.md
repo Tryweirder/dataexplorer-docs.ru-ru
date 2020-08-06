@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2020
-ms.openlocfilehash: 2c1a73d2d7e31eb180b37fae3d392fd5792cd69b
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: c786f0edc94a9b92ca0f4484d0d71166ee699883
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348519"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803987"
 ---
 # <a name="datetime_part"></a>datetime_part()
 
@@ -33,26 +33,25 @@ datetime_part("Day",datetime(2015-12-14))
 * `part`: `string`
 
 Возможные значения `part` : 
-- Year
-- Quarter
-- Month
-- week_of_year
-- День
-- DayOfYear
-- Hour
-- Минута
-- Second
-- Миллисекунда
-- Микросекунды
-- Потребовавшееся
+* Year
+* Quarter
+* Month
+* week_of_year
+* День
+* DayOfYear
+* Hour
+* Минута
+* Second
+* Миллисекунда
+* Микросекунды
+* Потребовавшееся
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Целое число, представляющее извлеченную часть.
 
-**Примечание**
-
-`week_of_year`Возвращает целое число, представляющее номер недели. Номер недели вычисляется с первой недели года, которая включает первый четверг.
+> [!NOTE]
+> `week_of_year`Возвращает целое число, представляющее номер недели. Номер недели вычисляется с первой недели года, которая включает первый четверг.
 
 ## <a name="examples"></a>Примеры
 
@@ -80,4 +79,4 @@ nanosecond = datetime_part("nanosecond", dt)
 
 > [!NOTE]
 > `weekofyear`является устаревшим вариантом `week_of_year` части. `weekofyear`не соответствует стандарту ISO 8601; Первая неделя года была определена как неделя с первой в году.
-`week_of_year`соответствует стандарту ISO 8601; Первая неделя года определяется как неделя с первым четверг года в нем. [Дополнительные сведения](https://en.wikipedia.org/wiki/ISO_8601#Week_dates).
+> `week_of_year`соответствует стандарту ISO 8601; Первая неделя года определяется как неделя с первым четверг года в нем. [Дополнительные сведения](https://en.wikipedia.org/wiki/ISO_8601#Week_dates).

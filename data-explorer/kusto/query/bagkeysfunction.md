@@ -8,20 +8,22 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 4ce05f536b8903810739c6aa7780f9eaf72c4f87
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 2fa63bf0b4eea594a54a3abe132a0127929e0c52
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349335"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803806"
 ---
 # <a name="bag_keys"></a>bag_keys()
 
 Перечисляет все корневые ключи в динамическом объекте контейнера свойств.
 
+## <a name="syntax"></a>Синтаксис
+
 `bag_keys(`*динамический объект*`)`
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Массив ключей, порядок не определен.
 

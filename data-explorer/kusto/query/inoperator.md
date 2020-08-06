@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: ab2132908dad26f5f21cf945a1af4af1b8a049cd
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: a6551ee2d4ac01d6d896cc8daff466f3c4a7852e
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347397"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803970"
 ---
 # <a name="in-and-in-operators"></a>Операторы in и !in
 
@@ -23,9 +23,15 @@ ms.locfileid: "87347397"
 Table1 | where col in ('value1', 'value2')
 ```
 
+> [!NOTE]
+> * Добавление "~" к оператору делает значения "без учета регистра символов" `x in~ (expression)` или `x !in~ (expression)` .
+> * В табличных выражениях выбирается первый столбец результирующего набора.
+> * Список выражений может выдавать до `1,000,000` значений.
+> * Вложенные массивы сведены в один список значений. Например, `x in (dynamic([1,[2,3]]))` преобразуется в `x in (1,2,3)`.
+ 
 ## <a name="syntax"></a>Синтаксис
 
-*Синтаксис с учетом регистра:*
+### <a name="case-sensitive-syntax"></a>Синтаксис с учетом регистра
 
 *T* `|` `where` *Col* `in` `(` *список скалярных выражений*`)`   
 *T* `|` `where` *col* `in` `(` *Табличное выражение* T Col`)`   
@@ -33,7 +39,7 @@ Table1 | where col in ('value1', 'value2')
 *T* `|` `where` *Col* `!in` `(` *список скалярных выражений*`)`  
 *T* `|` `where` *col* `!in` `(` *Табличное выражение* T Col`)`   
 
-*Синтаксис без учета регистра:*
+### <a name="case-insensitive-syntax"></a>Синтаксис без учета регистра
 
 *T* `|` `where` *Col* `in~` `(` *список скалярных выражений*`)`   
 *T* `|` `where` *col* `in~` `(` *Табличное выражение* T Col`)`   
@@ -52,16 +58,9 @@ Table1 | where col in ('value1', 'value2')
 
 Строки в *T* , для которых предикат имеет значение `true` .
 
-**Примечания**
+## <a name="examples"></a>Примеры  
 
-* Список выражений может выдавать до `1,000,000` значений.
-* Вложенные массивы сведены в один список значений. Например, `x in (dynamic([1,[2,3]]))` преобразуется в `x in (1,2,3)`.
-* В табличных выражениях выбирается первый столбец результирующего набора.
-* Добавление "~" к оператору делает значения "без учета регистра символов" `x in~ (expression)` или `x !in~ (expression)` .
-
-**Примеры:**  
-
-**Простое использование оператора in:**  
+### <a name="use-in-operator"></a>Использовать оператор "in"
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -70,12 +69,11 @@ StormEvents
 | count
 ```
 
-|Счетчик|
+|Count|
 |---|
 |4775|  
 
-
-**Простое использование оператора in ~:**  
+### <a name="use-in-operator"></a>Использовать оператор "in ~"  
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -84,11 +82,11 @@ StormEvents
 | count
 ```
 
-|Счетчик|
+|Count|
 |---|
 |4775|  
 
-**Простое использование оператора "! in":**  
+### <a name="use-in-operator"></a>Использовать оператор "! in"
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -97,12 +95,12 @@ StormEvents
 | count
 ```
 
-|Счетчик|
+|Count|
 |---|
 |54291|  
 
 
-**Использование динамического массива:**
+### <a name="use-dynamic-array"></a>Использовать динамический массив
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -112,12 +110,11 @@ StormEvents
 | count
 ```
 
-|Счетчик|
+|Count|
 |---|
 |3218|
 
-
-**Пример вложенного запроса:**  
+### <a name="subquery"></a>Вложенный запрос
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -145,11 +142,11 @@ StormEvents
 | count
 ```
 
-|Счетчик|
+|Count|
 |---|
 |14242|  
 
-**Top с другим примером:**  
+### <a name="top-with-other-example"></a>Top с другим примером
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -169,7 +166,7 @@ Lightning_By_State
 | Грузия   | 106                  |
 | Другое     | 415                  |
 
-**Использование статического списка, возвращаемого функцией:**  
+### <a name="use-a-static-list-returned-by-a-function"></a>Использовать статический список, возвращенный функцией
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -177,7 +174,7 @@ StormEvents | where State in (InterestingStates()) | count
 
 ```
 
-|Счетчик|
+|Count|
 |---|
 |4775|  
 

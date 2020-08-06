@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/28/2019
-ms.openlocfilehash: 2191a26a0ee0bccd708c492690e58767d3cf52e9
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 770eded43fff091c8c500fcda59efcc2d4f95d9e
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87345629"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803579"
 ---
 # <a name="series_decompose_anomalies"></a>series_decompose_anomalies()
 
@@ -44,7 +44,7 @@ ms.locfileid: "87345629"
     * "tukey": [тест ограждения tukey](https://en.wikipedia.org/wiki/Outlier#Tukey's_fences) с диапазоном "Стандартный 25-75 процентиль" Дополнительные сведения о остаточном временном ряде см. в разделе [series_outliers](series-outliersfunction.md)
 * *Seasonality_threshold*: пороговое значение для показателя сезонности, если для *сезонности* задано автоматическое обнаружение. Порог оценки по умолчанию — `0.6` . Дополнительные сведения см. в разделе [series_periods_detect](series-periods-detectfunction.md)
 
-**Вернул**
+## <a name="returns"></a>Возвращаемое значение
 
  Функция возвращает следующие соответствующие ряды:
 

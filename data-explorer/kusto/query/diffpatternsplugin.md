@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: a02f275dc47e88c7b14b85d19040e907613d1b80
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 0be0dc12f48723bc83376a36db04f764991f7f0d
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348332"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803103"
 ---
 # <a name="diff-patterns-plugin"></a>подключаемый модуль шаблонов diff
 
@@ -23,13 +23,16 @@ ms.locfileid: "87348332"
 ```kusto
 T | evaluate diffpatterns(splitColumn)
 ```
-
+> [!NOTE]
+> `diffpatterns`нацелены на поиск существенных шаблонов (которые захватывают части различий данных между наборами) и не предназначены для построчных различий.
 
 ## <a name="syntax"></a>Синтаксис
 
 `T | evaluate diffpatterns(SplitColumn, SplitValueA, SplitValueB [, WeightColumn, Threshold, MaxDimensions, CustomWildcard, ...])` 
 
-**Обязательные аргументы**
+## <a name="arguments"></a>Аргументы 
+
+### <a name="required-arguments"></a>Обязательные аргументы
 
 * SplitColumn - *column_name*
 
@@ -43,9 +46,9 @@ T | evaluate diffpatterns(splitColumn)
 
     Строковое представление одного из значений в указанном аргументе SplitColumn. Все строки, имеющие это значение в аргументах SplitColumn, считаются набором данных «B».
 
-    Пример: `T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure") `
+    Например, `T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure") `.
 
-**Необязательные аргументы**
+### <a name="optional-arguments"></a>Необязательные аргументы
 
 Остальные аргументы необязательны, но они должны быть упорядочены, как показано ниже. Чтобы указать, что следует использовать значение по умолчанию, добавьте знак тильды в строку "~" (см. примеры ниже).
 
@@ -54,7 +57,7 @@ T | evaluate diffpatterns(splitColumn)
     Рассматривает каждую строку входных данных в соответствии с указанным весовым коэффициентом (по умолчанию весовой коэффициент каждой строки — 1). Аргумент должен быть именем числового столбца (например,,, `int` `long` `real` ).
     Как правило, при использовании столбца с весовым коэффициентом следует учитывать выборку, группирование или агрегирование данных, внедренных в каждой строке.
     
-    Пример: `T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", sample_Count) `
+    Например, `T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", sample_Count) `.
 
 * Пороговое значение — 0,015 < *double* < 1 [по умолчанию: 0,05]
 
@@ -74,9 +77,9 @@ T | evaluate diffpatterns(splitColumn)
     По умолчанию имеет значение NULL, для строки по умолчанию указывается пустая строка. Если значение по умолчанию является допустимым значением в данных, следует использовать другое подстановочное значение (например, `*` ).
     См. следующий пример.
 
-    Пример: `T | extend splitColumn = iff(request-responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))`
+    Например, `T | extend splitColumn = iff(request-responseCode == 200, "Success" , "Failure") | evaluate diffpatterns(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))`.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 `Diffpatterns`Возвращает небольшой набор шаблонов, которые захватывают различные части данных в двух наборах (то есть шаблон, захватывает большой процент строк в первом наборе данных, и низкий процент строк во втором наборе). В результатах каждый шаблон соответствует строке.
 
@@ -100,14 +103,9 @@ T | evaluate diffpatterns(splitColumn)
 
 * Примечание. шаблоны часто не отличаются. Они могут перекрываться и обычно не охватывают все исходные строки. Некоторые строки могут не охватываться ни одним из шаблонов.
 
-
-**Советы**
-
-Используйте [WHERE](./whereoperator.md) и [Project](./projectoperator.md) во входном канале, чтобы уменьшить объем данных до того, что вас интересует.
-
-Если вы хотите узнать дополнительные сведения о конкретной строке, добавьте ее значения в фильтр `where` .
-
-* Примечание. `diffpatterns` нацелены на поиск существенных шаблонов (которые захватывают части различий данных между наборами) и не предназначены для построчных различий.
+> [!TIP]
+> * Используйте [WHERE](./whereoperator.md) и [Project](./projectoperator.md) во входном канале, чтобы уменьшить объем данных до того, что вас интересует.
+> * Если вы хотите узнать дополнительные сведения о конкретной строке, добавьте ее значения в фильтр `where` .
 
 ## <a name="example"></a>Пример
 

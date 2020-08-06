@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 90d65f80ed8b5defe1fd2fe1e19ca4ff385cc408
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 1abe99a4739d68e6acb76b800af293e77e62b2f0
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347346"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803919"
 ---
 # <a name="ipv4_is_match"></a>ipv4_is_match()
 
@@ -38,9 +38,10 @@ ipv4_is_match('192.168.1.1', '192.168.1.255', 24) == true
 ## <a name="ip-prefix-notation"></a>IP-префиксная нотация
 
 IP-адреса можно определять с `IP-prefix notation` помощью символа косой черты ( `/` ). IP-адрес, расположенный слева от косой черты ( `/` ), является базовым IP-адресом. Число (от 1 до 32) справа от косой черты ( `/` ) — это число непрерывных 1 бита в маске. 
-**Пример:** 192.168.2.0/24 будет иметь связанную сеть/подсети, содержащую 24 смежных бита или 255.255.255.0 в точечно-десятичном формате.
 
-## <a name="returns"></a>Результаты
+Например, в 192.168.2.0/24 будет сопоставлена сеть/маска подсети, содержащая 24 смежных бита или 255.255.255.0 в точечно-десятичном формате.
+
+## <a name="returns"></a>Возвращаемое значение
 
 * `true`: Если длинное представление первого аргумента строки IPv4 равно второму аргументу строки IPv4.
 *  `false`Ином.
@@ -48,7 +49,7 @@ IP-адреса можно определять с `IP-prefix notation` помо
 
 ## <a name="examples"></a>Примеры
 
-### <a name="ipv4-comparison-equality---ip-prefix-notation-specified-inside-the-ipv4-strings"></a>Равенство сравнения IPv4-IP-префиксная нотация, указанная в строках IPv4.
+### <a name="ipv4-comparison-equality---ip-prefix-notation-specified-inside-the-ipv4-strings"></a>Равенство сравнения IPv4-IP-префиксная нотация, указанная в строках IPv4
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

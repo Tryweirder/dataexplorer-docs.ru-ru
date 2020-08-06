@@ -10,20 +10,22 @@ ms.topic: reference
 ms.date: 02/24/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: e412c1ec4f08af9820018f4c8dc172bd8c748a7f
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: e4752828b3e4b145026f7ee47a1ade3f8685262e
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350984"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803477"
 ---
 # <a name="sql_request-plugin"></a>Подключаемый модуль sql_request
 
 ::: zone pivot="azuredataexplorer"
 
-  `evaluate``sql_request` `(` *ConnectionString* `,` *SqlQuery* [ `,` *склпараметерс* [ `,` *Параметры*]]`)`
-
 `sql_request`Подключаемый модуль ОТПРАВЛЯЕТ SQL-запрос в SQL Serverную конечную точку сети и возвращает первый набор строк в результатах.
+
+## <a name="syntax"></a>Синтаксис
+
+  `evaluate``sql_request` `(` *ConnectionString* `,` *SqlQuery* [ `,` *склпараметерс* [ `,` *Параметры*]]`)`
 
 ## <a name="arguments"></a>Аргументы
 
@@ -79,7 +81,7 @@ evaluate sql_request(
 | project Name
 ```
 
-## <a name="authentication"></a>Аутентификация
+## <a name="authentication"></a>Проверка подлинности
 
 Подключаемый модуль sql_request поддерживает три метода проверки подлинности для конечной точки SQL Server.
 

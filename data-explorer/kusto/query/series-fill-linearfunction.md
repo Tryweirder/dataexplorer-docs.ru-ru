@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 0831251bd38df4475c271cc6bcec9c15668860ea
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 3fa07fee38ab42c61035f68773b603607d0aa858
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87344179"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803460"
 ---
 # <a name="series_fill_linear"></a>series_fill_linear()
 
@@ -34,14 +34,14 @@ ms.locfileid: "87344179"
 * *fill_edges*: логическое значение, указывающее, следует ли заменять *missing_value_placeholder* в начале и в конце массива на ближайшее значение. По умолчанию *имеет значение true* . Если задано значение *false*, то *missing_value_placeholder* в начале и в конце массива будут сохранены.
 * *constant_value*: необязательный параметр, относящийся только к массивам, полностью состоит из значений *null* . Этот параметр задает постоянное значение для заполнения ряда. Значение по умолчанию — *0*. Установка этого параметра в `double` значение (*null*) фактически оставляет значения *null* там, где они есть.
 
-**Примечания**
+## <a name="notes"></a>Примечания
 
 * Чтобы применить любые функции интерполяции после выполнения действия [Series](make-seriesoperator.md), укажите значение *null* в качестве значения по умолчанию: 
 
-<!-- csl: https://help.kusto.windows.net:443/Samples -->
-```kusto
-make-series num=count() default=long(null) on TimeStamp from ago(1d) to ago(1h) step 1h by Os, Browser
-```
+    <!-- csl: https://help.kusto.windows.net:443/Samples -->
+    ```kusto
+    make-series num=count() default=long(null) on TimeStamp from ago(1d) to ago(1h) step 1h by Os, Browser
+    ```
 
 * *Missing_value_placeholder* может иметь любой тип, который будет преобразован в фактические типы элементов. Таким образом, оба значения `double` (*null*), `long` (*null*) или `int` (*null*) имеют одинаковое значение.
 * Если *missing_value_placeholder* имеет `double` *значение (NULL*) (или опущено, то есть имеет то же значение), результат может содержать значения *null* . Используйте другие функции интерполяции для заполнения этих значений *null* . В настоящее время только [series_outliers ()](series-outliersfunction.md) поддерживают значения *null* во входных массивах.

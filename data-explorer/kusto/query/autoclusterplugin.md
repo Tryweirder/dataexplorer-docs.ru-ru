@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 86e3ce4f1cbb957ebd126a8493ebb6b7bc5ac66b
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 959b11eca2dc369a3f737e01175f77ff6626f773
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349420"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803851"
 ---
 # <a name="autocluster-plugin"></a>Подключаемый модуль autocluster
 
@@ -23,11 +23,15 @@ T | evaluate autocluster()
 
 `autocluster`находит общие шаблоны дискретных атрибутов (измерений) в данных. Затем он сокращает результаты исходного запроса, будь то 100 или 100 000 строк, до небольшого количества шаблонов. Подключаемый модуль был разработан для анализа сбоев (например, исключений или сбоев), но потенциально может работать с любым набором отфильтрованных данных.
 
+> [!NOTE]
+> `autocluster`в основном основывается на алгоритме инициализации начального значения из следующего документа: [алгоритмы для интеллектуального анализа данных телеметрии с использованием дискретных атрибутов](https://www.scitepress.org/DigitalLibrary/PublicationsDetail.aspx?ID=d5kcrO+cpEU=&t=1). 
+
+
 ## <a name="syntax"></a>Синтаксис
 
 `T | evaluate autocluster(`*аргументы*`)`
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 `autocluster`Подключаемый модуль возвращает набор шаблонов (обычно небольшой). Шаблоны записывают части данных с общими общими значениями для нескольких дискретных атрибутов. Каждый шаблон в результатах представлен строкой.
 
@@ -40,7 +44,10 @@ T | evaluate autocluster()
 >
 > Если вы хотите узнать дополнительные сведения о конкретной строке, добавьте ее значения в фильтр `where` .
 
-**Аргументы (необязательные)**
+## <a name="arguments"></a>Аргументы 
+
+> [!NOTE] 
+> Все аргументы являются необязательными.
 
 `T | evaluate autocluster(`[*SizeWeight*, *WeightColumn*, *NumSeeds*, *CustomWildcard*, *CustomWildcard*,...]`)`
 
@@ -55,7 +62,7 @@ T | evaluate autocluster()
 
 ## <a name="examples"></a>Примеры
 
-### <a name="example"></a>Пример
+### <a name="using-autocluster"></a>Использование автокластеров
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -66,13 +73,13 @@ StormEvents
 | evaluate autocluster(0.6)
 ```
 
-|Идентификатор сегмента|Счетчик|Процент|Состояние|EventType|Ущерб|
+|Идентификатор сегмента|Count|Процент|Состояние|EventType|Ущерб|
 |---|---|---|---|---|---|---|---|---|
 |0|2278|38,7||Град|NO
 |1|512|8,7||Шквалистый ветер|YES
 |2|898|15,3|Техас||
 
-### <a name="example-with-custom-wildcards"></a>Примеры с пользовательскими подстановочными знаками
+### <a name="using-custom-wildcards"></a>Использование настраиваемых подстановочных знаков
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -83,7 +90,7 @@ StormEvents
 | evaluate autocluster(0.2, '~', '~', '*')
 ```
 
-|Идентификатор сегмента|Счетчик|Процент|Состояние|EventType|Ущерб|
+|Идентификатор сегмента|Count|Процент|Состояние|EventType|Ущерб|
 |---|---|---|---|---|---|---|---|---|
 |0|2278|38,7|\*|Град|NO
 |1|512|8,7|\*|Шквалистый ветер|YES
@@ -93,5 +100,3 @@ StormEvents
 
 * [basket](./basketplugin.md)
 * [свести](./reduceoperator.md)
-
-* `autocluster`в основном основывается на алгоритме инициализации начального значения из следующего документа: [алгоритмы для интеллектуального анализа данных телеметрии с использованием дискретных атрибутов](https://www.scitepress.org/DigitalLibrary/PublicationsDetail.aspx?ID=d5kcrO+cpEU=&t=1). 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 1bfe42e18cfe0bb424e933b266eb9861c7676cea
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 6511006373cd1f6245a0dcc04537f3994183d63e
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348587"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803766"
 ---
 # <a name="database-scope-function"></a>Database () (Функция scope)
 
@@ -28,6 +28,10 @@ database('Sample').StormEvents
 cluster('help').database('Sample').StormEvents
 ```
 
+> [!NOTE]
+> * Дополнительные сведения см. в разделе [запросы между базами данных и между кластерами](cross-cluster-or-database-queries.md).
+> * Сведения о доступе к удаленному кластеру и удаленной базе данных см. в разделе Функция области [Cluster ()](clusterfunction.md) .
+
 ## <a name="syntax"></a>Синтаксис
 
 `database(`*стрингконстант*`)`
@@ -36,20 +40,15 @@ cluster('help').database('Sample').StormEvents
 
 * *стрингконстант*: имя базы данных, на которую указывает ссылка. Возможно, база данных имеет значение `DatabaseName` или `PrettyName` . Аргумент должен быть _константой_ до выполнения запроса, т. е. не может быть результатом вычисления вложенного запроса.
 
-**Примечания**
-
-* Сведения о доступе к удаленному кластеру и удаленной базе данных см. в разделе Функция области [Cluster ()](clusterfunction.md) .
-* Дополнительные сведения о запросах между кластерами и между базами данных доступны [здесь](cross-cluster-or-database-queries.md)
-
 ## <a name="examples"></a>Примеры
 
-### <a name="use-database-to-access-table-of-other-database"></a>Используйте базу данных () для доступа к таблице другой базы данных. 
+### <a name="use-database-to-access-table-of-other-database"></a>Использование базы данных () для доступа к таблице других баз данных
 
 ```kusto
 database('Samples').StormEvents | count
 ```
 
-|Счетчик|
+|Count|
 |---|
 |59066|
 
@@ -65,7 +64,7 @@ let foo = (dbName:string)
 foo('help')
 ```
 
-|Счетчик|
+|Count|
 |---|
 |59066|
 
@@ -80,7 +79,8 @@ foo('help')
 };
 ```
 
-**Примечание.** такие функции можно использовать только локально, а не в запросах между кластерами.
+> [!NOTE]
+> Такие функции можно использовать только локально, а не в запросах между кластерами.
 
 ::: zone-end
 

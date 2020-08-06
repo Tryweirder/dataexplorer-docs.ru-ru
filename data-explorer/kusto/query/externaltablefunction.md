@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/21/2019
-ms.openlocfilehash: 4a3a1150996000742f5065df0eddc385074eaa48
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 13b244eb151d140e3626412188ac9bc9de242cc6
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348094"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87802984"
 ---
 # <a name="external_table"></a>external_table()
 
@@ -22,6 +22,11 @@ ms.locfileid: "87348094"
 ```kusto
 external_table('StormEvent')
 ```
+
+> [!NOTE]
+> * `external_table`Функция имеет аналогичные ограничения, чем [Табличная](tablefunction.md) функция.
+> * [Внешние таблицы](schema-entities/externaltables.md)
+> * [Команды для управления внешними таблицами](../management/externaltables.md)
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -33,11 +38,3 @@ external_table('StormEvent')
   Должен быть строковым литералом, ссылающимся на внешнюю таблицу типа `blob` или `adl` . <!-- TODO: Document data formats supported -->
 
 * *MappingName*: необязательное имя объекта сопоставления, который сопоставляет поля в фактических (внешних) сегментах данных со столбцами, выводимыми этой функцией.
-
-**Примечания**
-
-Дополнительные сведения о внешних таблицах см. в разделе [внешние таблицы](schema-entities/externaltables.md) .
-
-См. также [команды для управления внешними таблицами](../management/externaltables.md).
-
-`external_table`Функция имеет аналогичные ограничения, чем [Табличная](tablefunction.md) функция.

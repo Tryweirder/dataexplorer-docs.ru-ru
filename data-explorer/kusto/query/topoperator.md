@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: e8c917d0899ada7d65cacd8e1433027535338e24
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 52e66205b5ba048e4ec2d160d447082b1bf65de1
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87340383"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87802916"
 ---
 # <a name="top-operator"></a>Оператор top
 
@@ -34,8 +34,9 @@ T | top 5 by Name desc nulls last
 * `asc` или `desc` (по умолчанию) могут указывать направление выбора элементов в диапазоне: снизу вверх или сверху вниз.
 * `nulls first`(по умолчанию для `asc` Order) или `nulls last` (по умолчанию для `desc` Order) может использоваться для управления тем, будут ли значения NULL находиться в начале или конце диапазона.
 
+> [!TIP]
+> `top 5 by name`эквивалентно выражению `sort by name | take 5` как от семантических, так и с точки зрения производительности.
 
-**Советы**
+## <a name="see-also"></a>См. также 
 
-* `top 5 by name`эквивалентно выражению `sort by name | take 5` как от семантических, так и с точки зрения производительности.
 * Используйте оператор [Top-Nested](topnestedoperator.md) для создания иерархических (вложенных) лучших результатов.

@@ -8,24 +8,23 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 6c157c014ec3b83aa39d4bdfcadda12e97e84f3e
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 0c4ce80c00df4c9c6e257fbe1f8a93802f54438e
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346547"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87802950"
 ---
 # <a name="pack_all"></a>pack_all()
 
 Создает `dynamic` объект (контейнер свойств) из всех столбцов табличного выражения.
 
+> [!NOTE]
+> В представлении возвращаемого объекта не гарантируется совместимость с байтовыми уровнями между запусками. Например, свойства, отображаемые в контейнере, могут отображаться в другом порядке.
+
 ## <a name="syntax"></a>Синтаксис
 
 `pack_all()`
-
-**Примечания**
-
-В представлении возвращаемого объекта не гарантируется совместимость с байтовыми уровнями между запусками. Например, свойства, отображаемые в контейнере, могут отображаться в другом порядке.
 
 ## <a name="examples"></a>Примеры
 
@@ -49,6 +48,7 @@ datatable(SourceNumber:string,TargetNumber:string,CharsCount:long)
 ]
 | extend Packed=pack_all()
 ```
+
 Возвращает:
 
 |TableName |саурценумбер |таржетнумбер | Распаковывается

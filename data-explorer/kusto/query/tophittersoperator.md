@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: babb4e023d29c7894661e3acf2c0a09e753011c2
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: be05a3a546bb6f1db003be14e4a1417841b54671
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87340825"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87804072"
 ---
 # <a name="top-hitters-operator"></a>Оператор top-hitters
 
@@ -22,6 +22,9 @@ ms.locfileid: "87340825"
 ```kusto
 T | top-hitters 25 of Page by Views 
 ```
+
+> [!NOTE]
+> `top-hitters`— это алгоритм приближения, который должен использоваться при работе с большими данными. Приближение значения Top-hitters основано на алгоритме [Count-min-эскиза](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch) .  
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -35,13 +38,9 @@ T | top-hitters 25 of Page by Views
     * *выражение*: Top-hitters вернет строки *NumberOfRows* , которые имеют приблизительное максимальное значение Sum (*выражение*). Выражение может быть столбцом или любым другим выражением, результатом вычисления которого является число. 
     *  Если *выражение* не упоминается, то алгоритм Top-hitters будет подсчитывать количество вхождений *ключа сортировки*.  
 
-**Примечания**
+## <a name="examples"></a>Примеры
 
-`top-hitters`— это алгоритм приближения, который должен использоваться при работе с большими данными. Приближение значения Top-hitters основано на алгоритме [Count-min-эскиза](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch) .  
-
-## <a name="example"></a>Пример
-
-## <a name="getting-top-hitters-most-frequent-items"></a>Получение основных hitters (наиболее частые элементы) 
+### <a name="get-most-frequent-items"></a>Получение наиболее частых элементов 
 
 В следующем примере показано, как найти топ-5 языков с большинством страниц в Википедии (доступ к которому осуществляется после апреля 2016). 
 
@@ -59,7 +58,7 @@ PageViews
 |ru|227003107|
 |fr|207943448|
 
-## <a name="getting-top-hitters-based-on-column-value-"></a>Получение Top hitters (на основе значения столбца) * * *
+### <a name="get-top-hitters-based-on-column-value"></a>Получение Top hitters на основе значения столбца
 
 В следующем примере показано, как найти наиболее просмотренные англоязычные страницы Википедии из 2016 года. Запрос использует представления (целочисленное число) для вычисления популярности страницы (число представлений). 
 

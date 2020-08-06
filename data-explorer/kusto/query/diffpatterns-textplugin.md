@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9321f30d2643f6e398d73cf7960490708626f723
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: b0a71f9db9062d83f55ebf9db1efabb6d86f9786
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348366"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803290"
 ---
 # <a name="diffpatterns_text-plugin"></a>Подключаемый модуль diffpatterns_text
 
@@ -29,7 +29,9 @@ T | evaluate diffpatterns_text(TextColumn, BooleanCondition)
 
 `T | evaluate diffpatterns_text(`Текстколумн, Булеанкондитион [, Минтокенс, порог, Макстокенс]`)` 
 
-**Обязательные аргументы**
+## <a name="arguments"></a>Аргументы
+
+### <a name="required-arguments"></a>Обязательные аргументы
 
 * Текстколумн — *column_name*
 
@@ -39,7 +41,7 @@ T | evaluate diffpatterns_text(TextColumn, BooleanCondition)
 
     Определяет способ создания двух подмножеств записей для сравнения с входной таблицей. Алгоритм разбивает запрос на два набора данных, "true" и "false" в соответствии с условием, а затем анализирует (текст) различия между ними. 
 
-**Необязательные аргументы**
+### <a name="optional-arguments"></a>Необязательные аргументы
 
 Остальные аргументы необязательны, но они должны быть упорядочены, как показано ниже. 
 
@@ -55,7 +57,7 @@ T | evaluate diffpatterns_text(TextColumn, BooleanCondition)
 
     Задает максимальное число токенов (от начала) для каждого шаблона результата, при котором Задание нижнего предела сокращает время выполнения запроса.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Результат diffpatterns_text возвращает следующие столбцы:
 
@@ -78,7 +80,7 @@ StormEvents
 | evaluate diffpatterns_text(EpisodeNarrative, EventType == "Extreme Cold/Wind Chill", 2)
 ```
 
-|Count_of_True|Count_of_False|Percent_of_True|Percent_of_False|Шаблон|
+|Count_of_True|Count_of_False|Percent_of_True|Percent_of_False|Модель|
 |---|---|---|---|---|
 |11|0|6,29|0|Подойдет к концу смены Северо-Западного в * спящий режим * траугх, в сновфалл довнвинд|
 |9|0|5,14|0|В канадском высоком замедленном нажиме * * регион * были получены холодное температуры с февраля * 2006. Длительность * замораживание температур|
@@ -86,4 +88,3 @@ StormEvents
 |0|42|0|7,71|* * * * * * вызывается * * * * * * * * в западных Колорадо. *|
 |0|45|0|8,26|* * ниже обычного *|
 |0|110|0|20,18|Ниже обычного *|
-

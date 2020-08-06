@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: f9d7a60b3c39fb0b7357c2bbe68533252f794347
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 857a48ab02ae04e68a8475b7109cebbb2275ca55
+ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349488"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87803307"
 ---
 # <a name="as-operator"></a>Оператор as
 
@@ -29,11 +29,9 @@ ms.locfileid: "87349488"
 * *Имя*: временное имя табличного выражения.
 * `hint.materialized`: Если задано `true` значение, то значением табличного выражения будет материализоваться, как если бы оно было заключено в вызов функции [материализации ()](./materializefunction.md) .
 
-**Примечания**
-
-* Имя, заданное параметром, `as` будет использоваться в `withsource=` столбце [Union](./unionoperator.md), `source_` столбце поиска и [find](./findoperator.md) `$table` столбце [поиска](./searchoperator.md).
-
-* Табличное выражение с именем, использующее оператор в внешних табличных входных данных [объединения](./joinoperator.md) (`$left`), может также использоваться в табличных внутренних входных данных объединения (`$right`).
+> [!NOTE]
+> * Имя, заданное параметром, `as` будет использоваться в `withsource=` столбце [Union](./unionoperator.md), `source_` столбце поиска и [find](./findoperator.md) `$table` столбце [поиска](./searchoperator.md).
+> * Табличное выражение с именем, использующее оператор в внешних табличных входных данных [объединения](./joinoperator.md) (`$left`), может также использоваться в табличных внутренних входных данных объединения (`$right`).
 
 ## <a name="examples"></a>Примеры
 
