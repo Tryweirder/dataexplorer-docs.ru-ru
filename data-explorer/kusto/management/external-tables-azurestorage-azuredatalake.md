@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 1b857ee464b0fff973293cd03afadecc8c893af2
-ms.sourcegitcommit: 537a7eaf8c8e06a5bde57503fedd1c3706dd2b45
+ms.openlocfilehash: 2616605d29f90a283f5a5d8fef367bf77df65a15
+ms.sourcegitcommit: 83202ec6fec0ce98fdf993bbb72adc985d6d9c78
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86422979"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87871941"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
 
@@ -23,7 +23,7 @@ ms.locfileid: "86422979"
 
 **Синтаксис**
 
-( `.create`  |  `.alter` ) `external` `table` *[TableName](#table-name)* `(` *[Схема](#schema)* TableName`)`  
+( `.create`  |  `.alter`  |  `.create-or-alter` ) `external` `table` *[TableName](#table-name)* `(` *[Схема](#schema)* TableName`)`  
 `kind` `=` (`blob` | `adl`)  
 [ `partition` `by` `(` *[Секции](#partitions)* `)` [ `pathformat` `=` `(` *[пасформат](#path-format)* `)` ]]  
 `dataformat``=` * [Формат](#format)*  
@@ -33,7 +33,7 @@ ms.locfileid: "86422979"
 Создает или изменяет новую внешнюю таблицу в базе данных, в которой выполняется команда.
 
 > [!NOTE]
-> * Если таблица существует, команда завершится ошибкой `.create` . Используйте `.alter` для изменения существующих таблиц. 
+> * Если таблица существует, команда завершится ошибкой `.create` . Используйте `.create-or-alter` или `.alter` для изменения существующих таблиц.
 > * Изменение схемы, формата или определения секции внешней таблицы больших двоичных объектов не поддерживается. 
 > * Для операции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md) для `.create` и [разрешения администратора таблицы](../management/access-control/role-based-authorization.md) для `.alter` . 
 
@@ -133,7 +133,7 @@ ms.locfileid: "86422979"
 <a name="properties"></a>
 *Необязательные свойства*
 
-| Свойство         | Тип     | Описание       |
+| Свойство         | Type     | Описание:       |
 |------------------|----------|-------------------------------------------------------------------------------------|
 | `folder`         | `string` | Папка таблицы                                                                     |
 | `docString`      | `string` | Строка документирования таблицы                                                       |
@@ -274,9 +274,9 @@ dataformat=parquet
 
 **Выходные данные**
 
-| Выходной параметр | Тип   | Описание                       |
+| Выходной параметр | Type   | Описание                       |
 |------------------|--------|-----------------------------------|
-| URI              | string | URI внешнего файла данных хранилища |
+| URI              | строка | URI внешнего файла данных хранилища |
 
 > [!TIP]
 > Итерация по всем файлам, на которые ссылается внешняя таблица, может быть довольно дорогостоящей в зависимости от числа файлов. Обязательно используйте `limit` параметр, если вы просто хотите увидеть некоторые примеры URI.
@@ -362,7 +362,7 @@ dataformat=parquet
 ```kusto
 .drop external table MyExternalTable json mapping "Mapping1" 
 ```
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Команды для общего управления внешней таблицей](externaltables.md)
 * [Создание и изменение внешних таблиц SQL](external-sql-tables.md)

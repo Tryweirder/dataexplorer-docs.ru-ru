@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 1f9cc982c213a9c2143b169dcf8a12103d617257
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 656d1d5d9120baebced624fee476d261214eff57
+ms.sourcegitcommit: 83202ec6fec0ce98fdf993bbb72adc985d6d9c78
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346717"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87871856"
 ---
 # <a name="mv-apply-operator"></a>Оператор mv-apply
 
@@ -35,7 +35,7 @@ T | mv-apply Metric to typeof(real) on
 1. Добавляет ноль или более столбцов в результирующую подтаблицу. Эти столбцы содержат значения исходных столбцов, которые не развернуты, и при необходимости повторяются.
 1. Возвращает объединение результатов.
 
-`mv-expand`Оператор получает следующие входные данные:
+`mv-apply`Оператор получает следующие входные данные:
 
 1. Одно или несколько выражений, которые вычисляют динамические массивы для расширения.
    Количество записей в каждой развернутой подтаблице равно максимальной длине каждого из этих динамических массивов. Значения NULL добавляются, если указано несколько выражений и соответствующие массивы имеют разную длину.

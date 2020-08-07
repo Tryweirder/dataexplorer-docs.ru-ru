@@ -7,12 +7,12 @@ ms.reviewer: vladikb
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8a31c4a482f047f9f92edd75fe1119c1729deaf9
-ms.sourcegitcommit: 537a7eaf8c8e06a5bde57503fedd1c3706dd2b45
+ms.openlocfilehash: 5e1502260c58c0acfcef4ead17a5ad779870cced
+ms.sourcegitcommit: 83202ec6fec0ce98fdf993bbb72adc985d6d9c78
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86423000"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872009"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-sdk"></a>Прием данных с помощью пакета SDK Azure обозреватель данных .NET 
 
@@ -33,7 +33,7 @@ Install-Package Microsoft.Azure.Kusto.Ingest
 
 ## <a name="add-authentication-and-construct-connection-string"></a>Добавление проверки подлинности и создание строки подключения
 
-### <a name="authentication"></a>Аутентификация
+### <a name="authentication"></a>Проверка подлинности
 
 Чтобы проверить подлинность приложения, Azure обозреватель данных SDK использует идентификатор клиента AAD. Чтобы найти идентификатор клиента, используйте следующий URL-адрес, заменив домен на *имя_вашего_домена*.
 
@@ -205,7 +205,7 @@ using (var ingestClient = KustoIngestFactory.CreateQueuedIngestClient(ingestConn
             IgnoreFirstRecord = true
         };
 
-    ingestClient.IngestFromStorageAsync(blobPath, ingestionProperties: properties);
+    ingestClient.IngestFromStorageAsync(blobPath, ingestionProperties: properties).GetAwaiter().GetResult();
 }
 ```
 
