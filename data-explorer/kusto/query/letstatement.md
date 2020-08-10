@@ -4,16 +4,16 @@ description: В этой статье описывается инструкци�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
-ms.date: 02/13/2020
-ms.openlocfilehash: 2994a65e8726edaba22c6905290b4b69660e0586
-ms.sourcegitcommit: 284152eba9ee52e06d710cc13200a80e9cbd0a8b
+ms.date: 08/09/2020
+ms.openlocfilehash: 879b858904ac9f024f70dfef6096141a9ff81bd7
+ms.sourcegitcommit: b8415e01464ca2ac9cd9939dc47e4c97b86bd07a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/13/2020
-ms.locfileid: "86291548"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88028482"
 ---
 # <a name="let-statement"></a>Инструкция let
 
@@ -49,7 +49,7 @@ ms.locfileid: "86291548"
 
 `TabularArguments`-[*Табулараргнаме* `:` `(` [*атрнаме* `:` *атртипе*] [ `,` ...] `)` ] [`,` ... ] [`,`]
 
- или
+ или:
 
  [*Табулараргнаме* `:` `(` `*` `)`]
 
@@ -129,16 +129,72 @@ Events
 | take n
 ```
 
+### <a name="use-let-statement-with-arguments-for-scalar-calculation"></a>Использование инструкции Let с аргументами для скалярного вычисления
+
+В этом примере используется оператор Let с аргументами для скалярного вычисления. Запрос определяет функцию `MultiplyByN` для умножения двух чисел.
+
+<!-- csl: https://help.kusto.windows.net/Samples -->
+```kusto
+let MultiplyByN = (val:long, n:long) { val * n };
+range x from 1 to 5 step 1 
+| extend result = MultiplyByN(x, 5)
+```
+
+|x|result|
+|---|---|
+|1|5|
+|2|10|
+|3|15|
+|4|20|
+|5|25|
+
+В следующем примере удаляются начальные и конечные ( `1` ) из входных данных.
+
+<!-- csl: https://help.kusto.windows.net/Samples -->
+```kusto
+let TrimOnes = (s:string) { trim("1", s) };
+range x from 10 to 15 step 1 
+| extend result = TrimOnes(tostring(x))
+```
+
+|x|result|
+|---|---|
+|10|0|
+|11||
+|12|2|
+|13|3|
+|14|4|
+|15|5|
+
+
 ### <a name="use-multiple-let-statements"></a>Использование нескольких инструкций Let
 
 В этом примере определяются два оператора let, где одна инструкция ( `foo2` ) использует другую ( `foo1` ).
 
+<!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
 let foo1 = (_start:long, _end:long, _step:long) { range x from _start to _end step _step};
 let foo2 = (_step:long) { foo1(1, 100, _step)};
 foo2(2) | count
 // Result: 50
 ```
+
+### <a name="use-the-view-keyword-in-a-let-statement"></a>Использование `view` ключевого слова в инструкции Let
+
+В этом примере показано, как использовать инструкцию Let с `view` ключевым словом.
+
+<!-- csl: https://help.kusto.windows.net/Samples -->
+```kusto
+let Range10 = view () { range MyColumn from 1 to 10 step 1 };
+let Range20 = view () { range MyColumn from 1 to 20 step 1 };
+search MyColumn == 5
+```
+
+|$table|MyColumn|
+|---|---|
+|Range10|5|
+|Range20|5|
+
 
 ### <a name="use-materialize-function"></a>Использовать функцию материализации
 
