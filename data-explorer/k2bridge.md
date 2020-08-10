@@ -7,12 +7,12 @@ ms.reviewer: guregini
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 8a4a4e68333255c322708993b1c9429a89ae7a00
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: bf479a7248033d2aa70a8e09b039814361c78031
+ms.sourcegitcommit: bcd0c96b1581e43e33aa35f4d68af6dcb4979d39
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373766"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88039239"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-kibana-with-the-k2bridge-open-source-connector"></a>Визуализация данных из Azure обозреватель данных в Kibana с помощью соединителя K2Bridge с открытым кодом
 
@@ -102,7 +102,7 @@ K2Bridge поддерживает вкладку **обнаружения** Kiba
 
         В [конфигурации](https://github.com/microsoft/K2Bridge/blob/master/docs/configuration.md)можно найти полный набор параметров конфигурации.
 
-    1. Выходные данные предыдущей команды предлагают следующую команду Helm для развертывания Kibana. При необходимости выполните следующую команду:
+    1. <a name="install-kibana-service"></a>Выходные данные предыдущей команды предлагают следующую команду Helm для развертывания Kibana. При необходимости выполните следующую команду:
 
         ```bash
         helm install kibana elastic/kibana -n k2bridge --set image=docker.elastic.co/kibana/kibana-oss --set imageTag=6.8.5 --set elasticsearchHosts=http://k2bridge:8080
@@ -118,7 +118,7 @@ K2Bridge поддерживает вкладку **обнаружения** Kiba
 
     1. Предоставление пользователям Kibana. Это можно сделать несколькими способами. Метод, который вы используете во многом, зависит от вашего варианта использования.
 
-        Например, службу можно предоставить в качестве службы Load Balancer. Для этого добавьте параметр **--Set Service. Type =** балансировщика в [предыдущую команду K2Bridge Helm **Install** ](#install-k2bridge-chart).
+        Например, службу можно предоставить в качестве службы Load Balancer. Для этого добавьте параметр **--Set Service. Type =** балансировщика в [предыдущую команду Kibana Helm **Install** ](#install-kibana-service).
 
         Затем выполните следующую команду:
 
@@ -133,7 +133,7 @@ K2Bridge поддерживает вкладку **обнаружения** Kiba
         kibana-kibana   LoadBalancer   xx.xx.xx.xx    <pending>     5601:30128/TCP   4m24s
         ```
 
-        Затем можно будет использовать созданное значение внешнего IP-адреса. Используйте его для доступа к Kibana, открыв браузер и перейдя к \< External-IP \> : 5601.
+        Затем можно будет использовать созданное значение внешнего IP-адреса. Используйте его для доступа к Kibana, открыв браузер и перейдя по \<EXTERNAL-IP\> адресу: 5601.
 
 1. Настройте шаблоны индексов для доступа к данным.
 

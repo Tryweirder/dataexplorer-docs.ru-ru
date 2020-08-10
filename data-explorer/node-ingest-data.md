@@ -1,30 +1,36 @@
 ---
 title: Прием данных с помощью библиотеки Node в Azure Data Explorer
-description: В этой статье вы узнаете, как глотать (загружать) данные в Azure Data Explorer с помощью Node.js.
+description: Из этой статьи вы узнаете, как принимать (загружать) данные в Azure обозреватель данных с помощью Node.js.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 33117a41c48a6aa3a9fc33566f201e6009b288ac
+ms.sourcegitcommit: bcd0c96b1581e43e33aa35f4d68af6dcb4979d39
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81495384"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88039188"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Прием данных с помощью библиотеки Node в Azure Data Explorer
 
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure Data Explorer предоставляет две клиентские библиотеки для Node: [библиотеку приема](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) и [библиотеку данных](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Они позволяют принимать (загружать) данные в кластер и запрашивать данные из кода. В этой статье сначала создается таблица и отображение данных в тестовом кластере. Затем вы поставите в очередь прием данных в кластер и проверите результаты.
+> [!div class="op_single_selector"]
+> * [.NET](net-sdk-ingest-data.md)
+> * [Python](python-ingest-data.md)
+> * [Node](node-ingest-data.md)
+> * [GO](go-ingest-data.md)
+
+Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure Data Explorer предоставляет две клиентские библиотеки для Node: [библиотеку приема](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) и [библиотеку данных](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Они позволяют принимать (загружать) данные в кластер и запрашивать данные из кода. В этой статье вы сначала создадите таблицу и сопоставление данных в тестовом кластере. Затем вы поставите в очередь прием данных в кластер и проверите результаты.
 
 Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-В дополнение к подписке Azure, вам нужно следующее, чтобы завершить эту статью:
+В дополнение к подписке Azure для выполнения этой статьи необходимо следующее:
 
-* [Кластер тестирования и база данных](create-cluster-database-portal.md)
+* [Тестовый кластер и база данных](create-cluster-database-portal.md)
 
 * [Node.js](https://nodejs.org/en/download/) на компьютере, где ведется разработка.
 
@@ -76,7 +82,7 @@ const destTableMapping = "StormEvents_CSV_Mapping";
 
 ## <a name="set-source-file-information"></a>Определение данных исходного файла
 
-Импортируйте дополнительные классы и задайте константы для исходного файла данных. В этом примере используется пример файла, размещенный в хранилище BLOB-объектов Azure. Набор выборочных данных **StormEvents** содержит данные, связанные с погодой, из [Национальных центров экологической информации.](https://www.ncdc.noaa.gov/stormevents/)
+Импортируйте дополнительные классы и задайте константы для исходного файла данных. В этом примере используется пример файла, размещенный в хранилище BLOB-объектов Azure. Образец набора данных **стормевентс** содержит данные, связанные с погодой, из [национальных центров для информации о окружающей среде](https://www.ncdc.noaa.gov/stormevents/).
 
 ```javascript
 const container = "samplefiles";
@@ -141,7 +147,7 @@ kustoClient.execute(kustoDatabase, query, (err, results) => {
 
 ## <a name="run-troubleshooting-queries"></a>Выполнение запросов по устранению неполадок
 
-Вопийте [https://dataexplorer.azure.com](https://dataexplorer.azure.com) в кластер и подключайтесь к ней. Выполните в своей базе данных следующую команду, чтобы проверить, не было ли в ней сбоев приема за последние четыре часа. Замените имя базы данных перед запуском.
+Войдите в [https://dataexplorer.azure.com](https://dataexplorer.azure.com) кластер и подключитесь к нему. Выполните в своей базе данных следующую команду, чтобы проверить, не было ли в ней сбоев приема за последние четыре часа. Замените имя базы данных перед запуском.
     
 ```Kusto
 .show ingestion failures
@@ -158,12 +164,12 @@ kustoClient.execute(kustoDatabase, query, (err, results) => {
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Если вы планируете следовать нашим другим статьям, сохраните созданные ресурсы. В противном случае выполните в своей базе данных следующую команду, чтобы очистить таблицу `StormEvents`.
+Если вы планируете следовать нашим другим статьям, не заполняйте созданные ресурсы. В противном случае выполните в своей базе данных следующую команду, чтобы очистить таблицу `StormEvents`.
 
 ```Kusto
 .drop table StormEvents
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Написание запросов](write-queries.md)

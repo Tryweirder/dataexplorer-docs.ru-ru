@@ -7,14 +7,20 @@ ms.reviewer: vladikb
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 5e1502260c58c0acfcef4ead17a5ad779870cced
-ms.sourcegitcommit: 83202ec6fec0ce98fdf993bbb72adc985d6d9c78
+ms.openlocfilehash: 35dff1c9aa4ecb9bee96c5c7f2c54898abd45089
+ms.sourcegitcommit: bcd0c96b1581e43e33aa35f4d68af6dcb4979d39
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872009"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88039171"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-sdk"></a>Прием данных с помощью пакета SDK Azure обозреватель данных .NET 
+
+> [!div class="op_single_selector"]
+> * [.NET](net-sdk-ingest-data.md)
+> * [Python](python-ingest-data.md)
+> * [Node](node-ingest-data.md)
+> * [GO](go-ingest-data.md)
 
 Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Он предоставляет две клиентские библиотеки для .NET: [библиотеку приема](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest/) и [библиотеку данных](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data/). Дополнительные сведения о пакете SDK для .NET см. в разделе [о пакете SDK для .NET](/azure/data-explorer/kusto/api/netfx/about-the-sdk).
 Они позволяют принимать (загружать) данные в кластер и запрашивать данные из кода. В этой статье вы сначала создадите таблицу и сопоставление данных в тестовом кластере. Затем вы поставите в очередь прием данных в кластер и проверите результаты.
@@ -27,23 +33,23 @@ ms.locfileid: "87872009"
 
 ## <a name="install-the-ingest-library"></a>Установка библиотеки приема
 
-```
+```azurecli
 Install-Package Microsoft.Azure.Kusto.Ingest
 ```
 
 ## <a name="add-authentication-and-construct-connection-string"></a>Добавление проверки подлинности и создание строки подключения
 
-### <a name="authentication"></a>Проверка подлинности
+### <a name="authentication"></a>Аутентификация
 
 Чтобы проверить подлинность приложения, Azure обозреватель данных SDK использует идентификатор клиента AAD. Чтобы найти идентификатор клиента, используйте следующий URL-адрес, заменив домен на *имя_вашего_домена*.
 
-```
+```http
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```
 
 Например, если ваш домен называется *contoso.com*, URL-адрес будет следующим: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Щелкните этот URL-адрес, чтобы просмотреть результаты. Первая строка выглядит следующим образом: 
 
-```
+```console
 "authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 

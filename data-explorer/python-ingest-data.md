@@ -1,26 +1,32 @@
 ---
 title: Прием данных с помощью библиотеки Python в Azure Data Explorer
-description: В этой статье вы узнаете, как глотать (загружать) данные в Azure Data Explorer с помощью Python.
+description: Из этой статьи вы узнаете, как принимать (загружать) данные в Azure обозреватель данных с помощью Python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 28151476ce96fabc92e04078396119d0eb8c2f17
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 1ebbbac5da0230ff00cbc13670b18f12fbedd2a1
+ms.sourcegitcommit: bcd0c96b1581e43e33aa35f4d68af6dcb4979d39
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81501572"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88039207"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Прием данных с помощью библиотеки Python в Azure Data Explorer
 
-В этой статье вы глотаете данные с помощью библиотеки Azure Data Explorer Python. Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Обозреватель данных Azure предоставляет две клиентские библиотеки для Python: [библиотеку приема](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) и [библиотеку данных](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Эти библиотеки позволяют глотать или загружать данные в кластер и запросы из кода.
+> [!div class="op_single_selector"]
+> * [.NET](net-sdk-ingest-data.md)
+> * [Python](python-ingest-data.md)
+> * [Node](node-ingest-data.md)
+> * [GO](go-ingest-data.md)
 
-Во-первых, создайте таблицу и отображение данных в кластере. Затем вы поставите в очередь прием данных в кластер и проверите результаты.
+В этой статье вы принимаете данные с помощью библиотеки Azure обозреватель данных Python. Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Обозреватель данных Azure предоставляет две клиентские библиотеки для Python: [библиотеку приема](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) и [библиотеку данных](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Эти библиотеки позволяют принимать или загружать данные в кластер и запрашивать данные из кода.
 
-Эта статья также доступна в виде [ноутбука Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
+Сначала создайте таблицу и сопоставление данных в кластере. Затем вы поставите в очередь прием данных в кластер и проверите результаты.
+
+Эта статья также доступна в качестве [записной книжки Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -34,7 +40,7 @@ ms.locfileid: "81501572"
 
 Установите *azure-kusto-data* и *azure-kusto-ingest*.
 
-```
+```python
 pip install azure-kusto-data
 pip install azure-kusto-ingest
 ```
@@ -51,13 +57,13 @@ from azure.kusto.data.helpers import dataframe_from_result_table
 
 Чтобы проверить подлинность приложения, обозреватель данных Azure использует идентификатор клиента AAD. Чтобы найти идентификатор клиента, используйте следующий URL-адрес, заменив домен на *имя_вашего_домена*.
 
-```
+```http
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```
 
 Например, если ваш домен называется *contoso.com*, URL-адрес будет следующим: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Щелкните этот URL-адрес, чтобы просмотреть результаты. Первая строка выглядит следующим образом: 
 
-```
+```console
 "authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 
@@ -70,7 +76,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/
 KUSTO_DATABASE = "<DatabaseName>"
 ```
 
-Создайте строку подключения. В этом примере используется проверка подлинности устройства для доступа к кластеру. Вы также можете использовать [сертификат приложения AAD,](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24) [ключ приложения AAD,](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) [а также пользователя и пароль AAD.](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34)
+Создайте строку подключения. В этом примере используется проверка подлинности устройства для доступа к кластеру. Вы также можете использовать [сертификат приложения AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [ключ приложения AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20), а также [пользователя и пароль AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 Целевую таблицу и сопоставление вы создадите позднее.
 
@@ -87,7 +93,7 @@ DESTINATION_TABLE_COLUMN_MAPPING = "StormEvents_CSV_Mapping"
 
 ## <a name="set-source-file-information"></a>Определение данных исходного файла
 
-Импортируйте дополнительные классы и задайте константы для исходного файла данных. В этом примере используется пример файла, размещенный в хранилище BLOB-объектов Azure. Набор выборочных данных **StormEvents** содержит данные, связанные с погодой, из [Национальных центров экологической информации.](https://www.ncdc.noaa.gov/stormevents/)
+Импортируйте дополнительные классы и задайте константы для исходного файла данных. В этом примере используется пример файла, размещенный в хранилище BLOB-объектов Azure. Образец набора данных **стормевентс** содержит данные, связанные с погодой, из [национальных центров для информации о окружающей среде](https://www.ncdc.noaa.gov/stormevents/).
 
 ```python
 from azure.storage.blob import BlockBlobService
@@ -160,7 +166,7 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 
 ## <a name="run-troubleshooting-queries"></a>Выполнение запросов по устранению неполадок
 
-Вопийте [https://dataexplorer.azure.com](https://dataexplorer.azure.com) в кластер и подключайтесь к ней. Выполните в своей базе данных следующую команду, чтобы проверить, не было ли в ней сбоев приема за последние четыре часа. Замените имя базы данных перед запуском.
+Войдите в [https://dataexplorer.azure.com](https://dataexplorer.azure.com) кластер и подключитесь к нему. Выполните в своей базе данных следующую команду, чтобы проверить, не было ли в ней сбоев приема за последние четыре часа. Замените имя базы данных перед запуском.
 
 ```Kusto
 .show ingestion failures
@@ -177,12 +183,12 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Если вы планируете следовать нашим другим статьям, сохраните созданные ресурсы. В противном случае выполните в своей базе данных следующую команду, чтобы очистить таблицу StormEvents.
+Если вы планируете следовать нашим другим статьям, не заполняйте созданные ресурсы. В противном случае выполните в своей базе данных следующую команду, чтобы очистить таблицу StormEvents.
 
 ```Kusto
 .drop table StormEvents
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Запрос данных с помощью Python](python-query-data.md)
