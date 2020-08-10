@@ -7,12 +7,12 @@ ms.reviewer: herauch
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: 4c3a4a522192510ffb1a4ac2a1c46d9ddaf7c823
-ms.sourcegitcommit: 83202ec6fec0ce98fdf993bbb72adc985d6d9c78
+ms.openlocfilehash: 0b37d65d095806d108a632c315820d164f45a520
+ms.sourcegitcommit: 39a055e246539ac64d651abb42531892dd4393e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87877243"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88028899"
 ---
 # <a name="create-business-continuity-and-disaster-recovery-solutions-with-azure-data-explorer"></a>Создание решений по обеспечению непрерывности бизнес-процессов и аварийного восстановления с помощью Azure обозреватель данных
 
@@ -40,7 +40,7 @@ Azure обозреватель данных не поддерживает авт
 Репликация действий управления с одинаковой конфигурацией кластера в каждой реплике.
 
 1. Создайте в каждой реплике одинаково: 
-    * [Databases]: You can use the [Azure portal to create a new database](create-cluster-database-portal.md#create-a-database) or one of our [SDKs](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/kusto/Microsoft.Azure.Management.Kusto).
+    * Базы данных. для создания новой базы данных можно использовать [портал Azure](create-cluster-database-portal.md#create-a-database) или один из наших [пакетов SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/kusto/Microsoft.Azure.Management.Kusto) .
     * [Таблицы](kusto/management/create-table-command.md)
     * [Сопоставления](kusto/management/create-ingestion-mapping-command.md)
     * [Политики](kusto/management/policies.md)
@@ -152,6 +152,6 @@ az kusto cluster stop --name=<clusterName> --resource-group=<rgName> --subscript
 
 Использование оптимизированного автомасштабирования в этом примере сохраняет примерно 50% стоимости в сравнении с тем же горизонтальным и вертикальным масштабированием во всех репликах.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Приступите к работе с [обзором непрерывности бизнес-процессов и аварийного восстановления](business-continuity-overview.md).
