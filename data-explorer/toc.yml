@@ -50,6 +50,12 @@
           href: security.md
         - name: Базовые средства безопасности
           href: security-baseline.md
+    - name: Непрерывность бизнес-процессов
+      items:
+        - name: Обзор
+          href: business-continuity-overview.md
+        - name: Создание решений
+          href: business-continuity-create-solution.md
     - name: Общие сведения о средствах и интеграции
       href: tools-integrations-overview.md
 - name: Практические руководства
@@ -1291,7 +1297,7 @@
             - name: Внешние таблицы
               items:
                 - name: Общие команды управления для внешних таблиц
-                  href: ./kusto/management/externaltables.md
+                  href: ./kusto/management/external-table-commands.md
                 - name: Создание и изменение внешних таблиц SQL
                   href: ./kusto/management/external-sql-tables.md
                 - name: Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
@@ -1414,7 +1420,7 @@
               items:
                 - name: изменение политики;
                   href: ./kusto/management/updatepolicy.md
-                - name: команда политики обновления
+                - name: команды политики обновления
                   href: ./kusto/management/update-policy.md
         - name: Роли безопасности
           href: ./kusto/management/security-roles.md
