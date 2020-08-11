@@ -132,12 +132,14 @@
               href: data-factory-command-activity.md
         - name: Использование пакетов SDK
           items:
+            - name: Пакет SDK для .NET
+              href: net-sdk-ingest-data.md
             - name: Python
               href: python-ingest-data.md
             - name: Пакет SDK для Node
               href: node-ingest-data.md
-            - name: Пакет SDK для .NET
-              href: net-sdk-ingest-data.md
+            - name: Пакет SDK для GO
+              href: go-ingest-data.md
         - name: Kafka
           href: ingest-data-kafka.md
         - name: Logstash
