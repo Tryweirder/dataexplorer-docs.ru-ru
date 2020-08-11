@@ -1,18 +1,18 @@
 ---
 title: Прием данных с помощью пакета SDK Azure обозреватель данных Go
 description: Из этой статьи вы узнаете, как принимать (загружать) данные в Azure обозреватель данных с помощью пакета SDK для Go.
-author: abhirockzz
-ms.author: abhishgu
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: abhishgu
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 38063f3e00ebd22da17d48abba1dd9b3510273ec
-ms.sourcegitcommit: bcd0c96b1581e43e33aa35f4d68af6dcb4979d39
+ms.openlocfilehash: 010ee029c4f16248b0f9249d7331da436439cdc0
+ms.sourcegitcommit: ed902a5a781e24e081cd85910ed15cd468a0db1e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88039740"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88072367"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-go-sdk"></a>Прием данных с помощью пакета SDK для Azure обозреватель данных Go 
 

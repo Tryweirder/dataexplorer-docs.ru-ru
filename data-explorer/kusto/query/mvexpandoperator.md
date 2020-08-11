@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2019
-ms.openlocfilehash: 8358bf9a8eb0dab38b8f5847521e069f21fe4a2c
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 6ca5b5a4e6af8ece7d6f7a6543782665062b5d80
+ms.sourcegitcommit: ed902a5a781e24e081cd85910ed15cd468a0db1e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346700"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88072418"
 ---
 # <a name="mv-expand-operator"></a>Оператор mv-expand
 
@@ -40,7 +40,7 @@ ms.locfileid: "87346700"
 
 * *Индексколумннаме:* Если `with_itemindex` указан параметр, выходные данные будут включать в себя дополнительный столбец (с именем *индексколумннаме*), который содержит индекс (начиная с 0) элемента в исходной расширенной коллекции. 
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Несколько строк для каждого значения в любом массиве, который находится в именованном столбце или в выражении массива.
 Если указано несколько столбцов или выражений, они развертываются параллельно. Для каждой входной строки будет указано столько выходных строк, сколько есть элементов в максимальном развернутом выражении (более короткие списки дополнены значениями NULL). Если значение в строке является пустым массивом, строка расширяется до Nothing (не отображается в результирующем наборе). Однако если значение в строке не является массивом, строка сохраняется в результирующем наборе как есть. 
@@ -88,17 +88,24 @@ datatable (a:int, b:dynamic, c:dynamic)[1,dynamic({"prop1":"a", "prop2":"b"}), d
 
 Если вы хотите получить декартово произведение двух столбцов, разверните один за другим:
 
-<!-- csl: https://help.kusto.windows.net:443/Samples -->
+<!-- csl: https://kuskusdfv3.kusto.windows.net/Kuskus -->
 ```kusto
-datatable (a:int, b:dynamic, c:dynamic)[1,dynamic({"prop1":"a", "prop2":"b"}), dynamic([5])]
-| mv-expand b 
+datatable (a:int, b:dynamic, c:dynamic)
+  [
+  1,
+  dynamic({"prop1":"a", "prop2":"b"}),
+  dynamic([5, 6])
+  ]
+| mv-expand b
 | mv-expand c
 ```
 
 |a|b|с|
 |---|---|---|
 |1|{"Prop1": "a"}|5|
+|1|{"Prop1": "a"}|6|
 |1|{"Prop2": "b"}|5|
+|1|{"Prop2": "b"}|6|
 
 ### <a name="convert-output"></a>Преобразование вывода
 
@@ -137,7 +144,7 @@ range x from 1 to 4 step 1
 |3|2|
 |4|3|
  
-## <a name="see-also"></a>См. также
+## <a name="see-also"></a>Дополнительно
 
 * Дополнительные примеры см. в разделе [Диаграмма число активных действий с](./samples.md#chart-concurrent-sessions-over-time) течением времени.
 * Оператор « [MV-Apply»](./mv-applyoperator.md) .
