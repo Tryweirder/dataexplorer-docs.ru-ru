@@ -106,7 +106,7 @@ ms.locfileid: "87871971"
 
 1. Чтобы остановить кластер, в верхней части вкладки **Обзор** нажмите **Остановить**.
 
-    :::image type="content" source="media/create-cluster-database-portal/stop-button.png" alt-text="Кнопка "Остановить"":::
+    :::image type="content" source="media/create-cluster-database-portal/stop-button.png" alt-text="Кнопка Остановить":::
 
     > [!NOTE]
     > Пока кластер остановлен, данные недоступны для запросов, и вы не можете принимать новые данные.
