@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/25/2020
-ms.openlocfilehash: 9952a7a7d95f03ee431b699a1833aa23b21d341b
-ms.sourcegitcommit: 4507466bdcc7dd07e6e2a68c0707b6226adc25af
+ms.openlocfilehash: a82c4b48358a90460f917f181b73b718f6c5e455
+ms.sourcegitcommit: c7b16409995087a7ad7a92817516455455ccd2c5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87106349"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88148121"
 ---
 # <a name="row-level-security-preview"></a>Безопасность на уровне строк (Предварительная версия)
 
@@ -125,7 +125,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 
 ### <a name="produce-an-error-upon-unauthorized-access"></a>Выдавать ошибку при несанкционированном доступе
 
-Если требуется, чтобы несанкционированные пользователи таблиц получали ошибку вместо возврата пустой таблицы, используйте `[assert()](../query/assert-function.md)` функцию. В следующем примере показано, как создать эту ошибку в функции RLS:
+Если требуется, чтобы несанкционированные пользователи таблиц получали ошибку вместо возврата пустой таблицы, используйте [`assert()`](../query/assert-function.md) функцию. В следующем примере показано, как создать эту ошибку в функции RLS:
 
 ```
 .create-or-alter function RLSForCustomersTables() {
