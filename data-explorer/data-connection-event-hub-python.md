@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 7649a89208881ce323c0cbd970f3f247b0cf67da
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 7a4cc1efef506f046e17af901a87b501e0272d08
+ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350151"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88201284"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-python"></a>Создание подключения к данным концентратора событий для Azure обозреватель данных с помощью Python
 
@@ -22,20 +22,16 @@ ms.locfileid: "87350151"
 > * [Python](data-connection-event-hub-python.md)
 > * [Шаблон Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
-В этой статье вы создадите подключение к данным концентратора событий для Azure обозреватель данных с помощью Python. Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure обозреватель данных предлагает прием или загрузку данных из концентраторов событий, центров Интернета вещей и больших двоичных объектов, записанных в контейнеры больших двоичных объектов.
+[!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
+В этой статье вы создадите подключение к данным концентратора событий для Azure обозреватель данных с помощью Python. 
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 * Учетная запись Azure с активной подпиской. [Создайте учетную запись](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) бесплатно.
-
 * [Python версии 3.4+](https://www.python.org/downloads/).
-
 * [Кластер и база данных](create-cluster-database-python.md).
-
 * [Сопоставление таблиц и столбцов](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
-
 * [Политики базы данных и таблиц](database-table-policies-python.md) (необязательно).
-
 * [Концентратор событий с данными для приема](ingest-data-event-hub.md#create-an-event-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](includes/data-explorer-data-connection-install-package-python.md)]

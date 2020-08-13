@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: f38e6ffe4cec263585c3fe6e06bbb92c9127bbba
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 7ccc256e1e3f97606659e712d3df986c160bef89
+ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350080"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88201157"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Создание подключения к данным центра Интернета вещей для Azure обозреватель данных с помощью шаблона Azure Resource Manager
 
@@ -22,7 +22,8 @@ ms.locfileid: "87350080"
 > * [Python](data-connection-iot-hub-python.md)
 > * [Шаблон Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure обозреватель данных обеспечивает прием (загрузку данных) из концентраторов событий, центров Интернета вещей и больших двоичных объектов, записанных в контейнеры больших двоичных объектов. В этой статье вы создадите подключение к данным центра Интернета вещей для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
+[!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
+В этой статье вы создадите подключение к данным центра Интернета вещей для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 

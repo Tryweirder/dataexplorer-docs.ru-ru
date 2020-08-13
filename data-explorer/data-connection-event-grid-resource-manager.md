@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: b5196e126ffa36e3d767bfaacb79ce819ff9fa29
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 9b832fb9bc70744c428498220f1acc28053ad0d9
+ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350185"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88201262"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Создание подключения к данным в сетке событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager
 
@@ -22,8 +22,8 @@ ms.locfileid: "87350185"
 > * [Python](data-connection-event-grid-python.md)
 > * [Шаблон Azure Resource Manager](data-connection-event-grid-resource-manager.md)
 
-
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure обозреватель данных обеспечивает прием (загрузку данных) из концентраторов событий, центров Интернета вещей и больших двоичных объектов, записанных в контейнеры больших двоичных объектов. В этой статье вы создадите подключение к данным в сетке событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
+[!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
+В этой статье вы создадите подключение к данным в сетке событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -31,7 +31,7 @@ ms.locfileid: "87350185"
 * Создание [кластера и базы данных](create-cluster-database-portal.md)
 * Создание [сопоставления таблицы и столбца](ingest-data-event-grid.md#create-a-target-table-in-azure-data-explorer)
 * Создание [концентратора событий](/azure/event-hubs/event-hubs-create)
-* Создайте [учетную запись хранения с подпиской службы "Сетка событий](../data-explorer/kusto/management/data-ingestion/eventgrid.md#create-an-event-grid-subscription-in-your-storage-account)".
+* Создайте [учетную запись хранения с подпиской службы "Сетка событий](ingest-data-event-grid.md)".
 
 ## <a name="azure-resource-manager-template-for-adding-an-event-grid-data-connection"></a>Azure Resource Manager шаблон для добавления подключения к данным в сетке событий
 

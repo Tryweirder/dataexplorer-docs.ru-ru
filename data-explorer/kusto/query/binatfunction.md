@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 8a480ad0af2d3f71dd3ae9279bb59b32d9654acb
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 530f58aaf733add61b5f0aeb54ca12180f5a818e
+ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348995"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88201679"
 ---
 # <a name="bin_at"></a>bin_at()
 
@@ -27,10 +27,10 @@ ms.locfileid: "87348995"
 ## <a name="arguments"></a>Аргументы
 
 * *Выражение*: скалярное выражение числового типа (включая `datetime` и `timespan` ), указывающее округляемое значение.
-* *Бинсизе*: скалярная константа того же типа, что и *выражение* , указывающее размер каждой ячейки. 
+* *Бинсизе*: скалярная константа числового типа или `timespan` (для `datetime` `timespan` *выражения*или), указывающая размер каждой ячейки.
 * *Фикседпоинт*: скалярная константа того же типа, что и *выражение* , указывающее одно значение *выражения* , которое является "фиксированной точкой" (то есть значение, `fixed_point` для которого `bin_at(fixed_point, bin_size, fixed_point) == fixed_point` .)
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Ближайшее *выражение*, кратное *бинсизе* ниже, смещается таким образом, что *фикседпоинт* будет переноситься в себя.
 

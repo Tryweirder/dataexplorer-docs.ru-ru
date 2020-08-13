@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: ca617629578e9f3830e4fa1edf1a5781b0317a81
-ms.sourcegitcommit: d9fbcd6c9787f90de62e8e832c92d43b8090cbfc
+ms.date: 08/13/2020
+ms.openlocfilehash: 0738df4b86fe7d602ad41e921d88501c58d8e500
+ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87515861"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88201647"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Прием данных из концентратора событий в Azure Data Explorer
 
@@ -22,7 +22,9 @@ ms.locfileid: "87515861"
 > * [Python](data-connection-event-hub-python.md)
 > * [Шаблон Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Обозреватель данных Azure позволяет выполнять прием (загрузку) данных из концентраторов событий, платформы потоковой передачи больших данных и службы приема данных событий. [Центры событий](/azure/event-hubs/event-hubs-about) могут обрабатывать миллионы событий в секунду практически в режиме реального времени. В этой статье вы создадите концентратор событий, подключится к нему из Azure обозреватель данных и увидите поток данных через систему.
+[!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
+
+Обозреватель данных Azure позволяет выполнять прием (загрузку) данных из концентраторов событий, платформы потоковой передачи больших данных и службы приема данных событий. [Центры событий](/azure/event-hubs/event-hubs-about) могут обрабатывать миллионы событий в секунду практически в режиме реального времени. В этой статье вы создадите концентратор событий, подключится к нему из Azure обозреватель данных и увидите поток данных через систему.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -129,7 +131,7 @@ ms.locfileid: "87515861"
      **Параметр** | **Рекомендуемое значение** | **Описание поля**
     |---|---|---|
     | Таблица | *TestTable* | Таблица, созданная в базе данных **TestDatabase**. |
-    | Формат данных | *JSON* | Поддерживаются форматы Avro, CSV, JSON, многострочные JSON, ПСВ, СОХСВ, СКСВ, TSV, ТСВЕ, TXT, ORC и PARQUET. |
+    | Формат данных | *JSON* | Поддерживаются форматы Avro, CSV, JSON, многострочные JSON, ORC, PARQUET, ПСВ, СКСВ, СОХСВ, TSV, TXT, ТСВЕ, АПАЧЕАВРО и W3CLOG. |
     | Сопоставление столбцов | *TestMapping* | [Сопоставление](kusto/management/mappings.md) , созданное в **тестдатабасе**, которое сопоставляет входящие данные JSON с именами столбцов и типами данных **тесттабле**. Требуется для JSON или многострочного JSON и необязательно для других форматов.|
     | | |
 
@@ -215,6 +217,6 @@ ms.locfileid: "87515861"
 
 1. В новом окне введите имя удаляемой группы ресурсов (*test-hub-rg*) и нажмите кнопку **Удалить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Запрос данных в обозреватель данных Azure](web-query-data.md)

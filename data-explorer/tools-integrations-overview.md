@@ -8,12 +8,12 @@ ms.reviewer: olgolden
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 166f109f96695380c979dd4060e324187c5b5efc
-ms.sourcegitcommit: 4ae1508bbaa8fe9642dcfc8618d77f009bc8ec9f
+ms.openlocfilehash: 9522ee72e639c967f7b735c9c52d67c236498522
+ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/15/2020
-ms.locfileid: "86405476"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88201703"
 ---
 # <a name="azure-data-explorer-tools-and-integrations-overview"></a>Обзор средств и интеграции Azure обозреватель данных
 
@@ -38,13 +38,13 @@ Azure обозреватель данных предлагает различн�
 ### <a name="ingestion-integrations"></a>Интеграция приема
 
 * Концентратор событий
-    * [Прием данных из концентратора событий](kusto/management/data-ingestion/eventhub.md)
+    * [Прием данных из концентратора событий](ingest-data-event-hub-overview.md)
     * Прием из концентратора событий с помощью шаблона [портал Azure](ingest-data-event-hub.md), [C#](data-connection-event-hub-csharp.md), [Python](data-connection-event-hub-python.md) или [Azure Resource Manager](data-connection-event-hub-resource-manager.md)
-* Сетка событий Azure
-    * [Прием из сетки событий](kusto/management/data-ingestion/eventgrid.md)
+* Сетка событий
+    * [Прием из сетки событий](ingest-data-event-grid-overview.md)
     * Прием из сетки событий с помощью шаблона [портал Azure](ingest-data-event-grid.md), [C#](data-connection-event-grid-csharp.md), [Python](data-connection-event-grid-python.md) или [Azure Resource Manager](data-connection-event-grid-resource-manager.md)
 * Центр Интернета вещей
-    * [Прием данных из Центра Интернета вещей](kusto/management/data-ingestion/iothub.md)
+    * [Прием данных из Центра Интернета вещей](ingest-data-iot-hub-overview.md)
     * Прием из центра Интернета вещей с помощью шаблона [портал Azure](ingest-data-iot-hub.md), [C#](data-connection-iot-hub-csharp.md), [Python](data-connection-iot-hub-python.md) или [Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 * [Logstash](ingest-data-logstash.md).
 * Фабрика данных Azure
@@ -58,7 +58,7 @@ Azure обозреватель данных предлагает различн�
 * [База данных Cosmos](https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration)
 * [Power Automate](flow.md)
 
-## <a name="query-data"></a>Запросы данных
+## <a name="query-data"></a>Данные запросов
 
 ### <a name="azure-data-explorer-query-tools"></a>Средства запросов обозреватель данных Azure
 

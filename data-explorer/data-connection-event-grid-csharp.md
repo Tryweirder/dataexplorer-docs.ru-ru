@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: a93b29d6557afa435cacbbeeb43b685c0dfbf3af
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 597eb522da9e3cb383cb3c0aad5ccc7c78de6ce3
+ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350219"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88201388"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-c"></a>Создание подключения к данным в сетке событий для обозреватель данных Azure с помощью C #
 
@@ -23,7 +23,8 @@ ms.locfileid: "87350219"
 > * [Шаблон Azure Resource Manager](data-connection-event-grid-resource-manager.md)
 
 
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure обозреватель данных обеспечивает прием (загрузку данных) из концентраторов событий, центров Интернета вещей и больших двоичных объектов, записанных в контейнеры больших двоичных объектов. В этой статье вы создадите подключение к данным в сетке событий для Azure обозреватель данных с помощью C#.
+[!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
+ В этой статье вы создадите подключение к данным в сетке событий для Azure обозреватель данных с помощью C#.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -32,7 +33,7 @@ ms.locfileid: "87350219"
 * Создание [кластера и базы данных](create-cluster-database-csharp.md)
 * Создание [сопоставления таблиц и столбцов](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 * Задание [политик базы данных и таблиц](database-table-policies-csharp.md) (необязательно)
-* Создайте [учетную запись хранения с подпиской службы "Сетка событий](../data-explorer/kusto/management/data-ingestion/eventgrid.md#create-an-event-grid-subscription-in-your-storage-account)".
+* Создайте [учетную запись хранения с подпиской службы "Сетка событий](ingest-data-event-grid.md)".
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](includes/data-explorer-data-connection-install-nuget-csharp.md)]
 

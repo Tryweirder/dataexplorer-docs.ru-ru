@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: f86b9ed21a0d818214d2193dbfa902b3a98809ba
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 5bf7d894acc5111a43f8078874f0465f9616a166
+ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350202"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88201485"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-python"></a>Создание подключения к данным в сетке событий для Azure обозреватель данных с помощью Python
 
@@ -22,21 +22,17 @@ ms.locfileid: "87350202"
 > * [Python](data-connection-event-grid-python.md)
 > * [Шаблон Azure Resource Manager](data-connection-event-grid-resource-manager.md)
 
-В этой статье вы создадите подключение к данным в сетке событий для Azure обозреватель данных с помощью Python. Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure обозреватель данных предлагает прием или загрузку данных из концентраторов событий, центров Интернета вещей и больших двоичных объектов, записанных в контейнеры больших двоичных объектов.
+[!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
+В этой статье вы создадите подключение к данным в сетке событий для Azure обозреватель данных с помощью Python.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 * Учетная запись Azure с активной подпиской. [Создайте бесплатно](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
 * [Python версии 3.4+](https://www.python.org/downloads/).
-
 * [Кластер и база данных](create-cluster-database-python.md).
-
 * [Сопоставление таблиц и столбцов](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
-
 * [Политики базы данных и таблиц](database-table-policies-csharp.md) (необязательно).
-
-* [Учетная запись хранения с подпиской службы "Сетка событий](../data-explorer/kusto/management/data-ingestion/eventgrid.md#create-an-event-grid-subscription-in-your-storage-account)".
+* [Учетная запись хранения с подпиской службы "Сетка событий](ingest-data-event-grid.md)".
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](includes/data-explorer-data-connection-install-package-python.md)]
 
