@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: e011ffa61b70c79d51941518de0624030d847c4e
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: d3625be5a3a97b456a2d6d84802b11602f959f3e
+ms.sourcegitcommit: bb7c2ba9f9dcae08710be2345ee6e63004629ea1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351103"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88218982"
 ---
 # <a name="shuffle-query"></a>Запрос на перетасовку
 
@@ -22,10 +22,6 @@ ms.locfileid: "87351103"
 Операторы, поддерживающие перетасовывание в Kusto, — это [объединение](joinoperator.md), [суммирование](summarizeoperator.md)и [создание рядов](make-seriesoperator.md).
 
 Настройте стратегию запросов в случайном порядке с помощью параметра запроса `hint.strategy = shuffle` или `hint.shufflekey = <key>` .
-
-Определите [политику секционирования данных](../management/partitioningpolicy.md) для таблицы. 
-
-Задайте в `shufflekey` качестве ключа хэш-секции таблицы для повышения производительности, так как объем данных, необходимых для перемещения между узлами кластера, уменьшается.
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -52,7 +48,7 @@ T
 
 **Разница между подсказкой. Стратегия = случайное и указание. шуффлекэй = ключ**
 
-`hint.strategy=shuffle`означает, что оператор, переданный в случайном порядке, будет передаваться по всем ключам.
+`hint.strategy=shuffle` означает, что оператор, переданный в случайном порядке, будет передаваться по всем ключам.
 Например, в этом запросе:
 
 ```kusto
@@ -163,7 +159,7 @@ orders
 | count
 ```
 
-|Счетчик|
+|Количество|
 |---|
 |1086|
 
@@ -176,7 +172,7 @@ orders
 | count
 ```
 
-|Счетчик|
+|Количество|
 |---|
 |1086|
 
