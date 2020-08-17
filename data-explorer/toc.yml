@@ -1460,7 +1460,21 @@
             - name: Во внешнюю таблицу
               href: ./kusto/management/data-export/export-data-to-an-external-table.md
             - name: Экспорт непрерывных данных
-              href: ./kusto/management/data-export/continuous-data-export.md
+              items:
+                - name: Обзор
+                  href: ./kusto/management/data-export/continuous-data-export.md
+                - name: Создание или изменение непрерывного экспорта
+                  href: ./kusto/management/data-export/create-alter-continuous.md
+                - name: Включение и отключение непрерывного экспорта
+                  href: ./kusto/management/data-export/disable-enable-continuous.md
+                - name: Удаление непрерывного экспорта
+                  href: ./kusto/management/data-export/drop-continuous-export.md
+                - name: Отображение непрерывного экспорта
+                  href: ./kusto/management/data-export/show-continuous-export.md
+                - name: Отображение артефактов непрерывного экспорта
+                  href: ./kusto/management/data-export/show-continuous-artifacts.md
+                - name: Отображение сбоев непрерывного экспорта
+                  href: ./kusto/management/data-export/show-continuous-failures.md
         - name: Курсоры баз данных
           href: ./kusto/management/databasecursor.md
         - name: Кэш результатов запроса
