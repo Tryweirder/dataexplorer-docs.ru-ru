@@ -8,22 +8,23 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/20/2020
-ms.openlocfilehash: a200d0619b25fe7410a82a941a3b1bf6e35d60ac
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 19f86e4973a2822de6f25e38edb07ccd8fbda9d1
+ms.sourcegitcommit: ec191391f5ea6df8c591e6d747c67b2c46f98ac4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87342620"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88260126"
 ---
 # <a name="summarize-operator"></a>Оператор summarize
 
 Создает таблицу, которая объединяет содержимое входной таблицы.
 
 ```kusto
-T | summarize count(), avg(price) by fruit, supplier
+Sales | summarize NumTransactions=count(), Total=sum(UnitPrice * NumUnits) by Fruit, StartOfMonth=startofmonth(SellDateTime)
 ```
 
-Таблица, показывающая число и среднюю цену каждого из фруктов каждого из поставщиков. В выходных данных есть строка для каждого отдельного сочетания фруктов и поставщика. В выходных столбцах отображается количество, средняя цена, фруктов и поставщик. Все остальные входные столбцы игнорируются.
+Возвращает таблицу с количеством транзакций продажи и общей суммой по каждому фруктову и месяцу продаж.
+Выходные столбцы показывают количество транзакций, количество транзакций, фруктов, а также дату и время начала месяца, в который была записана транзакция.
 
 ```kusto
 T | summarize count() by price_range=bin(price, 10.0)
@@ -39,7 +40,8 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 * *Column* — необязательное имя итогового столбца. По умолчанию это имя, получаемое из выражения.
 * *Статистическая обработка:* Вызов [агрегатной функции](summarizeoperator.md#list-of-aggregation-functions) , такой как `count()` или `avg()` , с именами столбцов в качестве аргументов. См. [список статистических функций](summarizeoperator.md#list-of-aggregation-functions).
-* *GroupExpression* — выражение для столбцов, предоставляющее набор уникальных значений. Обычно это имя столбца, который уже содержит ограниченный набор значений, либо функция `bin()` с числовым или временным столбцом в качестве аргумента. 
+* *GroupExpression:* Скалярное выражение, которое может ссылаться на входные данные.
+  Выходные данные будут иметь столько записей, сколько есть разные значения всех выражений группы.
 
 > [!NOTE]
 > Если входная таблица пуста, выходные данные зависят от того, используется ли *GroupExpression* :
@@ -47,7 +49,7 @@ T | summarize count() by price_range=bin(price, 10.0)
 > * Если *GroupExpression* не указан, то выходные данные будут одной (пустой) строкой.
 > * Если указан параметр *GroupExpression* , выходные данные не будут иметь строк.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Входные строки объединяются в группы с одинаковыми значениями выражений `by` . Затем указанные агрегатные функции выполняют вычисления и создают строку для каждой группы. Результат содержит столбцы `by` и хотя бы один столбец для каждого вычисленного статистического выражения. (Некоторые агрегатные функции возвращают несколько столбцов).
 
@@ -61,19 +63,19 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 ## <a name="list-of-aggregation-functions"></a>Список статистических функций
 
-|Компонент|Описание|
+|Функция|Описание|
 |--------|-----------|
-|[Any ()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
+|[any()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
 |[anyif()](anyif-aggfunction.md)|Возвращает случайное непустое значение группы (с предикатом with)|
 |[arg_max()](arg-max-aggfunction.md)|Возвращает одно или несколько выражений, если аргумент является развернутым|
 |[arg_min()](arg-min-aggfunction.md)|Возвращает одно или несколько выражений, если аргумент является минимальным|
-|[AVG ()](avg-aggfunction.md)|Возвращает среднее значение в группе|
+|[avg()](avg-aggfunction.md)|Возвращает среднее значение в группе|
 |[avgif()](avgif-aggfunction.md)|Возвращает среднее значение в группе (с предикатом)|
 |[binary_all_and](binary-all-and-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `AND` объекта группы|
 |[binary_all_or](binary-all-or-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `OR` объекта группы|
 |[binary_all_xor](binary-all-xor-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `XOR` объекта группы|
 |[buildschema()](buildschema-aggfunction.md)|Возвращает минимальную схему, которая отменяет все значения `dynamic` входных данных|
-|[Count ()](count-aggfunction.md)|Возвращает количество групп|
+|[count()](count-aggfunction.md)|Возвращает количество групп|
 |[countif()](countif-aggfunction.md)|Возвращает число с предикатом группы|
 |[dcount()](dcount-aggfunction.md)|Возвращает приблизительное число различных элементов группы.|
 |[dcountif()](dcountif-aggfunction.md)|Возвращает приблизительное число различных элементов группы (с предикатом with).|
@@ -92,9 +94,9 @@ T | summarize count() by price_range=bin(price, 10.0)
 |[percentiles_array ()](percentiles-aggfunction.md)|Возвращает процентили приблизительную часть группы|
 |[перцентилесв ()](percentiles-aggfunction.md)|Возвращает приближенное взвешенное значение процентиля группы|
 |[percentilesw_array ()](percentiles-aggfunction.md)|Возвращает взвешенное процентилиное приближение группы|
-|[STDEV ()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
+|[stdev()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
 |[stdevif()](stdevif-aggfunction.md)|Возвращает стандартное отклонение по группе (с предикатом)|
-|[Sum ()](sum-aggfunction.md)|Возвращает сумму элементов с группой|
+|[sum()](sum-aggfunction.md)|Возвращает сумму элементов с группой|
 |[sumif()](sumif-aggfunction.md)|Возвращает сумму элементов с помощью группы (предикат WITH)|
 |[variance()](variance-aggfunction.md)|Возвращает дисперсию по группе|
 |[varianceif()](varianceif-aggfunction.md)|Возвращает дисперсию по группе (с предикатом)|

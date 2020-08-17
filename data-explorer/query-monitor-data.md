@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: d4f9fe945281eb61c1d1e685d0c2689585951926
-ms.sourcegitcommit: 6db94135b9902ad0ea84f9cef00ded8ec0a90fc3
+ms.openlocfilehash: 9efbceafa20b1807b5c3cfd89a288bc9b704a086
+ms.sourcegitcommit: ec191391f5ea6df8c591e6d747c67b2c46f98ac4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86870113"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88260089"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Запрос данных в Azure Monitor с помощью обозреватель данных Azure (Предварительная версия)
 
@@ -38,10 +38,10 @@ ms.locfileid: "86870113"
 
 1. В окне **Добавление кластера** добавьте URL-адрес кластера Ла или искусственного интеллекта. 
     
-    * Для LA:`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
-    * Для искусственного интеллекта:`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+    * Для LA: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+    * Для искусственного интеллекта: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
 
-    * Нажмите **Добавить**.
+    * Выберите **Добавить**.
 
     ![Добавление кластера](media/adx-proxy/add-cluster.png)
 
@@ -107,8 +107,6 @@ union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 
   [![Запрос табличной функции из пользовательского веб-интерфейса Azure обозреватель данных](media/adx-proxy/function-query-adx-proxy.png)](media/adx-proxy/function-query-adx-proxy.png#lightbox)
 
-> [!NOTE]
-> Azure Monitor поддерживает только табличные функции. Табличные функции не поддерживают параметры.
 
 ## <a name="additional-syntax-examples"></a>Дополнительные примеры синтаксиса
 

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 6f7efe2916bc5c5344bf4a6c4fa4a60bfaa167b7
-ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
+ms.openlocfilehash: f51a68fc90237c4213c0135ade4724446800dea9
+ms.sourcegitcommit: ec191391f5ea6df8c591e6d747c67b2c46f98ac4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85967355"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88259894"
 ---
 # <a name="streaming-ingestion-policy-command"></a>Команда политики приема потоков
 
@@ -84,7 +84,7 @@ ms.locfileid: "85967355"
 
 .alter database DB1 policy streamingingestion '{"IsEnabled": true, "HintAllocatedRate": 2.1}'
 
-.alter table T1 streamingingestion '{"IsEnabled": true}'
+.alter table T1 policy streamingingestion '{"IsEnabled": true}'
 
 .alter-merge database DB1 policy streamingingestion '{"IsEnabled": false}'
 
@@ -118,4 +118,4 @@ ms.locfileid: "85967355"
 |Свойство|Тип|Описание|Обязательный/необязательный
 |---|---|---|---
 |IsEnabled|`bool`|Включено приема потоков для сущности| Обязательно
-|хинталлокатедрате|`double`|Предполагаемая скорость передает данных в ГБ/час|Необязательно
+|хинталлокатедрате|`double`|Предполагаемая скорость передает данных в ГБ/час|Необязательный
