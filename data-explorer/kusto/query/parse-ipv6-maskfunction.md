@@ -1,5 +1,5 @@
 ---
-title: parse_ipv4_mask () — Azure обозреватель данных | Документация Майкрософт
+title: parse_ipv6_mask () — обозреватель данных Azure
 description: В этой статье описывается функция parse_ipv6_mask () в обозреватель данных Azure.
 services: data-explorer
 author: orspod
@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: a6c17f0505927c38d26c37a5e9872747541d129a
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: b917d592a00bb2bacd940b4dc943186e10d1bf8c
+ms.sourcegitcommit: 5e903c61e779f7bf62f745f13a6038ce2a32e934
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346445"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88512552"
 ---
 # <a name="parse_ipv6_mask"></a>parse_ipv6_mask()
  
@@ -38,7 +38,7 @@ parse_ipv6_mask(":fe80::85d:e82c:9446:7994", 120) == 'fe80:0000:0000:0000:085d:e
 IP-адреса можно определять с `IP-prefix notation` помощью символа косой черты ( `/` ).
 IP-адрес, расположенный слева от косой черты ( `/` ), является базовым IP-адресом. Число (от 1 до 127) справа от косой черты ( `/` ) — это число непрерывных 1 бита в маске.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Если преобразование выполнено успешно, результатом будет строка, представляющая канонический сетевой адрес IPv6.
 Если преобразование не выполнено, результатом будет `null` .
