@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/27/2020
-ms.openlocfilehash: b035af95e60272daeb97365f50cb3168531a34db
-ms.sourcegitcommit: ed902a5a781e24e081cd85910ed15cd468a0db1e
+ms.openlocfilehash: 652b08afc15d1405d6b7f17523088ed0ec5bef61
+ms.sourcegitcommit: 31ebf208d6bfd901f825d048ea69c9bb3d8b87af
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88072435"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88501626"
 ---
 # <a name="scalar-function-types"></a>Типы скалярных функций
 
@@ -102,7 +102,7 @@ ms.locfileid: "88072435"
 
 |Имя функции     |Описание                                          |
 |-------------------------|--------------------------------------------------------|
-|[Next ()](nextfunction.md)|Для сериализованного набора строк возвращает значение указанного столбца из более поздней строки в соответствии со смещением.|
+|[next()](nextfunction.md)|Для сериализованного набора строк возвращает значение указанного столбца из более поздней строки в соответствии со смещением.|
 |[prev()](prevfunction.md)|Для сериализованного набора строк возвращает значение указанного столбца из предыдущей строки в соответствии со смещением.|
 |[row_cumsum()](rowcumsumfunction.md)|Вычисляет совокупную сумму столбца.|
 |[row_number()](rownumberfunction.md)|Возвращает число строк в сериализованном наборе строк — последовательные числа, начинающиеся с заданного индекса или с 1 по умолчанию.|
@@ -213,11 +213,13 @@ ms.locfileid: "88072435"
 |[series_fill_const()](series-fill-constfunction.md)|Заменяет отсутствующие значения в ряде с указанным постоянным значением.|
 |[series_fill_forward()](series-fill-forwardfunction.md)|Выполняет прямую интерполяцию заполнения отсутствующих значений в ряде.|
 |[series_fill_linear()](series-fill-linearfunction.md)|Выполняет линейную интерполяцию отсутствующих значений в ряде.|
+|[series_fft ()](series-fft-function.md)|Применяет быстрое преобразование Фурье (ФФТ) к ряду.|
 |[series_fir()](series-firfunction.md)|Применяет к ряду фильтр конечных ответов с ограничением по некоторому импульсу.|
 |[series_fit_2lines()](series-fit-2linesfunction.md)|Применяет к ряду линейную регрессию с двумя сегментами, возвращая несколько столбцов.|
 |[series_fit_2lines_dynamic()](series-fit-2lines-dynamicfunction.md)|Применяет к ряду линейную регрессию с двумя сегментами, возвращая динамический объект.|
 |[series_fit_line()](series-fit-linefunction.md)|Применяет линейную регрессию к ряду, возвращая несколько столбцов.|
 |[series_fit_line_dynamic()](series-fit-line-dynamicfunction.md)|Применяет линейную регрессию к ряду, возвращая динамический объект.|
+|[series_ifft ()](series-ifft-function.md)|Применяет обратное быстрое преобразование Фурье (ИФФТ) к ряду.|
 |[series_iir()](series-iirfunction.md)|Применяет фильтр бесконечного ответа для ряда.|
 |[series_outliers()](series-outliersfunction.md)|Оценки аномалий в ряде.|
 |[series_pearson_correlation()](series-pearson-correlationfunction.md)|Вычисляет коэффициент корреляции Пирсона для двух рядов.|
@@ -263,7 +265,7 @@ ms.locfileid: "88072435"
 |[strrep()](strrepfunction.md)|Повторяет указанную строку указанное число раз (по умолчанию — 1).|
 |[substring()](substringfunction.md)|Извлекает подстроку из исходной строки, начиная с некоторого индекса и заканчивая строкой.|
 |[toupper()](toupperfunction.md)|Преобразует строку в верхний регистр.|
-|[преобразование ()](translatefunction.md)|Заменяет набор символов ("Сеарчлист") другим набором символов ("Реплацементлист") в заданной строке.|
+|[translate()](translatefunction.md)|Заменяет набор символов ("Сеарчлист") другим набором символов ("Реплацементлист") в заданной строке.|
 |[trim()](trimfunction.md)|Удаляет все начальные и конечные соответствия указанного регулярного выражения.|
 |[trim_end()](trimendfunction.md)|Удаляет конечную совпадающую часть указанного регулярного выражения.|
 |[trim_start()](trimstartfunction.md)|Удаляет начальное соответствие указанного регулярного выражения.|
@@ -282,8 +284,8 @@ ms.locfileid: "88072435"
 |[ipv6_is_match()](ipv6-is-matchfunction.md)|Совпадает с двумя строками IPv4 или IPv6.|
 |[parse_ipv6()](parse-ipv6function.md)|Преобразует строку IPv6 или IPv4 в каноническое представление строки IPv6.|
 |[parse_ipv6_mask()](parse-ipv6-maskfunction.md)|Преобразует строку IPv6 или IPv4 и маску сети в каноническое представление строки IPv6.|
-|[format_ipv4 ()](format-ipv4-function.md)|Анализирует входные данные с помощью маски сети и возвращает строку, представляющую IPv4-адрес.|
-|[format_ipv4_mask ()](format-ipv4-mask-function.md)|Анализирует входные данные с помощью маски сети и возвращает строку, представляющую IPv4-адрес в нотации CIDR.|
+|[format_ipv4()](format-ipv4-function.md)|Анализирует входные данные с помощью маски сети и возвращает строку, представляющую IPv4-адрес.|
+|[format_ipv4_mask()](format-ipv4-mask-function.md)|Анализирует входные данные с помощью маски сети и возвращает строку, представляющую IPv4-адрес в нотации CIDR.|
 
 ## <a name="type-functions"></a>Функции типов
 
