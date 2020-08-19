@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/25/2020
-ms.openlocfilehash: a82c4b48358a90460f917f181b73b718f6c5e455
-ms.sourcegitcommit: c7b16409995087a7ad7a92817516455455ccd2c5
+ms.openlocfilehash: f3d42835733ffe9303806687891c69df4dcc2178
+ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88148121"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88610463"
 ---
 # <a name="row-level-security-preview"></a>Безопасность на уровне строк (Предварительная версия)
 
@@ -30,9 +30,6 @@ RLS позволяет предоставлять доступ другим пр
 * Все вышеперечисленное
 
 Дополнительные сведения см. [в разделе Управляющие команды для управления политикой безопасность на уровне строк](../management/row-level-security-policy.md).
-
-> [!NOTE]
-> Политика RLS, настроенная в рабочей базе данных, также вступит в силу в базах данных следующих. В рабочих и последующих базах данных нельзя настроить разные политики RLS.
 
 > [!TIP]
 > Эти функции часто используются для row_level_securityных запросов:
@@ -107,7 +104,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 
 Пример:
 
-```
+```kusto
 .create-or-alter function RLSForCustomersTables(TableName: string) {
     table(TableName)
     | ...
@@ -117,7 +114,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 Затем настройте RLS для нескольких таблиц таким образом:
 
 
-```
+```kusto
 .alter table Customers1 policy row_level_security enable "RLSForCustomersTables('Customers1')"
 .alter table Customers2 policy row_level_security enable "RLSForCustomersTables('Customers2')"
 .alter table Customers3 policy row_level_security enable "RLSForCustomersTables('Customers3')"
@@ -127,7 +124,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 
 Если требуется, чтобы несанкционированные пользователи таблиц получали ошибку вместо возврата пустой таблицы, используйте [`assert()`](../query/assert-function.md) функцию. В следующем примере показано, как создать эту ошибку в функции RLS:
 
-```
+```kusto
 .create-or-alter function RLSForCustomersTables() {
     MyTable
     | where assert(current_principal_is_member_of('aadgroup=mygroup@mycompany.com') == true, "You don't have access")
@@ -135,6 +132,21 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 ```
 
 Этот подход можно сочетать с другими примерами. Например, можно отобразить разные результаты для пользователей в разных группах AAD и создать ошибку для всех остальных.
+
+### <a name="control-permissions-on-follower-databases"></a>Управление разрешениями для баз данных следующих элементов
+
+Политика RLS, настроенная в рабочей базе данных, также вступит в силу в базах данных следующих. В рабочих и последующих базах данных нельзя настроить разные политики RLS. Однако [`current_cluster_endpoint()`](../query/current-cluster-endpoint-function.md) функцию в запросе RLS можно использовать для достижения того же результата, что и в таблицах-следах, имеющих разные запросы RLS.
+
+Пример:
+
+```kusto
+.create-or-alter function RLSForCustomersTables() {
+    let IsProductionCluster = current_cluster_endpoint() == "mycluster.eastus.kusto.windows.net";
+    let DataForProductionCluster = TempTable | where IsProductionCluster;
+    let DataForFollowerClusters = TempTable | where not(IsProductionCluster) | extend CreditCardNumber = "****";
+    union DataForProductionCluster, DataForFollowerClusters
+}
+```
 
 ## <a name="more-use-cases"></a>Дополнительные варианты использования
 

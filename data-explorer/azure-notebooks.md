@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: d9564eec41fd78b3506994da2917f1d8765ee266
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: 2f82c1f381bf377226579ca9fa3b086c1396f2d4
+ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373992"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88610395"
 ---
 # <a name="use-azure-notebooks-to-analyze-data-in-azure-data-explorer"></a>Использование записных книжек Azure для анализа данных в Azure обозреватель данных
 
@@ -28,7 +28,7 @@ ms.locfileid: "83373992"
 
 1. Выберите вкладку **Мои проекты** в заголовке. 
 
-    [![](media/azurenotebooks/an-myprojects.png "My projects")](media/azurenotebooks/an-myprojects.png#lightbox)
+    :::image type="content" source="media/azurenotebooks/an-myprojects.png" alt-text="Страница "проекты", вкладка "Мои проекты", Записные книжки Microsoft Azure, Azure обозреватель данных" lightbox="media/azurenotebooks/an-myprojects.png#lightbox":::
 
 1. Выберите **+ создать проекты**.
     
@@ -37,7 +37,7 @@ ms.locfileid: "83373992"
     1. Снимите флажок **Public (общедоступный** ).
         >[!Important]
         > Если не снять флажок общедоступный, ваш проект будет открыт в Интернете.
-    1. Нажмите кнопку **создания**.
+    1. Щелкните **Создать**.
     
     ![Создание нового проекта](media/azurenotebooks/an-create-new-project-blank.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "83373992"
 
 1. Вернитесь к записной книжке, чтобы увидеть результат проверки подлинности. 
 
-[![](media/azurenotebooks/an-python-commands.png "Python commands")](media/azurenotebooks/an-python-commands.png#lightbox)
+:::image type="content" source="media/azurenotebooks/an-python-commands.png" alt-text="Вывод результатов проверки подлинности, окно записной книжки, Записные книжки Microsoft Azure, Azure обозреватель данных" lightbox="media/azurenotebooks/an-python-commands.png#lightbox":::
 
 ## <a name="execute-a-kusto-query"></a>Выполнение запроса Kusto
 
@@ -103,7 +103,7 @@ ms.locfileid: "83373992"
         print(", ".join(row))
     ```    
 
-[![](media/azurenotebooks/an-commands.png "Python commands")](media/azurenotebooks/an-commands.png#lightbox)
+:::image type="content" source="media/azurenotebooks/an-commands.png" alt-text="Кнопка "выполнить", окно "Записная книжка", Записные книжки Microsoft Azure, Azure обозреватель данных" lightbox="media/azurenotebooks/an-commands.png#lightbox":::
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -1,6 +1,6 @@
 ---
-title: Тип данных о временном расписании - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается тип данных о временном промежутке времени в Azure Data Explorer.
+title: Тип данных TimeSpan — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается тип данных TimeSpan в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,22 +8,22 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 31a0bfafed817ffaf531cffdcb844da8a357531f
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 204076e8ed079dec69cae7080e7d2c50df52a9a6
+ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81509611"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88610327"
 ---
-# <a name="the-timespan-data-type"></a>Тип данных по временному поясу
+# <a name="the-timespan-data-type"></a>Тип данных TimeSpan
 
-Тип `timespan` `time`данных ( ) представляет интервал времени.
+`timespan` `time` Тип данных () представляет интервал времени.
 
-## <a name="timespan-literals"></a>промежуток времени в буквах
+## <a name="timespan-literals"></a>литералы TimeSpan
 
-`timespan` Буквы типа имеют `timespan(` *значение*`)`синтаксиса, где ряд форматов поддерживается по *стоимости,* как указано в следующей таблице:
+Литералы типа `timespan` имеют значение синтаксиса `timespan(` *value* `)` , где количество форматов поддерживается для *значения*, как показано в следующей таблице:
 
-|||
+|Значение|Продолжительность времени|
 ---|---
 `2d`|2 дня
 `1.5h`|1,5 часа
@@ -37,16 +37,16 @@ ms.locfileid: "81509611"
 `time(2)`| 2 дня
 `time(0.12:34:56.7)`|`0d+12h+34m+56.7s`
 
-Специальная `time(null)` форма - [это нулевая величина.](null-values.md)
+Специальная форма `time(null)` — это [значение NULL](null-values.md).
 
-## <a name="timespan-operators"></a>Операторы временной промежутки
+## <a name="timespan-operators"></a>операторы TimeSpan
 
-Два значения типа `timespan` могут быть добавлены, вычтены и разделены.
-Последняя операция возвращает значение `real` типа, представляющее дробное количество раз, когда одно значение может соответствовать другому.
+`timespan`Можно добавлять, вычитать и делить два значения типа.
+Последняя операция возвращает значение типа, `real` представляющее дробное число раз, которое одно значение может соответствовать другому.
 
 ## <a name="examples"></a>Примеры
 
-Следующий пример вычисляет, сколько секунд в день несколькими способами:
+В следующем примере вычисляется количество секунд в день несколькими способами.
 
 ```kusto
 print

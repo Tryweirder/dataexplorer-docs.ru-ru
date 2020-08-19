@@ -7,12 +7,12 @@ ms.reviewer: maraheja
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 74f80ef6dd05380e73215d1edb27f5117060bc58
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 08ac06b5f0a1a65afec6a71106943f3b58c1b9f5
+ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350355"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88610310"
 ---
 # <a name="connect-to-azure-data-explorer-from-azure-databricks"></a>Подключение к обозреватель данных Azure из Azure Databricks
 
@@ -44,11 +44,12 @@ ms.locfileid: "87350355"
     ```kusto
     .set database <DB Name> users ('aadapp=<AAD App ID>;<AAD Tenant ID>') 'AAD App to connect Spark to ADX
     ```
-    |   |   |
+
+    | Параметр | Описание |
     | - | - |
-    | ```DB Name``` | имя базы данных |
-    | ```AAD App ID``` | идентификатор приложения Azure AD |
-    | ```AAD Tenant ID``` | идентификатор клиента Azure AD |
+    | `DB Name` | имя базы данных |
+    | `AAD App ID` | идентификатор приложения Azure AD |
+    | `AAD Tenant ID` | идентификатор клиента Azure AD |
 
 ### <a name="find-your-azure-ad-tenant-id"></a>Поиск идентификатора клиента Azure AD
 

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 21f366e8f211acf9c7c542b420006cfb23e683e7
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 9668b173c6b3769113972be2c74382464e7d9819
+ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348043"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88610582"
 ---
 # <a name="extractjson"></a>extractjson()
 
@@ -34,7 +34,7 @@ extractjson("$.hosts[1].AvailableMB", EventText, typeof(int))
 * *jsonPath*: строка jsonPath, которая определяет метод доступа к документу JSON.
 * *DataSource*: документ JSON.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Эта функция выполняет запрос JsonPath к источнику данных dataSource, который содержит допустимую строку JSON. При необходимости это значение преобразуется в другой тип, в зависимости от третьего аргумента.
 
@@ -52,11 +52,11 @@ T
 
 ### <a name="json-path-expressions"></a>Выражения пути JSON
 
-|||
+|Выражение пути|Описание|
 |---|---|
 |`$`|Корневой объект|
 |`@`|Текущий объект|
-|`.` или `[ ]` | Дочерний|
+|`.` либо `[ ]` | Дочерний|
 |`[ ]`|Индекс массива|
 
 *(В настоящее время подстановочные знаки, рекурсии, объединения и срезы не реализованы.)*

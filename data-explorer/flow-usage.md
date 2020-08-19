@@ -7,12 +7,12 @@ ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/15/2020
-ms.openlocfilehash: 0ecf0124051b6c003e056263afb6a3c5aa9ddb81
-ms.sourcegitcommit: 98eabf249b3f2cc7423dade0f386417fb8e36ce7
+ms.openlocfilehash: 56851a159f6d8d2cee5f3991dab290070fb8c482
+ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82868715"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88610497"
 ---
 # <a name="usage-examples-for-azure-data-explorer-connector-to-power-automate-preview"></a>Примеры использования соединителя Azure обозреватель данных для автоматического управления (Предварительная версия)
 
@@ -37,9 +37,9 @@ ms.locfileid: "82868715"
 Соединитель потока можно использовать с соединителем Power BI, чтобы отправлять данные из запросов Kusto в Power BIные наборы данных потоковой передачи.
 
 1. Создание нового **запроса на выполнение и вывод результатов** .
-1. Выберите **новый шаг**.
+1. Выберите **Новый шаг**.
 1. Выберите **Добавить действие**и выполните поиск по запросу Power BI.
-1. Выберите **Power BI** > **Добавить строки в набор данных**. 
+1. Выберите **Power BI**  >  **Добавить строки в набор данных**. 
 
     ![Снимок экрана соединителя Power BI](./media/flow-usage/flow-powerbiconnector.png)
 
@@ -62,16 +62,16 @@ ms.locfileid: "82868715"
 Чтобы создать подобный поток, выполните следующие инструкции:
 
 1. Создание нового **запроса на выполнение и вывод результатов** .
-1. Выберите **New step** > **элемент управления**"новое условие шага".
+1. Выберите **New step**  >  **элемент управления**"новое условие шага".
 1. В окне динамического содержимого выберите параметр, который необходимо использовать в качестве условия для следующих действий.
 1. Выберите тип *связи* и *значение* , чтобы задать определенное условие для конкретного параметра.
 
-    [![](./media/flow-usage/flow-condition.png "Screenshot of flow conditions")](./media/flow-usage/flow-condition.png#lightbox)
+    :::image type="content" source="./media/flow-usage/flow-condition.png" alt-text="Использование условий потока на основе результатов запроса Kusto для определения следующего действия потока, обозреватель данных Azure" lightbox="./media/flow-usage/flow-condition.png#lightbox":::
 
     Поток применяет это условие к каждой строке таблицы результатов запроса.
 1. Добавьте действия для, когда условие имеет значение true, и значение false.
 
-    [![](./media/flow-usage/flow-conditionactions.png "Screenshot of flow condition actions")](./media/flow-usage/flow-conditionactions.png#lightbox)
+    :::image type="content" source="./media/flow-usage/flow-conditionactions.png" alt-text="Добавление действий, когда условие имеет значение true или false, условия потока на основе результатов запроса Kusto, Azure обозреватель данных" lightbox="./media/flow-usage/flow-conditionactions.png#lightbox":::
 
 Можно использовать результирующие значения из запроса Kusto в качестве входных данных для следующих действий. Выберите результирующие значения в окне динамического содержимого.
 В следующем примере мы добавим действие создания **сообщения о временной резерве** и в **Visual Studio — создать новое действие рабочего элемента** , содержащее данные из запроса Kusto.
@@ -116,9 +116,9 @@ ms.locfileid: "82868715"
 
 Результат:
 
-[![](./media/flow-usage/flow-resultsmultipleattachments.png "Screenshot of results of multiple attachments, visualized as a pie chart and bar chart")](./media/flow-usage/flow-resultsmultipleattachments.png#lightbox)
+:::image type="content" source="./media/flow-usage/flow-resultsmultipleattachments.png" alt-text="Результаты нескольких вложений электронной почты, Визуализация в виде круговой диаграммы и линейчатой диаграммы, Azure обозреватель данных" lightbox="./media/flow-usage/flow-resultsmultipleattachments.png#lightbox":::
 
-[![](./media/flow-usage/flow-resultsmultipleattachments2.png "Screenshot of results of multiple attachments, visualized as a time chart")](./media/flow-usage/flow-resultsmultipleattachments2.png#lightbox)
+:::image type="content" source="./media/flow-usage/flow-resultsmultipleattachments2.png" alt-text="Результаты нескольких вложений электронной почты, отображаемых в виде диаграммы времени, Azure обозреватель данных" lightbox="./media/flow-usage/flow-resultsmultipleattachments2.png#lightbox":::
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
