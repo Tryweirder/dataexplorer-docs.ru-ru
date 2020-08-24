@@ -7,12 +7,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: f0e11bffec414ef52495fcf7b7e9a0201931ff2a
-ms.sourcegitcommit: 31ebf208d6bfd901f825d048ea69c9bb3d8b87af
+ms.openlocfilehash: a96e47eeb8c0a27ffb1f1446b68d6adc8e564e4b
+ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88501643"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88610650"
 ---
 # <a name="kustoexplorer-installation-and-user-interface"></a>Установка и пользовательский интерфейс Kusto.Explorer
 
@@ -26,7 +26,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ## <a name="installing-kustoexplorer"></a>Установка Kusto.Explorer
 
-* Установите средство [Kusto.Explorer](https://aka.ms/ke).
+* Скачайте и установите средство Kusto.Explorer со страницы [https://aka.ms/ke](https://aka.ms/ke)
 
 * Получите доступ к кластеру Kusto в браузере по адресу: `https://<your_cluster>.kusto.windows.net.`.
    Замените &lt;your_cluster&gt; именем кластера Azure Data Explorer.
