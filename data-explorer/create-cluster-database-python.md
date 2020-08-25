@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 80bb9802b3048cdf6332cb7a43b5eae3a99dec8c
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 60b485a7abe9f505da3ca32c4f35fbbfda101321
+ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350270"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88793879"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Создание кластера и базы данных Azure Data Explorer с использованием Python
 
@@ -42,7 +42,7 @@ ms.locfileid: "87350270"
 pip install azure-common
 pip install azure-mgmt-kusto
 ```
-## <a name="authentication"></a>Аутентификация
+## <a name="authentication"></a>Проверка подлинности
 Для выполнения примеров в этой статье нам потребуется приложение Azure AD и субъект-служба, которые могут получать доступ к ресурсам. Установите флажок [создать приложение Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) , чтобы создать бесплатное приложение Azure AD и назначить роль в области действия подписки. Также показано, как получить `Directory (tenant) ID` , `Application ID` и `Client Secret` .
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Создание кластера Azure Data Explorer
@@ -122,8 +122,8 @@ pip install azure-mgmt-kusto
     poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
 
-        [!NOTE]
-        If you are using Python version 0.4.0 or below, use Database instead of ReadWriteDatabase.
+    > [!NOTE]
+    > Если вы используете Python версии 0.4.0 или ниже, используйте базу данных вместо Реадвритедатабасе.
 
    |**Параметр** | **Рекомендуемое значение** | **Описание поля**|
    |---|---|---|

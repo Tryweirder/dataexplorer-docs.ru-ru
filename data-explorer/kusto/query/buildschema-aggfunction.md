@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 2520849508c9cef829d7c8c07f22d3f8c64cfcea
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 3fb6ae643bb4350cea1ffef4493625bc9c7d191d
+ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348944"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88793567"
 ---
 # <a name="buildschema-aggregation-function"></a>буилдсчема () (агрегатная функция)
 
@@ -29,12 +29,16 @@ ms.locfileid: "87348944"
 
 * *Динамицекспр*: выражение, используемое для вычисления агрегата. Тип столбца параметра должен быть `dynamic` . 
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Максимальное значение в *`Expr`* группе.
 
 > [!TIP] 
-> Если `buildschema(json_column)` выдается синтаксическая ошибка: *является ли `json_column` строка, а не динамический объект?* затем используйте `buildschema(parsejson(json_column))` .
+> Если `buildschema(json_column)` приводит к синтаксической ошибке:
+>
+> > *Является ли `json_column` строка, а не динамический объект?*
+>
+> затем используйте `buildschema(parsejson(json_column))` .
 
 ## <a name="example"></a>Пример
 
@@ -49,12 +53,14 @@ ms.locfileid: "87348944"
 
 Итоговая схема будет следующей:
 
-    { 
-      "x":["int", "string"], 
-      "y":["double", {"w": "string"}], 
-      "z":{"`indexer`": ["int", "string"]}, 
-      "t":{"`indexer`": "string"} 
-    }
+```kusto
+{ 
+    "x":["int", "string"],
+    "y":["double", {"w": "string"}],
+    "z":{"`indexer`": ["int", "string"]},
+    "t":{"`indexer`": "string"}
+}
+```
 
 Схема указывает следующее:
 
@@ -70,19 +76,22 @@ ms.locfileid: "87348944"
 
 Синтаксис возвращаемой схемы следующий:
 
-    Container ::= '{' Named-type* '}';
-    Named-type ::= (name | '"`indexer`"') ':' Type;
-    Type ::= Primitive-type | Union-type | Container;
-    Union-type ::= '[' Type* ']';
-    Primitive-type ::= "int" | "string" | ...;
+```output
+Container ::= '{' Named-type* '}';
+Named-type ::= (name | '"`indexer`"') ':' Type;
+Type ::= Primitive-type | Union-type | Container;
+Union-type ::= '[' Type* ']';
+Primitive-type ::= "int" | "string" | ...;
+```
 
 Значения эквивалентны подмножеству аннотаций типа TypeScript, закодированных как динамическое значение Kusto. В Typescript пример схемы будет следующим:
 
-    var someobject: 
-    { 
-      x?: (number | string), 
-      y?: (number | { w?: string}), 
-      z?: { [n:number] : (int | string)},
-      t?: { [n:number]: string } 
-    }
-    
+```typescript
+var someobject: 
+{
+    x?: (number | string),
+    y?: (number | { w?: string}),
+    z?: { [n:number] : (int | string)},
+    t?: { [n:number]: string }
+}
+```

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/20/2020
-ms.openlocfilehash: 19f86e4973a2822de6f25e38edb07ccd8fbda9d1
-ms.sourcegitcommit: ec191391f5ea6df8c591e6d747c67b2c46f98ac4
+ms.openlocfilehash: 00d205a710b7b3bf41dc181e79e5e6d0baa95fc6
+ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88260126"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88793923"
 ---
 # <a name="summarize-operator"></a>Оператор summarize
 
@@ -65,17 +65,17 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 |Функция|Описание|
 |--------|-----------|
-|[any()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
+|[Any ()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
 |[anyif()](anyif-aggfunction.md)|Возвращает случайное непустое значение группы (с предикатом with)|
 |[arg_max()](arg-max-aggfunction.md)|Возвращает одно или несколько выражений, если аргумент является развернутым|
 |[arg_min()](arg-min-aggfunction.md)|Возвращает одно или несколько выражений, если аргумент является минимальным|
-|[avg()](avg-aggfunction.md)|Возвращает среднее значение в группе|
+|[AVG ()](avg-aggfunction.md)|Возвращает среднее значение в группе|
 |[avgif()](avgif-aggfunction.md)|Возвращает среднее значение в группе (с предикатом)|
 |[binary_all_and](binary-all-and-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `AND` объекта группы|
 |[binary_all_or](binary-all-or-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `OR` объекта группы|
 |[binary_all_xor](binary-all-xor-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `XOR` объекта группы|
 |[buildschema()](buildschema-aggfunction.md)|Возвращает минимальную схему, которая отменяет все значения `dynamic` входных данных|
-|[count()](count-aggfunction.md)|Возвращает количество групп|
+|[Count ()](count-aggfunction.md)|Возвращает количество групп|
 |[countif()](countif-aggfunction.md)|Возвращает число с предикатом группы|
 |[dcount()](dcount-aggfunction.md)|Возвращает приблизительное число различных элементов группы.|
 |[dcountif()](dcountif-aggfunction.md)|Возвращает приблизительное число различных элементов группы (с предикатом with).|
@@ -94,10 +94,10 @@ T | summarize count() by price_range=bin(price, 10.0)
 |[percentiles_array ()](percentiles-aggfunction.md)|Возвращает процентили приблизительную часть группы|
 |[перцентилесв ()](percentiles-aggfunction.md)|Возвращает приближенное взвешенное значение процентиля группы|
 |[percentilesw_array ()](percentiles-aggfunction.md)|Возвращает взвешенное процентилиное приближение группы|
-|[stdev()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
+|[STDEV ()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
 |[stdevif()](stdevif-aggfunction.md)|Возвращает стандартное отклонение по группе (с предикатом)|
-|[sum()](sum-aggfunction.md)|Возвращает сумму элементов с группой|
-|[sumif()](sumif-aggfunction.md)|Возвращает сумму элементов с помощью группы (предикат WITH)|
+|[Sum ()](sum-aggfunction.md)|Возвращает сумму элементов в группе|
+|[sumif()](sumif-aggfunction.md)|Возвращает сумму элементов в группе (с предикатом with)|
 |[variance()](variance-aggfunction.md)|Возвращает дисперсию по группе|
 |[varianceif()](varianceif-aggfunction.md)|Возвращает дисперсию по группе (с предикатом)|
 
@@ -148,7 +148,9 @@ Activities | summarize Min = min(Timestamp), Max = max(Timestamp)
 
 Создайте строку для каждого континента, показывающую количество городов, в которых выполняются действия. Так как существует несколько значений для "континент", в предложении "by" не требуется никакой функции группирования:
 
-    Activities | summarize cities=dcount(city) by continent
+```kusto
+Activities | summarize cities=dcount(city) by continent
+```
 
 |`cities`|`continent`
 |---:|---

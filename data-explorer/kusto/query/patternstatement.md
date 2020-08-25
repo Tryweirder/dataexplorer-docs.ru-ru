@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: a4aae88f6ad435469719f8444bae9123975ee618
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 03d183bd042bb75d8bb44f530575bd3b91cb2102
+ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346224"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88793814"
 ---
 # <a name="pattern-statement"></a>pattern, инструкция
 
@@ -113,7 +113,7 @@ union
 
 Это также означает, что их нельзя определить вместе, так как они считаются одинаковыми.
 
-**подстановочные знаки;**
+**Подстановочные знаки**
 
 Kusto не обрабатывает подстановочные знаки в шаблоне каким-либо особым способом. Например, в следующем запросе.
 
@@ -157,7 +157,7 @@ union (App('a1').Text), (App('a2').Text)
 
 **Семантическая ошибка**:
 
-     SEM0036: One or more pattern references weren't declared. Detected pattern references: ["App('a1').['Text']","App('a2').['Text']"].
+> SEM0036: один или несколько ссылок на шаблон не были объявлены. Обнаружены ссылки на шаблоны: ["приложение (' a1 '). [' Text "]", "App (" a2 "). ["Текст"] "].
 
 ```kusto
 declare pattern App;
@@ -173,7 +173,7 @@ union (App('a2').Metrics), (App('a3').Metrics)
 
 **Возвращена семантическая ошибка**:
 
-    SEM0036: One or more pattern references weren't declared. Detected pattern references: ["App('a2').['Metrics']","App('a3').['Metrics']"].
+> SEM0036: один или несколько ссылок на шаблон не были объявлены. Обнаружены ссылки на шаблоны: ["приложение (" a2 "). [" Метрики "]", "приложение (" A3 "). ["Метрики"] "].
 
 ::: zone-end
 

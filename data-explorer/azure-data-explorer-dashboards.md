@@ -7,16 +7,16 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 7f012b5b99cdf12ab1ace452838860aff312a28d
-ms.sourcegitcommit: b0cbb89e88b64a36880e6d34b4d6779283174456
+ms.openlocfilehash: 4d2f493e2057d81a813c26eac2e73643097e9482
+ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84633756"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88793865"
 ---
 # <a name="visualize-data-with-azure-data-explorer-dashboards"></a>Визуализация данных с помощью панелей мониторинга обозреватель данных Azure
 
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Обозреватель данных Azure предоставляет веб-приложение, которое позволяет выполнять запросы и создавать панели мониторинга. Панели мониторинга доступны в изолированном веб-приложении, [веб-интерфейсе](web-query-data.md). Обозреватель данных Azure также интегрируется с другими службами панелей мониторинга, такими как [Power BI](power-bi-connector.md) и [Grafana](grafana.md).
+Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure обозреватель данных предоставляет веб-приложение, которое позволяет выполнять запросы и создавать панели мониторинга. Панели мониторинга доступны в изолированном веб-приложении, [веб-интерфейсе](web-query-data.md). Обозреватель данных Azure также интегрируется с другими службами панелей мониторинга, такими как [Power BI](power-bi-connector.md) и [Grafana](grafana.md).
 
 Панели мониторинга обозреватель данных Azure предоставляют три основных преимущества:
 
@@ -82,7 +82,7 @@ ms.locfileid: "84633756"
 
 1. Выберите **Добавить запрос** на холсте панели мониторинга или в верхней строке меню.
 
-    :::image type="content" source="media/adx-dashboards/empty-dashboard-new-query.png" alt-text="Создать запрос":::
+    :::image type="content" source="media/adx-dashboards/empty-dashboard-new-query.png" alt-text="Новый запрос":::
 
 1. На панели **запросов** 
     1. Выберите источник данных из раскрывающегося списка

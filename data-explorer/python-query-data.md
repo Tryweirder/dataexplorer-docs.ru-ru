@@ -1,30 +1,30 @@
 ---
 title: Запрос данных с помощью библиотеки Python в Azure Data Explorer
-description: В этой статье вы узнаете, как заставить данные из Azure Data Explorer с помощью Python.
+description: Из этой статьи вы узнаете, как запрашивать данные из Azure обозреватель данных с помощью Python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: ebd65f2dcbb0040b764290627bbfd2901aa9a7d3
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 5187b6b91e18fa8e41e2be6480067e3c53b0bc54
+ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81501442"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88793903"
 ---
 # <a name="query-data-using-the-azure-data-explorer-python-library"></a>Запрос данных с помощью библиотеки Python в Azure Data Explorer
 
-В этой статье вы задавили запрос данных с помощью Azure Data Explorer. Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии.
+В этой статье вы запрашиваете данные с помощью обозреватель данных Azure. Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии.
 
-Обозреватель данных Azure предоставляет [клиентскую библиотеку данных для Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Эта библиотека позволяет выполнять запросы данных из кода. Подключитесь к таблице *в кластере справки,* который мы создали для обучения. Вы можете заразить таблицу в этом кластере и вернуть результаты.
+Обозреватель данных Azure предоставляет [клиентскую библиотеку данных для Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Эта библиотека позволяет выполнять запросы данных из кода. Подключитесь к таблице в *справочном кластере* , который мы настроили для помощи в обучении. Вы можете запросить таблицу в этом кластере и вернуть результаты.
 
-Эта статья также доступна в виде [ноутбука Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
+Эта статья также доступна в качестве [записной книжки Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* [Питон 3,4 "](https://www.python.org/downloads/)
+* [Python 3.4 +](https://www.python.org/downloads/)
 
 * Учетная запись электронной почты организации, которая входит в Azure Active Directory (AAD)
 
@@ -41,7 +41,7 @@ pip install azure-kusto-data
 Импортируйте классы из библиотеки, а также *pandas*, библиотеку анализа данных.
 
 ```python
-from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
+from azure.kusto.data import KustoClient, KustoConnectionStringBuilder
 from azure.kusto.data.exceptions import KustoServiceError
 from azure.kusto.data.helpers import dataframe_from_result_table
 import pandas as pd
@@ -67,7 +67,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE = "Samples"
 ```
 
-Создайте строку подключения. В этом примере используется проверка подлинности устройства для доступа к кластеру. Вы также можете использовать [сертификат приложения AAD,](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24) [ключ приложения AAD,](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) [а также пользователя и пароль AAD.](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34)
+Создайте строку подключения. В этом примере используется проверка подлинности устройства для доступа к кластеру. Вы также можете использовать [сертификат приложения AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [ключ приложения AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20), а также [пользователя и пароль AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(
@@ -97,7 +97,7 @@ df
 
 Вы увидите десять самых первых результатов из таблицы StormEvents.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Проем данных с помощью библиотеки Azure Data Explorer Python](python-ingest-data.md)
+> [Прием данных с помощью библиотеки Azure обозреватель данных Python](python-ingest-data.md)

@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 15756e0971069e6ff619b5362d2fddeb045fe6dd
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 3bd0826f200a6c92b480c0495709e019381863a9
+ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350287"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88793769"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Создание кластера и базы данных Azure Data Explorer с помощью C#
 
@@ -33,7 +33,7 @@ Azure Data Explorer — это быстрая и полностью управ�
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](includes/data-explorer-data-connection-install-nuget-csharp.md)]
 
-## <a name="authentication"></a>Аутентификация
+## <a name="authentication"></a>Проверка подлинности
 Для выполнения примеров в этой статье нам потребуется приложение Azure AD и субъект-служба, которые могут получать доступ к ресурсам. Установите флажок [создать приложение Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) , чтобы создать бесплатное приложение Azure AD и назначить роль в области действия подписки. Также показано, как получить `Directory (tenant) ID` , `Application ID` и `Client Secret` .
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Создание кластера Azure Data Explorer
@@ -99,8 +99,8 @@ Azure Data Explorer — это быстрая и полностью управ�
     await kustoManagementClient.Databases.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, database);
     ```
 
-        [!NOTE]
-        If you are using C# version 2.0.0 or below, use Database instead of ReadWriteDatabase.
+    > [!NOTE]
+    > Если вы используете C# версии 2.0.0 или ниже, используйте базу данных вместо Реадвритедатабасе.
 
    |**Параметр** | **Рекомендуемое значение** | **Описание поля**|
    |---|---|---|
