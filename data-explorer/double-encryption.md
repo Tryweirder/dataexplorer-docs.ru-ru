@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: toleibov
 ms.service: data-explorer
-ms.topic: conceptual
-ms.date: 08/02/2020
-ms.openlocfilehash: 4a550d7596a74c3ae0bfca1718f10a69a183cc58
-ms.sourcegitcommit: d9fbcd6c9787f90de62e8e832c92d43b8090cbfc
+ms.topic: how-to
+ms.date: 08/11/2020
+ms.openlocfilehash: e89ce6f77545b4f0b42cbb3d792edd5ceeb0ed34
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87515952"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874683"
 ---
 # <a name="enable-infrastructure-encryption-double-encryption-during-cluster-creation-in-azure-data-explorer"></a>Включение шифрования инфраструктуры (двойное шифрование) во время создания кластера в Azure обозреватель данных
   
@@ -23,11 +23,20 @@ ms.locfileid: "87515952"
 > * После включения шифрования инфраструктуры в кластере его **нельзя** отключить.
 > * Двойное шифрование доступно только в регионах, где поддерживается шифрование инфраструктуры. Дополнительные сведения см. в разделе [Шифрование инфраструктуры хранилища](/azure/storage/common/infrastructure-encryption-enable).
 
+# <a name="azure-portal"></a>[Портал Azure](#tab/portal)
+
+1. [Создание кластера Azure обозреватель данных](create-cluster-database-portal.md#create-a-cluster) 
+1. На вкладке **безопасность** > **включить двойное шифрование**, выберите **вкл**. Чтобы удалить двойное шифрование, установите флажок **выкл**.
+1. Чтобы создать кластер, нажмите кнопку **Далее: сетевая>** или **Обзор + создать** .
+
+    :::image type="content" source="media/double-encryption/double-encryption-portal.png" alt-text="двойное шифрование нового кластера":::
+
+
 # <a name="c"></a>[C#](#tab/c-sharp)
 
 Вы можете включить шифрование инфраструктуры во время создания кластера с помощью C#.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные условия
 
 Настройка управляемого удостоверения с помощью клиента Azure обозреватель данных C#:
 
@@ -67,7 +76,7 @@ ms.locfileid: "87515952"
     await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clusterName, cluster);
     ```
     
-2. Выполните следующую команду, чтобы проверить успешность создания кластера:
+1. Выполните следующую команду, чтобы проверить успешность создания кластера:
 
     ```csharp
     kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
@@ -84,35 +93,35 @@ ms.locfileid: "87515952"
 ## <a name="add-a-system-assigned-identity-using-an-azure-resource-manager-template"></a>Добавление удостоверения, назначенного системой, с помощью шаблона Azure Resource Manager
 
 1. Добавьте тип "Енабледаублинкриптион", чтобы сообщить Azure включить шифрование инфраструктуры (двойное шифрование) для кластера.
-
-```json
-{
-    "apiVersion": "2020-06-14",
-    "type": "Microsoft.Kusto/clusters",
-    "name": "[variables('clusterName')]",
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "trustedExternalTenants": [],
-        "virtualNetworkConfiguration": null,
-        "optimizedAutoscale": null,
-        "enableDiskEncryption": false,
-        "enableStreamingIngest": false,
-        "enableDoubleEncryption": true,
+    
+    ```json
+    {
+        "apiVersion": "2020-06-14",
+        "type": "Microsoft.Kusto/clusters",
+        "name": "[variables('clusterName')]",
+        "location": "[resourceGroup().location]",
+        "properties": {
+            "trustedExternalTenants": [],
+            "virtualNetworkConfiguration": null,
+            "optimizedAutoscale": null,
+            "enableDiskEncryption": false,
+            "enableStreamingIngest": false,
+            "enableDoubleEncryption": true,
+        }
     }
-}
-```
+    ```
 
-2. При создании кластера он имеет следующие дополнительные свойства:
+1. При создании кластера он имеет следующие дополнительные свойства:
 
-```json
-"identity": {
-    "type": "SystemAssigned",
-    "tenantId": "<TENANTID>",
-    "principalId": "<PRINCIPALID>"
-}
-```
+    ```json
+    "identity": {
+        "type": "SystemAssigned",
+        "tenantId": "<TENANTID>",
+        "principalId": "<PRINCIPALID>"
+    }
+    ```
 ---
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 [Проверка работоспособности кластера](check-cluster-health.md)

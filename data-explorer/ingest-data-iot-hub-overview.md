@@ -6,14 +6,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: reference
+ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: a98c1b07e71eecdd725790e6f64901a073f458b5
-ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
+ms.openlocfilehash: 8a009c82f787dac0bd4a86209b07ffc14d9ec8cf
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88202461"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874874"
 ---
 # <a name="connect-to-iot-hub"></a>Подключение к Центру Интернета вещей
 
@@ -44,7 +44,7 @@ ms.locfileid: "88202461"
 
 Свойства приема указывают на процесс приема. Где можно направить данные и как обработать их. [Свойства приема](ingestion-properties.md) событий можно указать с помощью свойства [EVENTDATA. Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
 
-|Свойство |Описание:|
+|Свойство |Описание|
 |---|---|
 | Таблица | Имя существующей целевой таблицы (с учетом регистра). Переопределяет `Table` набор в `Data Connection` колонке. |
 | Формат | Формат данных. Переопределяет `Data format` набор в `Data Connection` колонке. |
@@ -68,7 +68,7 @@ ms.locfileid: "88202461"
 
 ### <a name="iot-hub-exposes-the-following-system-properties"></a>Центр Интернета вещей предоставляет следующие свойства системы:
 
-|Свойство |Описание:|
+|Свойство |Описание|
 |---|---|
 | message-id | Задаваемый пользователем идентификатор сообщения, используемый для шаблонов типа "запрос-ответ". |
 | sequence-number | Число (уникальное для каждой очереди устройства), которое Центр Интернета вещей назначает каждому сообщению, отправленному из облака на устройство. |

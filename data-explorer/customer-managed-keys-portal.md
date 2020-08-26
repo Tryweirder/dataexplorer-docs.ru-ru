@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: itsagui
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: 4477aba7c661b0bc434d2bb0cc0a635603cc8ad4
-ms.sourcegitcommit: d9fbcd6c9787f90de62e8e832c92d43b8090cbfc
+ms.openlocfilehash: 4d828905ce673c3b1c6453d31974334312bd3b5e
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87515829"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88872154"
 ---
 # <a name="configure-customer-managed-keys-using-the-azure-portal"></a>Настройка ключей, управляемых клиентом, с помощью портал Azure
 
@@ -34,7 +34,7 @@ ms.locfileid: "87515829"
 1. На панели **Шифрование** выберите значение **вкл** для параметра **ключ, управляемого клиентом** .
 1. Нажмите кнопку **выбрать ключ**.
 
-    ![Настройка управляемых клиентом ключей](media/customer-managed-keys-portal/cmk-encryption-setting.png)
+    ![Настройка ключей, управляемых клиентом](media/customer-managed-keys-portal/cmk-encryption-setting.png)
 
 1. В окне **Выбор ключа из Azure Key Vault** выберите существующее **хранилище ключей** из раскрывающегося списка. Если выбрать **создать** новый для [создания Key Vault](/azure/key-vault/quick-create-portal#create-a-vault), вы будете направлены на экран **Создание Key Vault** .
 
@@ -53,7 +53,7 @@ ms.locfileid: "87515829"
 > [!NOTE]
 > Выберите **Отключить** , чтобы удалить ключ, управляемый клиентом, после его создания.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
 * [Защитите свой кластер с помощью шифрования дисков в Azure обозреватель данных — портал Azure](cluster-disk-encryption.md) , включив шифрование неактивных компонентов.

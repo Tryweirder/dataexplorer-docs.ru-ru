@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: alexefro
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2020
-ms.openlocfilehash: 73d1308ab38cf032eca52f772627f0946b5ea252
-ms.sourcegitcommit: 537a7eaf8c8e06a5bde57503fedd1c3706dd2b45
+ms.openlocfilehash: 72525e15427d7c2135f881bc63e34826791050f2
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86424268"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874840"
 ---
 # <a name="configure-streaming-ingestion-on-your-azure-data-explorer-cluster-using-c"></a>Настройка приема потоковой передачи в кластере Azure обозреватель данных с помощью C #
 
@@ -22,7 +22,7 @@ ms.locfileid: "86424268"
 
 [!INCLUDE [ingest-data-streaming-intro](includes/ingest-data-streaming-intro.md)]
 
-## <a name="prerequisites"></a>Обязательные условия
+## <a name="prerequisites"></a>Предварительные условия
 
 * Если вы не установили Visual Studio 2019, скачайте и используйте **бесплатную** [версию Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).  Включите **разработку Azure** во время установки Visual Studio.
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
@@ -156,6 +156,6 @@ var cluster = new Cluster(location, sku, enableStreamingIngest:true);
     
 [!INCLUDE [ingest-data-streaming-limitations](includes/ingest-data-streaming-limitations.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Запрос данных в обозреватель данных Azure](web-query-data.md)

@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/05/2019
-ms.openlocfilehash: 5187b6b91e18fa8e41e2be6480067e3c53b0bc54
-ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
+ms.openlocfilehash: 50e949d7ef15948dd46f5553fad8d10dad5faa96
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88793903"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88875061"
 ---
 # <a name="query-data-using-the-azure-data-explorer-python-library"></a>Запрос данных с помощью библиотеки Python в Azure Data Explorer
 
@@ -22,7 +22,7 @@ ms.locfileid: "88793903"
 
 Эта статья также доступна в качестве [записной книжки Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные условия
 
 * [Python 3.4 +](https://www.python.org/downloads/)
 
@@ -97,7 +97,7 @@ df
 
 Вы увидите десять самых первых результатов из таблицы StormEvents.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 > [!div class="nextstepaction"]
 > [Прием данных с помощью библиотеки Azure обозреватель данных Python](python-ingest-data.md)

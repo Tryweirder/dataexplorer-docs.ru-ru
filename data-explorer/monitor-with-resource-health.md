@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: prvavill
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/31/2020
-ms.openlocfilehash: 297779b6431c15436e175a3269b2291340c51b79
-ms.sourcegitcommit: b8415e01464ca2ac9cd9939dc47e4c97b86bd07a
+ms.openlocfilehash: 5de30b4e6eb2ac9d01314482b693f6643075ca4a
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028533"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88872749"
 ---
 # <a name="monitor-azure-data-explorer-using-resource-health-preview"></a>Мониторинг обозреватель данных Azure с помощью Работоспособность ресурсов (Предварительная версия)
 
@@ -66,7 +66,7 @@ ms.locfileid: "88028533"
 
 ![Журнал](media/monitor-with-resource-health/healthhistory.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Настройка оповещений Работоспособность ресурсов](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)
 * [Учебник. прием и запрос данных мониторинга в Azure обозреватель данных](ingest-data-no-code.md)

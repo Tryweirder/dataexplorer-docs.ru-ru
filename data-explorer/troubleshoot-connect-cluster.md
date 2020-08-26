@@ -1,18 +1,18 @@
 ---
-title: Сбои в подключении кластера Azure Data Explorer
-description: В этой статье описаны этапы устранения неполадок для подключения к кластеру в Azure Data Explorer.
+title: Устранение ошибок подключения к кластеру Azure обозреватель данных
+description: В этой статье описаны действия по устранению неполадок при подключении к кластеру в обозреватель данных Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: c71af799f614e9cd28221d79634666cbc3b2c987
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 406e41728b34d0b0de48d71b1d7c2cf7ce0098bc
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81495371"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874109"
 ---
 # <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Устранение неполадок. Сбой при подключении к кластеру в обозревателе данных Azure
 
@@ -28,6 +28,6 @@ ms.locfileid: "81495371"
 
 1. Проверьте [панель мониторинга работоспособности службы Azure](https://azure.microsoft.com/status/). Просмотрите состояние обозревателя данных Azure в регионе, где вы пытаетесь подключиться к кластеру.
 
-    Если статус не **является хорошим** (зеленый чек-метка), попробуйте подключиться к кластеру после улучшения состояния.
+    Если состояние не **подходит** (зеленая галочка), попробуйте подключиться к кластеру после того, как его состояние улучшится.
 
 1. Если вам нужна помощь в решении проблемы, откройте запрос на поддержку на [портале Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

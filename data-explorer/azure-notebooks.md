@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: adieldar
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/01/2020
-ms.openlocfilehash: 2f82c1f381bf377226579ca9fa3b086c1396f2d4
-ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
+ms.openlocfilehash: d41c9e2719ef5139d89986ff5333c03e6e34d26c
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88610395"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88872477"
 ---
 # <a name="use-azure-notebooks-to-analyze-data-in-azure-data-explorer"></a>Использование записных книжек Azure для анализа данных в Azure обозреватель данных
 
@@ -37,7 +37,7 @@ ms.locfileid: "88610395"
     1. Снимите флажок **Public (общедоступный** ).
         >[!Important]
         > Если не снять флажок общедоступный, ваш проект будет открыт в Интернете.
-    1. Щелкните **Создать**.
+    1. Нажмите кнопку **создания**.
     
     ![Создание нового проекта](media/azurenotebooks/an-create-new-project-blank.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "88610395"
 
 ## <a name="execute-a-kusto-query"></a>Выполнение запроса Kusto
 
-1. Введите запрос Kusto и выберите **Run (выполнить**). Пример:
+1. Введите запрос Kusto и выберите **Run (выполнить**). Пример.
 
     ```python
     query= "StormEvents | project State, EventType | take 10"
@@ -105,6 +105,6 @@ ms.locfileid: "88610395"
 
 :::image type="content" source="media/azurenotebooks/an-commands.png" alt-text="Кнопка "выполнить", окно "Записная книжка", Записные книжки Microsoft Azure, Azure обозреватель данных" lightbox="media/azurenotebooks/an-commands.png#lightbox":::
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Kusto-репозиторий GitHub Python](https://github.com/Azure/azure-kusto-python)

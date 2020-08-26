@@ -6,14 +6,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: reference
+ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 5dadde42bcdade8d7839c149cf7ca335b8a49bc8
-ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
+ms.openlocfilehash: 8b24d6f771eaa4004b36a1b3171eb593e2fc0f6c
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88202462"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874891"
 ---
 # <a name="connect-to-event-hub"></a>Подключение к концентратору событий
 
@@ -36,7 +36,7 @@ ms.locfileid: "88202462"
 
 Свойства приема указывают на процесс приема, где следует маршрутизировать данные и как обработать их. [Свойства приема](ingestion-properties.md) событий можно указать с помощью свойства [EVENTDATA. Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
 
-|Свойство |Описание:|
+|Свойство |Описание|
 |---|---|
 | Таблица | Имя существующей целевой таблицы (с учетом регистра). Переопределяет `Table` набор в `Data Connection` колонке. |
 | Формат | Формат данных. Переопределяет `Data format` набор в `Data Connection` колонке. |
@@ -129,7 +129,7 @@ eventHubClient.Close();
  
 #### <a name="json-mapping-example"></a>Пример сопоставления JSON
 
-Добавьте данные, используя имена системных свойств, которые отображаются в списке *системных свойств событий* в колонке *подключения к данным* . Выполните команду:
+Добавьте данные, используя имена системных свойств, которые отображаются в списке *системных свойств событий* в колонке *подключения к данным* . Выполните:
 
 ```kusto
     .create table TestTable ingestion json mapping "JsonMapping1"

@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: dorcohen
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/15/2020
-ms.openlocfilehash: 56851a159f6d8d2cee5f3991dab290070fb8c482
-ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
+ms.openlocfilehash: a9f2be17e02103a64fa31a10bc6195076addb1fc
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88610497"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874534"
 ---
 # <a name="usage-examples-for-azure-data-explorer-connector-to-power-automate-preview"></a>Примеры использования соединителя Azure обозреватель данных для автоматического управления (Предварительная версия)
 
@@ -120,7 +120,7 @@ ms.locfileid: "88610497"
 
 :::image type="content" source="./media/flow-usage/flow-resultsmultipleattachments2.png" alt-text="Результаты нескольких вложений электронной почты, отображаемых в виде диаграммы времени, Azure обозреватель данных" lightbox="./media/flow-usage/flow-resultsmultipleattachments2.png#lightbox":::
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 Сведения о [соединителе приложения логики Azure Kusto](kusto/tools/logicapps.md). это еще один способ автоматического запуска запросов и команд Kusto в рамках запланированной или активируемой задачи.
 

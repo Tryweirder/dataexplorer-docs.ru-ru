@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: maraheja
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 7/29/2020
-ms.openlocfilehash: 31aa478647b902353db9d39a5ad36b5d5830c127
-ms.sourcegitcommit: 6e84f50efc8c5c3fe57080341ed3effe72197886
+ms.openlocfilehash: 9eb10d9a87e8cf001b229d9c6c553e88ef355144
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439996"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88875282"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark"></a>Соединитель Azure обозреватель данных для Apache Spark
 
@@ -27,7 +27,7 @@ ms.locfileid: "87439996"
 > [!NOTE]
 > Хотя некоторые из приведенных ниже примеров относятся к кластеру [Azure Databricks](https://docs.azuredatabricks.net/) Spark, соединитель Azure обозреватель данных Spark не принимает прямые зависимости от кирпичей данных или других дистрибутивов Spark.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные условия
 
 * [Создание кластера Azure обозреватель данных и базы данных](create-cluster-database-portal.md) 
 * Создание кластера Spark
@@ -271,7 +271,7 @@ mvn clean install
         display(dfFiltered)
         ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * Дополнительные сведения о [соединителе Azure обозреватель данных Spark](https://github.com/Azure/azure-kusto-spark/tree/master/docs)
 * [Пример кода для Java и Python](https://github.com/Azure/azure-kusto-spark/tree/master/samples/src/main)

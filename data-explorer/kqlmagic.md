@@ -5,21 +5,21 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.openlocfilehash: f8f67599872c920e323e788dd79e082fdc22e0f0
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 9794c9448ce8f7243d328eb039e8ca4322f3b933
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82616513"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88872970"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Использование расширения Jupyter Notebook и кклмагик для анализа данных в Azure обозреватель данных
 
 Jupyter Notebook представляет собой веб-приложение с открытым исходным кодом, которое позволяет создавать документы, содержащие код, формулы, визуализации и текстовое описание, и обмениваться этими документами. Использование включает в себя очистку и преобразование данных, числовое моделирование, статистическое моделирование, визуализацию данных и машинное обучение.
 [Jupyter Notebook](https://jupyter.org/) поддерживает магические функции, расширяющие возможности ядра, путем поддержки дополнительных команд. кклмагик — это команда, которая расширяет возможности ядра Python в Jupyter Notebook, что позволяет выполнять запросы языка Kusto изначально. Вы можете легко сочетать язык запросов Python и Kusto для запроса и визуализации данных с помощью расширенной библиотеки Plot.ly, интегрированной с `render` командами. Поддерживаются источники данных для выполнения запросов. Эти источники данных включают Azure обозреватель данных, быструю и масштабируемую службу просмотра данных для данных журналов и телеметрии, а также Azure Monitor журналы и Application Insights. кклмагик также работает с записными книжками Azure, Jupyter Lab и Visual Studio Code расширением Jupyter.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные условия
 
 - Учетная запись электронной почты организации, которая входит в Azure Active Directory (AAD).
 - Jupyter Notebook установлена на локальном компьютере; вы также можете использовать Записные книжки Azure и клонировать пример [Azure Notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb).
@@ -168,9 +168,9 @@ df.head(10)
     ```
 
 > [!TIP]
-> Для получения сведений обо всех доступных конфигурациях `%config Kqlmagic`используйте. Для устранения неполадок и записи ошибок Kusto, таких как проблемы подключения и неправильные запросы, используйте`%config Kqlmagic.short_errors=False`
+> Для получения сведений обо всех доступных конфигурациях используйте `%config Kqlmagic` . Для устранения неполадок и записи ошибок Kusto, таких как проблемы подключения и неправильные запросы, используйте `%config Kqlmagic.short_errors=False`
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие шаги
 
 Выполните команду help, чтобы изучить следующие примеры записных книжек, которые содержат все поддерживаемые функции.
 - [Начало работы с кклмагик для Azure обозреватель данных](https://mybinder.org/v2/gh/Microsoft/jupyter-kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 

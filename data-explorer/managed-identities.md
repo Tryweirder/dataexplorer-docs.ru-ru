@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: itsagui
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2020
-ms.openlocfilehash: 59392c8ff555df99ccb7c4a5b7503266cb095552
-ms.sourcegitcommit: d9fbcd6c9787f90de62e8e832c92d43b8090cbfc
+ms.openlocfilehash: 121d9d3839b86b302fc15e9299797ac3ae3c6835
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87515844"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874738"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Настройка управляемых удостоверений для кластера Azure обозреватель данных
 
@@ -29,7 +29,7 @@ ms.locfileid: "87515844"
 
 ### <a name="add-a-system-assigned-identity-using-the-azure-portal"></a>Добавление удостоверения, назначенного системой, с помощью портал Azure
 
-1. Войдите на [портал Microsoft Azure](https://portal.azure.com/).
+1. Войдите на [портал Azure](https://portal.azure.com/).
 
 #### <a name="new-azure-data-explorer-cluster"></a>Новый кластер Azure обозреватель данных
 
@@ -60,7 +60,7 @@ ms.locfileid: "87515844"
 
 ### <a name="add-a-system-assigned-identity-using-c"></a>Добавление удостоверения, назначенного системой, с помощью языка C #
 
-#### <a name="prerequisites"></a>Предварительные требования
+#### <a name="prerequisites"></a>Предварительные условия
 
 Чтобы настроить управляемое удостоверение с помощью клиента Azure обозреватель данных C#:
 
@@ -113,7 +113,7 @@ ms.locfileid: "87515844"
     var tenantId = cluster.Identity.TenantId;
     ```
 
-`PrincipalId`и `TenantId` заменяются идентификаторами GUID. `TenantId`Свойство определяет клиент AAD, которому принадлежит удостоверение. `PrincipalId`— Это уникальный идентификатор для нового удостоверения кластера. В AAD субъект-служба имеет то же имя, которое было присвоено экземпляру Службы приложений или Функций Azure.
+`PrincipalId` и `TenantId` заменяются идентификаторами GUID. `TenantId`Свойство определяет клиент AAD, которому принадлежит удостоверение. `PrincipalId`— Это уникальный идентификатор для нового удостоверения кластера. В AAD субъект-служба имеет то же имя, которое было присвоено экземпляру Службы приложений или Функций Azure.
 
 # <a name="arm-template"></a>[Шаблон ARM](#tab/arm)
 
@@ -129,7 +129,7 @@ ms.locfileid: "87515844"
 }    
 ```
 
-Пример:
+Пример.
 
 ```json
 {
@@ -160,7 +160,7 @@ ms.locfileid: "87515844"
 }
 ```
 
-`<TENANTID>`и `<PRINCIPALID>` заменяются идентификаторами GUID. `TenantId`Свойство определяет клиент AAD, которому принадлежит удостоверение. `PrincipalId`— Это уникальный идентификатор для нового удостоверения кластера. В AAD субъект-служба имеет то же имя, которое было присвоено экземпляру Службы приложений или Функций Azure.
+`<TENANTID>` и `<PRINCIPALID>` заменяются идентификаторами GUID. `TenantId`Свойство определяет клиент AAD, которому принадлежит удостоверение. `PrincipalId`— Это уникальный идентификатор для нового удостоверения кластера. В AAD субъект-служба имеет то же имя, которое было присвоено экземпляру Службы приложений или Функций Azure.
 
 ---
 
@@ -172,7 +172,7 @@ ms.locfileid: "87515844"
 
 ### <a name="disable-a-system-assigned-identity-using-the-azure-portal"></a>Отключение назначенного системой удостоверения с помощью портал Azure
 
-1. Войдите на [портал Microsoft Azure](https://portal.azure.com/).
+1. Войдите на [портал Azure](https://portal.azure.com/).
 1. **Settings**  >  На левой панели портала выберите параметры**удостоверение** .
 1. На панели **удостоверение** > вкладке **назначено системой** :
     1. Переместите ползунок **состояния** в **положение выкл**.
@@ -207,7 +207,7 @@ await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clus
 
 ---
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
 * [Защитите свой кластер с помощью шифрования дисков в Azure обозреватель данных — портал Azure](cluster-disk-encryption.md) , включив шифрование неактивных компонентов.

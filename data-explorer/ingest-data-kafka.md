@@ -1,18 +1,18 @@
 ---
 title: Прием данных из Kafka в Azure Data Explorer
-description: В этой статье вы узнаете, как глотать (загружать) данные в Azure Data Explorer из Kafka.
+description: Из этой статьи вы узнаете, как принимать (загружать) данные в Azure обозреватель данных из Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/03/2019
-ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 64b36db01bc1ab9867025723bf966279b4b4b115
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81500675"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874823"
 ---
 # <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Прием данных из Kafka в Azure Data Explorer
  
@@ -24,7 +24,7 @@ ms.locfileid: "81500675"
  
 * [Тестовый кластер и база данных](create-cluster-database-portal.md).
  
-* [Пример приложения,](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) который генерирует данные и отправляет их в Kafka.
+* [Пример приложения](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) , который создает данные и отправляет их в Kafka.
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) для запуска примера приложения.
  
@@ -32,7 +32,7 @@ ms.locfileid: "81500675"
 
 Kafka Connect — это средство для масштабируемой и надежной потоковой передачи данных между Apache Kafka и другими системами. Это средство позволяет легко и быстро определять соединители, перемещающие большие наборы данных в Kafka и из Kafka. ADX Kafka Sink служит соединителем для данных со стороны Kafka.
  
-### <a name="bundle"></a>Пакет
+### <a name="bundle"></a>Bundle
 
 С помощью Kafka можно загрузить `.jar` как подключаемый модуль, который будет выступать в качестве настраиваемого соединителя. Для создания такого `.jar` мы клонируем код локально и выполним сборку с помощью Maven. 
 
@@ -43,7 +43,7 @@ git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Построение
+#### <a name="build"></a>Сборка
 
 Выполните сборку локально с помощью Maven, чтобы создать `.jar` с зависимостями.
 
@@ -121,7 +121,7 @@ git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
 
-### <a name="run-the-app"></a>Запуск приложения
+### <a name="run-the-app"></a>Запустите приложение
 
 1. Откройте решение для примера приложения в Visual Studio.
 
@@ -160,6 +160,6 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
     ![Набор результатов для сообщений](media/ingest-data-event-hub/message-result-set.png)
  
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие шаги
  
-* [Данные запросов в Azure Data Explorer](web-query-data.md)
+* [Запрос данных в обозреватель данных Azure](web-query-data.md)

@@ -5,20 +5,20 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
-ms.openlocfilehash: 99d242358f5b4a54f7e1faa246a1cfc64d1414d3
-ms.sourcegitcommit: 6e84f50efc8c5c3fe57080341ed3effe72197886
+ms.openlocfilehash: 679e3fd4f9b065229951f570101b931a7cb091ea
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439858"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874517"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-redash"></a>Визуализация данных из обозреватель данных Azure в перештрихе
 
 [Перештрихи](https://redash.io/) соединяют и запрашивают источники данных, строит панели мониторинга для визуализации данных и совместно используют их с одноранговыми узлами. Из этой статьи вы узнаете, как настроить обозреватель данных Azure в качестве источника данных для перештриха, а затем визуализировать данные.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные условия
 
 1. [Создание кластера и базы данных](create-cluster-database-portal.md).
 1. Прием данных, как описано в разделе прием [демонстрационных данных в Azure обозреватель данных](ingest-sample-data.md). Дополнительные параметры приема см. в разделе [Обзор приема](ingest-data-overview.md).

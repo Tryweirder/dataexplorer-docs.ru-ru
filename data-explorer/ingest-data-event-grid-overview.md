@@ -6,16 +6,16 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: reference
+ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: e815a008c219c0eb1eeede8df07817d872ca1fed
-ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
+ms.openlocfilehash: 5369f3166e3700740be2a30927da793a8d21e05c
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88202496"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874908"
 ---
-# <a name="connect-to-event-grid"></a>Подключение к сетке событий
+# <a name="connect-to-event-grid"></a>Подключение к Сетке событий
 
 Сетка событий — это конвейер, который прослушивает службу хранилища Azure и обновляет обозреватель данных Azure для извлечения сведений при возникновении событий подписки. Azure обозреватель данных предлагает непрерывное получение из службы хранилища Azure (хранилища BLOB-объектов и ADLSv2) с помощью подписки службы " [Сетка событий Azure](/azure/event-grid/overview) " для создания уведомлений BLOB и потоковой передачи этих уведомлений в обозреватель данных Azure через концентратор событий.
 

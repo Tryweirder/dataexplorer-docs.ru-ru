@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: guregini
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2020
-ms.openlocfilehash: bf479a7248033d2aa70a8e09b039814361c78031
-ms.sourcegitcommit: bcd0c96b1581e43e33aa35f4d68af6dcb4979d39
+ms.openlocfilehash: 0d6695ddf6923dcbf44ac3466a2388edc7618551
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88039239"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874976"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-kibana-with-the-k2bridge-open-source-connector"></a>Визуализация данных из Azure обозреватель данных в Kibana с помощью соединителя K2Bridge с открытым кодом
 
@@ -34,7 +34,7 @@ K2Bridge поддерживает вкладку **обнаружения** Kiba
 
    [![Страница Kibana, привязанная к Azure обозреватель данных](media/k2bridge/k2bridge-kibana-page.png)](media/k2bridge/k2bridge-kibana-page.png#lightbox)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные условия
 
 Прежде чем можно будет визуализировать данные из Azure обозреватель данных в Kibana, выполните следующие действия:
 
@@ -94,7 +94,7 @@ K2Bridge поддерживает вкладку **обнаружения** Kiba
         COLLECT_TELEMETRY=true
         ```
 
-    1. <a name="install-k2bridge-chart"></a>Установите диаграмму K2Bridge.
+    1. <a name="install-k2bridge-chart"></a> Установите диаграмму K2Bridge.
 
         ```bash
         helm install k2bridge charts/k2bridge -n k2bridge --set image.repository=$REPOSITORY_NAME/$CONTAINER_NAME --set settings.adxClusterUrl="$ADX_URL" --set settings.adxDefaultDatabaseName="$ADX_DATABASE" --set settings.aadClientId="$ADX_CLIENT_ID" --set settings.aadClientSecret="$ADX_CLIENT_SECRET" --set settings.aadTenantId="$ADX_TENANT_ID" [--set image.tag=latest] [--set privateRegistry="$IMAGE_PULL_SECRET_NAME"] [--set settings.collectTelemetry=$COLLECT_TELEMETRY]
@@ -102,7 +102,7 @@ K2Bridge поддерживает вкладку **обнаружения** Kiba
 
         В [конфигурации](https://github.com/microsoft/K2Bridge/blob/master/docs/configuration.md)можно найти полный набор параметров конфигурации.
 
-    1. <a name="install-kibana-service"></a>Выходные данные предыдущей команды предлагают следующую команду Helm для развертывания Kibana. При необходимости выполните следующую команду:
+    1. <a name="install-kibana-service"></a> Выходные данные предыдущей команды предлагают следующую команду Helm для развертывания Kibana. При необходимости выполните следующую команду:
 
         ```bash
         helm install kibana elastic/kibana -n k2bridge --set image=docker.elastic.co/kibana/kibana-oss --set imageTag=6.8.5 --set elasticsearchHosts=http://k2bridge:8080
@@ -172,7 +172,7 @@ K2Bridge поддерживает вкладку **обнаружения** Kiba
 1. В строке запроса можно выполнять поиск по следующим данным:
 
     * Ввод условия поиска.
-    * Использование синтаксиса запроса Lucene. Пример:
+    * Использование синтаксиса запроса Lucene. Пример.
         * Выполните поиск по слову "ошибка", чтобы найти все записи, содержащие это значение.
         * Выполните поиск по запросу "Status: 200", чтобы получить все записи со значением состояния 200.
     * Использование логических операторов **and**, **or**и **Not**.

@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
-ms.openlocfilehash: 5532be47c957ae2251e71dc25a17e67a8e57f474
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 7081f96bf948a7d3f0e99b6d9f7aaf6fa77b9c65
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350406"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88872222"
 ---
 # <a name="add-cluster-principals-for-azure-data-explorer-by-using-python"></a>Добавление субъектов кластера для Azure обозреватель данных с помощью Python
 
@@ -92,6 +92,6 @@ poller = kusto_management_client.cluster_principal_assignments.create_or_update(
 | tenant_id_for_principal | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента участника.|
 | principal_type | *Приложение* | Тип участника, который может иметь значение "User", "App" или "Group"|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Добавление участников базы данных](database-principal-python.md)

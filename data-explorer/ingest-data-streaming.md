@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: alexefro
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2020
-ms.openlocfilehash: 7e5d836e25916a039a4df8e451d16e4f8a41cf18
-ms.sourcegitcommit: 537a7eaf8c8e06a5bde57503fedd1c3706dd2b45
+ms.openlocfilehash: 417d2b45e53abeba40f099a33880912a9300bc31
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86423247"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874857"
 ---
 # <a name="configure-streaming-ingestion-on-your-azure-data-explorer-cluster-using-the-azure-portal"></a>Настройка приема потоковой передачи в кластере Azure обозреватель данных с помощью портал Azure
 
@@ -42,7 +42,7 @@ ms.locfileid: "86423247"
 1. На портале Azure перейдите к кластеру Azure Data Explorer. 
 1. В окне **Параметры**выберите **конфигурации**. 
 1. В области **конфигурации** выберите **вкл** ., чтобы включить прием **потоковой передачи**.
-1. Щелкните **Сохранить**.
+1. Выберите **Сохранить**.
 
     :::image type="content" source="media/ingest-data-streaming/streaming-ingestion-on.png" alt-text="Включение приема потоковой передачи в Azure обозреватель данных":::
 
@@ -75,7 +75,7 @@ ms.locfileid: "86423247"
     .alter table TestTable policy streamingingestion enable
     ```
 
-    или
+    или диспетчер конфигурации служб
 
     ```kusto
     .alter database StreamingTestDb policy streamingingestion enable
@@ -100,12 +100,12 @@ ms.locfileid: "86423247"
 
 1. В окне **Параметры**выберите **конфигурации**.
 1. В области **конфигурации** выберите **выкл** ., чтобы отключить прием **потоковой передачи**.
-1. Щелкните **Сохранить**.
+1. Выберите **Сохранить**.
 
     :::image type="content" source="media/ingest-data-streaming/streaming-ingestion-off.png" alt-text="Отключение приема потоковой передачи в Azure обозреватель данных":::
 
 [!INCLUDE [ingest-data-streaming-limitations](includes/ingest-data-streaming-limitations.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Запрос данных в обозреватель данных Azure](web-query-data.md)

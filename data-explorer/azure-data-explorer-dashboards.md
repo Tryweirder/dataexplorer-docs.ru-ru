@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/26/2020
-ms.openlocfilehash: 4d2f493e2057d81a813c26eac2e73643097e9482
-ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
+ms.openlocfilehash: 0b5633dc7ed54f9b4a763400ae8de84ba32f09e6
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88793865"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88872596"
 ---
 # <a name="visualize-data-with-azure-data-explorer-dashboards"></a>Визуализация данных с помощью панелей мониторинга обозреватель данных Azure
 
@@ -100,7 +100,7 @@ ms.locfileid: "88793865"
 
     :::image type="content" source="media/adx-dashboards/save-dashboard.png" alt-text="сохранить панель мониторинга":::
 
-## <a name="next-steps"></a>Next Steps
+## <a name="next-steps"></a>Следующие шаги
 
 * [Использование параметров на панелях мониторинга обозреватель данных Azure](dashboard-parameters.md)
 * [Запрос данных в обозреватель данных Azure](web-query-data.md)

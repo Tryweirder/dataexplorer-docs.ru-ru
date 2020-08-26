@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 0738df4b86fe7d602ad41e921d88501c58d8e500
-ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
+ms.openlocfilehash: b9a55915ebef61bef534e42ca0aef6a7c19868ac
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88201647"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874959"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Прием данных из концентратора событий в Azure Data Explorer
 
@@ -120,7 +120,7 @@ ms.locfileid: "88201647"
     | концентратор событий; | *test-hub* | Созданный концентратор событий. |
     | Группа потребителей | *test-group* | Группа получателей событий, определенная в созданном концентраторе событий. |
     | Свойства системы событий | Выбор соответствующих свойств | [Свойства системы концентратора событий](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Если имеется несколько записей для каждого сообщения о событии, системные свойства будут добавлены к первому из них. При добавлении системных свойств [Создайте](kusto/management/create-table-command.md) или [Обновите](kusto/management/alter-table-command.md) схему таблицы и [сопоставление](kusto/management/mappings.md) , чтобы включить выбранные свойства. |
-    | Сжатие | *None* | Тип сжатия полезных данных сообщений концентратора событий. Поддерживаемые типы сжатия: *нет, gzip*.|
+    | Сжатие | *Нет* | Тип сжатия полезных данных сообщений концентратора событий. Поддерживаемые типы сжатия: *нет, gzip*.|
     | | |
 
     **Целевая таблица:**

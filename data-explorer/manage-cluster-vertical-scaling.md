@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: radennis
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/14/2019
-ms.openlocfilehash: fc3b4af91cd24b60f8ace110551daa47ff8cf934
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: c3177cb513e11a5fed976dafd113636addb5da37
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351613"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88875112"
 ---
 # <a name="manage-cluster-vertical-scaling-scale-up-in-azure-data-explorer-to-accommodate-changing-demand"></a>Управление вертикальным масштабированием кластера (увеличение масштаба) в обозреватель данных Azure для поддержки изменения спроса
 
@@ -46,7 +46,7 @@ ms.locfileid: "87351613"
 
 Теперь вы настроили вертикальное масштабирование для кластера Azure обозреватель данных. Добавьте еще одно правило для горизонтального масштабирования. Если вам нужна помощь с проблемами масштабирования кластеров, отправьте [запрос в службу поддержки](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) в портал Azure.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Управление горизонтальным масштабированием кластера](manage-cluster-horizontal-scaling.md) для динамического масштабирования количества экземпляров на основе указанных метрик.
 

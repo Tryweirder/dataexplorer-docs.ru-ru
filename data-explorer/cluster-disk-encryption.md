@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/02/2020
-ms.openlocfilehash: 4f0ed42727759dae54f75fcb33ba1f024c218a4a
-ms.sourcegitcommit: d9fbcd6c9787f90de62e8e832c92d43b8090cbfc
+ms.openlocfilehash: 2a925e87f1fbc57b0b65f66abb6085e1083b864a
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87515947"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88872341"
 ---
 # <a name="secure-your-cluster-using-disk-encryption-in-azure-data-explorer---azure-portal"></a>Защита кластера с помощью шифрования дисков в Azure обозреватель данных — портал Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "87515947"
 
 1. В окне **Безопасность** выберите **вкл** . для параметра безопасность **шифрования диска** . 
 
-1. Щелкните **Сохранить**.
+1. Выберите **Сохранить**.
  
 > [!NOTE]
 > Выберите **Отключить** , чтобы отключить шифрование после его включения.
@@ -37,6 +37,6 @@ ms.locfileid: "87515947"
 
 Каждый кластер Azure обозреватель данных работает на выделенных ресурсах в одном регионе. Все данные хранятся в пределах региона. 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 [Проверка работоспособности кластера](check-cluster-health.md)

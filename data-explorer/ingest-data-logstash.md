@@ -5,20 +5,20 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: takamara
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/03/2019
-ms.openlocfilehash: 0beb88cbcb2b72a79ad2d6c1ad6aac44bdcb13bc
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: b062b2da81662e89dc61720ebf6bb555f896a8ca
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350525"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874789"
 ---
 # <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Прием данных из Logstash в Azure Data Explorer
 
 [Logstash](https://www.elastic.co/products/logstash) — это конвейер с открытым кодом на стороне сервера для обработки данных, который одновременно принимает данные из множества источников, преобразовывает данные, а затем отправляет их в избранный "тайник". В этой статье вы отправите эти данные в Azure обозреватель данных, которая является быстрой и высокой масштабируемой службой просмотра данных для данных журналов и телеметрии. Изначально вы создадите таблицу и сопоставление данных в тестовом кластере, а затем поручите Logstash отправить данные в таблицу и проверить результаты.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Обязательные условия
 
 * Подписка Azure. Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начать работу.
 * [Тестовый кластер и база данных](create-cluster-database-portal.md) Azure Data Explorer.

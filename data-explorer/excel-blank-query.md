@@ -1,74 +1,74 @@
 ---
-title: Визуализация данных с помощью запроса Azure Data Explorer Kusto, импортируемого в Microsoft Excel
-description: В этой статье вы узнаете, как импортировать запрос Azure Data Explorer Kusto в Microsoft Excel.
+title: Визуализация данных с помощью запроса Azure обозреватель данных Kusto, импортированного в Microsoft Excel
+description: Из этой статьи вы узнаете, как импортировать запрос Azure обозреватель данных Kusto в Microsoft Excel.
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2019
-ms.openlocfilehash: 4999000e2084922b43b8085034f545d4b5c644a9
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 0c1900b1feb0af150e25fbc85c231f31a30663b0
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81499531"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874636"
 ---
-# <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>Визуализация данных с помощью запроса Azure Data Explorer Kusto, импортируемого в Microsoft Excel
+# <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>Визуализация данных с помощью запроса Azure обозреватель данных Kusto, импортированного в Microsoft Excel
 
-Azure Data Explorer предоставляет два варианта подключения к данным в Excel: использовать родной разъем или импортировать запрос из Azure Data Explorer. В этой статье показано, как импортировать запрос из Azure Data Explorer в Excel для визуализации данных. Добавьте запрос Kusto в качестве источника данных Excel для дополнительных вычислений или визуализаций данных.
+Azure обозреватель данных предоставляет два варианта подключения к данным в Excel: Используйте собственный соединитель или импортируйте запрос из обозреватель данных Azure. В этой статье показано, как импортировать запрос из обозреватель данных Azure в Excel для визуализации данных. Добавьте запрос Kusto в качестве источника данных Excel для выполнения дополнительных вычислений или визуализаций данных.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
-* Организационная учетная запись электронной почты, которая является членом каталога Azure Active, чтобы можно было подключиться к [группе помощи Azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
+* Учетная запись электронной почты организации, которая является членом Azure Active Directory, поэтому вы можете подключиться к [кластеру справки azure обозреватель данных](https://dataexplorer.azure.com/clusters/help/databases/Samples) . 
 <br>или диспетчер конфигурации служб</br>
-* Создайте [кластер тестирования и базу данных](create-cluster-database-portal.md) и вопийте в [приложении Web-uI Azure Data Explorer.](https://dataexplorer.azure.com/)
+* Создайте [тестовый кластер и базу данных](create-cluster-database-portal.md) и войдите в [приложение пользовательского веб-интерфейса Azure обозреватель данных](https://dataexplorer.azure.com/).
 
-## <a name="define-kusto-query-as-an-excel-data-source"></a>Определение запроса Kusto как источника данных Excel
+## <a name="define-kusto-query-as-an-excel-data-source"></a>Определение запроса Kusto в качестве источника данных Excel
 
-1. В [веб-мине Azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/Samples)задвавайте запрос и проверяйте результаты.
+1. В [пользовательском веб-интерфейсе Azure обозреватель данных](https://dataexplorer.azure.com/clusters/help/databases/Samples)выполните запрос и проверьте результаты.
 
-1. Выберите вкладку **«Поделиться»** и выберите **запрос на Power BI.**
+1. Перейдите на вкладку **общий доступ** и выберите **запрос для Power BI**.
 
-    ![Веб-запрос на запрос для Power BI](media/excel-blank-query/web-ui-query-to-powerbi.png)
+    ![Запрос веб-интерфейса для Power BI](media/excel-blank-query/web-ui-query-to-powerbi.png)
 
-1. Появляется окно со следующим уведомлением:
+1. Появится окно со следующим уведомлением:
 
-    ![экспортный запрос в буфер обмена](media/excel-blank-query/query-exported-to-clipboard.png)
+    ![экспортировать запрос в буфер обмена](media/excel-blank-query/query-exported-to-clipboard.png)
 
-1. Открыть **Microsoft Excel**.
+1. Откройте **Microsoft Excel**.
 
-1. Во вкладке **«Данные»** выберите **«Получить данные** > **из других источников** > **пустого запроса».**
+1. На вкладке **данные** выберите **получить данные**  >  **из других источников**  >  **пустой запрос**.
 
-    ![Получить данные и выбрать пустой запрос](media/excel-blank-query/get-data-blank-query.png)
+    ![Получение данных и выбор пустого запроса](media/excel-blank-query/get-data-blank-query.png)
 
-1. Открывается окно **редактора энерго-запроса.** В окне выберите **Расширенный редактор**.
+1. Откроется окно **редактора Power Query** . В окне выберите **Расширенный редактор**.
 
-    ![Окно редактора запроса питания](media/excel-blank-query/power-query-editor.png)
+    ![Окно редактора Power Query](media/excel-blank-query/power-query-editor.png)
 
-1. В окне **расширенного редактора** вставьте запрос, который вы экспортируете в буфер обмена, и выберите **Done.**
+1. В окне **Расширенный редактор** вставьте запрос, экспортированный в буфер обмена, и нажмите кнопку **Готово**.
 
-    ![Расширенный запрос редактора](media/excel-blank-query/advanced-editor-query.png)    
+    ![Расширенный редактор запросов](media/excel-blank-query/advanced-editor-query.png)    
 
-1. Для проверки подлинности выберите **учетные данные Edit.**
+1. Для проверки подлинности выберите **изменить учетные данные**.
 
-    ![Изменение учетных данных](media/excel-blank-query/edit-credentials.png)
+    ![Изменить учетные данные](media/excel-blank-query/edit-credentials.png)
 
-1. Выберите **организационную учетную запись** и **вопийте.** Завершите процесс вхинга, а затем выберите **Connect.**
+1. Выберите **учетную запись организации** и **Войдите в нее**. Завершите процесс входа и нажмите кнопку **подключить**.
 
-    ![Полный входин](media/excel-blank-query/complete-sign-in.png)
+    ![Завершение входа](media/excel-blank-query/complete-sign-in.png)
 
-    Повторите предыдущие шаги, чтобы добавить больше запросов. Можно переименовать запросы в более значимые имена.
+    Повторите предыдущие шаги, чтобы добавить дополнительные запросы. Можно переименовать запросы на более значимые имена.
 
-1. Выберите кнопку **"Закрыть &** загрузки", чтобы получить данные в Excel.
+1. Нажмите кнопку **закрыть & загрузить** , чтобы получить данные в Excel.
 
-    ![Выберите близко и загрузить](media/excel-blank-query/close-and-load.png)
+    ![Выберите Закрыть и загрузить](media/excel-blank-query/close-and-load.png)
 
-1. Теперь ваши данные в Excel. Выберите кнопку **Обновления,** чтобы обновить запрос.
+1. Теперь данные находятся в Excel. Нажмите кнопку **Обновить** , чтобы обновить запрос.
 
     ![Просмотр данных в Excel](media/excel-blank-query/data-in-excel.png)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие шаги
 
-[Визуализация данных с помощью разъема Azure Data Explorer для Excel](excel-connector.md)
+[Визуализация данных с помощью соединителя Azure обозреватель данных для Excel](excel-connector.md)

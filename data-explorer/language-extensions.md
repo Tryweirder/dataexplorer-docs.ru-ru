@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: orhasban
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/01/2020
-ms.openlocfilehash: 104b3e4db18334f33c54177da7b996bc679db2de
-ms.sourcegitcommit: d9fbcd6c9787f90de62e8e832c92d43b8090cbfc
+ms.openlocfilehash: e8868000f49845fb3dd9f5140def5863b4eafa2f
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87515895"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88875214"
 ---
 # <a name="manage-language-extensions-in-your-azure-data-explorer-cluster-preview"></a>Управление расширениями языка в кластере Azure обозреватель данных (Предварительная версия)
 
@@ -36,7 +36,7 @@ ms.locfileid: "87515895"
 1. На портале Azure перейдите к кластеру Azure Data Explorer. 
 1. В окне **Параметры**выберите **конфигурации**. 
 1. В области **конфигурации** выберите **вкл** ., чтобы включить расширение языка.
-1. Щелкните **Сохранить**.
+1. Выберите **Сохранить**.
  
     ![расширение языка на](media/language-extensions/configurations-enable-extension.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "87515895"
 1. На портале Azure перейдите к кластеру Azure Data Explorer. 
 1. В окне **Параметры**выберите **конфигурации**. 
 1. В области **конфигурации** выберите **выключить** , чтобы отключить расширение языка.
-1. Щелкните **Сохранить**.
+1. Выберите **Сохранить**.
 
     ![Расширение языка отключено](media/language-extensions/configurations-disable-extension.png)
 
