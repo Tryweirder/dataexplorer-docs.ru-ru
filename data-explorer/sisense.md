@@ -5,21 +5,21 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: has-adal-ref
 ms.date: 5/29/2019
-ms.openlocfilehash: 4afbf9ddf53715b045dba46d03f233f1401ff770
-ms.sourcegitcommit: f6cf88be736aa1e23ca046304a02dee204546b6e
+ms.openlocfilehash: d7e476a6396d4ba695dd290226c3ace4d77153ba
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82862162"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88875401"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-sisense"></a>Визуализация данных из обозреватель данных Azure в Sisense
 
 Sisense — это платформа аналитики бизнес-аналитики, которая позволяет создавать приложения аналитики, предоставляющие высокоинтерактивные пользовательские интерфейсы. Программное обеспечение для создания отчетов бизнес-аналитики и панели мониторинга позволяет получить доступ к данным и объединить их несколько раз. Вы можете подключаться к структурированным и неструктурированным источникам данных, объединять таблицы из нескольких источников с минимальным написанием скриптов и программировать и создавать интерактивные веб-панели мониторинга и отчеты. В этой статье вы узнаете, как настроить обозреватель данных Azure в качестве источника данных для Sisense и визуализировать данные из примера кластера.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные условия
 
 Для выполнения этой статьи необходимо следующее:
 
@@ -35,11 +35,11 @@ Sisense — это платформа аналитики бизнес-анали
 
     * активатион-1.1. jar
     * adal4j-1.6.0. jar
-    * Коммонс-кодек-1.10. jar
+    * commons-codec-1.10.jar
     * Commons-collections4-4.1. jar
-    * Commons-lang3-3.5. jar
+    * commons-lang3-3.5.jar
     * ГСОН-2.8.0. jar
-    * жЦип-аннотатионс-1.0 -1. jar
+    * jcip-annotations-1.0-1.jar
     * жсон-смарт-1.3.1. jar
     * Ланг-Таг-1.4.4. jar
     * маил-1.4.7. jar

@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
-ms.openlocfilehash: 54b2d05c666c1ac3ed35520ad383f01eff3371cb
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 188d14e6144b163418d2eb23088f4d05ce228de3
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350015"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88873123"
 ---
 # <a name="add-database-principals-for-azure-data-explorer-by-using-python"></a>Добавление участников базы данных для обозреватель данных Azure с помощью Python
 
@@ -94,6 +94,6 @@ poller = kusto_management_client.database_principal_assignments.create_or_update
 | tenant_id_for_principal | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента участника.|
 | principal_type | *Приложение* | Тип участника, который может иметь значение "User", "App" или "Group"|
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Прием данных с помощью библиотеки Azure обозреватель данных Python](python-ingest-data.md)

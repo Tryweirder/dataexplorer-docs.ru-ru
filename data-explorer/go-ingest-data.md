@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: abhishgu
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/10/2020
-ms.openlocfilehash: 010ee029c4f16248b0f9249d7331da436439cdc0
-ms.sourcegitcommit: ed902a5a781e24e081cd85910ed15cd468a0db1e
+ms.openlocfilehash: b733e70c78d9792e53dfe9cf133efe759e8ea91e
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88072367"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88873990"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-go-sdk"></a>Прием данных с помощью пакета SDK для Azure обозреватель данных Go 
 
@@ -74,7 +74,7 @@ func createTable(kc *kusto.Client, kustoDB string) {
 ```
 
 > [!TIP]
-> Инструкция Kusto по умолчанию является константой для повышения безопасности. [`NewStmt`](https://godoc.org/github.com/Azure/azure-kusto-go/kusto#NewStmt)принимает строковые константы. [`UnsafeStmt`](https://godoc.org/github.com/Azure/azure-kusto-go/kusto#UnsafeStmt)API позволяет использовать неконстантные сегменты операторов, но это не рекомендуется.
+> Инструкция Kusto по умолчанию является константой для повышения безопасности. [`NewStmt`](https://godoc.org/github.com/Azure/azure-kusto-go/kusto#NewStmt) принимает строковые константы. [`UnsafeStmt`](https://godoc.org/github.com/Azure/azure-kusto-go/kusto#UnsafeStmt)API позволяет использовать неконстантные сегменты операторов, но это не рекомендуется.
 
 Команда Kusto CREATE TABLE выглядит следующим образом:
 

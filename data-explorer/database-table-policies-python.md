@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2019
-ms.openlocfilehash: 4f73eebc3822eb84f58dd01a020090ab4a763957
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 8febe9934234370b217ab4f5a2591fd0b5adb759
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349964"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88873021"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Создание политик базы данных и таблиц для обозреватель данных Azure с помощью Python
 
@@ -166,6 +166,6 @@ kustoManagementClient.databases.add_principals(resource_group_name=resource_grou
                          value=[DatabasePrincipal(role=role, name=principle_name, type=type_name, app_id=client_id_to_add, tenant_name=tenant_id)])
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * [Дополнительные сведения о политиках баз данных и таблиц](kusto/management/policies.md)

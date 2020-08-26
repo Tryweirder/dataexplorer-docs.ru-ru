@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 65e766530be51527e167cb7ea4e7df580f398a35
-ms.sourcegitcommit: a8575e80c65eab2a2118842e59f62aee0ff0e416
+ms.openlocfilehash: 7762ec885a52df7ba47c90d5ac91c1019150cf17
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84942664"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88873264"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Запрос данных в Azure Data Lake с помощью обозреватель данных Azure
 
@@ -213,7 +213,7 @@ dataformat=csv
 
 ### <a name="query-taxirides-external-table-data"></a>Запрос данных внешней таблицы *таксиридес* 
 
-Войдите на портал [https://dataexplorer.azure.com/clusters/help/databases/Samples](https://dataexplorer.azure.com/clusters/help/databases/Samples). 
+Выполните вход на странице [https://dataexplorer.azure.com/clusters/help/databases/Samples](https://dataexplorer.azure.com/clusters/help/databases/Samples). 
 
 #### <a name="query-taxirides-external-table-without-partitioning"></a>Запрос внешней таблицы *таксиридес* без секционирования
 
@@ -231,7 +231,7 @@ external_table("TaxiRides")
 
 #### <a name="query-taxirides-external-table-with-partitioning"></a>Запрос внешней таблицы Таксиридес с секционированием 
 
-[Выполните этот запрос](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA13NQQqDMBQE0L3gHT6ukkVF3fQepXv5SQYMNWmIP6ilh68WuinM6jHMYBPkyPMobGao5s6bv3mHpdF19aZ1QgYlbx8ljY4F4gPIQFYgkvqJGrr+eun6I5ralv58OP27t5QQOPsXiOyzRFGazE6WzSh7wtnIiA75uISdOEtdfQDLWmP+ogAAAA==) во внешней таблице *таксиридес* , чтобы отобразить типы CAB-файлов такси (желтые или зеленые), используемые в январе 2017. 
+[Выполните этот запрос](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA13NQQqDMBQE0L3gHT6ukkVF3fQepXv5SQYMNWmIP6ilh68WuinM6jHMYBPkyPMobGao5s6bv3mHpdF19aZ1QgYlbx8ljY4F4gPIQFYgkvqJGrr+eun6I5ralv58OP27t5QQOPsXiOyzRFGazE6WzSh7wtnIiA75uISdOEtdfQDLWmP+ogAAAA==) во внешней таблице *таксиридес*  , чтобы отобразить типы CAB-файлов такси (желтые или зеленые), используемые в январе 2017. 
 
 ```kusto
 external_table("TaxiRides")
@@ -277,6 +277,6 @@ external_table("TaxiRides")
  
 Выберите номера SKU виртуальных машин с большим количеством ядер и более высокой пропускной способностью сети (память менее важна). Дополнительные сведения см. [в статье Выбор подходящего номера SKU виртуальной машины для кластера Azure обозреватель данных](manage-cluster-choose-sku.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * Запросите данные в Azure Data Lake с помощью обозреватель данных Azure. Научитесь [писать запросы](write-queries.md) и получать дополнительные аналитические сведения из данных.

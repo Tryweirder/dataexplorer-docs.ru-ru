@@ -5,14 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: gabilehner
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/07/2019
-ms.openlocfilehash: b1855d12872c291e1ae45f62da1ad1fe0e792617
-ms.sourcegitcommit: aacea5c4c397479e8254c1fe6ed0b2f333307b14
+ms.openlocfilehash: 36c5201f7b9d9f1cad2b82d569733c9d9f2abb90
+ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470117"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88874007"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Использование базы данных следующих служб для присоединения баз данных в Azure обозреватель данных
 
@@ -373,7 +373,7 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 |**Вид** |**Описание**  |
 |---------|---------|
 |**Union**     |   Присоединенные участники базы данных всегда включают в себя исходные субъекты базы данных, а также дополнительные новые участники, добавленные в базу данных следующих.      |
-|**Восстановить**   |    Нет наследования субъектов от исходной базы данных. Для присоединенной базы данных необходимо создать новые субъекты.     |
+|**Заменить**   |    Нет наследования субъектов от исходной базы данных. Для присоединенной базы данных необходимо создать новые субъекты.     |
 |**Нет**   |   Присоединенные участники базы данных включают только субъекты исходной базы данных без дополнительных субъектов.      |
 
 Дополнительные сведения об использовании команд управления для настройки полномочных участников см. в разделе [Управление командами для управления кластером последующих действий](kusto/management/cluster-follower.md).
@@ -394,6 +394,6 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 * Невозможно удалить базу данных, присоединенную к другому кластеру, прежде чем отсоединить ее.
 * Невозможно удалить кластер с базой данных, присоединенной к другому кластеру, прежде чем отсоединить его.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * Сведения о конфигурации кластера ниже см. в разделе [управляющие команды для управления кластером последующих действий](kusto/management/cluster-follower.md).
