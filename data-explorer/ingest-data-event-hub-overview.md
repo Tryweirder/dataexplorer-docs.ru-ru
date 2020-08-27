@@ -190,7 +190,7 @@ for (var i = 0; i < 10; i++)
 eventHubClient.SendAsync(events).Wait();
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Прием данных из концентратора событий в Azure Data Explorer](ingest-data-event-hub.md)
 * [Создание подключения к данным концентратора событий для Azure обозреватель данных с помощью C #](data-connection-event-hub-csharp.md)

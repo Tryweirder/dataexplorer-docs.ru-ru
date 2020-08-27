@@ -60,7 +60,7 @@ ms.locfileid: "88874738"
 
 ### <a name="add-a-system-assigned-identity-using-c"></a>Добавление удостоверения, назначенного системой, с помощью языка C #
 
-#### <a name="prerequisites"></a>Предварительные условия
+#### <a name="prerequisites"></a>Предварительные требования
 
 Чтобы настроить управляемое удостоверение с помощью клиента Azure обозреватель данных C#:
 
@@ -129,7 +129,7 @@ ms.locfileid: "88874738"
 }    
 ```
 
-Пример.
+Например:
 
 ```json
 {
@@ -207,7 +207,7 @@ await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clus
 
 ---
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
 * [Защитите свой кластер с помощью шифрования дисков в Azure обозреватель данных — портал Azure](cluster-disk-encryption.md) , включив шифрование неактивных компонентов.

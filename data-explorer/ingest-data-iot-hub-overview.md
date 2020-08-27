@@ -128,7 +128,7 @@ ms.locfileid: "88874874"
 
 * См. [Пример проекта](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Quickstarts/simulated-device) , который имитирует устройство и создает данные.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Существует несколько методов приема данных в центре Интернета вещей. Пошаговые руководства для каждого метода см. по следующим ссылкам.
 

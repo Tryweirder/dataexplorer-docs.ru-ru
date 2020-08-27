@@ -69,6 +69,6 @@ Azure обозреватель данных предоставляет два в
 
     ![Просмотр данных в Excel](media/excel-blank-query/data-in-excel.png)
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Визуализация данных с помощью соединителя Azure обозреватель данных для Excel](excel-connector.md)

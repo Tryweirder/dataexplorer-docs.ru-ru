@@ -13,7 +13,7 @@ ms.locfileid: "81495306"
 ---
 ## <a name="install-python-package"></a>Установка пакета Python
 
-Чтобы установить пакет Python для Azure Data Explorer (Kusto), откройте окно командной строки с Python в пути. Выполните следующую команду:
+Чтобы установить пакет Python для Azure Data Explorer (Kusto), откройте окно командной строки с Python в пути. Выполните следующую команду.
 
 ```python
 pip install azure-common
