@@ -1316,10 +1316,10 @@
               items:
                 - name: Общие команды управления для внешних таблиц
                   href: ./kusto/management/external-table-commands.md
-                - name: Создание и изменение внешних таблиц SQL
-                  href: ./kusto/management/external-sql-tables.md
                 - name: Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
                   href: ./kusto/management/external-tables-azurestorage-azuredatalake.md
+                - name: Создание и изменение внешних таблиц SQL
+                  href: ./kusto/management/external-sql-tables.md
             - name: Столбцы
               items:
                 - name: Управление столбцами

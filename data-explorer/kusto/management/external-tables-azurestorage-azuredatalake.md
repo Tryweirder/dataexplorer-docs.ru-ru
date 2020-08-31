@@ -8,16 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 866436d74e3e37319ec06b477503c11e3d7d6be7
-ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
+ms.openlocfilehash: 1db42577a0d4d10da732b54b0a5032ab2be11b69
+ms.sourcegitcommit: 91e7d49a1046575bbc63a4f25724656ebfc070db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88201325"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89151167"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
 
 Следующая команда описывает создание внешней таблицы, расположенной в хранилище BLOB-объектов Azure, Azure Data Lake Store Gen1 или Azure Data Lake Store Gen2. 
+
+Общие сведения о функции внешних таблиц службы хранилища Azure см. [в статье запрос данных в Azure Data Lake с помощью обозреватель данных Azure](../../data-lake-query-data.md).
 
 ## <a name="create-or-alter-external-table"></a>. Create или. ALTER External Table
 
@@ -81,6 +83,7 @@ ms.locfileid: "88201325"
   *PartitionName* `:` `datetime` `=` ( `startofyear` \| `startofmonth` \| `startofweek` \| `startofday` ) `(` *ColumnName*`)`  
   *PartitionName* `:` `datetime` `=` `bin` `(` *ColumnName* `,` *Интервал* времени ColumnName`)`
 
+Чтобы проверить правильность определения секционирования, используйте свойство `sampleUris` при создании внешней таблицы.
 
 <a name="path-format"></a>
 *пасформат*
@@ -113,6 +116,8 @@ ms.locfileid: "88201325"
 
 Если *пасформат* опущен из определения внешней таблицы, предполагается, что все секции в точно том же порядке, в котором они определены, разделяются с помощью `/` разделителя. Секции подготавливаются к просмотру с помощью представления строки по умолчанию.
 
+Чтобы проверить правильность определения формата пути, используйте свойство `sampleUris` при создании внешней таблицы.
+
 <a name="format"></a>
 *Формат*
 
@@ -133,7 +138,7 @@ ms.locfileid: "88201325"
 <a name="properties"></a>
 *Необязательные свойства*
 
-| Свойство         | Тип     | Описание:       |
+| Свойство         | Тип     | Описание       |
 |------------------|----------|-------------------------------------------------------------------------------------|
 | `folder`         | `string` | Папка таблицы                                                                     |
 | `docString`      | `string` | Строка документирования таблицы                                                       |
@@ -238,9 +243,6 @@ dataformat=parquet
 )
 ```
 
-> [!NOTE]
-> В настоящее время виртуальные столбцы не поддерживаются для следующих форматов данных: `CSV` , `TSV` ,,,, `TSVE` `SCsv` `SOHsv` `PSV` `RAW` и `TXT` .
-
 <a name="file-filtering"></a>
 **Логика фильтрации файлов**
 
@@ -257,7 +259,7 @@ dataformat=parquet
 После выполнения всех условий файл извлекается и обрабатывается обработчиком запросов.
 
 > [!NOTE]
-> Исходный шаблон URI создается с помощью значений предиката запроса. Это лучше подходит для ограниченного набора строковых значений, а также для закрытых диапазонов времени. 
+> Исходный шаблон URI создается с помощью значений предиката запроса. Это лучше подходит для ограниченного набора строковых значений, а также для закрытых диапазонов времени.
 
 ## <a name="show-external-table-artifacts"></a>. Отображение артефактов внешней таблицы
 
@@ -362,7 +364,7 @@ dataformat=parquet
 ```kusto
 .drop external table MyExternalTable json mapping "Mapping1" 
 ```
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Команды для общего управления внешней таблицей](externaltables.md)
 * [Создание и изменение внешних таблиц SQL](external-sql-tables.md)
