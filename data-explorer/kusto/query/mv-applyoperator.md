@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 656d1d5d9120baebced624fee476d261214eff57
-ms.sourcegitcommit: 83202ec6fec0ce98fdf993bbb72adc985d6d9c78
+ms.openlocfilehash: ee6239b7e8ad4cbdd3d36e6b7b3c20f0cc0cdaeb
+ms.sourcegitcommit: a4779e31a52d058b07b472870ecd2b8b8ae16e95
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87871856"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89366050"
 ---
 # <a name="mv-apply-operator"></a>Оператор mv-apply
 
@@ -156,14 +156,14 @@ _data
 | project index, element
 ```
 
-|индекс|element|
+|index|element|
 |---|---|
 |3|7|
 |4|9|
 |3|8|
 |4|10|
 
-## <a name="using-the-mv-apply-operator-to-sort-the-output-of-makelist-aggregate-by-some-key"></a>Использование `mv-apply` оператора для сортировки результатов `makelist` статистической обработки по некоторым ключам
+## <a name="using-the-mv-apply-operator-to-sort-the-output-of-make_list-aggregate-by-some-key"></a>Использование `mv-apply` оператора для сортировки результатов `make_list` статистической обработки по некоторым ключам
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

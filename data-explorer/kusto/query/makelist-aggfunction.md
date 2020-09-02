@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/23/2020
-ms.openlocfilehash: c75924ed450b2995f2d35d206951adf05aecec0e
-ms.sourcegitcommit: fb54d71660391a63b0c107a9703adea09bfc7cb9
+ms.openlocfilehash: 7f17302475221bb259e6717987f7d31e96d7c118
+ms.sourcegitcommit: a4779e31a52d058b07b472870ecd2b8b8ae16e95
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86946127"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89366033"
 ---
 # <a name="make_list-aggregation-function"></a>make_list () (агрегатная функция)
 
@@ -40,7 +40,7 @@ ms.locfileid: "86946127"
 Если входные данные `summarize` оператора сортируются, порядок элементов в результирующем массиве отслеживает входные данные.
 
 > [!TIP]
-> Используйте [`mv-apply`](./mv-applyoperator.md) оператор, чтобы создать упорядоченный список с помощью некоторого ключа. Примеры см. [здесь](./mv-applyoperator.md#using-the-mv-apply-operator-to-sort-the-output-of-makelist-aggregate-by-some-key).
+> Используйте [`mv-apply`](./mv-applyoperator.md) оператор, чтобы создать упорядоченный список с помощью некоторого ключа. Примеры см. [здесь](./mv-applyoperator.md#using-the-mv-apply-operator-to-sort-the-output-of-make_list-aggregate-by-some-key).
 
 ## <a name="examples"></a>Примеры
 
@@ -93,7 +93,7 @@ shapes
 |милист|исевенсидекаунт|
 |---|---|
 |false|["треугольник", "пятиугольник", "хептагон", "Нонагон"]|
-|true|["квадратный", "Rectangle", "шестиугольник", "Октогон", "Декагон"]|
+|Да|["квадратный", "Rectangle", "шестиугольник", "Октогон", "Декагон"]|
 
 ### <a name="packing-a-dynamic-object"></a>Упаковка динамического объекта
 
@@ -120,8 +120,8 @@ shapes
 |милист|исевенсидекаунт|
 |---|---|
 |false|[{"Name": "треугольник", "Сидекаунт": 3}, {"Name": "пятиугольник", "Сидекаунт": 5}, {"Name": "хептагон", "Сидекаунт": 7}, {"Name": "Нонагон", "Сидекаунт": 9}]|
-|true|[{"имя": "квадрат", "Сидекаунт": 4}, {"Name": "Rectangle", "Сидекаунт": 4}, {"Name": "шестиугольник", "Сидекаунт": 6}, {"Name": "Октогон", "Сидекаунт": 8}, {"Name": "Декагон", "Сидекаунт": 10}]|
+|Да|[{"имя": "квадрат", "Сидекаунт": 4}, {"Name": "Rectangle", "Сидекаунт": 4}, {"Name": "шестиугольник", "Сидекаунт": 6}, {"Name": "Октогон", "Сидекаунт": 8}, {"Name": "Декагон", "Сидекаунт": 10}]|
 
 ## <a name="see-also"></a>См. также раздел
 
-[`make_list_if`](./makelistif-aggfunction.md)аналогичен оператору `make_list` , за исключением того, что он также принимает предикат.
+[`make_list_if`](./makelistif-aggfunction.md) аналогичен оператору `make_list` , за исключением того, что он также принимает предикат.
