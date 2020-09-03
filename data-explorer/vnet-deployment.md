@@ -7,12 +7,12 @@ ms.reviewer: basaba
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/31/2019
-ms.openlocfilehash: 41899f49cdb980ba6ae31ff9a543b57026d07caa
-ms.sourcegitcommit: d54e4ebb611da2b30158720e14103e81a7daa5af
+ms.openlocfilehash: 9fa58d36815ede98a4f0239f1ce68a6542f24c4b
+ms.sourcegitcommit: cb55064b7cdd57c792ad259b09069525bf799fa0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89286447"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410814"
 ---
 # <a name="deploy-azure-data-explorer-cluster-into-your-virtual-network"></a>Развертывание кластера Azure обозреватель данных в виртуальной сети
 
@@ -245,7 +245,10 @@ crl3.digicert.com:80
 ```
 
 > [!NOTE]
-> Если вы используете [брандмауэр Azure](/azure/firewall/overview) , необходимо добавить "Сетевое правило", чтобы разрешить *азуремонитор* (тег службы) для порта 443.
+> Если вы используете [брандмауэр Azure](/azure/firewall/overview), добавьте **правило сети** со следующими свойствами:
+> | **Протокол**   | **Исходный тип** | **Source** | **Теги служб**  | **Порты назначения** |
+> | ---   | --- | --- | ---  | --- |
+> | TCP | IP-адрес | * | AzureMonitor | 443 |
 
 Кроме того, необходимо определить [таблицу маршрутов](/azure/virtual-network/virtual-networks-udr-overview) в подсети с [адресами управления](#azure-data-explorer-management-ip-addresses) и [адресами мониторинга работоспособности](#health-monitoring-addresses) в *Интернете* следующего прыжка, чтобы предотвратить возникновение проблем с асимметричными маршрутами.
 
