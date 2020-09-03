@@ -9,22 +9,22 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 ms.date: 01/02/2019
-ms.openlocfilehash: 5511155eaa131c85a49a2082322ad95fcd022418
-ms.sourcegitcommit: f6cf88be736aa1e23ca046304a02dee204546b6e
+ms.openlocfilehash: 6766a817a1568eeb3cbcf2eb5bc0440cdd10eec6
+ms.sourcegitcommit: 9e0289945270db517e173aa10024e0027b173b52
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82862022"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428435"
 ---
 # <a name="ms-tds-with-azure-active-directory"></a>MS-TDS с Azure Active Directory
 
-## <a name="aad-user-authentication"></a>Проверка подлинности пользователя AAD
+## <a name="azure-ad-user-authentication"></a>Проверка подлинности пользователей Azure AD
 
-Клиенты SQL, поддерживающие проверку подлинности пользователя AAD, можно использовать с Kusto.
+Клиенты SQL, поддерживающие проверку подлинности пользователей Azure AD, можно использовать с Azure обозреватель данных.
 
 ### <a name="net-sql-client-user"></a>Клиент SQL .NET (пользователь)
 
-Например, для интегрированного AAD:
+Например, для интегрированной службы Azure AD:
 ```csharp
     var csb = new SqlConnectionStringBuilder()
     {
@@ -80,13 +80,13 @@ public class Sample {
 }
 ```
 
-## <a name="aad-application-authentication"></a>Проверка подлинности приложения AAD
+## <a name="azure-ad-application-authentication"></a>Проверка подлинности приложения Azure AD
 
-Приложение AAD, подготовленное для Kusto, может использовать клиентские библиотеки SQL, поддерживающие AAD для подключения к Kusto. Дополнительные сведения о приложениях AAD см. [в разделе Создание приложения AAD](../../management/access-control/how-to-provision-aad-app.md) .
+Приложение Azure AD, подготовленное для Kusto, может использовать клиентские библиотеки SQL, которые поддерживают Azure AD для подключения к Kusto. Дополнительные сведения о приложениях Azure AD см. [в статье Создание приложения Azure AD](../../management/access-control/how-to-provision-aad-app.md).
 
 ### <a name="net-sql-client-application"></a>Клиент SQL .NET (приложение)
 
-При условии, что подготовлено приложение AAD с *аппликатионклиентид* и *ApplicationKey* и ему предоставлены разрешения на доступ к базе данных *DatabaseName* в кластере *ClusterDnsName*, в следующем примере показано, как использовать клиент .NET SQL для запросов из этого приложения AAD.
+Предположим, что у вас есть подготовленное приложение Azure AD с *аппликатионклиентид* и *ApplicationKey* и ему предоставлены разрешения на доступ к базе данных *DatabaseName* в кластере *ClusterDnsName*. в следующем примере показано, как использовать клиент .NET SQL для запросов из этого приложения Azure AD.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;

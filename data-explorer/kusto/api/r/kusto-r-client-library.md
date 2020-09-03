@@ -1,6 +1,6 @@
 ---
-title: Azure Data Explorer R SDK - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается Azure Data Explorer R SDK в Azure Data Explorer.
+title: Azure обозреватель данных R SDK — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается пакет SDK Azure обозреватель данных R в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,15 +8,15 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/29/2019
-ms.openlocfilehash: f818e025829fbde3be81b626b923670b1eaa653b
-ms.sourcegitcommit: 29018b3db4ea7d015b1afa65d49ecf918cdff3d6
+ms.openlocfilehash: f7a5eacb796ea5a1ba4b4768148ae44e0443a541
+ms.sourcegitcommit: 9e0289945270db517e173aa10024e0027b173b52
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82030027"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428351"
 ---
-# <a name="azure-data-explorer-r-sdk"></a>Исследователь данных Azure R SDK
+# <a name="azure-data-explorer-r-sdk"></a>Пакет SDK для Azure обозреватель данных R
 
-R-библиотека Azure Data Explorer (Kusto) — это проект с открытым исходным кодом, который является частью [ `cloudyr` проекта,](https://github.com/cloudyr)позволяющий заставить заставить кластеры Azure Data Explorer с помощью R.
+Библиотека Azure обозреватель данных R — это проект с открытым исходным кодом, который является частью [ `cloudyr` проекта](https://github.com/cloudyr), позволяет выполнять запросы к кластерам обозреватель данных Azure с помощью языка R.
 
-[Репозиторий GitHub](https://github.com/cloudyr/AzureKusto) включает инструкции по установке и примеры использования.
+В [репозитории GitHub](https://github.com/cloudyr/AzureKusto) содержатся инструкции по установке и примеры использования.
