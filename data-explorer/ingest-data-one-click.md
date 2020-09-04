@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 03/29/2020
-ms.openlocfilehash: d77c02ee3da7c33fc77416fa712a9108411c2276
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: fa18a89e44a09a877cedb41c6d6e77384c965801
+ms.sourcegitcommit: 811cf98edefd919b412d80201400919eedcab5cd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874806"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274611"
 ---
 # <a name="what-is-one-click-ingestion"></a>Что такое прием данных одним щелчком?
 
@@ -36,7 +36,7 @@ ms.locfileid: "88874806"
 * Создайте [кластер и базу данных Azure Data Explorer](create-cluster-database-portal.md).
 * Войдите в [пользовательский веб-интерфейс Azure Data Explorer](https://dataexplorer.azure.com/) и [добавьте подключение к кластеру](web-query-data.md#add-clusters).
 
-## <a name="ingest-new-data"></a>Прием новых данных
+## <a name="access-the-one-click-wizard"></a>Доступ к мастеру приема данных одним щелчком
 
 Мастер приема данных одним щелчком помогает выполнить прием данных одним щелчком.
 
@@ -48,7 +48,9 @@ ms.locfileid: "88874806"
 
     :::image type="content" source="media/ingest-data-one-click/one-click-ingestion-in-webui.png" alt-text="Выбор функции приема данных одним щелчком в пользовательском веб-интерфейсе":::
 
-<!-- TODO either change the local file tutorial to blob storage or create another one to show users how to do this-->
+* Чтобы открыть мастер на портале Azure, в меню слева выберите **Запрос**, щелкните правой кнопкой мыши имя **базы данных** или **таблицы** и выберите **Прием новых данных (предварительная версия)** .
+
+    :::image type="content" source="media/ingest-data-one-click/access-from-portal.png" alt-text="Доступ к мастеру приема данных одним щелчком на портале Azure":::
 
 ## <a name="one-click-ingestion-wizard"></a>Мастер приема данных одним щелчком
 
@@ -112,7 +114,7 @@ ms.locfileid: "88874806"
  
 ### <a name="initial-data-exploration"></a>Первоначальное изучение данных
    
-После приема мастер предоставляет возможность использовать **[быстрые команды](one-click-ingestion-existing-table.md#quick-queries-and-tools)** для первоначального изучения данных.
+После приема мастер предоставляет возможность использовать **[быстрые команды](one-click-ingestion-existing-table.md#explore-quick-queries-and-tools)** для первоначального изучения данных.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
