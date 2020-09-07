@@ -4,32 +4,26 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: orspodek
-ms.openlocfilehash: a2297301a0b9c0540c73c0f50483cccfc3181a0f
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 40334f81e39317839c05ce09a2e4923be4e0747c
+ms.sourcegitcommit: f2f9cc0477938da87e0c2771c99d983ba8158789
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81498829"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89502672"
 ---
-### <a name="event-system-properties-mapping"></a>Отображение свойств системы событий
+### <a name="schema-mapping-examples"></a>Примеры сопоставления схем
 
-> [!Note]
-> * Свойства системы поддерживаются для событий с одной записью.
-> * Для `csv` отображения свойства добавляются в начале записи. Для `json` отображения свойства добавляются в соответствии с именем, которое отображается в списке выпадающих.
+**Пример сопоставления схемы таблицы**
 
-При выборе **свойств системы событий** в разделе **«Источник данных»** в таблице необходимо включить следующие свойства в схему таблицы и отображение.
-
-**Пример схемы таблицы**
-
-Если ваши данные включают`Timespan` `Metric`три `Value`столбца (, и `x-opt-enqueued-time` `x-opt-offset`) и свойства, которые вы включаете, и, создать или изменить схему таблицы с помощью этой команды:
+Если данные содержат три столбца ( `Timespan` , `Metric` и `Value` ), а включаемые свойства — `x-opt-enqueued-time` и `x-opt-offset` , создайте или измените схему таблицы с помощью следующей команды:
 
 ```kusto
     .create-merge table TestTable (TimeStamp: datetime, Metric: string, Value: int, EventHubEnqueuedTime:datetime, EventHubOffset:string)
 ```
 
-**Пример отображения CSV**
+**Пример сопоставления CSV**
 
-Запустите следующие команды, чтобы добавить данные в начало записи. Обратите внимание на ординаторские значения.
+Выполните следующие команды, чтобы добавить данные в начало записи. Обратите внимание на порядковые значения.
 
 ```kusto
     .create table TestTable ingestion csv mapping "CsvMapping1"
@@ -42,9 +36,9 @@ ms.locfileid: "81498829"
     ']'
 ```
  
-**Пример отображения JSON**
+**Пример сопоставления JSON**
 
-Данные добавляются с помощью имен свойств системы по мере их отображаемого в списке **свойств системы событий** **событий подключения данных.** Выполните следующие команды:
+Данные добавляются с помощью сопоставления системных свойств. Выполните следующие команды:
 
 ```kusto
     .create table TestTable ingestion json mapping "JsonMapping1"

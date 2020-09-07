@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 25c82c8890342e00279d137eb749f3acc7df986f
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: c96203ccfa0c4dc70fff83454dac217cccfc0a6c
+ms.sourcegitcommit: f2f9cc0477938da87e0c2771c99d983ba8158789
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874993"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89502778"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Прием больших двоичных объектов в службу Azure Data Explorer через подписку на уведомления службы "Сетка событий Azure"
 
@@ -26,7 +26,9 @@ ms.locfileid: "88874993"
 
 Из этой статьи вы узнаете, как получать большие двоичные объекты из учетной записи хранения в Azure обозреватель данных с помощью подключения к данным в сетке событий. Вы создадите подключение к данным в сетке событий, которое задает подписку на службу " [Сетка событий Azure](/azure/event-grid/overview) ". Подписка на службу "Сетка событий" направляет события из вашей учетной записи хранения в Azure обозреватель данных через концентратор событий Azure. Затем вы увидите пример потока данных в пределах всей системы.
 
-## <a name="prerequisites"></a>Обязательные условия
+Общие сведения о приеме в Azure обозреватель данных из службы "Сетка событий" см. [в статье подключение к сетке событий](ingest-data-event-grid-overview.md).
+
+## <a name="prerequisites"></a>Предварительные требования
 
 * Подписка Azure. Создайте [бесплатную учетную запись Azure](https://azure.microsoft.com/free/).
 * [Кластер и база данных](create-cluster-database-portal.md).
@@ -38,7 +40,7 @@ ms.locfileid: "88874993"
 
 1. На портале Azure, в своем кластере, выберите **Запрос**.
 
-    :::image type="content" source="media/ingest-data-event-grid/query-explorer-link.png" alt-text="Ссылка на обозреватель запросов":::    
+    :::image type="content" source="media/ingest-data-event-grid/query-explorer-link.png" alt-text="Ссылка на обозреватель запросов"::: 
 
 1. Скопируйте следующую команду в окно и выберите **Выполнить**, чтобы создать таблицу (TestTable), которая будет принимать входящие данные.
 
@@ -159,11 +161,7 @@ ms.locfileid: "88874993"
 
 ### <a name="ingestion-properties"></a>Свойства приема
 
-[Свойства приема](ingestion-properties.md) большого двоичного объекта можно указать с помощью метаданных большого двоичного объекта.
-
-Эти свойства можно задать.
-
-[!INCLUDE [ingestion-properties-event-grid](includes/ingestion-properties-event-grid.md)]
+[Свойства приема](ingest-data-event-grid-overview.md#set-ingestion-properties) большого двоичного объекта можно указать с помощью метаданных большого двоичного объекта. 
 
 > [!NOTE]
 > Azure обозреватель данных не удалит прием BLOB-объектов после приема.
@@ -232,6 +230,6 @@ ms.locfileid: "88874993"
 
 1. Выберите подключение к данным *Проверка-сетка — подключение* , а затем щелкните **Удалить** , чтобы удалить его.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Запрос данных в обозреватель данных Azure](web-query-data.md)

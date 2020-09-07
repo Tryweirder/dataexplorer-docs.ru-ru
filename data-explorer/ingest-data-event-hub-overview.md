@@ -8,40 +8,42 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 8b24d6f771eaa4004b36a1b3171eb593e2fc0f6c
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: b3a8c379ad010a9787fdb8b7d4e2961fb58ead9e
+ms.sourcegitcommit: f2f9cc0477938da87e0c2771c99d983ba8158789
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874891"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89502673"
 ---
-# <a name="connect-to-event-hub"></a>Подключение к концентратору событий
-
+# <a name="create-a-connection-to-event-hub"></a>Создание подключения к концентратору событий
 
 [Концентраторы событий Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-about) — это платформа потоковой передачи больших данных и служба приема событий. Azure обозреватель данных предлагает непрерывное получение из управляемых клиентом концентраторов событий.
 
-Конвейер приема концентратора событий передает события в Azure обозреватель данных с помощью нескольких шагов. Сначала создайте концентратор событий в портал Azure. Затем вы создадите целевую таблицу обозреватель данных Azure, в которую будут поступать [данные в определенном формате](#data-format), используя заданные [Свойства приема](#set-ingestion-properties). Подключение к концентратору событий должно быть осведомлено о [маршрутизации событий](#set-events-routing). Данные внедряются с выбранными свойствами в соответствии с [сопоставлением свойств системы событий](#set-event-system-properties-mapping). Этим процессом можно управлять с помощью [портал Azure](ingest-data-event-hub.md), программно с помощью [C#](data-connection-event-hub-csharp.md) или [Python](data-connection-event-hub-python.md)или с помощью [шаблона Azure Resource Manager](data-connection-event-hub-resource-manager.md).
+Конвейер приема концентратора событий передает события в Azure обозреватель данных в несколько шагов. Сначала создайте концентратор событий в портал Azure. Затем вы создадите целевую таблицу в Azure обозреватель данных, в которой [данные в определенном формате](#data-format)будут приняты с использованием заданных [свойств приема](#set-ingestion-properties). Подключение к концентратору событий должно быть осведомлено о [маршрутизации событий](#set-events-routing). Данные внедряются с выбранными свойствами в соответствии с [сопоставлением свойств системы событий](#set-event-system-properties-mapping). [Создайте подключение](#create-event-hub-connection) к концентратору событий, чтобы [создать концентратор событий](#create-an-event-hub) и [Отправить события](#send-events). Этим процессом можно управлять с помощью [портал Azure](ingest-data-event-hub.md), программно с помощью [C#](data-connection-event-hub-csharp.md) или [Python](data-connection-event-hub-python.md)или с помощью [шаблона Azure Resource Manager](data-connection-event-hub-resource-manager.md).
+
+Общие сведения о приеме данных в Azure обозреватель данных см. в статье [Обзор приема данных в azure обозреватель данных](ingest-data-overview.md).
 
 ## <a name="data-format"></a>Формат данных
 
 * Данные считываются из концентратора событий в форме объектов [EVENTDATA](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata?view=azure-dotnet) .
-* Полезные данные события могут быть приняты в одном из [форматов, поддерживаемых обозреватель данных Azure](ingestion-supported-formats.md).
-* Данные можно сжимать с помощью `GZip` алгоритма сжатия. Должно быть указано в качестве `Compression` [Свойства приема](#set-ingestion-properties).
+* См. раздел [Поддерживаемые форматы](ingestion-supported-formats.md).
+    > [!NOTE]
+    > Концентратор событий не поддерживает формат RAW.
 
-    > [!Note]
-    > * Сжатие данных не поддерживается для сжатых форматов (Avro, Parquet, ORC).
-    > * Настраиваемые свойства кодирования и встроенных [систем](#set-event-system-properties-mapping) не поддерживаются в сжатых данных.
-    
+* См. раздел [Поддерживаемые сжатия](ingestion-supported-formats.md#supported-data-compression-formats).
+   * Сжатие данных не поддерживается для сжатых форматов (Avro, Parquet, ORC).
+   * Пользовательские кодировки и встроенные [Свойства системы](#set-event-system-properties-mapping) не поддерживаются в сжатых данных.
+  
 ## <a name="set-ingestion-properties"></a>Задание свойств приема
 
 Свойства приема указывают на процесс приема, где следует маршрутизировать данные и как обработать их. [Свойства приема](ingestion-properties.md) событий можно указать с помощью свойства [EVENTDATA. Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
 
 |Свойство |Описание|
 |---|---|
-| Таблица | Имя существующей целевой таблицы (с учетом регистра). Переопределяет `Table` набор в `Data Connection` колонке. |
-| Формат | Формат данных. Переопределяет `Data format` набор в `Data Connection` колонке. |
-| инжестионмаппингреференце | Имя существующего [сопоставления приема](kusto/management/create-ingestion-mapping-command.md) , которое будет использоваться. Переопределяет `Column mapping` набор в `Data Connection` колонке.|
-| Сжатие | Сжатие данных, `None` (по умолчанию) или `GZip` сжатие.|
+| Таблица | Имя существующей целевой таблицы (с учетом регистра). Переопределяет `Table` набор на `Data Connection` панели. |
+| Формат | Формат данных. Переопределяет `Data format` набор на `Data Connection` панели. |
+| инжестионмаппингреференце | Имя существующего [сопоставления приема](kusto/management/create-ingestion-mapping-command.md) , которое будет использоваться. Переопределяет `Column mapping` набор на `Data Connection` панели.|
+| сжатие; | Сжатие данных, `None` (по умолчанию) или `GZip` сжатие.|
 | Кодирование | Кодировка данных, значение по умолчанию — UTF8. Может быть любой из [поддерживаемых кодировок .NET](https://docs.microsoft.com/dotnet/api/system.text.encoding?view=netframework-4.8#remarks). |
 | Теги (Предварительная версия) | Список [тегов](kusto/management/extents-overview.md#extent-tagging) , связываемых с полученными данными в формате строки массива JSON. При использовании тегов возникают [проблемы с производительностью](kusto/management/extents-overview.md#performance-notes-1) . |
 
@@ -86,7 +88,9 @@ eventHubClient.Close();
 > * Системные свойства не поддерживаются в сжатых данных.
 > * Для `csv` сопоставления свойства добавляются в начало записи в порядке, указанном в таблице ниже. Для `json` сопоставления свойства добавляются в соответствии с именами свойств, приведенными в следующей таблице.
 
-### <a name="event-hub-exposes-the-following-system-properties"></a>Концентратор событий предоставляет следующие системные свойства
+### <a name="system-properties"></a>Свойства системы
+
+Концентратор событий предоставляет следующие свойства системы:
 
 |Свойство |Тип данных |Описание|
 |---|---|---|
@@ -98,49 +102,7 @@ eventHubClient.Close();
 
 Если в разделе **источника данных** таблицы были выбраны **Свойства системы событий** , необходимо включить свойства в схему таблицы и сопоставление.
 
-### <a name="examples"></a>Примеры
-
-#### <a name="table-schema-example"></a>Пример схемы таблицы
-
-Создайте или измените схему таблицы с помощью команды схема таблицы, если данные включают:
-* столбцы `Timespan` , `Metric` и `Value`  
-* свойства `x-opt-enqueued-time` и `x-opt-offset`
-
-```kusto
-    .create-merge table TestTable (TimeStamp: datetime, Metric: string, Value: int, EventHubEnqueuedTime:datetime, EventHubOffset:long)
-```
-
-#### <a name="csv-mapping-example"></a>Пример сопоставления CSV
-
-Выполните следующие команды, чтобы добавить данные в начало записи.
-Свойства добавляются в начало записи в порядке, указанном в таблице выше.
-Порядковые значения важны для сопоставления CSV, при котором будут изменяться порядковые номера столбцов на основе сопоставленных системных свойств.
-
-```kusto
-    .create table TestTable ingestion csv mapping "CsvMapping1"
-    '['
-    '   { "column" : "Timespan", "Properties":{"Ordinal":"2"}},'
-    '   { "column" : "Metric", "Properties":{"Ordinal":"3"}},'
-    '   { "column" : "Value", "Properties":{"Ordinal":"4"}},'
-    '   { "column" : "EventHubEnqueuedTime", "Properties":{"Ordinal":"0"}},'
-    '   { "column" : "EventHubOffset", "Properties":{"Ordinal":"1"}}'
-    ']'
-```
- 
-#### <a name="json-mapping-example"></a>Пример сопоставления JSON
-
-Добавьте данные, используя имена системных свойств, которые отображаются в списке *системных свойств событий* в колонке *подключения к данным* . Выполните:
-
-```kusto
-    .create table TestTable ingestion json mapping "JsonMapping1"
-    '['
-    '    { "column" : "Timespan", "Properties":{"Path":"$.timestamp"}},'
-    '    { "column" : "Metric", "Properties":{"Path":"$.metric"}},'
-    '    { "column" : "Value", "Properties":{"Path":"$.metric_value"}},'
-    '    { "column" : "EventHubEnqueuedTime", "Properties":{"Path":"$.x-opt-enqueued-time"}},'
-    '    { "column" : "EventHubOffset", "Properties":{"Path":"$.x-opt-offset"}}'
-    ']'
-```
+[!INCLUDE [data-explorer-container-system-properties](includes/data-explorer-container-system-properties.md)]
 
 ## <a name="create-event-hub-connection"></a>Создание подключения концентратора событий
 
@@ -149,46 +111,18 @@ eventHubClient.Close();
 
 ### <a name="create-an-event-hub"></a>Создание концентратора событий
 
-[Создайте концентратор событий](https://docs.microsoft.com/azure/event-hubs/event-hubs-create), если он еще не создан. Шаблон можно найти в разделе инструкции по [созданию концентратора событий](ingest-data-event-hub.md#create-an-event-hub) .
+[Создайте концентратор событий](https://docs.microsoft.com/azure/event-hubs/event-hubs-create), если он еще не создан. Подключение к концентратору событий можно осуществлять с помощью [портал Azure](ingest-data-event-hub.md), программно с помощью [C#](data-connection-event-hub-csharp.md) или [Python](data-connection-event-hub-python.md)или с помощью [шаблона Azure Resource Manager](data-connection-event-hub-resource-manager.md).
+
 
 > [!Note]
 > * Так как число секций неизменно, вам следует продумать масштаб заранее.
 > * Группа потребителей *должна* быть уникальной для каждого потребителя. Создайте группу потребителей, выделенную для подключения к Azure обозреватель данных.
 
-#### <a name="generate-data"></a>Создание данных
+## <a name="send-events"></a>Отправка событий
 
-* См. [пример приложения](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) , которое создает данные и отправляет их в концентратор событий.
+См. [пример приложения](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) , которое создает данные и отправляет их в концентратор событий.
 
-Событие может содержать одну или несколько записей вплоть до предельного размера. В следующем примере мы отправляем два события, к каждому из которых Добавлено пять записей:
-
-```csharp
-var events = new List<EventData>();
-var data = string.Empty;
-var recordsPerEvent = 5;
-var rand = new Random();
-var counter = 0;
-
-for (var i = 0; i < 10; i++)
-{
-    // Create the data
-    var metric = new Metric { Timestamp = DateTime.UtcNow, MetricName = "Temperature", Value = rand.Next(-30, 50) }; 
-    var data += JsonConvert.SerializeObject(metric) + Environment.NewLine;
-    counter++;
-
-    // Create the event
-    if (counter == recordsPerEvent)
-    {
-        var eventData = new EventData(Encoding.UTF8.GetBytes(data));
-        events.Add(eventData);
-
-        counter = 0;
-        data = string.Empty;
-    }
-}
-
-// Send events
-eventHubClient.SendAsync(events).Wait();
-```
+Пример создания демонстрационных данных см. в статье прием [данных из концентратора событий в Azure обозреватель данных](ingest-data-event-hub.md#generate-sample-data)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

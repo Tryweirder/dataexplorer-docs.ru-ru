@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: b9a55915ebef61bef534e42ca0aef6a7c19868ac
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 84f4348f1d172238bd71de55e989ed8520f78b93
+ms.sourcegitcommit: f2f9cc0477938da87e0c2771c99d983ba8158789
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874959"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89502761"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Прием данных из концентратора событий в Azure Data Explorer
 
@@ -25,6 +25,8 @@ ms.locfileid: "88874959"
 [!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
 
 Обозреватель данных Azure позволяет выполнять прием (загрузку) данных из концентраторов событий, платформы потоковой передачи больших данных и службы приема данных событий. [Центры событий](/azure/event-hubs/event-hubs-about) могут обрабатывать миллионы событий в секунду практически в режиме реального времени. В этой статье вы создадите концентратор событий, подключится к нему из Azure обозреватель данных и увидите поток данных через систему.
+
+Общие сведения о приеме в Azure обозреватель данных из концентратора событий см. [в разделе Подключение к концентратору событий](ingest-data-event-hub-overview.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -43,11 +45,11 @@ ms.locfileid: "88874959"
 
 1. Нажмите следующую кнопку, чтобы начать развертывание и создание концентратора событий. Чтобы закончить выполнение инструкций из этой статьи, щелкните правой кнопкой мыши и выберите ссылку **Открыть в новом окне**.
 
-    [![Развертывание в Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Кнопка "Развертывание в Azure"](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     Кнопка **Развернуть в Azure** выполняет переход на портал Azure для заполнения формы развертывания.
 
-    ![Развернуть в Azure](media/ingest-data-event-hub/deploy-to-azure.png)
+    ![Создание формы концентратора событий](media/ingest-data-event-hub/deploy-to-azure.png)
 
 1. Выберите подписку, в которой нужно создать концентратор событий, и создайте группу ресурсов с именем *test-hub-rg*.
 
@@ -73,7 +75,7 @@ ms.locfileid: "88874959"
 
 1. На панели инструментов щелкните **Уведомления**, чтобы отслеживать процесс подготовки. Успешное выполнение развертывания может занять несколько минут, но теперь можно перейти к следующему шагу.
 
-    ![Уведомления](media/ingest-data-event-hub/notifications.png)
+    ![Значок "Уведомления"](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Создание целевой таблицы в обозревателе данных Azure
 
@@ -120,7 +122,7 @@ ms.locfileid: "88874959"
     | концентратор событий; | *test-hub* | Созданный концентратор событий. |
     | Группа потребителей | *test-group* | Группа получателей событий, определенная в созданном концентраторе событий. |
     | Свойства системы событий | Выбор соответствующих свойств | [Свойства системы концентратора событий](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Если имеется несколько записей для каждого сообщения о событии, системные свойства будут добавлены к первому из них. При добавлении системных свойств [Создайте](kusto/management/create-table-command.md) или [Обновите](kusto/management/alter-table-command.md) схему таблицы и [сопоставление](kusto/management/mappings.md) , чтобы включить выбранные свойства. |
-    | Сжатие | *Нет* | Тип сжатия полезных данных сообщений концентратора событий. Поддерживаемые типы сжатия: *нет, gzip*.|
+    | сжатие; | *None* | Тип сжатия полезных данных сообщений концентратора событий. Поддерживаемые типы сжатия: *нет, gzip*.|
     | | |
 
     **Целевая таблица:**
@@ -141,7 +143,15 @@ ms.locfileid: "88874959"
     > * Можно также задать тип сжатия с помощью динамических свойств, как показано в [примере приложения](https://github.com/Azure-Samples/event-hubs-dotnet-ingest).
     > * Форматы Avro, ORC и PARQUET, а также свойства системы событий не поддерживаются для полезных данных сжатия GZip.
 
-[!INCLUDE [data-explorer-container-system-properties](includes/data-explorer-container-system-properties.md)]
+
+### <a name="event-system-properties-mapping"></a>Сопоставление свойств системы событий
+
+> [!Note]
+> * Системные свойства поддерживаются для событий с одной записью.
+> * Для `csv` сопоставления свойства добавляются в начало записи. Для `json` сопоставления свойства добавляются в соответствии с именем, которое отображается в раскрывающемся списке.
+
+Если в разделе **источника данных** таблицы были выбраны **Свойства системы событий** , необходимо включить [системные свойства](ingest-data-event-hub-overview.md#system-properties) в схему таблицы и сопоставление.
+
 
 ## <a name="copy-the-connection-string"></a>Копирование строки подключения
 
@@ -217,6 +227,6 @@ ms.locfileid: "88874959"
 
 1. В новом окне введите имя удаляемой группы ресурсов (*test-hub-rg*) и нажмите кнопку **Удалить**.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Запрос данных в обозреватель данных Azure](web-query-data.md)

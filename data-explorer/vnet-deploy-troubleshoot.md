@@ -7,12 +7,12 @@ ms.reviewer: basaba
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 03/24/2020
-ms.openlocfilehash: 498912016c595646e1ef4b4df9bec427c262b6e9
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 6f3831580c998814d956b57a58acc8acd7269abb
+ms.sourcegitcommit: f2f9cc0477938da87e0c2771c99d983ba8158789
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88873888"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89502438"
 ---
 # <a name="troubleshoot-access-ingestion-and-operation-of-your-azure-data-explorer-cluster-in-your-virtual-network"></a>Устранение неполадок доступа, приема и работы кластера Azure обозреватель данных в виртуальной сети
 
@@ -69,7 +69,7 @@ ms.locfileid: "88873888"
 
 ### <a name="check-ingestion-health"></a>Проверка работоспособности приема
 
-Убедитесь, что [метрики приема кластера](using-metrics.md#ingestion-health-and-performance-metrics) указывают на работоспособное состояние.
+Убедитесь, что [метрики приема кластера](using-metrics.md#ingestion-metrics) указывают на работоспособное состояние.
 
 ### <a name="check-security-rules-on-data-source-resources"></a>Проверка правил безопасности в ресурсах источника данных
 
