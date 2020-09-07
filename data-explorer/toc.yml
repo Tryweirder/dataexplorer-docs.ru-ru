@@ -180,6 +180,8 @@
               href: azure-data-explorer-dashboards.md
             - name: Использование параметров панели мониторинга
               href: dashboard-parameters.md
+            - name: Настройка визуальных элементов панели мониторинга
+              href: dashboard-customize-visuals.md
         - name: Power BI
           items:
             - name: Рекомендации
