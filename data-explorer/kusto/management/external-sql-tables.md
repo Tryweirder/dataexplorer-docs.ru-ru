@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: ea32c7631681c12aa1262c4dbdb8debdcc22a3c7
-ms.sourcegitcommit: 83202ec6fec0ce98fdf993bbb72adc985d6d9c78
+ms.openlocfilehash: 79816960b75735e226395f70286ea9d81829a173
+ms.sourcegitcommit: 08c54dabc1efe3d4e2d2581c4b668a6b73daf855
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87871924"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89510701"
 ---
 # <a name="create-and-alter-external-sql-tables"></a>Создание и изменение внешних таблиц SQL
 
@@ -40,7 +40,7 @@ ms.locfileid: "87871924"
 
 ## <a name="optional-properties"></a>Необязательные свойства
 
-| Свойство            | Type            | Описание:                          |
+| Свойство            | Тип            | Описание                          |
 |---------------------|-----------------|---------------------------------------------------------------------------------------------------|
 | `folder`            | `string`        | Папка таблицы.                  |
 | `docString`         | `string`        | Строка, задокументированная в таблице.      |
@@ -57,7 +57,7 @@ ms.locfileid: "87871924"
 **Пример** 
 
 ```kusto
-.create external table ExternalSql (x:long, s:string) 
+.create external table MySqlExternalTable (x:long, s:string) 
 kind=sql
 table=MySqlTable
 ( 
@@ -77,14 +77,14 @@ with
 
 | TableName   | TableType | Папка         | DocString | Свойства                            |
 |-------------|-----------|----------------|-----------|---------------------------------------|
-| екстерналскл | SQL       | екстерналтаблес | Docs      | {<br>  "Таржетентитикинд": "склтабле" ",<br>  "Таржетентитинаме": "Мисклтабле",<br>  "Таржетентитиконнектионстринг": "Server = TCP:мисервер. Database. Windows. NET, 1433; Authentication = Active Directory интегрирован; исходный каталог = MyDatabase; ",<br>  "Фиретригжерс": true,<br>  "CreateIfNotExists": true,<br>  "PrimaryKey": "x"<br>} |
+| мисклекстерналтабле | SQL       | екстерналтаблес | Docs      | {<br>  "Таржетентитикинд": "склтабле" ",<br>  "Таржетентитинаме": "Мисклтабле",<br>  "Таржетентитиконнектионстринг": "Server = TCP:мисервер. Database. Windows. NET, 1433; Authentication = Active Directory интегрирован; исходный каталог = MyDatabase; ",<br>  "Фиретригжерс": true,<br>  "CreateIfNotExists": true,<br>  "PrimaryKey": "x"<br>} |
 
-## <a name="querying-an-external-table-of-type-sql"></a>Запрос к внешней таблице типа SQL 
+## <a name="querying-an-external-table-of-type-sql"></a>Запрос к внешней таблице типа SQL
 
 Поддерживается выполнение запросов к внешней таблице SQL. См. раздел [запросы к внешним таблицам](../../data-lake-query-data.md). 
 
 > [!Note]
-> Реализация запроса к внешней таблице SQL выполнит полное "SELECT *" (или выберите соответствующие столбцы) из таблицы SQL. Остальная часть запроса будет выполняться на стороне Kusto. 
+> Реализация запроса к внешней таблице SQL будет выполнять `SELECT x, s FROM MySqlTable` инструкцию, где `x` и `s` являются именами столбцов внешней таблицы. Остальная часть запроса будет выполняться на стороне Kusto.
 
 Рассмотрим следующий запрос к внешней таблице: 
 
@@ -92,11 +92,11 @@ with
 external_table('MySqlExternalTable') | count
 ```
 
-Kusto будет выполнять запрос SELECT * из таблицы в базе данных SQL, за которым следует счетчик на стороне Kusto. В таких случаях производительность должна быть лучше, если написать непосредственно в T-SQL напрямую ("SELECT COUNT (1) из таблицы") и выполнить с помощью [подключаемого модуля sql_request](../query/sqlrequestplugin.md), а не с помощью функции внешней таблицы. Аналогичным образом фильтры не отправляются в SQL запрос.  
+Kusto будет выполнять `SELECT x, s FROM MySqlTable` запрос к базе данных SQL, за которым следует счетчик на стороне Kusto. В таких случаях производительность должна быть лучше, если написано непосредственно в T-SQL напрямую ( `SELECT COUNT(1) FROM MySqlTable` ) и выполняться с помощью [подключаемого модуля sql_request](../query/sqlrequestplugin.md), а не из внешней табличной функции. Аналогичным образом фильтры не отправляются в SQL запрос.  
 
 Используйте внешнюю таблицу для запроса таблицы SQL, если запрос требует считывания всей таблицы (или соответствующих столбцов) для дальнейшего выполнения на стороне Kusto. Если запрос SQL можно оптимизировать в T-SQL, используйте [подключаемый модуль sql_request](../query/sqlrequestplugin.md).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Команды для общего управления внешней таблицей](externaltables.md)
 * [Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake](external-tables-azurestorage-azuredatalake.md)
