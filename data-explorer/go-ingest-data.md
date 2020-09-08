@@ -7,12 +7,12 @@ ms.reviewer: abhishgu
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/10/2020
-ms.openlocfilehash: b733e70c78d9792e53dfe9cf133efe759e8ea91e
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 82302fc2071eca8bf2fb1e4c89b96de50b1a8806
+ms.sourcegitcommit: f689547c0f77b1b8bfa50a19a4518cbbc6d408e5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88873990"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89557349"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-go-sdk"></a>Прием данных с помощью пакета SDK для Azure обозреватель данных Go 
 
@@ -32,6 +32,7 @@ ms.locfileid: "88873990"
 * Установите [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 * Установите [Go](https://golang.org/) со следующими [минимальными требованиями к пакету Go SDK](kusto/api/golang/kusto-golang-client-library.md#minimum-requirements). 
 * Создайте [кластер Azure обозреватель данных и базу данных](create-cluster-database-portal.md).
+* Создайте [регистрацию приложения и предоставьте ей разрешения на доступ к базе данных](provision-azure-ad-app.md). Сохраните идентификатор клиента и секрет клиента для последующего использования.
 
 ## <a name="install-the-go-sdk"></a>Установка пакета SDK для Go
 

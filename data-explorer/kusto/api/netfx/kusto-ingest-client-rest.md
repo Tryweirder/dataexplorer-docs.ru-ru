@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 ms.date: 02/19/2020
-ms.openlocfilehash: eb13b53ba5f6785c79aaa586de50478074901c8d
-ms.sourcegitcommit: 7dd20592bf0e08f8b05bd32dc9de8461d89cff14
+ms.openlocfilehash: 10f59a167de12e4b688f6d9b5f15d3f0f15d8291
+ms.sourcegitcommit: f689547c0f77b1b8bfa50a19a4518cbbc6d408e5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85901928"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89557400"
 ---
 # <a name="ingestion-without-kustoingest-library"></a>Прием без Kusto. Принимающая Библиотека
 
@@ -283,7 +283,7 @@ internal static string PrepareIngestionMessage(string db, string table, string d
 Наконец, опубликуйте созданное вами сообщение в выбранную очередь приема, полученную из Azure обозреватель данных.
 
 > [!NOTE]
-> При использовании клиента хранилища .NET по умолчанию кодирует сообщение в Base64. Дополнительные сведения см. в разделе [Документация по хранилищу](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.encodemessage?view=azure-dotnet-legacy#Microsoft_WindowsAzure_Storage_Queue_CloudQueue_EncodeMessage). Если вы не используете этот клиент, убедитесь, что содержимое сообщения правильно закодировано.
+> Версия клиента хранилища .NET ниже 12, по умолчанию, кодирует сообщение в Base64. Дополнительные сведения см. в разделе [Документация по хранилищу](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.encodemessage?view=azure-dotnet-legacy#Microsoft_WindowsAzure_Storage_Queue_CloudQueue_EncodeMessage). При использовании версий клиента хранилища .NET выше версии 12 необходимо правильно закодировать содержимое сообщения.
 
 ```csharp
 internal static void PostMessageToQueue(string queueUriWithSas, string message)
@@ -361,7 +361,7 @@ internal static IEnumerable<string> PopTopMessagesFromQueue(string queueUriWithS
 |фаиледон |Метка времени сбоя |
 |инжестионсаурцеид |GUID, определяющий блок данных, который обозреватель данных Azure не удалось принять |
 |инжестионсаурцепас |Путь (URI) к блоку данных, который обозреватель данных Azure не удалось принять |
-|Подробности |Сообщение об ошибке |
+|Сведения |Сообщение об ошибке |
 |ErrorCode |Код ошибки обозреватель данных Azure (см. все коды ошибок [здесь](kusto-ingest-client-errors.md#ingestion-error-codes)) |
 |фаилурестатус |Указывает, является ли сбой постоянным или временным |
 |RootActivityId |Идентификатор корреляции Azure обозреватель данных (GUID), который можно использовать для отслеживания операции на стороне службы. |

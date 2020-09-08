@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: f86c952fdbfadd0b6ff4177ce7aa194019639b20
-ms.sourcegitcommit: d54e4ebb611da2b30158720e14103e81a7daa5af
+ms.openlocfilehash: 8bb30180a7506b594e5747e3591f0d1aff80f8c3
+ms.sourcegitcommit: f689547c0f77b1b8bfa50a19a4518cbbc6d408e5
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89286430"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89557366"
 ---
 # <a name="externaldata-operator"></a>Оператор externaldata
 
@@ -44,7 +44,8 @@ ms.locfileid: "89286430"
 
 
 > [!NOTE]
-> Этот оператор не принимает входные данные конвейера.
+> * Этот оператор не принимает входные данные конвейера.
+> * [Ограничения стандартных запросов](../concepts/querylimits.md) также применяются к запросам внешних данных.
 
 ## <a name="returns"></a>Возвращаемое значение
 
