@@ -1,19 +1,19 @@
 ---
-title: Сведения об API Azure Data Explorer (Azure Data Explorer) | Документация Майкрософт
-description: В этой статье представлены сведения об API Azure Data Explorer.
+title: Общие сведения об API Azure Data Explorer — служба Azure Data Explorer
+description: В этой статье приводится описание API службы Azure Data Explorer.
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: vladikb
 ms.service: data-explorer
 ms.topic: reference
-ms.date: 01/27/2020
-ms.openlocfilehash: c791ae0be0c895a4744e761c58e7d455aa0a22b9
-ms.sourcegitcommit: c4aea69fafa9d9fbb814764eebbb0ae93fa87897
+ms.date: 08/11/2020
+ms.openlocfilehash: b9fd03bfd08a31d872ca3c0ef48bd96514e9eb18
+ms.sourcegitcommit: 9e0289945270db517e173aa10024e0027b173b52
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81610275"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428402"
 ---
 # <a name="azure-data-explorer-api-overview"></a>Описание API Azure Data Explorer
 
@@ -21,73 +21,82 @@ ms.locfileid: "81610275"
 
 1. Конечная точка [REST API](#rest-api), с помощью которой можно запрашивать данные и управлять ими в Azure Data Explorer.
    Эта конечная точка поддерживает [язык запросов Kusto](../query/index.md) для запросов и [команд управления](../management/index.md).
-2. Конечная точка [MS-TDS](#ms-tds), которая реализует подмножество возможностей протокола Microsoft TDS (поток табличных данных), используемых в продуктах Microsoft SQL Server.
-   Эта конечная точка в основном применяется для существующих средств, которые уже умеют взаимодействовать с конечной точкой SQL Server для отправки запросов.
-3. Конечная точка [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftkusto), которая является стандартным решением для управления такими ресурсами в службах Azure, как кластеры Azure Data Explorer.
-
-Azure Data Explorer предоставляет несколько клиентских библиотек, которые используют перечисленные выше конечные точки для упрощения программного доступа:
-
-1. Пакет SDK для .NET
-2. Пакет SDK для Python
-3. Пакет SDK для Java
-4. Пакет SDK для Node
-5. Пакет SDK для GO
-6. PowerShell
-7. R
+1. Конечная точка [MS-TDS](#ms-tds), которая реализует ряд возможностей протокола Microsoft TDS (поток табличных данных), используемых в продуктах Microsoft SQL Server.
+   Эта конечная точка применяется для средств, которые могут взаимодействовать с конечной точкой SQL Server для отправки запросов.
+1. Конечная точка [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftkusto), которая является стандартным решением для служб Azure. Она используется для управления ресурсами, такими как кластеры Azure Data Explorer.
 
 ## <a name="rest-api"></a>REST API
 
-Основным методом взаимодействия со службой Azure Data Explorer считается интерфейс REST API этой службы. Через эту полностью документированную конечную точку вызывающие объекты могут выполнять следующее:
+Основным методом взаимодействия со службой Azure Data Explorer является интерфейс REST API этой службы. Благодаря этой полностью документированной конечной точке вызывающие объекты могут выполнять следующее:
 
-1. Данные запросов
-2. запросы к метаданным и их изменение;
-3. Прием данных
-4. запрос состояния работоспособности службы;
-5. Управление ресурсами
+* запрашивать данные;
+* запросы к метаданным и их изменение;
+* Прием данных
+* запрос состояния работоспособности службы;
+* Управление ресурсами
 
 Разные службы Azure Data Explorer взаимодействуют между собой через один и тот же общедоступный интерфейс REST API.
 
-Помимо поддержки запросов к Azure Data Explorer с помощью REST API, доступны несколько клиентских библиотек, которые позволяют работать со службой, не используя протокол REST API.
+Можно также использовать различные [клиентские библиотеки](client-libraries.md), которые позволяют работать со службой без применения протокола REST API.
 
 ## <a name="ms-tds"></a>MS-TDS
 
-В качестве альтернативы подключению к Azure Data Explorer для запроса данных Azure Data Explorer поддерживает протокол связи Microsoft SQL Server (MS-TDS) и ограниченно поддерживает выполнение запросов T-SQL. Это позволяет пользователям выполнять запросы к Azure Data Explorer с помощью знакомого синтаксиса запросов (T-SQL) и привычных клиентских средств для работы с базами данных (например, LINQPad, sqlcmd, Tableau, Excel и Power BI).
+Azure Data Explorer также поддерживает протокол связи Microsoft SQL Server (MS-TDS) и ограниченно поддерживает выполнение запросов T-SQL. Этот протокол позволяет выполнять запросы к Azure Data Explorer с помощью знакомого синтаксиса запросов (T-SQL) и клиентских средств для работы с базами данных (например, LINQPad, sqlcmd, Tableau, Excel и Power BI).
 
-Дополнительные сведения об MS-TDS см. на [этой странице](tds/index.md).
+Дополнительные сведения см. в статье [Поддержка MS-TDS T-SQL](tds/index.md).
 
-## <a name="net-framework-libraries"></a>Библиотеки платформы .NET
+## <a name="client-libraries"></a>Клиентские библиотеки 
+
+Azure Data Explorer предоставляет несколько клиентских библиотек, которые используют перечисленные выше конечные точки, для упрощения программного доступа.
+
+* Пакет SDK для .NET
+* Пакет SDK для Python
+* R
+* Пакет SDK для Java
+* Пакет SDK для Node
+* Пакет SDK для GO
+* PowerShell
+
+### <a name="net-framework-libraries"></a>Библиотеки платформы .NET
 
 Библиотеки .NET Framework — это рекомендуемый способ вызова функций Azure Data Explorer программными средствами.
-Здесь предоставляется ряд библиотек:
+Предоставляется несколько библиотек:
 
-- [**Kusto.Data (клиентская библиотека Kusto)** ](./netfx/about-kusto-data.md), которая поддерживает запрос данных, запрос и изменение метаданных.
-- [**Kusto.Ingest (библиотека приема Kusto)** ](netfx/about-kusto-ingest.md), которая использует библиотеку Kusto.Data и расширяет ее возможности для упрощения приема данных.
+* [Kusto.Data (клиентская библиотека Kusto).](./netfx/about-kusto-data.md) Может использоваться для запроса и изменения данных и метаданных. 
+   Она создана на основе REST API Kusto для отправки HTTPS-запросов в целевой кластер Kusto.
+* [Kusto.Ingest (клиентская библиотека Kusto).](netfx/about-kusto-ingest.md) Использует библиотеку `Kusto.Data` и расширяет ее возможности для упрощения приема данных.
 
+Описанные выше библиотеки используют интерфейсы API Azure (например, API службы хранилища Azure и API Azure Active Directory).
 
-**Клиентская библиотека Kusto** (Kusto.Data) создана на основе REST API Kusto для отправки HTTPS-запросов в целевой кластер Kusto. 
+### <a name="python-libraries"></a>Библиотеки Python
 
-**Библиотека приема Kusto** (Kusto.Ingest) использует Kusto.Data.
+Azure Data Explorer предоставляет клиентскую библиотеку Python, которая позволяет вызывающим объектам отправлять запросы к данным и управляющие команды.
+Дополнительные сведения см. в статье [SDK Azure Data Explorer для Python](python/kusto-python-client-library.md).
 
+### <a name="r-library"></a>Библиотека R
 
+Azure Data Explorer предоставляет клиентскую библиотеку R, которая позволяет вызывающим объектам отправлять запросы к данным и управляющие команды.
+Дополнительные сведения см. в статье [SDK Azure Data Explorer для R](r/kusto-r-client-library.md).
 
-Все описанные выше библиотеки используют интерфейсы API Azure (например, API службы хранилища Azure и API Azure Active Directory).
+### <a name="java-sdk"></a>Пакет SDK для Java
 
-## <a name="python-libraries"></a>Библиотеки Python
+Клиентская библиотека Java предоставляет возможности для отправки запросов к кластерам Azure Data Explorer с помощью Java. Дополнительные сведения см. в статье [SDK Azure Data Explorer для Java](java/kusto-java-client-library.md).
 
-Azure Data Explorer предоставляет клиентскую библиотеку Python, которая позволяет вызывающим объектам отсылать запросы к данным и управляющие команды.
+### <a name="node-sdk"></a>Пакет SDK для Node
 
-## <a name="r-library"></a>Библиотека R
+Пакет SDK Azure Data Explorer для Node совместим с выпуском LTS Node (сейчас это 6.14) и создан с помощью ES6.
+Дополнительные сведения см. в статье [SDK Azure Data Explorer для Node](node/kusto-node-client-library.md).
 
-Azure Data Explorer предоставляет клиентскую библиотеку R, которая позволяет вызывающим объектам отсылать запросы к данным и управляющие команды.
+### <a name="go-sdk"></a>Пакет SDK для GO
 
+Клиентская библиотека Azure Data Explorer для Go обеспечивает такие возможности, как отправка запросов, контроль и прием данных в кластерах Azure Data Explorer с помощью Go. Дополнительные сведения см. в статье [SDK Azure Data Explorer для Golang](golang/kusto-golang-client-library.md).
 
+### <a name="powershell"></a>PowerShell
 
-## <a name="using-azure-data-explorer-from-powershell"></a>Использование Azure Data Explorer из PowerShell
+Скрипты PowerShell могут использовать библиотеки .NET Framework для Azure Data Explorer. Дополнительные сведения см. в статье [Вызов Azure Data Explorer из PowerShell](powershell/powershell.md).
 
-Скрипты PowerShell могут использовать библиотеки .NET Framework для Azure Data Explorer.
-Пример такого использования см. в статье [о вызове Azure Data Explorer из PowerShell](powershell/powershell.md).
+## <a name="monaco-ide-integration"></a>Интеграция Monaco с IDE
 
-## <a name="ide-integration"></a>Интеграция с IDE
-
-Пакет `monaco-kusto` поддерживает интеграцию с веб-редактором Monaco Editor, который разработан корпорацией Майкрософт и лежит в основе Visual Studio Code.
-Подробнее о пакете [monaco-kusto](monaco/monaco-kusto.md).
+Пакет `monaco-kusto` поддерживает интеграцию с веб-редактором Monaco.
+Редактор Monaco, разработанный корпорацией Майкрософт, служит основой для Visual Studio Code.
+Дополнительные сведения см. в статье о [пакете monaco-kusto](monaco/monaco-kusto.md).

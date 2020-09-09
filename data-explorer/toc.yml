@@ -220,6 +220,8 @@
               href: vnet-deployment.md
             - name: 'Устранение неполадок при создании и подключении кластера виртуальной сети, а также при работе с ним'
               href: vnet-deploy-troubleshoot.md
+            - name: "Создание частной конечной точки для кластера в виртуальной сети\_— портал"
+              href: vnet-create-private-endpoint.md
         - name: Шифрование
           items:
             - name: 'Шифрование дисков кластера: портал'
@@ -1469,7 +1471,7 @@
               href: ./kusto/management/data-export/export-data-to-an-external-table.md
             - name: Экспорт непрерывных данных
               items:
-                - name: Обзор
+                - name: Общие сведения
                   href: ./kusto/management/data-export/continuous-data-export.md
                 - name: Создание или изменение непрерывного экспорта
                   href: ./kusto/management/data-export/create-alter-continuous.md
