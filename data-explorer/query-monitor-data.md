@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 39865b049512252e08dac9c182a6b1e20a388abe
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 078737ff7e5cd74d15792cc2f0f058cb3ea12a19
+ms.sourcegitcommit: e0cf581d433bbbb2eda5a4209a8eabcdae80c21b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875010"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90059484"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Запрос данных в Azure Monitor с помощью обозреватель данных Azure (Предварительная версия)
 
@@ -23,7 +23,7 @@ ms.locfileid: "88875010"
 
 ![Поток прокси-сервера ADX](media/adx-proxy/adx-proxy-flow.png)
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
 > [!NOTE]
 > Прокси-сервер ADX находится в режиме предварительного просмотра. [Подключитесь к прокси-](#connect-to-the-proxy) серверу, чтобы включить функцию прокси-сервера ADX для кластеров. Свяжитесь с командой [адкспрокси](mailto:adxproxy@microsoft.com) с любыми вопросами.
@@ -59,6 +59,9 @@ ms.locfileid: "88875010"
 
 Запросы можно выполнять с помощью клиентских средств, поддерживающих запросы Kusto, таких как Kusto Explorer, ADX Web UI, Jupyter Кклмагик, Flow, PowerQuery, PowerShell, Джарвис, линз, REST API.
 
+> [!NOTE]
+> Функция прокси-сервера ADX используется только для получения данных. Дополнительные сведения см. в разделе [Поддержка функций](#function-supportability).
+
 > [!TIP]
 > * Имя базы данных должно совпадать с именем ресурса, указанного в кластере прокси. В именах учитывается регистр.
 > * В запросах между кластерами убедитесь в правильности именования Application Insights приложений и Log Analytics рабочих областей.
@@ -75,13 +78,13 @@ Perf | take 10 // Demonstrate query through the proxy on the LA workspace
 
 ![Запрос LA Workspace](media/adx-proxy/query-la.png)
 
-### <a name="cross-query-of-your-la-or-ai-adx-proxy-cluster-and-the-adx-native-cluster"></a>Перекрестный запрос кластера прокси-сервера LA или ИСКУССТВЕНного ADX и собственного кластера ADX 
+### <a name="cross-query-of-your-la-or-ai-adx-proxy-cluster-and-the-adx-native-cluster"></a>Перекрестный запрос кластера прокси-сервера LA или ИСКУССТВЕНного ADX и собственного кластера ADX
 
 При выполнении запросов между кластерами от прокси-сервера убедитесь, что на левой панели выбран собственный кластер ADX. В следующих примерах демонстрируется объединение таблиц кластера ADX (с помощью `union` ) с La Workspace.
 
 ```kusto
 union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
-| take 10 
+| take 10
 ```
 
 ```kusto
@@ -103,7 +106,8 @@ union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 * `.show function {FunctionName}`
 * `.show database {DatabaseName} schema as json`
 
-На следующем рисунке показан пример запроса табличной функции из пользовательского веб-интерфейса Azure обозреватель данных. Чтобы использовать функцию, запустите ее имя в окне запроса.
+На следующем рисунке показан пример запроса табличной функции из пользовательского веб-интерфейса Azure обозреватель данных.
+Чтобы использовать функцию, запустите ее имя в окне запроса.
 
   [![Запрос табличной функции из пользовательского веб-интерфейса Azure обозреватель данных](media/adx-proxy/function-query-adx-proxy.png)](media/adx-proxy/function-query-adx-proxy.png#lightbox)
 
