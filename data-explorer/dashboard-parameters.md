@@ -8,12 +8,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 4921a48ff879879084ec1941ab69c6e9d29b9773
-ms.sourcegitcommit: a4779e31a52d058b07b472870ecd2b8b8ae16e95
+ms.openlocfilehash: 4e11ccd1c775fa2cae2e25f7cf1bd8b802a11567
+ms.sourcegitcommit: 95527c793eb873f0135c4f0e9a2f661ca55305e3
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89366169"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90534006"
 ---
 # <a name="use-parameters-in-azure-data-explorer-dashboards"></a>Использование параметров на панелях мониторинга обозреватель данных Azure
 
@@ -297,10 +297,9 @@ EventsAll
 
 ## <a name="use-filter-search-for-single-and-multiple-selection-filters"></a>Использовать фильтр поиска для одного и нескольких фильтров выбора
 
-В одном и нескольких фильтрах выбора введите нужное значение. В результатах поиска фильтра будут представлены все недавно извлеченные значения, соответствующие поисковому слову.
+В одном и нескольких фильтрах выбора введите нужное значение. В результатах поиска фильтра будут представлены только недавно полученные значения, соответствующие поисковому слову.
 
 ## <a name="next-steps"></a>Next Steps
 
 * [Настройка визуальных элементов панели мониторинга](dashboard-customize-visuals.md)
 * [Запрос данных в обозреватель данных Azure](web-query-data.md) 
-
