@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 7762ec885a52df7ba47c90d5ac91c1019150cf17
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 058a42cc21c6af9642d91231e6b1620315f94f55
+ms.sourcegitcommit: 313a91d2a34383b5a6e39add6c8b7fabb4f8d39a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88873264"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90680694"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Запрос данных в Azure Data Lake с помощью обозреватель данных Azure
 
@@ -125,7 +125,7 @@ dataformat=multijson
 Определите сопоставление JSON, которое сопоставляет поля данных с полями определения внешней таблицы:
 
 ```kusto
-.create external table ApiCalls json mapping 'MyMapping' '[{"Column":"Timestamp","Properties":{"Path":"$.time"}},{"Column":"TenantId","Properties":{"Path":"$.data.tenant"}},{"Column":"MethodName","Properties":{"Path":"$.data.method"}}]'
+.create external table ApiCalls json mapping 'MyMapping' '[{"Column":"Timestamp","Properties":{"Path":"$.timestamp"}},{"Column":"TenantId","Properties":{"Path":"$.data.tenant"}},{"Column":"MethodName","Properties":{"Path":"$.data.method"}}]'
 ```
 
 При запросе к внешней таблице будет вызвано сопоставление, а соответствующие данные будут сопоставлены со столбцами внешней таблицы:
@@ -277,6 +277,6 @@ external_table("TaxiRides")
  
 Выберите номера SKU виртуальных машин с большим количеством ядер и более высокой пропускной способностью сети (память менее важна). Дополнительные сведения см. [в статье Выбор подходящего номера SKU виртуальной машины для кластера Azure обозреватель данных](manage-cluster-choose-sku.md).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Запросите данные в Azure Data Lake с помощью обозреватель данных Azure. Научитесь [писать запросы](write-queries.md) и получать дополнительные аналитические сведения из данных.

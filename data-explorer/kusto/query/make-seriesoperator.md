@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: 4f303726532da7ead1c2416f3d485979d045b0b2
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 6ed841a6f47eb9a0a1e73182a3b9acd1c0209bd9
+ms.sourcegitcommit: 313a91d2a34383b5a6e39add6c8b7fabb4f8d39a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346972"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90680766"
 ---
 # <a name="make-series-operator"></a>Оператор make-series
 
@@ -43,7 +43,7 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
   |---------------|-------------------------------------|------------------------------------------------------------------------------|
   |`kind`          |`nonempty`                               |Создает результат по умолчанию, если входные данные оператора Make-Series пусты|                                
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Входные строки упорядочиваются по группам с одинаковыми значениями `by` выражений и `bin_at(` *AxisColumn* `, ` *шага* `, ` *начала* `)` . Затем указанные агрегатные функции выполняют вычисления и создают строку для каждой группы. Результат содержит столбцы Columns `by` , *AxisColumn* и, по крайней мере, один столбец для каждого вычисляемого агрегата. (Агрегирование, что несколько столбцов или нечисловые результаты не поддерживаются.)
 
@@ -53,7 +53,7 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
 
 Из-за заполнения отсутствующих ячеек значением по умолчанию результирующая Сводная таблица имеет то же количество ячеек (то есть агрегированные значения) для всех рядов.  
 
-**Примечание**
+**Примечание**.
 
 Хотя можно предоставить произвольные выражения для агрегатов и выражений группирования, более эффективно использовать простые имена столбцов.
 
@@ -69,26 +69,31 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
 
 **Распространение и случайный выбор**
 
-`make-series`поддерживает `summarize` [указания шуффлекэй](shufflequery.md) с использованием подсказки синтаксиса. шуффлекэй.
+`make-series` поддерживает `summarize` [указания шуффлекэй](shufflequery.md) с использованием подсказки синтаксиса. шуффлекэй.
 
 ## <a name="list-of-aggregation-functions"></a>Список статистических функций
 
-|Компонент|Описание|
+|Функция|Описание|
 |--------|-----------|
 |[Any ()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
-|[AVG ()](avg-aggfunction.md)|Возвращает среднее значение в группе|
-|[Count ()](count-aggfunction.md)|Возвращает количество групп|
+|[avg()](avg-aggfunction.md)|Возвращает среднее значение в группе|
+|[avgif()](avgif-aggfunction.md)|Возвращает среднее значение с предикатом группы|
+|[count()](count-aggfunction.md)|Возвращает количество групп|
 |[countif()](countif-aggfunction.md)|Возвращает число с предикатом группы|
 |[dcount()](dcount-aggfunction.md)|Возвращает приблизительное число различных элементов группы.|
+|[dcountif()](dcountif-aggfunction.md)|Возвращает приблизительное число различных объектов с предикатом группы|
 |[max()](max-aggfunction.md)|Возвращает максимальное значение в группе.|
+|[maxif()](maxif-aggfunction.md)|Возвращает максимальное значение с предикатом группы|
 |[min()](min-aggfunction.md)|Возвращает минимальное значение в группе.|
-|[STDEV ()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
-|[Sum ()](sum-aggfunction.md)|Возвращает сумму элементов в группе|
+|[minif()](minif-aggfunction.md)|Возвращает минимальное значение с предикатом группы|
+|[stdev()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
+|[sum()](sum-aggfunction.md)|Возвращает сумму элементов в группе|
+|[sumif()](sumif-aggfunction.md)|Возвращает сумму элементов с предикатом группы|
 |[variance()](variance-aggfunction.md)|Возвращает дисперсию по группе|
 
 ## <a name="list-of-series-analysis-functions"></a>Список функций анализа рядов
 
-|Компонент|Описание|
+|Функция|Описание|
 |--------|-----------|
 |[series_fir()](series-firfunction.md)|Применение фильтра [конечного ответа с ограничением](https://en.wikipedia.org/wiki/Finite_impulse_response)|
 |[series_iir()](series-iirfunction.md)|Применяет [бесконечный фильтр ответов с неограниченным импульсом](https://en.wikipedia.org/wiki/Infinite_impulse_response)|
@@ -104,7 +109,7 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
   
 ## <a name="list-of-series-interpolation-functions"></a>Список функций интерполяции ряда
 
-|Компонент|Описание|
+|Функция|Описание|
 |--------|-----------|
 |[series_fill_backward()](series-fill-backwardfunction.md)|Выполняет интерполяцию обратной заливки отсутствующих значений в ряде|
 |[series_fill_const()](series-fill-constfunction.md)|Заменяет отсутствующие значения в ряде с указанным постоянным значением|

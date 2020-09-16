@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 5e294a60545a081861597e772c39d2e7e99824e8
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 41e3f58ba857e23d31062484f11f30e80fb37317
+ms.sourcegitcommit: 313a91d2a34383b5a6e39add6c8b7fabb4f8d39a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346377"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90680726"
 ---
 # <a name="parse_xml"></a>parse_xml()
 
@@ -31,8 +31,6 @@ ms.locfileid: "87346377"
 
 Объект типа [dynamic](./scalar-data-types/dynamic.md) , который определяется значением *XML*или значением NULL, если формат XML является недопустимым.
 
-Преобразование XML в JSON выполняется с помощью библиотеки [xml2json](https://github.com/Cheedoong/xml2json) .
-
 Преобразование выполняется следующим образом.
 
 XML                                |JSON                                            |Доступ
@@ -47,7 +45,7 @@ XML                                |JSON                                        
 
 **Примечания**
 
-* Максимальный размер входных данных `string` для `parse_xml` — 128 КБ. Более длинная интерпретация строк приведет к пустому объекту 
+* Максимальная длина входных данных `string` для `parse_xml` равна 1 мб (1 048 576 байт). Более длинная интерпретация строк приведет к пустому объекту
 * Будут переведены только узлы элементов, атрибуты и текстовые узлы. Все остальное будет пропущено
  
 ## <a name="example"></a>Пример
