@@ -212,6 +212,8 @@
           href: k2bridge.md
     - name: Безопасность
       items:
+        - name: Изолированное вычисление
+          href: isolated-compute.md
         - name: Сетевая изоляция (виртуальная сеть)
           items:
             - name: "Создание кластера в виртуальной сети\_— портал"
@@ -297,7 +299,7 @@
               href: dealing-with-duplicates.md
     - name: Монитор
       items:
-        - name: Использование журналов диагностики для мониторинга приема
+        - name: 'Использование журналов диагностики для мониторинга приема, команд и запросов'
           href: using-diagnostic-logs.md
         - name: Мониторинг Azure Data Explorer с помощью метрик
           displayName: 'health, performance'

@@ -7,14 +7,14 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/08/2020
-ms.openlocfilehash: 3834e3189a62cd8581d2e3607acad9c7d8c8d7c2
-ms.sourcegitcommit: 50c799c60a3937b4c9e81a86a794bdb189df02a3
+ms.openlocfilehash: 7be785a7a3a0abe0c1f6483e016484ee0124f29b
+ms.sourcegitcommit: 97404e9ed4a28cd497d2acbde07d00149836d026
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90075349"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90832609"
 ---
-# <a name="series_fit_poly_fl"></a>series_fit_poly_fl ()
+# <a name="series_fit_poly_fl"></a>series_fit_poly_fl()
 
 Функция `series_fit_poly_fl()` применяет регрессионную регрессию для ряда. Он принимает таблицу, содержащую несколько рядов (динамический числовой массив), и создает для каждого ряда степень полинома с высоким порядком, который лучше подходит для использования [регрессии с уровнем полинома](https://en.wikipedia.org/wiki/Polynomial_regression). Эта функция возвращает как коэффициенты полинома, так и интерполяцию на основе диапазона ряда.
 
@@ -58,13 +58,14 @@ let series_fit_poly_fl=(tbl:(*), y_series:string, y_fit_series:string, fit_coeff
         '\n'
         'def fit(ts_row, x_col, y_col, deg):\n'
         '    y = ts_row[y_col]\n'
-        '    # if x column exists check whether its a time column. If so, convert it to numeric seconds, else take it as is. If there is no x column creates sequential numbers\n'
-        '    if x_col == "":\n'
-        '       x = np.arange(len(y))\n'
-        '    else:\n'
-        '       if x_istime:\n'
-        '           x = pd.to_numeric(pd.to_datetime(ts_row[x_col]))/(1e9*60) #convert ticks to minutes\n'
+        '    if x_col == "": # If there is no x column creates sequential range [1, len(y)]\n'
+        '       x = np.arange(len(y)) + 1\n'
+        '    else: # if x column exists check whether its a time column. If so, normalize it to the [1, len(y)] range, else take it as is.\n'
+        '       if x_istime: \n'
+        '           x = pd.to_numeric(pd.to_datetime(ts_row[x_col]))\n'
         '           x = x - x.min()\n'
+        '           x = x / x.max()\n'
+        '           x = x * (len(x) - 1) + 1\n'
         '       else:\n'
         '           x = ts_row[x_col]\n'
         '    coeff = np.polyfit(x, y, deg)\n'
@@ -113,13 +114,14 @@ series_fit_poly_fl(tbl:(*), y_series:string, y_fit_series:string, fit_coeff:stri
         '\n'
         'def fit(ts_row, x_col, y_col, deg):\n'
         '    y = ts_row[y_col]\n'
-        '    # if x column exists check whether its a time column. If so, convert it to numeric seconds, else take it as is. If there is no x column creates sequential numbers\n'
-        '    if x_col == "":\n'
-        '       x = np.arange(len(y))\n'
-        '    else:\n'
-        '       if x_istime:\n'
-        '           x = pd.to_numeric(pd.to_datetime(ts_row[x_col]))/(1e9*60) #convert ticks to minutes\n'
+        '    if x_col == "": # If there is no x column creates sequential range [1, len(y)]\n'
+        '       x = np.arange(len(y)) + 1\n'
+        '    else: # if x column exists check whether its a time column. If so, normalize it to the [1, len(y)] range, else take it as is.\n'
+        '       if x_istime: \n'
+        '           x = pd.to_numeric(pd.to_datetime(ts_row[x_col]))\n'
         '           x = x - x.min()\n'
+        '           x = x / x.max()\n'
+        '           x = x * (len(x) - 1) + 1\n'
         '       else:\n'
         '           x = ts_row[x_col]\n'
         '    coeff = np.polyfit(x, y, deg)\n'
