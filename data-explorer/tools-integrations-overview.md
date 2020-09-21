@@ -8,12 +8,12 @@ ms.reviewer: olgolden
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 9522ee72e639c967f7b735c9c52d67c236498522
-ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
+ms.openlocfilehash: e341b70dfc2a7c0d3038d6d60d9c8ae2b40b6218
+ms.sourcegitcommit: c2ab3176db4dd55ac9ca8eee52bbd24096d1277f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88201703"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90740258"
 ---
 # <a name="azure-data-explorer-tools-and-integrations-overview"></a>Обзор средств и интеграции Azure обозреватель данных
 
@@ -40,7 +40,7 @@ Azure обозреватель данных предлагает различн�
 * Концентратор событий
     * [Прием данных из концентратора событий](ingest-data-event-hub-overview.md)
     * Прием из концентратора событий с помощью шаблона [портал Azure](ingest-data-event-hub.md), [C#](data-connection-event-hub-csharp.md), [Python](data-connection-event-hub-python.md) или [Azure Resource Manager](data-connection-event-hub-resource-manager.md)
-* Сетка событий
+* Сетка событий Azure
     * [Прием из сетки событий](ingest-data-event-grid-overview.md)
     * Прием из сетки событий с помощью шаблона [портал Azure](ingest-data-event-grid.md), [C#](data-connection-event-grid-csharp.md), [Python](data-connection-event-grid-python.md) или [Azure Resource Manager](data-connection-event-grid-resource-manager.md)
 * Центр Интернета вещей
@@ -74,7 +74,7 @@ Azure обозреватель данных предлагает различн�
 
 ### <a name="query-integrations"></a>Интеграция запросов
 
-* [Azure Monitor](query-monitor-data.md)
+* [Azure Monitor](query-monitor-data.md);
 * [Azure Data Lake](data-lake-query-data.md)
 * [Apache Spark](spark-connector.md)
 * Microsoft Power Apps
@@ -93,7 +93,7 @@ Azure обозреватель данных предлагает различн�
 ## <a name="orchestration"></a>Оркестрация
 
 * Power Automate
-    * [Соединитель автоматизации потока Power автоматизиру](flow.md)
+    * [Соединитель Power автоматизиру](flow.md)
     * [Примеры использования соединителя Power Automate](flow-usage.md)
 * [Приложение логики Microsoft](kusto/tools/logicapps.md) 
 * [Фабрика данных Azure](data-factory-integration.md).
