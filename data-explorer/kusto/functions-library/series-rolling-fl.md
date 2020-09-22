@@ -7,20 +7,21 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/08/2020
-ms.openlocfilehash: 38c3933eb7e09709594892d0d73082c1171a6355
-ms.sourcegitcommit: 50c799c60a3937b4c9e81a86a794bdb189df02a3
+ms.openlocfilehash: 218ef000869e4cea0f237137a0481a9b4d72d65e
+ms.sourcegitcommit: 5aba5f694420ade57ef24b96699d9b026cdae582
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90075326"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90998999"
 ---
-# <a name="series_rolling_fl"></a>series_rolling_fl ()
+# <a name="series_rolling_fl"></a>series_rolling_fl()
 
 
 Функция `series_rolling_fl()` применяет последовательное агрегирование для ряда. Он принимает таблицу, содержащую несколько рядов (динамический числовой массив) и применяется для каждого ряда, последовательной статистической функции.
 
 > [!NOTE]
-> `series_rolling_fl()` — Это [определяемая пользователем функция (UDF)](../query/functions/user-defined-functions.md).  Эта функция онтаинс встроенный Python и требует [включения подключаемого модуля Python ()](../query/pythonplugin.md#enable-the-plugin) в кластере. Дополнительные сведения см. в разделе [Использование](#usage).
+> * `series_rolling_fl()` — Это [определяемая пользователем функция (UDF)](../query/functions/user-defined-functions.md).
+> * Эта функция содержит встроенный язык Python и требует [включения подключаемого модуля Python ()](../query/pythonplugin.md#enable-the-plugin) в кластере. Дополнительные сведения см. в разделе [Использование](#usage).
 
 ## <a name="syntax"></a>Синтаксис
 

@@ -7,20 +7,21 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/08/2020
-ms.openlocfilehash: f5cff6a5ef8490a90126a8cd90297067bdd709ad
-ms.sourcegitcommit: 50c799c60a3937b4c9e81a86a794bdb189df02a3
+ms.openlocfilehash: 38d353caf1e0352688ee91edfe7f1d2cef94d18a
+ms.sourcegitcommit: 5aba5f694420ade57ef24b96699d9b026cdae582
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90075341"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90998948"
 ---
-# <a name="quantize_fl"></a>quantize_fl ()
+# <a name="quantize_fl"></a>quantize_fl()
 
 
 Функция `quantize_fl()` заячеекет столбцы метрик. Он куантизес столбцы метрик в метки категорий, основанные на алгоритме K-средних.
 
 > [!NOTE]
-> `quantize_fl()` — Это [определяемая пользователем функция (UDF)](../query/functions/user-defined-functions.md). Эта функция содержит встроенный язык Python и требует [включения подключаемого модуля Python ()](../query/pythonplugin.md#enable-the-plugin) в кластере. Дополнительные сведения см. в разделе [Использование](#usage).
+> * `quantize_fl()` — Это [определяемая пользователем функция (UDF)](../query/functions/user-defined-functions.md).
+> * Эта функция содержит встроенный язык Python и требует [включения подключаемого модуля Python ()](../query/pythonplugin.md#enable-the-plugin) в кластере. Дополнительные сведения см. в разделе [Использование](#usage).
 
 ## <a name="syntax"></a>Синтаксис
 

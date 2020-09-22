@@ -7,19 +7,20 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/09/2020
-ms.openlocfilehash: 068dd159da048d28849f61ea04d935979f13eac5
-ms.sourcegitcommit: 50c799c60a3937b4c9e81a86a794bdb189df02a3
+ms.openlocfilehash: 9cc70418b39ece5c33d6059c7fc90c47f3039ece
+ms.sourcegitcommit: 5aba5f694420ade57ef24b96699d9b026cdae582
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90075342"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90998982"
 ---
-# <a name="predict_onnx_fl"></a>predict_onnx_fl ()
+# <a name="predict_onnx_fl"></a>predict_onnx_fl()
 
 Функция `predict_onnx_fl()` прогнозирует использование существующей обученной модели машинного обучения. Эта модель преобразована в формат [ONNX](https://onnx.ai/) , сериализована в строку и сохранена в стандартной таблице обозреватель данных Azure.
 
 > [!NOTE]
-> `predict_onnx_fl()` — Это [определяемая пользователем функция (UDF)](../query/functions/user-defined-functions.md). Эта функция содержит встроенный язык Python и требует [включения подключаемого модуля Python ()](../query/pythonplugin.md#enable-the-plugin) в кластере. Дополнительные сведения см. в разделе [Использование](#usage).
+> * `predict_onnx_fl()` — Это [определяемая пользователем функция (UDF)](../query/functions/user-defined-functions.md).
+> * Эта функция содержит встроенный язык Python и требует [включения подключаемого модуля Python ()](../query/pythonplugin.md#enable-the-plugin) в кластере. Дополнительные сведения см. в разделе [Использование](#usage).
 
 ## <a name="syntax"></a>Синтаксис
 

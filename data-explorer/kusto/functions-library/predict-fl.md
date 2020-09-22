@@ -7,19 +7,20 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/09/2020
-ms.openlocfilehash: 31f35f02951c057de4776ec83c8cd42fdbcbc9f5
-ms.sourcegitcommit: 50c799c60a3937b4c9e81a86a794bdb189df02a3
+ms.openlocfilehash: 29db6fd462311ab30b5c477d27b04606ecfd2915
+ms.sourcegitcommit: 5aba5f694420ade57ef24b96699d9b026cdae582
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90075334"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90998965"
 ---
-# <a name="predict_fl"></a>predict_fl ()
+# <a name="predict_fl"></a>predict_fl()
 
 Функция `predict_fl()` прогнозирует использование существующей обученной модели машинного обучения. Эта модель была создана с помощью [Scikit-учиться](https://scikit-learn.org/stable/), сериализована в строку и сохранена в стандартной таблице обозреватель данных Azure.
 
 > [!NOTE]
-> `predict_fl()` — Это [определяемая пользователем функция (UDF)](../query/functions/user-defined-functions.md). Эта функция содержит встроенный язык Python и требует [включения подключаемого модуля Python ()](../query/pythonplugin.md#enable-the-plugin) в кластере. Дополнительные сведения см. в разделе [Использование](#usage).
+> * `predict_fl()` — Это [определяемая пользователем функция (UDF)](../query/functions/user-defined-functions.md).
+> * Эта функция содержит встроенный язык Python и требует [включения подключаемого модуля Python ()](../query/pythonplugin.md#enable-the-plugin) в кластере. Дополнительные сведения см. в разделе [Использование](#usage).
 
 ## <a name="syntax"></a>Синтаксис
 
