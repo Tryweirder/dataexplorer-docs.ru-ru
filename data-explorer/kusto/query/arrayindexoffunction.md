@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/22/2020
-ms.openlocfilehash: a366120428d14c713b18aee6652460817c75433a
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 4b3cd0996b4c60362c7377c06621b140c29203a9
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349573"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91103029"
 ---
 # <a name="array_index_of"></a>array_index_of()
 
@@ -45,6 +45,6 @@ print arr=dynamic(["this", "is", "an", "example"])
 |---|
 |3|
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
 Если требуется только проверить, существует ли значение в массиве, но вы не заинтересованы в его положении, можно использовать [set_has_element ( `arr` , `value` )](sethaselementfunction.md). Эта функция повысит удобочитаемость запроса. Обе функции имеют одинаковую производительность.

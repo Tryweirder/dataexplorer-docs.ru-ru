@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 18d0bf2eaa0f5215e38b8b787178ea5934fb3737
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 3258a847a526e0e3b6ac8f0186b0a1aaabc3ffe5
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347040"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91103210"
 ---
 # <a name="make_bag-aggregation-function"></a>make_bag () (агрегатная функция)
 
@@ -30,7 +30,7 @@ ms.locfileid: "87347040"
 * *Expr*: выражение типа `dynamic` , используемое для статистических вычислений.
 * *MAXSIZE* — Необязательное целочисленное ограничение на максимальное число возвращаемых элементов. Значение по умолчанию — *1048576*. Значение MaxSize не может превышать *1048576*.
 
-**Примечание**
+**Примечание**.
 
 Устаревший и устаревший вариант функции `make_dictionary()` имеет ограничение по умолчанию *MaxSize* = 128.
 
@@ -40,7 +40,7 @@ ms.locfileid: "87347040"
 Значения, не являющиеся словарными, будут пропущены.
 Если ключ отображается в нескольких строках, то будет выбрано произвольное значение из возможных значений для этого ключа.
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
 Используйте подключаемый модуль [bag_unpack ()](bag-unpackplugin.md) для расширения динамических объектов JSON в столбцы, использующие ключи контейнера свойств. 
 

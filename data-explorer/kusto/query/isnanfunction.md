@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 5597f21d5e426329e2793978a6b207efc3868d13
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: f73effae8d91524f46548d57288a23d79cffd0a5
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347227"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91103279"
 ---
 # <a name="isnan"></a>isnan()
 
@@ -31,7 +31,7 @@ ms.locfileid: "87347227"
 
 Ненулевое значение (true), если x — NaN; и ноль (false) в противном случае.
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
 * Для проверки, имеет ли значение null, см. раздел [IsNull ()](isnullfunction.md).
 * Чтобы проверить, является ли значение конечным, см. раздел с [ограничением ()](isfinitefunction.md).
@@ -49,5 +49,5 @@ range x from -1 to 1 step 1
 |x|y|div|IsNaN|
 |---|---|---|---|
 |-1|1|-1|0|
-|0|0|Не число|1|
+|0|0|NaN|1|
 |1|-1|-1|0|

@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/11/2019
-ms.openlocfilehash: 866f7865abe2debeab22bfbf13bc7641d9bc5078
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: a38eda3fb595256527c277b12a16f359ef9eb910
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349624"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91102711"
 ---
 # <a name="array_shift_right"></a>array_shift_right()
 
-`array_shift_right()`Сдвигает значения в массиве вправо.
+`array_shift_right()` Сдвигает значения в массиве вправо.
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -33,7 +33,7 @@ ms.locfileid: "87349624"
 
 Динамический массив, содержащий тот же объем элементов, что и в исходном массиве. Каждый элемент был перемещен в соответствии с *`shift_count`* . Новые элементы, добавляемые вместо удаленных элементов, будут иметь значение *`fill_value`* .
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
 * Сведения для сдвига массива Left см. в разделе [array_shift_left ()](array_shift_leftfunction.md).
 * Сведения о повороте массива вправо см. в разделе [array_rotate_right ()](array_rotate_rightfunction.md).

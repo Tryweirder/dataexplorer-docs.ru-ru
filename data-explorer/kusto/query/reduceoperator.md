@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 42eb17b6aca5fc722597bcbf656f18c6d92ba545
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: d844f693b1509a823702b12bd28b85a9f19a07bd
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87345867"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91102903"
 ---
 # <a name="reduce-operator"></a>Оператор reduce
 
@@ -38,14 +38,14 @@ T | reduce by LogMessage with threshold=0.1
 
 ## <a name="returns"></a>Результаты
 
-Этот оператор возвращает таблицу с тремя столбцами ( `Pattern` , `Count` и `Representative` ) и количеством строк, в которых имеются группы. `Pattern`значение шаблона для группы, `*` используемое в качестве подстановочного знака (представляющий произвольные вставляемые строки), `Count` подсчитывает, сколько строк во входных данных для оператора представлено этим шаблоном, и `Representative` является одним из входных значений, попадающих в эту группу.
+Этот оператор возвращает таблицу с тремя столбцами ( `Pattern` , `Count` и `Representative` ) и количеством строк, в которых имеются группы. `Pattern` значение шаблона для группы, `*` используемое в качестве подстановочного знака (представляющий произвольные вставляемые строки), `Count` подсчитывает, сколько строк во входных данных для оператора представлено этим шаблоном, и `Representative` является одним из входных значений, попадающих в эту группу.
 
 Если `[kind=source]` указан параметр, оператор добавит `Pattern` столбец к существующей структуре таблицы.
 Обратите внимание, что синтаксис схемы этой разновидности может быть внесен в будущие изменения.
 
 Например, результат выполнения `reduce by city` может быть таким: 
 
-|Шаблон     |Счетчик |Representative|
+|Шаблон     |Count |Representative|
 |------------|------|--------------|
 | Сан *      | 5182 |Бернард сети SAN   |
 | Сант *    | 2846 |Сент-Люси    |
@@ -62,7 +62,7 @@ range x from 1 to 1000 step 1
 | reduce by MyText  with threshold=0.001 , characters = "X" 
 ```
 
-|Шаблон         |Счетчик|Representative   |
+|Шаблон         |Count|Representative   |
 |----------------|-----|-----------------|
 |MachineLearning|1000 |MachineLearningX4|
 
@@ -82,7 +82,7 @@ Trace | take 10000
 | reduce by Text with characters="-_"
 ```
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
 [autocluster](./autoclusterplugin.md)
 

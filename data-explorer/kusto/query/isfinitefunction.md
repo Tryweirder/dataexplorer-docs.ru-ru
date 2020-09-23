@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: f53c74fd2ac56219351c4d194c93e9fa4b627cf4
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: d1f70675a1f455c6cd0c392483eb574867088394
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347261"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91103293"
 ---
 # <a name="isfinite"></a>isfinite()
 
@@ -31,7 +31,7 @@ ms.locfileid: "87347261"
 
 Ненулевое значение (true), если x является конечным; и ноль (false) в противном случае.
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
 * Для проверки, имеет ли значение null, см. раздел [IsNull ()](isnullfunction.md).
 * Чтобы проверить, является ли значение бесконечным, см. раздел [исинф ()](isinffunction.md).
@@ -49,5 +49,5 @@ range x from -1 to 1 step 1
 |x|y|div|isFinite|
 |---|---|---|---|
 |-1|0|-∞|0|
-|0|0|Не число|0|
+|0|0|NaN|0|
 |1|0|∞|0|

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 8d6b26a13539d88aae57774cc35cf57d321b67f4
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 262676e2ee40b619c4984a23c23818c493aad47a
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346904"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91103045"
 ---
 # <a name="make_set_if-aggregation-function"></a>make_set_if () (агрегатная функция)
 
@@ -39,9 +39,9 @@ ms.locfileid: "87346904"
 > [!TIP]
 > Для подсчета только уникальных значений используйте [дкаунтиф ()](dcountif-aggfunction.md) .
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
-[`make_set`](./makeset-aggfunction.md)функция, которая выполняет то же, без выражения предиката.
+[`make_set`](./makeset-aggfunction.md) функция, которая выполняет то же, без выражения предиката.
 
 ## <a name="example"></a>Пример
 

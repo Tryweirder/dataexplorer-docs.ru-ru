@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/23/2020
-ms.openlocfilehash: c85738928aa65bf2a4476f10afa065c2a8ca1faf
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 0ae1a01af019e18e8e9f05454a1c52ef6a1f856c
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346921"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91103088"
 ---
 # <a name="make_set-aggregation-function"></a>make_set () (агрегатная функция)
 
@@ -48,9 +48,9 @@ PageViewLog
 | summarize countries=make_set(country) by continent
 ```
 
-:::image type="content" source="images/makeset-aggfunction/makeset.png" alt-text="Создать":::
+:::image type="content" source="images/makeset-aggfunction/makeset.png" alt-text="Таблица с запросом Kusto. суммирование стран по континенту в Azure обозреватель данных":::
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
 * Используйте [`mv-expand`](./mvexpandoperator.md) оператор для противоположной функции.
-* [`make_set_if`](./makesetif-aggfunction.md)аналогичен оператору `make_set` , за исключением того, что он также принимает предикат.
+* [`make_set_if`](./makesetif-aggfunction.md) аналогичен оператору `make_set` , за исключением того, что он также принимает предикат.

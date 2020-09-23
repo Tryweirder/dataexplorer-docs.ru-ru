@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: b69fed2b3d7028fdc29d8098e8358c0088fcd8bb
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: deb91e6131d5662017ebdf714a79d0ee391c8ba1
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349216"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91103308"
 ---
 # <a name="beta_inv"></a>beta_inv()
 
@@ -66,11 +66,11 @@ datatable(p:double, alpha:double, beta:double, comment:string)
 
 |p|alpha|бета-версия|comment|b|
 |---|---|---|---|---|
-|0.1|10|20|Допустимые входные данные|0.226415022388749|
+|0,1|10|20|Допустимые входные данные|0.226415022388749|
 |1.5|10|20|p > 1, дает значение null||
-|0.1|-1|20|Альфа-< 0, возвращает NaN|Не число|
+|0,1|-1|20|Альфа-< 0, возвращает NaN|NaN|
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
 * Вычисление интегральной функции бета-распределения см. в статье [Beta-CDF ()](./beta-cdffunction.md).
 * Сведения о плотности бета-версии с вероятностью вычислений см. в разделе [Beta PDF ()](./beta-pdffunction.md).

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/01/2020
-ms.openlocfilehash: c758cc9a60e8e785031450e09e50e37b8fbf44b7
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 0373fdf7c687dd7af63895ce3a542ae9b6b4f150
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351426"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91103535"
 ---
 # <a name="series_less_equals"></a>series_less_equals()
 
@@ -43,7 +43,7 @@ print s1 = dynamic([1,2,4]), s2 = dynamic([4,2,1])
 |---|---|---|
 |[1, 2, 4]|[4, 2, 1]|[true, true, false]|
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
 Сравнение статистики по всем рядам см. в следующих статьях:
 * [series_stats()](series-statsfunction.md)

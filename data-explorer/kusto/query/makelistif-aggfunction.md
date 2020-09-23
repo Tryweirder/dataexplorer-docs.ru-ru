@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: dda177c39959f860ad7e019371133f16e1de91e2
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 9090e752f018c4abcce759c37a8ecb3571e2fbd6
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346938"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91102910"
 ---
 # <a name="make_list_if-aggregation-function"></a>make_list_if () (агрегатная функция)
 
@@ -55,6 +55,6 @@ T
 |----|
 |["Георгия", "Ринго"]|
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
-[`make_list`](./makelist-aggfunction.md)функция, которая выполняет то же, без выражения предиката.
+[`make_list`](./makelist-aggfunction.md) функция, которая выполняет то же, без выражения предиката.

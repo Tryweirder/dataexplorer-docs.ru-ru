@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/11/2019
-ms.openlocfilehash: 9282e31d4422172f71da33ba1eddc0322b0345fb
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 7d6e9cfac03e0169bd0bfae12a01ac685d265736
+ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349658"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91102778"
 ---
 # <a name="array_rotate_right"></a>array_rotate_right()
 
-`array_rotate_right()`поворачивает значения внутри массива вправо.
+`array_rotate_right()` поворачивает значения внутри массива вправо.
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -32,7 +32,7 @@ ms.locfileid: "87349658"
 
 Динамический массив, содержащий тот же объем элементов, что и в исходном массиве, где каждый элемент был повернут в соответствии с *rotate_count*.
 
-**См. также:**
+## <a name="see-also"></a>См. также раздел
 
 * Сведения о повороте массива влево см. в разделе [array_rotate_left ()](array_rotate_leftfunction.md).
 * Сведения о перемещении массива влево см. в разделе [array_shift_left ()](array_shift_leftfunction.md).
