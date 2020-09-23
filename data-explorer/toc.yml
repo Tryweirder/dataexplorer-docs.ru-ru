@@ -72,6 +72,8 @@
           href: create-cluster-database-python.md
         - name: Шаблон Azure Resource Manager
           href: create-cluster-database-resource-manager.md
+    - name: Создание таблицы
+      href: one-click-table.md
     - name: Прием данных
       items:
         - name: Прием данных одним щелчком
@@ -316,10 +318,12 @@
       items:
         - name: Power Automate
           items:
-            - name: Соединитель потока Power Automate
+            - name: Соединитель Power Automate
               href: flow.md
+              displayName: 'Microsoft Flow, flow, flow connector'
             - name: Примеры использования соединителя Power Automate
               href: flow-usage.md
+              displayName: 'Microsoft Flow, flow, flow connector'
         - name: Logic Apps
           href: kusto/tools/logicapps.md
         - name: Соединитель Apache Spark

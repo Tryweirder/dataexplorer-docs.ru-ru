@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: 830db0da43da241ffb77ff05f15c0a5f62eb1725
-ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
+ms.openlocfilehash: 87980046e6f0ebbbdd17a9037aa1206779d2a61e
+ms.sourcegitcommit: 21dee76964bf284ad7c2505a7b0b6896bca182cc
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85967576"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91057042"
 ---
 # <a name="merge-policy"></a>Политика объединения
 
@@ -60,6 +60,7 @@ ms.locfileid: "85967576"
     * Определяет, `Merge` включены ли операции. в этом случае они менее предпочтительны, чем `Rebuild` операции.
 * **Максранжеинхаурс**:
     * Значение по умолчанию — 8.
+        * Значение по умолчанию — 14 дней в [материализованных представлениях](materialized-views/materialized-view-overview.md), если только возможность восстановления отключена в действующей [политике хранения](retentionpolicy.md)материализованных представлений.
     * Максимально допустимое различие (в часах) между двумя разными интервалами времени создания экстентов, чтобы их можно было объединить.
     * Метки времени являются созданием экстентов и не связаны с фактическими данными, содержащимися в экстентах.
     * Применяется к операциям слияния и перестроения.
