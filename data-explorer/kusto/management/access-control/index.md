@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 ms.date: 11/25/2019
-ms.openlocfilehash: 7031ecf15ea3f7a472fbfbe1791d166e2e35b065
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: 7b97d62e007b5294bf776fb5d5adcbac435056ef
+ms.sourcegitcommit: 3fc8e9b6a313a863916031d4beba84123edcf123
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763900"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90847859"
 ---
 # <a name="kusto-access-control-overview"></a>Сведения о контроле доступа к Kusto
 
@@ -61,7 +61,7 @@ ms.locfileid: "85763900"
 ### <a name="microsoft-accounts-msas"></a>Учетные записи Майкрософт (MSA)
 
 Термин "Учетные записи Майкрософт (MSA)" используется для обозначения всех управляемых корпорацией Майкрософт пользовательских учетных записей, которые не принадлежат конкретным организациям, например `hotmail.com`, `live.com` или `outlook.com`.
-Kusto поддерживает проверку подлинности для пользователей по MSA (в этом случае не используются группы безопасности), которые идентифицируются по именам участников-пользователей.
+Kusto поддерживает аутентификацию для пользователей по MSA (в этом случае не используются группы безопасности), которые идентифицируются по именам участников-пользователей.
 
 Если в ресурсе службы Azure Data Explorer настроен субъект MSA, то служба **не будет** пытаться разрешить предоставленное имя участника-пользователя.
 
