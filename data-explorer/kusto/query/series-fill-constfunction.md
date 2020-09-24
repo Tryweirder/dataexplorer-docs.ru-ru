@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: bb3f217b1ec0631f533a10433a7be368945667d7
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 8433773111f65e0271692bc3d1ba68cf0bc7c544
+ms.sourcegitcommit: 44a4f7ea5c5d75301d7a09b7dc1254a1e5f08eaa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87344541"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91210517"
 ---
 # <a name="series_fill_const"></a>series_fill_const()
 
 Заменяет отсутствующие значения в ряде с указанным постоянным значением.
 
-Принимает выражение, содержащее динамический числовой массив в качестве входных данных, заменяет все экземпляры missing_value_placeholder заданными constant_value и возвращает результирующий массив.
+Принимает выражение, содержащее динамический числовой массив в качестве входных данных, заменяет все экземпляры missing_value_placeholder заданным constant_value и возвращает результирующий массив.
 
 ## <a name="syntax"></a>Синтаксис
 
-`series_fill_const(`*x* `[, ` *constant_value* `[,` *missing_value_placeholder*`]])`
+`series_fill_const(`*x* `, ` *constant_value* `[,` *missing_value_placeholder*`])`
 * Возвратит ряд *x* со всеми экземплярами *missing_value_placeholder* заменяются *constant_value*.
 
 ## <a name="arguments"></a>Аргументы
 
 * *x*: скалярное выражение динамического массива, которое является массивом числовых значений.
-* *constant_value*: параметр, указывающий заполнитель для замены отсутствующего значения. Значение по умолчанию — *0*. 
+* *constant_value*: значение, заменяющее отсутствующие значения. 
 * *missing_value_placeholder*: необязательный параметр, указывающий заполнитель для замены отсутствующего значения. Значение по умолчанию — `double` (*null*).
 
 **Примечания**
-* Можно создать ряд, который заполняется константным значением, с помощью `default = ` синтаксиса *DefaultValue* (или просто пропуская, что будет считать 0). Дополнительные сведения см. в разделе [make-Series](make-seriesoperator.md).
+* Если вы создаете ряд с помощью оператора [make-Series](make-seriesoperator.md) , он заполняет отсутствующие значения по умолчанию 0, либо можно указать постоянное значение для заполнения, указав `default = ` *DefaultValue* в инструкции make-Series.
 
 ```kusto
 make-series num=count() default=-1 on TimeStamp from ago(1d) to ago(1h) step 1h by Os, Browser
