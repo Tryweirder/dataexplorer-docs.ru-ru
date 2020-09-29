@@ -8,16 +8,16 @@ ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 07/01/2020
-ms.openlocfilehash: c5a66255f719d3bd0da962a8eb9d3cae23a8c254
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: f86ec0349b4e84215e9b2fdff33b2d705967bcac
+ms.sourcegitcommit: 041272af91ebe53a5d573e9902594b09991aedf0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347839"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91452822"
 ---
 # <a name="geo_line_densify"></a>geo_line_densify()
 
-Преобразует границы плоских линий в жеодесикс, добавляя промежуточные точки.
+Преобразует плоские линии или многострочные границы в жеодесикс, добавляя промежуточные точки.
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -25,10 +25,10 @@ ms.locfileid: "87347839"
 
 ## <a name="arguments"></a>Аргументы
 
-* *lineString*: строка в [формате геоjson](https://tools.ietf.org/html/rfc7946) и тип [динамических](./scalar-data-types/dynamic.md) данных.
+* *lineString*: Line или Multiline в [формате геоjson](https://tools.ietf.org/html/rfc7946) и [динамического](./scalar-data-types/dynamic.md) типа данных.
 * *допуск*: необязательный числ, определяющий максимальное расстояние в метрах между исходной плоской границей и преобразованной пограничной цепочкой геодезические. Поддерживаемые значения находятся в диапазоне [0,1, 10000]. Если не указано, используется значение по умолчанию `10` .
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Денсифиед строка в [формате геоjson](https://tools.ietf.org/html/rfc7946) и [динамического](./scalar-data-types/dynamic.md) типа данных. Если строка или допуск являются недопустимыми, запрос выдаст результат NULL.
 
@@ -39,11 +39,13 @@ ms.locfileid: "87347839"
 
 Dynamic ({"Type": "LineString", "координаты": [[lng_1, lat_1], [lng_2, lat_2],..., [lng_N, lat_N]]})
 
+Dynamic ({"Type": "MultiLineString", "координаты": [[line_1, line_2,..., line_N]]})
+
 * Массив координат LineString должен содержать не менее двух записей.
 * Координаты [Долгота, Широта] должны быть допустимыми. Долгота должна быть вещественным числом в диапазоне [-180, + 180], а Широта должно быть вещественным числом в диапазоне [-90, + 90].
 * Длина границы должна быть меньше 180 градусов. Будет выбрано самое короткое ребро между двумя вершинами.
 
-**Ограничения**
+**Учитывая**
 
 * Максимальное число точек в строке денсифиед ограничено 10485760.
 * Хранение строк в [динамическом](./scalar-data-types/dynamic.md) формате имеет ограничения на размер.

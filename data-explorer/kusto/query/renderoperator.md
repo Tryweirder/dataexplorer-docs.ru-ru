@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: cf10a18a699e1e93521b4927008858cbebd2baf8
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 5485088ba8dd4e348733c9d8e14e2dc54dd2c858
+ms.sourcegitcommit: 041272af91ebe53a5d573e9902594b09991aedf0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87345850"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91452839"
 ---
 # <a name="render-operator"></a>Оператор render
 
@@ -40,7 +40,7 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 
 ::: zone pivot="azuredataexplorer"
 
-|*Визуализация*     |Описание|
+|*Визуаль*     |Описание|
 |--------------------|-|
 | `anomalychart`     | Аналогичен диаграмму, но [выделяет аномалии](./samples.md#get-more-out-of-your-data-in-kusto-with-machine-learning) с помощью функции [series_decompose_anomalies](./series-decompose-anomaliesfunction.md) . |
 | `areachart`        | Диаграмма с областями. Первый столбец является осью x и должен быть числовым столбцом. Другие числовые столбцы — оси y. |
@@ -55,13 +55,13 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 | `stackedareachart` | Диаграмма с областями с накоплением. Первый столбец — ось x, а должен быть числовым столбцом. Другие числовые столбцы — оси y. |
 | `table`            | По умолчанию результаты отображаются в виде таблицы.|
 | `timechart`        | линейный график. Первый столбец — это ось X с типом данных datetime. Другие (числовые) столбцы — оси y. Существует один строковый столбец, значения которого используются для группирования числовых столбцов и создания различных строк в диаграмме (дальнейшие строковые столбцы игнорируются). |
-| `timepivot`        | Интерактивная Навигация по временной шкале событий (сведение по оси времени)|
+| `timepivot`        | Интерактивная навигация по временной шкале событий (сведения об оси времени).|
 
 ::: zone-end
 
 ::: zone pivot="azuremonitor"
 
-|*Визуализация*     |Описание|
+|*Визуаль*     |Описание|
 |--------------------|-|
 | `areachart`        | Диаграмма с областями. Первый столбец является осью x и должен быть числовым столбцом. Другие числовые столбцы — оси y. |
 | `barchart`         | Первый столбец — это ось x, который может иметь тип Text, DateTime или numeric. Другие столбцы являются числовыми и отображаются в виде горизонтальных полос.|
@@ -110,9 +110,9 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 ::: zone-end
 
 Некоторые визуализации можно дополнительно проделать, предоставив `kind` свойство.
-два типа пулов узлов.
+А именно:
 
-|*Визуализация*|`kind`             |Описание                        |
+|*Визуаль*|`kind`             |Описание                        |
 |---------------|-------------------|-----------------------------------|
 |`areachart`    |`default`          |Каждая «область» по своей усмотрению.     |
 |               |`unstacked`        |Эквивалентно `default`.                 |
@@ -126,8 +126,8 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 |               |`unstacked`        |Эквивалентно `default`.                 |
 |               |`stacked`          |Stack "Columns" по одной вершине.|
 |               |`stacked100`       |Вытягивание "столбцов" и растяжение каждого из них на ту же высоту, что и другие.|
+|`scatterchart` |`map`              |Ожидаемые столбцы: [Долгота, Широта] или геоточка в формате JSON. Столбец ряда является необязательным.|
 |`piechart`     |`map`              |Ожидаемые столбцы: [Долгота, Широта] или геоточка в формате JSON, ось цветов и число. Поддерживается в Kusto Explorer Desktop.|
-|`scatterchart` |`map`              |Ожидаемые столбцы: [Долгота, Широта] или геоточка в формате JSON. Столбец ряда является необязательным. Поддерживается в Kusto Explorer Desktop.|
 
 ::: zone pivot="azuredataexplorer"
 

@@ -8,18 +8,18 @@ ms.reviewer: yifats
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/30/2020
-ms.openlocfilehash: ac9fb575f46bb60e313da4fa2b3c023ac826daec
-ms.sourcegitcommit: 21dee76964bf284ad7c2505a7b0b6896bca182cc
+ms.openlocfilehash: eaa4e759f0987940a86c509788f5e8a58b2f9e75
+ms.sourcegitcommit: 041272af91ebe53a5d573e9902594b09991aedf0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91057273"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91452737"
 ---
-# <a name="alter-materialized-view"></a>. изменение материализованных представлений
+# <a name="alter-materialized-view"></a>.alter materialized-view
 
 Изменение [материализованных представлений](materialized-view-overview.md) может быть использовано для изменения запроса материализованных представлений с сохранением существующих данных в представлении.
 
-Для изменения материализованных представлений требуются разрешения [администратора базы данных](../access-control/role-based-authorization.md) или администратор материализованных представлений. Дополнительные сведения см. в разделе [Управление ролями безопасности](../security-roles.md).
+Требуются разрешения [администратора базы данных](../access-control/role-based-authorization.md) или администратора материализованных представлений.
 
 > [!WARNING]
 > Будьте внимательны при изменении материализованных представлений. Неправильное использование может привести к утрате данных.
@@ -35,11 +35,11 @@ ms.locfileid: "91057273"
 
 ## <a name="arguments"></a>Аргументы
 
-|Аргумент|Тип|Описание
+|Аргумент|Type|Описание
 |----------------|-------|---|
-|ViewName|Тип String|Имя материализованных представлений.|
-|SourceTableName|Тип String|Имя исходной таблицы, в которой определено представление.|
-|Запрос|Тип String|Запрос материализованных представлений.|
+|ViewName|Строка|Имя материализованных представлений.|
+|SourceTableName|Строка|Имя исходной таблицы, в которой определено представление.|
+|Запрос|Строка|Запрос материализованных представлений.|
 
 ## <a name="properties"></a>Свойства
 

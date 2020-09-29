@@ -8,22 +8,22 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: b8de71ffcda28a7baa0f8452e501c7485e861122
-ms.sourcegitcommit: 5aba5f694420ade57ef24b96699d9b026cdae582
+ms.openlocfilehash: 334d2bc27709c78c53bd57c92c8c3b3364bbe3bb
+ms.sourcegitcommit: 041272af91ebe53a5d573e9902594b09991aedf0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90999016"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91452920"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Запрос данных в Azure Monitor с помощью обозреватель данных Azure (Предварительная версия)
 
 Кластер Azure обозреватель данных Proxy (прокси-сервер ADX) — это сущность, которая позволяет выполнять перекрестные запросы между Azure обозреватель данных, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview)и [log Analytics (La)](/azure/azure-monitor/platform/data-platform-logs) в службе [Azure Monitor](/azure/azure-monitor/) . Вы можете сопоставлять Azure Monitor Log Analytics рабочие области или приложения Application Insights в качестве кластерных прокси-серверов. Затем можно выполнить запрос к кластеру прокси-сервера с помощью средств обозреватель данных Azure и обратиться к нему в межкластерном запросе. В этой статье показано, как подключиться к кластеру прокси-сервера, добавить прокси-кластер в Azure обозреватель данных Web UI и выполнить запросы к приложениям ии или LA рабочей области из Azure обозреватель данных.
 
-Поток прокси-сервера Azure обозреватель данных: 
+Поток прокси-сервера Azure обозреватель данных:
 
-![Поток прокси-сервера ADX](media/adx-proxy/adx-proxy-flow.png)
+![Поток прокси-сервера ADX](media/adx-proxy/adx-proxy-workflow.png)
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные условия
 
 > [!NOTE]
 > Прокси-сервер ADX находится в режиме предварительного просмотра. [Подключитесь к прокси-](#connect-to-the-proxy) серверу, чтобы включить функцию прокси-сервера ADX для кластеров. Свяжитесь с командой [адкспрокси](mailto:adxproxy@microsoft.com) с любыми вопросами.
@@ -102,13 +102,13 @@ union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 
 Если ресурс обозреватель данных Azure находится в клиенте "A", а LA Рабочая область находится в клиенте "B", используйте один из следующих двух методов:
 
-1. Azure обозреватель данных позволяет добавлять роли для участников в разные клиенты. Добавьте свой идентификатор пользователя в клиенте "B" в качестве полномочного пользователя в кластере Azure обозреватель данных. Проверьте свойство *"екстерналтрустедтенант"* в кластере Azure обозреватель данных содержит клиент "B". Выполнение перекрестного запроса полностью в клиенте "B". 
+1. Azure обозреватель данных позволяет добавлять роли для участников в разные клиенты. Добавьте свой идентификатор пользователя в клиенте "B" в качестве полномочного пользователя в кластере Azure обозреватель данных. Проверьте свойство *["трустедекстерналтенант"](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* в кластере Azure обозреватель данных содержит клиент "B". Выполнение перекрестного запроса полностью в клиенте "B".
 
 2. Используйте [лигхсаусе](https://docs.microsoft.com/azure/lighthouse/) для проецирования ресурса Azure Monitor в клиент "A".
 
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Подключение к кластерам обозреватель данных Azure из разных клиентов
 
-Kusto Explorer автоматически подписывает вас в клиент, к которому изначально принадлежит учетная запись пользователя. Чтобы получить доступ к ресурсам в других клиентах с одной и той же учетной записью пользователя, `tenantId` необходимо явно указать в строке подключения: `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=\*\*TenantId**`
+Kusto Explorer автоматически подписывает вас в клиент, к которому изначально принадлежит учетная запись пользователя. Чтобы получить доступ к ресурсам в других клиентах с одной и той же учетной записью пользователя, `tenantId` необходимо явно указать в строке подключения: `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=` **TenantId**
 
 ## <a name="function-supportability"></a>Поддержка функций
 

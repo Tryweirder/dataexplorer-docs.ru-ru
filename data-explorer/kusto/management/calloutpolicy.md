@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/01/2020
-ms.openlocfilehash: 809088f35567f85444755d89ab30e02fad46abaf
-ms.sourcegitcommit: 313a91d2a34383b5a6e39add6c8b7fabb4f8d39a
+ms.openlocfilehash: 6e3bb943347e4ea794733451fcf65674e5e23ca7
+ms.sourcegitcommit: 041272af91ebe53a5d573e9902594b09991aedf0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90680683"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91452669"
 ---
 # <a name="callout-policy"></a>Политика внешних вызовов
 
@@ -24,13 +24,12 @@ ms.locfileid: "90680683"
 * `kusto` — Управляет обозреватель данных запросов между кластерами в Azure.
 * `sql` — Управляет [подключаемым модулем SQL](../query/sqlrequestplugin.md).
 * `cosmosdb` — Управляет [подключаемым модулем CosmosDB](../query/cosmosdb-plugin.md).
-* `webapi` — Управляет другими внешними веб-вызовами.
 * `sandbox_artifacts`— Управляет изолированными подключаемыми модулями ([Python](../query/pythonplugin.md)  |  [R](../query/rplugin.md)).
 * `external_data` — Управляет доступом к внешним данным с помощью [внешних таблиц](../query/schema-entities/externaltables.md) или оператора [externaldata](../query/externaldata-operator.md) .
 
 Политика выноски состоит из следующих элементов.
 
-* **Каллауттипе** — определяет тип выноски и может иметь значение `kusto` , `sql` или `webapi`
+* **Каллауттипе** — определяет тип вызова и может иметь значение `kusto` или `sql` .
 * **Каллаутурирежекс** — Указывает разрешенное регулярное выражение для домена выноски
 * **Канкалл** — указывает, разрешены ли в выноске внешние вызовы.
 
@@ -63,13 +62,13 @@ ms.locfileid: "90680683"
 **Изменение политик выноски**
 
 ```kusto
-.alter cluster policy callout @'[{"CalloutType": "webapi","CalloutUriRegex": "en\\.wikipedia\\.org","CanCall": true}]'
+.alter cluster policy callout @'[{"CalloutType": "sql","CalloutUriRegex": "sqlname.database.azure.com","CanCall": true}]'
 ```
 
 **Добавление набора разрешенных выносок**
 
 ```kusto
-.alter-merge cluster policy callout @'[{"CalloutType": "webapi","CalloutUriRegex": "en\\.wikipedia\\.org","CanCall": true}, {"CalloutType": "webapi","CalloutUriRegex": "bing\\.com","CanCall": true}]'
+.alter-merge cluster policy callout @'[{"CalloutType": "sql","CalloutUriRegex": "sqlname.database.azure.com","CanCall": true}]'
 ```
 
 **Удалить все неизменяемые политики выноски**

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: 319a71e5db7019ed28001f44a1d4a4bcb21984e9
-ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
+ms.openlocfilehash: 9b080badd2dc1015319e9b6d44c4c477061f92f9
+ms.sourcegitcommit: 041272af91ebe53a5d573e9902594b09991aedf0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85967253"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91452720"
 ---
 # <a name="cache-policy-command"></a>команда политики кэширования
 
@@ -21,15 +21,16 @@ ms.locfileid: "85967253"
 
 ## <a name="displaying-the-cache-policy"></a>Отображение политики кэширования
 
-Политику можно задать для данных или таблицы и отобразить с помощью одной из следующих команд:
+Политику можно задать для базы данных, таблицы или [материализованных представлений](materialized-views/materialized-view-overview.md)и отобразить с помощью одной из следующих команд:
 
-* `.show` `database` *имя_базы_данных* `policy` `caching`
-* `.show``table` *Имя_базы_данных*, `.` *TableName* TableName `policy``caching`
+* `.show``database` *DatabaseName* DatabaseName `policy``caching`
+* `.show``table` *TableName* TableName `policy``caching`
+* `.show``materialized-view` *MaterializedViewName* Материализедвиевнаме `policy``caching`
 
 ## <a name="altering-the-cache-policy"></a>Изменение политики кэширования
 
 ```kusto
-.alter <entity_type> <database_or_table_name> policy caching hot = <timespan>
+.alter <entity_type> <database_or_table_or_materialized-view_name> policy caching hot = <timespan>
 ```
 
 Изменение политики кэширования для нескольких таблиц (в одном контексте базы данных):
@@ -51,11 +52,11 @@ ms.locfileid: "85967253"
 }
 ```
 
-* `entity_type`: таблица, база данных или кластер
-* `database_or_table`. Если сущность является таблицей или базой данных, ее имя должно быть указано в команде следующим образом: 
+* `entity_type` : таблица, база данных или кластер
+* `database_or_table_or_materialized-view`. Если сущность является таблицей или базой данных, ее имя должно быть указано в команде следующим образом: 
   - `database_name` или 
   - `database_name.table_name` или 
-  - `table_name`(при выполнении в контексте конкретной базы данных)
+  - `table_name` (при выполнении в контексте конкретной базы данных)
 
 ## <a name="deleting-the-cache-policy"></a>Удаление политики кэша
 
@@ -75,6 +76,7 @@ ms.locfileid: "85967253"
 
 ```kusto
 .alter table MyTable policy caching hot = 3d
+.alter materialized-view MyMaterializedView policy caching hot = 3d
 ```
 
 Установка политики для нескольких таблиц (в контексте базы данных) в 3 дня:
@@ -87,6 +89,12 @@ ms.locfileid: "85967253"
 
 ```kusto
 .delete table MyTable policy caching
+```
+
+Удаление политики, заданной для материализованных представлений:
+
+```kusto
+.delete materialized-view MyMaterializedView policy caching
 ```
 
 Удаление политики, заданной для базы данных:
