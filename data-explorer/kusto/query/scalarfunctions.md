@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/27/2020
-ms.openlocfilehash: 652b08afc15d1405d6b7f17523088ed0ec5bef61
-ms.sourcegitcommit: 31ebf208d6bfd901f825d048ea69c9bb3d8b87af
+ms.openlocfilehash: eb974793875fd5f797fe1a1b801598abdc60e354
+ms.sourcegitcommit: 454b9bf6449449fc3382ff5794894502f920795a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88501626"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91517622"
 ---
 # <a name="scalar-function-types"></a>Типы скалярных функций
 
@@ -102,7 +102,7 @@ ms.locfileid: "88501626"
 
 |Имя функции     |Описание                                          |
 |-------------------------|--------------------------------------------------------|
-|[next()](nextfunction.md)|Для сериализованного набора строк возвращает значение указанного столбца из более поздней строки в соответствии со смещением.|
+|[Next ()](nextfunction.md)|Для сериализованного набора строк возвращает значение указанного столбца из более поздней строки в соответствии со смещением.|
 |[prev()](prevfunction.md)|Для сериализованного набора строк возвращает значение указанного столбца из предыдущей строки в соответствии со смещением.|
 |[row_cumsum()](rowcumsumfunction.md)|Вычисляет совокупную сумму столбца.|
 |[row_number()](rownumberfunction.md)|Возвращает число строк в сериализованном наборе строк — последовательные числа, начинающиеся с заданного индекса или с 1 по умолчанию.|
@@ -117,7 +117,7 @@ ms.locfileid: "88501626"
 
 |Имя функции     |Описание                                          |
 |-------------------------|--------------------------------------------------------|
-|[abs()](abs-function.md)|Вычисляет абсолютное значение входных данных.|
+|[ABS ()](abs-function.md)|Вычисляет абсолютное значение входных данных.|
 |[acos()](acosfunction.md)|Возвращает угол, косинус которого равен указанному числу (обратная операция cos ()).|
 |[asin()](asinfunction.md)|Возвращает угол, синус которого равен указанному числу (обратная операция sin ()).|
 |[atan()](atanfunction.md)|Возвращает угол, тангенс которого равен указанному числу (обратная операция Tan ()).|
@@ -144,7 +144,7 @@ ms.locfileid: "88501626"
 |[pow()](powfunction.md)|Возвращает результат возведения в степень.|
 |[radians()](radiansfunction.md)|Преобразует значение угла в градусах в значение в радианах, используя формулу в радианах = (PI/180) * угол в градусах.|
 |[rand()](randfunction.md)|Возвращает случайное число.|
-|[range()](rangefunction.md)|Создает динамический массив, содержащий ряд одинаковых значений, равных пробелам.|
+|[Range ()](rangefunction.md)|Создает динамический массив, содержащий ряд одинаковых значений, равных пробелам.|
 |[round()](roundfunction.md)|Возвращает округленный источник с заданной точностью.|
 |[sign()](signfunction.md)|Знак числового выражения.|
 |[sin()](sinfunction.md)|Возвращает функцию синуса.|
@@ -213,13 +213,13 @@ ms.locfileid: "88501626"
 |[series_fill_const()](series-fill-constfunction.md)|Заменяет отсутствующие значения в ряде с указанным постоянным значением.|
 |[series_fill_forward()](series-fill-forwardfunction.md)|Выполняет прямую интерполяцию заполнения отсутствующих значений в ряде.|
 |[series_fill_linear()](series-fill-linearfunction.md)|Выполняет линейную интерполяцию отсутствующих значений в ряде.|
-|[series_fft ()](series-fft-function.md)|Применяет быстрое преобразование Фурье (ФФТ) к ряду.|
+|[series_fft()](series-fft-function.md)|Применяет быстрое преобразование Фурье (ФФТ) к ряду.|
 |[series_fir()](series-firfunction.md)|Применяет к ряду фильтр конечных ответов с ограничением по некоторому импульсу.|
 |[series_fit_2lines()](series-fit-2linesfunction.md)|Применяет к ряду линейную регрессию с двумя сегментами, возвращая несколько столбцов.|
 |[series_fit_2lines_dynamic()](series-fit-2lines-dynamicfunction.md)|Применяет к ряду линейную регрессию с двумя сегментами, возвращая динамический объект.|
 |[series_fit_line()](series-fit-linefunction.md)|Применяет линейную регрессию к ряду, возвращая несколько столбцов.|
 |[series_fit_line_dynamic()](series-fit-line-dynamicfunction.md)|Применяет линейную регрессию к ряду, возвращая динамический объект.|
-|[series_ifft ()](series-ifft-function.md)|Применяет обратное быстрое преобразование Фурье (ИФФТ) к ряду.|
+|[series_ifft()](series-ifft-function.md)|Применяет обратное быстрое преобразование Фурье (ИФФТ) к ряду.|
 |[series_iir()](series-iirfunction.md)|Применяет фильтр бесконечного ответа для ряда.|
 |[series_outliers()](series-outliersfunction.md)|Оценки аномалий в ряде.|
 |[series_pearson_correlation()](series-pearson-correlationfunction.md)|Вычисляет коэффициент корреляции Пирсона для двух рядов.|
@@ -236,7 +236,7 @@ ms.locfileid: "88501626"
 |[base64_encode_tostring()](base64_encode_tostringfunction.md)|Кодирует строку как строку Base64.|
 |[base64_decode_tostring()](base64_decode_tostringfunction.md)|Декодирует строку Base64 в строку UTF-8.|
 |[base64_decode_toarray()](base64_decode_toarrayfunction.md)|Декодирует строку Base64 в массив длинных значений.|
-|[countof()](cotfunction.md)|Подсчитывает вхождения подстроки в строку. Обычные совпадения строк могут перекрываться; Сравнение регулярных выражений не производится.|
+|[countof()](countoffunction.md)|Подсчитывает вхождения подстроки в строку. Обычные совпадения строк могут перекрываться; Сравнение регулярных выражений не производится.|
 |[extract()](extractfunction.md)|Определяет соответствие регулярного выражения из текстовой строки.|
 |[extract_all()](extractallfunction.md)|Возвращает все совпадения для регулярного выражения из текстовой строки.|
 |[extractjson()](extractjsonfunction.md)|Возвращает указанный элемент текста JSON с помощью выражения пути.|
