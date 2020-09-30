@@ -8,12 +8,12 @@ ms.reviewer: yifats
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/30/2020
-ms.openlocfilehash: 77c86708a20349f5864bd10fa298719dce0fbab9
-ms.sourcegitcommit: 041272af91ebe53a5d573e9902594b09991aedf0
+ms.openlocfilehash: f19104111d8db615c82eff2e399fb4857f27c841
+ms.sourcegitcommit: 463ee13337ed6d6b4f21eaf93cf58885d04bccaa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91452805"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572166"
 ---
 # <a name="materialized-views-preview"></a>Материализованные представления (Предварительная версия)
 
@@ -47,6 +47,8 @@ ms.locfileid: "91452805"
 * Отмените дублирование записей в таблице с помощью [любой () (статистической функции)](../../query/any-aggfunction.md).
 * Уменьшите разрешение данных, вычисляя периодические статистические данные по необработанным данным. Используйте различные [статистические функции](materialized-view-create.md#supported-aggregation-functions) по периоду времени.
     * Например, используйте `T | summarize dcount(User) by bin(Timestamp, 1d)` для поддержания актуального моментального снимка уникальных пользователей в день.
+
+Примеры всех вариантов использования см. в разделе [Материализованный Просмотр команды CREATE](materialized-view-create.md#examples).
 
 ## <a name="how-materialized-views-work"></a>Принцип работы материализованных представлений
 
