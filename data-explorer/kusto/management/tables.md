@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/27/2020
-ms.openlocfilehash: 4de0e749ad47b8f2e3f2c0f26d5d18466efaff97
-ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
+ms.openlocfilehash: 4678cd23e8c92f0b53b26be965f614c009c9f0bd
+ms.sourcegitcommit: 1618cbad18f92cf0cda85cb79a5cc1aa789a2db7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85967304"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91615008"
 ---
 # <a name="tables-management"></a>Управление таблицами
 
@@ -27,7 +27,8 @@ ms.locfileid: "85967304"
 | [`.create ingestion mapping`](create-ingestion-mapping-command.md), [`.show ingestion mappings`](show-ingestion-mapping-command.md), [`.alter ingestion mapping`](alter-ingestion-mapping-command.md), [`.drop ingestion mapping`](drop-ingestion-mapping-command.md)                                                                    | Управление сопоставлением приема        |
 | [`.create tables`](create-tables-command.md), [`.create table`](create-table-command.md), [`.alter table`](alter-table-command.md), [`.alter-merge table`](alter-table-command.md), [`.drop tables`](drop-table-command.md), [`.drop table`](drop-table-command.md), [`.undo drop table`](undo-drop-table-command.md), [`.rename table`](rename-table-command.md) | Создание, изменение и удаление таблиц       |
 | [`.show tables`](show-tables-command.md) [`.show table details`](show-table-details-command.md)[`.show table schema`](show-table-schema-command.md)                                                                                      | Перечисление таблиц в базе данных  |
-| `.ingest`, `.set`, `.append`, `.set-or-append` (Дополнительные сведения см. в разделе [прием данных](../../ingest-data-overview.md#kusto-query-language-ingest-control-commands)).)                                                                                                                                                                                      | Прием данных в таблицу     |
+| `.ingest`, `.set` , `.append` , `.set-or-append` (Дополнительные сведения см. в разделе прием [данных](../../ingest-data-overview.md#kusto-query-language-ingest-control-commands) ).                                                                                                                                                                                      | Прием данных в таблицу     |
+| [`.clear table data`](clear-table-data-command.md)                            | Удаляет все данные таблицы  |
 
 ## <a name="crud-naming-conventions-for-tables"></a>Соглашения об именовании CRUD для таблиц 
 (См. полные сведения в разделах, связанных с таблицей выше.)
