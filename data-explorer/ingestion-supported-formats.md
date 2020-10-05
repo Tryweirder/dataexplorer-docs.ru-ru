@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 89ee29e70c71c29afb65ee81fc4ce8e498faee33
-ms.sourcegitcommit: f2f9cc0477938da87e0c2771c99d983ba8158789
+ms.openlocfilehash: 4f7e61755b12c84fc49373a12edc0b507aee9bf4
+ms.sourcegitcommit: 2764e739b4ad51398f4f0d3a9742d7168c4f5fd7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89502642"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712057"
 ---
 # <a name="data-formats-supported-by-azure-data-explorer-for-ingestion"></a>Форматы данных, поддерживаемые обозреватель данных Azure для приема
 
@@ -20,8 +20,8 @@ ms.locfileid: "89502642"
 
 |Формат   |Расширение   |Описание|
 |---------|------------|-----------|
-|Avro     |`.avro`     |[Файл контейнера Avro](https://avro.apache.org/docs/current/). Поддерживаются следующие коды: `null`, `deflate` (`snappy` сейчас не поддерживается).|
-|апачеавро|`.avro`    |Экспериментальная собственная реализация для формата [Avro](https://avro.apache.org/docs/current/) с поддержкой [логических типов](https://avro.apache.org/docs/current/spec.html#Logical+Types) и `snappy` кодеков сжатия.|
+|апачеавро|`.avro`    |Формат [Avro](https://avro.apache.org/docs/current/) с поддержкой [логических типов](https://avro.apache.org/docs/current/spec.html#Logical+Types) и `snappy` кодеков сжатия.|
+|Avro     |`.avro`     |Устаревшая реализация для [файла контейнера Avro](https://avro.apache.org/docs/current/). Поддерживаются следующие коды: `null` , `deflate` (для `snappy` использования `apacheavro` формата файла).|
 |CSV      |`.csv`      |Текстовый файл, содержащий значения с разделителями-запятыми (`,`). См. раздел [RFC 4180: _общий формат и тип MIME для файлов с разделителями-запятыми (CSV)_](https://www.ietf.org/rfc/rfc4180.txt).|
 |JSON     |`.json`     |Текстовый файл с объектами JSON, разделенными символами `\n` или `\r\n`. См. описание [JSON Lines (JSONL)](http://jsonlines.org/).|
 |Многоjson|`.multijson`|Текстовый файл с массивом JSON, содержащим контейнеры свойств (каждый из которых представляет запись), или любым количеством контейнеров свойств, разделенных пробелами (`\n` или `\r\n`). Каждый контейнер свойств может распределяться по нескольким строкам Этот формат предпочтительнее `JSON` , если только данные не являются контейнерами, не являющимися свойствами.|
@@ -40,14 +40,14 @@ ms.locfileid: "89502642"
 
 Большие двоичные объекты и файлы можно сжимать с помощью любого из следующих алгоритмов сжатия:
 
-|сжатие;|Расширение|
+|Сжатие|Расширение|
 |-----------|---------|
 |GZip       |.gz      |
 |Почтовый индекс        |.zip     |
 
 Укажите сжатие, добавив расширение в имя большого двоичного объекта или файла.
 
-Например:
+Пример:
 * `MyData.csv.zip` Указывает большой двоичный объект или файл в формате CSV, сжатый с помощью ZIP (Archive или отдельный файл)
 * `MyData.json.gz` Указывает большой двоичный объект или файл в формате JSON, сжатый с помощью GZip.
 
