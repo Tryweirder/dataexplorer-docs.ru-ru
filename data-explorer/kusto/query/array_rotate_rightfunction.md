@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/11/2019
-ms.openlocfilehash: 7d6e9cfac03e0169bd0bfae12a01ac685d265736
-ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
+ms.openlocfilehash: 267e2b4d5769efee87dd90b9a3265310998fcbd9
+ms.sourcegitcommit: 2764e739b4ad51398f4f0d3a9742d7168c4f5fd7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91102778"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712108"
 ---
 # <a name="array_rotate_right"></a>array_rotate_right()
 
-`array_rotate_right()` поворачивает значения внутри массива вправо.
+Поворачивает значения внутри `dynamic` массива вправо.
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -28,7 +28,7 @@ ms.locfileid: "91102778"
 * *arr*: входной массив для разбиения должен быть динамическим массивом.
 * *rotate_count*: целое число, указывающее количество позиций, на которое элементы массива будут повернуты вправо. Если значение отрицательное, элементы будут повернуты влево.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращает
 
 Динамический массив, содержащий тот же объем элементов, что и в исходном массиве, где каждый элемент был повернут в соответствии с *rotate_count*.
 

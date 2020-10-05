@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/11/2019
-ms.openlocfilehash: 883aa2e22c02584de34c705b89a979b86e10475e
-ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
+ms.openlocfilehash: 25498fa86803914c7445373e96167ca000cd4737
+ms.sourcegitcommit: 2764e739b4ad51398f4f0d3a9742d7168c4f5fd7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91102798"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712074"
 ---
 # <a name="array_shift_left"></a>array_shift_left()
 
-`array_shift_left()` Сдвигает значения внутри массива влево.
+Сдвигает значения внутри `dynamic` массива влево.
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -29,7 +29,7 @@ ms.locfileid: "91102798"
 * *`shift_count`*: Целое число, указывающее количество позиций, на которое элементы массива будут смещены влево. Если значение отрицательное, элементы будут перемещены вправо.
 * *`fill_value`*: Скалярное значение, используемое для вставки элементов вместо тех, которые были сдвинуты и удалены. Значение по умолчанию: NULL или пустая строка (в зависимости от *`arr`* типа).
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращает
 
 Динамический массив, содержащий то же количество элементов, что и в исходном массиве. Каждый элемент был смещен в соответствии с *shift_count*. Новые элементы, добавляемые вместо удаленных элементов, будут иметь значение *fill_value*.
 
