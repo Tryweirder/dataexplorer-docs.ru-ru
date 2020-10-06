@@ -7,19 +7,25 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/08/2020
-ms.openlocfilehash: 7be785a7a3a0abe0c1f6483e016484ee0124f29b
-ms.sourcegitcommit: 97404e9ed4a28cd497d2acbde07d00149836d026
+ms.openlocfilehash: eff9a5cd8ed2d9ed7e518be9aade9ecf2aded7bf
+ms.sourcegitcommit: d0f8d71261f8f01e7676abc77283f87fc450c7b1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90832609"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91765464"
 ---
 # <a name="series_fit_poly_fl"></a>series_fit_poly_fl()
 
-Функция `series_fit_poly_fl()` применяет регрессионную регрессию для ряда. Он принимает таблицу, содержащую несколько рядов (динамический числовой массив), и создает для каждого ряда степень полинома с высоким порядком, который лучше подходит для использования [регрессии с уровнем полинома](https://en.wikipedia.org/wiki/Polynomial_regression). Эта функция возвращает как коэффициенты полинома, так и интерполяцию на основе диапазона ряда.
+Функция `series_fit_poly_fl()` применяет регрессионную регрессию для ряда. Эта функция принимает таблицу, содержащую несколько рядов (динамические числовые массивы), и формирует наилучшее значение степени соответствия высокого порядка для каждого ряда, используя [регрессию полинома](https://en.wikipedia.org/wiki/Polynomial_regression). Эта функция возвращает как коэффициенты полинома, так и интерполяцию на основе диапазона ряда.
 
 > [!NOTE]
-> `series_fit_poly_fl()` — Это [определяемая пользователем функция (UDF)](../query/functions/user-defined-functions.md). Эта функция содержит встроенный язык Python и требует [включения подключаемого модуля Python ()](../query/pythonplugin.md#enable-the-plugin) в кластере. Дополнительные сведения см. в разделе [Использование](#usage). Для линейной регрессии для ряда с четными интервалами, созданной [оператором make-Series](../query/make-seriesoperator.md), используется собственная функция [series_fit_line ()](../query/series-fit-linefunction.md).
+> Используйте собственную функцию [series_fit_poly ()](../query/series-fit-poly-function.md). Приведенная ниже функция предназначена только для справки.
+
+
+> [!NOTE]
+> * `series_fit_poly_fl()` — Это [определяемая пользователем функция (UDF)](../query/functions/user-defined-functions.md).
+> * Эта функция содержит встроенный язык Python и требует [включения подключаемого модуля Python ()](../query/pythonplugin.md#enable-the-plugin) в кластере. Дополнительные сведения см. в разделе [Использование](#usage).
+> * Для линейной регрессии для ряда с четными интервалами, созданной [оператором make-Series](../query/make-seriesoperator.md), используется собственная функция [series_fit_line ()](../query/series-fit-linefunction.md).
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -31,7 +37,7 @@ ms.locfileid: "90832609"
 * *y_fit_series*: имя столбца, в котором хранятся наиболее подходящие ряды.
 * *fit_coeff*: имя столбца, в котором хранятся наиболее подходящие коэффициенты полинома.
 * *степень*: требуемый порядок полинома для размещения. Например, 1 для линейной регрессии, 2 для квадратичной регрессии и т. д.
-* *x_series*: имя столбца, содержащего [независимую переменную](https://en.wikipedia.org/wiki/Dependent_and_independent_variables), то есть ось x или Time. Этот параметр является необязательным и требуется только для [неравномерного пробельного ряда](https://en.wikipedia.org/wiki/Unevenly_spaced_time_series). Значение по умолчанию — пустая строка, так как x является избыточным для регрессии для ряда с четными пробелами.
+* *x_series*: имя столбца, содержащего [независимую переменную](https://en.wikipedia.org/wiki/Dependent_and_independent_variables), то есть ось x или Time. Этот параметр является необязательным и требуется только для [неравномерного пробельного ряда](https://en.wikipedia.org/wiki/Unevenly_spaced_time_series). Значение по умолчанию — пустая строка, так как x является избыточным для регрессии равномерно пробельных рядов.
 * *x_istime*: Этот логический параметр является необязательным. Этот параметр необходим только в том случае, если указан аргумент *x_series* и является вектором даты и времени.
 
 ## <a name="usage"></a>Использование
@@ -81,7 +87,7 @@ let series_fit_poly_fl=(tbl:(*), y_series:string, y_fit_series:string, fit_coeff
      | evaluate python(typeof(*), code, kwargs)
 };
 //
-// Fit 5th order polynomial to a regular (evenly spaced) time series, created with make-series
+// Fit fifth order polynomial to a regular (evenly spaced) time series, created with make-series
 //
 let max_t = datetime(2016-09-03);
 demo_make_series1
@@ -143,7 +149,7 @@ series_fit_poly_fl(tbl:(*), y_series:string, y_fit_series:string, fit_coeff:stri
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 //
-// Fit 5th order polynomial to a regular (evenly spaced) time series, created with make-series
+// Fit fifth order polynomial to a regular (evenly spaced) time series, created with make-series
 //
 let max_t = datetime(2016-09-03);
 demo_make_series1
@@ -155,7 +161,7 @@ demo_make_series1
 
 ---
 
-:::image type="content" source="images/series-fit-poly-fl/usage-example.png" alt-text="Диаграмма, показывающая степень полинома 5-го порядка в соответствии с регулярным временным набором" border="false":::
+:::image type="content" source="images/series-fit-poly-fl/usage-example.png" alt-text="Диаграмма, показывающая пятое значение полинома в соответствии с регулярным временным набором" border="false":::
 
 ## <a name="additional-examples"></a>Дополнительные примеры
 
@@ -165,9 +171,6 @@ demo_make_series1
     
     <!-- csl: https://help.kusto.windows.net:443/Samples -->
     ```kusto
-    //
-    //  Test irregular (unevenly spaced) time series
-    //
     let max_t = datetime(2016-09-03);
     demo_make_series1
     | where TimeStamp between ((max_t-2d)..max_t)
@@ -180,20 +183,16 @@ demo_make_series1
     | render timechart with(ycolumns=num, fnum)
     ```
     
-    :::image type="content" source="images/series-fit-poly-fl/irregular-time-series.png" alt-text="Диаграмма, показывающая степень полинома в 8 раз, в соответствии с неправильным временным набором" border="false":::
+    :::image type="content" source="images/series-fit-poly-fl/irregular-time-series.png" alt-text="Диаграмма, показывающая пятое значение полинома в соответствии с регулярным временным набором" border="false":::
 
-1. уровень полинома 5 заказов с шумом на оси x & y
+1. Пятый порядок полинома с шумом по осям x & y
 
     <!-- csl: https://help.kusto.windows.net:443/Samples -->
     ```kusto
-    //
-    // 5th order polynomial with noise on x & y axes
-    //
     range x from 1 to 200 step 1
     | project x = rand()*5 - 2.3
     | extend y = pow(x, 5)-8*pow(x, 3)+10*x+6
     | extend y = y + (rand() - 0.5)*0.5*y
-    | order by x asc 
     | summarize x=make_list(x), y=make_list(y)
     | extend y_fit = dynamic(null), coeff=dynamic(null)
     | invoke series_fit_poly_fl('y', 'y_fit', 'coeff', 5, 'x')
@@ -201,6 +200,6 @@ demo_make_series1
     | render linechart
     ```
         
-    :::image type="content" source="images/series-fit-poly-fl/fifth-order-noise.png" alt-text="Диаграмма соответствия уровня полинома 5 заказов с шумом на оси x & y":::
+    :::image type="content" source="images/series-fit-poly-fl/fifth-order-noise.png" alt-text="Диаграмма, показывающая пятое значение полинома в соответствии с регулярным временным набором":::
        
-    :::image type="content" source="images/series-fit-poly-fl/fifth-order-noise-table.png" alt-text="Коэффициент соответствия полиному 5 порядка с шумом" border="false":::
+    :::image type="content" source="images/series-fit-poly-fl/fifth-order-noise-table.png" alt-text="Диаграмма, показывающая пятое значение полинома в соответствии с регулярным временным набором" border="false":::

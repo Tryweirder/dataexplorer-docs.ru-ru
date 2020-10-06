@@ -8,24 +8,24 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 90942906908f58f321e5a81ec9ca8419fe9a2ec5
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 087ff2fc38f3b72e4abdbb86ce4b7ac98a5569e6
+ms.sourcegitcommit: d0f8d71261f8f01e7676abc77283f87fc450c7b1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348927"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91765370"
 ---
 # <a name="case"></a>case()
 
 Вычисляет список предикатов и возвращает первое результирующее выражение, предикат которого удовлетворен.
 
 Если ни один из предикатов `true` не возвращает, возвращается результат последнего выражения ( `else` ).
-Все нечетные аргументы (число начинается с 1) должны быть выражениями, результатом вычисления которых является `boolean` значение.
+Все нечетные аргументы (число начинается с 1) должны быть выражениями, результатом вычисления которых является  `boolean` значение.
 Все даже аргументы ( `then` s) и последний аргумент ( `else` ) должны иметь один и тот же тип.
 
 ## <a name="syntax"></a>Синтаксис
 
-`case(`*predicate_1* `,` *then_1*, *predicate_2* `,` *then_2*, *predicate_3* `,` *then_3*, *else*`)`
+`case(`*predicate_1*, *then_1*, *predicate_2*, *then_2*, *predicate_3*, *then_3*, *else*`)`
 
 ## <a name="arguments"></a>Аргументы
 
@@ -33,11 +33,11 @@ ms.locfileid: "87348927"
 * *then_i*: выражение, которое вычисляется, и его значение возвращается из функции, если *predicate_i* является первым предикатом, результатом которого является `true` .
 * *else*: выражение, которое вычисляется, и его значение возвращается из функции, если ни один из *predicate_i* не имеет значение `true` .
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Значение первого *then_i* , для которого *predicate_i* вычисляется `true` , или значение *else* , если ни один из предикатов не удовлетворен.
 
-## <a name="example"></a>Пример
+## <a name="example"></a>Например, .
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
