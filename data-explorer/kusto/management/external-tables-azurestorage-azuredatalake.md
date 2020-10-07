@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 1db42577a0d4d10da732b54b0a5032ab2be11b69
-ms.sourcegitcommit: 91e7d49a1046575bbc63a4f25724656ebfc070db
+ms.openlocfilehash: c10e6502c4e18a5c30d971c4814c2270a0b27ff1
+ms.sourcegitcommit: 830837607f344f1ce1f146f946a41e45bfebcb22
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89151167"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91806688"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
 
@@ -279,6 +279,8 @@ dataformat=parquet
 | Выходной параметр | Тип   | Описание                       |
 |------------------|--------|-----------------------------------|
 | URI              | строка | URI внешнего файла данных хранилища |
+| Размер             | long   | Длина файла в байтах              |
+| Секция        | Динамический | Динамический объект, описывающий файловые секции для секционированной внешней таблицы |
 
 > [!TIP]
 > Итерация по всем файлам, на которые ссылается внешняя таблица, может быть довольно дорогостоящей в зависимости от числа файлов. Обязательно используйте `limit` параметр, если вы просто хотите увидеть некоторые примеры URI.
@@ -291,9 +293,19 @@ dataformat=parquet
 
 **Выходные данные:**
 
-| URI                                                                     |
-|-------------------------------------------------------------------------|
-| `https://storageaccount.blob.core.windows.net/container1/folder/file.csv` |
+| URI                                                                     | Размер | Секция |
+|-------------------------------------------------------------------------| ---- | --------- |
+| `https://storageaccount.blob.core.windows.net/container1/folder/file.csv` | 10743 | `{}`   |
+
+
+Для секционированной таблицы `Partition` столбец будет содержать извлеченные значения секции:
+
+**Выходные данные:**
+
+| URI                                                                     | Размер | Секция |
+|-------------------------------------------------------------------------| ---- | --------- |
+| `https://storageaccount.blob.core.windows.net/container1/customer=john.doe/dt=20200101/file.csv` | 10743 | `{"Customer": "john.doe", "Date": "2020-01-01T00:00:00.0000000Z"}` |
+
 
 ## <a name="create-external-table-mapping"></a>. Создание сопоставления внешней таблицы
 
