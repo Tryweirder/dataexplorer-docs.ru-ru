@@ -7,12 +7,12 @@ ms.reviewer: prvavill
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 03/31/2020
-ms.openlocfilehash: 5de30b4e6eb2ac9d01314482b693f6643075ca4a
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 630b03fc0e89005f1031aba4cbd1a86d803ff275
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88872749"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942035"
 ---
 # <a name="monitor-azure-data-explorer-using-resource-health-preview"></a>Мониторинг обозреватель данных Azure с помощью Работоспособность ресурсов (Предварительная версия)
 
@@ -40,13 +40,13 @@ ms.locfileid: "88872749"
 
 Состояние работоспособности **доступно** указывает, что ресурс Azure обозреватель данных работоспособен и не имеет проблем.
 
-![Доступно](media/monitor-with-resource-health/available.png)
+:::image type="content" source="media/monitor-with-resource-health/available.png" alt-text="Снимок экрана со страницей &quot;работоспособность ресурсов&quot; для ресурса Azure обозреватель данных. Состояние отображается как доступно и выделено." border="false":::
 
 ### <a name="unavailable"></a>Недоступно
 
 Состояние работоспособности " **недоступно** " указывает на текущую проблему с ресурсом Azure обозреватель данных, которая приводит к недоступности запросов и приема. Например, узлы в ресурсе Azure обозреватель данных могут быть неожиданно перезагружены. Если ресурс Azure обозреватель данных находится в этом состоянии в течение продолжительного периода времени, обратитесь в [службу поддержки]().
 
-![Недоступно](media/monitor-with-resource-health/unavailable.png)
+:::image type="content" source="media/monitor-with-resource-health/unavailable.png" alt-text="Снимок экрана со страницей &quot;работоспособность ресурсов&quot; для ресурса Azure обозреватель данных. Состояние отображается как доступно и выделено." border="false":::
 
 > [!TIP]
 > Чтобы найти источник проблемы, можно воспользоваться [командами сведений о системе](kusto/management/systeminfo.md) .
@@ -58,15 +58,15 @@ ms.locfileid: "88872749"
 > [!TIP]
 > Служба работоспособности ресурсов кластера Azure обозреватель данных будет **неизвестной** , если она находится в остановленном состоянии.
 
-![Неизвестно](media/monitor-with-resource-health/unknown.png)
+:::image type="content" source="media/monitor-with-resource-health/unknown.png" alt-text="Снимок экрана со страницей &quot;работоспособность ресурсов&quot; для ресурса Azure обозреватель данных. Состояние отображается как доступно и выделено." border="false":::
 
 ## <a name="historical-information"></a>Накопленные сведения
 
 В области **Работоспособность ресурсов** > **Журнал работоспособности**можно получить до четырех недель со сведениями о состоянии работоспособности ресурсов. Щелкните стрелку, чтобы получить дополнительные сведения о проблемах работоспособности, о которых сообщает эта панель. 
 
-![Журнал](media/monitor-with-resource-health/healthhistory.png)
+![История](media/monitor-with-resource-health/healthhistory.png)
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Следующие шаги
 
 * [Настройка оповещений Работоспособность ресурсов](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)
 * [Учебник. прием и запрос данных мониторинга в Azure обозреватель данных](ingest-data-no-code.md)

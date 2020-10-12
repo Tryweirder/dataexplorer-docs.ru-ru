@@ -1,6 +1,6 @@
 ---
-title: Рефакторинг кода Kusto Explorer - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается рефакторинг кода Kusto Explorer в Azure Data Explorer.
+title: Рефакторинг кода обозревателя Kusto — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается рефакторинг кода Kusto Explorer в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,33 +8,33 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/05/2019
-ms.openlocfilehash: 0a89cf9c648fc4811d56c22012cdb25d5505eb4c
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 959cf8d25b20d459b48a0c8f1968541b50917a9d
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81523993"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942239"
 ---
-# <a name="kusto-explorer-code-refactoring"></a>Рефакторинг кода Kusto Explorer
+# <a name="kusto-explorer-code-refactoring"></a>Рефакторинг кода обозревателя Kusto
 
-Как и в других IDEs, Kusto.Explorer предлагает несколько функций для редактирования и рефакторинга запросов к запросу КЗЛ.
+Как и в случае с другими IDE, Kusto. Explorer предлагает несколько функций для ККЛ редактирования и рефакторинга запросов.
 
 ## <a name="rename-variable-or-column-name"></a>Переименовать переменную или имя столбца
 
-Нажатие `Ctrl` + `R` `Ctrl` + `R` кнопки в окне редактора запросов позволит вам переименовать выбранный в настоящее время символ.
+`Ctrl` + `R` Если щелкнуть, `Ctrl` + `R` в окне редактора запросов можно будет переименовать текущий выбранный символ.
 
-Смотрите ниже снимок, который демонстрирует опыт:
+См. снимок, демонстрирующий работу:
 
-![альт текст](./Images/KustoTools-KustoExplorer/ke-refactor-rename.gif "рефакторное переименование")
+![Анимированный GIF, отображающий переменную, переименованную в окне редактора запросов. Три вхождения одновременно заменяются новым именем.](./Images/KustoTools-KustoExplorer/ke-refactor-rename.gif "Рефакторинг — переименование")
 
-## <a name="extract-scalars-as-let-expressions"></a>Извлекайте скаляры в качестве `let` выражений
+## <a name="extract-scalars-as-let-expressions"></a>Извлечение скаляров в виде `let` выражений
 
-Вы можете продвигать в настоящее время `Alt` + `Ctrl` + `M`выбранный буквальный как `let` выражение, нажав кнопку . 
+Вы можете повысить уровень выбранного литерала в качестве `let` выражения, нажав кнопку `Alt` + `Ctrl` + `M` . 
 
-![альт текст](./Images/KustoTools-KustoExplorer/ke-extract-as-let-literal.gif "экстракт-как-пусть-буквальный")
+![Анимированный GIF. Указатель редактора запросов начинается с литерального выражения. После этого появляется инструкция let, которая устанавливает это литеральное значение в новую переменную.](./Images/KustoTools-KustoExplorer/ke-extract-as-let-literal.gif "Извлечение в качестве Let-литерала")
 
-## <a name="extract-tabular-statements-as-let-expressions"></a>Извлекайте таблики как `let` выражения
+## <a name="extract-tabular-statements-as-let-expressions"></a>Извлечение табличных инструкций в виде `let` выражений
 
-Вы также можете продвигать таблетные выражения в виде `let` утверждений, выбрав его текст, а затем нажав кнопку `Alt` + `Ctrl` + `M`. 
+Можно также преобразовать табличные выражения в `let` инструкции, выбрав его текст и нажав кнопку `Alt` + `Ctrl` + `M` . 
 
-![альт текст](./Images/KustoTools-KustoExplorer/ke-extract-as-let-tabular.gif "экстракт-как-пусть-табулярный")
+![Анимированный GIF. Табличное выражение выбирается в редакторе запросов. После этого появляется инструкция let, которая устанавливает табличное выражение в новую переменную.](./Images/KustoTools-KustoExplorer/ke-extract-as-let-tabular.gif "Извлечение как Let-табличное")

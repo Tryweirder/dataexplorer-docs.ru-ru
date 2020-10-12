@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 04/01/2020
-ms.openlocfilehash: d41c9e2719ef5139d89986ff5333c03e6e34d26c
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 4cb0e319cafbd1c59680c7bccc35e2d865d29d40
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88872477"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942205"
 ---
 # <a name="use-azure-notebooks-to-analyze-data-in-azure-data-explorer"></a>Использование записных книжек Azure для анализа данных в Azure обозреватель данных
 
@@ -28,7 +28,7 @@ ms.locfileid: "88872477"
 
 1. Выберите вкладку **Мои проекты** в заголовке. 
 
-    :::image type="content" source="media/azurenotebooks/an-myprojects.png" alt-text="Страница "проекты", вкладка "Мои проекты", Записные книжки Microsoft Azure, Azure обозреватель данных" lightbox="media/azurenotebooks/an-myprojects.png#lightbox":::
+    :::image type="content" source="media/azurenotebooks/an-myprojects.png" alt-text="Страница &quot;проекты&quot;, вкладка &quot;Мои проекты&quot;, Записные книжки Microsoft Azure, Azure обозреватель данных" lightbox="media/azurenotebooks/an-myprojects.png#lightbox":::
 
 1. Выберите **+ создать проекты**.
     
@@ -48,13 +48,13 @@ ms.locfileid: "88872477"
 1. В новом проекте создайте записную книжку. В записной книжке должен использоваться [поддерживаемый язык](https://github.com/Azure/azure-kusto-python#minimum-requirements).
 Чтобы создать записную книжку, щелкните **+ создать** и выберите **Записная книжка**.
 
-    ![Создать записную книжку](media/azurenotebooks/an-create-new-notebook-menu.png) 
+    :::image type="content" source="media/azurenotebooks/an-create-new-notebook-menu.png" alt-text="Страница &quot;проекты&quot;, вкладка &quot;Мои проекты&quot;, Записные книжки Microsoft Azure, Azure обозреватель данных" border="false":::
 
 1. В диалоговом окне **Создание новой записной книжки** введите имя записной книжки.
 
 1. Выберите **Python 3,6** и нажмите кнопку **создать**.
     
-    ![Создать записную книжку](media/azurenotebooks/an-create-new-notebook.png) 
+    :::image type="content" source="media/azurenotebooks/an-create-new-notebook.png" alt-text="Страница &quot;проекты&quot;, вкладка &quot;Мои проекты&quot;, Записные книжки Microsoft Azure, Azure обозреватель данных" border="false"::: 
     
 1. В проекте выберите новую записную книжку.
 
@@ -90,11 +90,11 @@ ms.locfileid: "88872477"
 
 1. Вернитесь к записной книжке, чтобы увидеть результат проверки подлинности. 
 
-:::image type="content" source="media/azurenotebooks/an-python-commands.png" alt-text="Вывод результатов проверки подлинности, окно записной книжки, Записные книжки Microsoft Azure, Azure обозреватель данных" lightbox="media/azurenotebooks/an-python-commands.png#lightbox":::
+:::image type="content" source="media/azurenotebooks/an-python-commands.png" alt-text="Страница &quot;проекты&quot;, вкладка &quot;Мои проекты&quot;, Записные книжки Microsoft Azure, Azure обозреватель данных" lightbox="media/azurenotebooks/an-python-commands.png#lightbox":::
 
 ## <a name="execute-a-kusto-query"></a>Выполнение запроса Kusto
 
-1. Введите запрос Kusto и выберите **Run (выполнить**). Пример.
+1. Введите запрос Kusto и выберите **Run (выполнить**). Пример:
 
     ```python
     query= "StormEvents | project State, EventType | take 10"
@@ -103,8 +103,8 @@ ms.locfileid: "88872477"
         print(", ".join(row))
     ```    
 
-:::image type="content" source="media/azurenotebooks/an-commands.png" alt-text="Кнопка "выполнить", окно "Записная книжка", Записные книжки Microsoft Azure, Azure обозреватель данных" lightbox="media/azurenotebooks/an-commands.png#lightbox":::
+:::image type="content" source="media/azurenotebooks/an-commands.png" alt-text="Страница &quot;проекты&quot;, вкладка &quot;Мои проекты&quot;, Записные книжки Microsoft Azure, Azure обозреватель данных" lightbox="media/azurenotebooks/an-commands.png#lightbox":::
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Следующие шаги
 
 * [Kusto-репозиторий GitHub Python](https://github.com/Azure/azure-kusto-python)

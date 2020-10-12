@@ -1,21 +1,21 @@
 ---
-title: Безопасность на уровне строк (Предварительная версия) — обозреватель данных Azure
-description: В этой статье описывается безопасность на уровне строк (Предварительная версия) в Azure обозреватель данных.
+title: безопасность на уровне строк Azure обозреватель данных
+description: В этой статье описывается безопасность на уровне строк в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
-ms.date: 03/25/2020
-ms.openlocfilehash: f3d42835733ffe9303806687891c69df4dcc2178
-ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
+ms.date: 10/11/2020
+ms.openlocfilehash: 2b81319740143a1c0ebc31c4a9b93d7b3b2e5223
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88610463"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941814"
 ---
-# <a name="row-level-security-preview"></a>Безопасность на уровне строк (Предварительная версия)
+# <a name="row-level-security"></a>Безопасность на уровне строк
 
 Используйте членство в группе или контекст выполнения для управления доступом к строкам в таблице базы данных.
 

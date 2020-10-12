@@ -8,21 +8,21 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/30/2020
-ms.openlocfilehash: 13cc0edad5e0e4673c34e7e5b1b517f097fa4e9a
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 0322dd6a8ba900fa4d55bea6b3568a5c42f61b52
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346190"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942375"
 ---
 # <a name="percentile-percentiles-aggregation-function"></a>процентиль (), процентили () (агрегатная функция)
 
 Возвращает оценку по заданному [значению ближайшего ранга](#nearest-rank-percentile) Генеральной совокупности, определенной `*Expr*` .
 Точность зависит от плотности заполнения области процентиля. Эта функция может использоваться только в контексте агрегирования внутри [сводки](summarizeoperator.md)
 
-* `percentiles()`функция похожа `percentile()` на, но вычисляет количество значений процентиля, что выполняется быстрее, чем вычисление каждого процентиля по отдельности.
-* `percentilesw()`функция похожа `percentilew()` на, но вычисляет количество значений взвешенного процентиля, что выполняется быстрее, чем вычисление каждого процентиля по отдельности.
-* `percentilew()`и `percentilesw()` позволяют вычислить взвешенные процентили. Взвешенный процентили вычисляет заданный процентили в "взвешенном" виде, рассматривая каждое значение так, как если бы оно было повторяться `weight` во время ввода.
+* `percentiles()` функция похожа `percentile()` на, но вычисляет количество значений процентиля, что выполняется быстрее, чем вычисление каждого процентиля по отдельности.
+* `percentilesw()` функция похожа `percentilew()` на, но вычисляет количество значений взвешенного процентиля, что выполняется быстрее, чем вычисление каждого процентиля по отдельности.
+* `percentilew()` и `percentilesw()` позволяют вычислить взвешенные процентили. Взвешенный процентили вычисляет заданный процентили в "взвешенном" виде, рассматривая каждое значение так, как если бы оно было повторяться `weight` во время ввода.
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -49,7 +49,7 @@ ms.locfileid: "87346190"
 * `*Percentile*`: Двойная константа, указывающая процентиль.
 * `*Dynamic array*`: список процентили в динамическом массиве целочисленных значений или чисел с плавающей запятой.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Возвращает оценку для `*Expr*` указанного процентили в группе. 
 
@@ -68,7 +68,7 @@ CallDetailRecords
 | summarize percentiles(Duration, 5, 50, 95) by continent
 ```
 
-:::image type="content" source="images/percentiles-aggfunction/percentiles.png" alt-text="Процентили":::
+:::image type="content" source="images/percentiles-aggfunction/percentiles.png" alt-text="Таблица, в которой перечислены результаты со столбцами континента и для значений длительности в пятой, фифтиесной и девяност-пятой процентили.":::
 
 Результаты показывают, что в Европе 5% вызовов короче 11.55 s, 50% вызовов короче 3 минут, 18,46 секунд, а 95% вызовов короче 40 минут 48 секунд.
 
@@ -89,7 +89,7 @@ CallDetailRecords
 
 Чтобы сократить пропускную способность и хранилище, выполните предварительное агрегирование следующих контейнеров: `{ 10, 20, 30, 40, 50, 100 }` . Подсчитайте количество событий в каждом контейнере, чтобы получить следующую таблицу:
 
-:::image type="content" source="images/percentiles-aggfunction/percentilesw-table.png" alt-text="Таблица перцентилесв":::
+:::image type="content" source="images/percentiles-aggfunction/percentilesw-table.png" alt-text="Таблица, в которой перечислены результаты со столбцами континента и для значений длительности в пятой, фифтиесной и девяност-пятой процентили.":::
 
 В таблице показано следующее:
  * Восемь событий в контейнере из 10 мс (соответствующих подмножеству `{ 1, 1, 2, 2, 2, 5, 7, 7 }` )
@@ -113,12 +113,12 @@ datatable (ReqCount:long, LatencyBucket:long)
 
 Результат выполнения приведенного выше запроса:
 
-:::image type="content" source="images/percentiles-aggfunction/percentilesw-result.png" alt-text="Перцентилесв результат" border="false":::
+:::image type="content" source="images/percentiles-aggfunction/percentilesw-result.png" alt-text="Таблица, в которой перечислены результаты со столбцами континента и для значений длительности в пятой, фифтиесной и девяност-пятой процентили." border="false":::
 
 
 Приведенный выше запрос соответствует функции `percentiles(LatencyBucket, 50, 75, 99.9)` , если данные были расширены до следующего вида:
 
-:::image type="content" source="images/percentiles-aggfunction/percentilesw-rawtable.png" alt-text="Необработанная таблица перцентилесв":::
+:::image type="content" source="images/percentiles-aggfunction/percentilesw-rawtable.png" alt-text="Таблица, в которой перечислены результаты со столбцами континента и для значений длительности в пятой, фифтиесной и девяност-пятой процентили.":::
 
 ## <a name="getting-multiple-percentiles-in-an-array"></a>Получение нескольких процентили в массиве
 
@@ -129,7 +129,7 @@ CallDetailRecords
 | summarize percentiles_array(Duration, 5, 25, 50, 75, 95), avg(Duration)
 ```
 
-:::image type="content" source="images/percentiles-aggfunction/percentiles-array-result.png" alt-text="Результат массива процентили":::
+:::image type="content" source="images/percentiles-aggfunction/percentiles-array-result.png" alt-text="Таблица, в которой перечислены результаты со столбцами континента и для значений длительности в пятой, фифтиесной и девяност-пятой процентили.":::
 
 Аналогичным образом взвешенные процентили можно вернуть в виде динамического массива с помощью `percentilesw_array` .
 

@@ -4,22 +4,22 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 11/03/2019
 ms.author: orspodek
-ms.openlocfilehash: 3cd9d017429b629acad39f5b902e842886c3c818
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: b6c50e466df1028f11021e75fe572ea1ecb32225
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81495475"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942659"
 ---
 ## <a name="configure-the-data-source"></a>Настройка источника данных
 
-Вы выполняете следующие шаги по настройке Azure Data Explorer в качестве источника данных для инструмента панели мониторинга. Мы подробнее рассмотрим эти действия далее в этом разделе.
+Чтобы настроить обозреватель данных Azure в качестве источника данных для средства панели мониторинга, выполните следующие действия. Мы подробнее рассмотрим эти действия далее в этом разделе.
 
-1. Создайте субъект-службу Azure Active Directory. Основной сервис используется инструментом панели мониторинга для доступа к службе Azure Data Explorer.
+1. Создайте субъект-службу Azure Active Directory. Субъект-служба используется средством панели мониторинга для доступа к службе обозреватель данных Azure.
 
 1. Назначьте субъекту-службе AAD роль *читателя* базы данных Azure Data Explorer.
 
-1. Укажите свойства подключения панели мониторинга на основе информации из принципа службы Azure AD, а затем проверьте соединение.
+1. Укажите свойства подключения средства панели мониторинга на основе данных от субъекта-службы Azure AD, а затем проверьте подключение.
 
 ### <a name="create-a-service-principal"></a>Создание субъекта-службы
 
@@ -31,7 +31,7 @@ ms.locfileid: "81495475"
 
     1. В разделе [Назначение приложению роли](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) присвойте роль с типом **Читатель** используемому кластеру Azure Data Explorer.
 
-    1. В [значениях Get для подписания в](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) разделе скопируйте три значения свойств, охватываемые в шагах: **Идентификатор каталога** (идентификатор арендатора), **идентификатор приложения**и **пароль.**
+    1. В разделе [Получение значений для входа](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) скопируйте три значения свойств, описанные в шагах: **идентификатор каталога** (идентификатор клиента), **идентификатор приложения**и **пароль**.
 
 1. На портале Azure выберите раздел **Подписки** и скопируйте идентификатор подписки, в которой вы создали субъект-службу.
 
@@ -91,19 +91,19 @@ ms.locfileid: "81495475"
 
     ![Добавление разрешений базы данных](media/data-explorer-configure-data-source/add-permission.png)
 
-1. Поиск основного сервиса, который вы создали. Установите флажок возле субъекта и нажмите кнопку **Выбрать**.
+1. Найдите созданный субъект-службу. Установите флажок возле субъекта и нажмите кнопку **Выбрать**.
 
-    ![Управление разрешениями на портале Azure](media/data-explorer-configure-data-source/new-principals.png)
+    :::image type="content" source="media/data-explorer-configure-data-source/new-principals.png" alt-text="Снимок экрана: область портал Azure новых участников. Кнопка выбрать и два поля с нечитаемыми свойствами субъекта-службы выделены." border="false":::
 
 1. Щелкните **Сохранить**.
 
-    ![Управление разрешениями на портале Azure](media/data-explorer-configure-data-source/save-permission.png)
+    :::image type="content" source="media/data-explorer-configure-data-source/save-permission.png" alt-text="Снимок экрана: область портал Azure новых участников. Кнопка выбрать и два поля с нечитаемыми свойствами субъекта-службы выделены." border="false":::
 
 #### <a name="management-command---query"></a>Команда управления — запрос
 
 1. На портале Azure перейдите к кластеру Azure Data Explorer и выберите **Запрос**.
 
-    ![Запрос](media/data-explorer-configure-data-source/query.png)
+    :::image type="content" source="media/data-explorer-configure-data-source/query.png" alt-text="Снимок экрана: область портал Azure новых участников. Кнопка выбрать и два поля с нечитаемыми свойствами субъекта-службы выделены." border="false":::
 
 1. Выполните приведенную ниже команду в окне запроса. Используйте идентификаторы приложения и арендатора, полученные с помощью портала Azure или интерфейса командной строки.
 

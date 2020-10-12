@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 ms.date: 03/18/2020
-ms.openlocfilehash: c5a0bd91df6e12d90436e3b27a2b55021668117a
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: a79c815202e65fa32f62a76c700d808d0fda86ea
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874347"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942001"
 ---
 # <a name="kusto-ingest-client-library"></a>Клиентская библиотека приема Kusto 
 
@@ -45,7 +45,7 @@ ms.locfileid: "88874347"
 
 На следующей схеме показано взаимодействие клиента приема в очереди с Kusto.
 
-:::image type="content" source="../images/about-kusto-ingest/queued-ingest.png" alt-text="приема в очереди":::
+:::image type="content" source="../images/about-kusto-ingest/queued-ingest.png" alt-text="Диаграмма, показывающая, как библиотека Kusto. приема отправляет запросы в службу Kusto в запрашиваемом режиме приема.":::
  
 ### <a name="direct-ingestion"></a>Прямой прием
 
@@ -53,7 +53,7 @@ ms.locfileid: "88874347"
 
 На следующей схеме показано взаимодействие клиента прямого приема с Kusto.
 
-:::image type="content" source="../images/about-kusto-ingest/direct-ingest.png" alt-text="прямой прием":::
+:::image type="content" source="../images/about-kusto-ingest/direct-ingest.png" alt-text="Диаграмма, показывающая, как библиотека Kusto. приема отправляет запросы в службу Kusto в запрашиваемом режиме приема.":::
 
 > [!NOTE]
 > Прямой режим не рекомендуется для решений приема производственного уровня.
@@ -86,7 +86,7 @@ ms.locfileid: "88874347"
 * **Использование —** Как было сказано ранее, для устойчивых и крупномасштабных решений приема для Kusto рекомендуется использовать **кустокуеуединжестклиент**.
 Чтобы уменьшить ненужную нагрузку на службу Kusto, мы рекомендуем использовать один экземпляр Kusto принимающего клиента (в очереди или прямой) для каждого процесса в кластере Kusto. Реализация клиента, принимающего Kusto, является потокобезопасной и полностью передается.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 * [Kusto. Принимающая ссылка на клиент](kusto-ingest-client-reference.md) содержит полную ссылку на Kusto приема клиентских интерфейсов и реализаций. Вы найдете сведения о том, как создавать клиенты приема, расширять запросы на прием, управлять ходом приема и многое другое.
 

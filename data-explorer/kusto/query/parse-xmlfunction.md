@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 41e3f58ba857e23d31062484f11f30e80fb37317
-ms.sourcegitcommit: 313a91d2a34383b5a6e39add6c8b7fabb4f8d39a
+ms.openlocfilehash: 3f003c5e9c6733391d61a2130528c9babc4aae67
+ms.sourcegitcommit: d157e661de293aa4c2b5ad334a554eda0295bd2c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90680726"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91886304"
 ---
 # <a name="parse_xml"></a>parse_xml()
 
@@ -81,7 +81,7 @@ XML                                |JSON                                        
 }
 ```
 
-и извлекает значение `duration` слота в объекте и получает два слота `duration.value` и `duration.min` ( `118.0` и `110.0` соответственно).
+и извлекает значение `duration` слота в объекте и получает два слота `duration.value` и `duration.min` ( `118.0` и `100.0` соответственно).
 
 ```kusto
 T

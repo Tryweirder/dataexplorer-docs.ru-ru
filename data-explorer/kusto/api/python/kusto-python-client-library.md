@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/30/2019
-ms.openlocfilehash: 7718eb5983f1d7893a27df5db7ae0c52983dea85
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: 355d7e5e9135087fd0023a235990b8c9589a2e86
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763841"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942256"
 ---
 # <a name="azure-data-explorer-python-sdk"></a>Пакет SDK для Azure обозреватель данных Python
 
@@ -33,13 +33,13 @@ ms.locfileid: "85763841"
 
 * [Репозиторий GitHub](https://github.com/Azure/azure-kusto-python)
 
-    [![замещающий текст](https://travis-ci.org/Azure/azure-kusto-python.svg?branch=master "azure-kusto-python")](https://travis-ci.org/Azure/azure-kusto-python)
+    [![Замещающий текст](https://travis-ci.org/Azure/azure-kusto-python.svg?branch=master "azure-kusto-python")](https://travis-ci.org/Azure/azure-kusto-python)
 
 * Пакеты PyPI:
 
     * [Azure-kusto-Data](https://pypi.org/project/azure-kusto-data/) 
-     [ ![ Версия PyPI](https://badge.fury.io/py/azure-kusto-data.svg)](https://badge.fury.io/py/azure-kusto-data)
+     [ ![ Снимок экрана кнопки с надписью P Y p I пакетом 1.0.2.](https://badge.fury.io/py/azure-kusto-data.svg)](https://badge.fury.io/py/azure-kusto-data)
     * [Azure-kusto —](https://pypi.org/project/azure-kusto-ingest/) 
-     прием [ ![ Версия PyPI](https://badge.fury.io/py/azure-kusto-ingest.svg)](https://badge.fury.io/py/azure-kusto-ingest)
+     прием [ ![ Снимок экрана кнопки. Кнопка помечена P Y P I пакетом 1.0.2.](https://badge.fury.io/py/azure-kusto-ingest.svg)](https://badge.fury.io/py/azure-kusto-ingest)
     * [Azure-управление-kusto](https://pypi.org/project/azure-mgmt-kusto/) 
-     [ ![ Версия PyPI](https://badge.fury.io/py/azure-mgmt-kusto.svg)](https://badge.fury.io/py/azure-mgmt-kusto)
+     [ ![ Снимок экрана кнопки с надписью P Y p I Package 0.9.0.](https://badge.fury.io/py/azure-mgmt-kusto.svg)](https://badge.fury.io/py/azure-mgmt-kusto)

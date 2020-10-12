@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 09/26/2019
-ms.openlocfilehash: 5b72bb604ef7de1b5ca01b5720566b977c2e1ab2
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 46ccf006c6f2cf167953c64bcaa2f3de0fbaf4b6
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88872052"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942222"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Создание кластера и базы данных Azure обозреватель данных с помощью шаблона Azure Resource Manager
 
@@ -104,11 +104,11 @@ ms.locfileid: "88872052"
 
 1. Чтобы создать кластер и базу данных, используйте следующую кнопку для запуска развертывания. Чтобы закончить выполнение инструкций из этой статьи, щелкните правой кнопкой мыши и выберите ссылку **Открыть в новом окне**.
 
-    [![Развертывание в Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
+    [![Снимок экрана с синей кнопкой, которая используется для изображений облаков и помечена как развернутая в Azure.](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
 
     Кнопка **Развернуть в Azure** выполняет переход на портал Azure для заполнения формы развертывания.
 
-    ![Развернуть в Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
+    :::image type="content" source="media/create-cluster-database-resource-manager/deploy-2-azure.png" alt-text="Снимок экрана шаблона на портал Azure. Все кнопки, флажки и флажки, используемые при редактировании, выделяются." border="false":::
 
     Шаблон можно [изменить и развернуть в портал Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) с помощью формы.
 
@@ -157,6 +157,6 @@ Write-Host "Press [ENTER] to continue ..."
 
 [!INCLUDE [data-explorer-clean-resources](includes/data-explorer-clean-resources.md)]
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Следующие шаги
 
 [Прием данных в кластер и базу данных Azure обозреватель данных](ingest-data-overview.md)

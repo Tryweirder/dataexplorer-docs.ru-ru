@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 25bdd9c36c63d521cd662ab5c69f3dfec974b1e6
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 0ff2b0892231f52390f103fe299f219a7a3f3860
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874772"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942052"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Управление разрешениями баз данных обозревателя данных Azure
 
@@ -54,11 +54,11 @@ ms.locfileid: "88874772"
 
 1. Найдите субъект, выделите его и щелкните **Выбрать**.
 
-    ![Управление разрешениями на портале Azure](media/manage-database-permissions/new-principals.png)
+    :::image type="content" source="media/manage-database-permissions/new-principals.png" alt-text="Снимок экрана со страницей портал Azure новых участников. Выбираются и выделяются имя участника и изображение. Кнопка выбрать также выделяется." border="false":::
 
-1. Выберите **Сохранить**.
+1. Щелкните **Сохранить**.
 
-    ![Управление разрешениями на портале Azure](media/manage-database-permissions/save-permission.png)
+    :::image type="content" source="media/manage-database-permissions/save-permission.png" alt-text="Снимок экрана со страницей портал Azure новых участников. Выбираются и выделяются имя участника и изображение. Кнопка выбрать также выделяется." border="false":::
 
 ## <a name="manage-permissions-with-management-commands"></a>Управление разрешениями с помощью команд управления
 

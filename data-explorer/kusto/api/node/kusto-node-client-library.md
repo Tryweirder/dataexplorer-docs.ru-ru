@@ -1,6 +1,6 @@
 ---
-title: Azure Data Data Explorer SDK - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается Azure Data Explorer Узел SDK в Azure Data Explorer.
+title: Пакет Azure обозреватель данных node SDK — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается пакет SDK для обозреватель данных узла Azure в обозреватель данных Azure.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,29 +8,29 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/29/2019
-ms.openlocfilehash: 1e6e4b90c451d15a5d0f59adbe660d70a9a5ba56
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: b14993036be5e06140a4b7857aae39e5239838be
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81503253"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942307"
 ---
-# <a name="azure-data-explorer-node-sdk"></a>Azure Data Explorer Узел SDK
+# <a name="azure-data-explorer-node-sdk"></a>Пакет SDK для обозреватель данных узла Azure
 
-Azure Data Explorer Узел SDK совместим с узлами LTS (в настоящее время v6.14) и построен с ES6.
+Пакет SDK Azure Data Explorer для Node совместим с выпуском LTS Node (сейчас это 6.14) и создан с помощью ES6.
 
-*Клиент кусто-уз* Библиотека предоставляет возможность запроса кластеров Azure Data Explorer с помощью Узлов. 
+*Клиент Kusto node* Библиотека предоставляет возможность запрашивать кластеры обозреватель данных Azure с помощью NodeJs. 
 
-*Kusto Node Ingest Client* — это библиотека узлов, которая может отправлять данные в Azure Data Explorer (т.е. глотать данные). 
+*Клиент, принимающий узел Kusto* , — это библиотека узлов, которая может передавать данные в обозреватель данных Azure (т. е. прием данных). 
 
-* [Образец запроса Kusto](https://github.com/Azure/azure-kusto-node/blob/master/azure-kusto-data/example.js)
+* [Пример запроса Kusto](https://github.com/Azure/azure-kusto-node/blob/master/azure-kusto-data/example.js)
 
-* [Выборка, проглядающая данные](https://github.com/Azure/azure-kusto-node/blob/master/azure-kusto-ingest/example.js)
+* [Пример приема данных](https://github.com/Azure/azure-kusto-node/blob/master/azure-kusto-ingest/example.js)
 
-* [Текст репозитория GitHub](https://github.com/Azure/azure-kusto-node) [ ![alt](https://travis-ci.org/Azure/azure-kusto-node.svg?branch=master "azure-kusto-node")](https://travis-ci.org/Azure/azure-kusto-node)
+* [GitHub Repository](https://github.com/Azure/azure-kusto-node) [ ![Замещающий текст](https://travis-ci.org/Azure/azure-kusto-node.svg?branch=master "azure-kusto-node") репозитория GitHub](https://travis-ci.org/Azure/azure-kusto-node)
 
 * Пакеты NPM:
 
-    * [версия azure-kusto-data](https://www.npmjs.com/package/azure-kusto-data)  [![npm](https://badge.fury.io/js/azure-kusto-data.svg)](https://badge.fury.io/js/azure-kusto-data) 
-    * [лазурный-кусто-ingest](https://www.npmjs.com/package/azure-kusto-ingest)  [![npm версия](https://badge.fury.io/js/azure-kusto-ingest.svg)](https://badge.fury.io/js/azure-kusto-ingest)
-    * [лазурно-рука-кусто](https://www.npmjs.com/package/azure-arm-kusto) [ ![npm версия](https://badge.fury.io/js/azure-arm-kusto.svg)](https://badge.fury.io/js/azure-arm-kusto)
+    * снимок экрана [Azure-kusto-Data](https://www.npmjs.com/package/azure-kusto-data)[ ![ кнопки с меткой N P M Package 1.0.1.](https://badge.fury.io/js/azure-kusto-data.svg)](https://badge.fury.io/js/azure-kusto-data)   
+    * снимок экрана [Azure-kusto-](https://www.npmjs.com/package/azure-kusto-ingest)прием[ ![ кнопки. Кнопка помечена N P M Package 1.0.1.](https://badge.fury.io/js/azure-kusto-ingest.svg)](https://badge.fury.io/js/azure-kusto-ingest)  
+    * снимок экрана [Azure-ARM-kusto](https://www.npmjs.com/package/azure-arm-kusto) [ ![ для кнопки с меткой N P M Package 2.0.3.](https://badge.fury.io/js/azure-arm-kusto.svg)](https://badge.fury.io/js/azure-arm-kusto)

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: 6ed841a6f47eb9a0a1e73182a3b9acd1c0209bd9
-ms.sourcegitcommit: 313a91d2a34383b5a6e39add6c8b7fabb4f8d39a
+ms.openlocfilehash: 56742b04386bfda9e2cdbaa40a85d2220f2373d5
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90680766"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942358"
 ---
 # <a name="make-series-operator"></a>Оператор make-series
 
@@ -73,12 +73,12 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
 
 ## <a name="list-of-aggregation-functions"></a>Список статистических функций
 
-|Функция|Описание|
+|Компонент|Описание|
 |--------|-----------|
 |[Any ()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
 |[avg()](avg-aggfunction.md)|Возвращает среднее значение в группе|
 |[avgif()](avgif-aggfunction.md)|Возвращает среднее значение с предикатом группы|
-|[count()](count-aggfunction.md)|Возвращает количество групп|
+|[Count ()](count-aggfunction.md)|Возвращает количество групп|
 |[countif()](countif-aggfunction.md)|Возвращает число с предикатом группы|
 |[dcount()](dcount-aggfunction.md)|Возвращает приблизительное число различных элементов группы.|
 |[dcountif()](dcountif-aggfunction.md)|Возвращает приблизительное число различных объектов с предикатом группы|
@@ -89,11 +89,11 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
 |[stdev()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
 |[sum()](sum-aggfunction.md)|Возвращает сумму элементов в группе|
 |[sumif()](sumif-aggfunction.md)|Возвращает сумму элементов с предикатом группы|
-|[variance()](variance-aggfunction.md)|Возвращает дисперсию по группе|
+|[вариативность ()](variance-aggfunction.md)|Возвращает дисперсию по группе|
 
 ## <a name="list-of-series-analysis-functions"></a>Список функций анализа рядов
 
-|Функция|Описание|
+|Компонент|Описание|
 |--------|-----------|
 |[series_fir()](series-firfunction.md)|Применение фильтра [конечного ответа с ограничением](https://en.wikipedia.org/wiki/Finite_impulse_response)|
 |[series_iir()](series-iirfunction.md)|Применяет [бесконечный фильтр ответов с неограниченным импульсом](https://en.wikipedia.org/wiki/Infinite_impulse_response)|
@@ -109,7 +109,7 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
   
 ## <a name="list-of-series-interpolation-functions"></a>Список функций интерполяции ряда
 
-|Функция|Описание|
+|Компонент|Описание|
 |--------|-----------|
 |[series_fill_backward()](series-fill-backwardfunction.md)|Выполняет интерполяцию обратной заливки отсутствующих значений в ряде|
 |[series_fill_const()](series-fill-constfunction.md)|Заменяет отсутствующие значения в ряде с указанным постоянным значением|
@@ -127,7 +127,7 @@ T | make-series PriceAvg=avg(Price) default=0
 on Purchase from datetime(2016-09-10) to datetime(2016-09-13) step 1d by Supplier, Fruit
 ```
 
-:::image type="content" source="images/make-seriesoperator/makeseries.png" alt-text="макесериес":::  
+:::image type="content" source="images/make-seriesoperator/makeseries.png" alt-text="Три таблицы. Первый список содержит необработанные данные, второй — только комбинации «поставщик-фруктов-Дата», а третья — результаты серии make.":::  
 
 <!-- csl: https://help.kusto.windows.net:443/Samples --> 
 ```kusto

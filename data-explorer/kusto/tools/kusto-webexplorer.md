@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: d53f12c4a0c4dd2bce669dbe004b8f325db27af5
-ms.sourcegitcommit: 4986354cc1ba25c584e4f3c7eac7b5ff499f0cf1
+ms.openlocfilehash: 70b25a1dbfcc3d5cba134875a63c2ac24a018277
+ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84856387"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91942290"
 ---
 # <a name="kustowebexplorer"></a>Kusto.
 
@@ -29,25 +29,25 @@ Kusto. веб-проводник может также размещаться н
 Теперь можно подключать несколько кластеров и переключаться между базами данных и кластерами.
 Средство предназначено для простого обнаружения кластера и базы данных, к которым вы подключены.
 
-![Замещающий текст](./Images/KustoTools-WebExplorer/AddingCluster.gif "аддингклустер")
+![Анимированный GIF. Когда вы щелкните Добавить кластер в обозреватель данных Azure и в диалоговом окне введите имя кластера, кластер отобразится в левой области.](./Images/KustoTools-WebExplorer/AddingCluster.gif "аддингклустер")
 
 ## <a name="recall-results"></a>Результаты отзыва
 
 Часто во время анализа выполняется несколько запросов, и может потребоваться повторное посещение результатов предыдущих запросов. Эту функцию можно использовать для отзыва результатов без необходимости повторного выполнения запроса. Данные обслуживаются из локального кэша на стороне клиента.
 
-![Замещающий текст](./Images/KustoTools-WebExplorer/RecallResults.gif "рекаллресултс")
+![Анимированный GIF. После выполнения двух запросов Azure обозреватель данных мышь переходит к первому запросу и отзывается. Исходные результаты снова отобразятся.](./Images/KustoTools-WebExplorer/RecallResults.gif "рекаллресултс")
 
 ## <a name="enhanced-results-grid-control"></a>Элемент управления таблицы улучшенных результатов
 
 Сетка таблицы позволяет выбрать несколько строк, столбцов и ячеек. Вычисление агрегатов путем выбора нескольких ячеек (например, Excel) и сведение данных.
 
-![Замещающий текст](./Images/KustoTools-WebExplorer/EnhancedGrid.gif "енханцедгрид")
+![Анимированный GIF. После включения режима свертывания в Azure обозреватель данных и перетаскивания столбцов в целевые области сводной таблицы отображаются сводные данные.](./Images/KustoTools-WebExplorer/EnhancedGrid.gif "енханцедгрид")
 
 ## <a name="intellisense--formatting"></a>Форматирование & IntelliSense
 
 Можно использовать формат для печати в удобном формате, используя сочетание клавиш SHIFT + ALT + F, свертывание кода (структурирование) и IntelliSense.
 
-![Замещающий текст](./Images/KustoTools-WebExplorer/Formating.gif "Форматирование")
+![Анимированный GIF-файл, показывающий запрос обозреватель данных Azure. После развертывания запроса он изменяет формат, помещается в одну строку с розовыми именами столбцов.](./Images/KustoTools-WebExplorer/Formating.gif "Форматирование")
 
 ## <a name="deep-linking"></a>Глубокая компоновка
 
@@ -61,9 +61,9 @@ Kusto. веб-проводник может также размещаться н
 
 
 
-![Замещающий текст](./Images/KustoTools-WebExplorer/DeepLink.gif "DeepLink")
+![Анимированный GIF. Откроется меню Azure обозреватель данных общий ресурс. Ссылка на элемент в буфере обмена станет видимой, как и текст и ссылка на элемент буфера обмена.](./Images/KustoTools-WebExplorer/DeepLink.gif "DeepLink")
 
-## <a name="feedback"></a>Отзывы
+## <a name="how-to-provide-feedback"></a>Отправка отзыва
 
 Вы можете отправить отзыв с помощью средства.
-![Замещающий текст](./Images/KustoTools-WebExplorer/Feedback.gif "Отзывы")
+![Анимированный GIF, показывающий обозреватель данных Azure. При нажатии на значок отзыва откроется диалоговое окно отправить нам отзыв.](./Images/KustoTools-WebExplorer/Feedback.gif "Отзывы")
