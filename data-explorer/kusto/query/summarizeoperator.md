@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/20/2020
-ms.openlocfilehash: 00d205a710b7b3bf41dc181e79e5e6d0baa95fc6
-ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
+ms.openlocfilehash: 9514f7c94568e73a704e6ba6f4bcc5bf61590d2f
+ms.sourcegitcommit: 6f610cd9c56dbfaff4eb0470ac0d1441211ae52d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88793923"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91954779"
 ---
 # <a name="summarize-operator"></a>Оператор summarize
 
@@ -90,7 +90,7 @@ T | summarize count() by price_range=bin(price, 10.0)
 |[maxif()](maxif-aggfunction.md)|Возвращает максимальное значение в группе (с предикатом)|
 |[min()](min-aggfunction.md)|Возвращает минимальное значение в группе.|
 |[minif()](minif-aggfunction.md)|Возвращает минимальное значение в группе (с предикатом)|
-|[процентили ()](percentiles-aggfunction.md)|Возвращает приблизительное значение процентиля группы|
+|[percentiles()](percentiles-aggfunction.md)|Возвращает приблизительное значение процентиля группы|
 |[percentiles_array ()](percentiles-aggfunction.md)|Возвращает процентили приблизительную часть группы|
 |[перцентилесв ()](percentiles-aggfunction.md)|Возвращает приближенное взвешенное значение процентиля группы|
 |[percentilesw_array ()](percentiles-aggfunction.md)|Возвращает взвешенное процентилиное приближение группы|
@@ -98,7 +98,7 @@ T | summarize count() by price_range=bin(price, 10.0)
 |[stdevif()](stdevif-aggfunction.md)|Возвращает стандартное отклонение по группе (с предикатом)|
 |[Sum ()](sum-aggfunction.md)|Возвращает сумму элементов в группе|
 |[sumif()](sumif-aggfunction.md)|Возвращает сумму элементов в группе (с предикатом with)|
-|[variance()](variance-aggfunction.md)|Возвращает дисперсию по группе|
+|[вариативность ()](variance-aggfunction.md)|Возвращает дисперсию по группе|
 |[varianceif()](varianceif-aggfunction.md)|Возвращает дисперсию по группе (с предикатом)|
 
 ## <a name="aggregates-default-values"></a>Выполняет статистическое вычисление значений по умолчанию
@@ -117,7 +117,7 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 :::image type="content" source="images/summarizeoperator/summarize-price-by-supplier.png" alt-text="Суммировать цены по фруктовам и поставщикам":::
 
-## <a name="example"></a>Пример
+## <a name="example-unique-combination"></a>Пример: уникальная комбинация
 
 Определите уникальные сочетания `ActivityType` и `CompletionStatus` в таблице. Нет статистических функций, просто сгруппированных по ключам. В выходных данных будут показаны только столбцы для этих результатов:
 
@@ -132,7 +132,7 @@ Activities | summarize by ActivityType, completionStatus
 |`dancing`|`abandoned`
 |`singing`|`completed`
 
-## <a name="example"></a>Пример
+## <a name="example-minimum-and-maximum-timestamp"></a>Пример: минимальная и максимальная метки времени
 
 Находит минимальную и максимальную отметку времени всех записей в таблице действий. Предложение group by отсутствует, поэтому в выходных данных всего одна строка:
 
@@ -144,7 +144,7 @@ Activities | summarize Min = min(Timestamp), Max = max(Timestamp)
 |---|---
 |`1975-06-09 09:21:45` | `2015-12-24 23:45:00`
 
-## <a name="example"></a>Пример
+## <a name="example-distinct-count"></a>Пример: число различных объектов
 
 Создайте строку для каждого континента, показывающую количество городов, в которых выполняются действия. Так как существует несколько значений для "континент", в предложении "by" не требуется никакой функции группирования:
 
@@ -159,7 +159,7 @@ Activities | summarize cities=dcount(city) by continent
 |`2673`|`North America`|
 
 
-## <a name="example"></a>Пример
+## <a name="example-histogram"></a>Пример: гистограмма
 
 В следующем примере вычисляется гистограмма для каждого типа действия. Поскольку `Duration` имеет много значений, используйте `bin` для группирования его значений в 10-минутные интервалы:
 

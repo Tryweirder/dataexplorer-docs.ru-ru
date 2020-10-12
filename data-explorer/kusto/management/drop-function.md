@@ -1,6 +1,6 @@
 ---
-title: Функция .drop - Исследователь данных Azure (ru) Документы Майкрософт
-description: В этой статье описана функция .drop в Azure Data Explorer.
+title: . Drop-функция — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается функция Drop в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,31 +8,30 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 8930f7333ff18fad0d5b3dbbebe9328f8bf7a0b9
-ms.sourcegitcommit: e94be7045d71a0435b4171ca3a7c30455e6dfa57
+ms.openlocfilehash: 279af228d15f511b35c26eebd0d21521450be786
+ms.sourcegitcommit: 6f610cd9c56dbfaff4eb0470ac0d1441211ae52d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81744787"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91954745"
 ---
 # <a name="drop-function"></a>.drop function
 
-Выпадает функция из базы данных.
-Для удаления нескольких функций из базы данных [см.](#drop-functions)
+Удаляет функцию из базы данных.
+Сведения об удалении нескольких функций из базы данных см. в разделе [. Drop functions](#drop-functions).
 
 **Синтаксис**
 
-`.drop``function` *ФункцияИмя* `ifexists`
+`.drop``function` *FunctionName* [ `ifexists` ]
 
-* `ifexists`: Если указано, изменяет поведение команды, чтобы не потерпеть неудачу для несуществующей функции.
+* `ifexists`: Если указано, изменяет поведение команды для неудачи для несуществующей функции.
 
 > [!NOTE]
-> * Требуется [разрешение админа базы данных.](../management/access-control/role-based-authorization.md)
-> * [Пользователь базы данных,](../management/access-control/role-based-authorization.md) который первоначально создал функцию, может изменить функцию.  
+> * Требуется [разрешение функции "Администратор"](../management/access-control/role-based-authorization.md).
     
 |Выходной параметр |Тип |Описание
 |---|---|--- 
-|Имя  |Строка |Название функции, которая была удалена
+|name  |Строка |Имя удаленной функции
  
 **Пример** 
 
@@ -40,13 +39,13 @@ ms.locfileid: "81744787"
 .drop function MyFunction1
 ```
 
-## <a name="drop-functions"></a>функции .drop
+## <a name="drop-functions"></a>. Drop, функции
 
-Выпадает несколько функций из базы данных.
+Удаляет из базы данных несколько функций.
 
 **Синтаксис**
 
-`.drop``functions` *(FunctionName1*, *FunctionName2*,..) (если не существующие)
+`.drop``functions`(*FunctionName1*, *FunctionName2*,..) [IFEXISTS]
 
 **Возвращает**
 
@@ -54,13 +53,13 @@ ms.locfileid: "81744787"
 
 |Выходной параметр |Тип |Описание
 |---|---|--- 
-|Имя  |Строка |Имя функции. 
-|Параметры  |Строка |Параметры, требуемые функцией.
-|Текст  |Строка |(Ноль или больше) `let` за которым следует действительное выражение CSL, которое оценивается по вызову функции.
-|Папка|Строка|Папка, используемая для категоризации функций uI. Этот параметр не изменяет способ вызова функции.
-|DocString|Строка|Описание функции для целей uI.
+|name  |Строка |Имя функции. 
+|Параметры  |Строка |Параметры, необходимые для функции.
+|Текст  |Строка |(Ноль или более) `let` инструкции, за которыми следует допустимое выражение CSL, которое вычисляется при вызове функции.
+|Папка|Строка|Папка, используемая для классификации функций пользовательского интерфейса. Этот параметр не изменяет способ вызова функции.
+|DocString|Строка|Описание функции для целей пользовательского интерфейса.
 
-Требуется [разрешение на работу админа функции.](../management/access-control/role-based-authorization.md)
+Требуется [разрешение функции "Администратор"](../management/access-control/role-based-authorization.md).
 
 **Пример** 
  

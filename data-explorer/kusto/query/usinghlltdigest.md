@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: f56bd1c9f87833f7c1a9d29580a71557fedb894c
-ms.sourcegitcommit: ed902a5a781e24e081cd85910ed15cd468a0db1e
+ms.openlocfilehash: 30d4f6bd315b5a32c67570ab16b9abc3160f0177
+ms.sourcegitcommit: 6f610cd9c56dbfaff4eb0470ac0d1441211ae52d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88072401"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91954490"
 ---
 # <a name="using-hll-and-tdigest"></a>Использование hll() и tdigest()
 
@@ -82,7 +82,7 @@ MyTable
 |0|
 
 
-## <a name="example"></a>Пример
+## <a name="example-count-with-binned-timestamp"></a>Пример: count с Binned меткой времени
 
 Существует таблица, `PageViewsHllTDigest` содержащая `hll` значения страниц, просматриваемых каждый час. Вы хотите, чтобы эти значения Binned `12h` . Объедините `hll` значения с помощью `hll_merge()` агрегатной функции с меткой времени Binned в `12h` . Используйте функцию, `dcount_hll` чтобы вернуть конечное `dcount` значение:
 
@@ -128,7 +128,7 @@ PageViewsHllTDigest
 |2016-05-02 12:00:00.0000000|181315|
 |2016-05-03 00:00:00.0000000|146817|
  
-## <a name="example"></a>Пример
+## <a name="example-temporary-table"></a>Пример. Временная таблица
 
 Ограничения Kusto достигнуты с использованием слишком больших наборов данных, где необходимо выполнять периодические запросы к набору DataSet, но выполнять обычные запросы для вычисления [`percentile()`](percentiles-aggfunction.md) или [`dcount()`](dcount-aggfunction.md) поверх больших наборов данных.
 
@@ -148,7 +148,7 @@ PageViewsHllTDigest
 
 Предположим, что имеется таблица PageViews, в которую данные ежедневно принимаются каждый день, когда необходимо вычислить различные числа страниц, просматриваемых в минуту позднее даты = DateTime (2016-05-01 18:00:00.0000000).
 
-Выполните следующий запрос:
+Выполните приведенный ниже запрос:
 
 ```kusto
 PageViews   
@@ -179,7 +179,7 @@ PageViewsHllTDigest
 
 Этот запрос должен быть более производительным, так как он выполняется более чем с таблицей меньшего размера. В этом примере первый запрос выполняется более чем на каждые ~ 215M записей, а второй — только с 32 записями:
 
-## <a name="example"></a>Пример
+## <a name="example-intermediate-results"></a>Пример: промежуточные результаты
 
 Запрос на сохранение.
 Предположим, что у вас есть таблица, которая суммируется при просмотре каждой страницы Википедии (размер выборки — 10 миллионов), и вы хотите найти для каждой таблицы Date1 процент страниц, проверенных в Дата1 и Date2 относительно страниц, просматриваемых в Date1 (Дата1 < Date2).

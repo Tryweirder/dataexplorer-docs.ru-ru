@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: ed207a9db0b6440bae8f8fb4ae1c250d274565d7
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 79eb1314fad1c3d3bdbbda242b3bd6a86c19e158
+ms.sourcegitcommit: 6f610cd9c56dbfaff4eb0470ac0d1441211ae52d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338224"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91954473"
 ---
 # <a name="where-operator"></a>Оператор where
 
@@ -54,7 +54,7 @@ T | where fruit=="apple"
 
 Дополнительные сведения см. в сводке [доступных строковых операторов](./datatypes-string-operators.md) и сводных данных о [доступных числовых операторах](./numoperators.md).
 
-## <a name="example"></a>Пример
+## <a name="example-simple-comparisons-first"></a>Пример. сначала простые сравнения
 
 ```kusto
 Traces
@@ -67,7 +67,7 @@ Traces
 
 Обратите внимание, что сравнение двух столбцов выполняется последним, так как оно не может использовать индекс и вызывает проверку.
 
-## <a name="example"></a>Пример
+## <a name="example-columns-contain-string"></a>Пример: столбцы содержат строку
 
 ```kusto
 Traces | where * has "Kusto"
