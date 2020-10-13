@@ -1,6 +1,6 @@
 ---
 title: Управление политиками обновления Kusto в Azure обозреватель данных
-description: В этой статье описывается политика обновления в Azure обозреватель данных.
+description: Сведения о командах обновления политики в Azure обозреватель данных. См. инструкции по отображению, установке, изменению и удалению политик обновления таблицы.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/04/2020
-ms.openlocfilehash: 111110ac69e726c8367af4a2741a79061df7531a
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: c9ef5b2a205665c692c383654f3d050c4658c0f1
+ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803868"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92002984"
 ---
 # <a name="update-policy-commands"></a>команды политики обновления
 
@@ -63,7 +63,7 @@ ms.locfileid: "87803868"
 > * Используйте хранимую функцию для `Query` свойства объекта политики обновления.
    Вам потребуется изменить только определение функции, а не весь объект политики.
 > * Если `IsEnabled` параметр имеет значение `true` , то в соответствии с установленной политикой обновления выполняются следующие проверки.
->    * `Source`— Проверяет, существует ли таблица в целевой базе данных.
+>    * `Source` — Проверяет, существует ли таблица в целевой базе данных.
 >    * `Query` 
 >        * Проверяет, соответствует ли схема, определенная схемой, одной из целевых таблиц
 >        * Проверяет, что запрос ссылается на `source` таблицу политики обновления. 

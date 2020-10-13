@@ -7,14 +7,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 6dd52dbe9b69000b109f613957d1405190194b13
-ms.sourcegitcommit: 6db94135b9902ad0ea84f9cef00ded8ec0a90fc3
+ms.openlocfilehash: 9a697cfd37590f0368d5a8f0bacf91d02e1c8725
+ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86870096"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92003153"
 ---
-# <a name="troubleshooting"></a>Устранение неполадок
+# <a name="troubleshooting"></a>Диагностика
 
 Этот документ содержит распространенные проблемы при запуске и использовании Kusto. Explorer, а также предлагает решения. В этом документе также описано [, как сбросить Kusto. Explorer](#reset-kustoexplorer).
 
@@ -22,11 +22,11 @@ ms.locfileid: "86870096"
 
 ### <a name="kustoexplorer-shows-error-dialog-during-or-after-start-up"></a>Kusto. Explorer отображает диалоговое окно ошибки во время или после запуска
 
-**Симптом**
+#### <a name="symptom"></a>Симптом
 
 При запуске Kusto. Explorer отображает `InvalidOperationException` ошибку.
 
-**Возможное решение**
+#### <a name="possible-solution"></a>Возможное решение
 
 Эта ошибка может означать, что операционная система повреждена или в ней отсутствуют некоторые из необходимых модулей.
 Чтобы проверить отсутствующие или поврежденные системные файлы, выполните описанные здесь действия.   
@@ -34,11 +34,11 @@ ms.locfileid: "86870096"
 
 ## <a name="kustoexplorer-always-downloads-even-when-there-are-no-updates"></a>Kusto. Explorer всегда скачивается даже при отсутствии обновлений
 
-**Симптом**
+#### <a name="symptom"></a>Симптом
 
 При каждом открытии Kusto. Explorer вам будет предложено установить новую версию. Kusto. Explorer скачивает весь пакет, не обновляя уже установленную версию.
 
-**Возможное решение**
+#### <a name="possible-solution"></a>Возможное решение
 
 Этот симптом может быть результатом повреждения в локальном хранилище ClickOnce. Вы можете очистить локальное хранилище ClickOnce, выполнив следующую команду в командной строке с повышенными привилегиями.
 
@@ -54,7 +54,7 @@ rd /q /s %userprofile%\appdata\local\apps\2.0
 
 ### <a name="clickonce-error-cannot-start-application"></a>Ошибка ClickOnce: не удается запустить приложение
 
-**Симптомы**  
+#### <a name="symptoms"></a>Симптомы
 
 Программа не запускается и выводит одну из следующих ошибок: 
 * `External component has thrown an exception`
@@ -82,7 +82,7 @@ Following errors were detected during this operation.
             at System.Deployment.Application.ApplicationActivator.ActivateDeploymentWorker(Object state)
 ```
 
-**Предлагаемые шаги решения**
+#### <a name="proposed-solution-steps"></a>Предлагаемые шаги решения
 
 1. Удалите Kusto. Explorer с помощью `Programs and Features` ( `appwiz.cpl` ).
 
@@ -124,8 +124,10 @@ Following errors were detected during this operation.
         copy %LOCALAPPDATA%\Kusto.Explorer.bak\User*.xml %LOCALAPPDATA%\Kusto.Explorer
         ```
 
+#### <a name="enabling-clickonce-verbose-logging"></a>Включение подробного ведения журнала ClickOnce
+
 1. Если приложение по-прежнему не запускается:
-    1. Включите подробное ведение журнала ClickOnce, создав строку Логвербоситилевел со значением 1 в разделе:
+    1. [Включите подробное ведение журнала ClickOnce](https://docs.microsoft.com/visualstudio/deployment/how-to-specify-verbose-log-files-for-clickonce-deployments) , создав строку логвербоситилевел со значением 1 в разделе:
 
         ```kusto
         HKEY_CURRENT_USER\Software\Classes\Software\Microsoft\Windows\CurrentVersion\Deployment
@@ -136,12 +138,12 @@ Following errors were detected during this operation.
 
 ### <a name="clickonce-error-your-administrator-has-blocked-this-application-because-it-potentially-poses-a-security-risk-to-your-computer"></a>Ошибка ClickOnce: администратор заблокировал это приложение, так как оно потенциально создает угрозу безопасности для вашего компьютера
 
-**Симптом**  
+#### <a name="symptom"></a>Симптом 
 Не удается установить приложение с одной из следующих ошибок:
 * `Your administrator has blocked this application because it potentially poses a security risk to your computer`.
 * `Your security settings do not allow this application to be installed on your computer.`
 
-**Решение**
+#### <a name="solution"></a>Решение
 
 Это может быть вызвано тем, что другое приложение переопределяет поведение запроса о доверии ClickOnce по умолчанию. 
 1. Просмотр параметров конфигурации по умолчанию.

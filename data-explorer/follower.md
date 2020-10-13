@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: how-to
-ms.date: 11/07/2019
-ms.openlocfilehash: 36c5201f7b9d9f1cad2b82d569733c9d9f2abb90
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.date: 10/06/2020
+ms.openlocfilehash: d07dc282ba3996113903bd1b7c5ab08672d46543
+ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874007"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92003048"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Использование базы данных следующих служб для присоединения баз данных в Azure обозреватель данных
 
@@ -34,18 +34,21 @@ ms.locfileid: "88874007"
 
 ## <a name="attach-a-database"></a>Присоединение базы данных
 
-Существует несколько методов, которые можно использовать для присоединения базы данных. В этой статье обсуждается присоединение базы данных с помощью C#, Python или шаблона Azure Resource Manager. Чтобы присоединить базу данных, необходимо иметь учетную запись пользователя, группы, субъекта-службы или управляемую идентификацию по крайней мере с ролью участника в кластере лидерства и в кластере последующих действий. Назначения ролей можно добавлять и удалять с помощью [портала Azure](/azure/role-based-access-control/role-assignments-portal), [PowerShell](/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](/azure/role-based-access-control/role-assignments-cli) и [шаблона ARM](/azure/role-based-access-control/role-assignments-template). Вы можете узнать больше о [контроле доступа на основе ролей Azure (Azure RBAC)](/azure/role-based-access-control/overview) и [различных ролях](/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+Существует несколько методов, которые можно использовать для присоединения базы данных. В этой статье обсуждается подключение базы данных с помощью C#, Python, PowerShell или шаблона Azure Resource Manager. Чтобы присоединить базу данных, необходимо иметь учетную запись пользователя, группы, субъекта-службы или управляемую идентификацию по крайней мере с ролью участника в кластере лидерства и в кластере последующих действий. Назначения ролей можно добавлять и удалять с помощью [портала Azure](/azure/role-based-access-control/role-assignments-portal), [PowerShell](/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](/azure/role-based-access-control/role-assignments-cli) и [шаблона ARM](/azure/role-based-access-control/role-assignments-template). Вы можете узнать больше о [контроле доступа на основе ролей Azure (Azure RBAC)](/azure/role-based-access-control/overview) и [различных ролях](/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+
+
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="attach-a-database-using-c"></a>Присоединение базы данных с помощью языка C #
 
 #### <a name="needed-nugets"></a>Необходимые NuGet
 
-* Установите [Microsoft. Azure. Management. kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Установите пакет [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 * Установите [Microsoft. RESTful. ClientRuntime. Azure. Authentication для проверки подлинности](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
 
-#### <a name="code-example"></a>Пример кода
+#### <a name="example"></a>Пример
 
-```Csharp
+```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
@@ -77,6 +80,8 @@ AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new Atta
 var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseConfigurations.CreateOrUpdate(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationName, attachedDatabaseConfigurationProperties);
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
 ### <a name="attach-a-database-using-python"></a>Присоединение базы данных с помощью Python
 
 #### <a name="needed-modules"></a>Необходимые модули
@@ -86,7 +91,7 @@ pip install azure-common
 pip install azure-mgmt-kusto
 ```
 
-#### <a name="code-example"></a>Пример кода
+#### <a name="example"></a>Пример
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -124,6 +129,51 @@ attached_database_configuration_properties = AttachedDatabaseConfiguration(clust
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.attached_database_configurations.create_or_update(follower_resource_group_name, follower_cluster_name, attached_database_Configuration_name, attached_database_configuration_properties)
 ```
+
+# <a name="powershell"></a>[Оболочк](#tab/azure-powershell)
+
+### <a name="attach-a-database-using-powershell"></a>Подключение базы данных с помощью PowerShell
+
+#### <a name="needed-modules"></a>Необходимые модули
+
+```
+Install : Az.Kusto
+```
+
+#### <a name="example"></a>Пример
+
+```Powershell
+$FollowerClustername = 'follower'
+$FollowerClusterSubscriptionID = 'xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx'
+$FollowerResourceGroupName = 'followerResouceGroup'
+$DatabaseName = "db"  ## Can be specific database name or * for all databases
+$LeaderClustername = 'leader'
+$LeaderClusterSubscriptionID = 'xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx'
+$LeaderClusterResourceGroup = 'leaderResouceGroup'
+$DefaultPrincipalsModificationKind = 'Union'
+##Construct the LeaderClusterResourceId and Location
+$getleadercluster = Get-AzKustoCluster -Name $LeaderClustername -ResourceGroupName $LeaderClusterResourceGroup -SubscriptionId $LeaderClusterSubscriptionID -ErrorAction Stop
+$LeaderClusterResourceid = $getleadercluster.Id
+$Location = $getleadercluster.Location
+##Handle the config name if all databases needs to be followed
+if($DatabaseName -eq '*')  {
+        $configname = $FollowerClustername + 'config'
+       } 
+else {
+        $configname = $DatabaseName   
+     }
+New-AzKustoAttachedDatabaseConfiguration -ClusterName $FollowerClustername `
+    -Name $configname `
+    -ResourceGroupName $FollowerResourceGroupName `
+    -SubscriptionId $FollowerClusterSubscriptionID `
+    -DatabaseName $DatabaseName `
+    -ClusterResourceId $LeaderClusterResourceid `
+    -DefaultPrincipalsModificationKind $DefaultPrincipalsModificationKind `
+    -Location $Location `
+    -ErrorAction Stop 
+```
+
+# <a name="resource-manager-template"></a>[Шаблон Resource Manager](#tab/azure-resource-manager)
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Присоединение базы данных с помощью шаблона Azure Resource Manager
 
@@ -200,7 +250,6 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
    ![Развертывание шаблона](media/follower/template-deployment.png)
 
-
 |**Параметр**  |**Описание**  |
 |---------|---------|
 |Имя кластера следов     |  Имя кластера последов; где будет развернут шаблон.  |
@@ -209,28 +258,38 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 |Идентификатор ресурса кластера лидера    |   Идентификатор ресурса для кластера лидера.      |
 |Тип изменения участников по умолчанию    |   Тип изменения субъекта по умолчанию. Может иметь `Union` `Replace` или `None` . Дополнительные сведения об изменении типа субъекта по умолчанию см. в разделе [команда управления типа изменения основного сервера](kusto/management/cluster-follower.md#alter-follower-database-principals-modification-kind).      |
 |Расположение   |   Расположение всех ресурсов. Лидер и след должны находиться в одном расположении.       |
- 
-### <a name="verify-that-the-database-was-successfully-attached"></a>Проверка успешного присоединения базы данных
 
-Чтобы убедиться, что база данных была успешно присоединена, найдите подключенные базы данных в [портал Azure](https://portal.azure.com). 
+---
+
+## <a name="verify-that-the-database-was-successfully-attached"></a>Проверка успешного присоединения базы данных
+
+Чтобы убедиться, что база данных была успешно присоединена, найдите подключенные базы данных в [портал Azure](https://portal.azure.com). Вы можете убедиться, что базы данных были успешно присоединены в кластерах " [след](#check-your-follower-cluster) " или " [лидер](#check-your-leader-cluster) ".
+
+### <a name="check-your-follower-cluster"></a>Проверка кластера последующих действий  
 
 1. Перейдите к кластеру последующих узлов и выберите **базы данных** .
 1. Поиск новых баз данных, которые доступны только для чтения в списке
 
     ![База данных, доступная только для чтения](media/follower/read-only-follower-database.png)
 
-Еще один вариант:
+### <a name="check-your-leader-cluster"></a>Проверка кластера лидерства
 
 1. Перейдите к кластеру лидерства и выберите **базы данных** .
 2. Убедитесь, что соответствующие базы данных помечены как **Общие с другими**  >  **Да**
 
     ![Чтение и запись подключенных баз данных](media/follower/read-write-databases-shared.png)
 
-## <a name="detach-the-follower-database-using-c"></a>Отсоединение базы данных следующих средств с помощью C # 
+## <a name="detach-the-follower-database"></a>Отсоединение базы данных следующих следов  
 
-### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Отсоединение присоединенной базы данных последующих действий от кластера
+> [!NOTE]
+> Чтобы отсоединить базу данных от службы "следующий" или "лидер", у вас должен быть пользователь, группа, субъект-служба или управляемое удостоверение с ролью участника в кластере, из которого отсоединяется база данных. В приведенном ниже примере используется субъект-служба.
 
-Кластер последующих действий может отключить любую присоединенную базу данных следующим образом:
+# <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster-using-c"></a>Отсоединение присоединенной базы данных последующих действий от кластера последующих действий с помощью C #
+
+
+Кластер последов может отключить все подключенные базы данных следующего, как показано ниже.
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -252,10 +311,7 @@ var attachedDatabaseConfigurationsName = "uniqueName";
 resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationsName);
 ```
 
-Чтобы отсоединить базу данных от следующей стороны, у вас должен быть пользователь, группа, субъект-служба или управляемое удостоверение с ролью участника в кластере последующих поправок.
-В приведенном выше примере мы используем субъект-службу.
-
-### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Отсоединение присоединенной базы данных следующих серверов от ведущего кластера
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster-using-c"></a>Отсоединение присоединенной базы данных следующих серверов из кластера лидера с помощью C #
 
 Кластер лидера может отключить любую присоединенную базу данных следующим образом:
 
@@ -285,11 +341,9 @@ var followerDatabaseDefinition = new FollowerDatabaseDefinition()
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
 ```
 
-Чтобы отсоединить базу данных от лидера, необходимо, чтобы у пользователя, группы, субъекта-службы или управляемого удостоверения была роль участника в кластере лидера. В приведенном выше примере мы используем субъект-службу.
+# <a name="python"></a>[Python](#tab/python)
 
-## <a name="detach-the-follower-database-using-python"></a>Отключение базы данных последующих действий с помощью Python
-
-### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Отсоединение присоединенной базы данных последующих действий от кластера
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster-using-python"></a>Отсоединение присоединенной базы данных следующих серверов из кластера последующих узлов с помощью Python
 
 Кластер последующих действий может отключить любую присоединенную базу данных следующим образом:
 
@@ -319,10 +373,8 @@ attached_database_configurationName = "uniqueName"
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.attached_database_configurations.delete(follower_resource_group_name, follower_cluster_name, attached_database_configurationName)
 ```
-Чтобы отсоединить базу данных от следующей стороны, у вас должен быть пользователь, группа, субъект-служба или управляемое удостоверение с ролью участника в кластере последующих поправок.
-В приведенном выше примере мы используем субъект-службу.
 
-### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Отсоединение присоединенной базы данных следующих серверов от ведущего кластера
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster-using-python"></a>Отсоединение присоединенной базы данных следующих серверов из кластера лидера с помощью Python
 
 Кластер лидера может отключить любую присоединенную базу данных следующим образом:
 
@@ -356,13 +408,40 @@ attached_database_configuration_name = "uniqueName"
 location = "North Central US"
 cluster_resource_id = "/subscriptions/" + follower_subscription_id + "/resourceGroups/" + follower_resource_group_name + "/providers/Microsoft.Kusto/Clusters/" + follower_cluster_name
 
-
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.clusters.detach_follower_databases(resource_group_name = leader_resource_group_name, cluster_name = leader_cluster_name, cluster_resource_id = cluster_resource_id, attached_database_configuration_name = attached_database_configuration_name)
 ```
 
-Чтобы отсоединить базу данных от лидера, необходимо, чтобы у пользователя, группы, субъекта-службы или управляемого удостоверения была роль участника в кластере лидера.
-В приведенном выше примере мы используем субъект-службу.
+# <a name="powershell"></a>[Оболочк](#tab/azure-powershell)
+
+### <a name="detach-a-database-using-powershell"></a>Отсоединение базы данных с помощью PowerShell
+
+#### <a name="needed-modules"></a>Необходимые модули
+
+```
+Install : Az.Kusto
+```
+
+#### <a name="example"></a>Пример
+
+```Powershell
+$FollowerClustername = 'follower'
+$FollowerClusterSubscriptionID = 'xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx'
+$FollowerResourceGroupName = 'followerResouceGroup'
+$DatabaseName = "sanjn"  ## Can be specific database name or * for all databases
+
+##Construct the Configuration name 
+$confignameraw = (Get-AzKustoAttachedDatabaseConfiguration -ClusterName $FollowerClustername -ResourceGroupName $FollowerResourceGroupName -SubscriptionId $FollowerClusterSubscriptionID) | Where-Object {$_.DatabaseName -eq $DatabaseName }
+$configname =$confignameraw.Name.Split("/")[1]
+
+Remove-AzKustoAttachedDatabaseConfiguration -ClusterName $FollowerClustername -Name $configname -ResourceGroupName $FollowerResourceGroupName
+```
+
+# <a name="resource-manager-template"></a>[Шаблон Resource Manager](#tab/azure-resource-manager)
+
+[Отсоедините базу данных следующих](#detach-the-follower-database) типов с помощью C#, Python или PowerShell.
+
+---
 
 ## <a name="manage-principals-permissions-and-caching-policy"></a>Управление участниками, разрешениями и политикой кэширования
 
@@ -374,7 +453,7 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 |---------|---------|
 |**Union**     |   Присоединенные участники базы данных всегда включают в себя исходные субъекты базы данных, а также дополнительные новые участники, добавленные в базу данных следующих.      |
 |**Заменить**   |    Нет наследования субъектов от исходной базы данных. Для присоединенной базы данных необходимо создать новые субъекты.     |
-|**Нет**   |   Присоединенные участники базы данных включают только субъекты исходной базы данных без дополнительных субъектов.      |
+|**None**   |   Присоединенные участники базы данных включают только субъекты исходной базы данных без дополнительных субъектов.      |
 
 Дополнительные сведения об использовании команд управления для настройки полномочных участников см. в разделе [Управление командами для управления кластером последующих действий](kusto/management/cluster-follower.md).
 
@@ -394,6 +473,7 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 * Невозможно удалить базу данных, присоединенную к другому кластеру, прежде чем отсоединить ее.
 * Невозможно удалить кластер с базой данных, присоединенной к другому кластеру, прежде чем отсоединить его.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Сведения о конфигурации кластера ниже см. в разделе [управляющие команды для управления кластером последующих действий](kusto/management/cluster-follower.md).
+

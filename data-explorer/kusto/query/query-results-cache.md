@@ -8,12 +8,12 @@ ms.reviewer: amitof
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/16/2020
-ms.openlocfilehash: 4bfc7b591683940e10d2737ec776421f65d1427a
-ms.sourcegitcommit: 93510ef1e5570ce4da2cbf76eb77946c93a7dec8
+ms.openlocfilehash: d0942a949454bf12840626ff25d3703a23aed2cc
+ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85372474"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92002942"
 ---
 # <a name="query-results-cache"></a>Кэш результатов запроса
 
@@ -55,7 +55,6 @@ GithubEvent
     * [current_principal](current-principalfunction.md)
     * [current_principal_details](current-principal-detailsfunction.md)
     * [current_principal_is_member_of](current-principal-ismemberoffunction.md)
-* Запрос является [запросом между кластерами](cross-cluster-or-database-queries.md).
 * Запрос обращается к [внешней таблице](schema-entities/externaltables.md) или [внешним данным](externaldata-operator.md).
 * В запросе используется оператор [Evaluate подключаемого модуля](evaluateoperator.md) .
 
@@ -73,10 +72,10 @@ GithubEvent
 В результаты кэшированного запроса будет добавлена дополнительная строка, добавленная к этой таблице:
 * `Key`Столбец строки будет содержать строку`ServerCache`
 * `Value`Столбец строки будет содержать контейнер свойств с двумя полями:
-   * `OriginalClientRequestId`— Указывает [ClientRequestId](../api/netfx/request-properties.md#the-clientrequestid-x-ms-client-request-id-named-property)исходного запроса.
-   * `OriginalStartedOn`— Указывает время начала выполнения исходного запроса.
+   * `OriginalClientRequestId` — Указывает [ClientRequestId](../api/netfx/request-properties.md#the-clientrequestid-x-ms-client-request-id-named-property)исходного запроса.
+   * `OriginalStartedOn` — Указывает время начала выполнения исходного запроса.
 
-## <a name="distribution"></a>Распределение
+## <a name="distribution"></a>Distribution
 
 Кэш не является общим для узлов кластера. Каждый узел имеет выделенный кэш в своем собственном частном хранилище. Если два одинаковых запроса помещаются на разные узлы, запрос будет выполнен и кэширован на обоих узлах. Этот процесс может произойти, если используется [слабая согласованность](../concepts/queryconsistency.md) .
 

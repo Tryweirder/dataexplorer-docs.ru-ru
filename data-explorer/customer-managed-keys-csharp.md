@@ -1,18 +1,18 @@
 ---
 title: 'Настройка ключей, управляемых клиентом, с помощью C #'
-description: В этой статье описывается, как настроить шифрование ключей, управляемых клиентом, на основе данных в Azure обозреватель данных.
+description: В этой статье описывается, как настроить ключи, управляемые клиентом, для шифрования данных Azure обозреватель данных с помощью C#.
 author: orspod
 ms.author: orspodek
 ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 01/06/2020
-ms.openlocfilehash: ade06e6fffb31a5c76fa12fe02d5192e4126091e
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: db20566a9aa9b5c720ea9f72ec9c980042db0625
+ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88872103"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92003012"
 ---
 # <a name="configure-customer-managed-keys-using-c"></a>Настройка ключей, управляемых клиентом, с помощью C #
 
@@ -27,7 +27,7 @@ ms.locfileid: "88872103"
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys part 2](includes/data-explorer-configure-customer-managed-keys-b.md)]
 
-## <a name="configure-encryption-with-customer-managed-keys"></a>Настройка шифрования с помощью управляемых клиентом ключей
+## <a name="configure-encryption-with-customer-managed-keys"></a>Настройка шифрования с использованием ключей, управляемых клиентом
 
 В этом разделе показано, как настроить шифрование ключей, управляемых клиентом, с помощью клиента Azure обозреватель данных C#. 
 
@@ -37,7 +37,7 @@ ms.locfileid: "88872103"
 
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 
-### <a name="install-c-nuget"></a>Установка NuGet C#
+### <a name="install-c-nuget"></a>Установка пакета NuGet для C#
 
 * Установите [пакет NuGet для Azure обозреватель данных (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
@@ -91,7 +91,7 @@ ms.locfileid: "88872103"
 
 При создании новой версии ключа необходимо обновить кластер для использования новой версии. Сначала вызовите метод, `Get-AzKeyVaultKey` чтобы получить последнюю версию ключа. Затем обновите свойства хранилища ключей кластера, чтобы использовать новую версию ключа, как показано в разделе [Настройка кластера](#configure-cluster).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
 * [Настройка управляемых удостоверений для кластера Azure обозреватель данных](managed-identities.md)

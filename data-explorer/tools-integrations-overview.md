@@ -8,12 +8,12 @@ ms.reviewer: olgolden
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: e341b70dfc2a7c0d3038d6d60d9c8ae2b40b6218
-ms.sourcegitcommit: c2ab3176db4dd55ac9ca8eee52bbd24096d1277f
+ms.openlocfilehash: c1be494fd290b051455010d6e6e082d01650107c
+ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90740258"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92003132"
 ---
 # <a name="azure-data-explorer-tools-and-integrations-overview"></a>Обзор средств и интеграции Azure обозреватель данных
 
@@ -30,31 +30,18 @@ Azure обозреватель данных предлагает различн�
 ### <a name="azure-data-explorer-ingestion-tools"></a>Средства приема обозреватель данных Azure
 
 * [LightIngest](lightingest.md) — служебная программа для специализированных операций приема данных в Azure Data Explorer.
-* Прием одним щелчком
-    * [Общие сведения о приеме одним щелчком](ingest-data-one-click.md) 
-    * [Прием данных из контейнера в новую таблицу](one-click-ingestion-new-table.md)
-    * [Прием данных из локального файла в существующую таблицу](one-click-ingestion-existing-table.md)
+* Прием одним щелчком: [Обзор](ingest-data-one-click.md) и прием данных [из контейнера в новую таблицу](one-click-ingestion-new-table.md) или [из локального файла в существующую таблицу](one-click-ingestion-existing-table.md) .
 
 ### <a name="ingestion-integrations"></a>Интеграция приема
 
-* Концентратор событий
-    * [Прием данных из концентратора событий](ingest-data-event-hub-overview.md)
-    * Прием из концентратора событий с помощью шаблона [портал Azure](ingest-data-event-hub.md), [C#](data-connection-event-hub-csharp.md), [Python](data-connection-event-hub-python.md) или [Azure Resource Manager](data-connection-event-hub-resource-manager.md)
-* Сетка событий Azure
-    * [Прием из сетки событий](ingest-data-event-grid-overview.md)
-    * Прием из сетки событий с помощью шаблона [портал Azure](ingest-data-event-grid.md), [C#](data-connection-event-grid-csharp.md), [Python](data-connection-event-grid-python.md) или [Azure Resource Manager](data-connection-event-grid-resource-manager.md)
-* Центр Интернета вещей
-    * [Прием данных из Центра Интернета вещей](ingest-data-iot-hub-overview.md)
-    * Прием из центра Интернета вещей с помощью шаблона [портал Azure](ingest-data-iot-hub.md), [C#](data-connection-iot-hub-csharp.md), [Python](data-connection-iot-hub-python.md) или [Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
+* Концентратор событий: прием [из концентратора событий](ingest-data-event-hub-overview.md) и использование шаблона [портал Azure](ingest-data-event-hub.md), [C#](data-connection-event-hub-csharp.md), [Python](data-connection-event-hub-python.md) или [Azure Resource Manager](data-connection-event-hub-resource-manager.md)
+* Сетка событий: прием [из сетки событий обзор](ingest-data-event-grid-overview.md) и использование шаблона [портал Azure](ingest-data-event-grid.md), [C#](data-connection-event-grid-csharp.md), [Python](data-connection-event-grid-python.md) или [Azure Resource Manager](data-connection-event-grid-resource-manager.md)
+* Центр Интернета вещей: прием [из центра Интернета вещей обзор](ingest-data-iot-hub-overview.md) и использование шаблона [портал Azure](ingest-data-iot-hub.md), [C#](data-connection-iot-hub-csharp.md), [Python](data-connection-iot-hub-python.md) или [Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 * [Logstash](ingest-data-logstash.md).
-* Фабрика данных Azure
-    * [Интеграция с фабрикой данных Azure](data-factory-integration.md)
-    * [Копирование данных](data-factory-load-data.md)
-    * [Копирование из базы данных в оптовой среде с помощью шаблона фабрики данных Azure](data-factory-template.md)
-    * [Использование действия команды фабрики данных Azure для запуска команд управления обозреватель данных Azure](data-factory-command-activity.md)
-* Apache 
-    * [Spark](spark-connector.md)
-    * [Kafka](ingest-data-kafka.md)
+* Фабрика данных Azure. [Общие сведения об интеграции](data-factory-integration.md), [копирование данных](data-factory-load-data.md), [копирование с помощью шаблона фабрики данных azure](data-factory-template.md)и [выполнение команд управления обозреватель данных Azure с помощью действия команды фабрики данных Azure](data-factory-command-activity.md)
+* [Apache Spark Azure синапсе](https://docs.microsoft.com/azure/synapse-analytics/quickstart-connect-azure-data-explorer?context=/azure/data-explorer/context/context)
+* [Apache Spark](spark-connector.md)
+* [Apache Kafka](ingest-data-kafka.md)
 * [База данных Cosmos](https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration)
 * [Power Automate](flow.md)
 
@@ -65,10 +52,8 @@ Azure обозреватель данных предлагает различн�
 Существует несколько средств, доступных для выполнения запросов в обозреватель данных Azure.
 
 * Kusto.Explorer
-    * [Установка и пользовательский интерфейс](kusto/tools/kusto-explorer.md)
-    * [Использование Kusto.Explorer](kusto/tools/kusto-explorer-using.md)
-    * [options](kusto/tools/kusto-explorer-options.md)
-    * Дополнительные разделы: [Устранение неполадок](kusto/tools/kusto-explorer-troubleshooting.md), [сочетания клавиш](kusto/tools/kusto-explorer-shortcuts.md), [рефакторинг кода](kusto/tools/kusto-explorer-refactor.md), [Навигация по коду](kusto/tools/kusto-explorer-codenav.md)и [анализ кода](kusto/tools/kusto-explorer-code-analyzer.md)
+    * [Установка и пользовательский интерфейс](kusto/tools/kusto-explorer.md) [с помощью Kusto. Explorer](kusto/tools/kusto-explorer-using.md)
+    * Дополнительные разделы: [Параметры](kusto/tools/kusto-explorer-options.md), [Устранение неполадок](kusto/tools/kusto-explorer-troubleshooting.md), [сочетания клавиш](kusto/tools/kusto-explorer-shortcuts.md), [рефакторинг кода](kusto/tools/kusto-explorer-refactor.md), [Навигация по коду](kusto/tools/kusto-explorer-codenav.md)и [анализ кода](kusto/tools/kusto-explorer-code-analyzer.md)
 * [Веб-интерфейс](web-query-data.md)
 * [Kusto.Cli](kusto/tools/kusto-cli.md)
 
@@ -76,9 +61,10 @@ Azure обозреватель данных предлагает различн�
 
 * [Azure Monitor](query-monitor-data.md);
 * [Azure Data Lake](data-lake-query-data.md)
+* [Apache Spark Azure синапсе](https://docs.microsoft.com/azure/synapse-analytics/quickstart-connect-azure-data-explorer?context=/azure/data-explorer/context/context)
 * [Apache Spark](spark-connector.md)
 * Microsoft Power Apps
-* [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/notebooks-kqlmagic)
+* Azure Data Studio: [Общие сведения о расширении Kusto](https://docs.microsoft.com/sql/azure-data-studio/extensions/kusto-extension?context=/azure/data-explorer/context/context), [Использование Kusto](https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=/azure/data-explorer/context/context)и [Использование кклмагик](https://docs.microsoft.com/sql/azure-data-studio/notebooks-kqlmagic?context=/azure/data-explorer/context/context)
 
 ## <a name="visualizations-dashboards-and-reporting"></a>Средства визуализации, мониторинга и отчетности
 
@@ -88,17 +74,17 @@ Azure обозреватель данных предлагает различн�
 
 * [Записные книжки Azure](azure-notebooks.md)
 * [Jupyter Notebook](kqlmagic.md)
-* [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/notebooks-kqlmagic)
+* Azure Data Studio: [Общие сведения о расширении Kusto](https://docs.microsoft.com/sql/azure-data-studio/extensions/kusto-extension?context=/azure/data-explorer/context/context), [Использование Kusto](https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=/azure/data-explorer/context/context)и [Использование кклмагик](https://docs.microsoft.com/sql/azure-data-studio/notebooks-kqlmagic?context=/azure/data-explorer/context/context)
 
 ## <a name="orchestration"></a>Оркестрация
 
 * Power Automate
-    * [Соединитель Power автоматизиру](flow.md)
+    * [Соединитель Power Automate](flow.md)
     * [Примеры использования соединителя Power Automate](flow-usage.md)
 * [Приложение логики Microsoft](kusto/tools/logicapps.md) 
 * [Фабрика данных Azure](data-factory-integration.md).
 
-## <a name="share-data"></a>Совместное использование данных
+## <a name="share-data"></a>Предоставление общего доступа к данным
 
 * [Azure Data Share](data-share.md)
 

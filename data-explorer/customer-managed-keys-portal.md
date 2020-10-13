@@ -1,18 +1,18 @@
 ---
 title: Настройка ключей, управляемых клиентом, с помощью портал Azure
-description: В этой статье описывается, как настроить шифрование ключей, управляемых клиентом, на основе данных в Azure обозреватель данных.
+description: Узнайте, как настроить ключи, управляемые клиентом, для шифрования данных Azure обозреватель данных с помощью портал Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: 4d828905ce673c3b1c6453d31974334312bd3b5e
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 3c8aaf6f4a6a876707a362ac163de146630a86cb
+ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88872154"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92003027"
 ---
 # <a name="configure-customer-managed-keys-using-the-azure-portal"></a>Настройка ключей, управляемых клиентом, с помощью портал Azure
 
@@ -40,7 +40,7 @@ ms.locfileid: "88872154"
 
 1. Выберите **ключ**.
 1. Выберите **версию**.
-1. Щелкните **Выбрать**.
+1. Нажмите кнопку **Выбрать**.
 
     ![Выберите ключ из Azure Key Vault](media/customer-managed-keys-portal/cmk-key-vault.png)
 
@@ -53,12 +53,11 @@ ms.locfileid: "88872154"
 > [!NOTE]
 > Выберите **Отключить** , чтобы удалить ключ, управляемый клиентом, после его создания.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Защита кластеров Azure обозреватель данных в Azure](security.md)
 * [Защитите свой кластер с помощью шифрования дисков в Azure обозреватель данных — портал Azure](cluster-disk-encryption.md) , включив шифрование неактивных компонентов.
 * [Настройка ключей, управляемых клиентом, с помощью шаблона Azure Resource Manager](customer-managed-keys-resource-manager.md)
 * [Настройка ключей, управляемых клиентом, с помощью C #](customer-managed-keys-csharp.md)
-
 
 
