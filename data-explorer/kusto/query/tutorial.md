@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/23/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 2060d2996338cf1eee33b5905e9929c46040afa9
-ms.sourcegitcommit: b286703209f1b657ac3d81b01686940f58e5e145
+ms.openlocfilehash: 64736d944c71d84c4950dea0341089732b258f27
+ms.sourcegitcommit: a10e7c6ba96bdb94d95ef23f5d1506eb8fda0041
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86188597"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058688"
 ---
 # <a name="tutorial"></a>Учебник
 
@@ -123,7 +123,7 @@ StormEvents
 StormEvents
 | sort by StartTime desc
 | take 5
-| project  StartTime, EndLat, EventType, EventNarrative
+| project  StartTime, EndTime, EventType, EventNarrative
 ```
 
 ## <a name="extend-compute-derived-columns"></a>расширение: вычисление производных столбцов
@@ -147,7 +147,7 @@ StormEvents
 |2007-12-30 16:00:00.0000000|2007-12-30 16:05:00.0000000|00:05:00|Шквалистый ветер|Грузия|
 
 Можно повторно использовать имя столбца и присвоить результат вычисления одному и тому же столбцу.
-Пример.
+Например.
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
@@ -238,11 +238,11 @@ StormEvents
 | render columnchart
 ```
 
-:::image type="content" source="images/tutorial/event-counts-state.png" alt-text="Гистограмма счетчиков событий с различными состояниями":::
+:::image type="content" source="images/tutorial/event-counts-state.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
 
 Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
 
-Строго говоря, "Render" — это функция клиента, а не часть языка запросов. Тем не менее, она интегрирована в язык и очень полезна для представления результатов.
+Строго говоря, &quot;Render" — это функция клиента, а не часть языка запросов. Тем не менее, она интегрирована в язык и очень полезна для представления результатов.
 
 
 ## <a name="timecharts"></a>Временные диаграммы
@@ -256,7 +256,11 @@ StormEvents
 | render timechart
 ```
 
-:::image type="content" source="images/tutorial/time-series-start-bin.png" alt-text="События графика, binned по времени":::
+:::image type="content" source="images/tutorial/time-series-start-bin.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 ## <a name="multiple-series"></a>Множественные серии
 
@@ -270,11 +274,19 @@ StormEvents
 | summarize count() by bin(StartTime, 10h), Source
 ```
 
-:::image type="content" source="images/tutorial/table-count-source.png" alt-text="Счетчик таблиц по источнику":::
+:::image type="content" source="images/tutorial/table-count-source.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 Просто добавьте термин прорисовки к приведенной выше: `| render timechart` .
 
-:::image type="content" source="images/tutorial/line-count-source.png" alt-text="Число графиков по источнику":::
+:::image type="content" source="images/tutorial/line-count-source.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 Обратите внимание, что `render timechart` использует первый столбец в качестве оси x, а затем отображает другие столбцы в виде отдельных строк.
 
@@ -293,11 +305,19 @@ StormEvents
 | render timechart
 ```
 
-:::image type="content" source="images/tutorial/time-count-hour.png" alt-text="Счетчик временной диаграммы по часам":::
+:::image type="content" source="images/tutorial/time-count-hour.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 В настоящее время `render` не имеет правильной метки длительности, но `| render columnchart` вместо этого можно использовать:
 
-:::image type="content" source="images/tutorial/column-count-hour.png" alt-text="Количество столбцов в гистограмме по часам":::
+:::image type="content" source="images/tutorial/column-count-hour.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 ## <a name="compare-multiple-daily-series"></a>Сравнение серий для нескольких дней
 
@@ -312,7 +332,11 @@ StormEvents
 | render timechart
 ```
 
-:::image type="content" source="images/tutorial/time-hour-state.png" alt-text="Диаграмма времени по часам и состоянию":::
+:::image type="content" source="images/tutorial/time-hour-state.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 Выполните деление `1h` на, чтобы превратить ось x в число часов, а не на длительность:
 
@@ -325,7 +349,11 @@ StormEvents
 | render columnchart
 ```
 
-:::image type="content" source="images/tutorial/column-hour-state.png" alt-text="Гистограмма по часам и штату":::
+:::image type="content" source="images/tutorial/column-hour-state.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 ## <a name="join"></a>Join
 
@@ -344,7 +372,11 @@ StormEvents
 | distinct State
 ```
 
-:::image type="content" source="images/tutorial/join-events-la.png" alt-text="Присоединение к событиям с молнией и множество":::
+:::image type="content" source="images/tutorial/join-events-la.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 ## <a name="user-session-example-of-join"></a>Пример сеанса пользователя с присоединением
 
@@ -370,7 +402,11 @@ Events
 | take 10
 ```
 
-:::image type="content" source="images/tutorial/user-session-extend.png" alt-text="Расширение сеанса пользователя":::
+:::image type="content" source="images/tutorial/user-session-extend.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 Рекомендуется использовать `project` только для выбора необходимых столбцов перед выполнением соединения.
 В тех же предложениях мы переименуем столбец timestamp.
@@ -391,11 +427,19 @@ StormEvents
 | render timechart
 ```
 
-:::image type="content" source="images/tutorial/event-count-duration.png" alt-text="Число событий диаграмму по продолжительности":::
+:::image type="content" source="images/tutorial/event-count-duration.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 Или используйте `| render columnchart` :
 
-:::image type="content" source="images/tutorial/column-event-count-duration.png" alt-text="Счетчик событий гистограммы диаграмму по продолжительности":::
+:::image type="content" source="images/tutorial/column-event-count-duration.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 ## <a name="percentiles"></a>Процентили
 
@@ -409,7 +453,11 @@ StormEvents
 
 В этом случае мы предоставили `by` предложение No, поэтому результатом будет одна строка:
 
-:::image type="content" source="images/tutorial/summarize-percentiles-duration.png" alt-text="Таблица суммирования процентили по продолжительности":::
+:::image type="content" source="images/tutorial/summarize-percentiles-duration.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 Из полученных результатов мы видим следующее:
 
@@ -431,7 +479,11 @@ StormEvents
 | summarize percentiles(duration, 5, 20, 50, 80, 95) by State
 ```
 
-:::image type="content" source="images/tutorial/summarize-percentiles-state.png" alt-text="Таблица сводка длительности процентили по состоянию":::
+:::image type="content" source="images/tutorial/summarize-percentiles-state.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+
+Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
+
+Строго говоря, &quot;Render":::
 
 ## <a name="let-assign-a-result-to-a-variable"></a>Оператор let: присвоение результата переменной
 
