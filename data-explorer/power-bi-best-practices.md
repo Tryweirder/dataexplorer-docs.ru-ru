@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 09/26/2019
-ms.openlocfilehash: 3d1e8b4df2507a9b2eb7126973dea891edc1d6ac
-ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
+ms.openlocfilehash: 4cb2c64e2a66d8412277717e505626965bca1052
+ms.sourcegitcommit: 7024f73c76bf5b506557fd0ef7a0f4f40ec7d313
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91941984"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92021225"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Рекомендации по использованию Power BI для запроса и визуализации данных обозреватель данных Azure
 
@@ -91,6 +91,7 @@ in
 | NoTruncate | `[NoTruncate=true]` | Добавляет `notruncation` инструкцию SET в запрос. Включает подавление усечения результатов запроса, возвращаемого вызывающему объекту.
 | аддитионалсетстатементс | `[AdditionalSetStatements="set query_datascope=hotcache"]` | Добавляет предоставленные инструкции SET в запрос. Эти инструкции используются для задания параметров запроса на время выполнения запроса. Параметры запроса управляют выполнением запроса и возвращением результатов.
 | Без | `[CaseInsensitive=true]` | Создает соединитель, создающий запросы без учета регистра. запросы будут использовать `=~` оператор вместо `==` оператора при сравнении значений.
+| Время ожидания | `[Timeout=#duration(0,10,0,0)]` | Настраивает время ожидания клиента и сервера для запроса в указанное время.
 
 > [!NOTE]
 > Для достижения желаемого поведения можно объединить несколько параметров: `[NoTruncate=true, CaseInsensitive=true]`
@@ -181,6 +182,6 @@ Power BI включает Планировщик обновления данны
 
 Если выполнение запроса в Power BI приводит к следующей ошибке: _"DataSource. Error: Web. contents не удалось получить содержимое из..."_ запрос может быть длиннее 2000 символов. Power BI использует **PowerQuery** для запроса Kusto, ВЫДАВАЯ HTTP-запрос GET, который кодирует запрос как часть получаемого URI. Таким образом, Kusto запросы, выданные Power BI, ограничиваются максимальной длиной URI запроса (2000 символов, за вычетом небольшого смещения). В качестве обходного решения можно определить [хранимую функцию](kusto/query/schema-entities/stored-functions.md) в Kusto и иметь Power BI использовать эту функцию в запросе.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Визуализация данных с помощью соединителя Azure Data Explorer для Power BI](power-bi-connector.md)
