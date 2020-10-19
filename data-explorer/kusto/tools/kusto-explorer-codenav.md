@@ -1,6 +1,6 @@
 ---
-title: Kusto Explorer Код Навигация - Azure Data Explorer (ru) Документы Майкрософт
-description: В этой статье описывается навигация кода Kusto Explorer в Azure Data Explorer.
+title: Навигация по коду обозревателя Kusto — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описывается Навигация по коду в Kusto Explorer в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,23 +8,23 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/31/2020
-ms.openlocfilehash: c81ea5360013b779717e87164a71baf5ac4ae6c1
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: ecb499ac0f5840d9ad415179788db118257f35d7
+ms.sourcegitcommit: 88923cfb2495dbf10b62774ab2370b59681578b9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81524112"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92175532"
 ---
-# <a name="kusto-explorer-code-navigation"></a>Кусто Исследователь код навигации
+# <a name="kusto-explorer-code-navigation"></a>Навигация по коду обозревателя Kusto
 
-Kusto.Explorer предоставляет несколько функций для легкой навигации кода с использованием информации о символах запроса.
+Kusto. Explorer предоставляет несколько функций для упрощения навигации по коду с помощью сведений о символах запросов.
 
-## <a name="go-to-symbol-definition"></a>Определение символа
+## <a name="go-to-symbol-definition"></a>Определение символа "переход к"
 
-Вы можете перейти к определению `F12` `Alt` + `Home` текущего символа с помощью или короткого разреза.
+Можно переходить к определению текущего символа с помощью `F12` или `Alt` + `Home` короткого сокращения.
 
-## <a name="list-all-references-of-a-symbol"></a>Перечислите все ссылки на символ
+## <a name="list-all-references-of-a-symbol"></a>Вывод списка всех ссылок на символ
 
-Вы можете получить все ссылки `Ctrl` + `F12` текущего символа с помощью короткого разреза.
+Вы можете получить все ссылки на текущий символ с помощью `Ctrl` + `F12` краткого сокращения.
 
-![альт текст](./Images/KustoTools-KustoExplorer/ke-codenav-refernces.gif "код-навигация-ссылки")
+:::image type="content" source="images/kusto-explorer-codenav/ke-code-nav-references.gif" alt-text="Ссылки на Kusto символов Обозреватель кода обозревателя":::

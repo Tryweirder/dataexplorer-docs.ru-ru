@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: b3a8c379ad010a9787fdb8b7d4e2961fb58ead9e
-ms.sourcegitcommit: f2f9cc0477938da87e0c2771c99d983ba8158789
+ms.openlocfilehash: c20e18a31105dca584ebe35198462e8755cf8dc4
+ms.sourcegitcommit: 88923cfb2495dbf10b62774ab2370b59681578b9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89502673"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92175724"
 ---
 # <a name="create-a-connection-to-event-hub"></a>Создание подключения к концентратору событий
 
@@ -30,7 +30,7 @@ ms.locfileid: "89502673"
     > [!NOTE]
     > Концентратор событий не поддерживает формат RAW.
 
-* См. раздел [Поддерживаемые сжатия](ingestion-supported-formats.md#supported-data-compression-formats).
+* Данные можно сжимать с помощью `GZip` алгоритма сжатия. Укажите `Compression` в [свойствах приема](#set-ingestion-properties).
    * Сжатие данных не поддерживается для сжатых форматов (Avro, Parquet, ORC).
    * Пользовательские кодировки и встроенные [Свойства системы](#set-event-system-properties-mapping) не поддерживаются в сжатых данных.
   
@@ -43,7 +43,7 @@ ms.locfileid: "89502673"
 | Таблица | Имя существующей целевой таблицы (с учетом регистра). Переопределяет `Table` набор на `Data Connection` панели. |
 | Формат | Формат данных. Переопределяет `Data format` набор на `Data Connection` панели. |
 | инжестионмаппингреференце | Имя существующего [сопоставления приема](kusto/management/create-ingestion-mapping-command.md) , которое будет использоваться. Переопределяет `Column mapping` набор на `Data Connection` панели.|
-| сжатие; | Сжатие данных, `None` (по умолчанию) или `GZip` сжатие.|
+| Сжатие | Сжатие данных, `None` (по умолчанию) или `GZip` сжатие.|
 | Кодирование | Кодировка данных, значение по умолчанию — UTF8. Может быть любой из [поддерживаемых кодировок .NET](https://docs.microsoft.com/dotnet/api/system.text.encoding?view=netframework-4.8#remarks). |
 | Теги (Предварительная версия) | Список [тегов](kusto/management/extents-overview.md#extent-tagging) , связываемых с полученными данными в формате строки массива JSON. При использовании тегов возникают [проблемы с производительностью](kusto/management/extents-overview.md#performance-notes-1) . |
 
