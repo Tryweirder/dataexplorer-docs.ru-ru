@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/23/2020
-ms.openlocfilehash: 7f17302475221bb259e6717987f7d31e96d7c118
-ms.sourcegitcommit: a4779e31a52d058b07b472870ecd2b8b8ae16e95
+ms.openlocfilehash: ecfcaa39195caec06184b966403bd6655a00b714
+ms.sourcegitcommit: 62476f682b7812cd9cff7e6958ace5636ee46755
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89366033"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92169546"
 ---
 # <a name="make_list-aggregation-function"></a>make_list () (агрегатная функция)
 
@@ -40,7 +40,7 @@ ms.locfileid: "89366033"
 Если входные данные `summarize` оператора сортируются, порядок элементов в результирующем массиве отслеживает входные данные.
 
 > [!TIP]
-> Используйте [`mv-apply`](./mv-applyoperator.md) оператор, чтобы создать упорядоченный список с помощью некоторого ключа. Примеры см. [здесь](./mv-applyoperator.md#using-the-mv-apply-operator-to-sort-the-output-of-make_list-aggregate-by-some-key).
+> Используйте [`array_sort_asc()`](./arraysortascfunction.md) функцию или, [`array_sort_desc()`](./arraysortdescfunction.md) чтобы создать упорядоченный список по определенному ключу.
 
 ## <a name="examples"></a>Примеры
 
@@ -122,6 +122,6 @@ shapes
 |false|[{"Name": "треугольник", "Сидекаунт": 3}, {"Name": "пятиугольник", "Сидекаунт": 5}, {"Name": "хептагон", "Сидекаунт": 7}, {"Name": "Нонагон", "Сидекаунт": 9}]|
 |Да|[{"имя": "квадрат", "Сидекаунт": 4}, {"Name": "Rectangle", "Сидекаунт": 4}, {"Name": "шестиугольник", "Сидекаунт": 6}, {"Name": "Октогон", "Сидекаунт": 8}, {"Name": "Декагон", "Сидекаунт": 10}]|
 
-## <a name="see-also"></a>См. также раздел
+## <a name="see-also"></a>См. также
 
 [`make_list_if`](./makelistif-aggfunction.md) аналогичен оператору `make_list` , за исключением того, что он также принимает предикат.
