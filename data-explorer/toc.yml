@@ -29,6 +29,8 @@
       href: visualize-power-bi.md
 - name: Основные понятия
   items:
+    - name: EngineV3
+      href: engine-v3.md
     - name: Прием данных
       items:
         - name: Общие сведения о приеме данных
@@ -316,26 +318,43 @@
           href: follower.md
     - name: Интеграция с другими средствами
       items:
-        - name: Power Automate
+        - name: Оркестрация
           items:
-            - name: Соединитель Power Automate
-              href: flow.md
-              displayName: 'Microsoft Flow, flow, flow connector'
-            - name: Примеры использования соединителя Power Automate
-              href: flow-usage.md
-              displayName: 'Microsoft Flow, flow, flow connector'
-        - name: Logic Apps
-          href: kusto/tools/logicapps.md
-        - name: Соединитель Apache Spark
-          href: spark-connector.md
+            - name: Power Automate
+              items:
+                - name: Соединитель Power Automate
+                  href: flow.md
+                  displayName: 'Microsoft Flow, flow, flow connector'
+                - name: Примеры использования соединителя Power Automate
+                  href: flow-usage.md
+                  displayName: 'Microsoft Flow, flow, flow connector'
+            - name: Logic Apps
+              href: kusto/tools/logicapps.md
         - name: Cosmos DB
           href: 'https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration'
+        - name: Соединитель Apache Spark
+          href: spark-connector.md
+        - name: Подключение из Azure Synapse Apache Spark
+          href: 'https://docs.microsoft.com/azure/synapse-analytics/quickstart-connect-azure-data-explorer?toc=/azure/data-explorer/toc.json&bc=/azure/data-explorer/breadcrumb/toc.json'
         - name: Подключение из Azure Databricks
           href: connect-from-databricks.md
-        - name: Анализ данных в Jupyter Notebook и Kqlmagic
-          href: kqlmagic.md
-        - name: Анализ данных в Записных книжках Azure
-          href: azure-notebooks.md
+        - name: Записные книжки
+          items:
+            - name: Анализ данных в Jupyter Notebook и Kqlmagic
+              href: kqlmagic.md
+            - name: Анализ данных в Записных книжках Azure
+              href: azure-notebooks.md
+            - name: Azure Data Studio
+              items:
+                - name: Обзор расширений Kusto
+                  displayName: Azure Data Studio
+                  href: 'https://docs.microsoft.com/sql/azure-data-studio/extensions/kusto-extension?toc=/azure/data-explorer/toc.json&bc=/azure/data-explorer/breadcrumb/toc.json'
+                - name: Использование расширений Kusto
+                  displayName: Azure Data Studio
+                  href: 'https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?toc=/azure/data-explorer/toc.json&bc=/azure/data-explorer/breadcrumb/toc.json'
+                - name: Использование Kqlmagic
+                  displayName: Azure Data Studio
+                  href: 'https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kqlmagic?context=/azure/data-explorer/context/context'
         - name: Azure Pipelines
           href: devops.md
         - name: Синхронизация Kusto
