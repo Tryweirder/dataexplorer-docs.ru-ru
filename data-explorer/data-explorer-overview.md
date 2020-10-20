@@ -7,19 +7,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 323e8ba2d7f49a2d44ac4000d207316d75e9bd6e
-ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
+ms.openlocfilehash: 764dea2e3fe82bf795db81a4e8d3f89e256d3517
+ms.sourcegitcommit: 58588ba8d1fc5a6adebdce2b556db5bc542e38d8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91942086"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92098461"
 ---
 # <a name="what-is-azure-data-explorer"></a>Что такое Azure Data Explorer?
 
 Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Она позволяет обрабатывать множество потоков данных, создаваемых современным программным обеспечением, позволяя собирать, хранить и анализировать данные. Обозреватель данных Azure идеально подходит для анализа больших объемов разнообразных данных, поступающих из любых источников данных, таких как веб-сайты, приложения, устройства Интернета вещей и др. Эти данные используются для диагностики, мониторинга, формирования отчетов, машинного обучения и дополнительного анализа. Azure Data Explorer упрощает прием этих данных и позволяет мгновенно выполнять сложные специализированные запросы данных.
-
-Новости, объявления и истории клиентов об Azure Data Explorer. 
-[Зарегистрируйтесь для участия в онлайн-мероприятии 14 октября 2020 г.](https://aka.ms/adxevent)
 
 ## <a name="what-makes-azure-data-explorer-unique"></a>В чем уникальность обозревателя данных Azure?
 
