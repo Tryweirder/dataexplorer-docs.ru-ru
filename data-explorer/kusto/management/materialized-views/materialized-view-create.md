@@ -8,12 +8,12 @@ ms.reviewer: yifats
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/30/2020
-ms.openlocfilehash: f67b2d61cfed297886447a97dd178dfb578a2c68
-ms.sourcegitcommit: 463ee13337ed6d6b4f21eaf93cf58885d04bccaa
+ms.openlocfilehash: 95f8ce19c6edb419de4fb5053a79c243e3e332c4
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572149"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92252851"
 ---
 # <a name="create-materialized-view"></a>.create materialized-view
 
@@ -45,7 +45,7 @@ ms.locfileid: "91572149"
 
 ## <a name="arguments"></a>Аргументы
 
-|Аргумент|Тип|Description
+|Аргумент|Тип|Описание
 |----------------|-------|---|
 |ViewName|Строка|Имя материализованных представлений. Имя представления не может конфликтовать с именами таблиц или функций в той же базе данных и должно соответствовать [правилам именования идентификаторов](../../query/schema-entities/entity-names.md#identifier-naming-rules). |
 |SourceTableName|Строка|Имя исходной таблицы, в которой определено представление.|
@@ -80,7 +80,7 @@ ms.locfileid: "91572149"
 
 В предложении поддерживаются следующие `with(propertyName=propertyValue)` условия. Все свойства являются необязательными.
 
-|Свойство|Тип|Description |
+|Свойство|Тип|Описание |
 |----------------|-------|---|
 |задним числом|bool|Следует ли создать представление на основе всех записей, находящихся в данный момент в *SourceTable* ( `true` ), или создать его "from-now-on" ( `false` ). Значение по умолчанию — `false`.| 
 |еффективедатетиме|DATETIME| Если указано вместе с `backfill=true` , создание только незаполненных записей с записями, полученными после даты и времени. Обратная засыпку также должна иметь значение true. Ожидает литерал DateTime, например `effectiveDateTime=datetime(2019-05-01)`|
@@ -161,14 +161,14 @@ ms.locfileid: "91572149"
 
     <!-- csl -->
     ```
-    .create materialized-view EnrichedArgMax on table T with (dimensionTable = ['DimUsers'])
+    .create materialized-view EnrichedArgMax on table T with (dimensionTables = ['DimUsers'])
     {
         T
         | lookup DimUsers on User  
         | summarize arg_max(Timestamp, *) by User 
     }
     
-    .create materialized-view EnrichedArgMax on table T with (dimensionTable = ['DimUsers'])
+    .create materialized-view EnrichedArgMax on table T with (dimensionTables = ['DimUsers'])
     {
         DimUsers | project User, Age, Address
         | join kind=rightouter hint.strategy=broadcast T on User
@@ -289,13 +289,13 @@ ms.locfileid: "91572149"
 
 ### <a name="properties"></a>Свойства
 
-|Свойство|Тип|Description
+|Свойство|Тип|Описание
 |----------------|-------|---|
 |operationId|Guid|ИДЕНТИФИКАТОР операции, возвращенный командой CREATE материализованных представлений.|
 
 ### <a name="output"></a>Выходные данные
 
-|Выходной параметр |Тип |Description
+|Выходной параметр |Тип |Описание
 |---|---|---
 |Операции|Guid|ИДЕНТИФИКАТОР операции команды создания материализованных представлений.
 |Операция|Строка|Тип операции.

@@ -4,20 +4,20 @@ description: В этой статье описывается градусы () �
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 41d679ea1add3706de5012f4e4fbf382e1f7b3ee
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 04efbee59bce153de76ab5d44617b8d1bebc121c
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348383"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253092"
 ---
 # <a name="degrees"></a>degrees()
 
-Преобразует значение угла в радианах в значение в градусах, используя формулу`degrees = (180 / PI ) * angle_in_radians`
+Преобразует значение угла в радианах в значение в градусах, используя формулу `degrees = (180 / PI ) * angle_in_radians`
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -27,7 +27,7 @@ ms.locfileid: "87348383"
 
 * *a*: угол в радианах (вещественное число).
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 * Соответствующий угол в градусах для угла, указанного в радианах. 
 

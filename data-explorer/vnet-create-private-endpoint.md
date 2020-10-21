@@ -39,7 +39,7 @@ ms.locfileid: "90680751"
 
 1. В области **служба создания частной ссылки** заполните следующие поля:
 
-    :::image type="content" source="media/vnet-create-private-endpoint/private-link-basics.png" alt-text="Вкладка 1 в службе создания частной связи — основные сведения":::
+    :::image type="content" source="media/vnet-create-private-endpoint/private-link-basics.png" alt-text="GIF, показывающий первые три шага создания службы частной связи на портале Azure обозреватель данных":::
 
     **Параметр** | **Рекомендуемое значение** | **Описание поля**
     |---|---|---|
@@ -50,7 +50,7 @@ ms.locfileid: "90680751"
 
 1. В области **параметры исходящего трафика** заполните следующие поля:
 
-    :::image type="content" source="media/vnet-create-private-endpoint/private-link-outbound.png" alt-text="Вкладка "Закрытая ссылка" 2 — параметры исходящего трафика":::
+    :::image type="content" source="media/vnet-create-private-endpoint/private-link-outbound.png" alt-text="GIF, показывающий первые три шага создания службы частной связи на портале Azure обозреватель данных":::
 
     |**Параметр** | **Рекомендуемое значение** | **Описание поля**
     |---|---|---|
@@ -71,7 +71,7 @@ ms.locfileid: "90680751"
 1. В разделе **Частная конечная точка**выберите **создать**.
 1. В области **Создание частной конечной точки** заполните следующие поля:
 
-    :::image type="content" source="media/vnet-create-private-endpoint/step-one-basics.png" alt-text="Создание частной конечной точки. шаг 1 — Основные сведения":::
+    :::image type="content" source="media/vnet-create-private-endpoint/step-one-basics.png" alt-text="GIF, показывающий первые три шага создания службы частной связи на портале Azure обозреватель данных":::
 
     **Параметр** | **Рекомендуемое значение** | **Описание поля**
     |---|---|---|
@@ -82,7 +82,7 @@ ms.locfileid: "90680751"
     
 1. В области **ресурсов** заполните следующие поля:
 
-    :::image type="content" source="media/vnet-create-private-endpoint/step-two-resource.png" alt-text="Создание виртуальной сети — шаг 2 — ресурс":::
+    :::image type="content" source="media/vnet-create-private-endpoint/step-two-resource.png" alt-text="GIF, показывающий первые три шага создания службы частной связи на портале Azure обозреватель данных":::
 
     **Параметр** | **Значение**
     |---|---|
@@ -104,7 +104,7 @@ ms.locfileid: "90680751"
 1. В службе частной связи выберите подключения к **частным конечным точкам** в разделе Параметры.
 1. Выберите свою частную конечную точку из списка подключения и нажмите кнопку **утвердить**.
 
-:::image type="content" source="media/vnet-create-private-endpoint/private-link-approve.png" alt-text="Шаг утверждения для создания частной конечной точки"::: 
+:::image type="content" source="media/vnet-create-private-endpoint/private-link-approve.png" alt-text="GIF, показывающий первые три шага создания службы частной связи на портале Azure обозреватель данных"::: 
 
 ## <a name="set-dns-configuration"></a>Настройка конфигурации DNS
 

@@ -36,13 +36,13 @@ ms.locfileid: "90534006"
 
 Чтобы создать параметр, нажмите кнопку **создать параметр** в верхней части правой панели.
 
-:::image type="content" source="media/dashboard-parameters/new-parameter-button.png" alt-text="Кнопка "создать параметры"":::
+:::image type="content" source="media/dashboard-parameters/new-parameter-button.png" alt-text="Кнопка параметров в верхней части панели мониторинга":::
 
 ### <a name="properties"></a>Свойства
 
 1. На панели **Добавить параметр** настройте свойства, описанные ниже.
 
-:::image type="content" source="media/dashboard-parameters/properties.png" alt-text="Добавление свойств параметра":::
+:::image type="content" source="media/dashboard-parameters/properties.png" alt-text="Кнопка параметров в верхней части панели мониторинга":::
 
 |Поле  |Описание |
 |---------|---------|
@@ -64,13 +64,13 @@ ms.locfileid: "90534006"
 * Число запросов, в которых использовался параметр
 * Закрепление или открепление состояния на панели мониторинга
 
-:::image type="content" source="media/dashboard-parameters/modify-parameter.png" alt-text="Изменение параметров":::
+:::image type="content" source="media/dashboard-parameters/modify-parameter.png" alt-text="Кнопка параметров в верхней части панели мониторинга":::
 
 ## <a name="use-parameters-in-your-query"></a>Использование параметров в запросе
 
 Параметр должен использоваться в запросе, чтобы сделать фильтр применимым для визуального элемента запроса. После определения параметры можно увидеть на странице **запроса** > фильтр верхней панели и в запросе IntelliSense.
 
-:::image type="content" source="media/dashboard-parameters/query-intellisense.png" alt-text="Просмотр параметров на верхней панели и IntelliSense":::
+:::image type="content" source="media/dashboard-parameters/query-intellisense.png" alt-text="Кнопка параметров в верхней части панели мониторинга":::
 
 > [!NOTE]
 > Если параметр не используется в запросе, фильтр остается отключенным. После добавления параметра в запрос фильтр становится активным.
@@ -93,7 +93,7 @@ EventsAll
 
 После сохранения фильтр диапазона времени отображается на панели мониторинга. Теперь его можно использовать для фильтрации данных на карточке. Вы можете отфильтровать панель мониторинга, выбрав ее в раскрывающемся списке: **временной диапазон** (за последние x минут/часов/дней) или **Пользовательский диапазон времени**.
 
-:::image type="content" source="media/dashboard-parameters/time-range.png" alt-text="Фильтрация с использованием настраиваемого диапазона времени":::
+:::image type="content" source="media/dashboard-parameters/time-range.png" alt-text="Кнопка параметров в верхней части панели мониторинга":::
 
 ### <a name="use-the-single-selection-fixed-value-parameter"></a>Использовать параметр фиксированного значения одиночного выбора
 
@@ -129,7 +129,7 @@ EventsAll
 
 Параметры можно увидеть в области побочные **Параметры** , но сейчас они не используются в каких либо визуальных элементах.
 
-:::image type="content" source="media/dashboard-parameters/start-end-side-pane.png" alt-text="Параметры времени окончания времени начала в боковой области":::
+:::image type="content" source="media/dashboard-parameters/start-end-side-pane.png" alt-text="Кнопка параметров в верхней части панели мониторинга":::
 
 #### <a name="use-the-parameter"></a>Использование параметра
 
@@ -148,7 +148,7 @@ EventsAll
 
 1. Выберите другие значения, чтобы обновить визуальные элементы.
 
-    :::image type="content" source="media/dashboard-parameters/top-five-repos.png" alt-text="пять ведущих результатов репозиториев":::
+    :::image type="content" source="media/dashboard-parameters/top-five-repos.png" alt-text="Кнопка параметров в верхней части панели мониторинга":::
 
 ### <a name="use-the-multiple-selection-fixed-value-parameters"></a>Использование параметров фиксированного значения с множественным выбором
 
@@ -168,7 +168,7 @@ EventsAll
 
 Новые параметры можно увидеть в области побочные **Параметры** , но сейчас они не используются в каких либо визуальных элементах.
 
-:::image type="content" source="media/dashboard-parameters/companies-side-pane.png" alt-text="Боковая область компании":::
+:::image type="content" source="media/dashboard-parameters/companies-side-pane.png" alt-text="Кнопка параметров в верхней части панели мониторинга":::
 
 #### <a name="use-the-parameters"></a>Использование параметров 
 
@@ -188,7 +188,7 @@ EventsAll
 
 1. Выберите одно или несколько различных значений для обновления визуальных элементов.
 
-    :::image type="content" source="media/dashboard-parameters/select-companies.png" alt-text="Выбор компаний":::
+    :::image type="content" source="media/dashboard-parameters/select-companies.png" alt-text="Кнопка параметров в верхней части панели мониторинга":::
 
 ### <a name="use-the-single-selection-query-based-parameter"></a>Использование единственного параметра на основе запроса
 

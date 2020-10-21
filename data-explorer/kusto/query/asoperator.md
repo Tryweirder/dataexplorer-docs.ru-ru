@@ -4,16 +4,16 @@ description: В этой статье описывается оператор as
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 857a48ab02ae04e68a8475b7109cebbb2275ca55
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: 15dcf79938f4b83f18055b6f59a9b70998ab6049
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803307"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92252814"
 ---
 # <a name="as-operator"></a>Оператор as
 

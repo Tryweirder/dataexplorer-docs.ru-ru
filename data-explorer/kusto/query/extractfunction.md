@@ -4,16 +4,16 @@ description: В этой статье описывается извлечени�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 98b0f30c968279fcc757ab49bfda982612379026
-ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
+ms.openlocfilehash: 63b6e966724efc92431b5a7017144a188c81f8d3
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88793759"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253006"
 ---
 # <a name="extract"></a>extract()
 
@@ -36,7 +36,7 @@ extract("x=([0-9.]+)", 1, "hello x=45.6|wo") == "45.6"
 * *текст*: `string` для поиска.
 * *типелитерал*: необязательный литерал типа (например, `typeof(long)` ). Если указан, то извлеченная подстрока преобразуется в этот тип. 
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Если *regex* находит соответствие в *text*, то возвращается подстрока, которая сравнивалась с указанной в группе записи *captureGroup*, при необходимости преобразованная в тип *typeLiteral*.
 

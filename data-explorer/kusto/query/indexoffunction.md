@@ -4,16 +4,16 @@ description: В этой статье описывается IndexOf () в Azure
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 8e237441d28f12ffc6f27f8a591980a701825e39
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 1558e2463c2958965fcb501aff99c7ec14fe8688
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347465"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92252956"
 ---
 # <a name="indexof"></a>indexof()
 
@@ -21,7 +21,7 @@ ms.locfileid: "87347465"
 
 Если уточняющий запрос или входная строка не имеет *строкового* типа, функция принудительно приводит значение к типу *String*.
 
-Дополнительные сведения см. на веб-сайте [`indexof_regex()`](indexofregexfunction.md).
+Дополнительные сведения см. в статье [`indexof_regex()`](indexofregexfunction.md).
 
 ## <a name="syntax"></a>Синтаксис
 

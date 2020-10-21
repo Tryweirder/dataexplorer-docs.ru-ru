@@ -4,16 +4,16 @@ description: В этой статье описывается base64_encode_froma
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/11/2020
-ms.openlocfilehash: ede35223b9cc57fddc5318659e6902130a80c011
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 88d9f5b26273fa91ae64ca637b8fe4e2650a8539
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349284"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92252700"
 ---
 # <a name="base64_encode_fromarray"></a>base64_encode_fromarray()
 
@@ -27,7 +27,7 @@ ms.locfileid: "87349284"
 
 * *Битесаррай*: массив входных байтов для кодирования в строку Base64.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Возвращает строку в кодировке Base64, закодированную из массива байтов.
 

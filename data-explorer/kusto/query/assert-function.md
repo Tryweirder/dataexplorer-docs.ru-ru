@@ -4,16 +4,16 @@ description: В этой статье описывается Assert () в Azure 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/26/2019
-ms.openlocfilehash: 050974af47b0f5cd0e041694ee5f680b8c321614
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: 442fbec2742a4d1edc7a9ad03a81db27e6d18574
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803324"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92252775"
 ---
 # <a name="assert"></a>assert()
 
@@ -29,11 +29,11 @@ ms.locfileid: "87803324"
 * *Message*: сообщение, используемое при вычислении утверждения `false` . *Сообщение* должно быть строковым литералом.
 
 > [!NOTE]
-> `condition`необходимо вычислить до константы на этапе анализа запроса. Иными словами, он может быть создан из других выражений, ссылающихся на константы, и не может быть привязан к контексту строки.
+> `condition` необходимо вычислить до константы на этапе анализа запроса. Иными словами, он может быть создан из других выражений, ссылающихся на константы, и не может быть привязан к контексту строки.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
-* `true`— Если условие`true`
+* `true` — Если условие `true`
 * Вызывает семантическую ошибку, если условие оценивается как `false` .
 
 ## <a name="examples"></a>Примеры

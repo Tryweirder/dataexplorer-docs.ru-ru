@@ -25,7 +25,7 @@ ms.locfileid: "88875231"
 1. Откройте [портал Microsoft Azure](https://ms.portal.azure.com/). 
 1. Найдите и выберите `logic app`.
 
-    :::image type="content" source="./images/logicapps/logicapp-search.png" alt-text="Поиск "приложение логики" в портал Azure, Azure обозреватель данных" lightbox="./images/logicapps/logicapp-search.png#lightbox":::
+    :::image type="content" source="./images/logicapps/logicapp-search.png" alt-text="Поиск &quot;приложение логики&quot; в портал Azure, Azure обозреватель данных" lightbox="./images/logicapps/logicapp-search.png#lightbox":::
 
 1. Щелкните **+Добавить**.
 

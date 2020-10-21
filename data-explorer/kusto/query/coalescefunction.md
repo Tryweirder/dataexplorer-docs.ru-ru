@@ -4,16 +4,16 @@ description: В этой статье описывается объединен�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 410a0c84a1bafdfa1900ef8e21bc0a91327b64c3
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 3eb5e533c2b4430f54909507e521912711c35811
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348876"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92252652"
 ---
 # <a name="coalesce"></a>coalesce()
 
@@ -45,6 +45,6 @@ coalesce(tolong("not a number"), tolong("42"), 33) == 42
 print result=coalesce(tolong("not a number"), tolong("42"), 33)
 ```
 
-|result|
+|набор по|
 |---|
 |42|

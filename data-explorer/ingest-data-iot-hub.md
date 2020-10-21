@@ -83,7 +83,7 @@ ms.locfileid: "90832806"
 
 1. Заполните форму, указав следующую информацию. 
     
-    :::image type="content" source="media/ingest-data-iot-hub/data-connection-pane.png" alt-text="Панель "подключение данных" в центре Интернета вещей Azure обозреватель данных":::
+    :::image type="content" source="media/ingest-data-iot-hub/data-connection-pane.png" alt-text="Создание подключения к данным в центре Интернета вещей Azure обозреватель данных":::
 
     **Параметр** | **Описание поля**
     |---|---|
@@ -100,7 +100,7 @@ ms.locfileid: "90832806"
 
 1. Заполните следующие параметры маршрутизации:
     
-    :::image type="content" source="media/ingest-data-iot-hub/default-routing-settings.png" alt-text="Свойства маршрутизации по умолчанию — центр Интернета вещей — Azure обозреватель данных":::
+    :::image type="content" source="media/ingest-data-iot-hub/default-routing-settings.png" alt-text="Создание подключения к данным в центре Интернета вещей Azure обозреватель данных":::
 
      **Параметр** | **Рекомендуемое значение** | **Описание поля**
     |---|---|---|
