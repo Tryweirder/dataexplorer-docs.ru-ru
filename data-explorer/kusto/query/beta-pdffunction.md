@@ -4,16 +4,16 @@ description: В этой статье описывается beta_pdf () в Azur
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 1b94f661973d1ec89fe7f60edc9063b8c0f36d3c
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 6ef26e3a24d7bc6f1d4cd50f74ca83d0a1d21dab
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349199"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92245495"
 ---
 # <a name="beta_pdf"></a>beta_pdf()
 
@@ -64,9 +64,9 @@ datatable(x:double, alpha:double, beta:double, comment:string)
 |x|alpha|бета-версия|comment|r|
 |---|---|---|---|---|
 |0,5|10|20|Допустимые входные данные|0.746176019310951|
-|1.5|10|20|x > 1, возвращает NaN|Не число|
-|–10|10|20|x < 0, возвращает NaN|Не число|
-|0.1|-1|20|Альфа-< 0, возвращает NaN|Не число|
+|1.5|10|20|x > 1, возвращает NaN|не число|
+|–10|10|20|x < 0, возвращает NaN|не число|
+|0,1|-1|20|Альфа-< 0, возвращает NaN|не число|
 
 **Справочные материалы**
 

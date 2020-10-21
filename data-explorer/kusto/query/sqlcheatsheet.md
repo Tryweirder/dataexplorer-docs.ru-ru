@@ -4,18 +4,18 @@ description: В этой статье описывается преобразо�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/22/2020
-ms.openlocfilehash: cc00da54cad69c36041e36fd60524c7e4ef0ba35
-ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
+ms.openlocfilehash: 216d8c0eeacf6733eb1f7d4b4880bbad1d408e02
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85967151"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92247079"
 ---
-# <a name="sql-to-kusto-cheat-sheet"></a>Таблица Памятка по SQL в Kusto
+# <a name="sql-to-kusto-cheat-sheet"></a>Памятка по преобразованию из SQL в Kusto
 
 Kusto поддерживает подмножество языка SQL. Полный список неподдерживаемых функций см. в списке [известных проблем SQL](../api/tds/sqlknownissues.md) .
 
@@ -33,7 +33,7 @@ SELECT COUNT_BIG(*) as C FROM StormEvents
 |---|
 |стормевентс<br>| суммировать в C = count ()<br>| проект в|
 
-## <a name="sql-to-kusto-cheat-sheet"></a>Таблица Памятка по SQL в Kusto
+## <a name="sql-to-kusto-cheat-sheet"></a>Памятка по преобразованию из SQL в Kusto
 
 В таблице ниже показаны примеры запросов в SQL и их эквиваленты ККЛ.
 
@@ -54,7 +54,7 @@ Distinct |<code>SELECT DISTINCT name, type  FROM dependencies</code> |<code>depe
 Псевдонимы столбцов, расширение |<code>SELECT operationName as Name, AVG(duration) as AvgD FROM dependencies<br>GROUP BY name</code> |<code>dependencies<br>&#124; summarize AvgD = avg(duration) by operationName<br>&#124; project Name = operationName, AvgD</code>
 Упорядочение |<code>SELECT name, timestamp FROM dependencies<br>ORDER BY timestamp ASC</code> |<code>dependencies<br>&#124; project name, timestamp<br>&#124; order by timestamp asc nulls last</code>
 N основных мер |<code>SELECT TOP 100 name, COUNT(*) as Count FROM dependencies<br>GROUP BY name<br>ORDER BY Count DESC</code> |<code>dependencies<br>&#124; summarize Count = count() by name<br>&#124; top 100 by Count desc</code>
-Объединение |<code>SELECT * FROM dependencies<br>UNION<br>SELECT * FROM exceptions</code> |<code>union dependencies, exceptions</code>
+Union |<code>SELECT * FROM dependencies<br>UNION<br>SELECT * FROM exceptions</code> |<code>union dependencies, exceptions</code>
 --|<code>SELECT * FROM dependencies<br>WHERE timestamp > ...<br>UNION<br>SELECT * FROM exceptions<br>WHERE timestamp > ...</code> |<code>dependencies<br>&#124; where timestamp > ago(1d)<br>&#124; union<br>&nbsp;&nbsp;(exceptions<br>&nbsp;&nbsp;&#124; where timestamp > ago(1d))</code>
 Join |<code>SELECT * FROM dependencies <br>LEFT OUTER JOIN exception<br>ON dependencies.operation_Id = exceptions.operation_Id</code> |<code>dependencies<br>&#124; join kind = leftouter<br>&nbsp;&nbsp;(exceptions)<br>on $left.operation_Id == $right.operation_Id</code>
 Вложенные запросы |<code>SELECT * FROM dependencies<br>WHERE resultCode == <br>(SELECT TOP 1 resultCode FROM dependencies<br>WHERE resultId = 7<br>ORDER BY timestamp DESC)</code> |<code>dependencies<br>&#124; where resultCode == toscalar(<br>&nbsp;&nbsp;dependencies<br>&nbsp;&nbsp;&#124; where resultId == 7<br>&nbsp;&nbsp;&#124; top 1 by timestamp desc<br>&nbsp;&nbsp;&#124; project resultCode)</code>

@@ -4,16 +4,16 @@ description: В этой статье описывается hll_merge () (ст�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/15/2019
-ms.openlocfilehash: 4681f92155181f85cad5c46ed70a79cb173d437f
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: a6aa19e3a88e7338494d6f6fad0e23a5ab4a03e4
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347550"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92252307"
 ---
 # <a name="hll_merge-aggregation-function"></a>hll_merge () (агрегатная функция)
 

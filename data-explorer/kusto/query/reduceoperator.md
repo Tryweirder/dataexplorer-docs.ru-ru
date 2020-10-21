@@ -4,16 +4,16 @@ description: В этой статье описывается оператор с
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: d844f693b1509a823702b12bd28b85a9f19a07bd
-ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
+ms.openlocfilehash: 6ef5e42dc9c41426cd66dbf4d857ec0d2c32e2ae
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91102903"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92252116"
 ---
 # <a name="reduce-operator"></a>Оператор reduce
 
@@ -45,7 +45,7 @@ T | reduce by LogMessage with threshold=0.1
 
 Например, результат выполнения `reduce by city` может быть таким: 
 
-|Шаблон     |Count |Representative|
+|Модель     |Счетчик |Representative|
 |------------|------|--------------|
 | Сан *      | 5182 |Бернард сети SAN   |
 | Сант *    | 2846 |Сент-Люси    |
@@ -62,7 +62,7 @@ range x from 1 to 1000 step 1
 | reduce by MyText  with threshold=0.001 , characters = "X" 
 ```
 
-|Шаблон         |Count|Representative   |
+|Модель         |Счетчик|Representative   |
 |----------------|-----|-----------------|
 |MachineLearning|1000 |MachineLearningX4|
 

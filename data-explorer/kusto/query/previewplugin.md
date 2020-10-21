@@ -4,16 +4,16 @@ description: В этой статье описывается подключае�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 7c4ee69c4f82c25c6f4cf7d4b63ad9a659892a28
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: 455ff1d4d3a42c09a39673028405d51b7acd1f5b
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803001"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92251647"
 ---
 # <a name="preview-plugin"></a>Подключаемый модуль preview
 
@@ -27,7 +27,7 @@ T | evaluate preview(50)
 
 `T` `|` `evaluate` `preview(` *NumberOfRows* `)`
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 `preview`Подключаемый модуль возвращает две результирующие таблицы:
 * Таблица с указанным числом строк вплоть до указанного числа.

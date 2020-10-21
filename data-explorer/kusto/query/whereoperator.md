@@ -4,16 +4,16 @@ description: В этой статье описывается оператор WH
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 79eb1314fad1c3d3bdbbda242b3bd6a86c19e158
-ms.sourcegitcommit: 6f610cd9c56dbfaff4eb0470ac0d1441211ae52d
+ms.openlocfilehash: 738683b3042295678f7d507425443b47c9dec79e
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91954473"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92251786"
 ---
 # <a name="where-operator"></a>Оператор where
 
@@ -34,7 +34,7 @@ T | where fruit=="apple"
 * *T*: табличный ввод, записи которого должны быть отфильтрованы.
 * *Predicate*— `boolean` [выражение](./scalar-data-types/bool.md) для столбцов *T*. Он вычисляется для каждой строки в *T*.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Строки из таблицы *T*, для которых *Predicate* имеет значение `true`.
 

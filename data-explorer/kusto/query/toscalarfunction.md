@@ -4,16 +4,16 @@ description: В этой статье описывается тоскалар ()
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 649d09fcf6d228714fdf20b40c81b2a2552374e6
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 1210a820b4b3c8790d218ba53992da0255028de2
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87340264"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92252022"
 ---
 # <a name="toscalar"></a>toscalar()
 
@@ -39,7 +39,7 @@ ms.locfileid: "87340264"
 
 **Примечания**
 
-`toscalar()`можно вычислить как постоянное число раз во время выполнения запроса.
+`toscalar()` можно вычислить как постоянное число раз во время выполнения запроса.
 `toscalar()`Функция не может быть применена к сценарию на уровне строк (для каждой строки).
 
 ## <a name="examples"></a>Примеры

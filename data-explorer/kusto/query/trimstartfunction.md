@@ -4,16 +4,16 @@ description: В этой статье описывается trim_start () в Az
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 4550fb07da37658ecf11a4eb04ecdf199d8ba989
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 6f4341e984504c89bfc4d5a1265c5193ac6d0297
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87339550"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92251879"
 ---
 # <a name="trim_start"></a>trim_start()
 
@@ -34,7 +34,7 @@ ms.locfileid: "87339550"
 
 ## <a name="example"></a>Пример
 
-Инструкция ниже обрезает *подстроку* с начала *string_to_trim*:
+Инструкция ниже обрезает *подстроку*  с начала *string_to_trim*:
 
 ```kusto
 let string_to_trim = @"https://bing.com";

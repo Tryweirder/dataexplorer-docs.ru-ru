@@ -4,16 +4,16 @@ description: В этой статье описывается подключае�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 15720109ffa49eb89b2595d2de3105c15749960d
-ms.sourcegitcommit: 58faa053eb003192db01df034cd6f5067ecc31bd
+ms.openlocfilehash: 4fad66141a31ac7ba72ab79dc0092b963417ae72
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91625454"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92247563"
 ---
 # <a name="dcount_intersect-plugin"></a>Подключаемый модуль dcount_intersect
 
@@ -38,7 +38,7 @@ T | evaluate dcount_intersect(hll_1, hll_2, hll_3)
 * *T*: Входное табличное выражение.
 * *hll_i*: значения<sub>Set S,</sub> вычисленные с помощью [`hll()`](./hll-aggfunction.md) функции.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Возвращает таблицу со значениями N `dcount` (для каждого столбца), представляющими собой набор пересечения.
 Имена столбцов: S0, S1,... (до n – 1).

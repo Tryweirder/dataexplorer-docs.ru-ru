@@ -4,16 +4,16 @@ description: В этой статье описывается format_timespan () 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 923008d05ebc8c51a39955e29450e55af4100941
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: ca0f0e00e54f31c5dcc29c06150b824c0988d30f
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347958"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92247386"
 ---
 # <a name="format_timespan"></a>format_timespan()
 
@@ -68,7 +68,7 @@ format_timespan(time(14.02:03:04.12345), 'h:m:s.fffffff') == "2:3:4.1234500"
 
 Описатель формата может включать следующие разделителями символы:
 
-|Разделителем|Комментарий|
+|Разделителем|Комментировать|
 |---------|-------|
 |`' '`| Пробел|
 |`'/'`||

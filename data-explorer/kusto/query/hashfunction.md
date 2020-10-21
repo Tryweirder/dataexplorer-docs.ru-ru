@@ -4,16 +4,16 @@ description: В этой статье описывается хэш () в Azure 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 16b570d996148f1dad9e285b3c2da24d136b20c4
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: d840ba106079a85435ee88f8b73cfc6daa7e4c5b
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347584"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92252322"
 ---
 # <a name="hash"></a>hash()
 
@@ -28,7 +28,7 @@ ms.locfileid: "87347584"
 * *Source*: значение, которое необходимо хэшировать.
 * *Mod*: необязательное значение модуля, применяемое к результирующему значению хэша, чтобы выходное значение было между `0` и *Mod* -1
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Хэш-значение данного скаляра, остаток от деления заданного значения Mod (если указано).
 

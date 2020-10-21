@@ -4,16 +4,16 @@ description: В этой статье описывается оператор Be
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 84858a28d1676306a34b2bfa7dfe9563e46227fb
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 15112a72c289d87f6a1f1a2b035cb13bad81acdb
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349182"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92245450"
 ---
 # <a name="between-operator"></a>Оператор between
 
@@ -24,7 +24,7 @@ Table1 | where Num1 between (1 .. 10)
 Table1 | where Time between (datetime(2017-01-01) .. datetime(2017-01-01))
 ```
 
-`between`может выполнять операции с любым числовым выражением, типом DateTime или значением типа TimeSpan.
+`between` может выполнять операции с любым числовым выражением, типом DateTime или значением типа TimeSpan.
  
 ## <a name="syntax"></a>Синтаксис
 
@@ -41,7 +41,7 @@ Table1 | where Time between (datetime(2017-01-01) .. datetime(2017-01-01))
 * *лефтранже* -выражение левого диапазона (включительно).
 * *ригхтранже* -выражение правого диапазона (включительно).
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Строки в *T* , для которых предикат (*expr*  >=  *лефтранже* и *expr*  <=  *ригхтранже*) принимает значение `true` .
 

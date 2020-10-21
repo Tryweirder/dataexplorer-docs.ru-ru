@@ -4,16 +4,16 @@ description: В этой статье описывается миграция ()
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/11/2019
-ms.openlocfilehash: d0e99048f3f1b0e3ce5c6c59a65ea645b22d15fe
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 5d186172a0be1780347dbf89600c200c00687291
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87340060"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92252027"
 ---
 # <a name="translate"></a>translate()
 
@@ -30,7 +30,7 @@ ms.locfileid: "87340060"
 * *реплацементлист*: список символов, которые должны заменить символы в "сеарчлист"
 * *текст*: строка для поиска
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 *текст* после замены всех окурренцес символов в "реплацементлист" соответствующими символами в "сеарчлист"
 

@@ -4,16 +4,16 @@ description: В этой статье описывается bin_auto () в Azur
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 6df5d9793f2d076eb8f97156e911fb49aba4cc9c
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: dba71c3b9b52a4edaf3a9b1260f56fc94eb935e3
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349165"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92245435"
 ---
 # <a name="bin_auto"></a>bin_auto()
 
@@ -45,7 +45,7 @@ range Timestamp from datetime(2017-01-01 00:05) to datetime(2017-01-01 02:00) st
 | summarize count() by bin_auto(Timestamp)
 ```
 
-|Timestamp                    | count_|
+|Отметка времени                    | count_|
 |-----------------------------|-------|
 |2017-01-01 00:05:00.0000000  | 60    |
 |2017-01-01 01:05:00.0000000  | 56    |

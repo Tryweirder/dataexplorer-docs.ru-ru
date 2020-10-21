@@ -4,16 +4,16 @@ description: В этой статье описывается оператор в
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: b234a95b4a541099f3fc050501ca6b0fd9f67ccf
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: dfa4d2218c3f54a9c85644fb0ee1edf4b7c012dd
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348009"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92247410"
 ---
 # <a name="fork-operator"></a>Оператор fork
 
@@ -28,7 +28,7 @@ ms.locfileid: "87348009"
 * *вложенный запрос* является нисходящим конвейером операторов запроса
 * *имя* является временным именем для таблицы результатов вложенного запроса
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Несколько результирующих таблиц, по одной для каждого вложенного запроса.
 
@@ -38,7 +38,7 @@ ms.locfileid: "87348009"
 
 **Примечания**
 
-* [`materialize`](materializefunction.md)функцию можно использовать в качестве замены при использовании [`join`](joinoperator.md) или [`union`](unionoperator.md) при обрезке разветвления.
+* [`materialize`](materializefunction.md) функцию можно использовать в качестве замены при использовании [`join`](joinoperator.md) или [`union`](unionoperator.md) при обрезке разветвления.
 Входной поток будет кэшироваться материализации, а затем кэшированное выражение можно использовать в обрезке соединения и объединения.
 
 * Имя, заданное `name` аргументом или [`as`](asoperator.md) оператором using, будет использоваться в качестве имени для вкладки результатов в [`Kusto.Explorer`](../tools/kusto-explorer.md) инструменте.

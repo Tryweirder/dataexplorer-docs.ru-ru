@@ -4,16 +4,16 @@ description: В этой статье описывается оператор ma
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: 56742b04386bfda9e2cdbaa40a85d2220f2373d5
-ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
+ms.openlocfilehash: 1e39e71aa9406815338974b2da03d05315054b65
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91942358"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92247356"
 ---
 # <a name="make-series-operator"></a>Оператор make-series
 
@@ -43,7 +43,7 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
   |---------------|-------------------------------------|------------------------------------------------------------------------------|
   |`kind`          |`nonempty`                               |Создает результат по умолчанию, если входные данные оператора Make-Series пусты|                                
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Входные строки упорядочиваются по группам с одинаковыми значениями `by` выражений и `bin_at(` *AxisColumn* `, ` *шага* `, ` *начала* `)` . Затем указанные агрегатные функции выполняют вычисления и создают строку для каждой группы. Результат содержит столбцы Columns `by` , *AxisColumn* и, по крайней мере, один столбец для каждого вычисляемого агрегата. (Агрегирование, что несколько столбцов или нечисловые результаты не поддерживаются.)
 
@@ -75,10 +75,10 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
 
 |Компонент|Описание|
 |--------|-----------|
-|[Any ()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
+|[any()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
 |[avg()](avg-aggfunction.md)|Возвращает среднее значение в группе|
 |[avgif()](avgif-aggfunction.md)|Возвращает среднее значение с предикатом группы|
-|[Count ()](count-aggfunction.md)|Возвращает количество групп|
+|[count()](count-aggfunction.md)|Возвращает количество групп|
 |[countif()](countif-aggfunction.md)|Возвращает число с предикатом группы|
 |[dcount()](dcount-aggfunction.md)|Возвращает приблизительное число различных элементов группы.|
 |[dcountif()](dcountif-aggfunction.md)|Возвращает приблизительное число различных объектов с предикатом группы|
@@ -89,7 +89,7 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
 |[stdev()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
 |[sum()](sum-aggfunction.md)|Возвращает сумму элементов в группе|
 |[sumif()](sumif-aggfunction.md)|Возвращает сумму элементов с предикатом группы|
-|[вариативность ()](variance-aggfunction.md)|Возвращает дисперсию по группе|
+|[variance()](variance-aggfunction.md)|Возвращает дисперсию по группе|
 
 ## <a name="list-of-series-analysis-functions"></a>Список функций анализа рядов
 
