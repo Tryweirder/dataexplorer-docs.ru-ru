@@ -7,20 +7,20 @@ ms.reviewer: maraheja
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 05/21/2020
-ms.openlocfilehash: adbf974852f071dde54cc668b213e7b7d6d7cfea
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: b019f0f8cfefab2ed111b023993c929bd5f19e5f
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871950"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342524"
 ---
 # <a name="connect-to-azure-data-explorer-from-azure-databricks"></a>Подключение к обозреватель данных Azure из Azure Databricks
 
-[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) — это платформа аналитики на основе Apache Spark, оптимизированная для платформы Microsoft Azure. В этой статье показано, как использовать Azure Databricks для доступа к данным из обозреватель данных Azure. Существует несколько способов выполнения проверки подлинности в Azure Data Explorer, включая имя пользователя устройства и приложение Azure Active Directory (Azure AD).
+[Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) — это платформа аналитики на основе Apache Spark, оптимизированная для платформы Microsoft Azure. В этой статье показано, как использовать Azure Databricks для доступа к данным из обозреватель данных Azure. Существует несколько способов выполнения проверки подлинности в Azure Data Explorer, включая имя пользователя устройства и приложение Azure Active Directory (Azure AD).
  
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
-- [Создайте кластер Azure обозреватель данных и базу данных](create-cluster-database-portal.md).
+- [Создайте кластер и базу данных Azure Data Explorer](create-cluster-database-portal.md).
 - [Создайте рабочую область Azure Databricks](/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace). В разделе **Служба Azure Databricks** в раскрывающемся списке **Ценовая категория** выберите **Премиум**. Это дает возможность использовать секреты Azure Databricks для хранения учетных данных и ссылаться на них в записных книжках и заданиях.
 
 - [Создайте кластер](https://docs.azuredatabricks.net/user-guide/clusters/create.html) в Azure Databricks с параметрами по умолчанию.
@@ -38,7 +38,7 @@ ms.locfileid: "88871950"
 
 ## <a name="connect-to-azure-data-explorer-by-using-an-azure-ad-app"></a>Подключение к Azure обозреватель данных с помощью приложения Azure AD
 
-1. Создайте приложение Azure AD, выполнив [подготовку приложения Azure AD](kusto/management/access-control/how-to-provision-aad-app.md).
+1. Создайте приложение Azure AD, выполнив [подготовку приложения Azure AD](./provision-azure-ad-app.md).
 1. Предоставьте доступ к Azure AD App в вашей базе данных Azure Data Explorer следующим образом:
 
     ```kusto

@@ -7,12 +7,12 @@ ms.reviewer: takamara
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 06/03/2019
-ms.openlocfilehash: b062b2da81662e89dc61720ebf6bb555f896a8ca
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 228722bab25dc19532860f92b8194c4fd2d79a38
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874789"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343102"
 ---
 # <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Прием данных из Logstash в Azure Data Explorer
 
@@ -89,7 +89,7 @@ Logstash может создавать примеры событий, котор
 
 ## <a name="configure-logstash-to-send-data-to-azure-data-explorer"></a>Настройка Logstash для отправки данных в Azure Data Explorer
 
-Вставьте следующие параметры в тот же файл конфигурации, который использовался на предыдущем шаге. Замените все заполнители соответствующими значениями для настройки. Дополнительные сведения см. в статье [HowTo: Creating an AAD Application](kusto/management/access-control/how-to-provision-aad-app.md) (Создание приложения AAD). 
+Вставьте следующие параметры в тот же файл конфигурации, который использовался на предыдущем шаге. Замените все заполнители соответствующими значениями для настройки. Дополнительные сведения см. в статье [HowTo: Creating an AAD Application](./provision-azure-ad-app.md) (Создание приложения AAD). 
 
 ```ruby
 output {

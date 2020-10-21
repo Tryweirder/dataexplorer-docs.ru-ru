@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/04/2020
-ms.openlocfilehash: 9b2d35c796cfd1f41dc2fd8e9385a4c446000b86
-ms.sourcegitcommit: ed902a5a781e24e081cd85910ed15cd468a0db1e
+ms.openlocfilehash: 28e88b71b5d7a2f8729e2f9eef416ee5804a2880
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88072452"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92337641"
 ---
 # <a name="update-policy-overview"></a>Обзор политики обновления
 
@@ -78,9 +78,9 @@ ms.locfileid: "88072452"
 * [. приема (Pull)](../management/data-ingestion/ingest-from-storage.md)
 * [. прием (встроенный)](../management/data-ingestion/ingest-inline.md)
 * [. Set |. append |. Set-или-Append |. Set-или-Replace](../management/data-ingestion/ingest-from-query.md)
-  * Когда политика обновления вызывается как часть `.set-or-replace` команды, поведение по умолчанию заключается в том, что данные в производных таблицах заменяются так же, как и в исходной таблице.
-* [.move extents](../management/extents-commands.md#move-extents)
-* [.replace extents](../management/extents-commands.md#replace-extents)
+  * Когда политика обновления вызывается как часть  `.set-or-replace` команды, поведение по умолчанию заключается в том, что данные в производных таблицах заменяются так же, как и в исходной таблице.
+* [.move extents](./move-extents.md)
+* [.replace extents](./replace-extents.md)
   * `PropagateIngestionProperties`Команда вступает в силу только при операциях приема. Если политика обновления запускается как часть `.move extents` `.replace extents` команды или, этот параметр не действует.
 
 ## <a name="regular-ingestion-using-update-policy"></a>Обычное получение с помощью политики обновления

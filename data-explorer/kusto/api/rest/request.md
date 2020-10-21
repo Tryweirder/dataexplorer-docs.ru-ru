@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/27/2020
-ms.openlocfilehash: 2c6efc03ea252eba5ed63e99d9214e59113856e9
-ms.sourcegitcommit: bb8c61dea193fbbf9ffe37dd200fa36e428aff8c
+ms.openlocfilehash: cf9f9e5f6a9c5afca58e2637ed4e639882e3749d
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83373584"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92337420"
 ---
 # <a name="querymanagement-http-request"></a>HTTP-запрос для запроса или управления
 
@@ -35,19 +35,19 @@ POST https://help.kusto.windows.net/v1/rest/mgmt HTTP/1.1
 
 Ниже приведены заголовки и текст запроса для включения.
 
-## <a name="request-headers"></a>Заголовки запросов
+## <a name="request-headers"></a>Заголовки запроса
 
 В следующей таблице содержатся общие заголовки, используемые для операций запросов и управления.
 
 |Стандартный заголовок  |Описание                                                                                 |Обязательный/необязательный |
 |-----------------|--------------------------------------------------------------------------------------------|------------------|
 |`Accept`         |Установите значение `application/json`                                                                   |Обязательно          |
-|`Accept-Encoding`|Поддерживаются кодировки `gzip` и`deflate`                                                |Необязательно          |
+|`Accept-Encoding`|Поддерживаются кодировки `gzip` и `deflate`                                                |Необязательно          |
 |`Authorization`  |См. раздел [Проверка подлинности](./authentication.md)                                                   |Обязательно          |
-|`Connection`     |Рекомендуется включить`Keep-Alive`                                                   |Необязательно          |
+|`Connection`     |Рекомендуется включить `Keep-Alive`                                                   |Необязательно          |
 |`Content-Length` |Рекомендуется указывать длину текста запроса, если известно                            |Необязательно          |
-|`Content-Type`   |Значение `application/json` с`charset=utf-8`                                              |Обязательно          |
-|`Expect`         |Можно задать значение`100-Continue`                                                                |Необязательно          |
+|`Content-Type`   |Значение `application/json` с `charset=utf-8`                                              |Обязательно          |
+|`Expect`         |Можно задать значение `100-Continue`                                                                |Необязательно          |
 |`Host`           |Задайте в качестве полного доменного имени, на которое был отправлен запрос (например, `help.kusto.windows.net` ). |Обязательно|
 
 В следующей таблице содержатся общие пользовательские заголовки, используемые для операций запросов и управления. Если не указано иное, эти заголовки используются только в целях телеметрии и не влияют на функциональность.
@@ -89,7 +89,7 @@ POST https://help.kusto.windows.net/v1/rest/mgmt HTTP/1.1
 POST https://help.kusto.windows.net/v2/rest/query HTTP/1.1
 ```
 
-Заголовки запросов
+Заголовки запроса
 
 ```txt
 Accept: application/json
@@ -102,7 +102,7 @@ x-ms-user-id: EARTH\davidbg
 x-ms-app: MyApp
 ```
 
-Текст запроса
+Тело запроса
 
 ```json
 {
@@ -116,7 +116,7 @@ x-ms-app: MyApp
 
 1. Получите маркер для проверки подлинности.
 
-    Замените `AAD_TENANT_NAME_OR_ID` , `AAD_APPLICATION_ID` и `AAD_APPLICATION_KEY` соответствующими значениями после настройки [проверки подлинности приложения AAD](../../management/access-control/how-to-provision-aad-app.md) .
+    Замените `AAD_TENANT_NAME_OR_ID` , `AAD_APPLICATION_ID` и `AAD_APPLICATION_KEY` соответствующими значениями после настройки [проверки подлинности приложения AAD](../../../provision-azure-ad-app.md) .
 
     ```
     curl "https://login.microsoftonline.com/AAD_TENANT_NAME_OR_ID/oauth2/token" \

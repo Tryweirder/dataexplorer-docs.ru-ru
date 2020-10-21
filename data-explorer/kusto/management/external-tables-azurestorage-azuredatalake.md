@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: c10e6502c4e18a5c30d971c4814c2270a0b27ff1
-ms.sourcegitcommit: 830837607f344f1ce1f146f946a41e45bfebcb22
+ms.openlocfilehash: 0532219b8efc1cab7508d1838882b6fa48f5048f
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91806688"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343272"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
 
@@ -376,7 +376,7 @@ dataformat=parquet
 ```kusto
 .drop external table MyExternalTable json mapping "Mapping1" 
 ```
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
-* [Команды для общего управления внешней таблицей](externaltables.md)
+* [Команды для общего управления внешней таблицей](./external-table-commands.md)
 * [Создание и изменение внешних таблиц SQL](external-sql-tables.md)

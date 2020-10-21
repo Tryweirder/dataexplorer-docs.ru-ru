@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/07/2019
-ms.openlocfilehash: c2cfe861898c2fa68960636b3c4bb4a2dc9b3075
-ms.sourcegitcommit: f2f9cc0477938da87e0c2771c99d983ba8158789
+ms.openlocfilehash: b4098fe52eb4632ba8145d2d5491f21c5af805d8
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89502455"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343034"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-c"></a>Создание подключения к данным концентратора событий для Azure обозреватель данных с помощью C #
 
@@ -25,12 +25,12 @@ ms.locfileid: "89502455"
 [!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
 В этой статье вы создадите подключение к данным концентратора событий для Azure обозреватель данных с помощью C#.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Обязательные условия
 
 * Если вы еще не установили Visual Studio 2019, вы можете скачать и использовать **бесплатный** [выпуск Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). При установке Visual Studio необходимо включить возможность **разработки для Azure**.
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 * Создание [кластера и базы данных](create-cluster-database-csharp.md)
-* Создание [сопоставления таблиц и столбцов](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
+* Создание [сопоставления таблиц и столбцов](./net-sdk-ingest-data.md#create-a-table-on-your-test-cluster)
 * Задание [политик базы данных и таблиц](database-table-policies-csharp.md) (необязательно)
 * Создание [концентратора событий с данными для приема](ingest-data-event-hub.md#create-an-event-hub). 
 
@@ -89,7 +89,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 | маппингруленаме | *StormEvents_CSV_Mapping* | Имя сопоставления столбцов, связанного с целевой таблицей.|
 | Формат. | *-* | Формат данных сообщения.|
 | евенсубресаурцеид | *Идентификатор ресурса* | Идентификатор ресурса концентратора событий, который содержит данные для приема. |
-| consumerGroup | *$Default* | Группа потребителей концентратора событий.|
+| Группы потребителей | *$Default* | Группа потребителей концентратора событий.|
 | location | *Центральная часть США* | Расположение ресурса подключения к данным.|
 
 ## <a name="generate-data"></a>Создание данных

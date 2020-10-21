@@ -7,12 +7,12 @@ ms.reviewer: ankhanol
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 14f4ed38ecb2e5b4a94dad8a73fb43ea3ff1e5ee
-ms.sourcegitcommit: c8256390d745e345f44d401e33e775702d62721d
+ms.openlocfilehash: 8274cd04dc2ecf588bf4771c06e3f8a760cac74d
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91007816"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343170"
 ---
 # <a name="ingest-data-from-apache-kafka-into-azure-data-explorer"></a>Прием данных из Apache Kafka в Azure обозреватель данных
  
@@ -22,10 +22,10 @@ Azure обозреватель данных поддерживает прием 
 
 Дополнительные сведения см. в разделе [репозиторий Git](https://github.com/Azure/kafka-sink-azure-kusto/blob/master/README.md) и [сведения о версиях](https://github.com/Azure/kafka-sink-azure-kusto/blob/master/README.md#13-major-version-specifics)для соединителя.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Обязательные условия
 
-* Создайте [учетную запись Microsoft Azure](https://docs.microsoft.com/azure/).
-* Установите [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Создайте [учетную запись Microsoft Azure](/azure/).
+* Установите [Azure CLI](/cli/azure/install-azure-cli).
 * Установите [DOCKER](https://docs.docker.com/get-docker/) и [DOCKER Compose](https://docs.docker.com/compose/install).
 * [Создайте кластер Azure обозреватель данных и базу данных в портал Azure,](create-cluster-database-portal.md) используя политики кэша и хранения по умолчанию.
 
@@ -322,7 +322,7 @@ services:
     | project StartTime, EndTime, Source, EventId
     ```
     
-1. Используйте [`summarize`](https://docs.microsoft.com/azure/data-explorer/write-queries#summarize) оператор:
+1. Используйте [`summarize`](./write-queries.md#summarize) оператор:
 
     ```kusto
     Storms
@@ -332,9 +332,9 @@ services:
     | render columnchart
     ```
     
-    :::image type="content" source="media/ingest-data-kafka/kusto-query.png" alt-text="Результаты гистограммы запроса Kafka в Azure обозреватель данных":::
+    :::image type="content" source="media/ingest-data-kafka/kusto-query.png" alt-text="Создание таблицы на портале обозреватель данных Azure ":::
 
-Дополнительные примеры запросов и рекомендации см. в статье [написание запросов для Azure обозреватель данных](write-queries.md) и [документации по языку запросов Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/).
+Дополнительные примеры запросов и рекомендации см. в статье [написание запросов для Azure обозреватель данных](write-queries.md) и [документации по языку запросов Kusto](./kusto/query/index.md).
 
 ## <a name="reset"></a>Reset
 
@@ -348,7 +348,7 @@ services:
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Чтобы удалить ресурсы обозреватель данных Azure, выполните команду [AZ Cluster Delete](https://docs.microsoft.com/cli/azure/kusto/cluster#az-kusto-cluster-delete) или [AZ Kusto Database Delete](https://docs.microsoft.com/cli/azure/kusto/database#az-kusto-database-delete):
+Чтобы удалить ресурсы обозреватель данных Azure, выполните команду [AZ Cluster Delete](/cli/azure/kusto/cluster#az-kusto-cluster-delete) или [AZ Kusto Database Delete](/cli/azure/kusto/database#az-kusto-database-delete):
 
 ```azurecli-interactive
 az kusto cluster delete -n <cluster name> -g <resource group name>
@@ -358,7 +358,7 @@ az kusto database delete -n <database name> --cluster-name <cluster name> -g <re
 ## <a name="next-steps"></a>Next Steps
 
 * Дополнительные сведения об [архитектуре больших данных](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer).
-* Узнайте [, как получать демонстрационные данные в формате JSON в обозреватель данных Azure](https://docs.microsoft.com/azure/data-explorer/ingest-json-formats?tabs=kusto-query-language).
+* Узнайте [, как получать демонстрационные данные в формате JSON в обозреватель данных Azure](./ingest-json-formats.md?tabs=kusto-query-language).
 * Дополнительные Kafka Labs:
    * [Практическое занятие приема от Fluent облака Kafka в распределенном режиме](https://github.com/Azure/azure-kusto-labs/blob/master/kafka-integration/confluent-cloud/README.md)
    * [Практическое занятие приема из HDInsight Kafka в распределенном режиме](https://github.com/Azure/azure-kusto-labs/tree/master/kafka-integration/distributed-mode/hdinsight-kafka)

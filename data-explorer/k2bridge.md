@@ -7,12 +7,12 @@ ms.reviewer: guregini
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 03/12/2020
-ms.openlocfilehash: 0d6695ddf6923dcbf44ac3466a2388edc7618551
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: d81ed37a7502e0795fc82f38a918719a5da8db8e
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874976"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342898"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-kibana-with-the-k2bridge-open-source-connector"></a>Визуализация данных из Azure обозреватель данных в Kibana с помощью соединителя K2Bridge с открытым кодом
 
@@ -34,13 +34,13 @@ K2Bridge поддерживает вкладку **обнаружения** Kiba
 
    [![Страница Kibana, привязанная к Azure обозреватель данных](media/k2bridge/k2bridge-kibana-page.png)](media/k2bridge/k2bridge-kibana-page.png#lightbox)
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Обязательные условия
 
 Прежде чем можно будет визуализировать данные из Azure обозреватель данных в Kibana, выполните следующие действия:
 
 * [Helm v3](https://github.com/helm/helm#install)— диспетчер пакетов Kubernetes.
 
-* Кластер Azure Kubernetes Service (AKS) или любой другой кластер Kubernetes. Версии 1,14 до 1,16 были протестированы и проверены. Если вам нужен кластер AKS, см. раздел Развертывание кластера AKS [с помощью Azure CLI](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) или [с помощью портал Azure](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal).
+* Кластер Azure Kubernetes Service (AKS) или любой другой кластер Kubernetes. Версии 1,14 до 1,16 были протестированы и проверены. Если вам нужен кластер AKS, см. раздел Развертывание кластера AKS [с помощью Azure CLI](/azure/aks/kubernetes-walkthrough) или [с помощью портал Azure](/azure/aks/kubernetes-walkthrough-portal).
 
 * [Кластер Azure обозреватель данных](create-cluster-database-portal.md), включая URL-адрес кластера и имя базы данных.
 
@@ -48,7 +48,7 @@ K2Bridge поддерживает вкладку **обнаружения** Kiba
 
     Рекомендуется использовать субъект-службу с разрешением на просмотр и запретить использование разрешений более высокого уровня. [Задайте разрешения на просмотр кластера для субъекта-службы Azure AD](manage-database-permissions.md#manage-permissions-in-the-azure-portal).
 
-    Дополнительные сведения о субъекте-службе Azure AD см. в статье [Создание субъекта-службы Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
+    Дополнительные сведения о субъекте-службе Azure AD см. в статье [Создание субъекта-службы Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
 ## <a name="run-k2bridge-on-azure-kubernetes-service-aks"></a>Запуск K2Bridge в службе Kubernetes Azure (AKS)
 
@@ -87,7 +87,7 @@ K2Bridge поддерживает вкладку **обнаружения** Kiba
         ADX_TENANT_ID=[SERVICE_PRINCIPAL_TENANT_ID]
         ```
 
-    1. При необходимости включите Application Insights телеметрии. Если вы используете Application Insights в первый раз, [создайте Application Insights ресурс](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource). [Скопируйте ключ инструментирования](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) в переменную.
+    1. При необходимости включите Application Insights телеметрии. Если вы используете Application Insights в первый раз, [создайте Application Insights ресурс](/azure/azure-monitor/app/create-new-resource). [Скопируйте ключ инструментирования](/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) в переменную.
 
         ```bash
         APPLICATION_INSIGHTS_KEY=[INSTRUMENTATION_KEY]
@@ -172,7 +172,7 @@ K2Bridge поддерживает вкладку **обнаружения** Kiba
 1. В строке запроса можно выполнять поиск по следующим данным:
 
     * Ввод условия поиска.
-    * Использование синтаксиса запроса Lucene. Пример.
+    * Использование синтаксиса запроса Lucene. Пример:
         * Выполните поиск по слову "ошибка", чтобы найти все записи, содержащие это значение.
         * Выполните поиск по запросу "Status: 200", чтобы получить все записи со значением состояния 200.
     * Использование логических операторов **and**, **or**и **Not**.

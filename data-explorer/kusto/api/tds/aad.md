@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 ms.date: 01/02/2019
-ms.openlocfilehash: 6766a817a1568eeb3cbcf2eb5bc0440cdd10eec6
-ms.sourcegitcommit: 9e0289945270db517e173aa10024e0027b173b52
+ms.openlocfilehash: 262842c7117dd5d7a9737f1038197ae93321985f
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428435"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343323"
 ---
 # <a name="ms-tds-with-azure-active-directory"></a>MS-TDS с Azure Active Directory
 
@@ -82,7 +82,7 @@ public class Sample {
 
 ## <a name="azure-ad-application-authentication"></a>Проверка подлинности приложения Azure AD
 
-Приложение Azure AD, подготовленное для Kusto, может использовать клиентские библиотеки SQL, которые поддерживают Azure AD для подключения к Kusto. Дополнительные сведения о приложениях Azure AD см. [в статье Создание приложения Azure AD](../../management/access-control/how-to-provision-aad-app.md).
+Приложение Azure AD, подготовленное для Kusto, может использовать клиентские библиотеки SQL, которые поддерживают Azure AD для подключения к Kusto. Дополнительные сведения о приложениях Azure AD см. [в статье Создание приложения Azure AD](../../../provision-azure-ad-app.md).
 
 ### <a name="net-sql-client-application"></a>Клиент SQL .NET (приложение)
 

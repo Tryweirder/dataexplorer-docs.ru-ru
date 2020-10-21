@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/07/2019
-ms.openlocfilehash: 5ba4f61d051a89d0fd3851f3e5be4f344ea79e0b
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 824556388c2f3f70f006ab372e06967c42117f06
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874143"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343068"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-c"></a>Создание подключения к данным в сетке событий для обозреватель данных Azure с помощью C #
 
@@ -26,12 +26,12 @@ ms.locfileid: "88874143"
 [!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
  В этой статье вы создадите подключение к данным в сетке событий для Azure обозреватель данных с помощью C#.
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Обязательные условия
 
 * Если вы еще не установили Visual Studio 2019, вы можете скачать и использовать **бесплатный** [выпуск Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). При установке Visual Studio необходимо включить возможность **разработки для Azure**.
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 * Создание [кластера и базы данных](create-cluster-database-csharp.md)
-* Создание [сопоставления таблиц и столбцов](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
+* Создание [сопоставления таблиц и столбцов](./net-sdk-ingest-data.md#create-a-table-on-your-test-cluster)
 * Задание [политик базы данных и таблиц](database-table-policies-csharp.md) (необязательно)
 * Создайте [учетную запись хранения с подпиской службы "Сетка событий](ingest-data-event-grid.md)".
 
@@ -81,9 +81,9 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 |**Параметр** | **Рекомендуемое значение** | **Описание поля**|
 |---|---|---|
 | tenantId | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента. Также известен как идентификатор каталога.|
-| subscriptionId | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор подписки, используемый для создания ресурсов.|
-| clientid | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента приложения, которое может получать доступ к ресурсам в клиенте.|
-| clientSecret | *кскскскскскскскскскскскскскс* | Секрет клиента приложения, которое может получить доступ к ресурсам в клиенте. |
+| subscriptionId | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор подписки, используемой для создания ресурсов.|
+| clientid | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента приложения, которое имеет доступ к ресурсам в клиенте.|
+| clientSecret | *кскскскскскскскскскскскскскс* | Секрет клиента приложения, которое имеет доступ к ресурсам в клиенте. |
 | имя_группы_ресурсов | *testrg* | Имя группы ресурсов, содержащей кластер.|
 | clusterName | *mykustocluster* | Имя кластера.|
 | databaseName | *mykustodatabase* | Имя целевой базы данных в кластере.|
@@ -93,7 +93,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 | Формат. | *-* | Формат данных сообщения.|
 | евенсубресаурцеид | *Идентификатор ресурса* | Идентификатор ресурса концентратора событий, в котором сетка событий настроена для отправки событий. |
 | сторажеаккаунтресаурцеид | *Идентификатор ресурса* | Идентификатор ресурса учетной записи хранения, в которой хранятся данные для приема. |
-| consumerGroup | *$Default* | Группа потребителей концентратора событий.|
+| Группы потребителей | *$Default* | Группа потребителей концентратора событий.|
 | location | *Центральная часть США* | Расположение ресурса подключения к данным.|
 
 ## <a name="generate-sample-data"></a>Создание примера данных

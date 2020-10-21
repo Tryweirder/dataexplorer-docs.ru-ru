@@ -7,12 +7,12 @@ ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 7c40d6b1f62014e8ede6ed3328dd3a3974d41a88
-ms.sourcegitcommit: c2ab3176db4dd55ac9ca8eee52bbd24096d1277f
+ms.openlocfilehash: 72d092683b490c7b58335abc59fd5e3aea2f3e26
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90740309"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342949"
 ---
 # <a name="azure-data-explorer-connector-to-power-automate-preview"></a>Соединитель Azure обозреватель данных для автоматического управления питанием (Предварительная версия)
 
@@ -40,7 +40,7 @@ ms.locfileid: "90740309"
 Вы можете пройти проверку подлинности с помощью учетных данных пользователя или приложения Azure Active Directory (Azure AD).
 
 > [!Note]
-> Убедитесь, что приложение является [приложением Azure AD](kusto/management/access-control/how-to-provision-aad-app.md)и имеет разрешение на выполнение запросов в кластере.
+> Убедитесь, что приложение является [приложением Azure AD](./provision-azure-ad-app.md)и имеет разрешение на выполнение запросов в кластере.
 
 1. В окне **выполнение команды управления и визуализация результатов**выберите три точки в правом верхнем углу соединителя потока.
 
@@ -157,7 +157,7 @@ ms.locfileid: "90740309"
 1. В разделе **содержимое вложений**выберите **содержимое вложения**.
 1. При необходимости добавьте вложения. 
 1. При необходимости задайте уровень важности.
-1. Нажмите **Сохранить**.
+1. Щелкните **Сохранить**.
 
 ![Снимок экрана: диалоговое окно "Отправка сообщения" с именем вложения, содержимым вложений и выделенным сохранением](./media/flow/flow-add-attachments.png)
 
@@ -200,6 +200,6 @@ ms.locfileid: "90740309"
 * Соединитель не поддерживает операторы [ветвления](kusto/query/forkoperator.md) и [аспекта](kusto/query/facetoperator.md) .
 * Этот процесс лучше подходит для Microsoft ребра и Google Chrome.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие шаги
 
 Сведения о [соединителе приложения логики Azure Kusto](kusto/tools/logicapps.md). это еще один способ автоматического запуска запросов и команд Kusto в рамках запланированной или активируемой задачи.

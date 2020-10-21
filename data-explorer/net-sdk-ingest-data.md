@@ -7,12 +7,12 @@ ms.reviewer: vladikb
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: c6a544228d5527f1703567256bd3e824ddc0504a
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 56fd2d253cac80f097caa9206cd3b7c2a9d3c118
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88872715"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343510"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-sdk"></a>Прием данных с помощью пакета SDK Azure обозреватель данных .NET 
 
@@ -22,7 +22,7 @@ ms.locfileid: "88872715"
 > * [Node](node-ingest-data.md)
 > * [GO](go-ingest-data.md)
 
-Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Он предоставляет две клиентские библиотеки для .NET: [библиотеку приема](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest/) и [библиотеку данных](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data/). Дополнительные сведения о пакете SDK для .NET см. в разделе [о пакете SDK для .NET](/azure/data-explorer/kusto/api/netfx/about-the-sdk).
+Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Он предоставляет две клиентские библиотеки для .NET: [библиотеку приема](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest/) и [библиотеку данных](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data/). Дополнительные сведения о пакете SDK для .NET см. в разделе [о пакете SDK для .NET](./kusto/api/netfx/about-the-sdk.md).
 Они позволяют принимать (загружать) данные в кластер и запрашивать данные из кода. В этой статье вы сначала создадите таблицу и сопоставление данных в тестовом кластере. Затем вы поставите в очередь прием данных в кластер и проверите результаты.
 
 ## <a name="prerequisites"></a>Предварительные требования

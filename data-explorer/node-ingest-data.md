@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 06/03/2019
-ms.openlocfilehash: c7c85440c1b2e3830805efdabc3c95ec7ed5797c
-ms.sourcegitcommit: 4b6488a40c35c541a16c65a237c201b7f7dc02e2
+ms.openlocfilehash: 7262b0391abf42dc71a04eec8be9958c46726edb
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89176296"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342558"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Прием данных с помощью библиотеки Node в Azure Data Explorer
 
@@ -56,7 +56,7 @@ const { DataFormat } = require("azure-kusto-ingest").IngestionPropertiesEnums;
 const { BlobDescriptor } = require("azure-kusto-ingest").IngestionDescriptors;
 
 ```
-Чтобы проверить подлинность приложения, Azure Data Explorer использует идентификатор клиента Azure Active Directory. Чтобы найти идентификатор клиента, выполните [Поиск идентификатора клиента Microsoft 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).
+Чтобы проверить подлинность приложения, Azure Data Explorer использует идентификатор клиента Azure Active Directory. Чтобы найти идентификатор клиента, выполните [Поиск идентификатора клиента Microsoft 365](/onedrive/find-your-office-365-tenant-id).
 
 Задайте значения для свойств `authorityId`, `kustoUri`, `kustoIngestUri` и `kustoDatabase` перед выполнением этого кода.
 

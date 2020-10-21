@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 09/24/2019
-ms.openlocfilehash: 8febe9934234370b217ab4f5a2591fd0b5adb759
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: e970b469b1114252cab6e125ef247f048b4067bd
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88873021"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342864"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Создание политик базы данных и таблиц для обозреватель данных Azure с помощью Python
 
@@ -38,7 +38,7 @@ pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
 ## <a name="authentication"></a>Аутентификация
-Для выполнения примеров в этой статье нам потребуется приложение Azure AD и субъект-служба, которые могут получать доступ к ресурсам. Вы можете использовать одно и то же приложение Azure AD для проверки подлинности из [тестового кластера и базы данных](create-cluster-database-csharp.md#authentication). Если вы хотите использовать другое приложение Azure AD, см. раздел [Создание приложения Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) для создания бесплатного приложения Azure AD и Добавление назначения роли в области подписки. Также показано, как получить `Directory (tenant) ID` , `Application ID` и `Client Secret` . Возможно, потребуется добавить новое приложение Azure AD в качестве участника в базу данных. см. раздел [Управление разрешениями для базы данных azure обозреватель данных](manage-database-permissions.md).    
+Для выполнения примеров в этой статье нам потребуется приложение Azure AD и субъект-служба, которые могут получать доступ к ресурсам. Вы можете использовать одно и то же приложение Azure AD для проверки подлинности из [тестового кластера и базы данных](create-cluster-database-csharp.md#authentication). Если вы хотите использовать другое приложение Azure AD, см. раздел [Создание приложения Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal) для создания бесплатного приложения Azure AD и Добавление назначения роли в области подписки. Также показано, как получить `Directory (tenant) ID` , `Application ID` и `Client Secret` . Возможно, потребуется добавить новое приложение Azure AD в качестве участника в базу данных. см. раздел [Управление разрешениями для базы данных azure обозреватель данных](manage-database-permissions.md).    
 
 ## <a name="alter-database-retention-policy"></a>Изменение политики хранения базы данных
 Задает политику хранения с периодом обратимого удаления в 10 дней.

@@ -7,12 +7,12 @@ ms.reviewer: prvavill
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 03/31/2020
-ms.openlocfilehash: 630b03fc0e89005f1031aba4cbd1a86d803ff275
-ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
+ms.openlocfilehash: 0fe11b4218f86d501c88e6a217f9ae867a17f5f4
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91942035"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343476"
 ---
 # <a name="monitor-azure-data-explorer-using-resource-health-preview"></a>Мониторинг обозреватель данных Azure с помощью Работоспособность ресурсов (Предварительная версия)
 
@@ -42,7 +42,7 @@ ms.locfileid: "91942035"
 
 :::image type="content" source="media/monitor-with-resource-health/available.png" alt-text="Снимок экрана со страницей &quot;работоспособность ресурсов&quot; для ресурса Azure обозреватель данных. Состояние отображается как доступно и выделено." border="false":::
 
-### <a name="unavailable"></a>Недоступно
+### <a name="unavailable"></a>Рекомендации недоступны
 
 Состояние работоспособности " **недоступно** " указывает на текущую проблему с ресурсом Azure обозреватель данных, которая приводит к недоступности запросов и приема. Например, узлы в ресурсе Azure обозреватель данных могут быть неожиданно перезагружены. Если ресурс Azure обозреватель данных находится в этом состоянии в течение продолжительного периода времени, обратитесь в [службу поддержки]().
 
@@ -66,8 +66,8 @@ ms.locfileid: "91942035"
 
 ![История](media/monitor-with-resource-health/healthhistory.png)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие шаги
 
-* [Настройка оповещений Работоспособность ресурсов](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)
+* [Настройка оповещений Работоспособность ресурсов](/azure/service-health/resource-health-alert-arm-template-guide)
 * [Учебник. прием и запрос данных мониторинга в Azure обозреватель данных](ingest-data-no-code.md)
 * [Мониторинг производительности, работоспособности и использования Azure обозреватель данных с помощью метрик](using-metrics.md)

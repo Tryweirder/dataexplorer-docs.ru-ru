@@ -7,12 +7,12 @@ ms.reviewer: abhishgu
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/10/2020
-ms.openlocfilehash: 82302fc2071eca8bf2fb1e4c89b96de50b1a8806
-ms.sourcegitcommit: f689547c0f77b1b8bfa50a19a4518cbbc6d408e5
+ms.openlocfilehash: c133c3cf1185e7ffdb959ed6ea127af7502820c4
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89557349"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342575"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-go-sdk"></a>Прием данных с помощью пакета SDK для Azure обозреватель данных Go 
 
@@ -151,7 +151,7 @@ func ingestFile(kc *kusto.Client, blobStoreAccountName, blobStoreContainer, blob
     1. **Создание сопоставления**: `StormEvents_CSV_Mapping` сопоставление создано.
     1. Прием **файлов**: CSV-файл (в хранилище BLOB-объектов Azure) помещается в очередь для приема.
 
-1. Чтобы создать субъект-службу для проверки подлинности, используйте Azure CLI с командой [AZ AD SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) . Укажите в качестве сведений о субъекте-службе конечную точку кластера и имя базы данных в виде переменных среды, которые будут использоваться программой:
+1. Чтобы создать субъект-службу для проверки подлинности, используйте Azure CLI с командой [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) . Укажите в качестве сведений о субъекте-службе конечную точку кластера и имя базы данных в виде переменных среды, которые будут использоваться программой:
 
     ```console
     export AZURE_SP_CLIENT_ID="<replace with appID>"

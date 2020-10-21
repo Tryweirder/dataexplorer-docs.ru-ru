@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/22/2020
-ms.openlocfilehash: a76ef031a3fbcaa26f90fd2c2664920805b823b5
-ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
+ms.openlocfilehash: a2c3580ee265e0c67003d67c7e5a68cdd9165191
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780275"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342677"
 ---
 # <a name="external-tables"></a>Внешние таблицы
 
@@ -22,7 +22,7 @@ ms.locfileid: "84780275"
 Как и в случае с [таблицами](tables.md), внешняя таблица имеет четко определенную схему (упорядоченный список пар «имя столбца» и «тип данных»). В отличие от таблиц, данные хранятся и управляются за пределами кластера. Чаще всего данные хранятся в определенном стандартном формате, таком как CSV, Parquet, Avro, и не принимаются Azure обозреватель данных.
 
 **Внешняя таблица** создается один раз. Дополнительные сведения о создании внешних таблиц см. в следующих командах.
-* [Команды для общего управления внешней таблицей](../../management/externaltables.md)
+* [Команды для общего управления внешней таблицей](../../management/external-table-commands.md)
 * [Создание и изменение внешних таблиц SQL](../../management/external-sql-tables.md)
 * [Создание и изменение таблиц в службе хранилища Azure или Azure Data Lake](../../management/external-tables-azurestorage-azuredatalake.md)
 

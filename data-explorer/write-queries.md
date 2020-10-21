@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 04/07/2019
-ms.openlocfilehash: a7a964f8bb022885c6ac3bc4828469031987b162
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: f6d993383ecf6c25bf144228e77f02f944bc02d8
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88872630"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343340"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Написание запросов для обозревателя данных Azure
 
@@ -55,7 +55,7 @@ StormEvents
 |   23|
 | |
 
-Дополнительные сведения см. в [справочнике по языку запросов](https://aka.ms/kustolangref).
+Дополнительные сведения см. в [справочнике по языку запросов](./kusto/query/index.md).
 
 ## <a name="most-common-operators"></a>Наиболее распространенные операторы
 
@@ -948,4 +948,4 @@ MyFunction ("Texas")
 
 ## <a name="next-steps"></a>Дальнейшие шаги
 
-[Справочник по языку запросов Kusto](https://aka.ms/kustolangref)
+[Справочник по языку запросов Kusto](./kusto/query/index.md)

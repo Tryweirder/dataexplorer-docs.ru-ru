@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/07/2019
-ms.openlocfilehash: 0df859eb52927d0d59c2cab7de18f1de4bfcf1d7
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: ff4a4f0ada7e12f5de239c1b78b39a8beace15ee
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88873599"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342983"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-c-preview"></a>Создание подключения к данным центра Интернета вещей для Azure обозреватель данных с помощью C# (Предварительная версия)
 
@@ -25,12 +25,12 @@ ms.locfileid: "88873599"
 [!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
 В этой статье вы создадите подключение к данным центра Интернета вещей для Azure обозреватель данных с помощью C#.
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Обязательные условия
 
 * Если вы еще не установили Visual Studio 2019, вы можете скачать и использовать **бесплатный** [выпуск Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). При установке Visual Studio необходимо включить возможность **разработки для Azure**.
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 * Создание [кластера и базы данных](create-cluster-database-csharp.md)
-* Создание [сопоставления таблиц и столбцов](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
+* Создание [сопоставления таблиц и столбцов](./net-sdk-ingest-data.md#create-a-table-on-your-test-cluster)
 * Задание [политик базы данных и таблиц](database-table-policies-csharp.md) (необязательно)
 * Создайте [центр Интернета вещей с настроенной политикой общего доступа](ingest-data-iot-hub.md#create-an-iot-hub).
 
@@ -80,9 +80,9 @@ await kustoManagementClient.DataConnections.CreateOrUpdate(resourceGroupName, cl
 |**Параметр** | **Рекомендуемое значение** | **Описание поля**|
 |---|---|---|
 | tenantId | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента. Также известен как идентификатор каталога.|
-| subscriptionId | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор подписки, используемый для создания ресурсов.|
-| clientid | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента приложения, которое может получать доступ к ресурсам в клиенте.|
-| clientSecret | *кскскскскскскскскскскскскскс* | Секрет клиента приложения, которое может получить доступ к ресурсам в клиенте. |
+| subscriptionId | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор подписки, используемой для создания ресурсов.|
+| clientid | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента приложения, которое имеет доступ к ресурсам в клиенте.|
+| clientSecret | *кскскскскскскскскскскскскскс* | Секрет клиента приложения, которое имеет доступ к ресурсам в клиенте. |
 | имя_группы_ресурсов | *testrg* | Имя группы ресурсов, содержащей кластер.|
 | clusterName | *mykustocluster* | Имя кластера.|
 | databaseName | *mykustodatabase* | Имя целевой базы данных в кластере.|
@@ -92,7 +92,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdate(resourceGroupName, cl
 | Формат. | *-* | Формат данных сообщения.|
 | иосубресаурцеид | *Идентификатор ресурса* | Идентификатор ресурса центра Интернета вещей, который содержит данные для приема. |
 | шаредакцессполицинаме | *иосубфорреад* | Имя политики общего доступа, определяющей разрешения для подключения устройств и служб к центру Интернета вещей. |
-| consumerGroup | *$Default* | Группа потребителей концентратора событий.|
+| Группы потребителей | *$Default* | Группа потребителей концентратора событий.|
 | location | *Центральная часть США* | Расположение ресурса подключения к данным.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-csharp](includes/data-explorer-data-connection-clean-resources-csharp.md)]

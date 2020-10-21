@@ -8,19 +8,19 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: 74871c2c1a10c199c5eb5415fcdf21590e4cf648
-ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
+ms.openlocfilehash: 70d4013c8524fa88249de14a0a67cc8a85e73b3f
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85967457"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92337573"
 ---
 # <a name="data-sharding-policy"></a>Политика сегментирования данных
 
 Политика сегментирования определяет, как и как должны быть запечатаны [экстенты (сегменты данных)](../management/extents-overview.md) в кластере Azure обозреватель данных.
 
 > [!NOTE]
-> Политика применяется ко всем операциям, которые создают новые экстенты, такие как команды для [приема данных](../../ingest-data-overview.md#kusto-query-language-ingest-control-commands), и [команды. Merge и. REBUILD.](../management/extents-commands.md#merge-extents)
+> Политика применяется ко всем операциям, которые создают новые экстенты, такие как команды для [приема данных](../../ingest-data-overview.md#kusto-query-language-ingest-control-commands), и [команды. Merge и. REBUILD.](./merge-extents.md)
 
 Политика сегментирования данных содержит следующие свойства.
 
@@ -45,4 +45,3 @@ ms.locfileid: "85967457"
 При создании базы данных она содержит политику сегментирования данных по умолчанию. Эта политика наследуется всеми таблицами, созданными в базе данных (если политика явно не переопределена на уровне таблицы).
 
 Используйте [команды управления политиками сегментирования](../management/sharding-policy.md), чтобы управлять политиками сегментирования данных для баз данных и таблиц.
- 

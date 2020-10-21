@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: 3a17d9e63f0e6803b6950d39ccd58183d44bb51e
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 988ace99e8671de229f9bdf796260e64f9d36932
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88873582"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343000"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Создание подключения к данным концентратора событий для Azure обозреватель данных с помощью шаблона Azure Resource Manager
 
@@ -30,7 +30,7 @@ ms.locfileid: "88873582"
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 * Создание [кластера и базы данных](create-cluster-database-portal.md)
 * Создание [сопоставления таблицы и столбца](ingest-data-event-hub.md#create-a-target-table-in-azure-data-explorer)
-* Создание [концентратора событий](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+* Создание [концентратора событий](/azure/event-hubs/event-hubs-create)
 
 ## <a name="azure-resource-manager-template-for-adding-an-event-hub-data-connection"></a>Шаблон Azure Resource Manager для добавления подключения к данным концентратора событий
 

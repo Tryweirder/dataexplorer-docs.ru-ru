@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 06/03/2019
-ms.openlocfilehash: 8dfb0fb6637214d77df5bed436649bb10f808a47
-ms.sourcegitcommit: 95527c793eb873f0135c4f0e9a2f661ca55305e3
+ms.openlocfilehash: a274577da1fb93b78b56250c1176fb0e9bda8eed
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90533972"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343085"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Создание кластера и базы данных Azure Data Explorer с использованием Python
 
@@ -32,7 +32,7 @@ ms.locfileid: "90533972"
 
 * [Python версии 3.4+](https://www.python.org/downloads/).
 
-* [Приложение Azure AD и субъект-служба, которые имеют доступ к ресурсам](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Получение значений для `Directory (tenant) ID` , `Application ID` и `Client Secret` .
+* [Приложение Azure AD и субъект-служба, которые имеют доступ к ресурсам](/azure/active-directory/develop/howto-create-service-principal-portal). Получение значений для `Directory (tenant) ID` , `Application ID` и `Client Secret` .
 
 ## <a name="install-python-package"></a>Установка пакета Python
 
@@ -43,7 +43,7 @@ pip install azure-common
 pip install azure-mgmt-kusto
 ```
 ## <a name="authentication"></a>Аутентификация
-Для выполнения примеров в этой статье нам потребуется приложение Azure AD и субъект-служба, которые могут получать доступ к ресурсам. Установите флажок [создать приложение Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) , чтобы создать бесплатное приложение Azure AD и назначить роль в области действия подписки. Также показано, как получить `Directory (tenant) ID` , `Application ID` и `Client Secret` .
+Для выполнения примеров в этой статье нам потребуется приложение Azure AD и субъект-служба, которые могут получать доступ к ресурсам. Установите флажок [создать приложение Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal) , чтобы создать бесплатное приложение Azure AD и назначить роль в области действия подписки. Также показано, как получить `Directory (tenant) ID` , `Application ID` и `Client Secret` .
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Создание кластера Azure Data Explorer
 
@@ -87,7 +87,7 @@ pip install azure-mgmt-kusto
    |---|---|---|
    | cluster_name | *mykustocluster* | Необходимое имя кластера.|
    | sku_name | *Standard_D13_v2* | Номер SKU, который будет использоваться для кластера. |
-   | Уровень | *Стандартный* | Уровень SKU. |
+   | Уровень | *Стандартный формат* | Уровень SKU. |
    | Емкость | *number* | Число экземпляров кластера. |
    | resource_group_name | *testrg* | Имя группы ресурсов, в которой будет создан кластер. |
 

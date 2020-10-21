@@ -8,12 +8,12 @@ ms.reviewer: olgolden
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: c1be494fd290b051455010d6e6e082d01650107c
-ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
+ms.openlocfilehash: 19aff5ad76544573daca380c1555c072fb29eaa2
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92003132"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343357"
 ---
 # <a name="azure-data-explorer-tools-and-integrations-overview"></a>Обзор средств и интеграции Azure обозреватель данных
 
@@ -64,7 +64,7 @@ Azure обозреватель данных предлагает различн�
 * [Apache Spark Azure синапсе](https://docs.microsoft.com/azure/synapse-analytics/quickstart-connect-azure-data-explorer?context=/azure/data-explorer/context/context)
 * [Apache Spark](spark-connector.md)
 * Microsoft Power Apps
-* Azure Data Studio: [Общие сведения о расширении Kusto](https://docs.microsoft.com/sql/azure-data-studio/extensions/kusto-extension?context=/azure/data-explorer/context/context), [Использование Kusto](https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=/azure/data-explorer/context/context)и [Использование кклмагик](https://docs.microsoft.com/sql/azure-data-studio/notebooks-kqlmagic?context=/azure/data-explorer/context/context)
+* Azure Data Studio: [Общие сведения о расширении Kusto](/sql/azure-data-studio/extensions/kusto-extension?context=%252fazure%252fdata-explorer%252fcontext%252fcontext), [Использование Kusto](/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)и [Использование кклмагик](/sql/azure-data-studio/notebooks-kqlmagic?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)
 
 ## <a name="visualizations-dashboards-and-reporting"></a>Средства визуализации, мониторинга и отчетности
 
@@ -74,7 +74,7 @@ Azure обозреватель данных предлагает различн�
 
 * [Записные книжки Azure](azure-notebooks.md)
 * [Jupyter Notebook](kqlmagic.md)
-* Azure Data Studio: [Общие сведения о расширении Kusto](https://docs.microsoft.com/sql/azure-data-studio/extensions/kusto-extension?context=/azure/data-explorer/context/context), [Использование Kusto](https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=/azure/data-explorer/context/context)и [Использование кклмагик](https://docs.microsoft.com/sql/azure-data-studio/notebooks-kqlmagic?context=/azure/data-explorer/context/context)
+* Azure Data Studio: [Общие сведения о расширении Kusto](/sql/azure-data-studio/extensions/kusto-extension?context=%252fazure%252fdata-explorer%252fcontext%252fcontext), [Использование Kusto](/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)и [Использование кклмагик](/sql/azure-data-studio/notebooks-kqlmagic?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)
 
 ## <a name="orchestration"></a>Оркестрация
 
@@ -84,7 +84,7 @@ Azure обозреватель данных предлагает различн�
 * [Приложение логики Microsoft](kusto/tools/logicapps.md) 
 * [Фабрика данных Azure](data-factory-integration.md).
 
-## <a name="share-data"></a>Предоставление общего доступа к данным
+## <a name="share-data"></a>Совместное использование данных
 
 * [Azure Data Share](data-share.md)
 

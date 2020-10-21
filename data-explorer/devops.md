@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 05/05/2019
-ms.openlocfilehash: b45e6d0be5a61e4eff8f1c70d3df2fe7ee6901ea
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: a92e657bfc2f440deb20fd4b812169b1c2e32112
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874721"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342915"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Задача DevOps Azure для Azure обозреватель данных
 
@@ -27,7 +27,7 @@ ms.locfileid: "88874721"
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 * Настройка кластера Azure обозреватель данных:
     * [Кластер и база данных Azure обозреватель данных](create-cluster-database-portal.md).
-    * Создайте приложение Azure Active Directory (Azure AD), выполнив [подготовку приложения Azure AD](kusto/management/access-control/how-to-provision-aad-app.md).
+    * Создайте приложение Azure Active Directory (Azure AD), выполнив [подготовку приложения Azure AD](./provision-azure-ad-app.md).
     * Предоставьте доступ к Azure AD App в базе данных Azure обозреватель данных, [управляя разрешениями на базе данных azure обозреватель данных](manage-database-permissions.md).
 * Настройка Azure DevOps:
     * [Регистрация в бесплатной Организации](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)
@@ -101,11 +101,11 @@ ms.locfileid: "88874721"
     |**Ключ приложения субъекта-службы**     |    Введите ключ приложения AAD (созданный в качестве необходимого компонента)    |
     |**Идентификатор клиента AAD**    |      Введите клиент AAD (например, microsoft.com, contoso.com...).    |
 
-    Установите флажок **Разрешить всем конвейерам использовать это подключение** . Нажмите кнопку **ОК**.
+    Установите флажок **Разрешить всем конвейерам использовать это подключение** . Щелкните **ОК**.
 
     ![Добавить подключение к службе](media/devops/add-service-connection.png)
 
-1. Повторите шаги 1-5 еще два раза, чтобы развернуть файлы из папок *функции* и *политики* . Нажмите **Сохранить**. На вкладке **задачи** см. три созданные задачи: **Развертывание таблиц**, **развертывание функций**и **развертывание политик**.
+1. Повторите шаги 1-5 еще два раза, чтобы развернуть файлы из папок *функции* и *политики* . Щелкните **Сохранить**. На вкладке **задачи** см. три созданные задачи: **Развертывание таблиц**, **развертывание функций**и **развертывание политик**.
 
     ![Развернуть все папки](media/devops/deploy-all-folders.png)
 

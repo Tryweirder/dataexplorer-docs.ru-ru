@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/07/2019
-ms.openlocfilehash: 9bca4be307cd532c4bcd5ccff2a82ca76cf27ae6
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 1990f601b07c3ab5d740e2e46a31de51875bb44b
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88873633"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343017"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-python"></a>Создание подключения к данным концентратора событий для Azure обозреватель данных с помощью Python
 
@@ -30,7 +30,7 @@ ms.locfileid: "88873633"
 * Учетная запись Azure с активной подпиской. [Создайте учетную запись](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) бесплатно.
 * [Python версии 3.4+](https://www.python.org/downloads/).
 * [Кластер и база данных](create-cluster-database-python.md).
-* [Сопоставление таблиц и столбцов](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
+* [Сопоставление таблиц и столбцов](./net-sdk-ingest-data.md#create-a-table-on-your-test-cluster).
 * [Политики базы данных и таблиц](database-table-policies-python.md) (необязательно).
 * [Концентратор событий с данными для приема](ingest-data-event-hub.md#create-an-event-hub).
 
@@ -83,9 +83,9 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 |**Параметр** | **Рекомендуемое значение** | **Описание поля**|
 |---|---|---|
 | tenant_id | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента. Также известен как идентификатор каталога.|
-| subscriptionId | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор подписки, используемый для создания ресурсов.|
-| client_id | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента приложения, которое может получать доступ к ресурсам в клиенте.|
-| client_secret | *кскскскскскскскскскскскскскс* | Секрет клиента приложения, которое может получить доступ к ресурсам в клиенте. |
+| subscriptionId | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор подписки, используемой для создания ресурсов.|
+| client_id | *xxxxxxxx-XXXXX-XXXX-XXXX-XXXXXXXXX* | Идентификатор клиента приложения, которое имеет доступ к ресурсам в клиенте.|
+| client_secret | *кскскскскскскскскскскскскскс* | Секрет клиента приложения, которое имеет доступ к ресурсам в клиенте. |
 | resource_group_name | *testrg* | Имя группы ресурсов, содержащей кластер.|
 | cluster_name | *mykustocluster* | Имя кластера.|
 | database_name | *mykustodatabase* | Имя целевой базы данных в кластере.|

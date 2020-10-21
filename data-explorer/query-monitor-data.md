@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 334d2bc27709c78c53bd57c92c8c3b3364bbe3bb
-ms.sourcegitcommit: 041272af91ebe53a5d573e9902594b09991aedf0
+ms.openlocfilehash: 2a0dfeb769e4dc40cb988bab3cb4650ebcfcc9e4
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91452920"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342643"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Запрос данных в Azure Monitor с помощью обозреватель данных Azure (Предварительная версия)
 
@@ -23,7 +23,7 @@ ms.locfileid: "91452920"
 
 ![Поток прокси-сервера ADX](media/adx-proxy/adx-proxy-workflow.png)
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Обязательные условия
 
 > [!NOTE]
 > Прокси-сервер ADX находится в режиме предварительного просмотра. [Подключитесь к прокси-](#connect-to-the-proxy) серверу, чтобы включить функцию прокси-сервера ADX для кластеров. Свяжитесь с командой [адкспрокси](mailto:adxproxy@microsoft.com) с любыми вопросами.
@@ -102,9 +102,9 @@ union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 
 Если ресурс обозреватель данных Azure находится в клиенте "A", а LA Рабочая область находится в клиенте "B", используйте один из следующих двух методов:
 
-1. Azure обозреватель данных позволяет добавлять роли для участников в разные клиенты. Добавьте свой идентификатор пользователя в клиенте "B" в качестве полномочного пользователя в кластере Azure обозреватель данных. Проверьте свойство *["трустедекстерналтенант"](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* в кластере Azure обозреватель данных содержит клиент "B". Выполнение перекрестного запроса полностью в клиенте "B".
+1. Azure обозреватель данных позволяет добавлять роли для участников в разные клиенты. Добавьте свой идентификатор пользователя в клиенте "B" в качестве полномочного пользователя в кластере Azure обозреватель данных. Проверьте свойство *["трустедекстерналтенант"](/powershell/module/az.kusto/update-azkustocluster)* в кластере Azure обозреватель данных содержит клиент "B". Выполнение перекрестного запроса полностью в клиенте "B".
 
-2. Используйте [лигхсаусе](https://docs.microsoft.com/azure/lighthouse/) для проецирования ресурса Azure Monitor в клиент "A".
+2. Используйте [лигхсаусе](/azure/lighthouse/) для проецирования ресурса Azure Monitor в клиент "A".
 
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Подключение к кластерам обозреватель данных Azure из разных клиентов
 

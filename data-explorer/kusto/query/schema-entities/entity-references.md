@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9d652ea8551a21d542ad6afef575616e7387183f
-ms.sourcegitcommit: 4eb64e72861d07cedb879e7b61a59eced74517ec
+ms.openlocfilehash: fc36f31bcdb90ed270a4ad21874d121d91fe429e
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517892"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342694"
 ---
 # <a name="entity-references"></a>Ссылки на сущности
 
@@ -37,7 +37,7 @@ union *, database("DB1").T*
 > Сопоставление с подстановочными знаками не может совпадать с именами сущностей, которые начинаются со знака доллара ( `$` ).
 Такие имена зарезервированы системой.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
-* [типы сущностей схемы](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/)
-* [имена объектов схемы](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names)
+* [типы сущностей схемы](./index.md)
+* [имена объектов схемы](./entity-names.md)

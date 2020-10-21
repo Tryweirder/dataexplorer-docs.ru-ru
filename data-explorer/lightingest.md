@@ -7,19 +7,19 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 06/28/2020
-ms.openlocfilehash: f3925ed2b3012dffbd7e96ca6dd6a795b0499071
-ms.sourcegitcommit: 88923cfb2495dbf10b62774ab2370b59681578b9
+ms.openlocfilehash: 5e15983039209e2e0c62ebd761e416ebb3bd1076
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92175713"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342626"
 ---
 # <a name="use-lightingest-to-ingest-data-to-azure-data-explorer"></a>Использование самого освещения для приема данных в Azure обозреватель данных
  
 Самое освещение — это служебная программа командной строки для нерегламентированного приема данных в Azure обозреватель данных. Программа может извлекать исходные данные из локальной папки или из контейнера хранилища BLOB-объектов Azure.
 Самое большое значение наиболее удобно, если требуется получить большой объем данных, так как для длительности приема не существует ограничения по времени. Это также полезно, если вы хотите позднее запрашивать записи в соответствии с моментом их создания, а не время их приема.
 
-## <a name="prerequisites"></a>предварительные требования
+## <a name="prerequisites"></a>Обязательные условия
 
 * Самое освещение. Скачайте его как часть [пакета Microsoft. Azure. Kusto. Tools NuGet.](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Tools/)
 
@@ -144,7 +144,7 @@ To use the LightIngest command below:
 
 Значения аргумента должны включать:
 * Постоянный текст непосредственно перед форматом метки времени, заключенный в одинарные кавычки (префикс)
-* Формат метки времени в стандартной [нотации .NET DateTime](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)
+* Формат метки времени в стандартной [нотации .NET DateTime](/dotnet/standard/base-types/custom-date-and-time-format-strings)
 * Постоянный текст сразу после метки времени (суффикс).
 
 **Примеры** 

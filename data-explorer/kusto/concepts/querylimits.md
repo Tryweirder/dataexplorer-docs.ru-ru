@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/12/2020
-ms.openlocfilehash: d0f815cd523e0e53111e791d8faaaf6c37c7bb7b
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: ee36823bb3f730a12f7ad2d1febe91439d4a2aad
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92252832"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343289"
 ---
 # <a name="query-limits"></a>Ограничения на запросы
 
@@ -154,7 +154,7 @@ Runaway query (E_RUNAWAY_QUERY). (message: 'Accumulated string array getting too
 
 По умолчанию для запросов установлено время ожидания в четыре минуты, а для команд управления — 10 минут. При необходимости это значение можно увеличить (с ограниченным интервалом в один час).
 
-* При запросе с помощью Kusto. Explorer используйте **Сервис** &gt; **Параметры** *  &gt; **соединения** &gt; **время ожидания сервера запросов**.
+* При запросе с помощью Kusto. Explorer используйте **Сервис** &gt; **Параметры**_ &gt; _*Connections* *  &gt; **запрос время ожидания сервера**.
 * Программно, задайте `servertimeout` для свойства запроса клиента значение типа `System.TimeSpan` вплоть до часа.
 
 **Примечания об истечении времени ожидания**

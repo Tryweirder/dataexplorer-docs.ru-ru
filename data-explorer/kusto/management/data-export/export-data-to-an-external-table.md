@@ -8,21 +8,21 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/30/2020
-ms.openlocfilehash: 663d80f470e17a277fffa89569aeb977c8d713df
-ms.sourcegitcommit: c7b16409995087a7ad7a92817516455455ccd2c5
+ms.openlocfilehash: ddce8e9a61fac4c089574f1e9f30d310304a3618
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88148172"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342830"
 ---
 # <a name="export-data-to-an-external-table"></a>Экспорт данных во внешнюю таблицу
 
-Данные можно экспортировать, определив [внешнюю таблицу](../externaltables.md) и экспортировав в нее данные.
+Данные можно экспортировать, определив [внешнюю таблицу](../external-table-commands.md) и экспортировав в нее данные.
 Свойства таблицы указываются при [создании внешней таблицы](../external-tables-azurestorage-azuredatalake.md#create-or-alter-external-table). Не нужно внедрять свойства таблицы в команду Export. Команда Export ссылается на внешнюю таблицу по имени. Для экспорта данных требуется [разрешение администратора базы данных](../access-control/role-based-authorization.md).
 
 ## <a name="syntax"></a>Синтаксис
 
-`.export`[ `async` ] `to` `table` *Екстерналтабленаме* <br>
+`.export` [ `async` ] `to` `table` *Екстерналтабленаме* <br>
 [ `with` `(` *PropertyName* `=` *propertyvalue* `,` ... `)` ] <| *Запрос*
 
 ## <a name="output"></a>Выходные данные

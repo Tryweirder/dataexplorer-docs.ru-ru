@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/23/2020
-ms.openlocfilehash: 6db37366ddd3d70aaa89c0d6eebd1ec8affbb76d
-ms.sourcegitcommit: e87b6cb2075d36dbb445b16c5b83eff7eaf3cdfa
+ms.openlocfilehash: 608d177d555419f8e2340ddacffd32382118eb7f
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264450"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343306"
 ---
 # <a name="fact-and-dimension-tables"></a>Таблицы фактов и измерений
 
@@ -36,7 +36,7 @@ ms.locfileid: "85264450"
 * Хранение ссылочных данных, например таблиц подстановки из идентификатора сущности, в его свойствах
 * Хранение данных, похожих на моментальные снимки, в таблицах, все содержимое которых изменяется в одной транзакции
 
-Таблицы измерений регулярно не принимаются новыми данными. Вместо этого все содержимое данных обновляется одновременно с помощью таких операций, как [. Set-или-Replace](../management/data-ingestion/ingest-from-query.md), [. Move экстенты](../management/extents-commands.md#move-extents)или [. Переименуйте таблицы](../management/rename-table-command.md).
+Таблицы измерений регулярно не принимаются новыми данными. Вместо этого все содержимое данных обновляется одновременно с помощью таких операций, как [. Set-или-Replace](../management/data-ingestion/ingest-from-query.md), [. Move экстенты](../management/move-extents.md)или [. Переименуйте таблицы](../management/rename-table-command.md).
 
 Иногда таблицы измерений могут быть производными от таблиц фактов. Этот процесс можно выполнить с помощью [политики обновления](../management/updatepolicy.md) в таблице фактов с запросом к таблице, которая принимает последнюю запись для каждой сущности.
 

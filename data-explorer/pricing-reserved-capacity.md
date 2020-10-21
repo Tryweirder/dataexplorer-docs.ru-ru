@@ -7,12 +7,12 @@ ms.reviewer: avnera
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: e954b66c59e480d7fc713841e9a029da61dabd8f
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: aefbde03b123e9c5413b1ed39e85db096f3ff3d7
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350542"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343459"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>Предоплата за обозреватель данных Azure для единиц разметки с зарезервированной емкостью Azure обозреватель данных
 
@@ -74,7 +74,7 @@ ms.locfileid: "87350542"
 * [Сведения о скидках на резервирование Azure](/azure/cost-management-billing/reservations/understand-reservation-charges)
 * [Общие сведения об использовании резервирования Azure для подписки с оплатой по мере использования](/azure/cost-management-billing/reservations/understand-reserved-instance-usage)
 * [Общие сведения об использовании зарезервированных экземпляров Azure с Соглашением о регистрации Enterprise](/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea)
-* [Приобретение зарезервированных экземпляров Azure](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Приобретение зарезервированных экземпляров Azure](/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Требуется помощь? Свяжитесь с нами
 

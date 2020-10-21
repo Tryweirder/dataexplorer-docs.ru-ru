@@ -7,14 +7,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 9a697cfd37590f0368d5a8f0bacf91d02e1c8725
-ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
+ms.openlocfilehash: 365ce1e4c8e5dd2157a7975095b9e30dfd1e3722
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92003153"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342711"
 ---
-# <a name="troubleshooting"></a>Диагностика
+# <a name="troubleshooting"></a>Устранение неполадок
 
 Этот документ содержит распространенные проблемы при запуске и использовании Kusto. Explorer, а также предлагает решения. В этом документе также описано [, как сбросить Kusto. Explorer](#reset-kustoexplorer).
 
@@ -148,7 +148,7 @@ Following errors were detected during this operation.
 Это может быть вызвано тем, что другое приложение переопределяет поведение запроса о доверии ClickOnce по умолчанию. 
 1. Просмотр параметров конфигурации по умолчанию.
 1. Сравните параметры конфигурации с фактическими параметрами на вашем компьютере.
-1. При необходимости сбросьте параметры конфигурации, как описано [в этой статье](https://docs.microsoft.com/visualstudio/deployment/how-to-configure-the-clickonce-trust-prompt-behavior).
+1. При необходимости сбросьте параметры конфигурации, как описано [в этой статье](/visualstudio/deployment/how-to-configure-the-clickonce-trust-prompt-behavior).
 
 ### <a name="cleanup-application-data"></a>Очистка данных приложения
 
@@ -179,8 +179,8 @@ Following errors were detected during this operation.
 1. Выберите **Kusto. Explorer** и щелкните **Удалить/изменить**.
 1. Выберите **восстановить предыдущее состояние приложения**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * Сведения о [пользовательском интерфейсе Kusto. Explorer](kusto-explorer.md#overview-of-the-user-interface)
 * Сведения о [запуске Kusto. Explorer из командной строки](kusto-explorer-using.md#kustoexplorer-command-line-arguments)
-* Дополнительные сведения о [языке запросов Kusto (ККЛ)](https://docs.microsoft.com/azure/kusto/query/)
+* Дополнительные сведения о [языке запросов Kusto (ККЛ)](../query/index.md)

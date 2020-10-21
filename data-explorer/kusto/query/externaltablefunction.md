@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/21/2019
-ms.openlocfilehash: 5ec069979d41a7c750c140ad84ef0db4ba5638a4
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: b966dbd43d1f40842240eaebf7d4008450e1f746
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92245070"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343204"
 ---
 # <a name="external_table"></a>external_table()
 
@@ -38,8 +38,8 @@ external_table('StormEvent')
 
 * *MappingName*: необязательное имя объекта сопоставления, который сопоставляет поля в фактических (внешних) сегментах данных со столбцами, выводимыми этой функцией.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
-* [Команды для общего управления внешней таблицей](../management/externaltables.md)
+* [Команды для общего управления внешней таблицей](../management/external-table-commands.md)
 * [Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake](../management/external-tables-azurestorage-azuredatalake.md)
 * [Создание и изменение внешних таблиц SQL](../management/external-sql-tables.md)

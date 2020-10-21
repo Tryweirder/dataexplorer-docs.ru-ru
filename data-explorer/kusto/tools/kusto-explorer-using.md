@@ -7,12 +7,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 8688c7d6f2a5d68e0e1ae4436e099b011fd5faa0
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: 17623f739c3bc3a8573d208434753b879931ac02
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803239"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342779"
 ---
 # <a name="using-kustoexplorer"></a>Использование Kusto.Explorer
 
@@ -32,7 +32,7 @@ Kusto. Explorer — это классическое приложение, поз
 
 1. Выберите ячейку в сетке и выберите **Просмотреть сведения** , чтобы отобразить соответствующие записи в области результатов.
 
-    :::image type="content" source="images/kusto-explorer-using/search-plus-plus-results.png" alt-text="Результаты поиска в Kusto Explorer + +":::
+    :::image type="content" source="images/kusto-explorer-using/search-plus-plus-results.png" alt-text="Поиск + + Kusto Explorer":::
 
 ## <a name="query-mode"></a>режим запроса
 
@@ -71,9 +71,9 @@ StormEvents
 | limit 10
 ```
 
-:::image type="content" source="images/kusto-explorer-using/basic-query.png" alt-text="Базовый запрос Kusto Explorer":::
+:::image type="content" source="images/kusto-explorer-using/basic-query.png" alt-text="Поиск + + Kusto Explorer":::
 
-Дополнительные сведения о [языке запросов Kusto](https://docs.microsoft.com/azure/kusto/query/).
+Дополнительные сведения о [языке запросов Kusto](../query/index.md).
 
 > [!NOTE]
 > Пустые строки в выражении запроса могут влиять на то, какая часть запроса выполняется.
@@ -89,28 +89,28 @@ StormEvents
 >
 > * Параметризатион запросов на стороне клиента, описанный ниже, является компонентом только приложения Kusto. Explorer. Он эквивалентен использованию операций String-Replace в запросах перед их отправкой для выполнения службой. Синтаксис, описанный ниже, не является частью самого языка запросов и не может использоваться при отправке запросов к службе средствами, отличными от Kusto. Explorer.
 
-Если одно и то же значение используется в нескольких запросах или на нескольких вкладках, очень неудобно изменить это значение в каждом месте, где оно используется. Именно поэтому Kusto. Explorer поддерживает параметры запроса. Параметры запроса являются общими для всех вкладок, поэтому их можно легко использовать повторно. Параметры обозначаются {} квадратными скобками. Пример: `{parameter1}`
+Если одно и то же значение используется в нескольких запросах или на нескольких вкладках, очень неудобно изменить это значение в каждом месте, где оно используется. Именно поэтому Kusto. Explorer поддерживает параметры запроса. Параметры запроса являются общими для всех вкладок, поэтому их можно легко использовать повторно. Параметры обозначаются {} квадратными скобками. Например: `{parameter1}`
 
 В редакторе скриптов выделены параметры запроса:
 
-:::image type="content" source="images/kusto-explorer-using/parametrized-query-1.png" alt-text="Запрос параметризованным 1":::
+:::image type="content" source="images/kusto-explorer-using/parametrized-query-1.png" alt-text="Поиск + + Kusto Explorer":::
 
 Можно легко определить и изменить существующие параметры запроса:
 
 
-:::image type="content" source="images/kusto-explorer-using/parametrized-query-2.png" alt-text="Изменить запрос параметризованным 2":::
+:::image type="content" source="images/kusto-explorer-using/parametrized-query-2.png" alt-text="Поиск + + Kusto Explorer":::
 
 
-:::image type="content" source="images/kusto-explorer-using/parametrized-query-3.png" alt-text="Изменить запрос параметризованным 3":::
+:::image type="content" source="images/kusto-explorer-using/parametrized-query-3.png" alt-text="Поиск + + Kusto Explorer":::
 
 В редакторе скриптов также используется IntelliSense для уже определенных параметров запроса:
 
-:::image type="content" source="images/kusto-explorer-using/parametrized-query-4.png" alt-text="Параматеризед запрос IntelliSense":::
+:::image type="content" source="images/kusto-explorer-using/parametrized-query-4.png" alt-text="Поиск + + Kusto Explorer":::
 
 У вас может быть несколько наборов параметров (перечисленных в поле со списком « **набор параметров** »).
 Выберите **Добавить новый** или **Удалить текущий** , чтобы управлять списком наборов параметров.
 
-:::image type="content" source="images/kusto-explorer-using/parametrized-query-5.png" alt-text="Список наборов параметров":::
+:::image type="content" source="images/kusto-explorer-using/parametrized-query-5.png" alt-text="Поиск + + Kusto Explorer":::
 
 ## <a name="share-queries-and-results"></a>Совместное использование запросов и результатов
 
@@ -123,7 +123,7 @@ Kusto. Explorer предоставляет удобный способ обме�
 1. [Выполните запрос](#basic-queries) в Kusto. Explorer.
 1. На вкладке Главная в разделе Общий доступ выберите **Экспорт в буфер обмена** (или нажмите клавиши CTRL + SHIFT + C).
 
-    :::image type="content" source="images/kusto-explorer-using/menu-export.png" alt-text="Экспорт в буфер обмена":::
+    :::image type="content" source="images/kusto-explorer-using/menu-export.png" alt-text="Поиск + + Kusto Explorer":::
 
     Kusto. Explorer вставит следующий фрагмент в буфер обмена:
      * Ваш запрос
@@ -133,7 +133,7 @@ Kusto. Explorer предоставляет удобный способ обме�
 
 1. Вставка содержимого буфера обмена в новое сообщение электронной почты.
 
-    :::image type="content" source="images/kusto-explorer-using/share-results-2.png" alt-text="Поделиться результатами по электронной почте":::
+    :::image type="content" source="images/kusto-explorer-using/share-results-2.png" alt-text="Поиск + + Kusto Explorer":::
 
 ### <a name="deep-linking-queries"></a>Запросы с глубокими привязками
 
@@ -148,7 +148,7 @@ Kusto. Explorer предоставляет удобный способ обме�
         
 При копировании в электронное письмо прямая ссылка отображается мелким шрифтом. Пример:
 
-https://help.kusto.windows.net:443/Samples[[Щелкните, чтобы запустить запрос](https://help.kusto.windows.net/Samples?web=0&query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVuDlqlEoLs3NTSzKrEpVSM4vzSvR0FRIqlRIyszTCC5JLCoJycxN1VEwT9EEKS1KzUtJLVIoAYolZwAlFQCB3oo%2bTAAAAA%3d%3d)] 
+https://help.kusto.windows.net:443/Samples [[Щелкните, чтобы запустить запрос](https://help.kusto.windows.net/Samples?web=0&query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVuDlqlEoLs3NTSzKrEpVSM4vzSvR0FRIqlRIyszTCC5JLCoJycxN1VEwT9EEKS1KzUtJLVIoAYolZwAlFQCB3oo%2bTAAAAA%3d%3d)] 
 
 Первая ссылка открывает Kusto. Explorer и устанавливает правильный контекст кластера и базы данных.
 Вторая ссылка ( `Click to run query` ) — это прямая ссылка. При перемещении ссылки на сообщение электронной почты и нажатии клавиш CTRL + K можно увидеть фактический URL-адрес:
@@ -165,7 +165,7 @@ https://help.kusto.windows.net/Samples?web=0&query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSs
     `https://<your_cluster>.kusto.windows.net/MyDatabase?
 web=0&query=KustoLogs+%7c+where+Timestamp+>+ago({Period})+%7c+count&Period=1h`
 
-    Замените &lt; your_cluster &gt; именем кластера Azure обозреватель данных.
+    Замените &lt;your_cluster&gt; именем кластера Azure Data Explorer.
 
 #### <a name="limitations"></a>Ограничения
 
@@ -173,9 +173,9 @@ web=0&query=KustoLogs+%7c+where+Timestamp+>+ago({Period})+%7c+count&Period=1h`
 
 Чтобы уменьшить вероятность достижения предельного числа символов, см. статью о том, как [получить более короткие ссылки](#getting-shorter-links).
 
-Формат URI:`https://<ClusterCname>.kusto.windows.net/<DatabaseName>web=0?query=<QueryToExecute>`
+Формат URI: `https://<ClusterCname>.kusto.windows.net/<DatabaseName>web=0?query=<QueryToExecute>`
 
-Например:[https://help.kusto.windows.net/Samples?web=0query=StormEvents+%7c+limit+10](https://help.kusto.windows.net/Samples?web=0query=StormEvents+%7c+limit+10)
+Например: [https://help.kusto.windows.net/Samples?web=0query=StormEvents+%7c+limit+10](https://help.kusto.windows.net/Samples?web=0query=StormEvents+%7c+limit+10)
  
 Этот универсальный код ресурса (URI) откроет Kusto. Explorer, подключится к `Help` кластеру Kusto и запустит указанный запрос к `Samples` базе данных. Если экземпляр Kusto. Explorer уже запущен, запущенный экземпляр откроет новую вкладку и запустит в ней запрос.
 
@@ -233,29 +233,29 @@ Kusto.Explorer.exe c:\temp\script.kql uri=https://help.kusto.windows.net/Samples
 
 Щелкните правой кнопкой мыши целевую сущность на [панели подключения](kusto-explorer.md#connections-tab)и выберите пункт **Управление полномочными участниками кластера**. (Этот параметр можно также выбрать в меню Управление.)
 
-:::image type="content" source="images/kusto-explorer-using/right-click-manage-authorized-principals.png" alt-text="Управление полномочными участниками":::
+:::image type="content" source="images/kusto-explorer-using/right-click-manage-authorized-principals.png" alt-text="Поиск + + Kusto Explorer":::
 
-:::image type="content" source="images/kusto-explorer-using/manage-authorized-principals-window.png" alt-text="Окно "Управление полномочными участниками"":::
+:::image type="content" source="images/kusto-explorer-using/manage-authorized-principals-window.png" alt-text="Поиск + + Kusto Explorer":::
 
 * Чтобы добавить нового полномочного участника, выберите **Добавить субъект**, укажите сведения о субъекте и подтвердите действие.
     
-    :::image type="content" source="images/kusto-explorer-using/add-authorized-principals-window.png" alt-text="Добавить полномочного участника":::
+    :::image type="content" source="images/kusto-explorer-using/add-authorized-principals-window.png" alt-text="Поиск + + Kusto Explorer":::
 
-    :::image type="content" source="images/kusto-explorer-using/confirm-add-authorized-principals.png" alt-text="Подтверждение добавления полномочного участника":::
+    :::image type="content" source="images/kusto-explorer-using/confirm-add-authorized-principals.png" alt-text="Поиск + + Kusto Explorer":::
 
 * Чтобы удалить существующего полномочного участника, выберите **Удалить субъект** и подтвердите действие.
 
-    :::image type="content" source="images/kusto-explorer-using/confirm-drop-authorized-principals.png" alt-text="Подтверждение удаления полномочного участника":::
+    :::image type="content" source="images/kusto-explorer-using/confirm-drop-authorized-principals.png" alt-text="Поиск + + Kusto Explorer":::
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
-* [Сочетания клавиш Kusto. Explorer](kusto-explorer-shortcuts.md)
+* [Сочетания клавиш Kusto.Explorer](kusto-explorer-shortcuts.md)
 * [Параметры Kusto.Explorer](kusto-explorer-options.md)
 * [Устранение неполадок с Kusto.Explorer](kusto-explorer-troubleshooting.md)
 
-Дополнительные сведения о средствах и служебных программах Kusto. Explorer:
-* [Анализатор кода Kusto. Explorer](kusto-explorer-code-analyzer.md)
-* [Навигация по коду Kusto. Explorer](kusto-explorer-codenav.md)
-* [Рефакторинг кода Kusto. Explorer](kusto-explorer-refactor.md)
-* [Язык запросов Kusto (KQL)](https://docs.microsoft.com/azure/kusto/query/)
+Дополнительные сведения о средствах и служебных программах Kusto.Explorer:
+* [Анализатор кода Kusto.Explorer](kusto-explorer-code-analyzer.md)
+* [Навигация по коду Kusto.Explorer](kusto-explorer-codenav.md)
+* [Рефакторинг кода Kusto.Explorer](kusto-explorer-refactor.md)
+* [Язык запросов Kusto (KQL)](../query/index.md)

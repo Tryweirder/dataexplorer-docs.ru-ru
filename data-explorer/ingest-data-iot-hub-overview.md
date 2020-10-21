@@ -8,16 +8,16 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 5437a4ecb77b81e7ffd0e60dfa3bacb76240a094
-ms.sourcegitcommit: f2f9cc0477938da87e0c2771c99d983ba8158789
+ms.openlocfilehash: 70e54259a6b7fa3fdeb2ef9843cc5d2df04229b9
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89502710"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92343187"
 ---
-# <a name="create-a-connection-to-iot-hub"></a>Создание подключения к центру Интернета вещей
+# <a name="create-a-connection-to-iot-hub"></a>Создание подключения к Центру Интернета вещей
 
-[Центр Интернета вещей Azure](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) — это управляемая служба, размещенная в облаке, которая выступает в качестве центрального центра сообщений для двунаправленного обмена данными между приложением IOT и управляемыми ими устройствами. Azure обозреватель данных обеспечивает непрерывное получение из управляемых клиентами центров Интернета вещей с помощью [встроенной конечной точки, совместимой с концентратором событий](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#routing-endpoints).
+[Центр Интернета вещей Azure](/azure/iot-hub/about-iot-hub) — это управляемая служба, размещенная в облаке, которая выступает в качестве центрального центра сообщений для двунаправленного обмена данными между приложением IOT и управляемыми ими устройствами. Azure обозреватель данных обеспечивает непрерывное получение из управляемых клиентами центров Интернета вещей с помощью [встроенной конечной точки, совместимой с концентратором событий](/azure/iot-hub/iot-hub-devguide-messages-d2c#routing-endpoints).
 
 Конвейер приема Интернета вещей проходит через несколько шагов. Сначала вы создадите центр Интернета вещей и зарегистрируете в нем устройство. Затем вы создадите целевую таблицу в Azure обозреватель данных, в которой [данные в определенном формате](#data-format)будут приняты с использованием заданных [свойств приема](#set-ingestion-properties). Подключению центра Интернета вещей необходимо сообщить о [событиях маршрутизации](#set-events-routing) для подключения к таблице Azure обозреватель данных. Данные внедряются с выбранными свойствами в соответствии с [сопоставлением свойств системы событий](#set-event-system-properties-mapping). Этим процессом можно управлять с помощью [портал Azure](ingest-data-iot-hub.md), программно с помощью [C#](data-connection-iot-hub-csharp.md) или [Python](data-connection-iot-hub-python.md)или с помощью [шаблона Azure Resource Manager](data-connection-iot-hub-resource-manager.md).
 
@@ -25,7 +25,7 @@ ms.locfileid: "89502710"
 
 ## <a name="data-format"></a>Формат данных
 
-* Данные считываются из конечной точки концентратора событий в форме объектов [EVENTDATA](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata?view=azure-dotnet) .
+* Данные считываются из конечной точки концентратора событий в форме объектов [EVENTDATA](/dotnet/api/microsoft.servicebus.messaging.eventdata?view=azure-dotnet) .
 * См. раздел [Поддерживаемые форматы](ingestion-supported-formats.md).
     > [!NOTE]
     > Центр Интернета вещей не поддерживает формат RAW.
@@ -34,19 +34,19 @@ ms.locfileid: "89502710"
 
 ## <a name="set-ingestion-properties"></a>Задание свойств приема
 
-Свойства приема указывают процессу приема, куда перенаправляются данные и как их обрабатывать. [Свойства приема](ingestion-properties.md) событий можно указать с помощью [свойства EventData. Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
+Свойства приема указывают процессу приема, куда перенаправляются данные и как их обрабатывать. [Свойства приема](ingestion-properties.md) событий можно указать с помощью [свойства EventData. Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
 
 |Свойство |Описание|
 |---|---|
 | Таблица | Имя существующей целевой таблицы (с учетом регистра). Переопределяет `Table` набор на `Data Connection` панели. |
 | Формат | Формат данных. Переопределяет `Data format` набор на `Data Connection` панели. |
 | инжестионмаппингреференце | Имя существующего [сопоставления приема](kusto/management/create-ingestion-mapping-command.md) , которое будет использоваться. Переопределяет `Column mapping` набор на `Data Connection` панели.|
-| Кодирование |  Кодировка данных, значение по умолчанию — UTF8. Может быть любой из [поддерживаемых кодировок .NET](https://docs.microsoft.com/dotnet/api/system.text.encoding?view=netframework-4.8#remarks). |
+| Кодирование |  Кодировка данных, значение по умолчанию — UTF8. Может быть любой из [поддерживаемых кодировок .NET](/dotnet/api/system.text.encoding?view=netframework-4.8#remarks). |
 
 ## <a name="set-events-routing"></a>Настройка маршрутизации событий
 
 При настройке подключения центра Интернета вещей к кластеру Azure обозреватель данных необходимо указать свойства целевой таблицы (имя таблицы, формат данных и сопоставление). Этот параметр является маршрутизацией по умолчанию для данных, которая также называется статической маршрутизацией.
-Можно также указать свойства целевой таблицы для каждого события с помощью свойств события. Соединение будет динамически маршрутизировать данные, как указано в [свойствах EVENTDATA. Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties), переопределяя статические свойства для этого события.
+Можно также указать свойства целевой таблицы для каждого события с помощью свойств события. Соединение будет динамически маршрутизировать данные, как указано в [свойствах EVENTDATA. Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties), переопределяя статические свойства для этого события.
 
 > [!Note]
 > Если в **данные включены сведения о маршрутизации** , необходимо предоставить необходимые сведения о маршрутизации как часть свойств событий.
@@ -66,7 +66,7 @@ ms.locfileid: "89502710"
 |---|---|
 | message-id | Задаваемый пользователем идентификатор сообщения, используемый для шаблонов типа "запрос-ответ". |
 | sequence-number | Число (уникальное для каждой очереди устройства), которое Центр Интернета вещей назначает каждому сообщению, отправленному из облака на устройство. |
-| в | Место назначения, которое указывается в сообщениях, отправляемых из облака на устройство . |
+| значение | Место назначения, которое указывается в сообщениях, отправляемых из облака на устройство . |
 | absolute-expiry-time | Дата и время истечения срока действия сообщения. |
 | iothub-enqueuedtime | Дата и время получения сообщения, отправленного с устройства в облако, Центром Интернета вещей. |
 | correlation-id| Строковое свойство в сообщении ответа, которое обычно содержит идентификатор сообщения запроса в шаблонах "запрос-ответ". |
@@ -97,7 +97,7 @@ ms.locfileid: "89502710"
 
 См. [Пример проекта](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Quickstarts/simulated-device) , который имитирует устройство и создает данные.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 Существует несколько методов приема данных в центре Интернета вещей. Пошаговые руководства для каждого метода см. по следующим ссылкам.
 

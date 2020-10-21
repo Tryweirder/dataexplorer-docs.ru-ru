@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/06/2020
-ms.openlocfilehash: d07dc282ba3996113903bd1b7c5ab08672d46543
-ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
+ms.openlocfilehash: 4d8574e0b68c234f1cef0ba49b37eb869e61c142
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92003048"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342609"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Использование базы данных следующих служб для присоединения баз данных в Azure обозреватель данных
 
@@ -30,7 +30,7 @@ ms.locfileid: "92003048"
 
 1. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
 1. [Создайте кластер и базу данных](create-cluster-database-portal.md) для лидера и последующих результатов.
-1. Прием [данных](ingest-sample-data.md) в лидер базы данных с помощью одного из различных методов, обсуждаемых в [обзоре приема](/azure/data-explorer/ingest-data-overview).
+1. Прием [данных](ingest-sample-data.md) в лидер базы данных с помощью одного из различных методов, обсуждаемых в [обзоре приема](./ingest-data-overview.md).
 
 ## <a name="attach-a-database"></a>Присоединение базы данных
 
@@ -473,7 +473,6 @@ Remove-AzKustoAttachedDatabaseConfiguration -ClusterName $FollowerClustername -N
 * Невозможно удалить базу данных, присоединенную к другому кластеру, прежде чем отсоединить ее.
 * Невозможно удалить кластер с базой данных, присоединенной к другому кластеру, прежде чем отсоединить его.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие шаги
 
 * Сведения о конфигурации кластера ниже см. в разделе [управляющие команды для управления кластером последующих действий](kusto/management/cluster-follower.md).
-
