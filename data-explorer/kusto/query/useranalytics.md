@@ -4,22 +4,22 @@ description: В этой статье описывается аналитика 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 11/17/2019
-ms.openlocfilehash: 5a9ca6259296f2fa2c5ad83622e7f3012169864e
-ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
+ms.openlocfilehash: 63e19b00fef5361b1651bb1f1c88647ab8fd62fe
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85966981"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92248368"
 ---
 # <a name="user-analytics-plugins"></a>Подключаемые модули аналитики пользователей
 
 В этом разделе описываются расширения Kusto (подключаемые модули) для сценариев анализа пользователей.
 
-|Сценарий|Подключаемый модуль|Сведения|Проверьте взаимодействие с пользователем.|
+|Сценарий|Подключаемый модуль|Сведения|Действия пользователя|
 |--------|------|--------|-------|
 | Подсчет новых пользователей с течением времени | [activity_counts_metrics](activity-counts-metrics-plugin.md)|Возвращает счетчик числа/дкаунтс/новые счетчики для каждого временного интервала. Каждый временный интервал сравнивается со *всеми* предыдущими окнами времени|Kusto. Explorer: Галерея отчетов|
 | Период-over-период: скорость хранения/обновления и новые пользователи | [activity_metrics](activity-metrics-plugin.md)|Возвращает значение `dcount` , скорость хранения и обновления для каждого временного интервала. Каждое временное окно сравнивается с *предыдущим* периодом времени|Kusto. Explorer: Галерея отчетов|

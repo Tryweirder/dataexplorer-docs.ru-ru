@@ -4,16 +4,16 @@ description: В этой статье описывается series_subtract () 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 9276b3d920259b4a73d3fb45c056837439b43fba
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 09d208b25096afa58bd9f673d0103b30f7e8bb47
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351239"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92241958"
 ---
 # <a name="series_subtract"></a>series_subtract()
 
@@ -27,7 +27,7 @@ ms.locfileid: "87351239"
 
 * *Series1, Series2*: входные числовые массивы, второй — поэлементное вычитание из первого в результат динамического массива. Все аргументы должны быть динамическими массивами. 
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Динамический массив вычисляемой операции вычитания по элементам между двумя входными значениями. Любой нечисловой элемент или несуществующий элемент (массивы разного размера) дает `null` значение элемента.
 

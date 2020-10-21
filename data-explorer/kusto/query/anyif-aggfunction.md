@@ -4,16 +4,16 @@ description: В этой статье описывается Аниф () (ста
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 6d40b0a95b71999382f5fc4e83f108717ac5d683
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: 032541f34af7d8cbc07e0c02a854ba6b66657f8c
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803392"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92248259"
 ---
 # <a name="anyif-aggregation-function"></a>Аниф () (агрегатная функция)
 
@@ -32,7 +32,7 @@ ms.locfileid: "87803392"
 * *Expr*: выражение для каждой записи, выбранной из входных данных для возврата.
 * *Predicate*: предикат, указывающий, какие записи могут быть учтены для оценки.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 `anyif`Статистическая функция возвращает значение выражения, вычисленное для каждой из записей, случайным образом выбранных из каждой группы оператора суммирования. Можно выбрать только те записи, для которых *предикат* возвращает значение true. Если предикат не возвращает значение "true", то выдается null.
 

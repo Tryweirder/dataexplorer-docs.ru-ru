@@ -4,16 +4,16 @@ description: В этой статье описывается оператор Pa
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: f9dc6e49e9e3d04aadb5aecf8507b7132d8a366a
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: a942015908c9608a76d3c49c411de9d17d6e70f5
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346326"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92248612"
 ---
 # <a name="parse-operator"></a>Оператор parse
 
@@ -75,11 +75,11 @@ T | parse Text with "ActivityName=" name ", ActivityType=" type
 
     В инструкции Parse регулярное выражение, создаваемое синтаксическим анализом, имеет значение `.*?<regex1>(.*?)<regex2>(\-\d+)` .
         
-    * `*`был преобразован в `.*?` .
+    * `*` был преобразован в `.*?` .
         
-    * `string`был преобразован в `.*?` .
+    * `string` был преобразован в `.*?` .
         
-    * `long`был преобразован в `\-\d+` .
+    * `long` был преобразован в `\-\d+` .
 
 ## <a name="examples"></a>Примеры
 
@@ -164,7 +164,7 @@ Traces
 |Пипелинесчедулер, Тоталслицес = 27, Слиценумбер = 16, Локктиме = 02/17/2016 08:41:00, Релеасетиме = 02/17/2016 08:41:00|
 
 Ожидаемые результаты не будут получены, так как режим по умолчанию является жадным.
-Если имеется несколько записей, в которых *resourceName* иногда отображается в нижнем регистре, а иногда — в верхнем регистре, для некоторых значений могут быть определены значения NULL.
+Если имеется несколько записей, в которых *resourceName*  иногда отображается в нижнем регистре, а иногда — в верхнем регистре, для некоторых значений могут быть определены значения NULL.
 
 Чтобы получить желаемый результат, выполните запрос с нежадным `U` и отключите зависящие от регистра `i` Флаги Regex.
 

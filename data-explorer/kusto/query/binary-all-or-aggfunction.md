@@ -4,16 +4,16 @@ description: В этой статье описывается binary_all_or () (�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 35478b435814fe716f7130576c16714403490be6
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: bff5d631493b9431d6e1a5fa88d3dd419147df96
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349131"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92247974"
 ---
 # <a name="binary_all_or-aggregation-function"></a>binary_all_or () (агрегатная функция)
 
@@ -49,6 +49,6 @@ datatable(num:long)
 | summarize result = toupper(tohex(binary_all_or(num)))
 ```
 
-|result|
+|набор по|
 |---|
 |CAFEF00D|

@@ -4,16 +4,16 @@ description: В этой статье описывается авгиф () (ст
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 587af53de774332db70ef9bffcadf74d9e2c069d
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: e0d112554ff77cb9c591f787bbb62f9a92e3b19d
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349386"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92248017"
 ---
 # <a name="avgif-aggregation-function"></a>авгиф () (агрегатная функция)
 
@@ -30,7 +30,7 @@ ms.locfileid: "87349386"
 * *Expr*: выражение, которое будет использоваться для вычисления агрегата. Записи со `null` значениями игнорируются и не включаются в вычисление.
 * *Предикат*: predicate, если true, вычисляемое значение *expr* будет добавлено к среднему значению.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Среднее значение *выражения* в *предикате* Group WHERE, равное `true` .
  

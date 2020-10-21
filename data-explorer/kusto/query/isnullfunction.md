@@ -4,16 +4,16 @@ description: В этой статье описывается функция IsNu
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: d1bea6260ca86e6ca47be843a6acc4fb43a037b3
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: afaff2c00ca9136e113639deed886d039d21fda9
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347176"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92241528"
 ---
 # <a name="isnull"></a>isnull()
 
@@ -33,7 +33,7 @@ isnull(parse_json("")) == true
 
 **Примечания**
 
-* `string`значения не могут быть неопределенными. Чтобы определить, является ли значение типа `string` пустым, используйте параметр [isempty](./isemptyfunction.md).
+* `string` значения не могут быть неопределенными. Чтобы определить, является ли значение типа `string` пустым, используйте параметр [isempty](./isemptyfunction.md).
 
 |x                |`isnull(x)`|
 |-----------------|-----------|

@@ -8,14 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/14/2020
-ms.openlocfilehash: 4eaa7e8cc6f3c0f321abb9744bfe1608521e7b0e
-ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
+ms.openlocfilehash: c8fa3a000de67559c83745c598da40797e31f9b9
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84784537"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92248338"
 ---
-# <a name="execute-database-script"></a>. выполнение скрипта базы данных
+# <a name="execute-database-script"></a>.execute database script
 
 Выполняет пакет команд управления в области одной базы данных.
 
@@ -33,7 +33,7 @@ ms.locfileid: "84784537"
 
 ### <a name="optional-properties"></a>Необязательные свойства
 
-| Свойство.            | Тип            | Описание                          |
+| Свойство            | Тип            | Описание                          |
 |---------------------|-----------------|---------------------------------------------------------------------------------------------------|
 | `ContinueOnErrors`            | `bool`        | Если задано значение, `false` скрипт будет останавливаться при первой ошибке. Если задано значение `true` — выполнение скрипта продолжится. Значение по умолчанию: `false`. |
 
@@ -60,13 +60,13 @@ ms.locfileid: "84784537"
 
 ```kusto
 .execute database script <|
-
+//
 // Create tables
 .create-merge table T(a:string, b:string)
-
+//
 // Apply policies
 .alter-merge table T policy retention softdelete = 10d 
-
+//
 // Create functions
 .create-or-alter function
   with (skipvalidation = "true") 

@@ -4,16 +4,16 @@ description: В этой статье описывается подключае�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: af223d31f008b972bc1b61a6a9ace7e19c988ff7
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 9234745a002b88acf23b2e177aa8bc11cda45857
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351052"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92241796"
 ---
 # <a name="sliding_window_counts-plugin"></a>Подключаемый модуль sliding_window_counts
 
@@ -83,7 +83,7 @@ T | evaluate sliding_window_counts(UserId, Timestamp, start, end, lookbackWindow
 
 ```
 
-|Timestamp|Счетчик|`dcount`|
+|Отметка времени|Счетчик|`dcount`|
 |---|---|---|
 |2017-08-01 00:00:00.0000000|5|3|
 |2017-08-02 00:00:00.0000000|8|5|

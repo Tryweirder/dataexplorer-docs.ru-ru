@@ -4,18 +4,18 @@ description: В этой статье описывается подключае�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: e4752828b3e4b145026f7ee47a1ade3f8685262e
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: 1a6349547d5cf1eb3af5a21f6e8c504573f15e52
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803477"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92241764"
 ---
 # <a name="sql_request-plugin"></a>Подключаемый модуль sql_request
 
@@ -81,7 +81,7 @@ evaluate sql_request(
 | project Name
 ```
 
-## <a name="authentication"></a>Проверка подлинности
+## <a name="authentication"></a>Аутентификация
 
 Подключаемый модуль sql_request поддерживает три метода проверки подлинности для конечной точки SQL Server.
 
@@ -111,8 +111,8 @@ evaluate sql_request(
 
 Следующие свойства соединения принудительно применяются при подключении к сетевой конечной точке SQL Server по соображениям безопасности.
 
-* `Encrypt`имеет значение `true` безусловно.
-* `TrustServerCertificate`имеет значение `false` безусловно.
+* `Encrypt` имеет значение `true` безусловно.
+* `TrustServerCertificate` имеет значение `false` безусловно.
 
 В результате SQL Server должен быть настроен с действительным сертификатом сервера SSL/TLS.
 

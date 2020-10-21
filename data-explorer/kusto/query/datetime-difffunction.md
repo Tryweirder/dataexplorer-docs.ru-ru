@@ -4,16 +4,16 @@ description: В этой статье описывается datetime_diff () в
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 2e116661610e343c90276a43421d263bf74cd1b5
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 50ed62b60436fc13d679b5e729a84bcdcefa7275
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348536"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92247707"
 ---
 # <a name="datetime_diff"></a>datetime_diff()
 
@@ -32,7 +32,7 @@ ms.locfileid: "87348536"
 Возможные значения *периода*: 
 - Year
 - Quarter
-- Month
+- Месяц
 - Неделя
 - День
 - Hour

@@ -4,16 +4,16 @@ description: В этой статье описывается подключае�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 2ab8a9b8a687b695859c52e75ab4e9f88aac408b
-ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
+ms.openlocfilehash: 041f5c3517eae5090fa2d68ea10acce7c9286bb5
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88793699"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92248332"
 ---
 # <a name="activity_metrics-plugin"></a>Подключаемый модуль activity_metrics
 
@@ -37,7 +37,7 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
 * *Window*: скалярный со значением периода окна анализа. Может быть либо числовым, либо значением DateTime или timestamp, либо строкой, которая является одним из `week` / `month` / `year` , в этом случае все периоды будут [startofweek](startofweekfunction.md) / [StartOfMonth](startofmonthfunction.md) / [startofyear](startofyearfunction.md) соответствующим образом. 
 * *Dim1*, *dim2*,...: (необязательно) список столбцов измерений, которые срезируют вычисление метрик действия.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Возвращает таблицу с различными значениями числа различных значений, скоростью хранения и частотой обновления для каждого периода временной шкалы и для каждого сочетания существующих измерений.
 
@@ -184,4 +184,4 @@ range _day from _start to _end  step 1d
 |2017-05-22 00:00:00.0000000|1740|1017|
 |2017-05-29 00:00:00.0000000|960|756|
 
-:::image type="content" source="images/activity-metrics-plugin/activity-metrics-dcount-and-dcount-newvalues.png" border="false" alt-text="Метрики действия DCount и DCount новые значения":::
+:::image type="content" source="images/activity-metrics-plugin/activity-metrics-dcount-and-dcount-newvalues.png" border="false" alt-text="Обработка и хранение метрик действий":::

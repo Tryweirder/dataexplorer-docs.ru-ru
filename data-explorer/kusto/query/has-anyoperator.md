@@ -4,20 +4,20 @@ description: В этой статье описывается оператор ha
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/11/2019
-ms.openlocfilehash: 4485dde5eb77478e5fd75ce388ada7f4232f2ddb
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 012a6b0555778a30055ac9d7f4619c7b74d13988
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347635"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92241634"
 ---
 # <a name="has_any-operator"></a>Оператор has_any
 
-`has_any`Фильтры операторов на основе предоставленного набора значений.
+`has_any` Фильтры операторов на основе предоставленного набора значений.
 
 ```kusto
 Table1 | where col has_any ('value1', 'value2')
@@ -37,7 +37,7 @@ Table1 | where col has_any ('value1', 'value2')
 
 ## <a name="returns"></a>Результаты
 
-Строки в *T* , для которых предикатом является`true`
+Строки в *T* , для которых предикатом является `true`
 
 **Примечания**
 

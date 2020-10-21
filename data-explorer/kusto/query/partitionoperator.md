@@ -4,16 +4,16 @@ description: В этой статье описывается оператор Pa
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 2b082e516a1118638bc8e61b545471326dd400e5
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 8587995a6836a1f8a180eada19d450277709a6e7
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346241"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92248605"
 ---
 # <a name="partition-operator"></a>Оператор partition
 
@@ -107,11 +107,11 @@ StormEvents
 | top 5 by Count
 ```
 
-|Source|Счетчик|
+|Источник|Счетчик|
 |---|---|
 |Подготовленный корректировщик|12770|
 |Правоприменение|8570|
-|Общедоступные|6157|
+|Общие|6157|
 |Специалист по управлению в чрезвычайных ситуациях|4900|
 |Наблюдатель COOP|3039|
 
@@ -171,10 +171,10 @@ StormEvents
 | top 5 by Count
 ```
 
-|Source|Счетчик|
+|Источник|Счетчик|
 |---|---|
 |Подготовленный корректировщик|12770|
 |Правоприменение|8570|
-|Общедоступные|6157|
+|Общие|6157|
 |Специалист по управлению в чрезвычайных ситуациях|4900|
 |Наблюдатель COOP|3039|

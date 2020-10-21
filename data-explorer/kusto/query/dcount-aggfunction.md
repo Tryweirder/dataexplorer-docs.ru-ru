@@ -4,16 +4,16 @@ description: В этой статье описывается DCount () (агре
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 45ab913fdc659444ac578ca725e2afb24256a38b
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: b35bb7944e894256056e03eb756ac85cf1354ba8
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803715"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92247703"
 ---
 # <a name="dcount-aggregation-function"></a>DCount () (агрегатная функция)
 
@@ -31,7 +31,7 @@ ms.locfileid: "87803715"
 * *Expr*: скалярное выражение, различные значения которого должны быть учтены.
 * *Точность*. необязательный `int` литерал, определяющий требуемую точность оценки. Поддерживаемые значения приведены ниже. Если не указано, используется значение по умолчанию `1` .
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Возвращает оценку количества различных значений *`Expr`* в группе.
 
@@ -80,4 +80,4 @@ T | summarize dcount(B) by G | count
 
 На следующем рисунке показана функция распределения вероятности для ошибки относительной оценки (в процентах) для всех поддерживаемых параметров точности:
 
-:::image type="content" border="false" source="images/dcount-aggfunction/hll-error-distribution.png" alt-text="распределение ошибок ХЛЛ":::
+:::image type="content" border="false" source="images/dcount-aggfunction/hll-error-distribution.png" alt-text="Число D":::

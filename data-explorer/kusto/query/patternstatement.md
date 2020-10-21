@@ -4,18 +4,18 @@ description: В этой статье описывается инструкци�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 03d183bd042bb75d8bb44f530575bd3b91cb2102
-ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
+ms.openlocfilehash: 1fa4c303624c62b7c43d2ddd0de58977ed6e42aa
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88793814"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92241336"
 ---
 # <a name="pattern-statement"></a>pattern, инструкция
 
