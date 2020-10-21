@@ -4,16 +4,16 @@ description: В этой статье описывается week_of_year () в 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2020
-ms.openlocfilehash: 82678a68166061fc7b8a30c7cb2e019c8d3d9e0c
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 18cad42dfd0f652daa4c8da80524ba40ace9b153
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338564"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92251232"
 ---
 # <a name="week_of_year"></a>week_of_year ()
 
@@ -33,7 +33,7 @@ week_of_year(datetime("2015-12-14"))
 
 ## <a name="returns"></a>Результаты
 
-`week number`— Номер недели, который содержит указанную дату.
+`week number` — Номер недели, который содержит указанную дату.
 
 ## <a name="examples"></a>Примеры
 
@@ -45,5 +45,5 @@ week_of_year(datetime("2015-12-14"))
 |`week_of_year(datetime(2000-01-01))`     |`52`  |
 
 > [!NOTE]
-> `weekofyear()`является устаревшим вариантом этой функции. `weekofyear()`не соответствует стандарту ISO 8601; Первая неделя года была определена как неделя с первой в году.
+> `weekofyear()` является устаревшим вариантом этой функции. `weekofyear()` не соответствует стандарту ISO 8601; Первая неделя года была определена как неделя с первой в году.
 Текущей версией этой функции `week_of_year()` является соответствие стандарту ISO 8601. Первая неделя года определяется как неделя с первым четверг года в этом году.

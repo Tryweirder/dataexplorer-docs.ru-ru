@@ -4,16 +4,16 @@ description: В этой статье описывается стрреп () в 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 797684aa70cb8205463cc41558afec82449c433d
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: a5ee36d40035ab2afd19af2da2a0cb174ee365ca
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350882"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92251432"
 ---
 # <a name="strrep"></a>strrep()
 

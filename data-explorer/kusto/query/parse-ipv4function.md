@@ -4,16 +4,16 @@ description: В этой статье описывается parse_ipv4 () в Az
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 48bfab2549da572efba117c21d783b35ac0202af
-ms.sourcegitcommit: 6f610cd9c56dbfaff4eb0470ac0d1441211ae52d
+ms.openlocfilehash: f5d65fa75a4f53bea7d27202c5aed2228c167bbd
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91954728"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92250911"
 ---
 # <a name="parse_ipv4"></a>parse_ipv4()
 
@@ -39,7 +39,7 @@ IP-адрес, расположенный слева от косой черты 
 
 Например, в 192.168.2.0/24 будет сопоставлена сеть/маска подсети, содержащая 24 смежных бита или 255.255.255.0 в точечно-десятичном формате.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Если преобразование выполнено успешно, результатом будет целое число.
 Если преобразование не выполнено, результатом будет `null` .

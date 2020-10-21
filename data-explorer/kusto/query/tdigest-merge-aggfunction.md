@@ -4,16 +4,16 @@ description: В этой статье описывается tdigest_merge () (�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 6f15e0028bda40a2d65349a7840861c9060ff805
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 14b6b1c5ed31c312065e7641783bd1dc524993d6
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87341250"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92250642"
 ---
 # <a name="tdigest_merge-aggregation-function"></a>tdigest_merge () (агрегатная функция)
 

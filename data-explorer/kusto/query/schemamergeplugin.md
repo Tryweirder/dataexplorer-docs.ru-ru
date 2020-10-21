@@ -4,16 +4,16 @@ description: В этой статье описывается подключае�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: 2873f3d010464b82ef8cb6a9a3e09f7b0a56b8d9
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 9a6f25a7ea1c75211d043fdbca7f99c16ff98e1b
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87345714"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92250330"
 ---
 # <a name="schema_merge-plugin"></a>Подключаемый модуль schema_merge
 

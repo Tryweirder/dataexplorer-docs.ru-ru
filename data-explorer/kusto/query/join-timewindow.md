@@ -4,16 +4,16 @@ description: В этой статье описывается объединен�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 1ca7f38fa377be40cd290b04af65cc6fd59075cd
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: b1f951f23587451d62deefa5feb24e2d1fc6b612
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763718"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92251116"
 ---
 # <a name="time-window-join"></a>Соединение по периоду времени
 
@@ -54,7 +54,7 @@ T
 |0|B|2017-10-01 00:01:00.0000000|
 |1|B|2017-10-01 00:02:00.0000000|
 |1|Объект|2017-10-01 00:03:00.0000000|
-|3|Объект|2017-10-01 00:04:00.0000000|
+|3|A|2017-10-01 00:04:00.0000000|
 |3|B|2017-10-01 00:10:00.0000000|
 
 
@@ -191,6 +191,6 @@ T
 | count 
 ```
 
-|Count|
+|Счетчик|
 |---|
 |1276|

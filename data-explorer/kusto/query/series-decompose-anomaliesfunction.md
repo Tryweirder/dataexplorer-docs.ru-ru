@@ -4,16 +4,16 @@ description: В этой статье описывается series_decompose_an
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/28/2019
-ms.openlocfilehash: 770eded43fff091c8c500fcda59efcc2d4f95d9e
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: ded1f7ed499d0a8379fdf5b8e9949fa06351fc07
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803579"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92250189"
 ---
 # <a name="series_decompose_anomalies"></a>series_decompose_anomalies()
 
@@ -44,7 +44,7 @@ ms.locfileid: "87803579"
     * "tukey": [тест ограждения tukey](https://en.wikipedia.org/wiki/Outlier#Tukey's_fences) с диапазоном "Стандартный 25-75 процентиль" Дополнительные сведения о остаточном временном ряде см. в разделе [series_outliers](series-outliersfunction.md)
 * *Seasonality_threshold*: пороговое значение для показателя сезонности, если для *сезонности* задано автоматическое обнаружение. Порог оценки по умолчанию — `0.6` . Дополнительные сведения см. в разделе [series_periods_detect](series-periods-detectfunction.md)
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
  Функция возвращает следующие соответствующие ряды:
 
@@ -63,7 +63,7 @@ ms.locfileid: "87803579"
 
 ### <a name="detect-anomalies-in-weekly-seasonality"></a>Обнаружение аномалий в еженедельном сезонности
 
-В следующем примере создайте серию с еженедельным сезонности, а затем добавьте в нее некоторые выбросы. `series_decompose_anomalies`автоматически обнаруживает сезонности и формирует базовый уровень, который фиксирует Повторяющийся шаблон. Добавленные выбросы можно четко определить в компоненте ad_score.
+В следующем примере создайте серию с еженедельным сезонности, а затем добавьте в нее некоторые выбросы. `series_decompose_anomalies` автоматически обнаруживает сезонности и формирует базовый уровень, который фиксирует Повторяющийся шаблон. Добавленные выбросы можно четко определить в компоненте ad_score.
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
@@ -99,7 +99,7 @@ series_multiply(10, series_decompose_anomalies_y_ad_flag) // multiply by 10 for 
 | render timechart
 ```
 
-:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-outliers-with-trend.png" alt-text="Еженедельные сезонности выбросы с тенденциями" border="false":::
+:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-outliers-with-trend.png" alt-text="Еженедельный сезонности с отображением базовых показателей и выбросов" border="false":::
 
 Затем выполните тот же пример, но так как вы ожидаете тренд в ряде, укажите `linefit` в параметре тенденция. Вы видите, что базовый план намного ближе к входному ряду. Обнаруживаются все вставленные выбросы, а также некоторые ложные срабатывания. См. Следующий пример, посвященный настройке порогового значения.
 
@@ -118,7 +118,7 @@ series_multiply(10, series_decompose_anomalies_y_ad_flag) // multiply by 10 for 
 | render timechart  
 ```
 
-:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-linefit-trend.png" alt-text="Еженедельные сезонности аномалии с линефит тенденцией" border="false":::
+:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-linefit-trend.png" alt-text="Еженедельный сезонности с отображением базовых показателей и выбросов" border="false":::
 
 ### <a name="tweak-the-anomaly-detection-threshold"></a>Настройка порогового значения обнаружения аномалий
 
@@ -139,4 +139,4 @@ series_multiply(10, series_decompose_anomalies_y_ad_flag) // multiply by 10 for 
 | render timechart  
 ```
 
-:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-higher-threshold.png" alt-text="Аномалии еженедельных рядов с большим пороговым значением аномалии" border="false":::
+:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-higher-threshold.png" alt-text="Еженедельный сезонности с отображением базовых показателей и выбросов" border="false":::

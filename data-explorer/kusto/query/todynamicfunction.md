@@ -4,16 +4,16 @@ description: В этой статье описывается todynamic (), ту�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: acd1b5328150e61bc81930f94b8ea9e8025e1ebb
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: c92ff96b3ae6a0369de1c8fa715e64499fb051b7
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87804089"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92250483"
 ---
 # <a name="todynamic-toobject"></a>todynamic(), toobject()
 
@@ -35,6 +35,6 @@ ms.locfileid: "87804089"
 
 * *JSON*: документ JSON.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Объект типа `dynamic` , определенный в *json*.

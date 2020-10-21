@@ -4,16 +4,16 @@ description: В этой статье описывается ipv4_compare () в 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 68082b68a1c7772135f711248ddfcd4079bc753e
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: 06cb9078464d782d6034ec11e3e0cdc4c249b541
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803936"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92250349"
 ---
 # <a name="ipv4_compare"></a>ipv4_compare()
 
@@ -42,7 +42,7 @@ IP-адрес, расположенный слева от косой черты 
 
 Например, в 192.168.2.0/24 будет сопоставлена сеть/маска подсети, содержащая 24 смежных бита или 255.255.255.0 в точечно-десятичном формате.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 * `0`: Если длинное представление первого аргумента строки IPv4 равно второму аргументу строки IPv4
 * `1`: Если длинное представление первого аргумента строки IPv4 больше, чем второй аргумент строки IPv4
@@ -65,7 +65,7 @@ datatable(ip1_string:string, ip2_string:string)
 | extend result = ipv4_compare(ip1_string, ip2_string)
 ```
 
-|ip1_string|ip2_string|result|
+|ip1_string|ip2_string|набор по|
 |---|---|---|
 |192.168.1.0|192.168.1.0|0|
 |192.168.1.1/24|192.168.1.255|0|
@@ -85,7 +85,7 @@ datatable(ip1_string:string, ip2_string:string, prefix:long)
 | extend result = ipv4_compare(ip1_string, ip2_string, prefix)
 ```
 
-|ip1_string|ip2_string|prefix|result|
+|ip1_string|ip2_string|prefix|набор по|
 |---|---|---|---|
 |192.168.1.1|192.168.1.0|31|0|
 |192.168.1.1/24|192.168.1.255|31|0|
