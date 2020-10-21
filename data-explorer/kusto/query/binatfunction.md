@@ -4,16 +4,16 @@ description: В этой статье описывается bin_at () в Azure 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 530f58aaf733add61b5f0aeb54ca12180f5a818e
-ms.sourcegitcommit: f7f3ecef858c1e8d132fc10d1e240dcd209163bd
+ms.openlocfilehash: ae888fc050387af28281b84229044114a72a5dbf
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88201679"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92245381"
 ---
 # <a name="bin_at"></a>bin_at()
 
@@ -30,7 +30,7 @@ ms.locfileid: "88201679"
 * *Бинсизе*: скалярная константа числового типа или `timespan` (для `datetime` `timespan` *выражения*или), указывающая размер каждой ячейки.
 * *Фикседпоинт*: скалярная константа того же типа, что и *выражение* , указывающее одно значение *выражения* , которое является "фиксированной точкой" (то есть значение, `fixed_point` для которого `bin_at(fixed_point, bin_size, fixed_point) == fixed_point` .)
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Ближайшее *выражение*, кратное *бинсизе* ниже, смещается таким образом, что *фикседпоинт* будет переноситься в себя.
 

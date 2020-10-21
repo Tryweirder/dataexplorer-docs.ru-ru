@@ -4,16 +4,16 @@ description: В этой статье описывается format_bytes () в 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: f19883335149603fe7fc7429dabb62f565a0b402
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: c324813ed53b57673f8962f87374eb998f2a3443
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347992"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92244756"
 ---
 # <a name="format_bytes"></a>format_bytes()
 
@@ -33,7 +33,7 @@ format_bytes(1024) == '1 KB'"
 * `precision`: (необязательно) число разрядов, до которого будет округляться значение. (значение по умолчанию — 0).
 * `units`: (необязательно) единицы целевого размера данных, которые будут использоваться форматированием строки ( `Bytes` , `KB` ,,, `MB` `GB` `TB` , `PB` ). Если параметр пуст, единицы будут выбраны на основе входного значения.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Строка с результатом форматирования.
 

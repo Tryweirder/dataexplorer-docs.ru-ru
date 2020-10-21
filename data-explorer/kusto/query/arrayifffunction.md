@@ -4,16 +4,16 @@ description: В этой статье описывается array_iif () в Azu
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/28/2019
-ms.openlocfilehash: 1844d87dffb5ac0046c3f62600b8c4914dc93a89
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 7f11e0c00b19fd24ed2db326f3209236ecf25ff6
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87349590"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92246904"
 ---
 # <a name="array_iif"></a>array_iif()
 
@@ -38,7 +38,7 @@ ms.locfileid: "87349590"
 * Значение условия, отличное от numeric или null, будет иметь значение NULL в соответствующем индексе результата.
 * Отсутствующие значения (в массивах более короткой длины) обрабатываются как значения NULL.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Динамический массив значений, взятых из значений *IfTrue* или *IfFalse* [Array] в соответствии с соответствующим значением массива условий.
 

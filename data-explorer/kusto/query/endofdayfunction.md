@@ -4,16 +4,16 @@ description: В этой статье описывается ендофдай ()
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: a9d5da550a22bfb773a5b706baddff7365f80b74
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: d87f188cf0ae3639df4261d1813ebbe2a6788192
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348315"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92245074"
 ---
 # <a name="endofday"></a>endofday()
 

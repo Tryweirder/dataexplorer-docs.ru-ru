@@ -4,16 +4,16 @@ description: В этой статье описывается parse_xml () в Azu
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 3f003c5e9c6733391d61a2130528c9babc4aae67
-ms.sourcegitcommit: d157e661de293aa4c2b5ad334a554eda0295bd2c
+ms.openlocfilehash: 95741bb407baec3298bb84695ed98b4adcbbd5a6
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91886304"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92246175"
 ---
 # <a name="parse_xml"></a>parse_xml()
 
@@ -27,7 +27,7 @@ ms.locfileid: "91886304"
 
 * *XML*: выражение типа `string` , представляющее значение в формате XML.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Объект типа [dynamic](./scalar-data-types/dynamic.md) , который определяется значением *XML*или значением NULL, если формат XML является недопустимым.
 

@@ -4,16 +4,16 @@ description: В этой статье описывается оператор So
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 4f9878b77ad2288395a54d5315864e460ca37875
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 8823b0a6bb15898a9bb15ed00919fa57d75f8e25
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351035"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92245806"
 ---
 # <a name="sort-operator"></a>Оператор sort 
 
@@ -36,7 +36,7 @@ T | sort by strlen(country) asc, price desc
 * *T*: входные данные таблицы для сортировки.
 * *выражение*: скалярное выражение, по которому выполняется сортировка. Значения должны быть представлены числовыми или строковыми значениями, значениями времени или даты.
 * `asc` — сортировка по возрастанию. `desc` — сортировка по убыванию. Используется по умолчанию.
-* `nulls first`(по умолчанию для `asc` Order) значения null будут помещаться в начало и `nulls last` (по умолчанию для `desc` Order) в конце будут помещаться значения NULL.
+* `nulls first` (по умолчанию для `asc` Order) значения null будут помещаться в начало и `nulls last` (по умолчанию для `desc` Order) в конце будут помещаться значения NULL.
 
 ## <a name="example"></a>Пример
 

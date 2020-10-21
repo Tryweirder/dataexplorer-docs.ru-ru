@@ -4,18 +4,18 @@ description: В этой статье описывается руководст�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/23/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 64736d944c71d84c4950dea0341089732b258f27
-ms.sourcegitcommit: a10e7c6ba96bdb94d95ef23f5d1506eb8fda0041
+ms.openlocfilehash: 61b9dff7d03732611f0a0f47b7c8fc9d6784ac96
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058688"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92246023"
 ---
 # <a name="tutorial"></a>Учебник
 
@@ -46,7 +46,7 @@ StormEvents | count
 
 Ниже приведен результат:
 
-|Count|
+|Счетчик|
 |-----|
 |59066|
     
@@ -138,7 +138,7 @@ StormEvents
 | project StartTime, EndTime, Duration, EventType, State
 ```
 
-|StartTime|EndTime|Длительность|EventType|Состояние|
+|StartTime|EndTime|Duration|EventType|Состояние|
 |---|---|---|---|---|
 |2007-09-18 20:00:00.0000000|2007-09-19 18:00:00.0000000|22:00:00|Тяжелая дождя|Флорида|
 |2007-09-20 21:57:00.0000000|2007-09-20 22:05:00.0000000|00:08:00|Торнадо|Флорида|
@@ -147,7 +147,7 @@ StormEvents
 |2007-12-30 16:00:00.0000000|2007-12-30 16:05:00.0000000|00:05:00|Шквалистый ветер|Грузия|
 
 Можно повторно использовать имя столбца и присвоить результат вычисления одному и тому же столбцу.
-Например.
+Пример:
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto

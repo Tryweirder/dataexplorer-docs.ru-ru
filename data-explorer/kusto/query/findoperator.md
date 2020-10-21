@@ -4,18 +4,18 @@ description: В этой статье описывается оператор Fi
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 4be61920fe22c7b77eb54f849e86ba06a8bf533b
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: d1e01f366c1bae677111c67b0e60fde59683706e
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763814"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92245051"
 ---
 # <a name="find-operator"></a>Оператор find
 
@@ -55,9 +55,9 @@ find in (Table1, Table2, Table3) where Fruit=="apple"
 
 * `withsource=`*ColumnName*: необязательный. По умолчанию выходные данные будут включать столбец с именем *source_* , значения которого указывают, какая исходная таблица участвовала в каждой строке. Если указано, вместо *source_* будет использоваться *ColumnName* .
 Если запрос, сопоставленный с подстановочными знаками, ссылается на таблицы из нескольких баз данных (включая базу данных по умолчанию), то значение этого столбца будет иметь имя таблицы, дополненное базой данных. Аналогичные значения для *кластеров* и *баз данных* будут присутствовать в значении, если имеется ссылка на несколько кластеров.
-* *Predicate*: `boolean` [выражение](./scalar-data-types/bool.md) для столбцов *таблицы* входных таблиц [ `,` *Таблица*,...]. Он вычисляется для каждой строки в каждой входной таблице. Дополнительные сведения см. в разделе [сведения о синтаксисе предиката](./findoperator.md#predicate-syntax).
+* *Predicate*: `boolean` [выражение](./scalar-data-types/bool.md) для столбцов *таблицы* входных таблиц [ `,` *Таблица*,...]. Он вычисляется для каждой строки в каждой входной таблице. Дополнительные сведения см. в разделе  [сведения о синтаксисе предиката](./findoperator.md#predicate-syntax).
 * `Table`: Необязательный параметр. По умолчанию *Поиск* будет искать во всех таблицах текущей базы данных:
-    *  Имя таблицы, например`Events`
+    *  Имя таблицы, например `Events`
     *  Выражение запроса, например `(Events | where id==42)`
     *  Набор таблиц, указанных с помощью подстановочного знака. Например, `E*` формирует объединение всех таблиц в базе данных, имена которых начинаются с `E` .
 * `project-smart` | `project`: Если не указано, `project-smart` будет использоваться по умолчанию. Дополнительные сведения см. в разделе [сведения о схеме вывода](./findoperator.md#output-schema).
@@ -67,16 +67,16 @@ find in (Table1, Table2, Table3) where Fruit=="apple"
 ::: zone pivot="azuremonitor"
 
 * `withsource=`*ColumnName*: необязательный. По умолчанию выходные данные содержат столбец с именем *source_* , значения которого указывают, какая исходная таблица участвует в каждой строке. Если указано, вместо *source_* будет использоваться *ColumnName* .
-* *Predicate*: `boolean` [выражение](./scalar-data-types/bool.md) для столбцов *таблицы* входных таблиц [ `,` *Таблица*,...]. Он вычисляется для каждой строки в каждой входной таблице. Дополнительные сведения см. в разделе [сведения о синтаксисе предиката](./findoperator.md#predicate-syntax).
+* *Predicate*: `boolean` [выражение](./scalar-data-types/bool.md) для столбцов *таблицы* входных таблиц [ `,` *Таблица*,...]. Он вычисляется для каждой строки в каждой входной таблице. Дополнительные сведения см. в разделе  [сведения о синтаксисе предиката](./findoperator.md#predicate-syntax).
 * `Table`: Необязательный параметр. По *умолчанию поиск будет* выполнять поиск по всем таблицам:
-    *  Имя таблицы, например`Events` 
+    *  Имя таблицы, например `Events` 
     *  Выражение запроса, например `(Events | where id==42)`
     *  Набор таблиц, указанных с помощью подстановочного знака. Например, `E*` формирует объединение всех таблиц, имена которых начинаются с `E` .
 * `project-smart` | `project`: Если не указано `project-smart` , будет использоваться по умолчанию. Дополнительные сведения см. в разделе [сведения о схеме вывода](./findoperator.md#output-schema).
 
 ::: zone-end
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Преобразование строк в *таблице* [ `,` *Таблица*,...], для которых *предикат* имеет `true` . Строки преобразуются в соответствии со [схемой вывода](#output-schema).
 
@@ -117,7 +117,7 @@ find in (Table1, Table2, Table3) where Fruit=="apple"
 * Если `project` предложение ссылается на столбец, который встречается в нескольких таблицах и имеет несколько типов, то тип должен следовать этой ссылке на столбец в предложении Project.
 * Если столбец отображается в нескольких таблицах и имеет несколько типов и используется `project-smart` , то для каждого типа в результате будет указан соответствующий столбец `find` , как описано в разделе [Union](./unionoperator.md) .
 * При использовании *смарт-проекта*, изменения в предикате, в наборе исходных таблиц или в схеме таблиц могут привести к изменению выходной схемы. Если требуется схема с постоянным результатом, используйте вместо нее *проект*
-* `find`область не может включать [функции](../management/functions.md). Чтобы включить функцию в область поиска, определите [инструкцию Let](./letstatement.md) с [ключевым словом View](./letstatement.md).
+* `find` область не может включать [функции](../management/functions.md). Чтобы включить функцию в область поиска, определите [инструкцию Let](./letstatement.md) с [ключевым словом View](./letstatement.md).
 
 ## <a name="performance-tips"></a>Советы по улучшению производительности
 
@@ -204,9 +204,9 @@ find "Kusto"
 
 |Session_Id|Level|евенттекст|Версия
 |---|---|---|---|
-|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Сведения|Некоторые Текст1|Версия 1.0.0
-|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Ошибка|Некоторые Текст2|Версия 1.0.0
-|28b8e46e-3c31-43cf-83cb-48921c3986fc|Ошибка|Некоторые Text3|v 1.0.1
+|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Сведения|Некоторые Текст1|v1.0.0
+|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Error|Некоторые Текст2|v1.0.0
+|28b8e46e-3c31-43cf-83cb-48921c3986fc|Error|Некоторые Text3|v 1.0.1
 |8f057b11-3281-45c3-a856-05ebb18a3c59|Сведения|Некоторые Text4|v 1.1.0
 
 ### <a name="eventstable2"></a>EventsTable2
@@ -215,8 +215,8 @@ find "Kusto"
 |---|---|---|---|
 |f7d5f95f-f580-4ea6-830b-5776c8d64fdd|Сведения|Другой Текст1|Event1
 |acbd207d-51aa-4df7-bfa7-be70eb68f04e|Сведения|Другой Текст2|Event2
-|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Ошибка|Другие Text3|Event3
-|15eaeab5-8576-4b58-8fc6-478f75d8fee4|Ошибка|Другие Text4|Event4
+|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Error|Другие Text3|Event3
+|15eaeab5-8576-4b58-8fc6-478f75d8fee4|Error|Другие Text4|Event4
 
 ### <a name="search-in-common-columns-project-common-and-uncommon-columns-and-pack-the-rest"></a>Поиск в общих столбцах, общих и нестандартных столбцах, а также упаковка остальных  
 
@@ -228,7 +228,7 @@ find in (EventsTable1, EventsTable2)
 
 |source_|евенттекст|Версия|EventName|pack_
 |---|---|---|---|---|
-|EventsTable1|Некоторые Текст2|Версия 1.0.0||{"Session_Id": "acbd207d-51aa-4df7-bfa7-be70eb68f04e", "Level": "Error"}
+|EventsTable1|Некоторые Текст2|v1.0.0||{"Session_Id": "acbd207d-51aa-4df7-bfa7-be70eb68f04e", "Level": "Error"}
 |EventsTable2|Другие Text3||Event3|{"Session_Id": "acbd207d-51aa-4df7-bfa7-be70eb68f04e", "Level": "Error"}
 
 
@@ -240,8 +240,8 @@ find Version == 'v1.0.0' or EventName == 'Event1' project Session_Id, EventText,
 
 |source_|Session_Id|евенттекст|Версия|EventName|
 |---|---|---|---|---|
-|EventsTable1|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Некоторые Текст1|Версия 1.0.0
-|EventsTable1|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Некоторые Текст2|Версия 1.0.0
+|EventsTable1|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Некоторые Текст1|v1.0.0
+|EventsTable1|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Некоторые Текст2|v1.0.0
 |EventsTable2|f7d5f95f-f580-4ea6-830b-5776c8d64fdd|Другой Текст1||Event1
 
 Примечание. на практике *EventsTable1* строки будут отфильтрованы с помощью ```Version == 'v1.0.0'``` предиката, а строки *EventsTable2* будут отфильтрованы с помощью ```EventName == 'Event1'``` предиката.
@@ -255,9 +255,9 @@ find Session_Id == 'acbd207d-51aa-4df7-bfa7-be70eb68f04e'
 |source_|Session_Id|Level|евенттекст|pack_|
 |---|---|---|---|---|
 |EventsTable1|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Сведения|Некоторые Текст1|{"Версия": "v 1.0.0"}
-|EventsTable1|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Ошибка|Некоторые Текст2|{"Версия": "v 1.0.0"}
+|EventsTable1|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Error|Некоторые Текст2|{"Версия": "v 1.0.0"}
 |EventsTable2|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Сведения|Другой Текст2|{"EventName": "Event2"}
-|EventsTable2|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Ошибка|Другие Text3|{"EventName": "Event3"}
+|EventsTable2|acbd207d-51aa-4df7-bfa7-be70eb68f04e|Error|Другие Text3|{"EventName": "Event3"}
 
 
 ### <a name="return-the-results-from-each-row-as-a-property-bag"></a>Возврат результатов из каждой строки в качестве контейнера свойств
@@ -274,7 +274,7 @@ find Session_Id == 'acbd207d-51aa-4df7-bfa7-be70eb68f04e' project pack(*)
 |EventsTable2|{"Session_Id": "acbd207d-51aa-4df7-bfa7-be70eb68f04e", "Level": "Error", "Евенттекст": "другие Text3", "EventName": "Event3"}
 
 
-## <a name="examples-of-cases-where-find-will-act-as-union"></a>Примеры случаев, когда `find` будут действовать как`union`
+## <a name="examples-of-cases-where-find-will-act-as-union"></a>Примеры случаев, когда `find` будут действовать как `union`
 
 ### <a name="using-a-non-tabular-expression-as-find-operand"></a>Использование не табличного выражения в качестве операнда Find
 

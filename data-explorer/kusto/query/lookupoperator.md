@@ -4,16 +4,16 @@ description: В этой статье описывается оператор Lo
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/12/2020
-ms.openlocfilehash: 5eda79977ee641d7ca7835d3d394cb943b4ebac4
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 3305d78dd903160491ac3cdabd274ce8ace8ba2f
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347057"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92246428"
 ---
 # <a name="lookup-operator"></a>Оператор lookup
 
@@ -56,7 +56,7 @@ FactTable | lookup kind=leftouter (DimensionTable) on CommonColumn, $left.Col1 =
 
 * `kind`: Необязательная инструкция по интерпретации строк в *лефттабле* , не имеющих соответствий в *ригхттабле*. По умолчанию `leftouter` используется, что означает, что все эти строки будут отображаться в выходных данных со значениями NULL, используемыми для отсутствующих значений столбцов *ригхттабле* , добавленных оператором. Если `inner` используется, такие строки опускаются из выходных данных. (Другие виды объединения не поддерживаются `looku` оператором p.)
   
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Таблица со следующими элементами.
 
@@ -65,7 +65,7 @@ FactTable | lookup kind=leftouter (DimensionTable) on CommonColumn, $left.Col1 =
 * Строка для каждого соответствия во входных таблицах. Соответствие — это строки из обеих таблиц, у которых совпадают значения всех полей `on` . 
 * Атрибуты (уточняющие ключи) будут отображаться в выходной таблице только один раз.
 
- * `kind`Unspecified`kind=leftouter`
+ * `kind` Unspecified `kind=leftouter`
 
      Кроме внутренних соответствий есть также строка для каждой строки в левой и (или) правой части, даже при отсутствии соответствия. В этом случае ячейки выходных данных без соответствий содержат значения NULL.
 

@@ -4,16 +4,16 @@ description: В этой статье описываются регулярны�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 6bdf666b46adea8105b61fc2b907fc060530ba96
-ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
+ms.openlocfilehash: 1923b46aa7ec7176d2a41181326d32a2214f00c4
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85967593"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92244821"
 ---
 # <a name="re2-syntax"></a>Синтаксис RE2
 
@@ -21,7 +21,7 @@ ms.locfileid: "85967593"
 Существует несколько функций в Kusto, которые выполняют сопоставление строк, выделение и извлечение с помощью регулярного выражения.
 
 - [countof()](countoffunction.md)
-- [extract()](extractfunction.md)
+- [Extract ()](extractfunction.md)
 - [extract_all()](extractallfunction.md)
 - [соответствует regex](datatypes-string-operators.md)
 - [Оператор parse](parseoperator.md)

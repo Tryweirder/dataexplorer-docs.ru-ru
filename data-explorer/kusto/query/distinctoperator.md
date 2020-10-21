@@ -4,16 +4,16 @@ description: В этой статье описывается оператор DI
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: ffdd20c6d0c078cd3a7ecaa0d0fb2dac131ddda5
-ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
+ms.openlocfilehash: ad90d9765b7ff708f7b40b65564b3944de5c84df
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91941780"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92245181"
 ---
 # <a name="distinct-operator"></a>Оператор distinct
 

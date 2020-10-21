@@ -4,16 +4,16 @@ description: В этой статье описывается буилдсчем�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 37e7ad11bc96ab7567897a231f52e23ba9a6c661
-ms.sourcegitcommit: 6f610cd9c56dbfaff4eb0470ac0d1441211ae52d
+ms.openlocfilehash: d371b205363f320f666cfd92329219bb992fc69b
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91954762"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92245273"
 ---
 # <a name="buildschema-aggregation-function"></a>буилдсчема () (агрегатная функция)
 
@@ -29,7 +29,7 @@ ms.locfileid: "91954762"
 
 * *Динамицекспр*: выражение, используемое для вычисления агрегата. Тип столбца параметра должен быть `dynamic` . 
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Максимальное значение в *`Expr`* группе.
 

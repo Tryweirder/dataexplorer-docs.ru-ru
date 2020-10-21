@@ -4,16 +4,16 @@ description: В этой статье описывается оператор TO
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: be05a3a546bb6f1db003be14e4a1417841b54671
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: d95c981f999d0842a266702ad5fc733281d45a7d
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87804072"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92245798"
 ---
 # <a name="top-hitters-operator"></a>Оператор top-hitters
 
@@ -24,7 +24,7 @@ T | top-hitters 25 of Page by Views
 ```
 
 > [!NOTE]
-> `top-hitters`— это алгоритм приближения, который должен использоваться при работе с большими данными. Приближение значения Top-hitters основано на алгоритме [Count-min-эскиза](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch) .  
+> `top-hitters` — это алгоритм приближения, который должен использоваться при работе с большими данными. Приближение значения Top-hitters основано на алгоритме [Count-min-эскиза](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch) .  
 
 ## <a name="syntax"></a>Синтаксис
 
