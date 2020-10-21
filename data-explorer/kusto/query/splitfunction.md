@@ -4,16 +4,16 @@ description: В этой статье описывается разбиение 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: efd3812086631451b77ca1edd846ec9bd75990fe
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 8ce8af3f9d56e4b5c3d388010b2760906a8e3dc4
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351018"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92242435"
 ---
 # <a name="split"></a>split()
 
@@ -35,7 +35,7 @@ split("aaa_bbb_ccc", "_") == ["aaa","bbb","ccc"]
 * *delimiter*— разделитель, который будет использоваться для разделения исходной строки.
 * *requestedIndex* — необязательный индекс типа `int`, начинающийся с нуля. Если указан, возвращаемый массив строк будет содержать запрошенную подстроку, если она существует. 
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Массив строк, содержащий подстроки заданной исходной строки, разделенные указанным разделителем.
 

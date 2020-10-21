@@ -4,16 +4,16 @@ description: В этой статье описывается ipv4_is_match () в
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: 1abe99a4739d68e6acb76b800af293e77e62b2f0
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: 0e00b2bffb31f66fc0e684bb5300af2c334fc825
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803919"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92242463"
 ---
 # <a name="ipv4_is_match"></a>ipv4_is_match()
 
@@ -41,7 +41,7 @@ IP-адреса можно определять с `IP-prefix notation` помо
 
 Например, в 192.168.2.0/24 будет сопоставлена сеть/маска подсети, содержащая 24 смежных бита или 255.255.255.0 в точечно-десятичном формате.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 * `true`: Если длинное представление первого аргумента строки IPv4 равно второму аргументу строки IPv4.
 *  `false`Ином.
@@ -63,7 +63,7 @@ datatable(ip1_string:string, ip2_string:string)
 | extend result = ipv4_is_match(ip1_string, ip2_string)
 ```
 
-|ip1_string|ip2_string|result|
+|ip1_string|ip2_string|набор по|
 |---|---|---|
 |192.168.1.0|192.168.1.0|1|
 |192.168.1.1/24|192.168.1.255|1|
@@ -83,7 +83,7 @@ datatable(ip1_string:string, ip2_string:string, prefix:long)
 | extend result = ipv4_is_match(ip1_string, ip2_string, prefix)
 ```
 
-|ip1_string|ip2_string|prefix|result|
+|ip1_string|ip2_string|prefix|набор по|
 |---|---|---|---|
 |192.168.1.1|192.168.1.0|31|1|
 |192.168.1.1/24|192.168.1.255|31|1|

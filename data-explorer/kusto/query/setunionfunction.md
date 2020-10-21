@@ -4,16 +4,16 @@ description: В этой статье описывается set_union () в Azu
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/02/2019
-ms.openlocfilehash: 8aec2bdebacc1bfd87b84bbfc83a6aed5cb05427
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 2fff5763f7eba13e48d0cbdb0e85af666c385308
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351137"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92242624"
 ---
 # <a name="set_union"></a>set_union()
 
@@ -29,7 +29,7 @@ ms.locfileid: "87351137"
 
 ## <a name="returns"></a>Результаты
 
-Возвращает динамический массив набора всех различных значений, которые находятся в любом из массивов. См [`set_intersect()`](setintersectfunction.md) . раздел и [`set_difference()`](setdifferencefunction.md) .
+Возвращает динамический массив набора всех различных значений, которые находятся в любом из массивов. См [`set_intersect()`](setintersectfunction.md)  . раздел и [`set_difference()`](setdifferencefunction.md) .
 
 ## <a name="example"></a>Пример
 

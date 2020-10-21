@@ -4,16 +4,16 @@ description: В этой статье описываются ограничен�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: d1f70675a1f455c6cd0c392483eb574867088394
-ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
+ms.openlocfilehash: b428d43afd7984bbcf19351da702517a3a1244a9
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91103293"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92242303"
 ---
 # <a name="isfinite"></a>isfinite()
 
@@ -49,5 +49,5 @@ range x from -1 to 1 step 1
 |x|y|div|isFinite|
 |---|---|---|---|
 |-1|0|-∞|0|
-|0|0|NaN|0|
+|0|0|не число|0|
 |1|0|∞|0|

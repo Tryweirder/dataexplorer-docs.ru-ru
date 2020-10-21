@@ -4,16 +4,16 @@ description: В этой статье описывается стартофда�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 3b44da313c50360c73f63f1244ce2be959af2eb4
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 450863ec6360a40d1fea452dd0427e54f21c6c71
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350950"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92241104"
 ---
 # <a name="startofday"></a>startofday()
 

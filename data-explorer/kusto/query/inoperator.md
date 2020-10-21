@@ -4,16 +4,16 @@ description: В этой статье описываются операторы 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: a6551ee2d4ac01d6d896cc8daff466f3c4a7852e
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: 52e26bb5564079de56817e75a203a400ef7f1a50
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803970"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92248990"
 ---
 # <a name="in-and-in-operators"></a>Операторы in и !in
 
@@ -54,7 +54,7 @@ Table1 | where col in ('value1', 'value2')
 * *список выражений* — разделенный запятыми список табличных, скалярных или литеральных выражений.
 * *табличное выражение* — табличное выражение, имеющее набор значений. Если выражение содержит несколько столбцов, используется первый столбец.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Строки в *T* , для которых предикат имеет значение `true` .
 
@@ -69,7 +69,7 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |4775|  
 
@@ -82,7 +82,7 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |4775|  
 
@@ -95,7 +95,7 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |54291|  
 
@@ -110,7 +110,7 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |3218|
 
@@ -142,7 +142,7 @@ StormEvents
 | count
 ```
 
-|Count|
+|Счетчик|
 |---|
 |14242|  
 
@@ -164,7 +164,7 @@ Lightning_By_State
 | Техас     | 55                   |
 | Флорида   | 85                   |
 | Грузия   | 106                  |
-| Другое     | 415                  |
+| Другие     | 415                  |
 
 ### <a name="use-a-static-list-returned-by-a-function"></a>Использовать статический список, возвращенный функцией
 
@@ -174,7 +174,7 @@ StormEvents | where State in (InterestingStates()) | count
 
 ```
 
-|Count|
+|Счетчик|
 |---|
 |4775|  
 

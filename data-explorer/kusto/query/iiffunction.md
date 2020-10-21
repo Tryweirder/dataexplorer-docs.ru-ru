@@ -4,16 +4,16 @@ description: В этой статье описывается IIf () в Azure о�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 0d912f94a224b073fe9214f70077067d3a24c906
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 0279e3b0bfc28397b2270f012b8152b456c770cd
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87347482"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92242416"
 ---
 # <a name="iif"></a>iif()
 
@@ -31,7 +31,7 @@ ms.locfileid: "87347482"
 * *IfTrue*: выражение, которое вычисляется, и его значение, возвращенное из функции, если *предикат* возвращает `true` .
 * *IfFalse*: выражение, которое вычисляется, и его значение, возвращенное из функции, если *предикат* возвращает `false` .
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Эта функция возвращает значение *ifTrue*, если *predicate* принимает значение `true`. В противном случае она возвращает значение *ifFalse*.
 

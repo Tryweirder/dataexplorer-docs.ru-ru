@@ -4,16 +4,16 @@ description: В этой статье описывается url_encode () в Az
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/17/2020
-ms.openlocfilehash: 8ccc93286073003bdaf8324611888d32f60910fb
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: a8c8e874fa4f6a1cb8c8731400e794e1359a4719
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87350576"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92240989"
 ---
 # <a name="url_encode"></a>url_encode()
 
@@ -43,7 +43,7 @@ print original = url, encoded = url_encode(url)
 
 |оригинальный|кодировке|
 |---|---|
-|https://www.bing.com/helloсловам|HTTPS %3 a %2 f %2 f www. Bing. com% 2fhello + Word|
+|https://www.bing.com/hello словам|HTTPS %3 a %2 f %2 f www. Bing. com% 2fhello + Word|
 
 
  

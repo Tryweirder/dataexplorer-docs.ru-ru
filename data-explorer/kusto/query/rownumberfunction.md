@@ -4,16 +4,16 @@ description: В этой статье описывается row_number () в Az
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: ea51e6171b8a7683a0454d177dc729ed754b8896
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 457e9445aa113e76052b9c4d96019352215d08f9
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351596"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92242796"
 ---
 # <a name="row_number"></a>row_number()
 
@@ -26,7 +26,7 @@ ms.locfileid: "87351596"
 
 `row_number``(`[*Стартингиндекс* [ `,` *перезапуск*]]`)`
 
-* *Стартингиндекс* — это константное выражение типа `long` , указывающее значение индекса строки для начала (или для перезапуска в). Значение по умолчанию — `1`.
+* *Стартингиндекс* — это константное выражение типа `long` , указывающее значение индекса строки для начала (или для перезапуска в). Значение по умолчанию: `1`.
 * *Restart* является необязательным аргументом типа `bool` , который указывает, когда нумерация перезапускается на значение *стартингиндекс* . Если не указано, используется значение по умолчанию `false` .
 
 ## <a name="returns"></a>Результаты
@@ -68,7 +68,7 @@ datatable (Airport:string, Airline:string, Departures:long)
 
 Выполнение этого запроса приводит к получению следующего результата:
 
-Территории  | Авиаперевозки  | Отправленные  | Рейтинг
+Территории  | Авиаперевозки  | Отправленные  | Ранг
 ---------|----------|-------------|------
 SEA      | BA       | 2           | 1
 SEA      | LH       | 1           | 2

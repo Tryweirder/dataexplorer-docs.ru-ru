@@ -4,18 +4,18 @@ description: В этой статье описывается инструкци�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 52cec808795024bd58b6a4ef6cf08e5b700c0e33
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: f510e62e6b1ad828f0e132bbad214dc7119f8235
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803630"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92243019"
 ---
 # <a name="restrict-statement"></a>Инструкция restrict
 

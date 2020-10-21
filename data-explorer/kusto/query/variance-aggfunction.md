@@ -4,16 +4,16 @@ description: В этой статье описывается вариативн�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 4222e0672290a6d934382dd6f922aec082a19af7
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 5a031efb5068e4497df0fa7acb54561c3b3caffb
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338683"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92240943"
 ---
 # <a name="variance-aggregation-function"></a>вариативность () (статистическая функция)
 

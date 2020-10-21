@@ -4,16 +4,16 @@ description: В этой статье описывается url_encode_componen
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/17/2020
-ms.openlocfilehash: 44e77e2a0e34b66506852bd82d65e4a108b520fd
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 6740effd6a6117a2e63b5d03f09b38a723055f30
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338462"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92241132"
 ---
 # <a name="url_encode_component"></a>url_encode_component()
 
@@ -30,7 +30,7 @@ ms.locfileid: "87338462"
 
 * *URL-* адрес: входной URL-адрес (строка).  
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 URL-адрес (строка), преобразованный в формат, который может быть передан через Интернет.
 
@@ -43,7 +43,7 @@ print original = url, encoded = url_encode_component(url)
 
 |оригинальный|кодировке|
 |---|---|
-|https://www.bing.com/helloсловам|HTTPS %3 a %2 f %2 f www. Bing. com% 2fhello% 20word|
+|https://www.bing.com/hello словам|HTTPS %3 a %2 f %2 f www. Bing. com% 2fhello% 20word|
 
 
  

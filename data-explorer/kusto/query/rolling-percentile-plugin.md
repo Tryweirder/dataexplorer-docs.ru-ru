@@ -4,16 +4,16 @@ description: В этой статье описывается подключае�
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 8d60ad8a5e2c9a94164fb816db9e9913dcff56ea
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: f64a7e5c183e34e81781986d5c28f189a04291e7
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87345765"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92242892"
 ---
 # <a name="rolling_percentile-plugin"></a>подключаемый модуль rolling_percentile ()
 
@@ -64,7 +64,7 @@ range idx from 0 to 24*10-1 step 1
  | evaluate rolling_percentile(val, 50, Timestamp, 1d, 3)
 ```
 
-|Timestamp|rolling_3_percentile_val_50|
+|Отметка времени|rolling_3_percentile_val_50|
 |---|---|
 |2018-01-01 00:00:00.0000000|   12|
 |2018-01-02 00:00:00.0000000|   24|
@@ -91,7 +91,7 @@ range idx from 0 to 24*10-1 step 1
  | evaluate rolling_percentile(val, 50, Timestamp, 1d, 3, EvenOrOdd)
 ```
 
-|Timestamp| евенородд|  rolling_3_percentile_val_50|
+|Отметка времени| евенородд|  rolling_3_percentile_val_50|
 |---|---|---|
 |2018-01-01 00:00:00.0000000|   Разного|   12|
 |2018-01-02 00:00:00.0000000|   Разного|   24|

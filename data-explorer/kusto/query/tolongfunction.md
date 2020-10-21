@@ -4,16 +4,16 @@ description: В этой статье описывается толонг () в 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 36c0317f046f146d2812b8830d7fe571d5363c59
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: bf4960ae3bd11697e4e7203438e1a33af6c90672
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87804123"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92240997"
 ---
 # <a name="tolong"></a>tolong()
 
@@ -34,7 +34,7 @@ tolong("123") == 123
 
 * *Expr*: выражение, которое будет преобразовано в Long. 
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Если преобразование выполнено успешно, результатом будет целое число.
 Если преобразование не выполнено, результатом будет `null` .

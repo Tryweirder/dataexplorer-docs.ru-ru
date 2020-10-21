@@ -4,16 +4,16 @@ description: В этой статье описывается series_greater () �
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/01/2020
-ms.openlocfilehash: 19b5035de2cad2f4a69d9733bd500d11158a31bd
-ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
+ms.openlocfilehash: 5e961e1dbcbb66ca13ee1d6fe1c04314778e07f5
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91103599"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92242687"
 ---
 # <a name="series_greater"></a>series_greater()
 

@@ -4,16 +4,16 @@ description: В этой статье описывается каунтоф () �
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: d4d4ac00ad05d62f95901c24ea91af8cace0322e
-ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
+ms.openlocfilehash: 5204aff94f2fd6e6c824f66bdc30000b46c05501
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88610541"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92249237"
 ---
 # <a name="countof"></a>countof()
 
@@ -34,7 +34,7 @@ countof("The cat sat on the mat", @"\b.at\b", "regex") == 3
 * *Поиск*: обычная строка или [регулярное выражение](./re2.md) для сопоставления внутри *текста*.
 * *тип*: `"normal"|"regex"` по умолчанию `normal` . 
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Количество совпадений для строки поиска в контейнере. Совпадения для обычных строк могут перекрывать друг друга, для регулярных выражений — не могут.
 
