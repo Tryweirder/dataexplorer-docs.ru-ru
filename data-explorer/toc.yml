@@ -118,6 +118,9 @@
               href: data-connection-event-grid-python.md
             - name: Шаблон Azure Resource Manager
               href: data-connection-event-grid-resource-manager.md
+            - name: Создание ресурсов вручную на портале Azure
+              displayName: Manually create resources for Event Grid ingestion
+              href: ingest-data-event-grid-manual.md
         - name: Центр Интернета вещей
           items:
             - name: Создание подключения к Центру Интернета вещей
@@ -661,6 +664,10 @@
               href: ./kusto/query/array_shift_rightfunction.md
             - name: array_slice()
               href: ./kusto/query/arrayslicefunction.md
+            - name: array_sort_asc()
+              href: ./kusto/query/arraysortascfunction.md
+            - name: array_sort_desc()
+              href: ./kusto/query/arraysortdescfunction.md
             - name: array_split()
               href: ./kusto/query/arraysplitfunction.md
             - name: asin()
