@@ -4,16 +4,16 @@ description: В этой статье описывается узкий подк
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: e597a2467da21a2c9e83aba28a1e83b242f61c75
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 5a27794647eed3e8b30533d73456a0b1fb8ccde6
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346683"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92243187"
 ---
 # <a name="narrow-plugin"></a>Подключаемый модуль narrow
 
@@ -42,7 +42,7 @@ T | evaluate narrow()
 
 Строка  | Столбец                              | Значение
 -----|-------------------------------------|-----------------------------
-0    | Работоспособность                           | Верно
+0    | Работоспособность                           | True
 0    | исребаланцерекуиред                 | Неверно
 0    | исскалеаутрекуиред                  | Неверно
 0    | мачинестотал                       | 2

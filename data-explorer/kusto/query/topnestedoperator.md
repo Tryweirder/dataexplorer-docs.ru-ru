@@ -4,16 +4,16 @@ description: В этой статье описывается оператор TO
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 85a59adc355c3d8855c34bcf97d29d3bd6eea4a1
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: ce56040e2135a455e29a8ff0ce83d832cbf5c5f7
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87803137"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92243712"
 ---
 # <a name="top-nested-operator"></a>Вложенный оператор верхнего уровня
 
@@ -64,9 +64,9 @@ T | top-nested 3 of Location with others="Others" by sum(MachinesNumber), top-ne
    * [процентиль ()](percentiles-aggfunction.md)и
    * [перцентилев ()](percentiles-aggfunction.md). Также поддерживается любое сочетание алгебраические агрегатов.
 
-* `asc`или `desc` (значение по умолчанию) может отображаться для управления тем, находится ли выделение на самом деле от «нижнего» или «верхнего» диапазона агрегированных значений.
+* `asc` или `desc` (значение по умолчанию) может отображаться для управления тем, находится ли выделение на самом деле от «нижнего» или «верхнего» диапазона агрегированных значений.
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
 Этот оператор возвращает таблицу с двумя столбцами для каждого предложения агрегирования:
 
@@ -80,7 +80,7 @@ T | top-nested 3 of Location with others="Others" by sum(MachinesNumber), top-ne
 Чтобы получить все значения на определенном уровне, добавьте счетчик агрегирования, который:
 
 * Опускает значение *N*
-* Использует имя столбца в качестве значения*`Expr`*
+* Использует имя столбца в качестве значения *`Expr`*
 * Использует в `Ignore=max(1)` качестве агрегата, а затем игнорирует (или отменяет проекцию) столбца `Ignore` .
 
 Число записей может увеличиваться экспоненциально с числом предложений агрегирования ((N1 + 1) \* (N2 + 1).. \* .). Рост записи выполняется еще быстрее, если не задано ограничение *N* . Примите во внимание, что этот оператор может потреблять значительный объем ресурсов.

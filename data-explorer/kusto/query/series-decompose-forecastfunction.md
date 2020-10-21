@@ -4,16 +4,16 @@ description: В этой статье описывается series_decompose_fo
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/26/2019
-ms.openlocfilehash: 21a57e4c49e982fbb113917abe173f89426c74ed
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 4cf02f01504f3111050f28430de9907fb4aad18b
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87345153"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92250119"
 ---
 # <a name="series_decompose_forecast"></a>series_decompose_forecast()
 
@@ -39,7 +39,7 @@ ms.locfileid: "87345153"
     * `none`: Нет тренда, пропустите извлечение этого компонента.
 * *Seasonality_threshold*: пороговое значение для показателя сезонности, если для *сезонности* задано автоматическое обнаружение. Порог оценки по умолчанию — `0.6` . Дополнительные сведения см. в разделе [series_periods_detect](series-periods-detectfunction.md).
 
-**Вернул**
+**Return**
 
  Динамический массив с прогнозируемой серией.
 
@@ -49,7 +49,7 @@ ms.locfileid: "87345153"
 
 ## <a name="example"></a>Пример
 
-В следующем примере мы создаем серию из четырех недель в почасовом Гране, где еженедельно сезонности и небольшая находящаяся тенденция. Затем мы используем `make-series` и добавляем еще одну пустую неделю к ряду. `series_decompose_forecast`метод вызывается с неделей (24 * 7 точек) и автоматически обнаруживает сезонности и тенденцию и формирует прогноз всего за пять недель.
+В следующем примере мы создаем серию из четырех недель в почасовом Гране, где еженедельно сезонности и небольшая находящаяся тенденция. Затем мы используем `make-series` и добавляем еще одну пустую неделю к ряду. `series_decompose_forecast` метод вызывается с неделей (24 * 7 точек) и автоматически обнаруживает сезонности и тенденцию и формирует прогноз всего за пять недель.
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto

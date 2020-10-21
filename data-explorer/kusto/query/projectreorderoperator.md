@@ -4,16 +4,16 @@ description: В этой статье описывается оператор и
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 98887c8044be6ea1b429c51953c6f3f9a899d090
-ms.sourcegitcommit: 3dfaaa5567f8a5598702d52e4aa787d4249824d4
+ms.openlocfilehash: 7bcb33d30bdfdbd22b28dbb7364427cfa3a81a5b
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87802967"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92242146"
 ---
 # <a name="project-reorder-operator"></a>Оператор project-reorder
 
@@ -40,9 +40,9 @@ T | project-reorder Col2, Col1, Col* asc
 > * Используйте [`project-rename`](projectrenameoperator.md) для переименования столбцов.
 
 
-## <a name="returns"></a>Возвращаемое значение
+## <a name="returns"></a>Результаты
 
-Таблица, содержащая столбцы в порядке, указанном аргументами оператора. `project-reorder`не переименовывает и не удаляет столбцы из таблицы, поэтому все столбцы, которые существовали в исходной таблице, отображаются в таблице результатов.
+Таблица, содержащая столбцы в порядке, указанном аргументами оператора. `project-reorder` не переименовывает и не удаляет столбцы из таблицы, поэтому все столбцы, которые существовали в исходной таблице, отображаются в таблице результатов.
 
 ## <a name="examples"></a>Примеры
 
@@ -54,9 +54,9 @@ print a='a', b='b', c='c'
 |  project-reorder b
 ```
 
-|b|a|с|
+|b|а|c|
 |---|---|---|
-|b|a|с|
+|b|а|c|
 
 Переупорядочение столбцов таблицы, чтобы столбцы, начинающиеся с, `a` отображались перед другими столбцами.
 

@@ -4,16 +4,16 @@ description: В этой статье описывается оператор п
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 9bc000ffa57d906c3e65e54e9daac5431f8dc276
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.openlocfilehash: 83a4dba3f426189de615640ab48e1fa60f9e5537
+ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87346020"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92242208"
 ---
 # <a name="project-rename-operator"></a>Оператор project-rename
 
@@ -46,6 +46,6 @@ print a='a', b='b', c='c'
 |  project-rename new_b=b, new_a=a
 ```
 
-|new_a|new_b|с|
+|new_a|new_b|c|
 |---|---|---|
-|a|b|с|
+|а|b|c|
