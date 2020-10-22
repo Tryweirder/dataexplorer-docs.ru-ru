@@ -7,12 +7,12 @@ ms.reviewer: toleibov
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/11/2020
-ms.openlocfilehash: e89ce6f77545b4f0b42cbb3d792edd5ceeb0ed34
-ms.sourcegitcommit: f354accde64317b731f21e558c52427ba1dd4830
+ms.openlocfilehash: 4949190befdc8adcec9f8115305a2a403994395f
+ms.sourcegitcommit: 88291fd9cebc26e5210463cb95be5540bf84eef8
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88874683"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92437410"
 ---
 # <a name="enable-infrastructure-encryption-double-encryption-during-cluster-creation-in-azure-data-explorer"></a>Включение шифрования инфраструктуры (двойное шифрование) во время создания кластера в Azure обозреватель данных
   
@@ -21,7 +21,6 @@ ms.locfileid: "88874683"
 > [!IMPORTANT]
 > * Включение двойного шифрования возможно только при создании кластера.
 > * После включения шифрования инфраструктуры в кластере его **нельзя** отключить.
-> * Двойное шифрование доступно только в регионах, где поддерживается шифрование инфраструктуры. Дополнительные сведения см. в разделе [Шифрование инфраструктуры хранилища](/azure/storage/common/infrastructure-encryption-enable).
 
 # <a name="azure-portal"></a>[Портал Azure](#tab/portal)
 
@@ -36,7 +35,7 @@ ms.locfileid: "88874683"
 
 Вы можете включить шифрование инфраструктуры во время создания кластера с помощью C#.
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
 Настройка управляемого удостоверения с помощью клиента Azure обозреватель данных C#:
 
@@ -122,6 +121,6 @@ ms.locfileid: "88874683"
     ```
 ---
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Проверка работоспособности кластера](check-cluster-health.md)

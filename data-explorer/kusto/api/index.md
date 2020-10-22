@@ -8,12 +8,12 @@ ms.reviewer: vladikb
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/11/2020
-ms.openlocfilehash: b9fd03bfd08a31d872ca3c0ef48bd96514e9eb18
-ms.sourcegitcommit: 9e0289945270db517e173aa10024e0027b173b52
+ms.openlocfilehash: b352ed44e7beb487588cf94f37d280eb6b51cdf9
+ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428402"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92337471"
 ---
 # <a name="azure-data-explorer-api-overview"></a>Описание API Azure Data Explorer
 
@@ -23,7 +23,7 @@ ms.locfileid: "89428402"
    Эта конечная точка поддерживает [язык запросов Kusto](../query/index.md) для запросов и [команд управления](../management/index.md).
 1. Конечная точка [MS-TDS](#ms-tds), которая реализует ряд возможностей протокола Microsoft TDS (поток табличных данных), используемых в продуктах Microsoft SQL Server.
    Эта конечная точка применяется для средств, которые могут взаимодействовать с конечной точкой SQL Server для отправки запросов.
-1. Конечная точка [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftkusto), которая является стандартным решением для служб Azure. Она используется для управления ресурсами, такими как кластеры Azure Data Explorer.
+1. Конечная точка [Azure Resource Manager (ARM)](/azure/role-based-access-control/resource-provider-operations#microsoftkusto), которая является стандартным решением для служб Azure. Она используется для управления ресурсами, такими как кластеры Azure Data Explorer.
 
 ## <a name="rest-api"></a>REST API
 

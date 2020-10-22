@@ -8,12 +8,12 @@ ms.reviewer: olgolden
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 19aff5ad76544573daca380c1555c072fb29eaa2
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: fd596d840dcbaab1843833b4164901423a2ebef8
+ms.sourcegitcommit: 88291fd9cebc26e5210463cb95be5540bf84eef8
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343357"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92437379"
 ---
 # <a name="azure-data-explorer-tools-and-integrations-overview"></a>Обзор средств и интеграции Azure обозреватель данных
 
@@ -63,7 +63,7 @@ Azure обозреватель данных предлагает различн�
 * [Azure Data Lake](data-lake-query-data.md)
 * [Apache Spark Azure синапсе](https://docs.microsoft.com/azure/synapse-analytics/quickstart-connect-azure-data-explorer?context=/azure/data-explorer/context/context)
 * [Apache Spark](spark-connector.md)
-* Microsoft Power Apps
+* [Microsoft Power Apps](power-apps-connector.md)
 * Azure Data Studio: [Общие сведения о расширении Kusto](/sql/azure-data-studio/extensions/kusto-extension?context=%252fazure%252fdata-explorer%252fcontext%252fcontext), [Использование Kusto](/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)и [Использование кклмагик](/sql/azure-data-studio/notebooks-kqlmagic?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)
 
 ## <a name="visualizations-dashboards-and-reporting"></a>Средства визуализации, мониторинга и отчетности
