@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 7bcb33d30bdfdbd22b28dbb7364427cfa3a81a5b
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: de8ff4b9256c8f964350bafd64eac15b028f53d4
+ms.sourcegitcommit: ee904f45e3eb3feab046263aa9956cb7780a056d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92242146"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92356492"
 ---
 # <a name="project-reorder-operator"></a>Оператор project-reorder
 
@@ -36,9 +36,9 @@ T | project-reorder Col2, Col1, Col* asc
 > [!NOTE]
 > * При неоднозначном сопоставлении *колумннамеорпаттерн* столбец отображается в первой позицией, соответствующей шаблону.
 > * Указание столбцов для `project-reorder` является необязательным. Столбцы, которые не указаны явно, отображаются в качестве последних столбцов выходной таблицы.
-> * Используйте [`project-away`](projectawayoperator.md) для удаления столбцов.
-> * Используйте [`project-rename`](projectrenameoperator.md) для переименования столбцов.
-
+> * Чтобы удалить столбцы, используйте [`project-away`](projectawayoperator.md) .
+> * Чтобы выбрать столбцы для сохранения, используйте [`project-keep`](project-keep-operator.md) .
+> * Для переименования столбцов используйте [`project-rename`](projectrenameoperator.md) .
 
 ## <a name="returns"></a>Результаты
 
