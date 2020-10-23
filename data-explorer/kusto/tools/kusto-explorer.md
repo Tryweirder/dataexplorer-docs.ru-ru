@@ -7,12 +7,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: a96e47eeb8c0a27ffb1f1446b68d6adc8e564e4b
-ms.sourcegitcommit: bc09599c282b20b5be8f056c85188c35b66a52e5
+ms.openlocfilehash: 8f56568f87c391122b468d7f3ae8027eabe4641e
+ms.sourcegitcommit: 9dbbdf0c339f9af78d754e3fb44b9a4f2469003a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88610650"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92292858"
 ---
 # <a name="kustoexplorer-installation-and-user-interface"></a>Установка и пользовательский интерфейс Kusto.Explorer
 
@@ -26,10 +26,12 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ## <a name="installing-kustoexplorer"></a>Установка Kusto.Explorer
 
-* Скачайте и установите средство Kusto.Explorer со страницы [https://aka.ms/ke](https://aka.ms/ke)
+* Скачайте и установите средство Kusto.Explorer:
+     * [https://aka.ms/ke](https://aka.ms/ke) (расположение CDN);
+     * [https://aka.ms/ke-mirror](https://aka.ms/ke-mirror) (другое расположение).
 
-* Получите доступ к кластеру Kusto в браузере по адресу: `https://<your_cluster>.kusto.windows.net.`.
-   Замените &lt;your_cluster&gt; именем кластера Azure Data Explorer.
+* Получите доступ к кластеру Kusto в браузере по адресу: `https://<your_cluster>.<region>.kusto.windows.net.`.
+   Замените &lt;your_cluster&gt; и &lt;region&gt; именем кластера Azure Data Explorer и регионом развертывания.
 
 ### <a name="using-chrome-and-kustoexplorer"></a>Использование Chrome и Kusto.Explorer
 
@@ -63,7 +65,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ### <a name="home-tab"></a>Вкладка «Главная»
 
-:::image type="content" source="images/kusto-explorer/home-tab.png" alt-text="Вкладка Home (Главная) обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/home-tab.png" alt-text="Начальный экран обозревателя Kusto":::
 
 На вкладке Home (Главная) отображаются наиболее часто используемые функции, разделенные на разделы.
 
@@ -75,7 +77,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ### <a name="query-section"></a>Раздел Query (Запрос)
 
-:::image type="content" source="images/kusto-explorer/home-query-menu.png" alt-text="Меню запросов обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/home-query-menu.png" alt-text="Начальный экран обозревателя Kusto":::
 
 |Меню|    Поведение|
 |----|----------|
@@ -84,7 +86,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ### <a name="share-section"></a>Раздел Share (Общий доступ)
 
-:::image type="content" source="images/kusto-explorer/home-share-menu.png" alt-text="Меню общего доступа обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/home-share-menu.png" alt-text="Начальный экран обозревателя Kusto":::
 
 |Меню|    Поведение|
 |----|----------|
@@ -94,7 +96,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ### <a name="visualizations-section"></a>Раздел Visualizations (Визуализации)
 
-:::image type="content" source="images/kusto-explorer/home-visualizations-menu.png" alt-text="Меню визуализаций обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/home-visualizations-menu.png" alt-text="Начальный экран обозревателя Kusto":::
 
 |Меню         | Поведение|
 |-------------|---------|
@@ -118,7 +120,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ### <a name="view-section"></a>Раздел View (Представление)
 
-:::image type="content" source="images/kusto-explorer/home-view-menu.png" alt-text="Раздел просмотра обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/home-view-menu.png" alt-text="Начальный экран обозревателя Kusto":::
 
 |Меню           | Поведение|
 |---------------|---------|
@@ -136,7 +138,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ## <a name="file-tab"></a>Вкладка "Файл"
 
-:::image type="content" source="images/kusto-explorer/file-tab.png" alt-text="Вкладка файла обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/file-tab.png" alt-text="Начальный экран обозревателя Kusto":::
 
 |Меню| Поведение|
 |---------------|---------|
@@ -164,7 +166,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ## <a name="connections-tab"></a>Вкладка "Подключения"
 
-:::image type="content" source="images/kusto-explorer/connections-tab.png" alt-text="Вкладка подключения обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/connections-tab.png" alt-text="Начальный экран обозревателя Kusto":::
 
 |Меню|Поведение|
 |----|----------|
@@ -189,7 +191,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ## <a name="view-tab"></a>Вкладка «Вид»
 
-:::image type="content" source="images/kusto-explorer/view-tab.png" alt-text="Вкладка представления обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/view-tab.png" alt-text="Начальный экран обозревателя Kusto":::
 
 |Меню|Поведение|
 |----|----------|
@@ -218,7 +220,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ## <a name="tools-tab"></a>Вкладка "Сервис"
 
-:::image type="content" source="images/kusto-explorer/tools-tab.png" alt-text="Вкладка Tools (Средства) обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/tools-tab.png" alt-text="Начальный экран обозревателя Kusto":::
 
 |Меню|Поведение|
 |----|----------|
@@ -238,7 +240,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ## <a name="monitoring-tab"></a>Вкладка Monitoring (Мониторинг)
 
-:::image type="content" source="images/kusto-explorer/monitoring-tab.png" alt-text="Вкладка мониторинга обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/monitoring-tab.png" alt-text="Начальный экран обозревателя Kusto":::
 
 |Меню             | Поведение|
 |-----------------|---------| 
@@ -249,7 +251,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ## <a name="management-tab"></a>Вкладка Management "Управление"
 
-:::image type="content" source="images/kusto-explorer/management-tab.png" alt-text="Вкладка управления обозревателем Kusto":::
+:::image type="content" source="images/kusto-explorer/management-tab.png" alt-text="Начальный экран обозревателя Kusto":::
 
 |Меню             | Поведение|
 |-----------------|---------|
@@ -261,7 +263,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ## <a name="help-tab"></a>Вкладка Help (Справка)
 
-:::image type="content" source="images/kusto-explorer/help-tab.png" alt-text="Вкладка справки обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/help-tab.png" alt-text="Начальный экран обозревателя Kusto":::
 
 |Меню             | Поведение|
 |-----------------|---------|
@@ -274,7 +276,7 @@ Kusto.Explorer — это функционально насыщенное кл�
 
 ## <a name="connections-panel"></a>Панель Connections (Подключения)
 
-:::image type="content" source="images/kusto-explorer/connections-panel.png" alt-text="Панель подключений обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/connections-panel.png" alt-text="Начальный экран обозревателя Kusto":::
 
 На панели Connections (Подключения) отображаются все настроенные подключения к кластеру. Отображаются все базы данных, таблицы и атрибуты (столбцы), хранимые в кластере. Выберите элементы (которые задают неявный контекст для поиска или запроса на главной панели) или дважды щелкните элементы, чтобы скопировать имя на панель поиска или запроса.
 
@@ -309,7 +311,7 @@ Data Source=https://CLUSTER_NAME.kusto.windows.net;Initial Catalog=DATABASE_NAME
 >[!NOTE]
 > Доменное имя пользователя не обязательно совпадает с именем клиента, в котором размещен кластер.
 
-:::image type="content" source="images/kusto-explorer/advanced-connection-string.png" alt-text="Строка дополнительного подключения обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/advanced-connection-string.png" alt-text="Начальный экран обозревателя Kusto":::
 
 ## <a name="keyboard-shortcuts"></a>Сочетания клавиш
 
@@ -321,7 +323,7 @@ Kusto.Explorer пытается интерпретировать уровень 
 
 Чтобы изменить выходную цветовую схему или отключить это поведение, в меню **Tools** (Средства) выберите **Options** > **Results Viewer** > **Verbosity color scheme** (Параметры > Средство просмотра результатов > Детализированная цветовая схема).
 
-:::image type="content" source="images/kusto-explorer/ke-color-scheme.png" alt-text="Изменение цветовой схемы обозревателя Kusto":::
+:::image type="content" source="images/kusto-explorer/ke-color-scheme.png" alt-text="Начальный экран обозревателя Kusto":::
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
