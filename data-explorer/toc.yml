@@ -345,16 +345,14 @@
           items:
             - name: Анализ данных в Jupyter Notebook и Kqlmagic
               href: kqlmagic.md
-            - name: Анализ данных в Записных книжках Azure
-              href: azure-notebooks.md
             - name: Azure Data Studio
               items:
                 - name: Обзор расширений Kusto
                   displayName: Azure Data Studio
-                  href: 'https://docs.microsoft.com/sql/azure-data-studio/extensions/kusto-extension?toc=/azure/data-explorer/toc.json&bc=/azure/data-explorer/breadcrumb/toc.json'
+                  href: 'https://docs.microsoft.com/sql/azure-data-studio/extensions/kusto-extension?context=/azure/data-explorer/context/context'
                 - name: Использование расширений Kusto
                   displayName: Azure Data Studio
-                  href: 'https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?toc=/azure/data-explorer/toc.json&bc=/azure/data-explorer/breadcrumb/toc.json'
+                  href: 'https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=/azure/data-explorer/context/context'
                 - name: Использование Kqlmagic
                   displayName: Azure Data Studio
                   href: 'https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kqlmagic?context=/azure/data-explorer/context/context'
@@ -1753,12 +1751,16 @@
       items:
         - name: Список функций
           href: kusto/functions-library/functions-library.md
+        - name: kmeans_fl()
+          href: kusto/functions-library/kmeans-fl.md
         - name: predict_fl()
           href: kusto/functions-library/predict-fl.md
         - name: predict_onnx_fl()
           href: kusto/functions-library/predict-onnx-fl.md
         - name: quantize_fl()
           href: kusto/functions-library/quantize-fl.md
+        - name: series_dot_product_fl()
+          href: kusto/functions-library/series-dot-product-fl.md
         - name: series_fit_poly_fl()
           href: kusto/functions-library/series-fit-poly-fl.md
         - name: series_moving_avg_fl()
