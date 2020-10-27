@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: f14601f1893542bac22612b383b558df3b2999bb
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 05848ff0a76ed7a102e54ec08412c4bf16e77891
+ms.sourcegitcommit: 4f24d68f1ae4903a2885985aa45fd15948867175
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343221"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558212"
 ---
-# <a name="create-a-connection-to-event-hub"></a>Создание подключения к концентратору событий
+# <a name="event-hub-data-connection"></a>Подключение к данным концентратора событий
 
 [Концентраторы событий Azure](/azure/event-hubs/event-hubs-about) — это платформа потоковой передачи больших данных и служба приема событий. Azure обозреватель данных предлагает непрерывное получение из управляемых клиентом концентраторов событий.
 
-Конвейер приема концентратора событий передает события в Azure обозреватель данных в несколько шагов. Сначала создайте концентратор событий в портал Azure. Затем вы создадите целевую таблицу в Azure обозреватель данных, в которой [данные в определенном формате](#data-format)будут приняты с использованием заданных [свойств приема](#set-ingestion-properties). Подключение к концентратору событий должно быть осведомлено о [маршрутизации событий](#set-events-routing). Данные внедряются с выбранными свойствами в соответствии с [сопоставлением свойств системы событий](#set-event-system-properties-mapping). [Создайте подключение](#create-event-hub-connection) к концентратору событий, чтобы [создать концентратор событий](#create-an-event-hub) и [Отправить события](#send-events). Этим процессом можно управлять с помощью [портал Azure](ingest-data-event-hub.md), программно с помощью [C#](data-connection-event-hub-csharp.md) или [Python](data-connection-event-hub-python.md)или с помощью [шаблона Azure Resource Manager](data-connection-event-hub-resource-manager.md).
+Конвейер приема концентратора событий передает события в Azure обозреватель данных в несколько шагов. Сначала создайте концентратор событий в портал Azure. Затем вы создадите целевую таблицу в Azure обозреватель данных, в которой [данные в определенном формате](#data-format)будут приняты с использованием заданных [свойств приема](#ingestion-properties). Подключение к концентратору событий должно быть осведомлено о [маршрутизации событий](#events-routing). Данные внедряются с выбранными свойствами в соответствии с [сопоставлением свойств системы событий](#event-system-properties-mapping). [Создайте подключение](#event-hub-connection) к концентратору событий, чтобы [создать концентратор событий](#create-an-event-hub) и [Отправить события](#send-events). Этим процессом можно управлять с помощью [портал Azure](ingest-data-event-hub.md), программно с помощью [C#](data-connection-event-hub-csharp.md) или [Python](data-connection-event-hub-python.md)или с помощью [шаблона Azure Resource Manager](data-connection-event-hub-resource-manager.md).
 
 Общие сведения о приеме данных в Azure обозреватель данных см. в статье [Обзор приема данных в azure обозреватель данных](ingest-data-overview.md).
 
@@ -30,11 +30,11 @@ ms.locfileid: "92343221"
     > [!NOTE]
     > Концентратор событий не поддерживает формат RAW.
 
-* Данные можно сжимать с помощью `GZip` алгоритма сжатия. Укажите `Compression` в [свойствах приема](#set-ingestion-properties).
+* Данные можно сжимать с помощью `GZip` алгоритма сжатия. Укажите `Compression` в [свойствах приема](#ingestion-properties).
    * Сжатие данных не поддерживается для сжатых форматов (Avro, Parquet, ORC).
-   * Пользовательские кодировки и встроенные [Свойства системы](#set-event-system-properties-mapping) не поддерживаются в сжатых данных.
+   * Пользовательские кодировки и встроенные [Свойства системы](#event-system-properties-mapping) не поддерживаются в сжатых данных.
   
-## <a name="set-ingestion-properties"></a>Задание свойств приема
+## <a name="ingestion-properties"></a>Свойства приема
 
 Свойства приема указывают на процесс приема, где следует маршрутизировать данные и как обработать их. [Свойства приема](ingestion-properties.md) событий можно указать с помощью свойства [EVENTDATA. Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
 
@@ -50,7 +50,10 @@ ms.locfileid: "92343221"
 <!--| Database | Name of the existing target database.|-->
 <!--| Tags | String representing [tags](/azure/kusto/management/extents-overview#extent-tagging) that will be attached to resulting extent. |-->
 
-## <a name="set-events-routing"></a>Настройка маршрутизации событий
+> [!NOTE]
+> Принимаются только события, помещенные в очередь после создания подключения к данным.
+
+## <a name="events-routing"></a>Маршрутизация событий
 
 При настройке подключения концентратора событий к кластеру Azure обозреватель данных необходимо указать свойства целевой таблицы (имя таблицы, формат данных, сжатие и сопоставление). Маршрутизация по умолчанию для данных также называется `static routing` .
 Можно также указать свойства целевой таблицы для каждого события с помощью свойств события. Соединение будет динамически маршрутизировать данные, как указано в [свойствах EVENTDATA. Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties), переопределяя статические свойства для этого события.
@@ -79,7 +82,7 @@ eventHubClient.Send(eventData);
 eventHubClient.Close();
 ```
 
-## <a name="set-event-system-properties-mapping"></a>Настройка сопоставления свойств системы событий
+## <a name="event-system-properties-mapping"></a>Сопоставление свойств системы событий
 
 Свойства системы хранят свойства, заданные службой концентраторов событий в момент постановки события в очередь. При подключении к концентратору событий Azure обозреватель данных выбранные свойства будут внедрены в целевую таблицу данных в таблице.
 
@@ -104,7 +107,7 @@ eventHubClient.Close();
 
 [!INCLUDE [data-explorer-container-system-properties](includes/data-explorer-container-system-properties.md)]
 
-## <a name="create-event-hub-connection"></a>Создание подключения концентратора событий
+## <a name="event-hub-connection"></a>Подключение к концентратору событий
 
 > [!Note]
 > Для лучшей производительности создайте все ресурсы в том же регионе, что и кластер Azure обозреватель данных.
@@ -124,7 +127,7 @@ eventHubClient.Close();
 
 Пример создания демонстрационных данных см. в статье прием [данных из концентратора событий в Azure обозреватель данных](ingest-data-event-hub.md#generate-sample-data)
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Прием данных из концентратора событий в Azure Data Explorer](ingest-data-event-hub.md)
 * [Создание подключения к данным концентратора событий для Azure обозреватель данных с помощью C #](data-connection-event-hub-csharp.md)

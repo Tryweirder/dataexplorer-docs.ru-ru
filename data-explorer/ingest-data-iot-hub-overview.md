@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 70e54259a6b7fa3fdeb2ef9843cc5d2df04229b9
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 1ea8960b8d58ed9e549e042f8a4e64164952f32d
+ms.sourcegitcommit: 4f24d68f1ae4903a2885985aa45fd15948867175
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343187"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558195"
 ---
-# <a name="create-a-connection-to-iot-hub"></a>Создание подключения к Центру Интернета вещей
+# <a name="iot-hub-data-connection"></a>Подключение к данным центра Интернета вещей
 
 [Центр Интернета вещей Azure](/azure/iot-hub/about-iot-hub) — это управляемая служба, размещенная в облаке, которая выступает в качестве центрального центра сообщений для двунаправленного обмена данными между приложением IOT и управляемыми ими устройствами. Azure обозреватель данных обеспечивает непрерывное получение из управляемых клиентами центров Интернета вещей с помощью [встроенной конечной точки, совместимой с концентратором событий](/azure/iot-hub/iot-hub-devguide-messages-d2c#routing-endpoints).
 
-Конвейер приема Интернета вещей проходит через несколько шагов. Сначала вы создадите центр Интернета вещей и зарегистрируете в нем устройство. Затем вы создадите целевую таблицу в Azure обозреватель данных, в которой [данные в определенном формате](#data-format)будут приняты с использованием заданных [свойств приема](#set-ingestion-properties). Подключению центра Интернета вещей необходимо сообщить о [событиях маршрутизации](#set-events-routing) для подключения к таблице Azure обозреватель данных. Данные внедряются с выбранными свойствами в соответствии с [сопоставлением свойств системы событий](#set-event-system-properties-mapping). Этим процессом можно управлять с помощью [портал Azure](ingest-data-iot-hub.md), программно с помощью [C#](data-connection-iot-hub-csharp.md) или [Python](data-connection-iot-hub-python.md)или с помощью [шаблона Azure Resource Manager](data-connection-iot-hub-resource-manager.md).
+Конвейер приема Интернета вещей проходит через несколько шагов. Сначала вы создадите центр Интернета вещей и зарегистрируете в нем устройство. Затем вы создадите целевую таблицу в Azure обозреватель данных, в которой [данные в определенном формате](#data-format)будут приняты с использованием заданных [свойств приема](#ingestion-properties). Подключению центра Интернета вещей необходимо сообщить о [событиях маршрутизации](#events-routing) для подключения к таблице Azure обозреватель данных. Данные внедряются с выбранными свойствами в соответствии с [сопоставлением свойств системы событий](#event-system-properties-mapping). Этим процессом можно управлять с помощью [портал Azure](ingest-data-iot-hub.md), программно с помощью [C#](data-connection-iot-hub-csharp.md) или [Python](data-connection-iot-hub-python.md)или с помощью [шаблона Azure Resource Manager](data-connection-iot-hub-resource-manager.md).
 
 Общие сведения о приеме данных в Azure обозреватель данных см. в статье [Обзор приема данных в azure обозреватель данных](ingest-data-overview.md).
 
@@ -32,7 +32,7 @@ ms.locfileid: "92343187"
 * См. раздел [Поддерживаемые сжатия](ingestion-supported-formats.md#supported-data-compression-formats).
   * Исходный размер несжатых данных должен быть частью метаданных большого двоичного объекта, иначе Azure обозреватель данных выполнит оценку. Ограничение размера несжатого приема на файл составляет 4 ГБ.
 
-## <a name="set-ingestion-properties"></a>Задание свойств приема
+## <a name="ingestion-properties"></a>Свойства приема
 
 Свойства приема указывают процессу приема, куда перенаправляются данные и как их обрабатывать. [Свойства приема](ingestion-properties.md) событий можно указать с помощью [свойства EventData. Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
 
@@ -43,7 +43,10 @@ ms.locfileid: "92343187"
 | инжестионмаппингреференце | Имя существующего [сопоставления приема](kusto/management/create-ingestion-mapping-command.md) , которое будет использоваться. Переопределяет `Column mapping` набор на `Data Connection` панели.|
 | Кодирование |  Кодировка данных, значение по умолчанию — UTF8. Может быть любой из [поддерживаемых кодировок .NET](/dotnet/api/system.text.encoding?view=netframework-4.8#remarks). |
 
-## <a name="set-events-routing"></a>Настройка маршрутизации событий
+> [!NOTE]
+> Принимаются только события, помещенные в очередь после создания подключения к данным.
+
+## <a name="events-routing"></a>Маршрутизация событий
 
 При настройке подключения центра Интернета вещей к кластеру Azure обозреватель данных необходимо указать свойства целевой таблицы (имя таблицы, формат данных и сопоставление). Этот параметр является маршрутизацией по умолчанию для данных, которая также называется статической маршрутизацией.
 Можно также указать свойства целевой таблицы для каждого события с помощью свойств события. Соединение будет динамически маршрутизировать данные, как указано в [свойствах EVENTDATA. Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties), переопределяя статические свойства для этого события.
@@ -51,7 +54,7 @@ ms.locfileid: "92343187"
 > [!Note]
 > Если в **данные включены сведения о маршрутизации** , необходимо предоставить необходимые сведения о маршрутизации как часть свойств событий.
 
-## <a name="set-event-system-properties-mapping"></a>Настройка сопоставления свойств системы событий
+## <a name="event-system-properties-mapping"></a>Сопоставление свойств системы событий
 
 Системные свойства — это коллекция, используемая для хранения свойств, заданных службой центра Интернета вещей, на момент получения события. Подключение центра Интернета вещей Azure обозреватель данных внедряет выбранные свойства в целевую таблицу данных в таблице.
 
@@ -80,7 +83,7 @@ ms.locfileid: "92343187"
 
 [!INCLUDE [data-explorer-container-system-properties](includes/data-explorer-container-system-properties.md)]
 
-## <a name="create-iot-hub-connection"></a>Создание подключения центра Интернета вещей
+## <a name="iot-hub-connection"></a>Подключение к Центру Интернета вещей
 
 > [!Note]
 > Для лучшей производительности создайте все ресурсы в том же регионе, что и кластер Azure обозреватель данных.
@@ -97,7 +100,7 @@ ms.locfileid: "92343187"
 
 См. [Пример проекта](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Quickstarts/simulated-device) , который имитирует устройство и создает данные.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Существует несколько методов приема данных в центре Интернета вещей. Пошаговые руководства для каждого метода см. по следующим ссылкам.
 
