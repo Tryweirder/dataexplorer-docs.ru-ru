@@ -313,6 +313,8 @@
           href: using-metrics.md
         - name: Использование Работоспособности ресурсов для мониторинга работоспособности кластера
           href: monitor-with-resource-health.md
+        - name: Создание приложения Power Apps для запроса данных в Azure Data Explorer
+          href: power-apps-connector.md
     - name: Совместное использование данных
       items:
         - name: Использование Azure Data Share
@@ -338,7 +340,7 @@
         - name: Соединитель Apache Spark
           href: spark-connector.md
         - name: Подключение из Azure Synapse Apache Spark
-          href: 'https://docs.microsoft.com/azure/synapse-analytics/quickstart-connect-azure-data-explorer?toc=/azure/data-explorer/toc.json&bc=/azure/data-explorer/breadcrumb/toc.json'
+          href: /azure/synapse-analytics/quickstart-connect-azure-data-explorer?toc=/azure/data-explorer/toc.json&bc=/azure/data-explorer/breadcrumb/toc.json
         - name: Подключение из Azure Databricks
           href: connect-from-databricks.md
         - name: Записные книжки
@@ -349,13 +351,13 @@
               items:
                 - name: Обзор расширений Kusto
                   displayName: Azure Data Studio
-                  href: 'https://docs.microsoft.com/sql/azure-data-studio/extensions/kusto-extension?context=/azure/data-explorer/context/context'
+                  href: /sql/azure-data-studio/extensions/kusto-extension?context=/azure/data-explorer/context/context
                 - name: Использование расширений Kusto
                   displayName: Azure Data Studio
-                  href: 'https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=/azure/data-explorer/context/context'
+                  href: /sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=/azure/data-explorer/context/context
                 - name: Использование Kqlmagic
                   displayName: Azure Data Studio
-                  href: 'https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kqlmagic?context=/azure/data-explorer/context/context'
+                  href: /sql/azure-data-studio/notebooks/notebooks-kqlmagic?context=%252fazure%252fdata-explorer%252fcontext%252fcontext
         - name: Azure Pipelines
           href: devops.md
         - name: Синхронизация Kusto
@@ -550,6 +552,8 @@
               href: ./kusto/query/projectoperator.md
             - name: Оператор project-away
               href: ./kusto/query/projectawayoperator.md
+            - name: Оператор project-keep
+              href: ./kusto/query/project-keep-operator.md
             - name: Оператор project-rename
               href: ./kusto/query/projectrenameoperator.md
             - name: Оператор project-reorder
@@ -1777,8 +1781,8 @@
           href: 'https://stackoverflow.com/questions/tagged/azure-data-explorer'
         - name: Техническое сообщество Майкрософт
           href: 'https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto'
-        - name: Форум MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto'
+        - name: 'Майкрософт: вопросы и ответы'
+          href: /answers/topics/azure-data-explorer.html
     - name: Отзыв о продукте
       href: 'https://aka.ms/adefeedback'
     - name: Цены и выставление счетов
