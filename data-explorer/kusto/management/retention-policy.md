@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: ebbd9aa5544d97ef1e980bcb3a53f74dbde66547
-ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
+ms.openlocfilehash: 79cac49a553a2b906947b4c85948b67718641587
+ms.sourcegitcommit: ef3d919dee27c030842abf7c45c9e82e6e8350ee
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85967542"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92630081"
 ---
 # <a name="retention-policy-command"></a>команда политики хранения
 
@@ -22,13 +22,13 @@ ms.locfileid: "85967542"
 ## <a name="show-retention-policy"></a>Отображение политики хранения
 
 ```kusto
-.show <entity_type> <database_or_table> policy retention
+.show <entity_type> <database_or_table_or_materialized_view> policy retention
 
 .show <entity_type> *  policy retention
 ```
 
-* `entity_type`: таблица или база данных
-* `database_or_table`: `database_name` или `database_name.table_name` или `table_name` (в контексте базы данных)
+* `entity_type` : таблица, материализованный представление или база данных
+* `database_or_table_or_materialized_view`: `database_name` или `database_name.table_name` или `table_name` (в контексте базы данных) или `materialized_view_name`
 
 **Пример**
 
@@ -45,11 +45,11 @@ ms.locfileid: "85967542"
 Удаление политики хранения данных таблицы приведет к тому, что эта таблица будет наследовать политику хранения на уровне базы данных.
 
 ```kusto
-.delete <entity_type> <database_or_table> policy retention
+.delete <entity_type> <database_or_table_or_materialized_view> policy retention
 ```
 
-* `entity_type`: таблица или база данных
-* `database_or_table`: `database_name` или `database_name.table_name` или `table_name` (в контексте базы данных)
+* `entity_type` : таблица, материализованный представление или база данных
+* `database_or_table_or_materialized_view`: `database_name` или `database_name.table_name` или `table_name` (в контексте базы данных) или `materialized_view_name`
 
 **Пример**
 
@@ -63,18 +63,18 @@ ms.locfileid: "85967542"
 ## <a name="alter-retention-policy"></a>Изменение политики хранения
 
 ```kusto
-.alter <entity_type> <database_or_table> policy retention <retention_policy>
+.alter <entity_type> <database_or_table_or_materialized_view> policy retention <retention_policy>
 
 .alter tables (<table_name> [, ...]) policy retention <retention_policy>
 
-.alter-merge <entity_type> <database_or_table> policy retention <retention_policy>
+.alter-merge <entity_type> <database_or_table_or_materialized_view> policy retention <retention_policy>
 
-.alter-merge <entity_type> <database_or_table_name> policy retention [softdelete = <timespan>] [recoverability = disabled|enabled]
+.alter-merge <entity_type> <database_or_table_or_materialized_view> policy retention [softdelete = <timespan>] [recoverability = disabled|enabled]
 ```
 
-* `entity_type`: таблица или база данных
-* `database_or_table`: `database_name` или `database_name.table_name` или `table_name` (в контексте базы данных)
-* `table_name`: имя таблицы в контексте базы данных.  Подстановочный знак ( `*` допускается здесь).
+* `entity_type` : таблица или база данных или материализованный режим
+* `database_or_table_or_materialized_view`: `database_name` или `database_name.table_name` или `table_name` (в контексте базы данных) или `materialized_view_name`
+* `table_name` : имя таблицы в контексте базы данных.  Подстановочный знак ( `*` допускается здесь).
 * `retention_policy` :
 
 ```kusto
@@ -95,12 +95,16 @@ ms.locfileid: "85967542"
 
 ```kusto
 .alter-merge table Table1 policy retention softdelete = 10d recoverability = disabled
+
+.alter-merge materialized-view View1 policy retention softdelete = 10d recoverability = disabled
 ```
 
 Задает политику хранения с периодом обратимого удаления в 10 дней и возможностью восстановления данных.
 
 ```kusto
 .alter table Table1 policy retention "{\"SoftDeletePeriod\": \"10.00:00:00\", \"Recoverability\": \"Enabled\"}"
+
+.alter materialized-view View1 policy retention "{\"SoftDeletePeriod\": \"10.00:00:00\", \"Recoverability\": \"Enabled\"}"
 ```
 
 Задает ту же политику хранения, которая указана выше, но на этот раз для нескольких таблиц (Table1, Table2 и Table3):

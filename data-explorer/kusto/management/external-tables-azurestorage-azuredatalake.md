@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 0532219b8efc1cab7508d1838882b6fa48f5048f
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 1d0625c949fe563084caeec936e3433c9ee70f5e
+ms.sourcegitcommit: ef3d919dee27c030842abf7c45c9e82e6e8350ee
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343272"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92630115"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
 
@@ -28,7 +28,7 @@ ms.locfileid: "92343272"
 ( `.create`  |  `.alter`  |  `.create-or-alter` ) `external` `table` *[TableName](#table-name)* `(` *[Схема](#schema)* TableName`)`  
 `kind` `=` (`blob` | `adl`)  
 [ `partition` `by` `(` *[Секции](#partitions)* `)` [ `pathformat` `=` `(` *[пасформат](#path-format)* `)` ]]  
-`dataformat``=` * [Формат](#format)*  
+`dataformat``=` *[Формат](#format)*  
 `(`*[StorageConnectionString](#connection-string)* [ `,` ...]`)`   
 [ `with` `(` *[PropertyName](#properties)* `=` *[value](#properties)* `,` ... `)` ]  
 
@@ -74,7 +74,7 @@ ms.locfileid: "92343272"
 
   *PartitionName* `:` `string` `=` *ColumnName*
 
-* Секция, основанная на [хэш-](../query/hashfunction.md)значении столбца строки, *номер*остатка от деления.
+* Секция, основанная на [хэш-](../query/hashfunction.md)значении столбца строки, *номер* остатка от деления.
 
   *PartitionName* `:` `long` `=` `hash` `(` *ColumnName* `,` *Номер* ColumnName`)`
 
@@ -90,9 +90,9 @@ ms.locfileid: "92343272"
 
 Формат пути к файлу внешних URI данных, который можно указать в дополнение к секциям. Формат пути — это последовательность элементов раздела и разделителей текста:
 
-&nbsp;&nbsp;[*Стрингсепаратор*] *Partition* [*Стрингсепаратор*] [*Секция* [*стрингсепаратор*]...]  
+&nbsp;&nbsp;[ *Стрингсепаратор* ] *Partition* [ *Стрингсепаратор* ] [ *Секция* [ *стрингсепаратор* ]...]  
 
-где *Partition* ссылается на секцию, объявленную в `partition` `by` предложении, а *стрингсепаратор* — любой текст, заключенный в кавычки. Элементы смежных секций должны быть заданы отдельно с помощью *стрингсепаратор*.
+где *Partition* ссылается на секцию, объявленную в `partition` `by` предложении, а *стрингсепаратор* — любой текст, заключенный в кавычки. Элементы смежных секций должны быть заданы отдельно с помощью *стрингсепаратор* .
 
 Исходный префикс пути к файлу может быть создан с помощью элементов секции, отображаемых в виде строк и разделенных соответствующими разделителями текста. Чтобы указать формат, используемый для визуализации значения секции DateTime, можно использовать следующий макрос:
 
@@ -248,7 +248,7 @@ dataformat=parquet
 
 При запросе к внешней таблице механизм запросов повышает производительность, отфильтровывая ненужные файлы внешнего хранилища. Ниже описан процесс выполнения итерации по файлам и принятия решения о необходимости обработки файла.
 
-1. Создайте шаблон URI, представляющий место, где находятся файлы. Изначально шаблон URI равен строке подключения, предоставленной как часть определения внешней таблицы. Если определенные секции определены, они подготавливаются к просмотру с помощью *[пасформат](#path-format)*, а затем добавляются к шаблону URI.
+1. Создайте шаблон URI, представляющий место, где находятся файлы. Изначально шаблон URI равен строке подключения, предоставленной как часть определения внешней таблицы. Если определенные секции определены, они подготавливаются к просмотру с помощью *[пасформат](#path-format)* , а затем добавляются к шаблону URI.
 
 2. Для всех файлов, найденных в созданных шаблонах URI, проверьте следующее:
 
@@ -270,7 +270,7 @@ dataformat=parquet
 
 **Синтаксис** 
 
-`.show``external` `table` *TableName* `artifacts` [ `limit` *MaxResults*]
+`.show``external` `table` *TableName* `artifacts` [ `limit` *MaxResults* ]
 
 где *MaxResults* — необязательный параметр, который можно задать для ограничения количества результатов.
 
@@ -321,7 +321,7 @@ dataformat=parquet
 
 **Пример выходных данных**
 
-| Имя     | Вид | Сопоставление                                                           |
+| Имя     | Kind | Сопоставление                                                           |
 |----------|------|-------------------------------------------------------------------|
 | mapping1 | JSON | [{"ColumnName": "RowNumber", "Properties": {"путь": "$. RowNumber"}}, {"ColumnName": "ROWGUID", "Properties": {"путь": "$. ROWGUID"}}] |
 
@@ -339,7 +339,7 @@ dataformat=parquet
 
 **Пример выходных данных**
 
-| Имя     | Вид | Сопоставление                                                                |
+| Имя     | Kind | Сопоставление                                                                |
 |----------|------|------------------------------------------------------------------------|
 | mapping1 | JSON | [{"ColumnName": "RowNumber", "Properties": {"путь": "$. RowNumber"}}, {"ColumnName": "ROWGUID", "Properties": {"путь": "$. ROWGUID"}}] |
 
@@ -361,7 +361,7 @@ dataformat=parquet
 
 **Пример выходных данных**
 
-| Имя     | Вид | Сопоставление                                                                         |
+| Имя     | Kind | Сопоставление                                                                         |
 |----------|------|---------------------------------------------------------------------------------|
 | mapping1 | JSON | [{"ColumnName": "RowNumber", "Properties": {"путь": "$. RowNumber"}}, {"ColumnName": "ROWGUID", "Properties": {"путь": "$. ROWGUID"}}] |
 
@@ -376,7 +376,8 @@ dataformat=parquet
 ```kusto
 .drop external table MyExternalTable json mapping "Mapping1" 
 ```
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* [Команды для общего управления внешней таблицей](./external-table-commands.md)
-* [Создание и изменение внешних таблиц SQL](external-sql-tables.md)
+* [Запрос внешних таблиц](../../data-lake-query-data.md).
+* [Экспорт данных во внешнюю таблицу](data-export/export-data-to-an-external-table.md).
+* [Непрерывный экспорт данных во внешнюю таблицу](data-export/continuous-data-export.md).
