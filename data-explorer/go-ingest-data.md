@@ -7,12 +7,12 @@ ms.reviewer: abhishgu
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/10/2020
-ms.openlocfilehash: c133c3cf1185e7ffdb959ed6ea127af7502820c4
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 5fc25c64eabfb9fa27b66b47d0443178e19b4e57
+ms.sourcegitcommit: a7458819e42815a0376182c610aba48519501d92
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342575"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92902502"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-go-sdk"></a>Прием данных с помощью пакета SDK для Azure обозреватель данных Go 
 
@@ -21,6 +21,7 @@ ms.locfileid: "92342575"
 > * [Python](python-ingest-data.md)
 > * [Node](node-ingest-data.md)
 > * [GO](go-ingest-data.md)
+> * [Java](java-ingest-data.md)
 
 Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Она предоставляет [клиентскую библиотеку пакета SDK для Go](kusto/api/golang/kusto-golang-client-library.md) для взаимодействия со службой Обозреватель данных Azure. [Пакет SDK для Go](https://github.com/Azure/azure-kusto-go) можно использовать для приема, управления и запроса данных в кластерах Azure обозреватель данных. 
 
@@ -146,10 +147,10 @@ func ingestFile(kc *kusto.Client, blobStoreAccountName, blobStoreContainer, blob
 
     При запуске примера кода выполняются следующие действия.
     
-    1. **DROP TABLE**: `StormEvents` таблица удалена (если она существует).
-    1. **Создание таблицы**: `StormEvents` таблица создана.
-    1. **Создание сопоставления**: `StormEvents_CSV_Mapping` сопоставление создано.
-    1. Прием **файлов**: CSV-файл (в хранилище BLOB-объектов Azure) помещается в очередь для приема.
+    1. **DROP TABLE** : `StormEvents` таблица удалена (если она существует).
+    1. **Создание таблицы** : `StormEvents` таблица создана.
+    1. **Создание сопоставления** : `StormEvents_CSV_Mapping` сопоставление создано.
+    1. Прием **файлов** : CSV-файл (в хранилище BLOB-объектов Azure) помещается в очередь для приема.
 
 1. Чтобы создать субъект-службу для проверки подлинности, используйте Azure CLI с командой [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) . Укажите в качестве сведений о субъекте-службе конечную точку кластера и имя базы данных в виде переменных среды, которые будут использоваться программой:
 

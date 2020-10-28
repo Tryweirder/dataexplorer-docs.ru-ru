@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 06/03/2019
-ms.openlocfilehash: bb15bf9393ff6ae4a06fa97ade4070dfcd5e2ef8
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 9d2e50e54d4a33b0648760fc4df395c9686904e9
+ms.sourcegitcommit: a7458819e42815a0376182c610aba48519501d92
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343150"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92902571"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Создание кластера и базы данных Azure Data Explorer с помощью PowerShell
 
@@ -22,6 +22,7 @@ ms.locfileid: "92343150"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
+> * [GO](create-cluster-database-go.md)
 > * [Шаблон ARM](create-cluster-database-resource-manager.md)  
 
 Azure Data Explorer — это быстрая и полностью управляемая служба для аналитики большого объема потоковых данных в реальном времени, поступающих из приложений, а также с веб-сайтов, устройств Интернета вещей и т. д. Чтобы использовать обозреватель данных Azure, сначала нужно создать кластер и одну или несколько баз данных в этом кластере. Затем вы должны принять (загрузить) данные в базы данных, чтобы к ним можно было выполнять запросы. В этой статье вы создадите кластер и базу данных с помощью PowerShell. Вы можете выполнять командлеты и скрипты PowerShell в системе Windows и Linux или в [Azure Cloud Shell](/azure/cloud-shell/overview) с помощью [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) для создания и настройки кластеров и баз данных Azure Data Explorer.
@@ -114,7 +115,7 @@ Azure Data Explorer — это быстрая и полностью управ�
     Remove-AzKustoCluster -ResourceGroupName testrg -Name mykustocluster
     ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Дополнительные команды Az.Kusto](/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
 * [Прием данных с помощью пакета SDK .NET Standard для Azure Data Explorer (предварительная версия)](./net-sdk-ingest-data.md)

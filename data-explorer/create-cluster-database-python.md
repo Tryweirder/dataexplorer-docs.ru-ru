@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 06/03/2019
-ms.openlocfilehash: a274577da1fb93b78b56250c1176fb0e9bda8eed
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 91d0f6e399cc2b392e62a202cb5df16edb732f92
+ms.sourcegitcommit: a7458819e42815a0376182c610aba48519501d92
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343085"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92902536"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Создание кластера и базы данных Azure Data Explorer с использованием Python
 
@@ -22,6 +22,7 @@ ms.locfileid: "92343085"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
+> * [GO](create-cluster-database-go.md)
 > * [Шаблон ARM](create-cluster-database-resource-manager.md)
 
 В этой статье вы создадите кластер и базу данных Azure обозреватель данных с помощью Python. Azure Data Explorer — это быстрая и полностью управляемая служба для аналитики большого объема потоковых данных в реальном времени, поступающих из приложений, а также с веб-сайтов, устройств Интернета вещей и т. д. Чтобы использовать обозреватель данных Azure, сначала создайте кластер, а затем создайте одну или несколько баз данных в этом кластере. Затем принимаете или загружает данные в базу данных, чтобы можно было выполнять запросы к ней.
@@ -87,7 +88,7 @@ pip install azure-mgmt-kusto
    |---|---|---|
    | cluster_name | *mykustocluster* | Необходимое имя кластера.|
    | sku_name | *Standard_D13_v2* | Номер SKU, который будет использоваться для кластера. |
-   | Уровень | *Стандартный формат* | Уровень SKU. |
+   | Уровень | *Стандартный* | Уровень SKU. |
    | Емкость | *number* | Число экземпляров кластера. |
    | resource_group_name | *testrg* | Имя группы ресурсов, в которой будет создан кластер. |
 
@@ -171,6 +172,6 @@ pip install azure-mgmt-kusto
     cluster_operations.delete(resource_group_name = resource_group_name, cluster_name = cluster_name)
     ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Прием данных с помощью библиотеки Azure обозреватель данных Python](python-ingest-data.md)

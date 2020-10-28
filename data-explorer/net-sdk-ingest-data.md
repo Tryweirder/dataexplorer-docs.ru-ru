@@ -7,12 +7,12 @@ ms.reviewer: vladikb
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 56fd2d253cac80f097caa9206cd3b7c2a9d3c118
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 4ab82b593367a3b9fe466c2ddbd6fbee70ad628f
+ms.sourcegitcommit: a7458819e42815a0376182c610aba48519501d92
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343510"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92902622"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-sdk"></a>Прием данных с помощью пакета SDK Azure обозреватель данных .NET 
 
@@ -21,6 +21,7 @@ ms.locfileid: "92343510"
 > * [Python](python-ingest-data.md)
 > * [Node](node-ingest-data.md)
 > * [GO](go-ingest-data.md)
+> * [Java](java-ingest-data.md)
 
 Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Он предоставляет две клиентские библиотеки для .NET: [библиотеку приема](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest/) и [библиотеку данных](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data/). Дополнительные сведения о пакете SDK для .NET см. в разделе [о пакете SDK для .NET](./kusto/api/netfx/about-the-sdk.md).
 Они позволяют принимать (загружать) данные в кластер и запрашивать данные из кода. В этой статье вы сначала создадите таблицу и сопоставление данных в тестовом кластере. Затем вы поставите в очередь прием данных в кластер и проверите результаты.
@@ -41,13 +42,13 @@ Install-Package Microsoft.Azure.Kusto.Ingest
 
 ### <a name="authentication"></a>Аутентификация
 
-Чтобы проверить подлинность приложения, Azure обозреватель данных SDK использует идентификатор клиента AAD. Чтобы найти идентификатор клиента, используйте следующий URL-адрес, заменив домен на *имя_вашего_домена*.
+Чтобы проверить подлинность приложения, Azure обозреватель данных SDK использует идентификатор клиента AAD. Чтобы найти идентификатор клиента, используйте следующий URL-адрес, заменив домен на *имя_вашего_домена* .
 
 ```http
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```
 
-Например, если ваш домен называется *contoso.com*, URL-адрес будет следующим: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Щелкните этот URL-адрес, чтобы просмотреть результаты. Первая строка выглядит следующим образом: 
+Например, если ваш домен называется *contoso.com* , URL-адрес будет следующим: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Щелкните этот URL-адрес, чтобы просмотреть результаты. Первая строка выглядит следующим образом: 
 
 ```console
 "authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 06/03/2019
-ms.openlocfilehash: 7262b0391abf42dc71a04eec8be9958c46726edb
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 128f15910fee6008a6abd99fc3562518ae5625d6
+ms.sourcegitcommit: a7458819e42815a0376182c610aba48519501d92
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342558"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92902635"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Прием данных с помощью библиотеки Node в Azure Data Explorer
 
@@ -21,6 +21,7 @@ ms.locfileid: "92342558"
 > * [Python](python-ingest-data.md)
 > * [Node](node-ingest-data.md)
 > * [GO](go-ingest-data.md)
+> * [Java](java-ingest-data.md)
 
 Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Azure Data Explorer предоставляет две клиентские библиотеки для Node: [библиотеку приема](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) и [библиотеку данных](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Они позволяют принимать (загружать) данные в кластер и запрашивать данные из кода. В этой статье вы сначала создадите таблицу и сопоставление данных в тестовом кластере. Затем вы поставите в очередь прием данных в кластер и проверите результаты.
 
@@ -36,7 +37,7 @@ ms.locfileid: "92342558"
 
 ## <a name="install-the-data-and-ingest-libraries"></a>Установка библиотек данных и приема
 
-Установите *azure-kusto-ingest* и *azure-kusto-data*.
+Установите *azure-kusto-ingest* и *azure-kusto-data* .
 
 ```bash
 npm i azure-kusto-ingest azure-kusto-data
@@ -94,7 +95,7 @@ const blobPath = `https://${account}.blob.core.windows.net/${container}/${filePa
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Создание таблицы в тестовом кластере
 
-Создайте таблицу, которая соответствует схеме данных в файле `StormEvents.csv`. При выполнении код запускает следующее сообщение: *Чтобы войти, воспользуйтесь браузером и откройте страницу https://microsoft.com/devicelogin. Введите код XXXXXXXXX для прохождения проверки подлинности*. Следуйте инструкциям по входу, а затем выполните следующий блок кода. Для выполнения последующих блоков кода, устанавливающих соединение, необходимо повторно выполнить вход.
+Создайте таблицу, которая соответствует схеме данных в файле `StormEvents.csv`. При выполнении код запускает следующее сообщение: *Чтобы войти, воспользуйтесь браузером и откройте страницу https://microsoft.com/devicelogin. Введите код XXXXXXXXX для прохождения проверки подлинности* . Следуйте инструкциям по входу, а затем выполните следующий блок кода. Для выполнения последующих блоков кода, устанавливающих соединение, необходимо повторно выполнить вход.
 
 ```javascript
 const kustoClient = new KustoClient(kcsbData);

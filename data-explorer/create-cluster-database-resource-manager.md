@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 09/26/2019
-ms.openlocfilehash: 46ccf006c6f2cf167953c64bcaa2f3de0fbaf4b6
-ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
+ms.openlocfilehash: 40cd53d1bff6b33b81878c85c6c22c3fb85655ee
+ms.sourcegitcommit: a7458819e42815a0376182c610aba48519501d92
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91942222"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92902575"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Создание кластера и базы данных Azure обозреватель данных с помощью шаблона Azure Resource Manager
 
@@ -22,6 +22,7 @@ ms.locfileid: "91942222"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
+> * [GO](create-cluster-database-go.md)
 > * [Шаблон Azure Resource Manager](create-cluster-database-resource-manager.md)
 
 Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Чтобы использовать обозреватель данных Azure, сначала нужно создать кластер и одну или несколько баз данных в этом кластере. Затем вы должны принять (загрузить) данные в базы данных, чтобы к ним можно было выполнять запросы. 
@@ -102,7 +103,7 @@ ms.locfileid: "91942222"
 
 ### <a name="use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment"></a>Развертывание шаблона и проверка развертывания шаблона с помощью портал Azure
 
-1. Чтобы создать кластер и базу данных, используйте следующую кнопку для запуска развертывания. Чтобы закончить выполнение инструкций из этой статьи, щелкните правой кнопкой мыши и выберите ссылку **Открыть в новом окне**.
+1. Чтобы создать кластер и базу данных, используйте следующую кнопку для запуска развертывания. Чтобы закончить выполнение инструкций из этой статьи, щелкните правой кнопкой мыши и выберите ссылку **Открыть в новом окне** .
 
     [![Снимок экрана с синей кнопкой, которая используется для изображений облаков и помечена как развернутая в Azure.](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
 
@@ -136,8 +137,8 @@ ms.locfileid: "91942222"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Нажмите кнопку **Копировать**, чтобы скопировать сценарий PowerShell.
-1. Щелкните правой кнопкой в консоли оболочки и выберите **Вставить**.
+1. Нажмите кнопку **Копировать** , чтобы скопировать сценарий PowerShell.
+1. Щелкните правой кнопкой в консоли оболочки и выберите **Вставить** .
 Создание кластера Azure обозреватель данных и базы данных занимает несколько минут.
 
 #### <a name="verify-the-deployment-using-powershell"></a>Проверка развертывания с помощью PowerShell
@@ -157,6 +158,6 @@ Write-Host "Press [ENTER] to continue ..."
 
 [!INCLUDE [data-explorer-clean-resources](includes/data-explorer-clean-resources.md)]
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Прием данных в кластер и базу данных Azure обозреватель данных](ingest-data-overview.md)
