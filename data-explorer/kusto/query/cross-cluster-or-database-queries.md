@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 57b7b6b4c67e0e8903903cef670a561b30b3904e
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: e341a6b9b51b082b16036e368c61fa4c903750da
+ms.sourcegitcommit: 64fdef912cc925c4bdcae98183eb8d7c7a6392d7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92252571"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027811"
 ---
 # <a name="cross-database-and-cross-cluster-queries"></a>Запросы между базами данных и между кластерами
 
@@ -84,7 +84,7 @@ restrict access to (my*, database("MyOther*").*, cluster("OtherCluster").databas
 
 * Любое имя сущности, начинающееся с *My...* в базе данных по умолчанию. 
 * Любая таблица во всех базах данных с именем *мйосер...* текущего кластера.
-* Любая таблица во всех базах данных с именем *my2...* в кластере *OtherCluster.kusto.Windows.NET*.
+* Любая таблица во всех базах данных с именем *my2...* в кластере *OtherCluster.kusto.Windows.NET* .
 
 ## <a name="functions-and-views"></a>Функции и представления
 
@@ -121,7 +121,7 @@ database("OtherDb").MyView("exception") | extend CalCol=database("OtherDb").MyCa
 
 * Удаленная функция должна возвращать табличную схему. Доступ к скалярным функциям может осуществляться только в одном кластере.
 * Удаленная функция может принимать только скалярные параметры. Функции, получающие один или несколько табличных аргументов, доступны только в одном кластере.
-* Схема удаленной функции должна быть известна и инвариантна от ее параметров. Дополнительные сведения см. в разделе [запросы и изменения схемы между кластерами](../concepts/crossclusterandschemachanges.md).
+* Из соображений производительности схема удаленных сущностей кэшируется вызывающим кластером после первоначального вызова. Таким образом, изменения, вносимые в удаленную сущность, могут привести к несовпадению с кэшированными данными схемы, потенциально ведущими к сбоям запросов. Дополнительные сведения см. в разделе [запросы и изменения схемы между кластерами](../concepts/crossclusterandschemachanges.md).
 
 Следующий кросс-кластерный вызов является допустимым.
 
