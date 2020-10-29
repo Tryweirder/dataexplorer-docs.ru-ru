@@ -96,42 +96,57 @@
           href: lightingest.md
         - name: Концентратор событий
           items:
-            - name: Создание подключения к концентратору событий
+            - name: Подключение к данным концентратора событий
+              displayName: ingest
               href: ingest-data-event-hub-overview.md
             - name: Портал Azure
+              displayName: 'Event Hub, ingest, data connection'
               href: ingest-data-event-hub.md
             - name: C#
+              displayName: 'Event Hub, ingest, data connection'
               href: data-connection-event-hub-csharp.md
             - name: Python
+              displayName: 'Event Hub, ingest'
               href: data-connection-event-hub-python.md
             - name: Шаблон Azure Resource Manager
+              displayName: 'Event Hub, ingest, data connection'
               href: data-connection-event-hub-resource-manager.md
         - name: Сетка событий Azure
           items:
-            - name: Создание подключения к Сетке событий
+            - name: Подключение к данным Сетки событий
+              displayName: ingest
               href: ingest-data-event-grid-overview.md
             - name: Портал Azure
+              displayName: 'Event Grid, ingest, data connection'
               href: ingest-data-event-grid.md
             - name: C#
+              displayName: 'Event Grid, ingest, data connection'
               href: data-connection-event-grid-csharp.md
             - name: Python
+              displayName: 'Event Grid, ingest, data connection'
               href: data-connection-event-grid-python.md
             - name: Шаблон Azure Resource Manager
+              displayName: 'Event Grid, ingest, data connection'
               href: data-connection-event-grid-resource-manager.md
             - name: Создание ресурсов вручную на портале Azure
-              displayName: Manually create resources for Event Grid ingestion
+              displayName: 'Manually create resources for Event Grid ingestion, Ingest'
               href: ingest-data-event-grid-manual.md
         - name: Центр Интернета вещей
           items:
-            - name: Создание подключения к Центру Интернета вещей
+            - name: Подключение к данным Центра Интернета вещей
+              displayName: ingest
               href: ingest-data-iot-hub-overview.md
             - name: Портал Azure
+              displayName: 'IoT Hub, ingest, data connection'
               href: ingest-data-iot-hub.md
             - name: C#
+              displayName: 'IoT Hub, ingest, data connection'
               href: data-connection-iot-hub-csharp.md
             - name: Python
+              displayName: 'IoT Hub, ingest, data connection'
               href: data-connection-iot-hub-python.md
             - name: Шаблон Azure Resource Manager
+              displayName: 'IoT Hub, ingest, data connection'
               href: data-connection-iot-hub-resource-manager.md
         - name: Фабрика данных Azure
           items:
