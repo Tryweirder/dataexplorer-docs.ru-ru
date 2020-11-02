@@ -72,6 +72,8 @@
           href: create-cluster-database-csharp.md
         - name: Python
           href: create-cluster-database-python.md
+        - name: Go
+          href: create-cluster-database-go.md
         - name: Шаблон Azure Resource Manager
           href: create-cluster-database-resource-manager.md
     - name: Создание таблицы
@@ -168,6 +170,8 @@
               href: node-ingest-data.md
             - name: Пакет SDK для GO
               href: go-ingest-data.md
+            - name: Пакет SDK для Java
+              href: java-ingest-data.md
         - name: Kafka
           href: ingest-data-kafka.md
         - name: Logstash
@@ -206,7 +210,7 @@
               href: dashboard-customize-visuals.md
         - name: Power BI
           items:
-            - name: Рекомендации
+            - name: Power BI. Рекомендации
               href: power-bi-best-practices.md
             - name: Соединитель
               href: power-bi-connector.md
@@ -246,6 +250,8 @@
               href: vnet-deploy-troubleshoot.md
             - name: "Создание частной конечной точки для кластера в виртуальной сети\_— портал"
               href: vnet-create-private-endpoint.md
+            - name: 'Создание частной конечной точки или конечной точки службы для ресурсов, используемых подключениями к данным'
+              href: vnet-endpoint-storage-event-hub.md
         - name: Шифрование
           items:
             - name: 'Шифрование дисков кластера: портал'
@@ -395,7 +401,7 @@
           href: ./kusto/query/tutorial.md
         - name: Примеры
           href: ./kusto/query/samples.md
-        - name: Рекомендации
+        - name: Рекомендации по запросам
           href: ./kusto/query/best-practices.md
         - name: Запросы между базами данных и между кластерами
           href: ./kusto/query/cross-cluster-or-database-queries.md
@@ -1323,8 +1329,8 @@
           href: ./kusto/management/index.md
         - name: схема
           items:
-            - name: Рекомендации по проектированию схемы
-              href: ./kusto/management/best-practices.md
+            - name: 'Рекомендации по управлению: проектирование схемы'
+              href: ./kusto/management/management-best-practices.md
             - name: Управление базами данных
               href: ./kusto/management/databases.md
               items:
@@ -1730,7 +1736,7 @@
                   href: ./kusto/api/netfx/kusto-ingest-client-errors.md
                 - name: Состояние операции
                   href: ./kusto/api/netfx/kusto-ingest-client-status.md
-                - name: Рекомендации
+                - name: Рекомендации по использованию Kusto.Ingest
                   href: ./kusto/api/netfx/kusto-ingest-best-practices.md
                 - name: Примеры кода
                   href: ./kusto/api/netfx/kusto-ingest-client-examples.md
