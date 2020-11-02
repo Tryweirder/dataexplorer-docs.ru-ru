@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/11/2020
-ms.openlocfilehash: f73cf5718a80528415c9aed201917c1bd52bb660
-ms.sourcegitcommit: 86636f80a12f47ea434f128fa04fe9fc09629730
+ms.openlocfilehash: 25ad7040b0318206a712a9a7fb8d3be58e0f47f3
+ms.sourcegitcommit: 0e2fbc26738371489491a96924f25553a8050d51
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91942639"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148445"
 ---
 # <a name="row_level_security-policy-command"></a>Команда политики row_level_security
 
@@ -51,7 +51,7 @@ ms.locfileid: "91942639"
 > К следующим ограничениям относятся `query` :
 >
 > * Запрос должен создавать точно такую же схему, как и таблица, в которой определена политика. То есть результат запроса должен возвращать те же столбцы, что и исходная таблица в том же порядке, что и те же имена и типы.
-> * В запросе могут использоваться только следующие операторы: `extend` , `where` , `project` ,,, `project-away` `project-rename` `project-reorder` `join` и `union` .
+> * В запросе могут использоваться только следующие операторы: `extend` , `where` , `project` , `project-away` , `project-keep` , `project-rename` , `project-reorder` `join` и `union` .
 > * Запрос не может ссылаться на другие таблицы, для которых включена RLS.
 > * Запрос может быть любым из следующих элементов или их сочетанием:
 >    * Запрос (например, `<table_name> | extend CreditCardNumber = "****"` )
@@ -77,7 +77,7 @@ ms.locfileid: "91942639"
 .alter table Customers policy row_level_security enable "TrimCreditCardNumbers"
 ```
 
-**Примечание о производительности**. `UserCanSeeFullNumbers` вычисляется сначала, а затем либо `AllData` `PartialData` вычисляется, либо будет оцениваться, но не оба сразу, что является ожидаемым результатом.
+**Примечание о производительности** . `UserCanSeeFullNumbers` вычисляется сначала, а затем либо `AllData` `PartialData` вычисляется, либо будет оцениваться, но не оба сразу, что является ожидаемым результатом.
 Дополнительные сведения о влиянии на производительность RLS можно получить [здесь](rowlevelsecuritypolicy.md#performance-impact-on-queries).
 
 ## <a name="deleting-the-policy"></a>Удаление политики

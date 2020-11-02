@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 09/26/2019
-ms.openlocfilehash: a508d40d4e48205288dcb6133e267578a54198f9
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 2d2caef1f406b63bcfd22e8bc565efce8c1f9d39
+ms.sourcegitcommit: 0e2fbc26738371489491a96924f25553a8050d51
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343527"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148513"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Рекомендации по использованию Power BI для запроса и визуализации данных обозреватель данных Azure
 
@@ -174,6 +174,20 @@ in
 
 ![Фильтрация результатов с помощью параметра](media/power-bi-best-practices/filter-using-parameter.png)
 
+### <a name="use-valuenativequery-for-azure-data-explorer-features"></a>Использование функции value. Нативекуери для обозреватель данных Azure
+
+Чтобы использовать функцию обозреватель данных Azure, которая не поддерживается в Power BI, используйте метод [value. нативекуери ()](https://docs.microsoft.com/powerquery-m/value-nativequery) в M. Этот метод вставляет фрагмент языка запросов Kusto в созданный запрос и может также использоваться для предоставления большего контроля над выполненным запросом.
+
+В следующем примере показано, как использовать `percentiles()` функцию в Azure обозреватель данных.
+
+```m
+let
+    StormEvents = AzureDataExplorer.Contents(DefaultCluster, DefaultDatabase){[Name = DefaultTable]}[Data],
+    Percentiles = Value.NativeQuery(StormEvents, "| summarize percentiles(DamageProperty, 50, 90, 95) by State")
+in
+    Percentiles
+```
+
 ### <a name="dont-use-power-bi-data-refresh-scheduler-to-issue-control-commands-to-kusto"></a>Не используйте Power BI Планировщик обновления данных, чтобы выдать команды управления Kusto
 
 Power BI включает Планировщик обновления данных, который может периодически выдавать запросы к источнику данных. Этот механизм не следует использовать для планирования Kusto команд управления, поскольку Power BI предполагает, что все запросы доступны только для чтения.
@@ -182,6 +196,6 @@ Power BI включает Планировщик обновления данны
 
 Если выполнение запроса в Power BI приводит к следующей ошибке: _"DataSource. Error: Web. contents не удалось получить содержимое из..."_ запрос может быть длиннее 2000 символов. Power BI использует **PowerQuery** для запроса Kusto, ВЫДАВАЯ HTTP-запрос GET, который кодирует запрос как часть получаемого URI. Таким образом, Kusto запросы, выданные Power BI, ограничиваются максимальной длиной URI запроса (2000 символов, за вычетом небольшого смещения). В качестве обходного решения можно определить [хранимую функцию](kusto/query/schema-entities/stored-functions.md) в Kusto и иметь Power BI использовать эту функцию в запросе.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Визуализация данных с помощью соединителя Azure Data Explorer для Power BI](power-bi-connector.md)
