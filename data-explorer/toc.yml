@@ -85,21 +85,26 @@
             - name: Общие сведения о приеме одним щелчком
               href: ingest-data-one-click.md
             - name: Перенос данных из контейнера в новую таблицу в формате CSV
+              displayName: 'ingest data, ingestion, one click'
               href: one-click-ingestion-new-table.md
             - name: Перенос данных из локального файла в существующую таблицу в формате JSON
+              displayName: 'ingest data, ingestion, one click'
               href: one-click-ingestion-existing-table.md
         - name: Прием потоковой передачи
           items:
             - name: Портал Azure
+              displayName: 'ingest data, ingestion'
               href: ingest-data-streaming.md
             - name: C#
+              displayName: 'ingest data, ingestion'
               href: ingest-data-streaming-csharp.md
         - name: Использование LightIngest
+          displayName: 'ingest data, ingestion'
           href: lightingest.md
         - name: Концентратор событий
           items:
             - name: Подключение к данным концентратора событий
-              displayName: ingest
+              displayName: 'ingest, ingestion'
               href: ingest-data-event-hub-overview.md
             - name: Портал Azure
               displayName: 'Event Hub, ingest, data connection'
@@ -136,7 +141,7 @@
         - name: Центр Интернета вещей
           items:
             - name: Подключение к данным Центра Интернета вещей
-              displayName: ingest
+              displayName: 'ingest data, ingestion'
               href: ingest-data-iot-hub-overview.md
             - name: Портал Azure
               displayName: 'IoT Hub, ingest, data connection'
@@ -163,20 +168,28 @@
         - name: Использование пакетов SDK
           items:
             - name: Пакет SDK для .NET
+              displayName: 'ingest data, ingestion'
               href: net-sdk-ingest-data.md
             - name: Python
+              displayName: 'ingest data, ingestion'
               href: python-ingest-data.md
             - name: Пакет SDK для Node
+              displayName: 'ingest data, ingestion'
               href: node-ingest-data.md
             - name: Пакет SDK для GO
+              displayName: 'ingest data, ingestion'
               href: go-ingest-data.md
             - name: Пакет SDK для Java
+              displayName: 'ingest data, ingestion'
               href: java-ingest-data.md
         - name: Kafka
+          displayName: 'ingest data, ingestion'
           href: ingest-data-kafka.md
         - name: Logstash
+          displayName: 'ingest data, ingestion'
           href: ingest-data-logstash.md
         - name: Данные в формате JSON
+          displayName: 'ingest data, ingestion'
           href: ingest-json-formats.md
     - name: Данные запросов
       items:
@@ -213,16 +226,21 @@
             - name: Power BI. Рекомендации
               href: power-bi-best-practices.md
             - name: Соединитель
+              displayName: PowerBI
               href: power-bi-connector.md
             - name: Импортированный запрос
+              displayName: PowerBI
               href: power-bi-imported-query.md
             - name: SQL-запрос
+              displayName: PowerBI
               href: power-bi-sql-query.md
         - name: Excel
           items:
             - name: Соединитель
+              displayName: Excel
               href: excel-connector.md
             - name: Пустой запрос
+              displayName: Excel
               href: excel-blank-query.md
         - name: Grafana
           href: grafana.md
@@ -251,6 +269,7 @@
             - name: "Создание частной конечной точки для кластера в виртуальной сети\_— портал"
               href: vnet-create-private-endpoint.md
             - name: 'Создание частной конечной точки или конечной точки службы для ресурсов, используемых подключениями к данным'
+              displayName: 'VNet, private endpoint, Azure Storage, Event Hub'
               href: vnet-endpoint-storage-event-hub.md
         - name: Шифрование
           items:
@@ -263,14 +282,19 @@
         - name: 'Настройка ключей, управляемых клиентом'
           items:
             - name: Портал
+              displayName: Configure customer-managed-keys
               href: customer-managed-keys-portal.md
             - name: C#
+              displayName: Configure customer-managed-keys
               href: customer-managed-keys-csharp.md
             - name: Шаблон Azure Resource Manager
+              displayName: Configure customer-managed-keys
               href: customer-managed-keys-resource-manager.md
             - name: Azure CLI
+              displayName: Configure customer-managed-keys
               href: customer-managed-keys-cli.md
             - name: PowerShell
+              displayName: Configure customer-managed-keys
               href: customer-managed-keys-powershell.md
         - name: Создание приложения Azure AD
           href: provision-azure-ad-app.md
@@ -291,10 +315,13 @@
             - name: Добавление субъекта кластера
               items:
                 - name: C#
+                  displayName: cluster principal
                   href: cluster-principal-csharp.md
                 - name: Python
+                  displayName: cluster principal
                   href: cluster-principal-python.md
                 - name: Шаблон Azure Resource Manager
+                  displayName: cluster principal
                   href: cluster-principal-resource-manager.md
             - name: Управление расширениями языка кластера
               displayName: 'Python, R'
@@ -306,10 +333,13 @@
             - name: Добавление субъекта базы данных
               items:
                 - name: C#
+                  displayName: database principal
                   href: database-principal-csharp.md
                 - name: Python
+                  displayName: database principal
                   href: database-principal-python.md
                 - name: Шаблон Azure Resource Manager
+                  displayName: database principal
                   href: database-principal-resource-manager.md
             - name: Политики
               items:
@@ -386,10 +416,13 @@
     - name: Диагностика
       items:
         - name: Создание кластера
+          displayName: troubleshoot
           href: troubleshoot-create-cluster.md
         - name: Подключение к кластеру
+          displayName: troubleshoot
           href: troubleshoot-connect-cluster.md
         - name: Работа с базами данных и таблицами
+          displayName: troubleshoot
           href: troubleshoot-database-table.md
 - name: Справочник
   items:
@@ -545,7 +578,7 @@
               href: ./kusto/query/getschemaoperator.md
             - name: Оператор invoke
               href: ./kusto/query/invokeoperator.md
-            - name: Оператор join
+            - name: операторы соединения
               items:
                 - name: Оператор join
                   href: ./kusto/query/joinoperator.md
@@ -837,6 +870,10 @@
               href: ./kusto/query/gettypefunction.md
             - name: getyear()
               href: ./kusto/query/getyearfunction.md
+            - name: gzip_compress_to_base64_string()
+              href: ./kusto/query/gzip-base64-compress.md
+            - name: gzip_decompress_from_base64_string()
+              href: ./kusto/query/gzip-base64-decompress.md
             - name: hash()
               href: ./kusto/query/hashfunction.md
             - name: hash_combine()
@@ -1329,7 +1366,8 @@
           href: ./kusto/management/index.md
         - name: схема
           items:
-            - name: 'Рекомендации по управлению: проектирование схемы'
+            - name: Рекомендации по проектированию схемы
+              displayName: management
               href: ./kusto/management/management-best-practices.md
             - name: Управление базами данных
               href: ./kusto/management/databases.md
@@ -1563,7 +1601,7 @@
               href: ./kusto/management/data-export/export-data-to-an-external-table.md
             - name: Экспорт непрерывных данных
               items:
-                - name: Обзор
+                - name: Общие сведения о непрерывном экспорте данных
                   href: ./kusto/management/data-export/continuous-data-export.md
                 - name: Создание или изменение непрерывного экспорта
                   href: ./kusto/management/data-export/create-alter-continuous.md
@@ -1671,19 +1709,20 @@
       items:
         - name: Обзор API
           href: ./kusto/api/index.md
+        - name: Клиентские библиотеки
+          href: ./kusto/api/client-libraries.md
+        - name: Строки подключения
           items:
-            - name: Клиентские библиотеки
-              href: ./kusto/api/client-libraries.md
-            - name: Строки подключения
+            - name: Общие сведения о строках подключения
               href: ./kusto/api/connection-strings/index.md
-              items:
-                - name: Строки подключения Kusto
-                  href: ./kusto/api/connection-strings/kusto.md
-                - name: Строки подключения службы хранилища
-                  href: ./kusto/api/connection-strings/storage.md
+            - name: Строки подключения Kusto
+              href: ./kusto/api/connection-strings/kusto.md
+            - name: Строки подключения службы хранилища
+              href: ./kusto/api/connection-strings/storage.md
         - name: REST API
-          href: ./kusto/api/rest/index.md
           items:
+            - name: Обзор REST API
+              href: ./kusto/api/rest/index.md
             - name: Аутентификация
               href: ./kusto/api/rest/authentication.md
             - name: HTTP-запрос для запроса или управления
@@ -1696,9 +1735,12 @@
               href: ./kusto/api/rest/deeplink.md
             - name: Потоковый прием
               href: ./kusto/api/rest/streaming-ingest.md
-        - name: 'MS-TDS (SQL, ADO.NET, JDBC, ODBC)'
-          href: ./kusto/api/tds/index.md
+        - name: MS-TDS
+          displayName: 'SQL, ADO.NET, JDBC, ODBC'
           items:
+            - name: Общие сведения об MS-TDS
+              displayName: 'SQL, ADO.NET, JDBC, ODBC'
+              href: ./kusto/api/tds/index.md
             - name: T-SQL
               href: ./kusto/api/tds/t-sql.md
             - name: KQL через TDS
@@ -1721,13 +1763,15 @@
                 - name: Управление трассировкой
                   href: ./kusto/api/netfx/controlling-tracing.md
             - name: Kusto.Data
-              href: ./kusto/api/netfx/about-kusto-data.md
               items:
+                - name: Общие сведения о Kusto.Data
+                  href: ./kusto/api/netfx/about-kusto-data.md
                 - name: 'Свойства запросов, ClientRequestProperties'
                   href: ./kusto/api/netfx/request-properties.md
             - name: Kusto.Ingest
-              href: ./kusto/api/netfx/about-kusto-ingest.md
               items:
+                - name: Общие сведения о Kusto.Ingest
+                  href: ./kusto/api/netfx/about-kusto-ingest.md
                 - name: Разрешения
                   href: ./kusto/api/netfx/kusto-ingest-client-permissions.md
                 - name: Справочник клиента
