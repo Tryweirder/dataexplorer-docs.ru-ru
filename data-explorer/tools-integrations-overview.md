@@ -8,12 +8,12 @@ ms.reviewer: olgolden
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: fd596d840dcbaab1843833b4164901423a2ebef8
-ms.sourcegitcommit: 88291fd9cebc26e5210463cb95be5540bf84eef8
+ms.openlocfilehash: 71f00cf921609432860a94061be7411e484fd0c9
+ms.sourcegitcommit: 455d902bad0aae3e3d72269798c754f51442270e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92437379"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349330"
 ---
 # <a name="azure-data-explorer-tools-and-integrations-overview"></a>Обзор средств и интеграции Azure обозреватель данных
 
@@ -39,7 +39,7 @@ Azure обозреватель данных предлагает различн�
 * Центр Интернета вещей: прием [из центра Интернета вещей обзор](ingest-data-iot-hub-overview.md) и использование шаблона [портал Azure](ingest-data-iot-hub.md), [C#](data-connection-iot-hub-csharp.md), [Python](data-connection-iot-hub-python.md) или [Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 * [Logstash](ingest-data-logstash.md).
 * Фабрика данных Azure. [Общие сведения об интеграции](data-factory-integration.md), [копирование данных](data-factory-load-data.md), [копирование с помощью шаблона фабрики данных azure](data-factory-template.md)и [выполнение команд управления обозреватель данных Azure с помощью действия команды фабрики данных Azure](data-factory-command-activity.md)
-* [Apache Spark Azure синапсе](https://docs.microsoft.com/azure/synapse-analytics/quickstart-connect-azure-data-explorer?context=/azure/data-explorer/context/context)
+* [Apache Spark Azure синапсе](/azure/synapse-analytics/quickstart-connect-azure-data-explorer?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)
 * [Apache Spark](spark-connector.md)
 * [Apache Kafka](ingest-data-kafka.md)
 * [База данных Cosmos](https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration)
@@ -59,9 +59,9 @@ Azure обозреватель данных предлагает различн�
 
 ### <a name="query-integrations"></a>Интеграция запросов
 
-* [Azure Monitor](query-monitor-data.md);
+* [Azure Monitor](query-monitor-data.md)
 * [Azure Data Lake](data-lake-query-data.md)
-* [Apache Spark Azure синапсе](https://docs.microsoft.com/azure/synapse-analytics/quickstart-connect-azure-data-explorer?context=/azure/data-explorer/context/context)
+* [Apache Spark Azure синапсе](/azure/synapse-analytics/quickstart-connect-azure-data-explorer?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)
 * [Apache Spark](spark-connector.md)
 * [Microsoft Power Apps](power-apps-connector.md)
 * Azure Data Studio: [Общие сведения о расширении Kusto](/sql/azure-data-studio/extensions/kusto-extension?context=%252fazure%252fdata-explorer%252fcontext%252fcontext), [Использование Kusto](/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)и [Использование кклмагик](/sql/azure-data-studio/notebooks-kqlmagic?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)
@@ -72,7 +72,7 @@ Azure обозреватель данных предлагает различн�
 
 ## <a name="notebook-connectivity"></a>Подключение к записной книжке
 
-* [Записные книжки Azure](azure-notebooks.md)
+* [Записные книжки Azure](/sql/azure-data-studio/notebooks/notebooks-kqlmagic?context=%252fazure%252fdata-explorer%252fcontext%252fcontext%253fcontext%253d%252fazure%252fdata-explorer%252fcontext%252fcontext)
 * [Jupyter Notebook](kqlmagic.md)
 * Azure Data Studio: [Общие сведения о расширении Kusto](/sql/azure-data-studio/extensions/kusto-extension?context=%252fazure%252fdata-explorer%252fcontext%252fcontext), [Использование Kusto](/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)и [Использование кклмагик](/sql/azure-data-studio/notebooks-kqlmagic?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)
 

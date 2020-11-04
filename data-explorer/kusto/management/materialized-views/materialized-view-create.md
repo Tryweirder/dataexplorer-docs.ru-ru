@@ -8,12 +8,12 @@ ms.reviewer: yifats
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/30/2020
-ms.openlocfilehash: 95f8ce19c6edb419de4fb5053a79c243e3e332c4
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: 383d1ab5d948a5fbcfb3ab2aad0ff8e5ed675075
+ms.sourcegitcommit: 455d902bad0aae3e3d72269798c754f51442270e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92252851"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349449"
 ---
 # <a name="create-materialized-view"></a>.create materialized-view
 
@@ -202,7 +202,7 @@ ms.locfileid: "92252851"
 
 * Фильтры запросов материализованных представлений оптимизируются при фильтрации по одному из материализованных измерений представления (статистическое выражение по предложению). Если известно, что шаблон запроса часто фильтрует по какому-либо столбцу, который может быть измерением в материализованным представлении, включите его в представление. Например, для материализованных представлений, предоставляя объект, `arg_max` `ResourceId` который часто будет фильтроваться по, рекомендуется использовать `SubscriptionId` следующую рекомендацию:
 
-    **Выполните**следующие действия.
+    **Выполните** следующие действия.
     
     ```kusto
     .create materialized-view ArgMaxResourceId on table FactResources
@@ -211,7 +211,7 @@ ms.locfileid: "92252851"
     }
     ``` 
     
-    **Не делать**:
+    **Не делать** :
     
     ```kusto
     .create materialized-view ArgMaxResourceId on table FactResources
@@ -222,7 +222,7 @@ ms.locfileid: "92252851"
 
 * Не включайте преобразования, нормализации и другие сложные вычисления, которые можно переместить в [политику обновления](../updatepolicy.md) как часть определения материализованных представлений. Вместо этого выполните все эти процессы в политике обновления и выполните агрегирование только в материализованных представлениях. Используйте этот процесс для уточняющего запроса в таблицах измерений, если применимо.
 
-    **Выполните**следующие действия.
+    **Выполните** следующие действия.
     
     * Политика обновления:
     
@@ -241,19 +241,19 @@ ms.locfileid: "92252851"
     ```kusto
     .create materialized-view Usage on table Events
     {
-    &nbsp;     Target 
-    &nbsp;     | summarize count() by ResourceId 
+        Target 
+        | summarize count() by ResourceId 
     }
     ```
     
-    **Не делать**:
+    **Не делать** :
     
     ```kusto
     .create materialized-view Usage on table SourceTable
     {
-    &nbsp;     SourceTable 
-    &nbsp;     | extend ResourceId = strcat('subscriptions/', toupper(SubscriptionId), '/', resourceId)
-    &nbsp;     | summarize count() by ResourceId
+        SourceTable 
+        | extend ResourceId = strcat('subscriptions/', toupper(SubscriptionId), '/', resourceId)
+        | summarize count() by ResourceId
     }
     ```
 
@@ -285,7 +285,7 @@ ms.locfileid: "92252851"
 
 ### <a name="syntax"></a>Синтаксис
 
-`.cancel`С идентификатором `operation` *operationId*
+`.cancel` `operation` *operationId*
 
 ### <a name="properties"></a>Свойства
 

@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 09/26/2019
-ms.openlocfilehash: 2d2caef1f406b63bcfd22e8bc565efce8c1f9d39
-ms.sourcegitcommit: 0e2fbc26738371489491a96924f25553a8050d51
+ms.openlocfilehash: 442185ed0afd977c103d0b571472c0f5e742908c
+ms.sourcegitcommit: 455d902bad0aae3e3d72269798c754f51442270e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148513"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349483"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Рекомендации по использованию Power BI для запроса и визуализации данных обозреватель данных Azure
 
@@ -176,7 +176,7 @@ in
 
 ### <a name="use-valuenativequery-for-azure-data-explorer-features"></a>Использование функции value. Нативекуери для обозреватель данных Azure
 
-Чтобы использовать функцию обозреватель данных Azure, которая не поддерживается в Power BI, используйте метод [value. нативекуери ()](https://docs.microsoft.com/powerquery-m/value-nativequery) в M. Этот метод вставляет фрагмент языка запросов Kusto в созданный запрос и может также использоваться для предоставления большего контроля над выполненным запросом.
+Чтобы использовать функцию обозреватель данных Azure, которая не поддерживается в Power BI, используйте метод [value. нативекуери ()](/powerquery-m/value-nativequery) в M. Этот метод вставляет фрагмент языка запросов Kusto в созданный запрос и может также использоваться для предоставления большего контроля над выполненным запросом.
 
 В следующем примере показано, как использовать `percentiles()` функцию в Azure обозреватель данных.
 

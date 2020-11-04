@@ -7,12 +7,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 365ce1e4c8e5dd2157a7975095b9e30dfd1e3722
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 6e460ddaab7d58e4dac104db511119933c531506
+ms.sourcegitcommit: 455d902bad0aae3e3d72269798c754f51442270e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342711"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349432"
 ---
 # <a name="troubleshooting"></a>Устранение неполадок
 
@@ -127,7 +127,7 @@ Following errors were detected during this operation.
 #### <a name="enabling-clickonce-verbose-logging"></a>Включение подробного ведения журнала ClickOnce
 
 1. Если приложение по-прежнему не запускается:
-    1. [Включите подробное ведение журнала ClickOnce](https://docs.microsoft.com/visualstudio/deployment/how-to-specify-verbose-log-files-for-clickonce-deployments) , создав строку логвербоситилевел со значением 1 в разделе:
+    1. [Включите подробное ведение журнала ClickOnce](/visualstudio/deployment/how-to-specify-verbose-log-files-for-clickonce-deployments) , создав строку логвербоситилевел со значением 1 в разделе:
 
         ```kusto
         HKEY_CURRENT_USER\Software\Classes\Software\Microsoft\Windows\CurrentVersion\Deployment
@@ -163,7 +163,7 @@ Following errors were detected during this operation.
 
 При необходимости можно полностью сбросить Kusto. Explorer. В следующей процедуре описано, как выполнить постепенное восстановление Kusto. Explorer, пока он не будет удален с компьютера и должен быть установлен с нуля.
 
-1. В Windows откройте окно **изменение или удаление программы** (также известной как **программы и компоненты**).
+1. В Windows откройте окно **изменение или удаление программы** (также известной как **программы и компоненты** ).
 1. Выберите каждый элемент, начинающийся с `Kusto.Explorer` .
 1. Выберите **Удалить**.
 
@@ -179,7 +179,7 @@ Following errors were detected during this operation.
 1. Выберите **Kusto. Explorer** и щелкните **Удалить/изменить**.
 1. Выберите **восстановить предыдущее состояние приложения**.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Сведения о [пользовательском интерфейсе Kusto. Explorer](kusto-explorer.md#overview-of-the-user-interface)
 * Сведения о [запуске Kusto. Explorer из командной строки](kusto-explorer-using.md#kustoexplorer-command-line-arguments)
