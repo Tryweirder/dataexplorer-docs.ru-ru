@@ -39,6 +39,7 @@
         - name: Свойства приема данных
           href: ingestion-properties.md
         - name: Форматы для приема данных
+          displayName: supported data formats
           href: ingestion-supported-formats.md
     - name: Язык запросов Kusto
       items:
@@ -226,13 +227,13 @@
             - name: Power BI. Рекомендации
               href: power-bi-best-practices.md
             - name: Соединитель
-              displayName: PowerBI
+              displayName: Power BI
               href: power-bi-connector.md
             - name: Импортированный запрос
-              displayName: PowerBI
+              displayName: Power BI
               href: power-bi-imported-query.md
             - name: SQL-запрос
-              displayName: PowerBI
+              displayName: Power BI
               href: power-bi-sql-query.md
         - name: Excel
           items:
