@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 1d0625c949fe563084caeec936e3433c9ee70f5e
-ms.sourcegitcommit: ef3d919dee27c030842abf7c45c9e82e6e8350ee
+ms.openlocfilehash: df38761d7ffebdf5e36c14ea25b0d02377bfa128
+ms.sourcegitcommit: fdc1f917621e9b7286bba23903101298cccc4c95
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92630115"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93364128"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
 
@@ -92,7 +92,7 @@ ms.locfileid: "92630115"
 
 &nbsp;&nbsp;[ *Стрингсепаратор* ] *Partition* [ *Стрингсепаратор* ] [ *Секция* [ *стрингсепаратор* ]...]  
 
-где *Partition* ссылается на секцию, объявленную в `partition` `by` предложении, а *стрингсепаратор* — любой текст, заключенный в кавычки. Элементы смежных секций должны быть заданы отдельно с помощью *стрингсепаратор* .
+где *Partition* ссылается на секцию, объявленную в `partition` `by` предложении, а *стрингсепаратор* — любой текст, заключенный в кавычки. Элементы смежных секций должны быть заданы отдельно с помощью *стрингсепаратор*.
 
 Исходный префикс пути к файлу может быть создан с помощью элементов секции, отображаемых в виде строк и разделенных соответствующими разделителями текста. Чтобы указать формат, используемый для визуализации значения секции DateTime, можно использовать следующий макрос:
 
@@ -219,6 +219,14 @@ dataformat=csv
 with (fileExtension = ".txt")
 ```
 
+Для фильтрации по столбцам секционирования в запросе укажите исходное имя столбца в предикате запроса:
+
+```kusto
+external_table("ExternalTable")
+ | where Timestamp between (datetime(2020-01-01) .. datetime(2020-02-01))
+ | where CustomerName in ("John.Doe", "Ivan.Ivanov")
+```
+
 **Образец вывода**
 
 |TableName|TableType|Папка|DocString|Свойства|ConnectionStrings|Секции|пасформат|
@@ -241,6 +249,14 @@ dataformat=parquet
 ( 
    h@'https://storageaccount.blob.core.windows.net/container1;secretKey'
 )
+```
+
+Для фильтрации по виртуальным столбцам в запросе укажите имена секций в предикате запроса:
+
+```kusto
+external_table("ExternalTable")
+ | where Date between (datetime(2020-01-01) .. datetime(2020-02-01))
+ | where CustomerName in ("John.Doe", "Ivan.Ivanov")
 ```
 
 <a name="file-filtering"></a>
