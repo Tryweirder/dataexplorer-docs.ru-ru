@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/15/2019
-ms.openlocfilehash: a6aa19e3a88e7338494d6f6fad0e23a5ab4a03e4
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: 59813656fce6afea3ecba62b13c971e74b095fe1
+ms.sourcegitcommit: 42cc7d11f41a5bfa9e021764b044dcd68d99a258
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92252307"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93403720"
 ---
 # <a name="hll_merge-aggregation-function"></a>hll_merge () (агрегатная функция)
 
@@ -21,7 +21,7 @@ ms.locfileid: "92252307"
 
 * Может использоваться только в контексте статистической обработки внутри [итоговых](summarizeoperator.md)данных.
 
-Дополнительные сведения см. в разделе [базовый алгоритм (*H*ИПЕР*l*OG*l*OG) и точность оценки](dcount-aggfunction.md#estimation-accuracy).
+Дополнительные сведения см. в разделе [базовый алгоритм ( *H* ИПЕР *l* OG *l* OG) и точность оценки](dcount-aggfunction.md#estimation-accuracy).
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -31,10 +31,10 @@ ms.locfileid: "92252307"
 
 * `*Expr*`: Выражение, которое будет использоваться для вычисления статистической обработки.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Функция возвращает объединенные `hll` значения `*Expr*` по всей группе.
  
 **Советы**
 
-1) Используйте функцию [dcount_hll] (DCount-hllfunction.md), чтобы вычислить `dcount` из `hll`  /  `hll-merge` агрегатных функций.
+1) Используйте [dcount_hll](dcount-hllfunction.md) функции для вычисления `dcount` `hll`  /  `hll-merge` статистических функций from.
