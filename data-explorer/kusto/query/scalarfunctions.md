@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/27/2020
-ms.openlocfilehash: 02271e3b282dd632a94631c09fca11b8b06db3cf
-ms.sourcegitcommit: 62476f682b7812cd9cff7e6958ace5636ee46755
+ms.openlocfilehash: 08e6ee9aaff1273438be80ca9ce342de91ba9459
+ms.sourcegitcommit: 4b061374c5b175262d256e82e3ff4c0cbb779a7b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169580"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94373890"
 ---
 # <a name="scalar-function-types"></a>Типы скалярных функций
 
@@ -47,9 +47,9 @@ ms.locfileid: "92169580"
 |[datetime_add()](datetime-addfunction.md)|Вычисляет новое значение DateTime из указанной части, умноженной на указанный объем, добавленную к указанному значению DateTime.|
 |[datetime_part()](datetime-partfunction.md)|Извлекает запрошенную часть даты как целочисленное значение.|
 |[datetime_diff()](datetime-difffunction.md)|Возвращает конец года, содержащего дату, смещенную по смещению, если оно предоставлено.|
-|[DayOfMonth ()](dayofmonthfunction.md)|Возвращает целое число, представляющее номер дня данного месяца.|
-|[DayOfWeek ()](dayofweekfunction.md)|Возвращает целое число дней с момента предыдущего воскресенье в качестве интервала времени.|
-|[DayOfYear ()](dayofyearfunction.md)|Возвращает целое число, представляющее номер дня данного года.|
+|[dayofmonth()](dayofmonthfunction.md)|Возвращает целое число, представляющее номер дня данного месяца.|
+|[dayofweek()](dayofweekfunction.md)|Возвращает целое число дней с момента предыдущего воскресенье в качестве интервала времени.|
+|[dayofyear()](dayofyearfunction.md)|Возвращает целое число, представляющее номер дня данного года.|
 |[endofday()](endofdayfunction.md)|Возвращает конец дня, содержащий дату, смещенную по смещению, если оно предоставлено.|
 |[endofmonth()](endofmonthfunction.md)|Возвращает конец месяца, содержащего дату, смещенную по смещению, если оно предоставлено.|
 |[endofweek()](endofweekfunction.md)|Возвращает конец недели, содержащий дату, смещенную по смещению, если оно предоставлено.|
@@ -61,7 +61,7 @@ ms.locfileid: "92169580"
 |[hourofday()](hourofdayfunction.md)|Возвращает целое число, представляющее номер часа указанной даты.|
 |[make_datetime()](make-datetimefunction.md)|Создает скалярное значение DateTime из указанной даты и времени.|
 |[make_timespan()](make-timespanfunction.md)|Создает скалярное значение TimeSpan за указанный период времени.|
-|[монсофеар ()](monthofyearfunction.md)|Возвращает целое число, представляющее номер месяца данного года.|
+|[monthofyear()](monthofyearfunction.md)|Возвращает целое число, представляющее номер месяца данного года.|
 |[now()](nowfunction.md)|Возвращает текущее время в формате UTC, при необходимости смещается на заданный интервал времени.|
 |[startofday()](startofdayfunction.md)|Возвращает начало дня, содержащего дату, смещенную по смещению, если оно предоставлено.|
 |[startofmonth()](startofmonthfunction.md)|Возвращает начало месяца, содержащего дату, смещенную по смещению, если оно предоставлено.|
@@ -73,7 +73,7 @@ ms.locfileid: "92169580"
 |[unixtime_milliseconds_todatetime()](unixtime-milliseconds-todatetimefunction.md)|Преобразует миллисекунды в формате UNIX в формат UTC DateTime.|
 |[unixtime_nanoseconds_todatetime()](unixtime-nanoseconds-todatetimefunction.md)|Преобразует наносекундах в формате UNIX в формат UTC DateTime.|
 |[unixtime_seconds_todatetime()](unixtime-seconds-todatetimefunction.md)|Преобразует секунды в формате UNIX в формат UTC DateTime.|
-|[WeekOfYear ()](weekofyearfunction.md)|Возвращает целое число, представляющее номер недели.|
+|[weekofyear()](weekofyearfunction.md)|Возвращает целое число, представляющее номер недели.|
 
 
 ## <a name="dynamicarray-functions"></a>Динамические функции/массивы
@@ -84,13 +84,14 @@ ms.locfileid: "92169580"
 |[array_iif()](arrayifffunction.md)|Применяет элементную функцию IIf к массивам.|
 |[array_index_of()](arrayindexoffunction.md)|Выполняет поиск заданного элемента в массиве и возвращает его позицию.|
 |[array_length()](arraylengthfunction.md)|Вычисляет количество элементов в динамическом массиве.|
+|[array_reverse ()](array-reverse-function.md)|Изменяет порядок элементов в динамическом массиве на обратный.|
 |[array_rotate_left()](array_rotate_leftfunction.md)|Поворачивает значения внутри динамического массива влево.|
 |[array_rotate_right()](array_rotate_rightfunction.md)|Поворачивает значения внутри динамического массива вправо.|
 |[array_shift_left()](array_shift_leftfunction.md)|Сдвигает значения внутри динамического массива влево.|
 |[array_shift_right()](array_shift_rightfunction.md)|Сдвигает значения внутри динамического массива вправо.|
 |[array_slice()](arrayslicefunction.md)|Извлекает срез динамического массива.|
-|[array_sort_asc ()](arraysortascfunction.md)|Сортирует коллекцию массивов в возрастающем порядке.|
-|[array_sort_desc ()](arraysortdescfunction.md)|Сортирует коллекцию массивов в порядке убывания.|
+|[array_sort_asc()](arraysortascfunction.md)|Сортирует коллекцию массивов в возрастающем порядке.|
+|[array_sort_desc()](arraysortdescfunction.md)|Сортирует коллекцию массивов в порядке убывания.|
 |[array_split()](arraysplitfunction.md)|Создает массив массивов, разделенных из входного массива.|
 |[bag_keys()](bagkeysfunction.md)|Перечисляет все корневые ключи в динамическом объекте контейнера свойств.|
 |[bag_merge()](bag-merge-function.md)|Объединяет динамические контейнеры свойств в динамический контейнер свойств со всеми объединенными свойствами.|
@@ -152,7 +153,7 @@ ms.locfileid: "92169580"
 |[pow()](powfunction.md)|Возвращает результат возведения в степень.|
 |[радианы ()](radiansfunction.md)|Преобразует значение угла в градусах в значение в радианах, используя формулу в радианах = (PI/180) * угол в градусах.|
 |[Rand ()](randfunction.md)|Возвращает случайное число.|
-|[Range ()](rangefunction.md)|Создает динамический массив, содержащий ряд одинаковых значений, равных пробелам.|
+|[range()](rangefunction.md)|Создает динамический массив, содержащий ряд одинаковых значений, равных пробелам.|
 |[Round ()](roundfunction.md)|Возвращает округленный источник с заданной точностью.|
 |[Sign ()](signfunction.md)|Знак числового выражения.|
 |[Sin ()](sinfunction.md)|Возвращает функцию синуса.|
