@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/11/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 035705e0a15ab686af16b9e8b2a00268db21d6a2
-ms.sourcegitcommit: c140bc3bc984f861df0b85e672d2e685e6659a54
+ms.openlocfilehash: 7c95f7676ecdc88deefeae5db3f904dd5048a5ba
+ms.sourcegitcommit: 25c0440cb0390b9629b819611844f1375de00a66
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90109993"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94417597"
 ---
-# <a name="cosmosdb_sql_request-plugin"></a>подключаемый модуль cosmosdb_sql_request
+# <a name="cosmosdb_sql_request-plugin"></a>Подключаемый модуль cosmosdb_sql_request
 
 ::: zone pivot="azuredataexplorer"
 
@@ -25,13 +25,13 @@ ms.locfileid: "90109993"
 
 ## <a name="syntax"></a>Синтаксис
 
-`evaluate``cosmosdb_sql_request` `(` *ConnectionString* `,` *SqlQuery* [ `,` *склпараметерс* [ `,` *Параметры*]]`)`
+`evaluate``cosmosdb_sql_request` `(` *ConnectionString* `,` *SqlQuery* [ `,` *склпараметерс* [ `,` *Параметры* ]]`)`
 
 ## <a name="arguments"></a>Аргументы
 
 |Имя аргумента | Описание | Обязательный или необязательный | 
 |---|---|---|
-| *ConnectionString* | `string`Литерал, указывающий строку подключения, указывающую на Cosmos DB коллекцию для запроса. Он должен включать *аккаунтендпоинт*, *базу данных*и *коллекцию*. Он может включать *AccountKey* , если для проверки подлинности используется главный ключ. <br> **Пример:** `'AccountEndpoint=https://cosmosdbacc.documents.azure.com:443/ ;Database=MyDatabase;Collection=MyCollection;AccountKey=' h'R8PM...;'`| Обязательно |
+| *ConnectionString* | `string`Литерал, указывающий строку подключения, указывающую на Cosmos DB коллекцию для запроса. Он должен включать *аккаунтендпоинт* , *базу данных* и *коллекцию*. Он может включать *AccountKey* , если для проверки подлинности используется главный ключ. <br> **Пример:** `'AccountEndpoint=https://cosmosdbacc.documents.azure.com:443/ ;Database=MyDatabase;Collection=MyCollection;AccountKey=' h'R8PM...;'`| Обязательно |
 | *SqlQuery*| `string`Литерал, указывающий выполняемый запрос. | Обязательно |
 | *склпараметерс* | Постоянное значение типа `dynamic` , содержащее пары "ключ-значение" для передачи в качестве параметров вместе с запросом. Имена параметров должны начинаться с `@` . | Необязательно |
 | *Параметры* | Постоянное значение типа `dynamic` , содержащее дополнительные параметры в виде пар "ключ-значение". | Необязательно |
@@ -50,12 +50,12 @@ ms.locfileid: "90109993"
 [
   {
     "CalloutType": "CosmosDB",
-    "CalloutUriRegex": "my_endpoint1.documents.azure.com",
+    "CalloutUriRegex": "my_endpoint1\\.documents\\.azure\\.com",
     "CanCall": true
   },
   {
     "CalloutType": "CosmosDB",
-    "CalloutUriRegex": "my_endpoint2.documents.azure.com",
+    "CalloutUriRegex": "my_endpoint2\\.documents\\.azure\\.com",
     "CanCall": true
   }
 ]
@@ -81,7 +81,7 @@ evaluate cosmosdb_sql_request(
 
 ### <a name="query-cosmos-db-with-parameters"></a>Запрос Cosmos DB с параметрами
 
-В следующем примере используются параметры SQL Query и запрашиваются данные из альтернативного региона. Дополнительные сведения см. на веб-сайте [`preferredLocations`](/azure/cosmos-db/tutorial-global-distribution-sql-api?tabs=dotnetv2%2Capi-async#preferred-locations).
+В следующем примере используются параметры SQL Query и запрашиваются данные из альтернативного региона. Дополнительные сведения см. в разделе [`preferredLocations`](/azure/cosmos-db/tutorial-global-distribution-sql-api?tabs=dotnetv2%2Capi-async#preferred-locations).
 
 ```kusto
 evaluate cosmosdb_sql_request(
