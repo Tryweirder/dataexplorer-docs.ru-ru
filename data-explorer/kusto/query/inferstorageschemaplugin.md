@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: 3c3aa61bdb804d2a1bd6735ea4a22e06e1f1878e
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: 895f12799f4c44346af2b6b9be43bf98b7cf870e
+ms.sourcegitcommit: e820a59191d2ca4394e233d51df7a0584fa4494d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92249014"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94446214"
 ---
 # <a name="infer_storage_schema-plugin"></a>Подключаемый модуль infer_storage_schema
 
@@ -44,14 +44,14 @@ evaluate infer_storage_schema(options)
 |`DataFormat`|Да|Один из поддерживаемых [форматов данных](../../ingestion-supported-formats.md).|
 |`FileExtension`|Нет|Проверять только те файлы, которые заканчиваются расширением этого файла. Это необязательно, но указание может ускорить процесс (или устранить проблемы с чтением данных).|
 |`FileNamePrefix`|Нет|Проверять только файлы, начинающиеся с этого префикса. Это необязательно, но указание может ускорить процесс|
-|`Mode`|Нет|Стратегия определения схемы, одна из следующих: `any` , `last` , `all` . Вывести схему данных из любого (первого найденного) файла, из последнего записанного файла или из всех файлов соответственно. Значение по умолчанию: `last`.|
+|`Mode`|Нет|Стратегия определения схемы, одна из следующих: `any` , `last` , `all` . Вывести схему данных из любого (первого найденного) файла, из последнего записанного файла или из всех файлов соответственно. Значение по умолчанию — `last`.|
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 `infer_storage_schema`Подключаемый модуль возвращает одну таблицу результатов, содержащую одну строку или столбец со строкой схемы CSL.
 
 > [!NOTE]
-> * В дополнение к *чтению*секретные ключи URI контейнера хранилища должны иметь разрешения для *списка* .
+> * В дополнение к *чтению* секретные ключи URI контейнера хранилища должны иметь разрешения для *списка* .
 > * Стратегия вывода схемы "все" является очень дорогостоящей операцией, так как она подразумевает чтение из *всех* обнаруженных артефактов и объединение их схемы.
 > * Некоторые возвращаемые типы могут не быть реальными в результате неправильного подбора типа (или в результате процесса слияния схемы). Именно поэтому перед созданием внешней таблицы следует внимательно проанализировать результат.
 
@@ -60,7 +60,7 @@ evaluate infer_storage_schema(options)
 ```kusto
 let options = dynamic({
   'StorageContainers': [
-    h@'https://storageaccount.blob.core.windows.net/MovileEvents/2015;secretKey'
+    h@'https://storageaccount.blob.core.windows.net/MovileEvents;secretKey'
   ],
   'FileExtension': '.parquet',
   'FileNamePrefix': 'part-',
@@ -74,3 +74,18 @@ evaluate infer_storage_schema(options)
 |кслсчема|
 |---|
 |app_id: строка, user_id: long, event_time: DateTime, страна: строка, город: строка, device_type: строка, device_vendor: строка, ad_network: строка, кампания: строка, site_id: строка, event_type: строка, event_name: строка, согласованность: строка, days_from_install: int, доход: Real|
+
+Используйте возвращенную схему в определении внешней таблицы:
+
+```kusto
+.create external table MobileEvents(
+    app_id:string, user_id:long, event_time:datetime, country:string, city:string, device_type:string, device_vendor:string, ad_network:string, campaign:string, site_id:string, event_type:string, event_name:string, organic:string, days_from_install:int, revenue:real
+)
+kind=blob
+partition by (dt:datetime = bin(event_time, 1d), app:string = app_id)
+pathformat = ('app=' app '/dt=' datetime_pattern('yyyyMMdd', dt))
+dataformat = parquet
+(
+    h@'https://storageaccount.blob.core.windows.net/MovileEvents;secretKey'
+)
+```

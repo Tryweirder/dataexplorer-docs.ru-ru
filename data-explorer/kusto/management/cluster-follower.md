@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2020
-ms.openlocfilehash: 73b65cc59ff98bc658c542d690812ccf5ad3895a
-ms.sourcegitcommit: e1e35431374f2e8b515bbe2a50cd916462741f49
+ms.openlocfilehash: 26412683be35825a38f959de62292f3735e7a894
+ms.sourcegitcommit: e820a59191d2ca4394e233d51df7a0584fa4494d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82108462"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94446231"
 ---
 # <a name="cluster-follower-commands"></a>Команды для последующих кластеров
 
@@ -27,14 +27,13 @@ ms.locfileid: "82108462"
 
 Отображает базу данных (или базы данных), за которой следует другой ведущий кластер, для которого настроено одно или несколько переопределений уровня базы данных.
 
-
 **Синтаксис**
 
-`.show` `follower` `database` *DatabaseName*
+`.show``follower` `database` *DatabaseName*
 
-`.show``follower` `,`DatabaseName1... *DatabaseName1* `databases` `(` `,` *Датабасенамен*`)`
+`.show``follower` `databases` `(` *DatabaseName1* `,` ...`,` *Датабасенамен*`)`
 
-**Вывод** 
+**Выходные данные** 
 
 | Выходной параметр                     | Тип    | Описание                                                                                                        |
 |--------------------------------------|---------|--------------------------------------------------------------------------------------------------------------------|
@@ -42,20 +41,18 @@ ms.locfileid: "82108462"
 | леадерклустерметадатапас            | Строка  | Путь к контейнеру метаданных кластера лидера.                                                               |
 | качингполициоверриде                | Строка  | Переопределяющая политика кэширования для базы данных, сериализованная как JSON или null.                                         |
 | аусоризедпринЦипалсоверриде         | Строка  | Переопределение коллекции полномочных субъектов для базы данных, сериализованных как JSON или null.                    |
-| аусоризедпринЦипалсмодификатионкинд | Строка  | Тип изменения, применяемый с помощью аусоризедпринЦипалсоверриде`none`( `union` или `replace`).                  |
-| качингполиЦиесмодификатионкинд      | Строка  | Тип изменения для применения с использованием переопределений политики кэширования базы данных или уровня`none`таблицы `union` ( `replace`или). |
-| исаутопрефетченаблед                | Логическое | Будут ли предварительно получены новые данные при каждом обновлении схемы.        |
+| аусоризедпринЦипалсмодификатионкинд | Строка  | Тип изменения, применяемый с помощью АусоризедпринЦипалсоверриде `none` ( `union` или `replace` ).                  |
+| качингполиЦиесмодификатионкинд      | Строка  | Тип изменения для применения с использованием переопределений политики кэширования базы данных или уровня таблицы ( `none` `union` или `replace` ). |
+| исаутопрефетченаблед                | логический | Будут ли предварительно получены новые данные при каждом обновлении схемы.        |
 | таблеметадатаоверридес               | Строка  | Сериализация JSON переопределений свойств уровня таблицы (если они определены).                                      |
 
 ### <a name="alter-follower-database-policy-caching"></a>. изменение кэширования политики базы данных
 
 Изменяет политику кэширования базы данных-следов, чтобы переопределить набор, заданный для базы данных-источника в кластере лидера. Для этого требуются [разрешения датабасеадмин](../management/access-control/role-based-authorization.md).
 
-
-
 **Примечания**
 
-* По умолчанию `modification kind` для политик кэширования задано `union`значение. Чтобы изменить команду `modification kind` , воспользуйтесь командой [. ALTER "база данных: кэширование — политики-изменение типа](#alter-follower-database-caching-policies-modification-kind) ".
+* По умолчанию `modification kind` для политик кэширования задано значение `union` . Чтобы изменить `modification kind` команду, воспользуйтесь командой [. ALTER "база данных: кэширование — политики-изменение типа](#alter-follower-database-caching-policies-modification-kind) ".
 * Просмотр политики или действующих политик после изменения можно выполнить с помощью `.show` команд:
     * [. Отображение срока хранения политики базы данных](../management/retention-policy.md#show-retention-policy)
     * [. отобразить сведения о базе данных](../management/show-databases.md)
@@ -64,13 +61,9 @@ ms.locfileid: "82108462"
 
 **Синтаксис**
 
-`.alter``follower` `=` *HotDataSpan* *DatabaseName* DatabaseName хотдатаспан `policy` `caching` `database` `hot`
-
-
+`.alter``follower` `database` *DatabaseName* `policy` `caching` `hot` `=` *хотдатаспан*
 
 **Пример**
-
-
 
 ```kusto
 .alter follower database MyDb policy caching hot = 7d
@@ -91,7 +84,7 @@ ms.locfileid: "82108462"
 
 **Синтаксис**
 
-`.delete` `follower` `database` *DatabaseName* `policy` `caching`
+`.delete``follower` `database` *DatabaseName* DatabaseName `policy``caching`
 
 **Пример**
 
@@ -103,11 +96,9 @@ ms.locfileid: "82108462"
 
 Добавляет полномочных участников в коллекцию баз данных последующих участников, переопределяющих полномочные субъекты. Для этого требуется [разрешение датабасеадмин](../management/access-control/role-based-authorization.md).
 
-
-
 **Примечания**
 
-* По умолчанию `modification kind` для таких полномочных субъектов используется `none`. Чтобы изменить параметр `modification kind` использовать [базу данных-участник ALTER](#alter-follower-database-principals-modification-kind), измените тип.
+* По умолчанию `modification kind` для таких полномочных субъектов используется `none` . Чтобы изменить параметр `modification kind` использовать  [базу данных-участник ALTER](#alter-follower-database-principals-modification-kind), измените тип.
 * Просмотр эффективной коллекции участников после изменения можно выполнить с помощью `.show` команд:
     * [. Отображение участников базы данных](../management/security-roles.md#managing-database-security-roles)
     * [. отобразить сведения о базе данных](../management/show-databases.md)
@@ -115,19 +106,12 @@ ms.locfileid: "82108462"
 
 **Синтаксис**
 
-`.add``follower` `users` *DatabaseName* `(` *principal1*DatabaseName (`admins``,`) роль | principal1...`viewers` |  `database`  | `monitors` `,` *principalN* принЦипалн`)` [`'`*notes*заметки`'`]
-
-
-
+`.add``follower` `database` *DatabaseName* ( `admins`  |  `users`  |  `viewers`  |  `monitors` ) роль `(` *principal1* `,` ... `,` *принЦипалн* `)` [ `'` *Примечания* `'` ]
 
 **Пример**
 
 ```kusto
 .add follower database MyDB viewers ('aadgroup=mygroup@microsoft.com') 'My Group'
-```
-
-```kusto
-
 ```
 
 ### <a name="drop-follower-database-principals"></a>. Удалите участников базы данных-следов
@@ -144,7 +128,7 @@ ms.locfileid: "82108462"
 
 **Синтаксис**
 
-`.drop``follower` `monitors` *DatabaseName* `(` *principal1*DatabaseName (`admins` | `users`) principal1`,`. | .. `database` `viewers` |  `,` *принЦипалн*`)`
+`.drop``follower` `database` *DatabaseName* ( `admins`  |  `users`  |  `viewers`  |  `monitors` ) `(` *principal1* `,` ... `,` *принЦипалн*`)`
 
 **Пример**
 
@@ -165,10 +149,8 @@ ms.locfileid: "82108462"
 
 **Синтаксис**
 
-`.alter``follower`  |  *DatabaseName*  | DatabaseName`replace`= (`none`) `database` 
- `principals-modification-kind` `union`
-
-
+`.alter``follower` `database` *DatabaseName* 
+ `principals-modification-kind` = ( `none`  |  `union`  |  `replace` )
 
 **Пример**
 
@@ -189,9 +171,7 @@ ms.locfileid: "82108462"
 
 **Синтаксис**
 
-`.alter``follower` `union` *DatabaseName* `replace`DatabaseName = ()`none` |  `database` `caching-policies-modification-kind`  | 
-
-
+`.alter``follower` `database` *DatabaseName* `caching-policies-modification-kind` = ( `none`  |  `union`  |  `replace` )
 
 **Пример**
 
@@ -199,7 +179,29 @@ ms.locfileid: "82108462"
 .alter follower database MyDB caching-policies-modification-kind = union
 ```
 
+### <a name="alter-follower-database-prefetch-extents"></a>. Изменение предварительной выборки базы данных-экстентов
 
+В кластере последов можно не создавать новые запросы данных, прежде чем он будет получен из базового хранилища в SSD (кэш) узлов.
+
+Следующая команда изменяет конфигурацию базы данных-следов для предварительной выборки новых экстентов при каждом обновлении схемы. Для этого требуются [разрешения датабасеадмин](../management/access-control/role-based-authorization.md).
+
+> [!WARNING]
+> * Включение этого параметра может привести к ухудшению актуальности данных в базе данных последующих версий.
+> * Конфигурация по умолчанию — `false` и ее рекомендуется использовать по умолчанию.
+> * При выборе изменения параметра на `true` рекомендуется тщательно оценить влияние на актуальность в течение некоторого периода времени после изменения конфигурации.
+
+**Синтаксис**
+
+`.alter``follower` `database` *DatabaseName* `prefetch-extents` = ( `true`  |  `false` )
+
+`.alter``follower` `database` *DatabaseName* [ `from` `h@'` *путь к контейнеру метаданных кластера лидера* `'` ] `prefetch-extents` = ( `true`  |  `false` )
+
+**Пример**
+
+<!-- csl -->
+```
+.alter follower database MyDB prefetch-extents = false
+```
 
 ## <a name="table-level-commands"></a>Команды уровня таблицы
 
@@ -207,8 +209,6 @@ ms.locfileid: "82108462"
 
 Изменяет политику кэширования на уровне таблицы в базе данных-источнике, чтобы переопределить политику, заданную для базы данных-источника в кластере лидера.
 Для этого требуются [разрешения датабасеадмин](../management/access-control/role-based-authorization.md). 
-
-
 
 **Примечания**
 
@@ -220,17 +220,11 @@ ms.locfileid: "82108462"
 
 **Синтаксис**
 
+`.alter``follower` `database` *Имя базы* данных *TableName* `policy` `caching` `hot` `=` *хотдатаспан*
 
-
-
-
-`.alter``follower` `=` *HotDataSpan* *TableName* `policy` *DatabaseName* `caching` Имя базы данных TableName `hot` хотдатаспан `database`
-
-`.alter``follower` `(` *DatabaseName* `,`Таблицы DatabaseName *TableName1*. `database` .. `,` *TableNameN* Табленамен`)` *HotDataSpan* хотдатаспан `policy` `caching` `hot` `=`
+`.alter``follower` `database` *DatabaseName* Таблицы DatabaseName `(` *TableName1* `,` ... `,` *Табленамен* `)` `policy` `caching` `hot` `=` *Хотдатаспан*
 
 **Пример**
-
-
 
 ```kusto
 .alter follower database MyDb tables (Table1, Table2) policy caching hot = 7d
@@ -250,9 +244,9 @@ ms.locfileid: "82108462"
 
 **Синтаксис**
 
-`.delete``follower` `table` *TableName* *DatabaseName* Имя_базы_данных, `policy` TableName `database``caching`
+`.delete``follower` `database` *Имя_базы_данных* , `table` *TableName* TableName `policy``caching`
 
-`.delete``follower` `(` *TableName1* *DatabaseName* DatabaseName `tables` TableName1`,`... `database` `,``)` *TableNameN* Табленамен `policy``caching`
+`.delete``follower` `database` *DatabaseName* `tables` `(` *TableName1* `,` ... `,` *Табленамен* `)` `policy``caching`
 
 **Пример**
 
@@ -266,47 +260,47 @@ ms.locfileid: "82108462"
 
 В этом примере:
 
-* Наш кластер ниже `MyFollowerCluster` будет использоваться в качестве базы данных `MyDatabase` в кластере лидерства `MyLeaderCluster`.
-    * `MyDatabase`содержит `N` таблицы: `MyTable1`, `MyTable2`, `MyTable3`,... `MyTableN` (`N` > 3).
+* Наш кластер ниже `MyFollowerCluster` будет использоваться в качестве базы данных `MyDatabase` в кластере лидерства `MyLeaderCluster` .
+    * `MyDatabase` содержит `N` таблицы: `MyTable1` , `MyTable2` , `MyTable3` ,... `MyTableN` ( `N` > 3).
     * На `MyLeaderCluster`:
     
-    | `MyTable1`Политика кэширования | `MyTable2`Политика кэширования | `MyTable3`... `MyTableN` политика кэширования   | `MyDatabase`Полномочные субъекты                                                    |
+    | `MyTable1` Политика кэширования | `MyTable2` Политика кэширования | `MyTable3`...`MyTableN` Политика кэширования   | `MyDatabase` Полномочные субъекты                                                    |
     |---------------------------|---------------------------|------------------------------------------|---------------------------------------------------------------------------------------|
-    | горячий диапазон данных =`7d`      | горячий диапазон данных =`30d`     | горячий диапазон данных =`365d`                   | *Средства просмотра* = `aadgroup=scubadivers@contoso.com`; *Администраторы* = `aaduser=jack@contoso.com` |
+    | горячий диапазон данных = `7d`      | горячий диапазон данных = `30d`     | горячий диапазон данных = `365d`                   | *Средства просмотра*  =  `aadgroup=scubadivers@contoso.com` ; *Администраторы* = `aaduser=jack@contoso.com` |
      
-    * `MyFollowerCluster` Мы хотим:
+    * `MyFollowerCluster`Мы хотим:
     
-    | `MyTable1`Политика кэширования | `MyTable2`Политика кэширования | `MyTable3`... `MyTableN` политика кэширования   | `MyDatabase`Полномочные субъекты                                                    |
+    | `MyTable1` Политика кэширования | `MyTable2` Политика кэширования | `MyTable3`...`MyTableN` Политика кэширования   | `MyDatabase` Полномочные субъекты                                                    |
     |---------------------------|---------------------------|------------------------------------------|---------------------------------------------------------------------------------------|
-    | горячий диапазон данных =`1d`      | горячий диапазон данных =`3d`      | горячий диапазон данных = `0d` (ничего не кэшируется) | *Администраторы, средства*`aaduser=jack@contoso.com` *просмотра*  =  = `aaduser=jill@contoso.com`         |
+    | горячий диапазон данных = `1d`      | горячий диапазон данных = `3d`      | горячий диапазон данных = `0d` (ничего не кэшируется) | *Администраторы*  =  `aaduser=jack@contoso.com` , *средства просмотра* = `aaduser=jill@contoso.com`         |
 
 > [!IMPORTANT] 
-> Оба `MyFollowerCluster` значения `MyLeaderCluster` и должны находиться в одном регионе.
+> Оба `MyFollowerCluster` `MyLeaderCluster` значения и должны находиться в одном регионе.
 
 ### <a name="steps-to-execute"></a>Шаги для выполнения
 
-*Предварительные требования:* Настройте кластер `MyFollowerCluster` для отслеживания базы `MyDatabase` данных из `MyLeaderCluster`кластера.
+*Предварительные требования:* Настройте кластер `MyFollowerCluster` для отслеживания базы данных `MyDatabase` из кластера `MyLeaderCluster` .
 
 > [!NOTE]
-> Участник, выполняющий команды управления, должен быть `DatabaseAdmin` в базе данных. `MyDatabase`
+> Участник, выполняющий команды управления, должен быть `DatabaseAdmin` в базе данных `MyDatabase` .
 
 #### <a name="show-the-current-configuration"></a>Отображение текущей конфигурации
 
-Ознакомьтесь с текущей конфигурацией, в `MyDatabase` соответствии с которой следует `MyFollowerCluster`:
+Ознакомьтесь с текущей конфигурацией, в соответствии с которой `MyDatabase` следует `MyFollowerCluster` :
 
 ```kusto
 .show follower database MyDatabase
 | evaluate narrow() // just for presentation purposes
 ```
 
-| Столбец                              | Применение                                                    |
+| Столбец                              | Значение                                                    |
 |-------------------------------------|----------------------------------------------------------|
 |имя_базы_данных                         | MyDatabase                                               |
 |леадерклустерметадатапас            | `https://storageaccountname.blob.core.windows.net/cluster` |
 |качингполициоверриде                | null                                                     |
 |аусоризедпринЦипалсоверриде         | []                                                       |
-|аусоризедпринЦипалсмодификатионкинд | Отсутствуют                                                     |
-|исаутопрефетченаблед                | False                                                    |
+|аусоризедпринЦипалсмодификатионкинд | Нет                                                     |
+|исаутопрефетченаблед                | Неверно                                                    |
 |таблеметадатаоверридес               |                                                          |
 |качингполиЦиесмодификатионкинд      | Union                                                    |                                                                                                                      |
 
@@ -322,16 +316,16 @@ ms.locfileid: "82108462"
 .alter follower database MyDatabase principals-modification-kind = replace
 ```
 
-Только эти два субъекта имеют разрешения на доступ `MyDatabase` к`MyFollowerCluster`
+Только эти два субъекта имеют разрешения на доступ к `MyDatabase``MyFollowerCluster`
 
 ```kusto
 .show database MyDatabase principals
 ```
 
-| Роль                       | PrincipalType | принЦипалдисплайнаме                        | принЦипалобжектид                    | принЦипалфкн                                                                      | Примечания |
+| Роль                       | принЦипалтипе | принЦипалдисплайнаме                        | принЦипалобжектид                    | принЦипалфкн                                                                      | Примечания |
 |----------------------------|---------------|---------------------------------------------|--------------------------------------|-----------------------------------------------------------------------------------|-------|
-| Администратор MyDatabase базы данных  | Пользователь AAD      | Гнездо Kusto (UPN: jack@contoso.com)       | 12345678-ABCD-ефеф-1234-350bf486087b | аадусер = 87654321-ABCD-EFEF-1234-350bf486087b; 55555555-4444-3333-2222-2d7cd011db47 |       |
-| Средство просмотра MyDatabase базы данных | Пользователь AAD      | Jill Kusto (UPN: jack@contoso.com)       | abcdefab-abcd-efef-1234-350bf486087b | аадусер = 54321789-ABCD-EFEF-1234-350bf486087b; 55555555-4444-3333-2222-2d7cd011db47 |       |
+| Администратор MyDatabase базы данных  | Пользователь AAD      | Гнездо Kusto (UPN: jack@contoso.com )       | 12345678-ABCD-ефеф-1234-350bf486087b | аадусер = 87654321-ABCD-EFEF-1234-350bf486087b; 55555555-4444-3333-2222-2d7cd011db47 |       |
+| Средство просмотра MyDatabase базы данных | Пользователь AAD      | Jill Kusto (UPN: jack@contoso.com )       | abcdefab-abcd-efef-1234-350bf486087b | аадусер = 54321789-ABCD-EFEF-1234-350bf486087b; 55555555-4444-3333-2222-2d7cd011db47 |       |
 
 ```kusto
 .show follower database MyDatabase
@@ -346,7 +340,7 @@ ms.locfileid: "82108462"
 
 #### <a name="override-caching-policies"></a>Переопределение политик кэширования
 
-Замените коллекцию политик кэширования базы данных и уровня таблицы `MyDatabase` на ON `MyFollowerCluster` , установив для всех таблиц кэшированные данные, исключая две определенные таблицы — *not* `MyTable1`, `MyTable2` — для которых будут кэшироваться данные для периодов `1d` и `3d`соответственно:
+Замените коллекцию политик кэширования базы данных и уровня таблицы `MyDatabase` на ON `MyFollowerCluster` , установив *для* всех таблиц кэшированные данные, исключая две определенные таблицы — `MyTable1` , `MyTable2` — для которых будут кэшироваться данные для периодов `1d` и `3d` соответственно:
 
 ```kusto
 .alter follower database MyDatabase policy caching hot = 0d
@@ -358,7 +352,7 @@ ms.locfileid: "82108462"
 .alter follower database MyDatabase caching-policies-modification-kind = replace
 ```
 
-Данные кэшируются только для этих двух конкретных таблиц, а остальные — в `0d`следующих случаях:
+Данные кэшируются только для этих двух конкретных таблиц, а остальные — в `0d` следующих случаях:
 
 ```kusto
 .show tables details
@@ -383,20 +377,20 @@ ms.locfileid: "82108462"
 
 #### <a name="summary"></a>Сводка
 
-См `MyDatabase` `MyFollowerCluster`. текущую конфигурацию:
+См. текущую конфигурацию `MyDatabase` `MyFollowerCluster` :
 
 ```kusto
 .show follower database MyDatabase
 | evaluate narrow() // just for presentation purposes
 ```
 
-| Столбец                              | Применение                                                                                                                                                                           |
+| Столбец                              | Значение                                                                                                                                                                           |
 |-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |имя_базы_данных                         | MyDatabase                                                                                                                                                                      |
 |леадерклустерметадатапас            | `https://storageaccountname.blob.core.windows.net/cluster`                                                                                                                        |
 |качингполициоверриде                | {"Датахотспан": {"значение": "00:00:00"}, "Индексхотспан": {"value": "00:00:00"}}                                                                                                        |
 |аусоризедпринЦипалсоверриде         | [{"Principal": {"FullyQualifiedName": "аадусер = 87654321-ABCD-EFEF-1234-350bf486087b",...}, {"субъект": {"FullyQualifiedName": "аадусер = 54321789-ABCD-EFEF-1234-350bf486087b",...}] |
-|аусоризедпринЦипалсмодификатионкинд | Replace                                                                                                                                                                         |
-|исаутопрефетченаблед                | False                                                                                                                                                                           |
+|аусоризедпринЦипалсмодификатионкинд | Заменить                                                                                                                                                                         |
+|исаутопрефетченаблед                | Неверно                                                                                                                                                                           |
 |таблеметадатаоверридес               | {"Митаржеттабле": {"Качингполициоверриде": {"Датахотспан": {"значение": "3.00:00:00"}...}, "Мисаурцетабле": {"Качингполициоверриде": {"DataHotSpan": {"value": "1,00:00:00"},...}}}       |
-|качингполиЦиесмодификатионкинд      | Replace                                                                                                                                                                         |
+|качингполиЦиесмодификатионкинд      | Заменить                                                                                                                                                                         |
