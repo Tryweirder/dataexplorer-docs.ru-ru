@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 06/28/2020
-ms.openlocfilehash: 5e15983039209e2e0c62ebd761e416ebb3bd1076
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: f72d2b7f2036c7c63bfc5a37e2ab944acc60bbf8
+ms.sourcegitcommit: 2ee2901cb82e1655b7f0d960d3427da084230731
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342626"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94520587"
 ---
 # <a name="use-lightingest-to-ingest-data-to-azure-data-explorer"></a>Использование самого освещения для приема данных в Azure обозреватель данных
  
@@ -37,7 +37,7 @@ ms.locfileid: "92342626"
 1. Перейдите к извлеченному каталогу *Tools* на компьютере.
 1. Удалите существующие сведения о расположении из строки расположения.
 
-    :::image type="content" source="media/lightingest/lightingest-locationbar.png" alt-text="Загрузка самого освещения":::
+    :::image type="content" source="media/lightingest/lightingest-locationbar.png" alt-text="Удаление существующих сведений о расположении для освещения в Azure обозреватель данных":::
 
 
 1. Введите `cmd` и нажмите клавишу **ВВОД**.
@@ -46,7 +46,7 @@ ms.locfileid: "92342626"
     > [!Tip]
     > Чтобы получить список поддерживаемых аргументов командной строки, введите `LightIngest.exe /help` .
     >
-    > :::image type="content" source="media/lightingest/lightingest-cmd-line-help.png" alt-text="Загрузка самого освещения":::
+    > :::image type="content" source="media/lightingest/lightingest-cmd-line-help.png" alt-text="Справка по командной строке для самого освещения":::
 
 1. Введите, `ingest-` за которым следует строка подключения к кластеру Azure обозреватель данных, который будет управлять приемом.
     Заключите строку подключения в двойные кавычки и следуйте [спецификации строк подключения Kusto](kusto/api/connection-strings/kusto.md).
@@ -66,7 +66,7 @@ ms.locfileid: "92342626"
 
 * Для оптимальной производительности приема размер необработанных данных необходим, поэтому освещение может оценить размер несжатых локальных файлов. Однако самое освещение может оказаться неспособной правильно оценить необработанный размер сжатых больших двоичных объектов без их первоначальной загрузки. Поэтому при приеме сжатых больших двоичных объектов задайте `rawSizeBytes` для свойства метаданных большого двоичного объекта значение несжатого размера данных в байтах.
 
-## <a name="command-line-arguments"></a>аргументов командной строки;
+## <a name="command-line-arguments"></a>Аргументы командной строки
 
 |Имя аргумента            |Тип     |Описание       |Обязательный или необязательный
 |------------------------------|--------|----------|-----------------------------|
@@ -155,7 +155,7 @@ To use the LightIngest command below:
 
     ```kusto
     ingest-{Cluster name and region}.kusto.windows.net;AAD Federated Security=True -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -creationTimePattern:"'historicalvalues'yyyyMMdd'.parquet'"
-     -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
+     -pattern:"*.parquet" -format:parquet -limit:2 -cr:10.0 -dontWait:true
     ```
 
 * Для URI большого двоичного объекта, который ссылается на иерархическую структуру папок, например `https://storageaccount/container/folder/2002/12/01/blobname.extension` , 
