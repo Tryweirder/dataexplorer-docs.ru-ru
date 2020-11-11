@@ -7,15 +7,15 @@ ms.author: orspodek
 ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
-ms.date: 03/23/2020
+ms.date: 10/08/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 61b9dff7d03732611f0a0f47b7c8fc9d6784ac96
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: c3a099dbe431087fd6b79d78ad2b8ec10d5a5a37
+ms.sourcegitcommit: b6f0f112b6ddf402e97c011a902bd70ba408e897
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92246023"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94497790"
 ---
 # <a name="tutorial"></a>Учебник
 
@@ -138,7 +138,7 @@ StormEvents
 | project StartTime, EndTime, Duration, EventType, State
 ```
 
-|StartTime|EndTime|Duration|EventType|Состояние|
+|StartTime|EndTime|Длительность|EventType|Состояние|
 |---|---|---|---|---|
 |2007-09-18 20:00:00.0000000|2007-09-19 18:00:00.0000000|22:00:00|Тяжелая дождя|Флорида|
 |2007-09-20 21:57:00.0000000|2007-09-20 22:05:00.0000000|00:08:00|Торнадо|Флорида|
@@ -238,11 +238,11 @@ StormEvents
 | render columnchart
 ```
 
-:::image type="content" source="images/tutorial/event-counts-state.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+:::image type="content" source="images/tutorial/event-counts-state.png" alt-text="Гистограмма счетчиков событий с различными состояниями":::
 
 Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
 
-Строго говоря, &quot;Render" — это функция клиента, а не часть языка запросов. Тем не менее, она интегрирована в язык и очень полезна для представления результатов.
+Строго говоря, "Render" — это функция клиента, а не часть языка запросов. Тем не менее, она интегрирована в язык и очень полезна для представления результатов.
 
 
 ## <a name="timecharts"></a>Временные диаграммы
@@ -256,11 +256,7 @@ StormEvents
 | render timechart
 ```
 
-:::image type="content" source="images/tutorial/time-series-start-bin.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/time-series-start-bin.png" alt-text="События графика, binned по времени":::
 
 ## <a name="multiple-series"></a>Множественные серии
 
@@ -274,19 +270,11 @@ StormEvents
 | summarize count() by bin(StartTime, 10h), Source
 ```
 
-:::image type="content" source="images/tutorial/table-count-source.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/table-count-source.png" alt-text="Счетчик таблиц по источнику":::
 
 Просто добавьте термин прорисовки к приведенной выше: `| render timechart` .
 
-:::image type="content" source="images/tutorial/line-count-source.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/line-count-source.png" alt-text="Число графиков по источнику":::
 
 Обратите внимание, что `render timechart` использует первый столбец в качестве оси x, а затем отображает другие столбцы в виде отдельных строк.
 
@@ -305,19 +293,11 @@ StormEvents
 | render timechart
 ```
 
-:::image type="content" source="images/tutorial/time-count-hour.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/time-count-hour.png" alt-text="Счетчик временной диаграммы по часам":::
 
 В настоящее время `render` не имеет правильной метки длительности, но `| render columnchart` вместо этого можно использовать:
 
-:::image type="content" source="images/tutorial/column-count-hour.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/column-count-hour.png" alt-text="Количество столбцов в гистограмме по часам":::
 
 ## <a name="compare-multiple-daily-series"></a>Сравнение серий для нескольких дней
 
@@ -332,11 +312,7 @@ StormEvents
 | render timechart
 ```
 
-:::image type="content" source="images/tutorial/time-hour-state.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/time-hour-state.png" alt-text="Диаграмма времени по часам и состоянию":::
 
 Выполните деление `1h` на, чтобы превратить ось x в число часов, а не на длительность:
 
@@ -349,11 +325,7 @@ StormEvents
 | render columnchart
 ```
 
-:::image type="content" source="images/tutorial/column-hour-state.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/column-hour-state.png" alt-text="Гистограмма по часам и штату":::
 
 ## <a name="join"></a>Join
 
@@ -372,11 +344,7 @@ StormEvents
 | distinct State
 ```
 
-:::image type="content" source="images/tutorial/join-events-la.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/join-events-la.png" alt-text="Присоединение к событиям с молнией и множество":::
 
 ## <a name="user-session-example-of-join"></a>Пример сеанса пользователя с присоединением
 
@@ -402,11 +370,7 @@ Events
 | take 10
 ```
 
-:::image type="content" source="images/tutorial/user-session-extend.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/user-session-extend.png" alt-text="Расширение сеанса пользователя":::
 
 Рекомендуется использовать `project` только для выбора необходимых столбцов перед выполнением соединения.
 В тех же предложениях мы переименуем столбец timestamp.
@@ -427,19 +391,11 @@ StormEvents
 | render timechart
 ```
 
-:::image type="content" source="images/tutorial/event-count-duration.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/event-count-duration.png" alt-text="Число событий диаграмму по продолжительности":::
 
 Или используйте `| render columnchart` :
 
-:::image type="content" source="images/tutorial/column-event-count-duration.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/column-event-count-duration.png" alt-text="Счетчик событий гистограммы диаграмму по продолжительности":::
 
 ## <a name="percentiles"></a>Процентили
 
@@ -453,11 +409,7 @@ StormEvents
 
 В этом случае мы предоставили `by` предложение No, поэтому результатом будет одна строка:
 
-:::image type="content" source="images/tutorial/summarize-percentiles-duration.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
-
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
+:::image type="content" source="images/tutorial/summarize-percentiles-duration.png" alt-text="Таблица суммирования процентили по продолжительности":::
 
 Из полученных результатов мы видим следующее:
 
@@ -479,11 +431,8 @@ StormEvents
 | summarize percentiles(duration, 5, 20, 50, 80, 95) by State
 ```
 
-:::image type="content" source="images/tutorial/summarize-percentiles-state.png" alt-text="Гистограмма счетчиков событий с различными состояниями&quot;:::
+:::image type="content" source="images/tutorial/summarize-percentiles-state.png" alt-text="Таблица сводка длительности процентили по состоянию":::
 
-Хотя мы удалили `mid` операцию проекта, она все еще нужна, если нам нужно, чтобы на диаграмме отображались страны в таком порядке.
-
-Строго говоря, &quot;Render":::
 
 ## <a name="let-assign-a-result-to-a-variable"></a>Оператор let: присвоение результата переменной
 
@@ -501,7 +450,6 @@ LightningStorms
 | join (AvalancheStorms) on State
 | distinct State
 ```
-
 > [!TIP]
 > В клиенте обозревателя Kusto не вставляйте пустые строки между частями этого объекта. Обязательно выполните все части.
 
@@ -542,10 +490,221 @@ Logs | join cluster("TelemetryCluster").database("Telemetry").Metrics on Request
 > [!NOTE]
 > Если кластер указан, база данных является обязательной.
 
+
+
+
 ::: zone-end
 
 ::: zone pivot="azuremonitor"
 
-Эта возможность не поддерживается в Azure Monitor
+Лучший способ узнать о языке запросов Kusto — просмотреть некоторые простые запросы, чтобы получить «Оформление» для языка. Эти запросы похожи на те, которые используются в учебнике по обозреватель данных Azure, но они используют данные из общих таблиц в Log Analytics рабочей области. 
+
+Выполните эти запросы с помощью Log Analytics, который является средством в портал Azure для записи запросов журнала с помощью данных журнала в Azure Monitor и анализа их результатов. Если вы не знакомы с Log Analytics, то можете ознакомиться с руководством в [log Analytics руководстве](/azure/azure-monitor/log-query/log-analytics-tutorial.md).
+
+Все запросы здесь используют [демонстрационную среду log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade). Можно использовать собственную среду, но некоторые из таблиц могут не использоваться. Поскольку данные в демонстрационной среде не являются статическими, результаты запросов могут немного отличаться от показанных здесь результатов.
+
+
+## <a name="count-rows"></a>Считать строки
+[Инсигхтсметрикс](/azure/azure-monitor/reference/tables/insightsmetrics) содержит данные о производительности, собираемые аналитическими сведениями, такими как Azure Monitor для виртуальных машин и Azure Monitor для контейнеров. Чтобы узнать, насколько это было, мы будем передавать его содержимое в оператор, который просто подсчитывает строки:
+
+Запрос — это источник данных (обычно имя таблицы), за которым может следовать одна или несколько пар символа вертикальной черты и некоторый табличный оператор. В этом случае возвращаются все записи из таблицы Инсигхтсметрикс, а затем они отправляются оператору [Count](./countoperator.md) , который выводит результаты, начиная с последней команды в запросе.
+
+<!-- csl: https://help.kusto.windows.net/Samples -->
+```kusto
+InsightsMetrics | count
+```
+
+Ниже приведен результат:
+
+|Счетчик|
+|-----|
+|1 263 191|
+    
+
+
+
+## <a name="where-filtering-by-a-boolean-expression"></a>WHERE: Фильтрация по логическому выражению
+[AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) содержит записи из журнала действий Azure, которые позволяют получить представление о любых событиях уровня подписки или группы управления, произошедших в Azure. Давайте видим только `Critical` записи в течение определенной недели.
+
+
+Оператор [WHERE](/azure/data-explorer/kusto/query/whereoperator) очень РАСПРОСТРАНЕН в ККЛ и фильтрует таблицу в строки, соответствующие указанным критериям. В этом примере используется несколько команд. Сначала запрос извлекает все записи для таблицы, а затем фильтрует эти данные только для записей в диапазоне времени, а затем фильтрует результаты только для записей с `Critical` уровнем.
+
+> [!NOTE]
+> Помимо указания фильтра в запросе с помощью `TimeGenerated` столбца, можно указать диапазон времени в log Analytics. Подробные сведения см. в статье [Область запросов журнала и временной диапазон в Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope).
+
+```kusto
+AzureActivity
+| where TimeGenerated > datetime(10-01-2020) and TimeGenerated < datetime(10-07-2020)
+| where Level == 'Critical'
+```
+
+[![Результаты примера фильтрации WHERE](images/tutorial/am-results-where.png)](images/tutorial/am-results-where.png#lightbox)
+
+
+## <a name="project-select-a-subset-of-columns"></a>Проект: выберите подмножество столбцов
+
+Используйте [проект](./projectoperator.md) , чтобы выбрать только нужные столбцы. Основываясь на предыдущем примере, можно ограничить выходные данные определенными столбцами.
+
+```kusto
+AzureActivity
+| where TimeGenerated > datetime(10-01-2020) and TimeGenerated < datetime(10-07-2020)
+| where Level == 'Critical'
+| project TimeGenerated, Level, OperationNameValue, ResourceGroup, _ResourceId
+```
+
+[![Результаты выполнения примера проекта](images/tutorial/am-results-project.png)](images/tutorial/am-results-project.png#lightbox)
+
+
+## <a name="take-show-me-n-rows"></a>Возьмем: Показать n строк
+[Нетворкмониторинг](/azure/azure-monitor/reference/tables/networkmonitoring) содержит данные мониторинга для виртуальных сетей Azure. Давайте используем оператор [Take](./takeoperator.md) , чтобы просмотреть 5 образцов строк в этой таблице. В [результате выполнения выводится](./takeoperator.md) определенное число строк из таблицы без определенного порядка.
+
+```kusto
+NetworkMonitoring
+| take 10
+| project TimeGenerated, Computer, SourceNetwork, DestinationNetwork, HighLatency, LowLatency
+```
+
+[![Результаты выполнения примера](images/tutorial/am-results-take.png)](images/tutorial/am-results-take.png#lightbox)
+
+## <a name="sort-and-top"></a>Сортировка и начало
+Вместо случайных записей мы можем вернуть последние 5 записей, сначала сортируя их по времени.
+
+```kusto
+NetworkMonitoring
+| sort by TimeGenerated desc
+| take 5
+| project TimeGenerated, Computer, SourceNetwork, DestinationNetwork, HighLatency, LowLatency
+```
+
+Это точное поведение можно получить, используя оператор [Top](./topoperator.md) . 
+
+```kusto
+NetworkMonitoring
+| top 5 by TimeGenerated desc
+| project TimeGenerated, Computer, SourceNetwork, DestinationNetwork, HighLatency, LowLatency
+```
+
+[![Результаты первого примера](images/tutorial/am-results-top.png)](images/tutorial/am-results-top.png#lightbox)
+
+
+## <a name="extend-compute-derived-columns"></a>расширение: вычисление производных столбцов
+Оператор [Extend](./projectoperator.md) аналогичен [проекту](./projectoperator.md) , за исключением того, что он добавляет к набору столбцов вместо того, чтобы заменять их. Можно также использовать оба оператора для создания нового столбца на основе вычисления в каждой строке.
+
+Таблица [производительности](/azure/azure-monitor/reference/tables/perf) содержит данные о производительности, собранные с виртуальных машин, на которых работает агент log Analytics. 
+
+```kusto
+Perf
+| where ObjectName == "LogicalDisk" and CounterName == "Free Megabytes"
+| project TimeGenerated, Computer, FreeMegabytes = CounterValue
+| extend FreeGigabytes = FreeMegabytes / 1000
+```
+
+[![Результаты расширенного примера](images/tutorial/am-results-extend.png)](images/tutorial/am-results-extend.png#lightbox)
+
+
+## <a name="summarize-aggregate-groups-of-rows"></a>суммировать: статистические группы строк
+Оператор [суммирования](./summarizeoperator.md) группирует строки, имеющие одинаковые значения в `by` предложении, а затем использует статистическую функцию, такую как, `count` для объединения каждой группы в одну строку. Существует ряд [статистических функций](./summarizeoperator.md#list-of-aggregation-functions), которые можно использовать в одном операторе суммирования для создания нескольких вычисленных столбцов. 
+
+[SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) содержит события безопасности, такие как входы и процессы, запущенные на наблюдаемых компьютерах. Мы можем подсчитать количество событий каждого уровня, произошедших на каждом компьютере. В этом примере есть строка для каждого сочетания компьютера и уровня, а также столбец для счетчика событий.
+
+```kusto
+SecurityEvent
+| summarize count() by Computer, Level
+```
+
+[![Пример количества результатов суммирования](images/tutorial/am-results-summarize-count.png)](images/tutorial/am-results-summarize-count.png#lightbox)
+
+
+## <a name="summarize-by-scalar-values"></a>Суммирование по скалярным значениям
+Можно выполнять статистическую обработку по скалярным значениям, таким как числа и значения времени, но для группирования строк в отдельные наборы данных следует использовать функцию [bin ()](./binfunction.md) . Например, если статистическое выражение выполняется по `TimeGenerated` , то для получения практически всех значений времени будет выводится строка. `bin()` для консолидации этих значений в час или день.
+
+[Инсигхтсметрикс](/azure/azure-monitor/reference/tables/insightsmetrics) содержит данные о производительности, собираемые аналитическими сведениями, такими как Azure Monitor для виртуальных машин и Azure Monitor для контейнеров. В следующем запросе показана Почасовая средняя загрузка процессора для нескольких компьютеров.
+
+```kusto
+InsightsMetrics
+| where Computer startswith "DC"
+| where Namespace  == "Processor" and Name == "UtilizationPercentage"
+| summarize avg(Val) by Computer, bin(TimeGenerated, 1h)
+```
+
+
+[![Результаты итогового среднего примера](images/tutorial/am-results-summarize-avg.png)](images/tutorial/am-results-summarize-avg.png#lightbox)
+
+
+
+## <a name="render-display-a-chart-or-table"></a>Render: отображение диаграммы или таблицы
+Оператор [Render](./renderoperator.md?pivots=azuremonitor) указывает, как должны подготавливаться выходные данные запроса. По умолчанию Log Analytics будет отображать выходные данные в виде таблицы, а после выполнения запроса можно выбрать другие типы диаграмм. `render`Оператор полезен для включения в запросы, где тип диаграммы обычно является предпочтительным.
+
+В следующем примере используется показывается Почасовая средняя загрузка процессора на один компьютер и визуализация выходных данных в виде диаграммы времени.
+
+```kusto
+InsightsMetrics
+| where Computer == "DC00.NA.contosohotels.com"
+| where Namespace  == "Processor" and Name == "UtilizationPercentage"
+| summarize avg(Val) by Computer, bin(TimeGenerated, 1h)
+| render timechart
+```
+
+[![Результаты выполнения примера Render](images/tutorial/am-results-render.png)](images/tutorial/am-results-render.png#lightbox)
+
+
+
+## <a name="multiple-series"></a>Множественные серии
+Если в предложении есть несколько значений `summarize by` , на диаграмме отображается отдельный ряд для каждого набора значений:
+
+```kusto
+InsightsMetrics
+| where Computer startswith "DC"
+| where Namespace  == "Processor" and Name == "UtilizationPercentage"
+| summarize avg(Val) by Computer, bin(TimeGenerated, 1h)
+| render timechart
+```
+
+
+[![Пример результатов визуализации с несколькими рядами](images/tutorial/am-results-render-multiple.png)](images/tutorial/am-results-render-multiple.png#lightbox)
+
+## <a name="join-data-from-two-tables"></a>Объединение данных из двух таблиц
+Что делать, если необходимо получить данные из двух таблиц в одном запросе? Оператор [Join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor) позволяет объединять строки из нескольких таблиц в один результирующий набор. Каждая таблица должна иметь столбец с соответствующим значением, чтобы соединение собрало, какие строки следует сопоставить.
+
+[Вмкомпутер](/azure/azure-monitor/reference/tables/vmcomputer) — это таблица, используемая Azure Monitor для виртуальных машин для хранения сведений о виртуальных машинах, которые он отслеживает. [Инсигхтсметрикс](/azure/azure-monitor/reference/tables/insightsmetrics) содержит данные о производительности, собранные с этих виртуальных машин. Одно значение, собранное в *инсигхтсметрикс* , — это доступная память, но не процент доступной памяти. Чтобы вычислить процентную долю, требуется физическая память для каждой виртуальной машины в *вмкомпутер*.
+
+В следующем примере запроса для выполнения этого вычисления используется соединение. [DISTINCT](/azure/data-explorer/kusto/query/joinoperator) используется с *вмкомпутер* , так как сведения регулярно собираются с каждого компьютера, создающего несколько строк для каждой из этих таблиц. Две таблицы соединяются с помощью столбца *Computer* . Это означает, что в результирующем наборе создается строка, которая содержит столбцы из обеих таблиц для каждой строки в *инсигхтсметрикс* со значением на *компьютере* , совпадающим с тем же значением в столбце *Computer* в *вмкомпутер*.
+
+```kusto
+VMComputer
+| distinct Computer, PhysicalMemoryMB
+| join kind=inner (
+    InsightsMetrics
+    | where Namespace == "Memory" and Name == "AvailableMB"
+    | project TimeGenerated, Computer, AvailableMemoryMB = Val
+) on Computer
+| project TimeGenerated, Computer, PercentMemory = AvailableMemoryMB / PhysicalMemoryMB * 100
+```
+
+[![Пример результатов объединения](images/tutorial/am-results-join.png)](images/tutorial/am-results-join.png#lightbox)
+
+
+## <a name="let-assign-a-result-to-a-variable"></a>Оператор let: присвоение результата переменной
+С помощью [let](./letstatement.md) можно упростить чтение и управление запросами. Этот оператор позволяет присвоить результаты запроса переменной, которую можно использовать позже. Тот же запрос в предыдущем примере можно переписывать следующим образом.
+
+ 
+```kusto
+let PhysicalComputer = VMComputer
+    | distinct Computer, PhysicalMemoryMB;
+    let AvailableMemory = 
+InsightsMetrics
+    | where Namespace == "Memory" and Name == "AvailableMB"
+    | project TimeGenerated, Computer, AvailableMemoryMB = Val;
+PhysicalComputer
+| join kind=inner (AvailableMemory) on Computer
+| project TimeGenerated, Computer, PercentMemory = AvailableMemoryMB / PhysicalMemoryMB * 100
+```
+
+[![Результаты примера Let](images/tutorial/am-results-let.png)](images/tutorial/am-results-let.png#lightbox)
+
+## <a name="next-steps"></a>Следующие шаги
+
+- [Просмотрите примеры кода для языка запросов Kusto](samples.md?pivots=azuremonitor).
+
 
 ::: zone-end

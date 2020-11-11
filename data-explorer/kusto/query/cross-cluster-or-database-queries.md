@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: e341a6b9b51b082b16036e368c61fa4c903750da
-ms.sourcegitcommit: 64fdef912cc925c4bdcae98183eb8d7c7a6392d7
+ms.openlocfilehash: dbab2bda9ee24c79e4b62427a7da5bd7db3f0077
+ms.sourcegitcommit: b6f0f112b6ddf402e97c011a902bd70ba408e897
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027811"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94497451"
 ---
 # <a name="cross-database-and-cross-cluster-queries"></a>Запросы между базами данных и между кластерами
 
@@ -84,7 +84,7 @@ restrict access to (my*, database("MyOther*").*, cluster("OtherCluster").databas
 
 * Любое имя сущности, начинающееся с *My...* в базе данных по умолчанию. 
 * Любая таблица во всех базах данных с именем *мйосер...* текущего кластера.
-* Любая таблица во всех базах данных с именем *my2...* в кластере *OtherCluster.kusto.Windows.NET* .
+* Любая таблица во всех базах данных с именем *my2...* в кластере *OtherCluster.kusto.Windows.NET*.
 
 ## <a name="functions-and-views"></a>Функции и представления
 
@@ -183,6 +183,6 @@ cluster("OtherCluster").database("OtherDb").GetDataPivot()
 
 ::: zone pivot="azuremonitor"
 
-Запросы между базами данных и между кластерами не поддерживаются в Azure Monitor.
+Запросы между базами данных и между кластерами не поддерживаются в Azure Monitor. См. раздел [запросы между рабочими областями в Azure Monitor](/azure/azure-monitor/log-query/cross-workspace-query) для запросов в нескольких рабочих областях и приложениях.
 
 ::: zone-end
