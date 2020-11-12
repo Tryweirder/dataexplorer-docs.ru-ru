@@ -8,14 +8,14 @@ ms.reviewer: elgevork
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 11/01/2020
-ms.openlocfilehash: 19fc8c7ce74cfe632034722fda2b23c5105d013a
-ms.sourcegitcommit: 0e2fbc26738371489491a96924f25553a8050d51
+ms.openlocfilehash: a35fd4ed2f43c991aa08e2e1594103cb5f5bd7a7
+ms.sourcegitcommit: 3eabd78305d32cd9b8a6bd1d76877ddc19d8ac63
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148553"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94548892"
 ---
-# <a name="gzip_decompress_from_base64_string"></a>gzip_decompress_from_base64_string ()
+# <a name="gzip_decompress_from_base64_string"></a>gzip_decompress_from_base64_string()
 
 Декодирует входную строку из Base64 и выполняет распаковку gzip.
 
@@ -27,6 +27,11 @@ ms.locfileid: "93148553"
 
 *Input_string* : входные данные `string` , которые были сжаты с помощью gzip, а затем кодируются в Base64. Функция принимает один строковый аргумент.
 
+> [!NOTE]
+> Эта функция проверяет обязательные поля заголовка gzip (ID1, ID2 и CM) и возвращает пустой выходной файл, если какое-либо из этих полей содержит неправильные значения.
+> Необязательные поля заголовка не поддерживаются. Как ФЛГ, так и XFL должны быть нулевыми.
+
+
 ## <a name="returns"></a>Возвращаемое значение
 
 * Возвращает объект `string` , представляющий исходную строку. 
@@ -36,7 +41,7 @@ ms.locfileid: "93148553"
 ## <a name="examples"></a>Примеры
 
 ```kusto
-print res=gzip_decompress_from_base64_string("eAEBFADr/zEyMzQ1Njc4OTBxd2VydHl1aW9wOAkGd0xvZwAzAG5JZA==")
+print res=gzip_decompress_from_base64_string("H4sIAAAAAAAA/wEUAOv/MTIzNDU2Nzg5MHF3ZXJ0eXVpb3A6m7f2FAAAAA==")
 ```
 
 **Выходные данные:**
@@ -54,4 +59,5 @@ print res=gzip_decompress_from_base64_string("x0x0x0")
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Создайте сжатую входную строку с помощью [gzip_compress_to_base64_string ()](gzip-base64-compress.md).
+* Создайте сжатую входную строку с помощью [gzip_compress_to_base64_string ()](gzip-base64-compress.md).
+* См. также [zlib_decompress_from_base64_string](zlib-base64-decompress.md).
