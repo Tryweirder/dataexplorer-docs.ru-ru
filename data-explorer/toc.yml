@@ -555,6 +555,8 @@
               href: ./kusto/query/diffpatterns-textplugin.md
             - name: Подключаемый модуль infer_storage_schema
               href: ./kusto/query/inferstorageschemaplugin.md
+            - name: Подключаемый модуль mysql_request
+              href: ./kusto/query/mysqlrequest-plugin.md
             - name: Подключаемый модуль narrow
               href: ./kusto/query/narrowplugin.md
             - name: Подключаемый модуль pivot
@@ -719,6 +721,8 @@
           href: ./kusto/query/arrayindexoffunction.md
         - name: array_length()
           href: ./kusto/query/arraylengthfunction.md
+        - name: array_reverse()
+          href: ./kusto/query/array-reverse-function.md
         - name: array_rotate_left()
           href: ./kusto/query/array_rotate_leftfunction.md
         - name: array_rotate_right()
@@ -1382,7 +1386,7 @@
               href: ./kusto/tools/kusto-explorer-troubleshooting.md
         - name: Kusto.Cli
           href: ./kusto/tools/kusto-cli.md
-- name: Справочные сведения
+- name: Справочник
   items:
     - name: Управление
       items:
@@ -1644,6 +1648,14 @@
                   href: ./kusto/management/data-export/show-continuous-failures.md
         - name: Курсоры баз данных
           href: ./kusto/management/databasecursor.md
+        - name: Команды для подключаемых модулей
+          items:
+            - name: .show plugins
+              href: ./kusto/management/show-plugins.md
+            - name: .enable plugin
+              href: ./kusto/management/enable-plugin.md
+            - name: .disable plugin
+              href: ./kusto/management/disable-plugin.md
         - name: Кэш результатов запроса
           href: ./kusto/management/query-results-cache-commands.md
           items:
