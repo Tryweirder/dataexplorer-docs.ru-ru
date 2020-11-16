@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 09/26/2019
-ms.openlocfilehash: 442185ed0afd977c103d0b571472c0f5e742908c
-ms.sourcegitcommit: 455d902bad0aae3e3d72269798c754f51442270e
+ms.openlocfilehash: 47a18e8b8a2ec34207acacfd508114955f28953f
+ms.sourcegitcommit: 88f8ad67711a4f614d65d745af699d013d01af32
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349483"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94639011"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Рекомендации по использованию Power BI для запроса и визуализации данных обозреватель данных Azure
 
@@ -91,6 +91,7 @@ in
 | NoTruncate | `[NoTruncate=true]` | Добавляет `notruncation` инструкцию SET в запрос. Включает подавление усечения результатов запроса, возвращаемого вызывающему объекту.
 | аддитионалсетстатементс | `[AdditionalSetStatements="set query_datascope=hotcache"]` | Добавляет предоставленные инструкции SET в запрос. Эти инструкции используются для задания параметров запроса на время выполнения запроса. Параметры запроса управляют выполнением запроса и возвращением результатов.
 | Без | `[CaseInsensitive=true]` | Создает соединитель, создающий запросы без учета регистра. запросы будут использовать `=~` оператор вместо `==` оператора при сравнении значений.
+| форцеусеконтаинс | `[ForceUseContains=true]` | Создает соединитель для создания запросов, которые используют `contains` вместо значений по умолчанию `has` при работе с текстовыми полями. Хотя `has` гораздо более производительно, он не обрабатывает подстроки. Дополнительные сведения о разнице между двумя операторами см. в разделе [Операторы String](./kusto/query/datatypes-string-operators.md).
 | Время ожидания | `[Timeout=#duration(0,10,0,0)]` | Настраивает время ожидания клиента и сервера для запроса в указанное время.
 
 > [!NOTE]

@@ -8,16 +8,16 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 472fdea209cc416893043f15b3796862ef91fa82
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: 5826920a411235166002b6833ed88869fb85f211
+ms.sourcegitcommit: 88f8ad67711a4f614d65d745af699d013d01af32
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92243283"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638977"
 ---
 # <a name="indexof_regex"></a>indexof_regex()
 
-Возвращает отсчитываемый от нуля индекс первого вхождения указанной строки во входной строке. Обычные совпадения строк не перекрываются.
+Возвращает отсчитываемый от нуля индекс первого вхождения указанного регулярного выражения поиска в пределах входной строки.
 
 См. раздел [`indexof()`](indexoffunction.md).
 
@@ -30,13 +30,13 @@ ms.locfileid: "92243283"
 |Аргументы     | Описание                                     |Обязательный или необязательный|
 |--------------|-------------------------------------------------|--------------------|
 |source        | Входная строка                                    |Обязательно            |
-|уточняющий запрос        | Искомая строка                                  |Обязательно            |
+|уточняющий запрос        | Строка подстановки регулярных выражений.               |Обязательно            |
 |start_index   | Поиск начального расположения                           |Необязательно            |
 |length        | Число позиций символов для проверки. -1 определяет неограниченную длину |Необязательно            |
 |occurrence    | Найдите индекс N-го вида шаблона. 
                  Значение по умолчанию — 1, индекс первого вхождения |Необязательно            |
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Отсчитываемая от нуля позиция индекса *поиска*.
 
@@ -46,16 +46,19 @@ ms.locfileid: "92243283"
      * повторение меньше 0.
      * параметр длины меньше-1.
 
+> [!NOTE]
+- Поиск перекрывающихся совпадений не поддерживается.
+- Строки в регулярных выражениях могут содержать символы, для которых требуется экранирование или использование литералов @ ' '.
 
 ## <a name="examples"></a>Примеры
 
 ```kusto
 print
- idx1 = indexof_regex("abcabc", "a.c") // lookup found in input string
- , idx2 = indexof_regex("abcabcdefg", "a.c", 0, 9, 2)  // lookup found in input string
- , idx3 = indexof_regex("abcabc", "a.c", 1, -1, 2)  // there is no second occurrence in the search range
- , idx4 = indexof_regex("ababaa", "a.a", 0, -1, 2)  // Plain string matches do not overlap so full lookup can't be found
- , idx5 = indexof_regex("abcabc", "a|ab", -1)  // invalid input
+ idx1 = indexof_regex("abcabc", @"a.c") // lookup found in input string
+ , idx2 = indexof_regex("abcabcdefg", @"a.c", 0, 9, 2)  // lookup found in input string
+ , idx3 = indexof_regex("abcabc", @"a.c", 1, -1, 2)  // there is no second occurrence in the search range
+ , idx4 = indexof_regex("ababaa", @"a.a", 0, -1, 2)  // Matches do not overlap so full lookup can't be found
+ , idx5 = indexof_regex("abcabc", @"a|ab", -1)  // invalid start_index argument
 ```
 
 |idx1|idx2|idx3|idx4|idx5|
