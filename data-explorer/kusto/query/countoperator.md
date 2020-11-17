@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 04/16/2020
-ms.openlocfilehash: bf595e27d7b4881dca7b5e2a370c90a8407a8c78
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: 14895e17d77e3bbf1d98d2d68221930d3f291774
+ms.sourcegitcommit: f7bebd245081a5cdc08e88fa4f9a769c18e13e5d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92252599"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94644626"
 ---
 # <a name="count-operator"></a>Оператор count
 
@@ -27,7 +27,7 @@ ms.locfileid: "92252599"
 
 *T*— табличные данные, записи которых будут подсчитаны.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Эта функция возвращает таблицу с одной записью и столбцом типа `long`. Значение единственной ячейки — количество записей в *T*. 
 
@@ -37,3 +37,7 @@ ms.locfileid: "92252599"
 ```kusto
 StormEvents | count
 ```
+
+## <a name="see-also"></a>См. также раздел
+
+Дополнительные сведения о статистической функции Count () см. в разделе [Count () (агрегатная функция)](count-aggfunction.md).

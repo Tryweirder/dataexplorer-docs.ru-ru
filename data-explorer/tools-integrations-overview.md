@@ -8,12 +8,12 @@ ms.reviewer: olgolden
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 71f00cf921609432860a94061be7411e484fd0c9
-ms.sourcegitcommit: 455d902bad0aae3e3d72269798c754f51442270e
+ms.openlocfilehash: 2bce9020161e6b26a0df07b306259589c43b62f3
+ms.sourcegitcommit: f7bebd245081a5cdc08e88fa4f9a769c18e13e5d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349330"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94644660"
 ---
 # <a name="azure-data-explorer-tools-and-integrations-overview"></a>Обзор средств и интеграции Azure обозреватель данных
 
@@ -56,6 +56,13 @@ Azure обозреватель данных предлагает различн�
     * Дополнительные разделы: [Параметры](kusto/tools/kusto-explorer-options.md), [Устранение неполадок](kusto/tools/kusto-explorer-troubleshooting.md), [сочетания клавиш](kusto/tools/kusto-explorer-shortcuts.md), [рефакторинг кода](kusto/tools/kusto-explorer-refactor.md), [Навигация по коду](kusto/tools/kusto-explorer-codenav.md)и [анализ кода](kusto/tools/kusto-explorer-code-analyzer.md)
 * [Веб-интерфейс](web-query-data.md)
 * [Kusto.Cli](kusto/tools/kusto-cli.md)
+
+### <a name="query-open-source-repositories"></a>Запрос репозиториев с открытым кодом
+
+Следующие репозитории с открытым кодом содержат исходный код для средства синтаксического анализа и редактора Kusto Query Ланугуаже (ККЛ):
+
+* [Средство синтаксического анализа языка запросов Kusto](https://github.com/microsoft/Kusto-Query-Language) — репозиторий .NET Core для анализатора языка запросов Kusto и семантического дерева.
+* [Подключаемый модуль языка запросов Kusto для редактора Монако](https://github.com/Azure/monaco-kusto) — редактор языка запросов Kusto, который можно внедрить в веб-приложения и электронное приложение. 
 
 ### <a name="query-integrations"></a>Интеграция запросов
 
