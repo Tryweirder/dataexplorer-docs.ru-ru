@@ -7,17 +7,18 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/07/2019
-ms.openlocfilehash: 1990f601b07c3ab5d740e2e46a31de51875bb44b
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: b2877cb3de37610a9e526f659ccdb4a93d2d6568
+ms.sourcegitcommit: 574296b9a84084de031684a65f32b6c1bd1a4858
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343017"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94714148"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-python"></a>Создание подключения к данным концентратора событий для Azure обозреватель данных с помощью Python
 
 > [!div class="op_single_selector"]
 > * [Портал](ingest-data-event-hub.md)
+> * [Один щелчок](one-click-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
 > * [Шаблон Azure Resource Manager](data-connection-event-hub-resource-manager.md)

@@ -7,17 +7,18 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/07/2019
-ms.openlocfilehash: c98c2a9781f167848989d1b55c70d1d9bda8e239
-ms.sourcegitcommit: 64fdef912cc925c4bdcae98183eb8d7c7a6392d7
+ms.openlocfilehash: f2f0011ea66b4951de9f4aa9eaca70b738b5e346
+ms.sourcegitcommit: 574296b9a84084de031684a65f32b6c1bd1a4858
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027794"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94714114"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-c"></a>Создание подключения к данным концентратора событий для Azure обозреватель данных с помощью C #
 
 > [!div class="op_single_selector"]
 > * [Портал](ingest-data-event-hub.md)
+> * [Один щелчок](one-click-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
 > * [Шаблон Azure Resource Manager](data-connection-event-hub-resource-manager.md)
@@ -27,7 +28,7 @@ ms.locfileid: "93027794"
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* Если вы еще не установили Visual Studio 2019, вы можете скачать и использовать **бесплатный** [выпуск Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). При установке Visual Studio необходимо включить возможность **разработки для Azure** .
+* Если вы еще не установили Visual Studio 2019, вы можете скачать и использовать **бесплатный** [выпуск Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). При установке Visual Studio необходимо включить возможность **разработки для Azure**.
 * Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/) Azure, прежде чем начинать работу.
 * Создание [кластера и базы данных](create-cluster-database-csharp.md)
 * Создание [сопоставления таблиц и столбцов](./net-sdk-ingest-data.md#create-a-table-on-your-test-cluster)

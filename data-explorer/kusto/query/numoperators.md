@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: b79979abdc13d5cb6b7a71bde2301ed0169ae59b
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: e020d5f6692c8c290b6a68b2ed1b52bc710c89c8
+ms.sourcegitcommit: 574296b9a84084de031684a65f32b6c1bd1a4858
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92249757"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94713995"
 ---
 # <a name="numerical-operators"></a>Числовые операторы
 
@@ -36,10 +36,13 @@ ms.locfileid: "92249757"
 `in`           |Соответствует одному из элементов       |[см. здесь](inoperator.md)
 `!in`          |Не соответствует одному из элементов   |[см. здесь](inoperator.md)
 
+> [!NOTE]
+> Для преобразования одного числового типа в другой используйте `to*()` функции. Например, см [`tolong()`](tolongfunction.md) . раздел и [`toint()`](tointfunction.md) .
+
 **Комментарий, касающийся оператора остатка от деления**
 
 Остаток от деления двух чисел всегда возвращается в Kusto "маленькое неотрицательное число".
-Таким образом, остаток от деления двух чисел *N*  %  *d*означает, что: 0 &le; (*N*  %  *d*) &lt; ABS (*D*).
+Таким образом, остаток от деления двух чисел *N*  %  *d* означает, что: 0 &le; (*N*  %  *d*) &lt; ABS (*D*).
 
 Например, следующий запрос:
 
