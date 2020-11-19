@@ -7,12 +7,12 @@ ms.reviewer: abhishgu
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 51f44d1a3cd29121a99e442f4033176b00b9e09f
-ms.sourcegitcommit: 455d902bad0aae3e3d72269798c754f51442270e
+ms.openlocfilehash: 05f0055e5faf99d14864338db7f6ad6a4c99946e
+ms.sourcegitcommit: 0820454feb02ae489f3a86b688690422ae29d788
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349398"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94932707"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-using-go"></a>Создание кластера Azure обозреватель данных и базы данных с помощью Go
 
@@ -43,7 +43,7 @@ Azure Data Explorer — это быстрая и полностью управ�
 
 Перед выполнением любых операций программа должна пройти проверку подлинности в Azure обозреватель данных. [Тип проверки подлинности учетных данных клиента](/azure/developer/go/azure-sdk-authorization#use-environment-based-authentication) используется при проверке подлинности [. Неваусоризерфроменвиронмент](https://pkg.go.dev/github.com/Azure/go-autorest/autorest/azure/auth?tab=doc#NewAuthorizerFromEnvironment) , который ищет следующие предварительно определенные переменные среды: `AZURE_CLIENT_ID` , `AZURE_CLIENT_SECRET` , `AZURE_TENANT_ID` .
 
-В следующем примере показано, как [kusto. Клустерсклиент](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v0.0.0-20200513030755-ac906323d9fe/services/kusto/mgmt/2020-02-15/kusto?tab=doc#ClustersClient) создается с использованием этого метода:
+В следующем примере показано, как [kusto. Клустерсклиент](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v48.2.0+incompatible/services/kusto/mgmt/2020-02-15/kusto) создается с использованием этого метода:
 
 ```go
 func getClustersClient(subscription string) kusto.ClustersClient {
@@ -255,6 +255,6 @@ func deleteCluster(sub, clusterName, rgName string) {
 
 Если вы не удалили кластер программным способом с помощью примера кода в этой статье, удалите их вручную с помощью [Azure CLI](create-cluster-database-cli.md#clean-up-resources).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 [Прием данных с помощью пакета SDK для Azure обозреватель данных Go](go-ingest-data.md)

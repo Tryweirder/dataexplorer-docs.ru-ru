@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/08/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: c3a099dbe431087fd6b79d78ad2b8ec10d5a5a37
-ms.sourcegitcommit: b6f0f112b6ddf402e97c011a902bd70ba408e897
+ms.openlocfilehash: c87979b788c83a819f9e65658b5e44e40e53ad1d
+ms.sourcegitcommit: 0820454feb02ae489f3a86b688690422ae29d788
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497790"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94932741"
 ---
 # <a name="tutorial"></a>Учебник
 
@@ -499,7 +499,7 @@ Logs | join cluster("TelemetryCluster").database("Telemetry").Metrics on Request
 
 Лучший способ узнать о языке запросов Kusto — просмотреть некоторые простые запросы, чтобы получить «Оформление» для языка. Эти запросы похожи на те, которые используются в учебнике по обозреватель данных Azure, но они используют данные из общих таблиц в Log Analytics рабочей области. 
 
-Выполните эти запросы с помощью Log Analytics, который является средством в портал Azure для записи запросов журнала с помощью данных журнала в Azure Monitor и анализа их результатов. Если вы не знакомы с Log Analytics, то можете ознакомиться с руководством в [log Analytics руководстве](/azure/azure-monitor/log-query/log-analytics-tutorial.md).
+Выполните эти запросы с помощью Log Analytics, который является средством в портал Azure для записи запросов журнала с помощью данных журнала в Azure Monitor и анализа их результатов. Если вы не знакомы с Log Analytics, то можете ознакомиться с руководством в [log Analytics руководстве](/azure/azure-monitor/log-query/log-analytics-tutorial).
 
 Все запросы здесь используют [демонстрационную среду log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade). Можно использовать собственную среду, но некоторые из таблиц могут не использоваться. Поскольку данные в демонстрационной среде не являются статическими, результаты запросов могут немного отличаться от показанных здесь результатов.
 
