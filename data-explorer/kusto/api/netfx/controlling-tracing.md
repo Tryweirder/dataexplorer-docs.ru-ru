@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 ms.date: 10/23/2018
-ms.openlocfilehash: 8ef966cb2be70ddca6fb5ab10813abe12cb5bce1
-ms.sourcegitcommit: fd3bf300811243fc6ae47a309e24027d50f67d7e
+ms.openlocfilehash: 2224fe28c7f0088ac1a16cdee4d452e354ff0800
+ms.sourcegitcommit: 4c7f20dfd59fb5b5b1adfbbcbc9b7da07df5e479
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83382358"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95324760"
 ---
 # <a name="controlling-and-suppressing-kusto-sdk-client-side-tracing"></a>Контроль и подавление трассировки на стороне клиента пакета SDK Kusto
 
@@ -39,12 +39,12 @@ Kusto.Cloud.Platform.Utils.TraceSourceManager.SetTraceVerbosityForAll(
 Чтобы отключить трассировку в клиентских библиотеках Kusto с помощью файла конфигурации, измените файл `Kusto.Cloud.Platform.dll.tweaks` (который входит в `Kusto.Data` библиотеку).
 
 ```xml
-    <!-- Overrides the default trace verbosity level -->
+    //Overrides the default trace verbosity level
     <add key="Kusto.Cloud.Platform.Utils.Tracing.OverrideTraceVerbosityLevel" value="0" />
 ```
 
 > [!NOTE]
-> Чтобы изменения вступили в силу, не должен быть знак "минус" в значении`key`
+> Чтобы изменения вступили в силу, не должен быть знак "минус" в значении `key`
 
 Альтернативой является:
 
@@ -57,7 +57,7 @@ Kusto.Cloud.Platform.Utils.Anchor.Tweaks.SetProgrammaticAppSwitch(
 
 ## <a name="enable-the-kusto-client-libraries-tracing"></a>Включение трассировки клиентских библиотек Kusto
 
-Чтобы включить трассировку из клиентских библиотек Kusto, включите трассировку .NET в *файле App. config*приложения. Например, предположим, что приложение `MyApp.exe` использует клиентскую библиотеку Kusto. Data. При изменении файла *MyApp. exe. config* , включающего следующее, будет включена `Kusto.Data` Трассировка при следующем запуске приложения.
+Чтобы включить трассировку из клиентских библиотек Kusto, включите трассировку .NET в *файлеapp.config* приложения. Например, предположим, что приложение `MyApp.exe` использует клиентскую библиотеку Kusto. Data. Изменение *MyApp.exe.config* файла для включения следующих изменений включит `Kusto.Data` трассировку при следующем запуске приложения.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

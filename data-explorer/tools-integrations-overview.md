@@ -8,12 +8,12 @@ ms.reviewer: olgolden
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 2bce9020161e6b26a0df07b306259589c43b62f3
-ms.sourcegitcommit: f7bebd245081a5cdc08e88fa4f9a769c18e13e5d
+ms.openlocfilehash: f996c3e6abbd145e963765f8aa1457f7ddddeb7e
+ms.sourcegitcommit: 4c7f20dfd59fb5b5b1adfbbcbc9b7da07df5e479
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94644660"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95324777"
 ---
 # <a name="azure-data-explorer-tools-and-integrations-overview"></a>Обзор средств и интеграции Azure обозреватель данных
 
@@ -66,7 +66,7 @@ Azure обозреватель данных предлагает различн�
 
 ### <a name="query-integrations"></a>Интеграция запросов
 
-* [Azure Monitor](query-monitor-data.md)
+* [Azure Monitor](query-monitor-data.md);
 * [Azure Data Lake](data-lake-query-data.md)
 * [Apache Spark Azure синапсе](/azure/synapse-analytics/quickstart-connect-azure-data-explorer?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)
 * [Apache Spark](spark-connector.md)
@@ -100,4 +100,3 @@ Azure обозреватель данных предлагает различн�
 * [Azure Pipelines](devops.md) 
 * [Синхронизация Kusto](kusto/tools/synckusto.md) 
 
-<!--Open Source Tools-->

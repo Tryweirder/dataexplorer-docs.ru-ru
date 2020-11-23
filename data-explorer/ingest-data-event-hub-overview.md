@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 05848ff0a76ed7a102e54ec08412c4bf16e77891
-ms.sourcegitcommit: 4f24d68f1ae4903a2885985aa45fd15948867175
+ms.openlocfilehash: ea3521dec63798a9382bcfca98827288c9b735d3
+ms.sourcegitcommit: 4c7f20dfd59fb5b5b1adfbbcbc9b7da07df5e479
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558212"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95324811"
 ---
 # <a name="event-hub-data-connection"></a>Подключение к данным концентратора событий
 
@@ -45,10 +45,7 @@ ms.locfileid: "92558212"
 | инжестионмаппингреференце | Имя существующего [сопоставления приема](kusto/management/create-ingestion-mapping-command.md) , которое будет использоваться. Переопределяет `Column mapping` набор на `Data Connection` панели.|
 | Сжатие | Сжатие данных, `None` (по умолчанию) или `GZip` сжатие.|
 | Кодирование | Кодировка данных, значение по умолчанию — UTF8. Может быть любой из [поддерживаемых кодировок .NET](/dotnet/api/system.text.encoding?view=netframework-4.8#remarks). |
-| Теги (Предварительная версия) | Список [тегов](kusto/management/extents-overview.md#extent-tagging) , связываемых с полученными данными в формате строки массива JSON. При использовании тегов возникают [проблемы с производительностью](kusto/management/extents-overview.md#performance-notes-1) . |
-
-<!--| Database | Name of the existing target database.|-->
-<!--| Tags | String representing [tags](/azure/kusto/management/extents-overview#extent-tagging) that will be attached to resulting extent. |-->
+| Tags | Список [тегов](kusto/management/extents-overview.md#extent-tagging) , связываемых с полученными данными в формате строки массива JSON. При использовании тегов возникают [проблемы с производительностью](kusto/management/extents-overview.md#performance-notes-1) . |
 
 > [!NOTE]
 > Принимаются только события, помещенные в очередь после создания подключения к данным.

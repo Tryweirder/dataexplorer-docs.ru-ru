@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 4bda122b589e3ba297b3e7c350d15687da6ee123
-ms.sourcegitcommit: 21dee76964bf284ad7c2505a7b0b6896bca182cc
+ms.openlocfilehash: 3b30a3e578b6bb1f21dedfcfec7629b60bb255f3
+ms.sourcegitcommit: 4c7f20dfd59fb5b5b1adfbbcbc9b7da07df5e479
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91057008"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95324505"
 ---
 # <a name="security-roles-management"></a>Управление ролями безопасности
 
@@ -108,9 +108,6 @@ ms.locfileid: "91057008"
 * `skip-results`, если он указан, запрашивает, чтобы команда не возвращала обновленный список участников базы данных.
 
 * *Описание*, если оно предоставлено, — это текст, который будет связан с изменением и получен соответствующей `.show` командой.
-
-<!-- TODO: Need more examples for the public syntax. Until then we're keeping this internal -->
-
 
 ## <a name="managing-table-security-roles"></a>Управление ролями безопасности таблиц
 

@@ -10,27 +10,18 @@ ms.topic: reference
 ms.date: 10/08/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: c87979b788c83a819f9e65658b5e44e40e53ad1d
-ms.sourcegitcommit: 0820454feb02ae489f3a86b688690422ae29d788
+ms.openlocfilehash: 8a3c0b058b2c1cf5023ce0069a7dd938fce5caec
+ms.sourcegitcommit: 4c7f20dfd59fb5b5b1adfbbcbc9b7da07df5e479
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94932741"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95324743"
 ---
 # <a name="tutorial"></a>Учебник
 
 ::: zone pivot="azuredataexplorer"
 
 Лучший способ узнать о языке запросов Kusto — просмотреть некоторые простые запросы, чтобы получить "впечатление" для языка, использующего [базу данных с некоторыми примерами данных](https://help.kusto.windows.net/Samples). Запросы, показанные в этой статье, должны выполняться в этой базе данных. `StormEvents`Таблица в этом образце базы данных содержит некоторые сведения о выделах, произошедших в США.
-
-<!--
-  TODO: Provide link to reference data we used originally in StormEvents
--->
-
-<!--
-  TODO: A few samples below reference non-existent tables, such as Events and Logs.
-        We need to add these tables.
--->
 
 ## <a name="count-rows"></a>Считать строки
 
@@ -702,7 +693,7 @@ PhysicalComputer
 
 [![Результаты примера Let](images/tutorial/am-results-let.png)](images/tutorial/am-results-let.png#lightbox)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - [Просмотрите примеры кода для языка запросов Kusto](samples.md?pivots=azuremonitor).
 
