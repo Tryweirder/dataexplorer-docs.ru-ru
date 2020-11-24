@@ -8,12 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/20/2020
-ms.openlocfilehash: 1317f9767182ad76f226fae6995763ea832cd36a
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.localizationpriority: high
+ms.openlocfilehash: 810eba264c717d156f74b9958edecb712d58a4fd
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92250864"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95513205"
 ---
 # <a name="summarize-operator"></a>Оператор summarize
 
@@ -49,7 +50,7 @@ T | summarize count() by price_range=bin(price, 10.0)
 > * Если *GroupExpression* не указан, то выходные данные будут одной (пустой) строкой.
 > * Если указан параметр *GroupExpression* , выходные данные не будут иметь строк.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Входные строки объединяются в группы с одинаковыми значениями выражений `by` . Затем указанные агрегатные функции выполняют вычисления и создают строку для каждой группы. Результат содержит столбцы `by` и хотя бы один столбец для каждого вычисленного статистического выражения. (Некоторые агрегатные функции возвращают несколько столбцов).
 
@@ -63,19 +64,19 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 ## <a name="list-of-aggregation-functions"></a>Список статистических функций
 
-|Компонент|Описание|
+|Функция|Описание|
 |--------|-----------|
-|[any()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
+|[Any ()](any-aggfunction.md)|Возвращает случайное непустое значение для группы|
 |[anyif()](anyif-aggfunction.md)|Возвращает случайное непустое значение группы (с предикатом with)|
 |[arg_max()](arg-max-aggfunction.md)|Возвращает одно или несколько выражений, если аргумент является развернутым|
 |[arg_min()](arg-min-aggfunction.md)|Возвращает одно или несколько выражений, если аргумент является минимальным|
-|[avg()](avg-aggfunction.md)|Возвращает среднее значение в группе|
+|[AVG ()](avg-aggfunction.md)|Возвращает среднее значение в группе|
 |[avgif()](avgif-aggfunction.md)|Возвращает среднее значение в группе (с предикатом)|
 |[binary_all_and](binary-all-and-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `AND` объекта группы|
 |[binary_all_or](binary-all-or-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `OR` объекта группы|
 |[binary_all_xor](binary-all-xor-aggfunction.md)|Возвращает агрегированное значение с помощью двоичного `XOR` объекта группы|
 |[buildschema()](buildschema-aggfunction.md)|Возвращает минимальную схему, которая отменяет все значения `dynamic` входных данных|
-|[count()](count-aggfunction.md)|Возвращает количество групп|
+|[Count ()](count-aggfunction.md)|Возвращает количество групп|
 |[countif()](countif-aggfunction.md)|Возвращает число с предикатом группы|
 |[dcount()](dcount-aggfunction.md)|Возвращает приблизительное число различных элементов группы.|
 |[dcountif()](dcountif-aggfunction.md)|Возвращает приблизительное число различных элементов группы (с предикатом with).|
@@ -94,9 +95,9 @@ T | summarize count() by price_range=bin(price, 10.0)
 |[percentiles_array ()](percentiles-aggfunction.md)|Возвращает процентили приблизительную часть группы|
 |[перцентилесв ()](percentiles-aggfunction.md)|Возвращает приближенное взвешенное значение процентиля группы|
 |[percentilesw_array ()](percentiles-aggfunction.md)|Возвращает взвешенное процентилиное приближение группы|
-|[stdev()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
+|[STDEV ()](stdev-aggfunction.md)|Возвращает стандартное отклонение по группе|
 |[stdevif()](stdevif-aggfunction.md)|Возвращает стандартное отклонение по группе (с предикатом)|
-|[sum()](sum-aggfunction.md)|Возвращает сумму элементов в группе|
+|[Sum ()](sum-aggfunction.md)|Возвращает сумму элементов в группе|
 |[sumif()](sumif-aggfunction.md)|Возвращает сумму элементов в группе (с предикатом with)|
 |[variance()](variance-aggfunction.md)|Возвращает дисперсию по группе|
 |[varianceif()](varianceif-aggfunction.md)|Возвращает дисперсию по группе (с предикатом)|

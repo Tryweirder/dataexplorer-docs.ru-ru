@@ -8,12 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 63b6e966724efc92431b5a7017144a188c81f8d3
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.localizationpriority: high
+ms.openlocfilehash: 483c926d60abef120de2a355a6fa040b9608cd7a
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253006"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95513052"
 ---
 # <a name="extract"></a>extract()
 
@@ -36,7 +37,7 @@ extract("x=([0-9.]+)", 1, "hello x=45.6|wo") == "45.6"
 * *текст*: `string` для поиска.
 * *типелитерал*: необязательный литерал типа (например, `typeof(long)` ). Если указан, то извлеченная подстрока преобразуется в этот тип. 
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Если *regex* находит соответствие в *text*, то возвращается подстрока, которая сравнивалась с указанной в группе записи *captureGroup*, при необходимости преобразованная в тип *typeLiteral*.
 

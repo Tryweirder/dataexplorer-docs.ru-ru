@@ -7,12 +7,13 @@ ms.reviewer: ''
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 2fa4cbd0b1cf7b034bc7ae3202afcde3866ca347
-ms.sourcegitcommit: ee904f45e3eb3feab046263aa9956cb7780a056d
+ms.localizationpriority: high
+ms.openlocfilehash: 3b007d1688130449c597ef99281ed89b55d880eb
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92356594"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95511930"
 ---
 # <a name="kql-quick-reference"></a>Краткий справочник по KQL
 
@@ -33,7 +34,7 @@ ms.locfileid: "92356594"
 | [ячейки](kusto/query/binfunction.md)                          | Округляет все значения в интервале времени и группирует их | `bin(value,roundTo)` |
 | **Создание и удаление столбцов**                   |**_Добавление или удаление столбцов в таблице_** |                                                    |
 | [print](kusto/query/printoperator.md)                      | Выводит одну строку с одним или несколькими скалярными выражениями | `print [ColumnName =] ScalarExpression [',' ...]` |
-| [project](kusto/query/projectoperator.md)                  | Выбирает столбцы для включения в указанный порядок. | `T | project ColumnName [= Expression] [, ...]` <br> либо <br> `T | project [ColumnName | (ColumnName[,]) =] Expression [, ...]` |
+| [project](kusto/query/projectoperator.md)                  | Выбирает столбцы для включения в указанный порядок. | `T | project ColumnName [= Expression] [, ...]` <br> Или <br> `T | project [ColumnName | (ColumnName[,]) =] Expression [, ...]` |
 | [project-away](kusto/query/projectawayoperator.md)         | Выбирает столбцы, исключаемые из выходных данных | `T | project-away ColumnNameOrPattern [, ...]` |
 | [проект — Держитесь](kusto/query/project-keep-operator.md)         | Выбирает столбцы для сохранения в выходных данных | `T | project-keep ColumnNameOrPattern [, ...]` |
 | [проект-переименование](kusto/query/projectrenameoperator.md)     | Переименовывает столбцы в выходных данных результатов | `T | project-rename new_column_name = column_name` |

@@ -8,12 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 0f49ee6763d4afadf12e9e008bd7ea8e61c49acc
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.localizationpriority: high
+ms.openlocfilehash: 3125a51733f6672d041e6c1522ea755e5677cb0c
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92246104"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95512865"
 ---
 # <a name="parse_json"></a>parse_json()
 
@@ -33,7 +34,7 @@ ms.locfileid: "92246104"
 
 * *JSON*: выражение типа `string` . Он представляет [значение в формате JSON](https://json.org/)или выражение типа [dynamic](./scalar-data-types/dynamic.md), представляющее фактическое `dynamic` значение.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Объект типа `dynamic` , определяемый значением *JSON*:
 * Если *JSON* имеет тип `dynamic` , его значение используется как есть.

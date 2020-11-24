@@ -8,12 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 52e26bb5564079de56817e75a203a400ef7f1a50
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.localizationpriority: high
+ms.openlocfilehash: ffb24abe744bfbe3f7f95336edf0263becfa7ec9
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92248990"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95513256"
 ---
 # <a name="in-and-in-operators"></a>Операторы in и !in
 
@@ -54,7 +55,7 @@ Table1 | where col in ('value1', 'value2')
 * *список выражений* — разделенный запятыми список табличных, скалярных или литеральных выражений.
 * *табличное выражение* — табличное выражение, имеющее набор значений. Если выражение содержит несколько столбцов, используется первый столбец.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Строки в *T* , для которых предикат имеет значение `true` .
 

@@ -8,18 +8,19 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/03/2020
-ms.openlocfilehash: b5d5ef5ba3b29bf1bc468a64baa159106b164604
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.localizationpriority: high
+ms.openlocfilehash: 762c3075c162ba35bdba539d0e86460c78f3297e
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92249384"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95511794"
 ---
 # <a name="query-best-practices"></a>Рекомендации по запросам
 
 Ниже приведены некоторые рекомендации, которые необходимо выполнить, чтобы ускорить выполнение запроса.
 
-|Действие  |Использовать  |Не использовать  |Примечания  |
+|Действие  |Назначение  |Не использовать  |Примечания  |
 |---------|---------|---------|---------|
 | **Фильтры времени** | Сначала используйте фильтры времени. ||Kusto высоко оптимизирован для использования фильтров времени.| 
 |**Строковые операторы**      | Использование `has` оператора     | Не использовать `contains`     | При поиске полных маркеров `has` работает лучше, так как он не ищет подстроки.   |

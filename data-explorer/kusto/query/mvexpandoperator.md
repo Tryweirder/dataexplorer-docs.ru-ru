@@ -8,12 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2019
-ms.openlocfilehash: a9f5517baf0963b4857759fc18158cfa0eee0bb1
-ms.sourcegitcommit: 05489ce5257c0052aee214a31562578b0ff403e7
+ms.localizationpriority: high
+ms.openlocfilehash: 3324cfe658b2eb29c54ff8a3d44ed660ec13ead5
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88793886"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95512729"
 ---
 # <a name="mv-expand-operator"></a>Оператор mv-expand
 
@@ -49,7 +50,7 @@ ms.locfileid: "88793886"
 
 Поддерживаются два режима развертывания контейнера свойств.
 * `bagexpansion=bag`— контейнеры свойств развертываются в контейнеры свойств с одной записью. Этот режим является расширением по умолчанию.
-* `bagexpansion=array`: Контейнеры свойств разворачиваются по `[` *key* `,` структурам массива*значений* ключей с двумя элементами `]` , что обеспечивает универсальный доступ к ключам и значениям (например, выполнение агрегата Distinct-Count для имен свойств). 
+* `bagexpansion=array`: Контейнеры свойств разворачиваются по `[` *key* `,` структурам массива *значений* ключей с двумя элементами `]` , что обеспечивает универсальный доступ к ключам и значениям (например, выполнение агрегата Distinct-Count для имен свойств). 
 
 ## <a name="examples"></a>Примеры
 
@@ -63,7 +64,7 @@ datatable (a:int, b:dynamic)[1,dynamic({"prop1":"a", "prop2":"b"})]
 | mv-expand b 
 ```
 
-|a|b|
+|а|b|
 |---|---|
 |1|{"Prop1": "a"}|
 |1|{"Prop2": "b"}|
@@ -78,7 +79,7 @@ datatable (a:int, b:dynamic, c:dynamic)[1,dynamic({"prop1":"a", "prop2":"b"}), d
 | mv-expand b, c
 ```
 
-|a|b|с|
+|а|b|с|
 |---|---|---|
 |1|{"Prop1": "a"}|5|
 |1|{"Prop2": "b"}|4|
@@ -100,7 +101,7 @@ datatable (a:int, b:dynamic, c:dynamic)
 | mv-expand c
 ```
 
-|a|b|с|
+|а|b|с|
 |---|---|---|
 |1|{"Prop1": "a"}|5|
 |1|{"Prop1": "a"}|6|
@@ -120,7 +121,7 @@ datatable (a:string, b:dynamic, c:dynamic)["Constant", dynamic([1,2,3,4]), dynam
 
 ColumnName|ColumnOrdinal|DateType|ColumnType
 -|-|-|-
-a|0|System.String|строка
+а|0|System.String|строка
 b|1|System.Object|Динамический
 с|2|System.Int32|INT
 
@@ -144,7 +145,7 @@ range x from 1 to 4 step 1
 |3|2|
 |4|3|
  
-## <a name="see-also"></a>См. также раздел
+## <a name="see-also"></a>См. также
 
 * Дополнительные примеры см. в разделе [Диаграмма число активных действий с](./samples.md#chart-concurrent-sessions-over-time) течением времени.
 * Оператор « [MV-Apply»](./mv-applyoperator.md) .

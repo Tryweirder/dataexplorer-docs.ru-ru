@@ -8,12 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/21/2020
-ms.openlocfilehash: a5f5f554373331d66a08e7166249e8e24c4fbd7c
-ms.sourcegitcommit: 09da3f26b4235368297b8b9b604d4282228a443c
+ms.localizationpriority: high
+ms.openlocfilehash: e45510b893d6e84f029764aa9fdac0d326a96f94
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87348791"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95513103"
 ---
 # <a name="count-aggregation-function"></a>Count () (агрегатная функция)
 
@@ -24,9 +25,9 @@ ms.locfileid: "87348791"
 
 ## <a name="syntax"></a>Синтаксис
 
-SUMMARIZE`count()`
+SUMMARIZE `count()`
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Возвращает количество записей в группе формирования сводных данных (или, в целом, если формирование сводных данных выполняется без группирования).
 
@@ -41,7 +42,7 @@ StormEvents
 | summarize Count=count() by State
 ```
 
-|Состояние|Счетчик|
+|Состояние|Count|
 |---|---|
 |ЗАПАДНАЯ ВИРДЖИНИЯ|757|
 |ШТАТ ВАЙОМИНГ|396|

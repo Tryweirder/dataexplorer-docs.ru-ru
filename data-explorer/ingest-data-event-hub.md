@@ -7,12 +7,13 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: bf5cd6d76878630549537845679d0bdb5d6d3797
-ms.sourcegitcommit: 574296b9a84084de031684a65f32b6c1bd1a4858
+ms.localizationpriority: high
+ms.openlocfilehash: 798a8b201ee87d5c43aeb31d6af515d41c516bef
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94714131"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95512219"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Прием данных из концентратора событий в Azure Data Explorer
 
@@ -128,7 +129,7 @@ ms.locfileid: "94714131"
     | Концентратор событий | *test-hub* | Созданный концентратор событий. |
     | Группа потребителей | *test-group* | Группа потребителей, определенная в созданном концентраторе событий. |
     | Свойства системы событий | Выбор соответствующих свойств | [Свойства системы концентратора событий](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Если имеется несколько записей для каждого сообщения о событии, системные свойства будут добавлены к первому из них. При добавлении системных свойств [Создайте](kusto/management/create-table-command.md) или [Обновите](kusto/management/alter-table-command.md) схему таблицы и [сопоставление](kusto/management/mappings.md) , чтобы включить выбранные свойства. |
-    | Сжатие | *None* | Тип сжатия полезных данных сообщений концентратора событий. Поддерживаемые типы сжатия: *нет, gzip*.|
+    | Сжатие | *Нет* | Тип сжатия полезных данных сообщений концентратора событий. Поддерживаемые типы сжатия: *нет, gzip*.|
     
 #### <a name="target-table"></a>Целевая таблица
 
@@ -148,7 +149,7 @@ ms.locfileid: "94714131"
    > * Вам не нужно указывать все **параметры маршрутизации по умолчанию**. Также принимаются частичные параметры.
    > * Принимаются только события, помещенные в очередь после создания подключения к данным.
 
-1. Щелкните **Создать**. 
+1. Нажмите кнопку **создания**. 
 
 ### <a name="event-system-properties-mapping"></a>Сопоставление свойств системы событий
 

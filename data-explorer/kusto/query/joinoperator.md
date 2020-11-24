@@ -8,14 +8,15 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/30/2020
+ms.localizationpriority: high
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 8324d0c6537d6d22a2814a7aa80625278dc36aec
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: b90e5f1c95ec75a946490cd75b5dd89ad2cb1aba
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92241515"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95513341"
 ---
 # <a name="join-operator"></a>Оператор join
 
@@ -72,7 +73,7 @@ Table1 | join (Table2) on CommonColumn, $left.Col1 == $right.Col2
 > [!WARNING]
 > Если `kind` параметр не указан, используется флаг соединений по умолчанию `innerunique` . Это отличается от некоторых других продуктов аналитики, которые имеют `inner` разновидность по умолчанию.  Ознакомьтесь с вариантами [Join](#join-flavors) , чтобы понять различия и убедиться, что запрос возвращает предполагаемые результаты.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 **Схема вывода зависит от разновидности объединения:**
 
@@ -140,8 +141,8 @@ Events
 |[`leftouter`](#left-outer-join-flavor)|левое внешнее соединение.|
 |[`rightouter`](#right-outer-join-flavor)|Правое внешнее соединение|
 |[`fullouter`](#full-outer-join-flavor)|Полное внешнее соединение|
-|[`leftanti`](#left-anti-join-flavor), [`anti`](#left-anti-join-flavor) или [`leftantisemi`](#left-anti-join-flavor)|Левое сглаживание|
-|[`rightanti`](#right-anti-join-flavor) или [`rightantisemi`](#right-anti-join-flavor)|Правое сглаживание|
+|[`leftanti`](#left-anti-join-flavor), [`anti`](#left-anti-join-flavor) или [`leftantisemi`](#left-anti-join-flavor)|Левое антисоединение|
+|[`rightanti`](#right-anti-join-flavor) или [`rightantisemi`](#right-anti-join-flavor)|Правое антисоединение|
 |[`leftsemi`](#left-semi-join-flavor)|Левое соединение|
 |[`rightsemi`](#right-semi-join-flavor)|Правое соединение|
 
@@ -159,20 +160,20 @@ X | join kind=innerunique Y on Key
 
 **Таблица X**
 
-|Клавиши |Значение1
+|Key |Значение1
 |---|---
 |a |1
 |b |2
 |b |3
-|c |4
+|с |4
 
 **Таблица Y**
 
-|Клавиши |Значение2
+|Key |Значение2
 |---|---
 |b |10
-|c |20
-|c |30
+|с |20
+|с |30
 |d |40
 
 Соединение по умолчанию выполняет внутреннее соединение после дедупликации левой части ключа объединения (в результате дедупликации сохраняется первая запись).
@@ -181,11 +182,11 @@ X | join kind=innerunique Y on Key
 
 эффективная левая сторона объединения, таблица X после дедупликации, будет выглядеть следующим образом:
 
-|Клавиши |Значение1
+|Key |Значение1
 |---|---
 |a |1
 |b |2
-|c |4
+|с |4
 
 а в результате объединения мы получим следующее:
 
@@ -207,11 +208,11 @@ let Y = datatable(Key:string, Value2:long)
 X | join Y on Key
 ```
 
-|Клавиши|Значение1|Key1|Значение2|
+|Key|Значение1|Key1|Значение2|
 |---|---|---|---|
 |b|2|b|10|
-|c|4|c|20|
-|c|4|c|30|
+|с|4|с|20|
+|с|4|с|30|
 
 > [!NOTE]
 > Ключи "a" и "d" не отображаются в выходных данных, так как в левой и правой сторонах нет совпадающих ключей.
@@ -238,12 +239,12 @@ let Y = datatable(Key:string, Value2:long)
 X | join kind=inner Y on Key
 ```
 
-|Клавиши|Значение1|Key1|Значение2|
+|Key|Значение1|Key1|Значение2|
 |---|---|---|---|
 |b|3|b|10|
 |b|2|b|10|
-|c|4|c|20|
-|c|4|c|30|
+|с|4|с|20|
+|с|4|с|30|
 
 > [!NOTE]
 > * (b, 10) с правой стороны был соединен дважды: с обоими (b, 2) и (b, 3) слева.
@@ -353,12 +354,12 @@ let Y = datatable(Key:string, Value2:long)
 X | join kind=leftouter Y on Key
 ```
 
-|Клавиши|Значение1|Key1|Значение2|
+|Key|Значение1|Key1|Значение2|
 |---|---|---|---|
 |b|3|b|10|
 |b|2|b|10|
-|c|4|c|20|
-|c|4|c|30|
+|с|4|с|20|
+|с|4|с|30|
 |a|1|||
 
 ### <a name="right-outer-join-flavor"></a>Конфигурация правого внешнего объединения
@@ -383,12 +384,12 @@ let Y = datatable(Key:string, Value2:long)
 X | join kind=rightouter Y on Key
 ```
 
-|Клавиши|Значение1|Key1|Значение2|
+|Key|Значение1|Key1|Значение2|
 |---|---|---|---|
 |b|3|b|10|
 |b|2|b|10|
-|c|4|c|20|
-|c|4|c|30|
+|с|4|с|20|
+|с|4|с|30|
 |||d|40|
 
 ### <a name="full-outer-join-flavor"></a>Полное внешнее соединение, разновидность
@@ -413,12 +414,12 @@ let Y = datatable(Key:string, Value2:long)
 X | join kind=fullouter Y on Key
 ```
 
-|Клавиши|Значение1|Key1|Значение2|
+|Key|Значение1|Key1|Значение2|
 |---|---|---|---|
 |b|3|b|10|
 |b|2|b|10|
-|c|4|c|20|
-|c|4|c|30|
+|с|4|с|20|
+|с|4|с|30|
 |||d|40|
 |a|1|||
 
@@ -444,7 +445,7 @@ let Y = datatable(Key:string, Value2:long)
 X | join kind=leftanti Y on Key
 ```
 
-|Клавиши|Значение1|
+|Key|Значение1|
 |---|---|
 |a|1|
 
@@ -473,7 +474,7 @@ let Y = datatable(Key:string, Value2:long)
 X | join kind=rightanti Y on Key
 ```
 
-|Клавиши|Значение2|
+|Key|Значение2|
 |---|---|
 |d|40|
 
@@ -502,11 +503,11 @@ let Y = datatable(Key:string, Value2:long)
 X | join kind=leftsemi Y on Key
 ```
 
-|Клавиши|Значение1|
+|Key|Значение1|
 |---|---|
 |b|3|
 |b|2|
-|c|4|
+|с|4|
 
 ### <a name="right-semi-join-flavor"></a>Правая половина объединения
 
@@ -530,11 +531,11 @@ let Y = datatable(Key:string, Value2:long)
 X | join kind=rightsemi Y on Key
 ```
 
-|Клавиши|Значение2|
+|Key|Значение2|
 |---|---|
 |b|10|
-|c|20|
-|c|30|
+|с|20|
+|с|30|
 
 ### <a name="cross-join"></a>Перекрестное соединение
 

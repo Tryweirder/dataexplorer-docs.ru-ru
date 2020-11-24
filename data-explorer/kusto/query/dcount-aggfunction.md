@@ -8,12 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: b35bb7944e894256056e03eb756ac85cf1354ba8
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.localizationpriority: high
+ms.openlocfilehash: 947ab0af6a5aaa98bb07b08005b940fdf2ce6ae5
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92247703"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95513188"
 ---
 # <a name="dcount-aggregation-function"></a>DCount () (агрегатная функция)
 
@@ -31,7 +32,7 @@ ms.locfileid: "92247703"
 * *Expr*: скалярное выражение, различные значения которого должны быть учтены.
 * *Точность*. необязательный `int` литерал, определяющий требуемую точность оценки. Поддерживаемые значения приведены ниже. Если не указано, используется значение по умолчанию `1` .
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Возвращает оценку количества различных значений *`Expr`* в группе.
 
@@ -67,7 +68,7 @@ T | summarize dcount(B) by G | count
 |       1|      0,8|2<sup>14</sup>|
 |       2|      0,4|2<sup>16</sup>|
 |       3|     0,28|2<sup>17</sup>|
-|       4|      0,2|2<sup>18</sup>|
+|       4|      0.2|2<sup>18</sup>|
 
 > [!NOTE]
 > Столбец "число записей" — это число счетчиков типа 1 байт в реализации ХЛЛ.
@@ -80,4 +81,4 @@ T | summarize dcount(B) by G | count
 
 На следующем рисунке показана функция распределения вероятности для ошибки относительной оценки (в процентах) для всех поддерживаемых параметров точности:
 
-:::image type="content" border="false" source="images/dcount-aggfunction/hll-error-distribution.png" alt-text="Число D":::
+:::image type="content" border="false" source="images/dcount-aggfunction/hll-error-distribution.png" alt-text="распределение ошибок ХЛЛ":::

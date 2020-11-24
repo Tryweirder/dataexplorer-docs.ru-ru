@@ -7,12 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 04/07/2019
-ms.openlocfilehash: f6d993383ecf6c25bf144228e77f02f944bc02d8
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.localizationpriority: high
+ms.openlocfilehash: 22a22f1050a366a79017904550854365dc2ef43c
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343340"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95513290"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Написание запросов для обозревателя данных Azure
 
@@ -270,7 +271,7 @@ StormEvents
 
 ### <a name="bin"></a>bin()
 
-[**bin()** ](kusto/query/binfunction.md): Округляет значения до целого, кратного указанному размеру группы.
+[**bin()**](kusto/query/binfunction.md): Округляет значения до целого, кратного указанному размеру группы.
 
 Следующий запрос вычисляет количество с размером контейнера в течение одного дня.
 
@@ -357,7 +358,7 @@ MyData
 
 ### <a name="ago"></a>ago()
 
-[**ago()** ](kusto/query/agofunction.md): Вычитает заданный интервал времени из текущего времени UTC.
+[**ago()**](kusto/query/agofunction.md): Вычитает заданный интервал времени из текущего времени UTC.
 
 Следующий запрос возвращает данные за последние 12 часов.
 

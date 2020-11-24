@@ -7,12 +7,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 058a42cc21c6af9642d91231e6b1620315f94f55
-ms.sourcegitcommit: 313a91d2a34383b5a6e39add6c8b7fabb4f8d39a
+ms.localizationpriority: high
+ms.openlocfilehash: ec62c1d0dfe439ac77d7fce9e69af8e5c8a7a8a0
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90680694"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95512797"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Запрос данных в Azure Data Lake с помощью обозреватель данных Azure
 
@@ -142,7 +143,7 @@ external_table('ApiCalls') | take 10
 
 ### <a name="create-external-table-taxirides"></a>Создание внешней таблицы *таксиридес* 
 
-В этом разделе показан запрос, используемый для создания внешней таблицы *таксиридес* в кластере *справки* . Так как эта таблица уже создана, можно пропустить этот раздел и перейти непосредственно к [запросам данных внешней таблицы *таксиридес* ](#query-taxirides-external-table-data).
+В этом разделе показан запрос, используемый для создания внешней таблицы *таксиридес* в кластере *справки* . Так как эта таблица уже создана, можно пропустить этот раздел и перейти непосредственно к [запросам данных внешней таблицы *таксиридес*](#query-taxirides-external-table-data).
 
 ```kusto
 .create external table TaxiRides
@@ -267,7 +268,7 @@ external_table("TaxiRides")
  
 ### <a name="compression"></a>Сжатие
  
-Сжатие используется для уменьшения объема данных, извлекаемых из удаленного хранилища. Для формата Parquet Используйте механизм внутреннего сжатия Parquet, который сжимает группы столбцов отдельно, позволяя считывать их по отдельности. Чтобы проверить использование механизма сжатия, убедитесь, что имена файлов имеют следующий вид: * &lt; filename &gt; . gz. Parquet* или * &lt; filename &gt; . привязки. Parquet* , а не * &lt; filename &gt; . Parquet. gz*. 
+Сжатие используется для уменьшения объема данных, извлекаемых из удаленного хранилища. Для формата Parquet Используйте механизм внутреннего сжатия Parquet, который сжимает группы столбцов отдельно, позволяя считывать их по отдельности. Чтобы проверить использование механизма сжатия, убедитесь, что имена файлов имеют следующий вид: *&lt; filename &gt; . gz. Parquet* или *&lt; filename &gt; . привязки. Parquet* , а не *&lt; filename &gt; . Parquet. gz*. 
  
 ### <a name="partitioning"></a>Секционирование
  
@@ -277,6 +278,6 @@ external_table("TaxiRides")
  
 Выберите номера SKU виртуальных машин с большим количеством ядер и более высокой пропускной способностью сети (память менее важна). Дополнительные сведения см. [в статье Выбор подходящего номера SKU виртуальной машины для кластера Azure обозреватель данных](manage-cluster-choose-sku.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 * Запросите данные в Azure Data Lake с помощью обозреватель данных Azure. Научитесь [писать запросы](write-queries.md) и получать дополнительные аналитические сведения из данных.

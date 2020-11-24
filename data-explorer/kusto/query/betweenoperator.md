@@ -8,12 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/23/2018
-ms.openlocfilehash: 15112a72c289d87f6a1f1a2b035cb13bad81acdb
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.localizationpriority: high
+ms.openlocfilehash: 8bb2049c7bc7c81092eb137c820f650bf88abc4e
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92245450"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95512984"
 ---
 # <a name="between-operator"></a>Оператор between
 
@@ -41,7 +42,7 @@ Table1 | where Time between (datetime(2017-01-01) .. datetime(2017-01-01))
 * *лефтранже* -выражение левого диапазона (включительно).
 * *ригхтранже* -выражение правого диапазона (включительно).
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Строки в *T* , для которых предикат (*expr*  >=  *лефтранже* и *expr*  <=  *ригхтранже*) принимает значение `true` .
 
