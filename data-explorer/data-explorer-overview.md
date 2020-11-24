@@ -7,12 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 10192cca4e03aa92ec018f7875e457d4cf109f72
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.localizationpriority: high
+ms.openlocfilehash: 2af4aff9667ecc53794c63010a723494e85126fa
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342932"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95512831"
 ---
 # <a name="what-is-azure-data-explorer"></a>Что такое Azure Data Explorer?
 
@@ -44,7 +45,7 @@ ms.locfileid: "92342932"
 
 Как правило, работа с обозревателем данных Azure осуществляется по следующей схеме.
 
-1. **Создание базы данных.** Создайте *кластер* , а затем создайте в нем одну или несколько *баз данных* . [Краткое руководство. Создание кластера и базы данных обозревателя данных Azure](create-cluster-database-portal.md)
+1. **Создание базы данных.** Создайте *кластер*, а затем создайте в нем одну или несколько *баз данных*. [Краткое руководство. Создание кластера и базы данных обозревателя данных Azure](create-cluster-database-portal.md)
 
 1. **Прием данных.** Загрузите данные в таблицы базы данных, чтобы к ним можно было выполнять запросы. [Краткое руководство. Прием данных из концентратора событий в обозреватель данных Azure](ingest-data-event-hub.md)
 

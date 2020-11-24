@@ -7,12 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 06/15/2020
-ms.openlocfilehash: 78666938417ce02d5320c56b247e1b854b842234
-ms.sourcegitcommit: 7fa9d0eb3556c55475c95da1f96801e8a0aa6b0f
+ms.localizationpriority: high
+ms.openlocfilehash: 479bd512f759a20123e5eb94fcc9ec54e2a13455
+ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91942341"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95513323"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Краткое руководство. Запрос данных в пользовательском веб-интерфейсе Azure Data Explorer
 
@@ -95,7 +96,7 @@ ms.locfileid: "91942341"
 
    Этот запрос возвращает те же записи, что и первый, но включает только столбцы, указанные в инструкции `project`. В результате должно отобразиться что-то вроде следующей таблицы.
 
-    :::image type="content" source="media/web-query-data/result-set-02.png" alt-text="Снимок экрана: таблица с данными о времени начала, времени завершения, эпизоде, идентификаторе события, состоянии и типе события для десяти бурь." border="false":::
+    :::image type="content" source="media/web-query-data/result-set-02.png" alt-text="Снимок экрана: таблица с данными о времени начала, времени завершения, состоянии, типе события, материальном ущербе и описанием эпизода для десяти бурь." border="false":::
 
 1. В верхней части окна запроса выберите **Отозвать**.
 
@@ -131,7 +132,7 @@ ms.locfileid: "91942341"
 
 1. В сетке разверните узел **Калифорния** для просмотра записей для данного штата.
 
-    :::image type="content" source="media/web-query-data/result-set-03.png" alt-text="Снимок экрана: таблица с данными о времени начала, времени завершения, эпизоде, идентификаторе события, состоянии и типе события для десяти бурь." border="false":::
+    :::image type="content" source="media/web-query-data/result-set-03.png" alt-text="Снимок экрана: сетка результатов запросов. Группа California развернута, отображаются данные трех записей с информацией о событиях в штате Калифорния (США)." border="false":::
 
     Этот тип группировки полезен в исследовательском анализе.
 
@@ -175,7 +176,7 @@ ms.locfileid: "91942341"
 
 1. В верхней части окна запроса выберите **Поделиться**. 
 
-:::image type="content" source="media/web-query-data/share-menu.png" alt-text="Снимок экрана: таблица с данными о времени начала, времени завершения, эпизоде, идентификаторе события, состоянии и типе события для десяти бурь.":::
+:::image type="content" source="media/web-query-data/share-menu.png" alt-text="Меню Общий доступ":::
 
 В раскрывающемся списке содержатся следующие параметры:
 * Link to clipboard (Копировать ссылку);
@@ -194,7 +195,7 @@ ms.locfileid: "91942341"
 
 1. Вставьте ссылку в новом окне браузера. После выполнения запроса должно отобразиться следующее.
 
-    :::image type="content" source="media/web-query-data/shared-query.png" alt-text="Снимок экрана: таблица с данными о времени начала, времени завершения, эпизоде, идентификаторе события, состоянии и типе события для десяти бурь.":::
+    :::image type="content" source="media/web-query-data/shared-query.png" alt-text="Прямая ссылка на общий запрос":::
 
 ### <a name="pin-to-dashboard"></a>Закрепить на панели мониторинга
 
@@ -211,7 +212,7 @@ ms.locfileid: "91942341"
     1. Установите флажок **View dashboard after creation** (Просмотреть панель мониторинга после создания), если это новая панель мониторинга.
     1. Выберите **Закрепить**.
 
-    :::image type="content" source="media/web-query-data/pin-to-dashboard.png" alt-text="Снимок экрана: таблица с данными о времени начала, времени завершения, эпизоде, идентификаторе события, состоянии и типе события для десяти бурь.":::
+    :::image type="content" source="media/web-query-data/pin-to-dashboard.png" alt-text="Закрепление на панели мониторинга":::
     
 > [!NOTE]
 > На **панели мониторинга закрепляется** только выбранный запрос. Чтобы создать источник данных панели мониторинга и преобразовать команды отрисовки в визуальный элемент на панели мониторинга, необходимо выбрать соответствующую базу данных в списке.
@@ -220,7 +221,7 @@ ms.locfileid: "91942341"
 
 Чтобы экспортировать результаты запроса в CSV-файл, последовательно выберите элементы **Файл** > **Экспортировать в CSV-файл**.
 
-:::image type="content" source="media/web-query-data/export-results.png" alt-text="Снимок экрана: таблица с данными о времени начала, времени завершения, эпизоде, идентификаторе события, состоянии и типе события для десяти бурь.":::
+:::image type="content" source="media/web-query-data/export-results.png" alt-text="Экспорт результатов в CSV-файл":::
 
 ## <a name="provide-feedback"></a>Отзывы
 
