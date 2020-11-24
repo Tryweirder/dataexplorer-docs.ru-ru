@@ -11,12 +11,12 @@ ms.date: 03/29/2020
 ms.localizationpriority: high
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: bc083cadbae44723c85c0a119b90ab5b43aba388
-ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
+ms.openlocfilehash: 5670f3f9c7aa8b3d6b10f88433d19246e2daf6d6
+ms.sourcegitcommit: faa747df81c49b96d173dbd5a28d2ca4f3a2db5f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95512848"
+ms.locfileid: "95783341"
 ---
 # <a name="render-operator"></a>Оператор render
 
@@ -43,7 +43,7 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 
 |*Визуализация*     |Описание|
 |--------------------|-|
-| `anomalychart`     | Аналогичен диаграмму, но [выделяет аномалии](./samples.md#get-more-out-of-your-data-in-kusto-with-machine-learning) с помощью функции [series_decompose_anomalies](./series-decompose-anomaliesfunction.md) . |
+| `anomalychart`     | Аналогичен диаграмму, но [выделяет аномалии](./samples.md#get-more-from-your-data-by-using-kusto-with-machine-learning) с помощью функции [series_decompose_anomalies](./series-decompose-anomaliesfunction.md) . |
 | `areachart`        | Диаграмма с областями. Первый столбец является осью x и должен быть числовым столбцом. Другие числовые столбцы — оси y. |
 | `barchart`         | Первый столбец — это ось x, который может иметь тип Text, DateTime или numeric. Другие столбцы являются числовыми и отображаются в виде горизонтальных полос.|
 | `card`             | Первая запись результата рассматривается как набор скалярных значений и отображается как карточка. |
@@ -169,8 +169,8 @@ range x from -2 to 2 step 0.1
 
 ::: zone pivot="azuredataexplorer"
 
-[Примеры подготовки к просмотру в учебнике](./tutorial.md#render-display-a-chart-or-table).
+[Примеры подготовки к просмотру в учебнике](./tutorial.md#displaychartortable)
 
-[Обнаружение аномалий](./samples.md#get-more-out-of-your-data-in-kusto-with-machine-learning)
+[Обнаружение аномалий](./samples.md#get-more-from-your-data-by-using-kusto-with-machine-learning)
 
 ::: zone-end
