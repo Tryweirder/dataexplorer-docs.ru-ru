@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: ea3521dec63798a9382bcfca98827288c9b735d3
-ms.sourcegitcommit: 4c7f20dfd59fb5b5b1adfbbcbc9b7da07df5e479
+ms.openlocfilehash: b8ba6199d5353ffd34081483c2ffbbd73e88a60c
+ms.sourcegitcommit: 3af95ea6a6746441ac71b1a217bbb02ee23d5f28
 ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/23/2020
-ms.locfileid: "95324811"
+ms.locfileid: "95473528"
 ---
 # <a name="event-hub-data-connection"></a>Подключение к данным концентратора событий
 
@@ -38,7 +38,7 @@ ms.locfileid: "95324811"
 
 Свойства приема указывают на процесс приема, где следует маршрутизировать данные и как обработать их. [Свойства приема](ingestion-properties.md) событий можно указать с помощью свойства [EVENTDATA. Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
 
-|Свойство |Описание|
+|Свойство. |Описание|
 |---|---|
 | Таблица | Имя существующей целевой таблицы (с учетом регистра). Переопределяет `Table` набор на `Data Connection` панели. |
 | Формат | Формат данных. Переопределяет `Data format` набор на `Data Connection` панели. |
@@ -124,7 +124,14 @@ eventHubClient.Close();
 
 Пример создания демонстрационных данных см. в статье прием [данных из концентратора событий в Azure обозреватель данных](ingest-data-event-hub.md#generate-sample-data)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="set-up-geo-disaster-recovery-solution"></a>Настройка решения географического аварийного восстановления
+
+Концентратор событий предлагает решение [географического аварийного восстановления](/azure/event-hubs/event-hubs-geo-dr) . Обозреватель данных Azure не поддерживает `Alias` пространства имен концентратора событий. Чтобы реализовать географическое аварийное восстановление в решении, создайте два подключения к данным концентратора событий: одно для основного пространства имен и одно для дополнительного пространства имен. Обозреватель данных Azure будет прослушивать оба подключения концентратора событий.
+
+> [!NOTE]
+> Пользователь обязан реализовать отработку отказа из основного пространства имен в дополнительное пространство имен.
+
+## <a name="next-steps"></a>Следующие шаги
 
 * [Прием данных из концентратора событий в Azure Data Explorer](ingest-data-event-hub.md)
 * [Создание подключения к данным концентратора событий для Azure обозреватель данных с помощью C #](data-connection-event-hub-csharp.md)
