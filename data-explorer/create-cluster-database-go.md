@@ -7,12 +7,12 @@ ms.reviewer: abhishgu
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 05f0055e5faf99d14864338db7f6ad6a4c99946e
-ms.sourcegitcommit: 0820454feb02ae489f3a86b688690422ae29d788
+ms.openlocfilehash: fd0bdc07c2a51d76257800e55921a82cd7fdbbda
+ms.sourcegitcommit: cffc81de2b5c75a0ef5a3c71ff58d1ef52d4eb5c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94932707"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95872283"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-using-go"></a>Создание кластера Azure обозреватель данных и базы данных с помощью Go
 
@@ -63,7 +63,7 @@ func getClustersClient(subscription string) kusto.ClustersClient {
 
 ### <a name="create-cluster"></a>Создание кластера
 
-Используйте функцию [CreateOrUpdate](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v0.0.0-20200513030755-ac906323d9fe/services/kusto/mgmt/2020-02-15/kusto?tab=doc#ClustersClient.CreateOrUpdate) в `kusto.ClustersClient` для создания нового кластера Azure обозреватель данных. Дождитесь завершения процесса, прежде чем проверять результаты.
+Используйте функцию [CreateOrUpdate](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/kusto/mgmt/2018-09-07-preview/kusto) в `kusto.ClustersClient` для создания нового кластера Azure обозреватель данных. Дождитесь завершения процесса, прежде чем проверять результаты.
 
 ```go
 func createCluster(sub, name, location, rgName string) {
@@ -255,6 +255,6 @@ func deleteCluster(sub, clusterName, rgName string) {
 
 Если вы не удалили кластер программным способом с помощью примера кода в этой статье, удалите их вручную с помощью [Azure CLI](create-cluster-database-cli.md#clean-up-resources).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Прием данных с помощью пакета SDK для Azure обозреватель данных Go](go-ingest-data.md)
