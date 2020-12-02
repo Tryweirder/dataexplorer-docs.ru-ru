@@ -699,15 +699,18 @@
         - name: Числовые операторы
           href: ./kusto/query/numoperators.md
         - name: Строковые операторы
-          href: ./kusto/query/datatypes-string-operators.md
+          items:
+            - name: Общие сведения о строковых операторах
+              displayName: 'has, contains'
+              href: ./kusto/query/datatypes-string-operators.md
+            - name: Операторы in и !in
+              href: ./kusto/query/inoperator.md
+            - name: Оператор has_any
+              href: ./kusto/query/has-anyoperator.md
         - name: Оператор between
           href: ./kusto/query/betweenoperator.md
         - name: Оператор not-between (!between)
           href: ./kusto/query/notbetweenoperator.md
-        - name: Операторы in и !in
-          href: ./kusto/query/inoperator.md
-        - name: Оператор has_any
-          href: ./kusto/query/has-anyoperator.md
     - name: Скалярные функции
       items:
         - name: Типы скалярных функций
