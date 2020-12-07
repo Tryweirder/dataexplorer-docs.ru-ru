@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/08/2020
-ms.openlocfilehash: 38d353caf1e0352688ee91edfe7f1d2cef94d18a
-ms.sourcegitcommit: 5aba5f694420ade57ef24b96699d9b026cdae582
+ms.openlocfilehash: 77524f22be72e977f73e0ac606db00d5d4b0c51d
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998948"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321902"
 ---
 # <a name="quantize_fl"></a>quantize_fl()
 
@@ -83,7 +83,7 @@ union
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-Для постоянного использования используйте [функцию. Create](../management/create-function.md). Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
+Для постоянного использования используйте [`.create function`](../management/create-function.md) . Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
 
 ### <a name="one-time-installation"></a>Однократная установка
 

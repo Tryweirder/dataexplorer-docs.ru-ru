@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 209a58dd53dd773567aeb527fa45499ddd397c20
-ms.sourcegitcommit: 4f24d68f1ae4903a2885985aa45fd15948867175
+ms.openlocfilehash: 2c5c5cbb15e55b585bae632a960909070c724eb8
+ms.sourcegitcommit: 4d5628b52b84f7564ea893f621bdf1a45113c137
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558229"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444211"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Прием больших двоичных объектов в службу Azure Data Explorer через подписку на уведомления службы "Сетка событий Azure"
 
@@ -33,22 +33,24 @@ ms.locfileid: "92558229"
 * Подписка Azure. Создайте [бесплатную учетную запись Azure](https://azure.microsoft.com/free/).
 * [Кластер и база данных](create-cluster-database-portal.md).
 * [Учетная запись хранения](/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    * Подписку на уведомления в службе "Сетка событий" можно настроить в учетных записях хранения Azure для `BlobStorage` , `StorageV2` или [Data Lake Storage 2-го поколения](/azure/storage/blobs/data-lake-storage-introduction).
+
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Создание целевой таблицы в обозревателе данных Azure
 
 Создайте таблицу в Azure Data Explorer, куда Центры событий будут отправлять данные. Таблица создается в кластере и базе данных, подготовленных в разделе предварительных требований.
 
-1. На портале Azure, в своем кластере, выберите **Запрос** .
+1. На портале Azure, в своем кластере, выберите **Запрос**.
 
     :::image type="content" source="media/ingest-data-event-grid/query-explorer-link.png" alt-text="Ссылка на обозреватель запросов"::: 
 
-1. Скопируйте следующую команду в окно и выберите **Выполнить** , чтобы создать таблицу (TestTable), которая будет принимать входящие данные.
+1. Скопируйте следующую команду в окно и выберите **Выполнить**, чтобы создать таблицу (TestTable), которая будет принимать входящие данные.
 
     ```kusto
     .create table TestTable (TimeStamp: datetime, Value: string, Source:string)
     ```
 
-    :::image type="content" source="media/ingest-data-event-grid/run-create-table.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/run-create-table.png" alt-text="Выполнить команду создания таблицы":::
 
 1. Скопируйте следующую команду в окно и выберите **Выполнить** для сопоставления входящих данных JSON с именами столбцов и типами данных таблицы (TestTable).
 
@@ -60,21 +62,21 @@ ms.locfileid: "92558229"
 
 Теперь подключите учетную запись хранения к Azure обозреватель данных, чтобы данные, передаваемые в хранилище, переходили в поток в тестовую таблицу. 
 
-1. В созданном кластере выберите **databases тестдатабасе (базы данных** )  >  **TestDatabase** .
+1. В созданном кластере выберите **databases тестдатабасе (базы данных**)  >  **TestDatabase**.
 
-    :::image type="content" source="media/ingest-data-event-grid/select-test-database.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/select-test-database.png" alt-text="Выбор тестовой базы данных":::
 
-1. Выберите **приема данных**  >  **Добавить подключение к данным** .
+1. Выберите **приема данных**  >  **Добавить подключение к данным**.
 
-    :::image type="content" source="media/ingest-data-event-grid/data-ingestion-create.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/data-ingestion-create.png" alt-text="Добавление подключения к данным для приема данных":::
 
 ### <a name="data-connection---basics-tab"></a>Подключение к данным — вкладка "основы"
 
-1. Выберите тип подключения: **хранилище BLOB-объектов** .
+1. Выберите тип подключения: **хранилище BLOB-объектов**.
 
 1. Заполните форму, указав следующую информацию.
 
-    :::image type="content" source="media/ingest-data-event-grid/data-connection-basics.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/data-connection-basics.png" alt-text="Заполнение формы сетки событий с помощью основных сведений о соединении":::
 
     |**Параметр** | **Рекомендуемое значение** | **Описание поля**|
     |---|---|---|
@@ -85,47 +87,47 @@ ms.locfileid: "92558229"
     | Создание ресурсов | *Automatic* (Автоматический) | Укажите, хотите ли вы, чтобы Azure обозреватель данных самостоятельно создать подписку на службу "Сетка событий", пространство имен концентратора событий и концентратор событий. Сведения о создании ресурсов вручную см. в разделе [Создание ресурсов вручную для приема в сетке событий](ingest-data-event-grid-manual.md) .|
 
 1. Выберите **Параметры фильтра** , если хотите отвести трассировку по конкретным темам. Настройте фильтры для получения уведомлений следующим образом:
-    * Поле **prefix** — это префикс *литерала* субъекта. Как применяется шаблон *StartsWith* , он может охватывать несколько контейнеров, папок или больших двоичных объектов. Подстановочные знаки не допускаются.
+    * Поле **prefix** — это префикс *литерала* субъекта. Как применяется шаблон *StartsWith*, он может охватывать несколько контейнеров, папок или больших двоичных объектов. Подстановочные знаки не допускаются.
         * Чтобы определить фильтр для контейнера больших двоичных объектов, *необходимо* установить поле следующим образом: *`/blobServices/default/containers/[container prefix]`* .
         * Чтобы определить фильтр для префикса большого двоичного объекта (или папки в Azure Data Lake Gen2), поле *должно* быть установлено следующим образом: *`/blobServices/default/containers/[container name]/blobs/[folder/blob prefix]`* .
     * Поле **суффикса** — это *литеральный* суффикс большого двоичного объекта. Подстановочные знаки не допускаются.
     * Поле **с учетом регистра** указывает, учитывается ли регистр в фильтрах префиксов и суффиксов
     * Дополнительные сведения о фильтрации событий см. в разделе [события хранилища BLOB-объектов](/azure/storage/blobs/storage-blob-event-overview#filtering-events).
     
-    :::image type="content" source="media/ingest-data-event-grid/filter-settings.png" alt-text="Ссылка на обозреватель запросов":::    
+    :::image type="content" source="media/ingest-data-event-grid/filter-settings.png" alt-text="Сетка событий параметров фильтра":::    
 
-1. Нажмите кнопку **Далее: приема свойств** .
+1. Нажмите кнопку **Далее: приема свойств**.
 
 ### <a name="data-connection---ingest-properties-tab"></a>Подключение к данным — вкладка "свойства приема"
 
 1. Заполните форму, указав следующую информацию. Имена таблиц и сопоставлений учитывают регистр:
 
-   :::image type="content" source="media/ingest-data-event-grid/data-connection-ingest-properties.png" alt-text="Ссылка на обозреватель запросов":::
+   :::image type="content" source="media/ingest-data-event-grid/data-connection-ingest-properties.png" alt-text="Проверка и создание свойств приема таблиц и сопоставлений":::
 
     Свойства приема:
 
      **Параметр** | **Рекомендуемое значение** | **Описание поля**
     |---|---|---|
-    | Имя таблицы | *TestTable* | Таблица, созданная в базе данных **TestDatabase** . |
+    | Имя таблицы | *TestTable* | Таблица, созданная в базе данных **TestDatabase**. |
     | Формат данных | *JSON* | Поддерживаются форматы Avro, CSV, JSON, многострочные JSON, ORC, PARQUET, ПСВ, СКСВ, СОХСВ, TSV, TXT, ТСВЕ, АПАЧЕАВРО, RAW и W3CLOG. Поддерживаемые параметры сжатия: ZIP и GZip. |
-    | Сопоставление | *TestMapping* | Сопоставление, созданное в таблице **TestDatabase** , которое сопоставляет входящие данные JSON с именами столбцов и типами данных **TestTable** .|
+    | Сопоставление | *TestMapping* | Сопоставление, созданное в таблице **TestDatabase**, которое сопоставляет входящие данные JSON с именами столбцов и типами данных **TestTable**.|
     | Дополнительные настройки | *Мои данные имеют заголовки* | Игнорирует заголовки. Поддерживается для * файлов типа SV.|
 
    > [!NOTE]
-   > Вам не нужно указывать все **параметры маршрутизации по умолчанию** . Также принимаются частичные параметры.
+   > Вам не нужно указывать все **параметры маршрутизации по умолчанию**. Также принимаются частичные параметры.
 1. Нажмите кнопку **Далее: Проверка + создать.**
 
 ### <a name="data-connection---review--create-tab"></a>Подключение к данным — вкладка "Проверка и создание"
 
-1. Проверьте созданные ранее ресурсы и нажмите кнопку **создать** .
+1. Проверьте созданные ранее ресурсы и нажмите кнопку **создать**.
 
-    :::image type="content" source="media/ingest-data-event-grid/create-event-grid-data-connection-review-create.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/create-event-grid-data-connection-review-create.png" alt-text="Проверка и создание подключения к данным для сетки событий":::
 
 ### <a name="deployment"></a>Развертывание
 
 Подождите, пока развертывание завершится. Если развертывание завершилось сбоем, выберите **сведения об операции** рядом с этапом сбоя, чтобы получить дополнительные сведения о причине сбоя. Нажмите кнопку Повторное **развертывание** , чтобы повторить попытку развертывания ресурсов. Параметры можно изменить перед развертыванием.
 
-:::image type="content" source="media/ingest-data-event-grid/deploy-event-grid-resources.png" alt-text="Ссылка на обозреватель запросов":::
+:::image type="content" source="media/ingest-data-event-grid/deploy-event-grid-resources.png" alt-text="Развертывание ресурсов сетки событий":::
 
 ## <a name="generate-sample-data"></a>Создание примера данных
 
@@ -189,7 +191,7 @@ ms.locfileid: "92558229"
 
 1. На портале Azure в разделе сетки событий во время работы приложения появится пик активности.
 
-    :::image type="content" source="media/ingest-data-event-grid/event-grid-graph.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/event-grid-graph.png" alt-text="Граф активности для сетки событий":::
 
 1. Чтобы проверить, сколько сообщений поступило в базу данных к этому моменту, выполните следующий запрос в тестовой базе данных.
 
@@ -206,39 +208,39 @@ ms.locfileid: "92558229"
 
     Результирующий набор должен выглядеть, как на следующем рисунке:
 
-    :::image type="content" source="media/ingest-data-event-grid/table-result.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/table-result.png" alt-text="Результирующий набор сообщений для сетки событий":::
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
 Если вы не планируете использовать сетку событий еще раз, очистите подписку на сетку событий, пространство имен концентратора событий и концентратор событий, которые были созданы ранее, чтобы избежать затрат на оплату.
 
-1. В портал Azure перейдите в меню слева и выберите **все ресурсы** .
+1. В портал Azure перейдите в меню слева и выберите **все ресурсы**.
 
-    :::image type="content" source="media/ingest-data-event-grid/clean-up-resources-select-all-resource.png" alt-text="Ссылка на обозреватель запросов":::    
+    :::image type="content" source="media/ingest-data-event-grid/clean-up-resources-select-all-resource.png" alt-text="Выбрать все ресурсы для очистки сетки событий":::    
 
 1. Найдите пространство имен концентратора событий и выберите **Удалить** , чтобы удалить его:
 
-    :::image type="content" source="media/ingest-data-event-grid/clean-up-resources-find-eventhub-namespace-delete.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/clean-up-resources-find-eventhub-namespace-delete.png" alt-text="Очистка пространства имен концентратора событий":::
 
 1. В форме удаление ресурсов подтвердите удаление, чтобы удалить пространство имен концентратора событий и ресурсы концентратора событий.
 
-1. Войдите в свою учетную запись хранения. В меню слева выберите **события** :
+1. Войдите в свою учетную запись хранения. В меню слева выберите **события**:
 
-    :::image type="content" source="media/ingest-data-event-grid/clean-up-resources-select-events.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/clean-up-resources-select-events.png" alt-text="Выберите события для очистки в сетке событий":::
 
 1. Под диаграммой выберите подписку на сетку событий и щелкните **Удалить** , чтобы удалить ее:
 
-    :::image type="content" source="media/ingest-data-event-grid/delete-event-grid-subscription.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/delete-event-grid-subscription.png" alt-text="Удалить подписку на сетку событий":::
 
-1. Чтобы удалить подключение к данным в сетке событий, перейдите в кластер Azure обозреватель данных. В меню слева выберите **базы данных** .
+1. Чтобы удалить подключение к данным в сетке событий, перейдите в кластер Azure обозреватель данных. В меню слева выберите **базы данных**.
 
-1. Выберите базу данных **тестдатабасе** :
+1. Выберите базу данных **тестдатабасе**:
 
-    :::image type="content" source="media/ingest-data-event-grid/clean-up-resources-select-database.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/clean-up-resources-select-database.png" alt-text="Выбор базы данных для очистки ресурсов":::
 
-1. В меню слева выберите прием **данных** :
+1. В меню слева выберите прием **данных**:
 
-    :::image type="content" source="media/ingest-data-event-grid/clean-up-resources-select-data-ingestion.png" alt-text="Ссылка на обозреватель запросов":::
+    :::image type="content" source="media/ingest-data-event-grid/clean-up-resources-select-data-ingestion.png" alt-text="Выбор приема данных для очистки ресурсов":::
 
 1. Выберите подключение к данным *Проверка-сетка — подключение* , а затем щелкните **Удалить** , чтобы удалить его.
 

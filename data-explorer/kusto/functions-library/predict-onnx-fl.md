@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/09/2020
-ms.openlocfilehash: 9cc70418b39ece5c33d6059c7fc90c47f3039ece
-ms.sourcegitcommit: 5aba5f694420ade57ef24b96699d9b026cdae582
+ms.openlocfilehash: f00f6cdc2a0c52ce0ad2a6832dafdf11bd02fce4
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998982"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321885"
 ---
 # <a name="predict_onnx_fl"></a>predict_onnx_fl()
 
@@ -30,7 +30,7 @@ ms.locfileid: "90998982"
 
 * *models_tbl*: имя таблицы, содержащей все сериализованные модели. Эта таблица должна содержать следующие столбцы:
     * *имя*: имя модели.
-    * *Метка*времени: время обучения модели
+    * *Метка* времени: время обучения модели
     * *model*: строковое представление сериализованной модели
 * *MODEL_NAME*: имя конкретной модели для использования.
 * *features_cols*: динамический массив, содержащий имена столбцов функций, которые используются моделью для прогнозирования.
@@ -92,7 +92,7 @@ OccupancyDetection
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-Для постоянного использования используйте [функцию. Create](../management/create-function.md). Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
+Для постоянного использования используйте [`.create function`](../management/create-function.md) . Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
 
 ### <a name="one-time-installation"></a>Однократная установка
 

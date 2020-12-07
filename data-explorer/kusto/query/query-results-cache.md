@@ -8,12 +8,12 @@ ms.reviewer: amitof
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/16/2020
-ms.openlocfilehash: d0942a949454bf12840626ff25d3703a23aed2cc
-ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
+ms.openlocfilehash: 24ab3cb3e423e3ab6b77f09f2c216feb07ae0d0f
+ms.sourcegitcommit: f134d51e52504d3ca722bdf6d33baee05118173a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92002942"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96563314"
 ---
 # <a name="query-results-cache"></a>Кэш результатов запроса
 
@@ -21,7 +21,7 @@ Kusto включает кэш результатов запроса. При вы
 
 ## <a name="use-the-cache"></a>Использование кэша
 
-Задайте `query_results_cache_max_age` параметр в составе запроса, чтобы использовать кэш результатов запроса. Этот параметр можно задать в тексте запроса или в свойстве запроса клиента. Пример:
+Задайте `query_results_cache_max_age` параметр в составе запроса, чтобы использовать кэш результатов запроса. Этот параметр можно задать в тексте запроса или в свойстве запроса клиента. Пример.
 
 ```kusto
 set query_results_cache_max_age = time(5m);
@@ -41,9 +41,9 @@ GithubEvent
 * Два запроса имеют одно и то же представление (в виде строк UTF-8).
 * Два запроса выполняются в одной и той же базе данных.
 * Два запроса совместно используют одни и те же [Свойства запросов клиента](../api/netfx/request-properties.md). Следующие свойства игнорируются в целях кэширования.
-   * [ClientRequestId](../api/netfx/request-properties.md#the-clientrequestid-x-ms-client-request-id-named-property)
-   * [Приложение](../api/netfx/request-properties.md#the-application-x-ms-app-named-property)
-   * [Пользователь](../api/netfx/request-properties.md#the-user-x-ms-user-named-property)
+   * [ClientRequestId](../api/netfx/request-properties.md#clientrequestid-x-ms-client-request-id)
+   * [Приложения](../api/netfx/request-properties.md#application-x-ms-app)
+   * [Пользователь](../api/netfx/request-properties.md#user-x-ms-user)
 
 ### <a name="incompatible-queries"></a>Несовместимые запросы
 
@@ -72,10 +72,10 @@ GithubEvent
 В результаты кэшированного запроса будет добавлена дополнительная строка, добавленная к этой таблице:
 * `Key`Столбец строки будет содержать строку`ServerCache`
 * `Value`Столбец строки будет содержать контейнер свойств с двумя полями:
-   * `OriginalClientRequestId` — Указывает [ClientRequestId](../api/netfx/request-properties.md#the-clientrequestid-x-ms-client-request-id-named-property)исходного запроса.
+   * `OriginalClientRequestId` — Указывает [ClientRequestId](../api/netfx/request-properties.md#clientrequestid-x-ms-client-request-id)исходного запроса.
    * `OriginalStartedOn` — Указывает время начала выполнения исходного запроса.
 
-## <a name="distribution"></a>Distribution
+## <a name="distribution"></a>Распределение
 
 Кэш не является общим для узлов кластера. Каждый узел имеет выделенный кэш в своем собственном частном хранилище. Если два одинаковых запроса помещаются на разные узлы, запрос будет выполнен и кэширован на обоих узлах. Этот процесс может произойти, если используется [слабая согласованность](../concepts/queryconsistency.md) .
 

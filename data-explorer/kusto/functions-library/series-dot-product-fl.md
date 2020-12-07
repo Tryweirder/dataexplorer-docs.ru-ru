@@ -7,14 +7,14 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/18/2020
-ms.openlocfilehash: 9b1c6db6af651ae3665c07bda8598212883a8f6c
-ms.sourcegitcommit: 88923cfb2495dbf10b62774ab2370b59681578b9
+ms.openlocfilehash: 9065c6b86807ad27c588ebffe3334c450a1addcb
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92184175"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321851"
 ---
-# <a name="series_dot_product_fl"></a>series_dot_product_fl ()
+# <a name="series_dot_product_fl"></a>series_dot_product_fl()
 
 Вычисляет скалярное произведение двух числовых векторов.
 
@@ -57,7 +57,7 @@ union
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-Для постоянного использования используйте [функцию. Create](../management/create-function.md). Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
+Для постоянного использования используйте [`.create function`](../management/create-function.md) . Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
 
 ### <a name="one-time-installation"></a>Однократная установка
 

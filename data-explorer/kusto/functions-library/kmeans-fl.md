@@ -7,14 +7,14 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/18/2020
-ms.openlocfilehash: b56aefd94ed58b8731ea6237f131b4da74d4f7be
-ms.sourcegitcommit: 88923cfb2495dbf10b62774ab2370b59681578b9
+ms.openlocfilehash: 7d2482c36c0c55c34adbc664a6c24f64bdadf7a1
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92184192"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321953"
 ---
-# <a name="kmeans_fl"></a>kmeans_fl ()
+# <a name="kmeans_fl"></a>kmeans_fl()
 
 Функция `kmeans_fl()` клустеризес набор данных с помощью [алгоритма k-средних](https://en.wikipedia.org/wiki/K-means_clustering).
 
@@ -76,7 +76,7 @@ OccupancyDetection
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-Для постоянного использования используйте [функцию. Create](../management/create-function.md). Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
+Для постоянного использования используйте [`.create function`](../management/create-function.md) . Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
 
 ### <a name="one-time-installation"></a>Однократная установка
 

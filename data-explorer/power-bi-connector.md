@@ -6,19 +6,19 @@ ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: how-to
-ms.date: 07/10/2019
-ms.openlocfilehash: 47bb390e6211a0448e16b3fca16560176dcc8702
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.date: 12/03/2020
+ms.openlocfilehash: d02f9732791bf66a488779e2bc413fa441664ef7
+ms.sourcegitcommit: f134d51e52504d3ca722bdf6d33baee05118173a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343544"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96563344"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Визуализация данных с помощью соединителя Azure Data Explorer для Power BI
 
 Обозреватель данных Azure — это быстрая и высокомасштабируемая служба для изучения данных журналов и телеметрии. Power BI — это решение бизнес-аналитики, позволяющее визуализировать данные и делиться результатами с коллегами. Azure Data Explorer поддерживает три варианта подключения к данным в Power BI: использование встроенного соединителя, импорт запроса из Azure Data Explorer и использование SQL-запроса. В этой статье показано, как использовать встроенный соединитель для получения данных и визуализации их в Power BI отчете. Использование собственного соединителя Azure обозреватель данных для создания панелей мониторинга Power BI — это просто. Соединитель Power BI поддерживает [режимы подключения "Импорт" и "прямой запрос](/power-bi/desktop-directquery-about)". Вы можете создавать панели мониторинга с помощью **импорта** или режима **DirectQuery** в зависимости от сценария, масштаба и требований к производительности. 
 
-## <a name="prerequisites"></a>Обязательные условия
+## <a name="prerequisites"></a>Предварительные требования
 
 Для выполнения этой статьи необходимо следующее:
 
@@ -74,9 +74,9 @@ ms.locfileid: "92343544"
 
 1. Если вы еще не установили подключение к кластеру help, выполните вход. Войдите с помощью учетной записи организации и выберите **Подключение**.
 
-    ![Вход](media/power-bi-connector/sign-in.png)
+    ![Войти](media/power-bi-connector/sign-in.png)
 
-1. На экране **Навигатор** разверните базу данных **Примеры**, выберите **StormEvents**, а затем **Изменить**.
+1. На экране **навигатора** разверните базу данных **Samples** , выберите **Стормевентс** , а затем **преобразуйте данные**.
 
     ![Выбор таблицы](media/power-bi-connector/select-table.png)
 
@@ -102,6 +102,6 @@ ms.locfileid: "92343544"
 
 Если отчет, созданный для этой статьи, больше не нужен, удалите Power BI Desktop (pbix-файл).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Советы по использованию соединителя Azure обозреватель данных для Power BI запроса данных](power-bi-best-practices.md#tips-for-using-the-azure-data-explorer-connector-for-power-bi-to-query-data)

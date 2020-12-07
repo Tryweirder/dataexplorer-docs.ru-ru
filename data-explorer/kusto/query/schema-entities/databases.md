@@ -1,6 +1,6 @@
 ---
-title: Базы данных - Исследователь данных Azure (англ.) Документы Майкрософт
-description: В этой статье описаны базы данных в Azure Data Explorer.
+title: Базы данных в Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описываются базы данных в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,22 +8,21 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/30/2019
-ms.openlocfilehash: a94b168d8aa8443251f3a01dc659e114b0aacaf5
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 3d981a4b56eef689081a4bc6a622221c126efa2e
+ms.sourcegitcommit: 8b8228fe18e6408673891374a8048a7a3723921c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81509441"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96516070"
 ---
 # <a name="databases"></a>Базы данных
 
-Kusto следует модели связи хранения данных, где сущность `database`верхнего уровня является . 
+Kusto соответствует модели отношения хранения данных, где сущность верхнего уровня — `database` . 
 
-Кластер Kusto может размещать несколько баз данных, где каждая база данных будет размещать свою собственную коллекцию [таблиц,](tables.md) [сохраненных функций](stored-functions.md)и [внешних таблиц.](externaltables.md)
-Каждая база данных имеет свой собственный набор разрешений, основанный на [модели управления доступом на основе ролей (RBAC)](../../management/access-control/index.md)
+Кластер Kusto может содержать несколько баз данных, где каждая база данных будет содержать собственную коллекцию [таблиц](tables.md), [хранимых функций](stored-functions.md)и [внешних таблиц](externaltables.md).
+Каждая база данных имеет собственный набор разрешений на основе [модели управления доступом на основе ролей (RBAC)](../../management/access-control/index.md) .
 
 **Примечания**  
 
-* Имена баз данных нечувствительны.
-* Имена баз данных должны следовать правилам [имен сущностей.](./entity-names.md)
-* Максимальный предел баз данных на кластер составляет 10 000.
+* Имена баз данных должны соответствовать правилам для [имен сущностей](./entity-names.md).
+* Максимальное число баз данных на кластер — 10 000.
