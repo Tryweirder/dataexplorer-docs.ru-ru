@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/11/2020
-ms.openlocfilehash: d8248fdd9428df11a8e77316eec621102ddff9d6
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: fc7c29542f63ea9b659bd3318d1442d9bca4ae48
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82617805"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321715"
 ---
 # <a name="alter-function"></a>.alter function
 
@@ -28,17 +28,17 @@ ms.locfileid: "82617805"
     
 |Выходной параметр |Тип |Описание
 |---|---|--- 
-|Имя  |Строка |Имя функции.
+|name  |Строка |Имя функции.
 |Параметры  |Строка |Параметры, необходимые для функции.
 |Текст  |Строка |(Ноль или более) `let` инструкции, за которыми следует допустимое выражение CSL, которое вычисляется при вызове функции.
 |Папка|Строка|Папка, используемая для классификации функций пользовательского интерфейса. Этот параметр не изменяет способ вызова функции.
 |DocString|Строка|Описание функции для целей пользовательского интерфейса.
 
 > [!NOTE]
-> * Если функция не существует, возвращается ошибка. Сведения о создании новой функции см. в описании [функции. Create.](create-function.md)
+> * Если функция не существует, возвращается ошибка. Сведения о создании новой функции см. в разделе. [`.create function`](create-function.md)
 > * Требуется [разрешение администратора базы данных](../management/access-control/role-based-authorization.md)
 > * [Пользователь базы данных](../management/access-control/role-based-authorization.md) , изначально создавший функцию, может изменять функцию. 
-> * В `let` инструкциях поддерживаются не все типы Kusto. Поддерживаются следующие типы: String, Long, DateTime, TimeSpan и Double.
+> * В инструкциях поддерживаются не все типы Kusto `let` . Поддерживаются следующие типы: String, Long, DateTime, TimeSpan и Double.
 > * Используйте `skipvalidation` , чтобы пропустить семантическую проверку функции. Это полезно, когда функции создаются в неправильном порядке, а клавиша F1, которая использует F2, создается ранее.
  
 **Пример** 

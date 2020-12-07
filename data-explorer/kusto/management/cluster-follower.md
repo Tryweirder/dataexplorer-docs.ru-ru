@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/18/2020
-ms.openlocfilehash: 9a670e2dead3e3cd5a2d881974678fcb44eaff29
-ms.sourcegitcommit: 3eabd78305d32cd9b8a6bd1d76877ddc19d8ac63
+ms.openlocfilehash: e05f8204ba1e81b9391b6b63f190b81e1db73338
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94548909"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321052"
 ---
 # <a name="cluster-follower-commands"></a>Команды для последующих кластеров
 
@@ -43,7 +43,7 @@ ms.locfileid: "94548909"
 | аусоризедпринЦипалсоверриде         | Строка  | Переопределение коллекции полномочных субъектов для базы данных, сериализованных как JSON или null.                    |
 | аусоризедпринЦипалсмодификатионкинд | Строка  | Тип изменения, применяемый с помощью АусоризедпринЦипалсоверриде `none` ( `union` или `replace` ).                  |
 | качингполиЦиесмодификатионкинд      | Строка  | Тип изменения для применения с использованием переопределений политики кэширования базы данных или уровня таблицы ( `none` `union` или `replace` ). |
-| исаутопрефетченаблед                | Логическое значение | Будут ли предварительно получены новые данные при каждом обновлении схемы.        |
+| исаутопрефетченаблед                | Логическое | Будут ли предварительно получены новые данные при каждом обновлении схемы.        |
 | таблеметадатаоверридес               | Строка  | Сериализация JSON переопределений свойств уровня таблицы (если они определены).                                      |
 
 ### <a name="alter-follower-database-policy-caching"></a>. изменение кэширования политики базы данных
@@ -52,12 +52,12 @@ ms.locfileid: "94548909"
 
 **Примечания**
 
-* По умолчанию `modification kind` для политик кэширования задано значение `union` . Чтобы изменить `modification kind` команду, воспользуйтесь командой [. ALTER "база данных: кэширование — политики-изменение типа](#alter-follower-database-caching-policies-modification-kind) ".
+* По умолчанию `modification kind` для политик кэширования задано значение `union` . Для изменения `modification kind` Используйте [`.alter follower database caching-policies-modification-kind`](#alter-follower-database-caching-policies-modification-kind) команду.
 * Просмотр политики или действующих политик после изменения можно выполнить с помощью `.show` команд:
-    * [. Отображение срока хранения политики базы данных](../management/retention-policy.md#show-retention-policy)
-    * [. отобразить сведения о базе данных](../management/show-databases.md)
-    * [.show table details](show-tables-command.md)
-* Просмотр параметров переопределения в базе данных последующих действий после внесения изменений можно выполнить с помощью [. отобразить базу данных-след](#show-follower-database)
+    * [`.show database policy retention`](../management/retention-policy.md#show-retention-policy)
+    * [`.show database details`](../management/show-databases.md)
+    * [`.show table details`](show-tables-command.md)
+* Просмотр параметров переопределения в базе данных последующих действий после внесения изменений можно выполнить с помощью [`.show follower database`](#show-follower-database)
 
 **Синтаксис**
 
@@ -77,10 +77,10 @@ ms.locfileid: "94548909"
 **Примечания**
 
 * Просмотр политики или действующих политик после изменения можно выполнить с помощью `.show` команд:
-    * [. Отображение срока хранения политики базы данных](../management/retention-policy.md#show-retention-policy)
-    * [. отобразить сведения о базе данных](../management/show-databases.md)
-    * [.show table details](show-tables-command.md)
-* Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [. отобразить базу данных за пределами](#show-follower-database)
+    * [`.show database policy retention`](../management/retention-policy.md#show-retention-policy)
+    * [`.show database details`](../management/show-databases.md)
+    * [`.show table details`](show-tables-command.md)
+* Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [`.show follower database`](#show-follower-database)
 
 **Синтаксис**
 
@@ -100,8 +100,8 @@ ms.locfileid: "94548909"
 
 * По умолчанию `modification kind` для таких полномочных субъектов используется `none` . Чтобы изменить параметр `modification kind` использовать  [базу данных-участник ALTER](#alter-follower-database-principals-modification-kind), измените тип.
 * Просмотр эффективной коллекции участников после изменения можно выполнить с помощью `.show` команд:
-    * [. Отображение участников базы данных](../management/security-roles.md#managing-database-security-roles)
-    * [. отобразить сведения о базе данных](../management/show-databases.md)
+    * [`.show database principals`](../management/security-roles.md#managing-database-security-roles)
+    * [`.show database details`](../management/show-databases.md)
 * Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [. отобразить базу данных за пределами](#show-follower-database)
 
 **Синтаксис**
@@ -122,9 +122,9 @@ ms.locfileid: "94548909"
 **Примечания**
 
 * Просмотр эффективной коллекции участников после изменения можно выполнить с помощью `.show` команд:
-    * [. Отображение участников базы данных](../management/security-roles.md#managing-database-security-roles)
-    * [. отобразить сведения о базе данных](../management/show-databases.md)
-* Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [. отобразить базу данных за пределами](#show-follower-database)
+    * [`.show database principals`](../management/security-roles.md#managing-database-security-roles)
+    * [`.show database details`](../management/show-databases.md)
+* Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [`.show follower database`](#show-follower-database)
 
 **Синтаксис**
 
@@ -143,8 +143,8 @@ ms.locfileid: "94548909"
 **Примечания**
 
 * Просмотр эффективной коллекции участников после изменения можно выполнить с помощью `.show` команд:
-    * [. Отображение участников базы данных](../management/security-roles.md#managing-database-security-roles)
-    * [. отобразить сведения о базе данных](../management/show-databases.md)
+    * [`.show database principals`](../management/security-roles.md#managing-database-security-roles)
+    * [`.show database details`](../management/show-databases.md)
 * Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [. отобразить базу данных за пределами](#show-follower-database)
 
 **Синтаксис**
@@ -165,9 +165,9 @@ ms.locfileid: "94548909"
 **Примечания**
 
 * Просмотр эффективной коллекции политик кэширования базы данных и уровня таблицы после изменения можно выполнить с помощью стандартных `.show` команд:
-    * [. Отображение сведений о таблицах](show-tables-command.md)
-    * [. отобразить сведения о базе данных](../management/show-databases.md)
-* Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [. отобразить базу данных за пределами](#show-follower-database)
+    * [`.show tables details`](show-tables-command.md)
+    * [`.show database details`](../management/show-databases.md)
+* Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [`.show follower database`](#show-follower-database)
 
 **Синтаксис**
 
@@ -211,10 +211,10 @@ ms.locfileid: "94548909"
 **Примечания**
 
 * Просмотр политики или действующих политик после изменения можно выполнить с помощью `.show` команд:
-    * [. Отображение срока хранения политики базы данных](../management/retention-policy.md#show-retention-policy)
-    * [. отобразить сведения о базе данных](../management/show-databases.md)
-    * [.show table details](show-tables-command.md)
-* Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [. отобразить базу данных за пределами](#show-follower-database)
+    * [`.show database policy retention`](../management/retention-policy.md#show-retention-policy)
+    * [`.show database details`](../management/show-databases.md)
+    * [`.show table details`](show-tables-command.md)
+* Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [`.show follower database`](#show-follower-database)
 
 **Синтаксис**
 
@@ -235,10 +235,10 @@ ms.locfileid: "94548909"
 **Примечания**
 
 * Просмотр политики или действующих политик после изменения можно выполнить с помощью `.show` команд:
-    * [. Отображение срока хранения политики базы данных](../management/retention-policy.md#show-retention-policy)
-    * [. отобразить сведения о базе данных](../management/show-databases.md)
-    * [.show table details](show-tables-command.md)
-* Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [. отобразить базу данных за пределами](#show-follower-database)
+    * [`.show database policy retention`](../management/retention-policy.md#show-retention-policy)
+    * [`.show database details`](../management/show-databases.md)
+    * [`.show table details`](show-tables-command.md)
+* Просмотр параметров переопределения в базе данных следующих действий после изменения можно выполнить с помощью [`.show follower database`](#show-follower-database)
 
 **Синтаксис**
 
@@ -297,8 +297,8 @@ ms.locfileid: "94548909"
 |леадерклустерметадатапас            | `https://storageaccountname.blob.core.windows.net/cluster` |
 |качингполициоверриде                | null                                                     |
 |аусоризедпринЦипалсоверриде         | []                                                       |
-|аусоризедпринЦипалсмодификатионкинд | None                                                     |
-|исаутопрефетченаблед                | Нет                                                    |
+|аусоризедпринЦипалсмодификатионкинд | Нет                                                     |
+|исаутопрефетченаблед                | Неверно                                                    |
 |таблеметадатаоверридес               |                                                          |
 |качингполиЦиесмодификатионкинд      | Union                                                    |                                                                                                                      |
 
@@ -389,6 +389,6 @@ ms.locfileid: "94548909"
 |качингполициоверриде                | {"Датахотспан": {"значение": "00:00:00"}, "Индексхотспан": {"value": "00:00:00"}}                                                                                                        |
 |аусоризедпринЦипалсоверриде         | [{"Principal": {"FullyQualifiedName": "аадусер = 87654321-ABCD-EFEF-1234-350bf486087b",...}, {"субъект": {"FullyQualifiedName": "аадусер = 54321789-ABCD-EFEF-1234-350bf486087b",...}] |
 |аусоризедпринЦипалсмодификатионкинд | Заменить                                                                                                                                                                         |
-|исаутопрефетченаблед                | Нет                                                                                                                                                                           |
+|исаутопрефетченаблед                | Неверно                                                                                                                                                                           |
 |таблеметадатаоверридес               | {"Митаржеттабле": {"Качингполициоверриде": {"Датахотспан": {"значение": "3.00:00:00"}...}, "Мисаурцетабле": {"Качингполициоверриде": {"DataHotSpan": {"value": "1,00:00:00"},...}}}       |
 |качингполиЦиесмодификатионкинд      | Заменить                                                                                                                                                                         |

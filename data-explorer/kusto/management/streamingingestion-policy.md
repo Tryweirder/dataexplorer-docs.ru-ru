@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/24/2020
-ms.openlocfilehash: f51a68fc90237c4213c0135ade4724446800dea9
-ms.sourcegitcommit: ec191391f5ea6df8c591e6d747c67b2c46f98ac4
+ms.openlocfilehash: ff13ec8fcce49f4d92212e6a38797a97f9ea9dd6
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88259894"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321256"
 ---
 # <a name="streaming-ingestion-policy-command"></a>Команда политики приема потоков
 
@@ -101,7 +101,7 @@ ms.locfileid: "88259894"
 
 **Возвращает**
 
-Команда удаляет таблицу или объект политики стреамингинжестион базы данных, а затем возвращает выходные данные соответствующей команды [. показывать политику стреамингинжестион](#display-the-policy) .
+Команда удаляет таблицу или объект политики стреамингинжестион базы данных, а затем возвращает выходные данные соответствующей [`.show policy streamingingestion`](#display-the-policy) команды.
 
 **Примеры**
 
@@ -118,4 +118,4 @@ ms.locfileid: "88259894"
 |Свойство|Тип|Описание|Обязательный/необязательный
 |---|---|---|---
 |IsEnabled|`bool`|Включено приема потоков для сущности| Обязательно
-|хинталлокатедрате|`double`|Предполагаемая скорость передает данных в ГБ/час|Необязательный
+|хинталлокатедрате|`double`|Предполагаемая скорость передает данных в ГБ/час|Необязательно

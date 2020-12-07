@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/08/2020
-ms.openlocfilehash: eff9a5cd8ed2d9ed7e518be9aade9ecf2aded7bf
-ms.sourcegitcommit: d0f8d71261f8f01e7676abc77283f87fc450c7b1
+ms.openlocfilehash: 454aa19c5b38eabce49fd319891772746335ceab
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91765464"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321834"
 ---
 # <a name="series_fit_poly_fl"></a>series_fit_poly_fl()
 
@@ -99,7 +99,7 @@ demo_make_series1
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-Для постоянного использования используйте [функцию. Create](../management/create-function.md).  Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
+Для постоянного использования используйте [`.create function`](../management/create-function.md) .  Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
 
 ### <a name="one-time-installation"></a>Установка в один момент времени
 
@@ -183,7 +183,7 @@ demo_make_series1
     | render timechart with(ycolumns=num, fnum)
     ```
     
-    :::image type="content" source="images/series-fit-poly-fl/irregular-time-series.png" alt-text="Диаграмма, показывающая пятое значение полинома в соответствии с регулярным временным набором" border="false":::
+    :::image type="content" source="images/series-fit-poly-fl/irregular-time-series.png" alt-text="Диаграмма с степенью полинома восьмого порядка на неравномерные временные ряды" border="false":::
 
 1. Пятый порядок полинома с шумом по осям x & y
 
@@ -200,6 +200,6 @@ demo_make_series1
     | render linechart
     ```
         
-    :::image type="content" source="images/series-fit-poly-fl/fifth-order-noise.png" alt-text="Диаграмма, показывающая пятое значение полинома в соответствии с регулярным временным набором":::
+    :::image type="content" source="images/series-fit-poly-fl/fifth-order-noise.png" alt-text="Диаграмма соответствия пятой последовательности с шумом на оси x & y":::
        
-    :::image type="content" source="images/series-fit-poly-fl/fifth-order-noise-table.png" alt-text="Диаграмма, показывающая пятое значение полинома в соответствии с регулярным временным набором" border="false":::
+    :::image type="content" source="images/series-fit-poly-fl/fifth-order-noise-table.png" alt-text="Коэффициент соответствия пятой полиному с шумом" border="false":::

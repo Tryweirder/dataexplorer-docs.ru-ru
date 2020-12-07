@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: 871ad751105ba6a3f6ce5dcba55b3a0fd1c17789
-ms.sourcegitcommit: 21dee76964bf284ad7c2505a7b0b6896bca182cc
+ms.openlocfilehash: 37d82807751a604d88eda7de75fb4978efc0ce1b
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91056991"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321273"
 ---
 # <a name="retention-policy"></a>Политика хранения
 
@@ -49,13 +49,13 @@ ms.locfileid: "91056991"
 
 ## <a name="control-commands"></a>Управляющие команды
 
-* Используйте [. Показать срок хранения политики](../management/retention-policy.md) , чтобы отобразить текущую политику хранения для базы данных, таблицы или [материализованных представлений](materialized-views/materialized-view-overview.md).
-* Используйте [. ALTER Policy retention](../management/retention-policy.md) для изменения текущей политики хранения базы данных, таблицы или [материализованных представлений](materialized-views/materialized-view-overview.md).
+* Используется [`.show policy retention`](../management/retention-policy.md) для отображения текущей политики хранения для базы данных, таблицы или [материализованных представлений](materialized-views/materialized-view-overview.md).
+* Используется [`.alter policy retention`](../management/retention-policy.md) для изменения текущей политики хранения базы данных, таблицы или [материализованных представлений](materialized-views/materialized-view-overview.md).
 
-## <a name="defaults"></a>Значения по умолчанию
+## <a name="defaults"></a>Умолчания;
 
 По умолчанию при создании базы данных или таблицы политика хранения не определена. Как правило, база данных создается, после чего она немедленно получает политику хранения, установленную ее создателем в соответствии с известными требованиями.
-При выполнении [команды показ](../management/retention-policy.md) для политики хранения базы данных или таблицы, для которой не задана политика, `Policy` отображается как `null` .
+При выполнении [ `.show` команды](../management/retention-policy.md) для политики хранения базы данных или таблицы, для которой не задана политика, `Policy` отображается как `null` .
 
 Политика хранения по умолчанию с указанными выше значениями по умолчанию может быть применена с помощью следующей команды.
 

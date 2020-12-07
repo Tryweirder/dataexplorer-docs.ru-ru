@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/14/2020
-ms.openlocfilehash: c8fa3a000de67559c83745c598da40797e31f9b9
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: 667fcc87a1e301bdcceb227bb99ad70d62f46153
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92248338"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96320831"
 ---
 # <a name="execute-database-script"></a>.execute database script
 
@@ -54,7 +54,7 @@ ms.locfileid: "92248338"
 >* Команды выполняются последовательно, в порядке их следования во входном скрипте.
 >* Выполнение скрипта не является транзакционным, и при возникновении ошибки откат не выполняется. Рекомендуется использовать идемпотентными форму команд при использовании `.execute database script` .
 >* Поведение команды по умолчанию — Ошибка при первой ошибке, его можно изменить с помощью аргумента Property.
->* Команды управления только для чтения (команды. отображать) не выполняются и включаются в отчет о состоянии `Skipped` .
+>* Команды управления только для чтения ( `.show` команды) не выполняются и включаются в отчет о состоянии `Skipped` .
 
 ## <a name="example"></a>Пример
 

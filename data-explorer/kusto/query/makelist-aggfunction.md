@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 01/23/2020
-ms.openlocfilehash: f5a4c16f1f259de457ef963f2a400d6c9fd79727
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: bd923724a391cfc1638057fec654a1bd74b78479
+ms.sourcegitcommit: 1bdbfdc04c4eac405f3931059bbeee2dedd87004
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92246388"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96303347"
 ---
 # <a name="make_list-aggregation-function"></a>make_list () (агрегатная функция)
 
@@ -31,9 +31,9 @@ ms.locfileid: "92246388"
 * *MAXSIZE* — Необязательное целочисленное ограничение на максимальное число возвращаемых элементов (по умолчанию — *1048576*). Значение MaxSize не может превышать 1048576.
 
 > [!NOTE]
-> Устаревший и устаревший вариант этой функции: `makelist()` имеет ограничение по умолчанию *MaxSize* = 128.
+> `makelist()` — Это устаревшая и устаревшая версия `make_list` функции. Для устаревшей версии используется ограничение по умолчанию *MAXSIZE* = 128.
 
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Возвращает массив `dynamic` (JSON) со всеми значениями *Expr* в группе.
 Если входные данные `summarize` оператора не сортируются, порядок элементов в результирующем массиве не определен.

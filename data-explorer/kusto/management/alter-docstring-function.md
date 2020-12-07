@@ -1,6 +1,6 @@
 ---
 title: . ALTER FUNCTION docstring — Azure обозреватель данных
-description: В этой статье описывается `.alter function docstring` Обозреватель данных Azure.
+description: В этой статье описывается. ALTER FUNCTION docstring в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/11/2020
-ms.openlocfilehash: cad374c767b126d60b7c701f596bddf3c20c4345
-ms.sourcegitcommit: e093e4fdc7dafff6997ee5541e79fa9db446ecaa
+ms.openlocfilehash: e364a3cc5607b1a4b629954c93bf90e9173c00f1
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763884"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321766"
 ---
-# <a name="alter-function-docstring"></a>. ALTER FUNCTION docstring
+# <a name="alter-function-docstring"></a>.alter function docstring
 
 Изменяет `DocString` значение существующей функции.
 
@@ -24,7 +24,7 @@ ms.locfileid: "85763884"
 > [!NOTE]
 > * Требуется [разрешение администратора базы данных](../management/access-control/role-based-authorization.md)
 > * [Пользователь базы данных](../management/access-control/role-based-authorization.md) , изначально создавший функцию, может изменять функцию.
-> * Если функция не существует, возвращается ошибка. Дополнительные сведения о создании новой функции см. в описании [функции. Create](create-function.md).
+> * Если функция не существует, возвращается ошибка. Дополнительные сведения о создании новой функции см. в разделе [`.create function`](create-function.md) .
 
 |Выходной параметр |Тип |Описание
 |---|---|--- 
@@ -40,6 +40,6 @@ ms.locfileid: "85763884"
 .alter function MyFunction1 docstring "Updated docstring"
 ```
     
-|name |Параметры |Текст|Папка|DocString
+|Имя |Параметры |Текст|Папка|DocString
 |---|---|---|---|---
 |MyFunction2 |(Милимит: long)| {Стормевентс &#124; ограничение Милимит}|MyFolder|Обновленный docstring|

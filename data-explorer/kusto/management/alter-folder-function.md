@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/11/2020
-ms.openlocfilehash: 6becb5e29fd5771e1027c824b5a3539ed3c33b88
-ms.sourcegitcommit: 1faf502280ebda268cdfbeec2e8ef3d582dfc23e
+ms.openlocfilehash: 37cedb7ba6e58f5b434101cd23b876cf18c2b78c
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82617839"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321732"
 ---
-# <a name="alter-function-folder"></a>. изменение папки функции
+# <a name="alter-function-folder"></a>.alter function folder
 
 Изменяет значение папки для существующей функции.
 
@@ -24,11 +24,11 @@ ms.locfileid: "82617839"
 > [!NOTE]
 > * Требуется [разрешение администратора базы данных](../management/access-control/role-based-authorization.md)
 > * [Пользователь базы данных](../management/access-control/role-based-authorization.md) , изначально создавший функцию, может изменять функцию. 
-> * Если функция не существует, возвращается ошибка. Создание новой функции, [. Create, функция](create-function.md)
+> * Если функция не существует, возвращается ошибка. Для создания новой функции [`.create function`](create-function.md)
 
 |Выходной параметр |Тип |Описание
 |---|---|--- 
-|Имя  |Строка |Имя функции. 
+|name  |Строка |Имя функции. 
 |Параметры  |Строка |Параметры, необходимые для функции.
 |Текст  |Строка |(Ноль или более) Инструкции Let, за которыми следует допустимое выражение CSL, которое вычисляется при вызове функции.
 |Папка|Строка|Папка, используемая для классификации функций пользовательского интерфейса. Этот параметр не изменяет способ вызова функции.

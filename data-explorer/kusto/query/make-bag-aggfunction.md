@@ -8,12 +8,12 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 41eb9703f1718bb43b41927f9ec4d7cac52d67c4
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: 936b8aedb4244836eff8c8618a53693395a0343c
+ms.sourcegitcommit: 1bdbfdc04c4eac405f3931059bbeee2dedd87004
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92249949"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96303264"
 ---
 # <a name="make_bag-aggregation-function"></a>make_bag () (агрегатная функция)
 
@@ -30,11 +30,10 @@ ms.locfileid: "92249949"
 * *Expr*: выражение типа `dynamic` , используемое для статистических вычислений.
 * *MAXSIZE* — Необязательное целочисленное ограничение на максимальное число возвращаемых элементов. Значение по умолчанию — *1048576*. Значение MaxSize не может превышать *1048576*.
 
-**Примечание**.
+> [!NOTE]
+> `make_dictionary()` — Это устаревшая и устаревшая версия `make_bag()` . Для устаревшей версии используется ограничение по умолчанию *MAXSIZE* = 128.
 
-Устаревший и устаревший вариант функции `make_dictionary()` имеет ограничение по умолчанию *MaxSize* = 128.
-
-## <a name="returns"></a>Результаты
+## <a name="returns"></a>Возвращаемое значение
 
 Возвращает `dynamic` контейнер свойств (JSON) всех значений *`Expr`* в группе, которые являются контейнерами свойств.
 Значения, не являющиеся словарными, будут пропущены.

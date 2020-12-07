@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 05/05/2019
-ms.openlocfilehash: a92e657bfc2f440deb20fd4b812169b1c2e32112
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 14ba0226efc5f38ef3d549f38b2a6224da7c201e
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342915"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96320729"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Задача DevOps Azure для Azure обозреватель данных
 
@@ -42,7 +42,7 @@ ms.locfileid: "92342915"
 ![Создайте папки:](media/devops/create-folders.png)
 
 > [!TIP]
-> При создании собственного рабочего процесса рекомендуется сделать код идемпотентными. Например, используйте инструкцию [. CREATE-merge Table](kusto/management/create-merge-table-command.md) вместо [. CREATE TABLE](kusto/management/create-table-command.md)и используйте [инструкцию. Create-или-ALTER](kusto/management/create-alter-function.md) Function вместо [. Create](kusto/management/create-function.md) .
+> При создании собственного рабочего процесса рекомендуется сделать код идемпотентными. Например, используйте [`.create-merge table`](kusto/management/create-merge-table-command.md) вместо [`.create table`](kusto/management/create-table-command.md) , и используйте [`.create-or-alter`](kusto/management/create-alter-function.md) функцию вместо [`.create`](kusto/management/create-function.md) функции.
 
 ## <a name="create-a-release-pipeline"></a>Создание конвейера выпуска
 
@@ -77,9 +77,9 @@ ms.locfileid: "92342915"
 
     ![Добавление задач](media/devops/add-task.png)
 
-1. Создайте три задачи для развертывания **таблиц**, **функций**и **политик**в указанном порядке. 
+1. Создайте три задачи для развертывания **таблиц**, **функций** и **политик** в указанном порядке. 
 
-1. На вкладке **задачи** выберите **+** по **заданию агента**. Найдите **Azure Data Explorer**. В **Marketplace**установите расширение **"команды Azure обозреватель данных — администратор"** . Затем выберите **Добавить** в **Run Azure обозреватель данных команда**.
+1. На вкладке **задачи** выберите **+** по **заданию агента**. Найдите **Azure Data Explorer**. В **Marketplace** установите расширение **"команды Azure обозреватель данных — администратор"** . Затем выберите **Добавить** в **Run Azure обозреватель данных команда**.
 
      ![Добавление команд администратора](media/devops/add-admin-commands.png)
 
@@ -105,7 +105,7 @@ ms.locfileid: "92342915"
 
     ![Добавить подключение к службе](media/devops/add-service-connection.png)
 
-1. Повторите шаги 1-5 еще два раза, чтобы развернуть файлы из папок *функции* и *политики* . Щелкните **Сохранить**. На вкладке **задачи** см. три созданные задачи: **Развертывание таблиц**, **развертывание функций**и **развертывание политик**.
+1. Повторите шаги 1-5 еще два раза, чтобы развернуть файлы из папок *функции* и *политики* . Щелкните **Сохранить**. На вкладке **задачи** см. три созданные задачи: **Развертывание таблиц**, **развертывание функций** и **развертывание политик**.
 
     ![Развернуть все папки](media/devops/deploy-all-folders.png)
 

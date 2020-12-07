@@ -8,12 +8,12 @@ ms.reviewer: yifats
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/30/2020
-ms.openlocfilehash: eaa4e759f0987940a86c509788f5e8a58b2f9e75
-ms.sourcegitcommit: 041272af91ebe53a5d573e9902594b09991aedf0
+ms.openlocfilehash: 03d047d89abc3de3c80414564ec101f309bf69b0
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91452737"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96320576"
 ---
 # <a name="alter-materialized-view"></a>.alter materialized-view
 
@@ -35,7 +35,7 @@ ms.locfileid: "91452737"
 
 ## <a name="arguments"></a>Аргументы
 
-|Аргумент|Type|Описание
+|Аргумент|Тип|Описание
 |----------------|-------|---|
 |ViewName|Строка|Имя материализованных представлений.|
 |SourceTableName|Строка|Имя исходной таблицы, в которой определено представление.|
@@ -43,13 +43,13 @@ ms.locfileid: "91452737"
 
 ## <a name="properties"></a>Свойства
 
-`dimensionTables`Является единственным поддерживаемым свойством в материализованный команде View ALTER. Это свойство должно использоваться в случае, если запрос ссылается на таблицы измерений. Дополнительные сведения см. в описании команды [. Create материализованный-View](materialized-view-create.md) .
+`dimensionTables`Является единственным поддерживаемым свойством в материализованный команде View ALTER. Это свойство должно использоваться в случае, если запрос ссылается на таблицы измерений. Дополнительные сведения см. в описании [`.create materialized-view`](materialized-view-create.md) команды.
 
 ## <a name="use-cases"></a>Варианты использования
 
 * Добавьте агрегаты в представление — например, добавьте `avg` агрегат в `T | summarize count(), min(Value) by Id` , путем изменения запроса представления на `T | summarize count(), min(Value), avg(Value) by Id` .
 * Измените операторы, отличные от оператора суммирования. Пример Tor. Отфильтруйте некоторые записи, изменив  `T | summarize arg_max(Timestamp, *) by User` на `T | where User != 'someone' | summarize arg_max(Timestamp, *) by User` .
-* ALTER без изменений в запросе из-за изменения в исходной таблице. Tor пример: Предположим, что для параметра `T | summarize arg_max(Timestamp, *) by Id` не задано значение `autoUpdateSchema` (см [. раздел Create материализованный-View](materialized-view-create.md) команда). Если столбец добавлен или удален из исходной таблицы представления, представление будет автоматически отключено. Выполните команду ALTER с тем же запросом, чтобы изменить схему материализованных представлений в соответствии с новой схемой таблицы. Представление по-прежнему должно быть явно включено после изменения с помощью команды [Enable материализованные представления](materialized-view-enable-disable.md) .
+* ALTER без изменений в запросе из-за изменения в исходной таблице. Tor пример: Предположим, что для параметра `T | summarize arg_max(Timestamp, *) by Id` не задано значение `autoUpdateSchema` (см [`.create materialized-view`](materialized-view-create.md) . команду). Если столбец добавлен или удален из исходной таблицы представления, представление будет автоматически отключено. Выполните команду ALTER с тем же запросом, чтобы изменить схему материализованных представлений в соответствии с новой схемой таблицы. Представление по-прежнему должно быть явно включено после изменения с помощью команды [Enable материализованные представления](materialized-view-enable-disable.md) .
 
 ## <a name="alter-materialized-view-limitations"></a>Изменение материализованных представлений
 

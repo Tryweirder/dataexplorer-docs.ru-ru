@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/19/2019
-ms.openlocfilehash: c7f692739071496ce492d168c6036a2c2adac8fd
-ms.sourcegitcommit: f7101c6b41ec250d05f4cb6092e2939958b37b40
+ms.openlocfilehash: 222d04939560342bd849c15f249b1a8a582316a2
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84329051"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321035"
 ---
 # <a name="commands-and-queries-management"></a>Управление командами и запросами
 
@@ -21,7 +21,7 @@ ms.locfileid: "84329051"
 
 `.show``commands-and-queries`возвращает таблицу с командами администрирования и запросами, которые достигают конечного состояния. Эти команды и запросы доступны в течение 30 дней.
 
-Сведения, представленные в выходных данных команды, аналогичны командам [. показывать команды](commands.md) и [. Показывать запросы](queries.md), однако это позволяет легко объединять оба результирующих набора.
+Информация, представленная в выходных данных команды, аналогична [ `.show` командам](commands.md) и [ `.show` запросам](queries.md), однако она позволяет легко объединять оба результирующих набора.
 
 **Синтаксис**
 
@@ -35,7 +35,7 @@ ms.locfileid: "84329051"
 |--------------------------|------------|
 | клиентактивитид         | строка     |
 | CommandType              | строка     |
-| текст                     | строка     |
+| Текст                     | строка     |
 | База данных                 | строка     |
 | стартедон                | DATETIME   |
 | ластупдатедон            | DATETIME   |

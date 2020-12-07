@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 05/26/2020
-ms.openlocfilehash: 8e419d471419a291b3680c4b91d3e6908b2e7f2e
-ms.sourcegitcommit: 83202ec6fec0ce98fdf993bbb72adc985d6d9c78
+ms.openlocfilehash: 7646f86c9a521ab45cf83d7704084f3a5df6b256
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87877343"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321392"
 ---
 # <a name="external-table-general-control-commands"></a>Команды для общего управления внешней таблицей
 
@@ -28,11 +28,11 @@ ms.locfileid: "87877343"
 
 `.show` `external` `tables`
 
-`.show``external` `table` *TableName*
+`.show` `external` `table` *TableName*
 
 **Выходные данные**
 
-| Выходной параметр | Type   | Описание:                                                         |
+| Выходной параметр | Тип   | Описание                                                         |
 |------------------|--------|---------------------------------------------------------------------|
 | TableName        | строка | Имя внешней таблицы                                             |
 | TableType        | строка | Тип внешней таблицы                                              |
@@ -62,11 +62,11 @@ ms.locfileid: "87877343"
 
 `.show``external` `table` *TableName* `schema` `as` ( `json`  |  `csl` )
 
-`.show``external` `table` *TableName*`cslschema`
+`.show` `external` `table` *TableName* `cslschema`
 
 **Выходные данные**
 
-| Выходной параметр | Type   | Описание:                        |
+| Выходной параметр | Тип   | Описание                        |
 |------------------|--------|------------------------------------|
 | TableName        | строка | Имя внешней таблицы            |
 | схема           | строка | Схема таблицы в формате JSON |
@@ -112,7 +112,7 @@ ms.locfileid: "87877343"
 
 **Выходные данные**
 
-Возвращает свойства удаленной таблицы. Дополнительные сведения см. в разделе [. Отображение внешних таблиц](#show-external-tables).
+Возвращает свойства удаленной таблицы. Дополнительные сведения см. в разделе [`.show external tables`](#show-external-tables).
 
 **Примеры:**
 
@@ -124,7 +124,7 @@ ms.locfileid: "87877343"
 |-----------|-----------|----------------|-----------|-----------------------------------------------------|------------|
 | T         | BLOB-объект      | екстерналтаблес | Docs      | [{"Name": "x", "Кслтипе": "Long"},<br> {"Name": "s", "Кслтипе": "String"}] | {}         |
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake](external-tables-azurestorage-azuredatalake.md)
 * [Создание и изменение внешних таблиц SQL](external-sql-tables.md)

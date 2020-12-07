@@ -1,6 +1,6 @@
 ---
-title: Обзор управления сохраненными функциями - Azure Data Explorer Документы Майкрософт
-description: В этой статье описывается обзор управления сохраненными функциями в Azure Data Explorer.
+title: Общие сведения об управлении хранимыми функциями — Azure обозреватель данных | Документация Майкрософт
+description: В этой статье описываются общие сведения об управлении хранимыми функциями в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,22 +8,22 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/18/2020
-ms.openlocfilehash: f3768c6252a96215d37bd9f19a44cbf4d3afc731
-ms.sourcegitcommit: 47a002b7032a05ef67c4e5e12de7720062645e9e
+ms.openlocfilehash: 4354538b206ee86e34941718bcf6d74130647fb6
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81520967"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321358"
 ---
-# <a name="stored-functions-management-overview"></a>Обзор управления сохраненными функциями
-В этом разделе описаны команды управления, используемые для создания и изменения следующих [функций, определенных пользователем:](../query/functions/user-defined-functions.md)
+# <a name="stored-functions-management-overview"></a>Общие сведения об управлении хранимыми функциями
+В этом разделе описываются команды управления, используемые для создания и изменения следующих [определяемых пользователем функций](../query/functions/user-defined-functions.md).
 
-|Компонент |Описание|
+|Функция |Описание|
 |---------|-----------|
-|[функция .alter](alter-function.md) |Изменяет существующую функцию и хранит ее в метаданных базы данных |
-|[docstring функции .alter](alter-docstring-function.md) |Изменяет значение DocString существующей функции |
-|[папка функции .alter](alter-folder-function.md) |Изменяет значение Folder существующей функции |
-|[функция .create](create-function.md) |Создает сохраненную функцию |
-|[функция .create-or-alter](create-alter-function.md) |Создает сохраненную функцию или изменяет существующую функцию и хранит ее внутри метаданных базы данных |
-|[функция .drop и функции .drop](drop-function.md) |Выпадает функция (или функции) из базы данных |
-|[функции .show и функции .show](show-function.md) |Списки всех сохраненных функций или определенной функции в выбранной в настоящее время базе данных |
+|[`.alter function`](alter-function.md) |Изменяет существующую функцию и сохраняет ее в метаданных базы данных. |
+|[`.alter function docstring`](alter-docstring-function.md) |Изменяет значение DocString существующей функции. |
+|[`.alter function folder`](alter-folder-function.md) |Изменяет значение папки существующей функции |
+|[`.create function`](create-function.md) |Создает хранимую функцию |
+|[`.create-or-alter function`](create-alter-function.md) |Создает хранимую функцию или изменяет существующую функцию и сохраняет ее в метаданных базы данных. |
+|[`.drop function` перетаскивани `.drop functions`](drop-function.md) |Удаляет функцию (или функции) из базы данных |
+|[`.show functions` перетаскивани `.show function`](show-function.md) |Перечисляет все хранимые функции или определенную функцию в текущей выбранной базе данных. |

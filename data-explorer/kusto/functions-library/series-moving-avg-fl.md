@@ -7,14 +7,14 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/08/2020
-ms.openlocfilehash: 24fcdb685d9238416e6652953ab47ff82f91bd72
-ms.sourcegitcommit: 50c799c60a3937b4c9e81a86a794bdb189df02a3
+ms.openlocfilehash: 4d6ce55389c13acc0192d7dc0ef21b4940c6d240
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90075333"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321783"
 ---
-# <a name="series_moving_avg_fl"></a>series_moving_avg_fl ()
+# <a name="series_moving_avg_fl"></a>series_moving_avg_fl()
 
 Применяет фильтр скользящего среднего к ряду.
 
@@ -62,7 +62,7 @@ demo_make_series1
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-Для постоянного использования используйте [функцию. Create](../management/create-function.md). Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
+Для постоянного использования используйте [`.create function`](../management/create-function.md) . Для создания функции требуется [разрешение пользователя базы данных](../management/access-control/role-based-authorization.md).
 
 ### <a name="one-time-installation"></a>Однократная установка
 

@@ -8,12 +8,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 06/08/2020
-ms.openlocfilehash: 29f0c65a635b6e4fe6ffe3288cc1dcdde702fc8a
-ms.sourcegitcommit: be1bbd62040ef83c08e800215443ffee21cb4219
+ms.openlocfilehash: ccefca3d3cbf1f97661fead54bbc3cfaf207ca1a
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84665033"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321681"
 ---
 # <a name="alter-table"></a>.alter table
  
@@ -28,7 +28,7 @@ ms.locfileid: "84665033"
 > `.alter`Неправильное использование команды может привести к утрате данных.
 
 > [!TIP]
-> `.alter`Имеет аналог, `.alter-merge` команду Table, имеющую аналогичные функции. Дополнительные сведения см. в разделе [. ALTER-Merge Table](../management/alter-merge-table-command.md)
+> `.alter`Имеет аналог, `.alter-merge` команду Table, имеющую аналогичные функции. Дополнительные сведения см. в разделе [`.alter-merge table`](../management/alter-merge-table-command.md)
 
 **Синтаксис**
 
@@ -38,7 +38,7 @@ ms.locfileid: "84665033"
  * Таблица будет содержать одни и те же столбцы в том же порядке, как указано.
  Укажите столбцы таблицы:
  * Если существующие столбцы не указаны в команде, они будут удалены, а данные в них теряются, как в случае с `.drop column` командой.
- * При изменении таблицы изменение типа столбца не поддерживается. Вместо этого используйте команду [. ALTER COLUMN](alter-column.md) .
+ * При изменении таблицы изменение типа столбца не поддерживается. [`.alter column`](alter-column.md)Вместо этого используйте команду.
 
 > [!TIP]
 > Используйте `.show table [TableName] cslschema` для получения схемы существующего столбца перед его изменением.

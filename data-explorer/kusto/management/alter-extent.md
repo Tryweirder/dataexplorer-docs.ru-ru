@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 07/02/2020
-ms.openlocfilehash: 00c4cfbb4b6415afcd68e8e41864ca4a68cc097e
-ms.sourcegitcommit: d6f35df833d5b4f2829a8924fffac1d0b49ce1c2
+ms.openlocfilehash: 61dba69c3ec40ec13960e9ddf266e47fe88ef3c6
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86060683"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321749"
 ---
 # <a name="alter-extent-tags"></a>. изменение тегов экстента
 
@@ -31,10 +31,10 @@ ms.locfileid: "86060683"
 
 `.alter`[ `async` ] `extent` `tags` `(` '*Tag1*' [ `,` '*Tag2*' `,` ... `,` ' *Тагн*"] `)`  <|  *запрос*
 
-`async`(необязательно): асинхронное выполнение команды.
+`async` (необязательно): асинхронное выполнение команды.
    * Возвращается идентификатор операции (GUID). 
-   * Состояние операции можно отслеживать. Используйте команду [. показ операций](operations.md#show-operations) .
-   * Вы можете получить результаты успешного выполнения. Используйте команду [. отобразить сведения о операции](operations.md#show-operation-details) .
+   * Состояние операции можно отслеживать. Используйте [`.show operations`](operations.md#show-operations) команду.
+   * Вы можете получить результаты успешного выполнения. Используйте [`.show operation details`](operations.md#show-operation-details) команду.
 
 ## <a name="restrictions"></a>Ограничения
 
@@ -53,7 +53,7 @@ ms.locfileid: "86060683"
 
 ### <a name="alter-tags"></a>Изменение тегов 
 
-Изменение тегов всех экстентов в таблице `MyTable` на`MyTag`
+Изменение тегов всех экстентов в таблице `MyTable` на `MyTag`
 
 ```kusto
 .alter extent tags ('MyTag') <| .show table MyTable extents
@@ -61,7 +61,7 @@ ms.locfileid: "86060683"
 
 ### <a name="alter-tags-of-all-extents"></a>Изменение тегов всех экстентов
 
-Изменять теги всех экстентов в таблице `MyTable` , с тегами `drop-by:MyTag` на `drop-by:MyNewTag` и`MyOtherNewTag`
+Изменять теги всех экстентов в таблице `MyTable` , с тегами `drop-by:MyTag` на `drop-by:MyNewTag` и `MyOtherNewTag`
 
 ```kusto
 .alter extent tags ('drop-by:MyNewTag','MyOtherNewTag') <| .show table MyTable extents where tags has 'drop-by:MyTag'

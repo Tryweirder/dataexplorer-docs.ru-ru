@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/04/2020
-ms.openlocfilehash: 28e88b71b5d7a2f8729e2f9eef416ee5804a2880
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: 8f19606a75c388917a5195d0ac5cbb0ecf4335f9
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92337641"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321137"
 ---
 # <a name="update-policy-overview"></a>Обзор политики обновления
 
@@ -66,10 +66,10 @@ ms.locfileid: "92337641"
 
 Ниже приведены команды для управления политикой обновления.
 
-* [. Показать таблицу таблица *имя_таблицы* обновление политики](update-policy.md#show-update-policy) показывает текущую политику обновления таблицы.
-* [. ALTER TABLE *имя_таблицы* политика Update](update-policy.md#alter-update-policy) устанавливает текущую политику обновления таблицы.
-* [. ALTER-Merge таблица *имя_таблицы* обновление политики](update-policy.md#alter-merge-table-tablename-policy-update) добавляет к текущей политике обновления таблицы.
-* [. Удаление таблицы *TableName* . Обновление политики](update-policy.md#delete-table-tablename-policy-update) добавляет к текущей политике обновления таблицы.
+* [`.show table *TableName* policy update`](update-policy.md#show-update-policy) показывает текущую политику обновления таблицы.
+* [`.alter table *TableName* policy update`](update-policy.md#alter-update-policy) Задает текущую политику обновления таблицы.
+* [`.alter-merge table *TableName* policy update`](update-policy.md#alter-merge-table-tablename-policy-update) добавляет к текущей политике обновления таблицы.
+* [`.delete table *TableName* policy update`](update-policy.md#delete-table-tablename-policy-update) добавляет к текущей политике обновления таблицы.
 
 ## <a name="update-policy-is-initiated-following-ingestion"></a>Политика обновления инициирована после приема
 
@@ -106,7 +106,7 @@ ms.locfileid: "92337641"
 
 ### <a name="evaluate-resource-usage"></a>Оценка использования ресурсов
 
-Используйте [. Показывать запросы](../management/queries.md), чтобы оценить использование ресурсов (ЦП, память и т. д.) в следующем сценарии:
+Используйте [`.show queries`](../management/queries.md) , чтобы оценить использование ресурсов (ЦП, память и т. д.) в следующем сценарии:
 * Имя исходной таблицы ( `Source` свойство политики обновления) имеет значение `MySourceTable` .
 * `Query`Свойство политики обновления вызывает функцию с именем `MyFunction()` .
 
@@ -122,7 +122,7 @@ MyFunction()
 
 По умолчанию сбой запуска политики обновления не влияет на прием данных в исходную таблицу. Однако если политика обновления определена как `IsTransactional` true, сбой запуска политики принудительно приводит к сбою приема данных в исходной таблице. В некоторых случаях прием данных в исходную таблицу завершается успешно, но во время приема в целевую таблицу произошел сбой политики обновления.
 
-Сбои, возникающие при обновлении политик, можно получить с помощью [команды. отобразить ошибки приема](../management/ingestionfailures.md).
+Ошибки, возникающие при обновлении политик, можно получить с помощью [ `.show ingestion failures` команды](../management/ingestionfailures.md).
  
 ```kusto
 .show ingestion failures 

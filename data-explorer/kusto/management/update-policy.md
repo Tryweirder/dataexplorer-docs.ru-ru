@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/04/2020
-ms.openlocfilehash: c9ef5b2a205665c692c383654f3d050c4658c0f1
-ms.sourcegitcommit: 3d9b4c3c0a2d44834ce4de3c2ae8eb5aa929c40f
+ms.openlocfilehash: 5d346e5b7932437322cb8a41210a6f375cd6d6f0
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92002984"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321120"
 ---
 # <a name="update-policy-commands"></a>команды политики обновления
 
@@ -25,7 +25,7 @@ ms.locfileid: "92002984"
 
 ### <a name="syntax"></a>Синтаксис
 
-* `.show``table` *TableName* TableName `policy``update`
+* `.show` `table` *TableName* `policy` `update`
 * `.show``table` *Имя_базы_данных*, `.` *TableName* TableName `policy``update`
 * `.show` `table` `*` `policy` `update`
 
@@ -74,7 +74,7 @@ ms.locfileid: "92002984"
 
 ### <a name="returns"></a>Возвращаемое значение
 
-Команда задает объект политики обновления таблицы, переопределяя любую текущую политику, а затем возвращает выходные данные соответствующей команды [политики обновления таблицы](#show-update-policy) .
+Команда задает объект политики обновления таблицы, переопределяя любую текущую политику, а затем возвращает выходные данные соответствующей [`.show table update policy`](#show-update-policy) команды.
 
 ### <a name="example"></a>Пример
 
@@ -133,7 +133,7 @@ MyUpdateFunction()
 
 **Возвращает**
 
-Команда добавляет к объекту политики обновления таблицы, переопределяя любую текущую политику, а затем возвращает выходные данные соответствующей команды [. отобразить таблицу *TableName* Update Policy](#show-update-policy) .
+Команда добавляет к объекту политики обновления таблицы, переопределяя любую текущую политику, а затем возвращает выходные данные соответствующей [`.show table *TableName* update policy`](#show-update-policy) команды.
 
 **Пример**
 
@@ -148,12 +148,12 @@ MyUpdateFunction()
 
 **Синтаксис**
 
-* `.delete``table` *TableName* TableName `policy``update`
+* `.delete` `table` *TableName* `policy` `update`
 * `.delete``table` *Имя_базы_данных*, `.` *TableName* TableName `policy``update`
 
 **Возвращает**
 
-Команда удаляет объект политики обновления таблицы, а затем возвращает выходные данные соответствующей команды [. отобразить таблицу *TableName* Update Policy](#show-update-policy) .
+Команда удаляет объект политики обновления таблицы, а затем возвращает выходные данные соответствующей [`.show table *TableName* update policy`](#show-update-policy) команды.
 
 **Пример**
 

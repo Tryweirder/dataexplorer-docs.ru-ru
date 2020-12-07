@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 07/05/2020
-ms.openlocfilehash: 19dc7db9e344a516b5c92917dccbf8362b1ca858
-ms.sourcegitcommit: 4e95f5beb060b5d29c1d7bb8683695fe73c9f7ea
+ms.openlocfilehash: 554f6ed623b5a3be12a360fab0b1d5aa6eb4c084
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91102880"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96320967"
 ---
 # <a name="create-merge-table"></a>.create-merge table
 
@@ -27,9 +27,9 @@ ms.locfileid: "91102880"
 
 `.create-merge``table` *TableName* ([ColumnName: columnType],...)  [ `with` `(` [ `docstring` `=` *Документация*] [ `,` `folder` `=` *имя_папки*] `)` ]
 
-Если таблица не существует, функция работает точно так же, как и команда ". Create Table".
+Если таблица не существует, функция работает точно так же, как и `.create table` команда.
 
-Если таблица T существует и вы отправляете команду «. CREATE-merge Table T ( <columns specification> )», то:
+Если таблица T существует и вы отправляете `.create-merge table T (<columns specification>)` команду, то:
 
 * Любой столбец в <columns specification> , который ранее не существовал в t, будет добавлен в конец схемы t.
 * Любой столбец в T, не являющийся, не будет <columns specification> удален из t.
@@ -37,5 +37,5 @@ ms.locfileid: "91102880"
 
 ## <a name="see-also"></a>См. также раздел
 
-* [.create-merge tables](create-merge-tables-command.md)
-* [.create table](create-table-command.md)
+* [`.create-merge tables`](create-merge-tables-command.md)
+* [`.create table`](create-table-command.md)

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: c44935a98110cd47f2a40bb261659e12627860c0
-ms.sourcegitcommit: 25c0440cb0390b9629b819611844f1375de00a66
+ms.openlocfilehash: e20e266e6fbae55c308cf13b7601277b8b0f30b2
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94422127"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96320746"
 ---
 # <a name="mysql_request-plugin-preview"></a>подключаемый модуль mysql_request (Предварительная версия)
 
@@ -25,11 +25,11 @@ ms.locfileid: "94422127"
 
 > [!IMPORTANT]
 > `mysql_request`Подключаемый модуль находится в режиме предварительного просмотра и по умолчанию отключен.
-> Чтобы включить подключаемый модуль, выполните [ `.enable plugin mysql_request` команду](../management/enable-plugin.md). Чтобы узнать, какие подключаемые модули включены, используйте [команду. Показать команды управления подключаемым модулем](../management/show-plugins.md).
+> Чтобы включить подключаемый модуль, выполните [ `.enable plugin mysql_request` команду](../management/enable-plugin.md). Чтобы узнать, какие подключаемые модули включены, используйте [ `.show plugin` команды управления](../management/show-plugins.md).
 
 ## <a name="syntax"></a>Синтаксис
 
-`evaluate``mysql_request` `(` *ConnectionString* `,` *SqlQuery* [ `,` *склпараметерс* ]`)`
+`evaluate``mysql_request` `(` *ConnectionString* `,` *SqlQuery* [ `,` *склпараметерс*]`)`
 
 ## <a name="arguments"></a>Аргументы
 
@@ -60,7 +60,7 @@ ms.locfileid: "94422127"
 ]
 ```
 
-В следующем примере показана команда ALTER выноска для `mysql` *каллауттипе* :
+В следующем примере показана команда ALTER выноска для `mysql` *каллауттипе*:
 
 ```kusto
 .alter cluster policy callout @'[{"CalloutType": "mysql", "CalloutUriRegex": "\\.mysql\\.database\\.azure\\.com", "CanCall": true}]'
@@ -87,7 +87,7 @@ ms.locfileid: "94422127"
 
 **Синтаксис**
 
-`Server``=` *Полное доменное имя* [ `Port` `=` *порт* ]
+`Server``=` *Полное доменное имя* [ `Port` `=` *порт*]
 
 Где:
 

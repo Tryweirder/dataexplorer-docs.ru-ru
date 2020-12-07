@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: 75dc0aa0ff23bfb4f08be9fac84fa34cf9526508
-ms.sourcegitcommit: 8e097319ea989661e1958efaa1586459d2b69292
+ms.openlocfilehash: 3a3deb388c5a57f3400eb5fbe24f77a31e48b69c
+ms.sourcegitcommit: 1bdbfdc04c4eac405f3931059bbeee2dedd87004
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780632"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96303320"
 ---
-# <a name="database-cursors"></a>Курсоры базы данных
+# <a name="database-cursors"></a>Курсоры баз данных
 
 **Курсор базы данных** — это объект уровня базы данных, позволяющий несколько раз запрашивать базу данных. Вы получите единообразные результаты, даже если во время выполнения запросов выполняются операции, выполняемые `data-append` `data-retention` параллельно.
 
@@ -38,11 +38,11 @@ Kusto предоставляет три функции для реализаци
 
 * [cursor_after (RHS: String)](../query/cursorafterfunction.md). эту специальную функцию можно использовать для записей таблицы, для которых включена [Политика инжестионтиме](ingestiontime-policy.md) . Он возвращает скалярное значение типа `bool` , указывающее, `ingestion_time()` приходится ли значение курсора базы данных записи после `rhs` значения курсора базы данных.
 
-* [cursor_before_or_at (RHS: String)](../query/cursorbeforeoratfunction.md). эту специальную функцию можно использовать для записей таблицы, для которых включена [Политика инжестионтиме](ingestiontime-policy.md) . Он возвращает скалярное значение типа `bool` , указывающее, `ingestion_time()` приходится ли значение курсора базы данных записи после `rhs` значения курсора базы данных.
+* [cursor_before_or_at (RHS: String)](../query/cursorbeforeoratfunction.md). эту специальную функцию можно использовать для записей таблицы, для которых включена [Политика инжестионтиме](ingestiontime-policy.md) . Он возвращает скалярное значение типа `bool` , указывающее, `ingestion_time()` предшествует ли значение курсора базы данных записи до или в `rhs` значении курсора базы данных.
 
 Две специальные функции ( `cursor_after` и `cursor_before_or_at` ) также имеют побочные эффекты: когда они используются, Kusto выводит **Текущее значение курсора базы данных** в `@ExtendedProperties` результирующий набор запроса. Имя свойства курсора — `Cursor` , а его значение — Single `string` . 
 
-Пример:
+Пример.
 
 ```json
 {"Cursor" : "636040929866477946"}

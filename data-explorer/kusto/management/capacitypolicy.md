@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/12/2020
-ms.openlocfilehash: 6b0c1247c0d161caae3301dc674a701bd1019ad3
-ms.sourcegitcommit: 21dee76964bf284ad7c2505a7b0b6896bca182cc
+ms.openlocfilehash: 6d85b5cbf6752924bbaa03d2b81732cd69be6239
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91056940"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321630"
 ---
 # <a name="capacity-policy"></a>Политика емкости 
 
@@ -46,7 +46,7 @@ ms.locfileid: "91056940"
 |минимумконкуррентоператионсперноде |long    |Минимальное значение для количества одновременных операций объединения и перестроения на одном узле. Значение по умолчанию — 1 |
 |максимумконкуррентоператионсперноде |long    |Максимальное значение для количества одновременных операций слияния/перестроения на одном узле. Значение по умолчанию — 3 |
 
-Общая емкость кластера для объединения экстентов, как показано в [. Показать емкость](../management/diagnostics.md#show-capacity), вычисляется следующим образом:
+Общая емкость объединения экстентов кластера, как показано в [`.show capacity`](../management/diagnostics.md#show-capacity) , вычисляется следующим образом:
 
 `Number of nodes in cluster` x `Concurrent operations per node`
 
@@ -61,7 +61,7 @@ ms.locfileid: "91056940"
 |-----------------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------|
 |максимумконкуррентоператионсперноде |long    |Максимальное значение для числа параллельных перестроения экстентов для операций очистки на одном узле |
 
-Общая емкость кластера для очистки экстентов перестроения (как показано на рисунке [. Показать емкость](../management/diagnostics.md#show-capacity)) вычисляется следующим образом:
+Полная степень перестроения (как показано на [`.show capacity`](../management/diagnostics.md#show-capacity) ) кластера вычисляется следующим образом:
 
 `Number of nodes in cluster` x `MaximumConcurrentOperationsPerNode`
 
@@ -75,7 +75,7 @@ ms.locfileid: "91056940"
 |клустермаксимумконкуррентоператионс |long    |Максимальное значение для количества одновременных операций экспорта в кластере.                                           |
 |кореутилизатионкоеффиЦиент         |double  |Коэффициент для процента ядер, используемых при вычислении емкости экспорта. Результат вычисления всегда будет нормализован `ClusterMaximumConcurrentOperations` . |
 
-Общая емкость экспорта кластера, как показано в [. Показать емкость](../management/diagnostics.md#show-capacity), вычисляется следующим образом:
+Общая емкость экспорта кластера, как показано на [`.show capacity`](../management/diagnostics.md#show-capacity) , вычисляется следующим образом:
 
 Минимум ( `ClusterMaximumConcurrentOperations` , `Number of nodes in cluster` * максимум (1, `Core count per node`  *  `CoreUtilizationCoefficient` ))
 
@@ -89,7 +89,7 @@ ms.locfileid: "91056940"
 |клустерминимумконкуррентоператионс |long    |Минимальное значение для количества одновременных операций секционирования в кластере. Значение по умолчанию: 1.  |
 |клустермаксимумконкуррентоператионс |long    |Максимальное значение для количества одновременных операций секционирования в кластере. По умолчанию: 16 |
 
-Общее количество экстентов кластера (как показано в разделе [. Показать емкость](../management/diagnostics.md#show-capacity)).
+Общая емкость раздела кластера (как показано на [`.show capacity`](../management/diagnostics.md#show-capacity) ).
 
 Действующее значение для параметра `Concurrent operations` автоматически корректируется системой в диапазоне [ `ClusterMinimumConcurrentOperations` , `ClusterMaximumConcurrentOperations` ], если доля успешных операций секционирования превышает 90%.
 
@@ -135,7 +135,7 @@ Maximum(`ClusterMaximumConcurrentOperations`, `Number of nodes in cluster` * `Ma
 * `ExtentsRebuildCapacity`Политика выступает только в качестве верхнего предела. Фактически используемое значение динамически определяется системой на основе условий текущего кластера (память, ЦП) и оценки объема ресурсов, необходимых для операции перестроения. На практике параллелизм может быть значительно меньше значения, указанного в политике емкости.
     * `MaterializedViewExtentsRebuild`Метрика предоставляет сведения о том, сколько экстентов было перестроено в каждом цикле материализации. Дополнительные сведения см. в разделе [мониторинг материализованных представлений](materialized-views/materialized-view-overview.md#materialized-views-monitoring).
 
-## <a name="defaults"></a>Значения по умолчанию
+## <a name="defaults"></a>Умолчания;
 
 Политика емкости по умолчанию имеет следующее представление JSON:
 
@@ -168,9 +168,9 @@ Maximum(`ClusterMaximumConcurrentOperations`, `Number of nodes in cluster` * `Ma
 > [!WARNING]
 > Перед изменением политики емкости обратитесь к группе Azure обозреватель данных.
 
-* Используйте [. Отобразите емкость политики кластера](capacity-policy.md#show-cluster-policy-capacity) , чтобы отобразить текущую политику емкости кластера.
+* Используется [`.show cluster policy capacity`](capacity-policy.md#show-cluster-policy-capacity) для отображения текущей политики емкости кластера.
 
-* Чтобы изменить политику емкости кластера, используйте команду [. ALTER Cluster Policy Capacity](capacity-policy.md#alter-cluster-policy-capacity) .
+* Используйте [`.alter cluster policy capacity`](capacity-policy.md#alter-cluster-policy-capacity) для изменения политики емкости кластера.
 
 ## <a name="throttling"></a>Регулирование
 

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/06/2020
-ms.openlocfilehash: b071c4af6bc25650d18b1b66130941f73af551ff
-ms.sourcegitcommit: b08b1546122b64fb8e465073c93c78c7943824d9
+ms.openlocfilehash: 8cfdbe1420745620fcaaf6af81e4f750ca25c1cd
+ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85967100"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96321613"
 ---
 # <a name="create-table"></a>.create table
 
@@ -44,4 +44,4 @@ ms.locfileid: "85967100"
 ```
 
 > [!NOTE]
-> Для создания нескольких таблиц используйте команду [. Create Tables](create-tables-command.md) , чтобы повысить производительность и снизить нагрузку на кластер.
+> Для создания нескольких таблиц используйте [`.create tables`](create-tables-command.md) команду для повышения производительности и снижения нагрузки на кластер.
