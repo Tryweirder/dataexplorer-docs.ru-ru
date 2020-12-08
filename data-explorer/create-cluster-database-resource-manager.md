@@ -7,12 +7,12 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 09/26/2019
-ms.openlocfilehash: 40cd53d1bff6b33b81878c85c6c22c3fb85655ee
-ms.sourcegitcommit: a7458819e42815a0376182c610aba48519501d92
+ms.openlocfilehash: e083303d3d8270f0d673199c3547bff13001174e
+ms.sourcegitcommit: c6cb2b1071048daa872e2fe5a1ac7024762c180e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92902575"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96774679"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Создание кластера и базы данных Azure обозреватель данных с помощью шаблона Azure Resource Manager
 
@@ -76,6 +76,29 @@ ms.locfileid: "92902575"
           "location": "[parameters('location')]",
           "tags": {
             "Created By": "GitHub quickstart template"
+          },
+          "properties": {
+              "trustedExternalTenants": [],
+              "optimizedAutoscale": {
+                  "version": 1,
+                  "isEnabled": true,
+                  "minimum": 2,
+                  "maximum": 10
+              },
+              "enableDiskEncryption": false,
+              "enableStreamingIngest": false,
+              "virtualNetworkConfiguration":{
+                  "subnetId": "<subnet resource id>",
+                  "enginePublicIpId": "<Engine service's public IP address resource id>",
+                  "dataManagementPublicIpId": "<Data management's service public IP address resource id>"
+              },
+              "keyVaultProperties":{
+                  "keyName": "<Key name>",
+                  "keyVaultUri": "<Key vault uri>"
+              },
+              "enablePurge": false,
+              "enableDoubleEncryption": false,
+              "engineType": "V3",
           }
       },
       {
@@ -103,7 +126,7 @@ ms.locfileid: "92902575"
 
 ### <a name="use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment"></a>Развертывание шаблона и проверка развертывания шаблона с помощью портал Azure
 
-1. Чтобы создать кластер и базу данных, используйте следующую кнопку для запуска развертывания. Чтобы закончить выполнение инструкций из этой статьи, щелкните правой кнопкой мыши и выберите ссылку **Открыть в новом окне** .
+1. Чтобы создать кластер и базу данных, используйте следующую кнопку для запуска развертывания. Чтобы закончить выполнение инструкций из этой статьи, щелкните правой кнопкой мыши и выберите ссылку **Открыть в новом окне**.
 
     [![Снимок экрана с синей кнопкой, которая используется для изображений облаков и помечена как развернутая в Azure.](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
 
@@ -137,8 +160,8 @@ ms.locfileid: "92902575"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Нажмите кнопку **Копировать** , чтобы скопировать сценарий PowerShell.
-1. Щелкните правой кнопкой в консоли оболочки и выберите **Вставить** .
+1. Нажмите кнопку **Копировать**, чтобы скопировать сценарий PowerShell.
+1. Щелкните правой кнопкой в консоли оболочки и выберите **Вставить**.
 Создание кластера Azure обозреватель данных и базы данных занимает несколько минут.
 
 #### <a name="verify-the-deployment-using-powershell"></a>Проверка развертывания с помощью PowerShell

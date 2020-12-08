@@ -1,6 +1,6 @@
 ---
-title: Рекомендации по проектированию схем в Azure обозреватель данных
-description: В этой статье описываются рекомендации по проектированию схем в Azure обозреватель данных.
+title: Рекомендации по управлению схемой в Azure обозреватель данных
+description: В этой статье приводятся рекомендации по управлению схемой в Azure обозреватель данных.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,18 +8,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/18/2020
-ms.openlocfilehash: a16cb4b425e26a5896b4109ad6f906b5925c93a5
-ms.sourcegitcommit: 8a7165b28ac6b40722186300c26002fb132e6e4a
+ms.openlocfilehash: ba0d931fcca257cb3b5658354dfb8bf70dc6848f
+ms.sourcegitcommit: c6cb2b1071048daa872e2fe5a1ac7024762c180e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755254"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96774628"
 ---
-# <a name="best-practices-for-schema-design"></a>Рекомендации по проектированию схемы
+# <a name="best-practices-for-schema-management"></a>Рекомендации по управлению схемой
 
 Ниже приведены некоторые рекомендации. Они помогут улучшить работу команд управления и повлиять на ресурсы службы.
 
-|Действие  |Используйте  |Не использовать | Примечания |
+|Действие  |Использовать  |Не использовать | Примечания |
 |---------|---------|---------|----
 | **Создание нескольких таблиц**    |  Использование одной [`.create tables`](create-tables-command.md) команды       | Не выдавать много `.create table` команд        | |
 | **Переименование нескольких таблиц**    | Выполнить один вызов [`.rename tables`](rename-table-command.md)        |  Не вызывайте отдельный вызов для каждой пары таблиц   |    |

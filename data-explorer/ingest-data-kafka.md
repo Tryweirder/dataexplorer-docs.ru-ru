@@ -7,12 +7,12 @@ ms.reviewer: ankhanol
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 8274cd04dc2ecf588bf4771c06e3f8a760cac74d
-ms.sourcegitcommit: 898f67b83ae8cf55e93ce172a6fd3473b7c1c094
+ms.openlocfilehash: cc2f10570081fec3a5762ab3f2e23b9e22839063
+ms.sourcegitcommit: c6cb2b1071048daa872e2fe5a1ac7024762c180e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92343170"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96774662"
 ---
 # <a name="ingest-data-from-apache-kafka-into-azure-data-explorer"></a>Прием данных из Apache Kafka в Azure обозреватель данных
  
@@ -22,7 +22,7 @@ Azure обозреватель данных поддерживает прием 
 
 Дополнительные сведения см. в разделе [репозиторий Git](https://github.com/Azure/kafka-sink-azure-kusto/blob/master/README.md) и [сведения о версиях](https://github.com/Azure/kafka-sink-azure-kusto/blob/master/README.md#13-major-version-specifics)для соединителя.
 
-## <a name="prerequisites"></a>Обязательные условия
+## <a name="prerequisites"></a>Предварительные требования
 
 * Создайте [учетную запись Microsoft Azure](/azure/).
 * Установите [Azure CLI](/cli/azure/install-azure-cli).
@@ -89,7 +89,7 @@ Azure обозреватель данных поддерживает прием 
 1. Создайте в таблице политику приема пакетов для настраиваемой задержки приема.
 
     > [!TIP]
-    > [Политика пакетной обработки приема](kusto/management/batchingpolicy.md) — это оптимизатор производительности, включающий три параметра. Первый параметр запускает прием данных в таблицу Azure обозреватель данных.
+    > [Политика пакетной обработки приема](kusto/management/batchingpolicy.md) — это оптимизатор производительности, включающий три параметра. Первое условие удовлетворено срабатыванием триггера в таблице Azure обозреватель данных.
 
     ```kusto
     .alter table Storms policy ingestionbatching @'{"MaximumBatchingTimeSpan":"00:00:15", "MaximumNumberOfItems": 100, "MaximumRawDataSizeMB": 300}'
@@ -322,7 +322,7 @@ services:
     | project StartTime, EndTime, Source, EventId
     ```
     
-1. Используйте [`summarize`](./write-queries.md#summarize) оператор:
+1. Используйте оператор [`summarize`](./write-queries.md#summarize):
 
     ```kusto
     Storms
@@ -332,7 +332,7 @@ services:
     | render columnchart
     ```
     
-    :::image type="content" source="media/ingest-data-kafka/kusto-query.png" alt-text="Создание таблицы на портале обозреватель данных Azure ":::
+    :::image type="content" source="media/ingest-data-kafka/kusto-query.png" alt-text="Результаты гистограммы запроса Kafka в Azure обозреватель данных":::
 
 Дополнительные примеры запросов и рекомендации см. в статье [написание запросов для Azure обозреватель данных](write-queries.md) и [документации по языку запросов Kusto](./kusto/query/index.md).
 
