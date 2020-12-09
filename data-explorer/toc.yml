@@ -1366,8 +1366,6 @@
               href: ./kusto/concepts/runawayqueries.md
             - name: Переполнение
               href: ./kusto/concepts/overflow.md
-            - name: Ошибки в собственном коде
-              href: ./kusto/concepts/errorsinnativecode.md
     - name: Справочные материалы по языку запросов Kusto
       items:
         - name: Синтаксис RE2
@@ -1407,8 +1405,7 @@
           href: ./kusto/management/index.md
         - name: схема
           items:
-            - name: Рекомендации по проектированию схемы
-              displayName: management
+            - name: Рекомендации по управлению схемами
               href: ./kusto/management/management-best-practices.md
             - name: Базы данных
               href: ./kusto/management/databases.md
@@ -1691,8 +1688,6 @@
               href: ./kusto/management/commands.md
             - name: Команды и запросы
               href: ./kusto/management/commands-and-queries.md
-            - name: Сбои при приеме
-              href: ./kusto/management/ingestionfailures.md
             - name: Операции
               href: ./kusto/management/operations.md
         - name: Управление доступом
@@ -1732,6 +1727,12 @@
               href: ./kusto/management/cluster-follower.md
             - name: Очистка данных
               href: ./kusto/concepts/data-purge.md
+        - name: Ошибки и сбои
+          items:
+            - name: Коды ошибок приема данных
+              href: error-codes.md
+            - name: Сбои при приеме
+              href: ./kusto/management/ingestionfailures.md
     - name: API
       items:
         - name: Обзор API
@@ -1800,18 +1801,24 @@
                 - name: Общие сведения о Kusto.Ingest
                   href: ./kusto/api/netfx/about-kusto-ingest.md
                 - name: Разрешения
+                  displayName: Kusto.Ingest
                   href: ./kusto/api/netfx/kusto-ingest-client-permissions.md
                 - name: Справочник клиента
+                  displayName: Kusto.Ingest
                   href: ./kusto/api/netfx/kusto-ingest-client-reference.md
                 - name: Ошибки и исключения
+                  displayName: Kusto.Ingest
                   href: ./kusto/api/netfx/kusto-ingest-client-errors.md
                 - name: Состояние операции
+                  displayName: Kusto.Ingest
                   href: ./kusto/api/netfx/kusto-ingest-client-status.md
                 - name: Рекомендации по использованию Kusto.Ingest
                   href: ./kusto/api/netfx/kusto-ingest-best-practices.md
                 - name: Примеры кода
+                  displayName: Kusto.Ingest
                   href: ./kusto/api/netfx/kusto-ingest-client-examples.md
                 - name: Инструкции по приему данных с помощью REST API
+                  displayName: Kusto.Ingest
                   href: ./kusto/api/netfx/kusto-ingest-client-rest.md
         - name: Пакет SDK для Python
           items:
