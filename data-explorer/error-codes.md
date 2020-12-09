@@ -7,16 +7,16 @@ ms.reviewer: vladikbr
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 11/11/2020
-ms.openlocfilehash: aeef0c9295fbb22c225068fb240670fb7d637a98
-ms.sourcegitcommit: c6cb2b1071048daa872e2fe5a1ac7024762c180e
+ms.openlocfilehash: 18ac718edd50c804f71b9b82cbffb5b2b7bb2e24
+ms.sourcegitcommit: 202357f866801aafd92e3e29a84bb312e17aebc7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96776576"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96933781"
 ---
 # <a name="ingestion-error-codes-in-azure-data-explorer"></a>Коды ошибок приема в Azure обозреватель данных
 
-В следующем списке приведены коды ошибок, которые могут возникнуть во время [приема](ingest-data-overview.md). При включении в кластере [журналов диагностики](using-diagnostic-logs.md#ingestion-logs-schema) , которые не удалось запустить, можно просмотреть коды ошибок в журнале операций **приема** ошибок. Можно также отслеживать **результирующую** [метрику](using-metrics.md#ingestion-metrics) приема, чтобы просмотреть **категорию** ошибок приема, но не конкретный код ошибки. Приведенные ниже ошибки упорядочены по таким категориям. 
+В следующем списке приведены коды ошибок, которые могут возникнуть во время [приема](ingest-data-overview.md). При включении в кластере [журналов диагностики](using-diagnostic-logs.md#ingestion-logs-schema) , которые не удалось запустить, можно просмотреть коды ошибок в журнале операций **приема** ошибок. Можно также отслеживать **результирующую** [метрику](using-metrics.md#ingestion-metrics) приема, чтобы просмотреть **категорию** ошибок приема, но не конкретные коды ошибок. Приведенные ниже ошибки упорядочены по этим категориям. 
 
 > [!NOTE]
 > Если ошибка является временной, повторная попытка приема может быть выполнена.
