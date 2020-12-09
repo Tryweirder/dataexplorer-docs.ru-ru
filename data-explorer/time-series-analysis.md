@@ -1,6 +1,6 @@
 ---
-title: Анализ данных временных рядов с помощью Azure обозреватель данных
-description: Узнайте, как анализировать данные временных рядов в облаке с помощью Azure обозреватель данных.
+title: Анализ данных временных рядов с помощью Azure Data Explorer
+description: Узнайте, как анализировать данные временных рядов в облаке с помощью Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: adieldar
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/07/2019
 ms.localizationpriority: high
 ms.openlocfilehash: d7046b8767413889bc77240032a2292deb7c89a3
-ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
-ms.translationtype: MT
+ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 12/01/2020
 ms.locfileid: "95513001"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Анализ временных рядов в службе Azure Data Explorer
@@ -60,10 +60,10 @@ demo_make_series1
 | render timechart 
 ```
 
-- Используйте [`make-series`](kusto/query/make-seriesoperator.md) оператор, чтобы создать набор из трех временных рядов, где:
+- С помощью оператора [`make-series`](kusto/query/make-seriesoperator.md) создайте набор из трех временных рядов, где:
     - `num=count()`: временной ряд трафика.
     - `range(min_t, max_t, 1h)`: временной ряд создается по 1-часовым ячейкам в указанном диапазоне времени (самые старые и самые новые метки времени записей таблицы).
-    - `default=0`: укажите метод заполнения отсутствующих ячеек для создания регулярных временных рядов. Кроме того [`series_fill_const()`](kusto/query/series-fill-constfunction.md) , можно использовать, [`series_fill_forward()`](kusto/query/series-fill-forwardfunction.md) [`series_fill_backward()`](kusto/query/series-fill-backwardfunction.md) и [`series_fill_linear()`](kusto/query/series-fill-linearfunction.md) для изменений
+    - `default=0`: укажите метод заполнения отсутствующих ячеек для создания регулярных временных рядов. Также можно использовать [`series_fill_const()`](kusto/query/series-fill-constfunction.md), [`series_fill_forward()`](kusto/query/series-fill-forwardfunction.md), [`series_fill_backward()`](kusto/query/series-fill-backwardfunction.md) и [`series_fill_linear()`](kusto/query/series-fill-linearfunction.md) для изменений.
     - `byOsVer`: секционирование по ОС.
 - Фактическая структура данных во временных рядах представляет собой числовой массив агрегированных значений по каждой ячейке времени. Мы используем `render timechart` для визуализации.
 
@@ -282,7 +282,7 @@ demo_many_series1
 
 Эти расширенные возможности в сочетании с высокой производительностью ADX предоставляют уникальное и эффективное решение для анализа временных рядов.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* Сведения об [обнаружении аномалий временных рядов и прогнозировании](anomaly-detection.md) в Azure обозреватель данных.
-* Узнайте о [возможностях машинного обучения](machine-learning-clustering.md) в Azure обозреватель данных.
+* Узнайте об [обнаружении аномалий во временных рядах и их прогнозировании](anomaly-detection.md) в Azure Data Explorer.
+* Узнайте о [возможностях машинного обучения](machine-learning-clustering.md) в Azure Data Explorer.

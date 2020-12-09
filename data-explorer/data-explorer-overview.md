@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
 ms.localizationpriority: high
-ms.openlocfilehash: 2af4aff9667ecc53794c63010a723494e85126fa
-ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
+ms.openlocfilehash: cd2ad1bebf91cacc80e3cb92fd06bc991c05cc7c
+ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95512831"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96354060"
 ---
 # <a name="what-is-azure-data-explorer"></a>Что такое Azure Data Explorer?
 
@@ -57,7 +57,7 @@ ms.locfileid: "95512831"
 
 Обозреватель данных Azure одинаково эффективно обрабатывает большие объемы структурированных, полуструктурированных (аналогичные JSON вложенные типы) и неструктурированных данных (произвольный текст). Он позволяет искать термины с определенным текстом, находить конкретные события и выполнять вычисления со структурированными данными. Обозреватель данных Azure является связующим звеном между неструктурированными текстовыми журналами и структурированными числами и измерениями, извлекая значения в среде выполнения из текстовых полей свободной формы. Просмотр данных упрощается благодаря сочетанию быстрого индексирования, хранилища столбцов и операций с временными рядами.
 
-Возможности решения Azure Data Explorer расширяются за счет других служб, созданных на его мощном языке запросов. К ним относятся [журналы Azure Monitor](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Аналитика временных рядов](/azure/time-series-insights/) и [Расширенная защита от угроз в Защитнике Windows](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
+Возможности решения Azure Data Explorer расширяются за счет других служб, созданных на его мощном языке запросов. К ним относятся [журналы Azure Monitor](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Аналитика временных рядов](/azure/time-series-insights/) и [Microsoft Defender для конечной точки](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
 
 ## <a name="how-to-provide-feedback"></a>Отправка отзыва
 

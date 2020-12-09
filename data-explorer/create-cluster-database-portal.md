@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.localizationpriority: high
-ms.openlocfilehash: 44c2a5adf46d8c136675aa70a45dc89ed60c4cc8
-ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
+ms.openlocfilehash: 02e746a3ce929bab9883f1b4faafe7a6fb1ce953
+ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95512746"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "95783273"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Краткое руководство. Создание кластера и базы данных Azure Data Explorer
 
@@ -66,6 +66,11 @@ ms.locfileid: "95512746"
 1. Когда развертывание будет завершено, выберите **Перейти ресурсу**.
 
     ![Переход к ресурсу](media/create-cluster-database-portal/notification-resource.png)
+
+> [!NOTE]
+> Если развертывание завершается ошибкой SubscriptionNotRegistered, повторите операцию. 
+> 
+> Развертывание завершается сбоем, если поставщик ресурсов Kusto не зарегистрирован в подписке, как описано в статье [Поставщики и типы ресурсов Azure](/azure/azure-resource-manager/management/resource-providers-and-types). При сбое развертывания поставщик ресурсов Kusto регистрируется в подписке. После этого повторная попытка может быть успешной.
 
 ## <a name="create-a-database"></a>Создание базы данных
 

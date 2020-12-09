@@ -1,6 +1,6 @@
 ---
-title: Extract () — Azure обозреватель данных | Документация Майкрософт
-description: В этой статье описывается извлечение () в Azure обозреватель данных.
+title: extract() в Azure Data Explorer | Документация Майкрософт
+description: В этой статье описана функция extract() в Azure Data Explorer.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -10,10 +10,10 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.localizationpriority: high
 ms.openlocfilehash: 483c926d60abef120de2a355a6fa040b9608cd7a
-ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
-ms.translationtype: MT
+ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 12/01/2020
 ms.locfileid: "95513052"
 ---
 # <a name="extract"></a>extract()
@@ -28,14 +28,14 @@ extract("x=([0-9.]+)", 1, "hello x=45.6|wo") == "45.6"
 
 ## <a name="syntax"></a>Синтаксис
 
-`extract(`*регулярное выражение* `,` *каптуреграуп* `,` *Text* [ `,` *типелитерал*]`)`
+`extract(`*regex*`,` *captureGroup*`,` *text* [`,` *typeLiteral*]`)`
 
 ## <a name="arguments"></a>Аргументы
 
-* *Regex*: [регулярное выражение](./re2.md).
-* *каптуреграуп*: положительная `int` константа, указывающая группу захвата для извлечения. 0 означает полное совпадение, 1 — значение, соответствующее первой '('круглой скобке')' в регулярном выражении, 2 или более — последующим круглым скобкам.
-* *текст*: `string` для поиска.
-* *типелитерал*: необязательный литерал типа (например, `typeof(long)` ). Если указан, то извлеченная подстрока преобразуется в этот тип. 
+* *regex*: [регулярное выражение](./re2.md).
+* *captureGroup*: положительная константа `int`, указывающая извлекаемую группу записи. 0 означает полное совпадение, 1 — значение, соответствующее первой '('круглой скобке')' в регулярном выражении, 2 или более — последующим круглым скобкам.
+* *text*: `string` для поиска.
+* *typeLiteral*: необязательный литерал типа (например, `typeof(long)`). Если указан, то извлеченная подстрока преобразуется в этот тип. 
 
 ## <a name="returns"></a>Возвращаемое значение
 

@@ -1,6 +1,6 @@
 ---
-title: bin () — Azure обозреватель данных | Документация Майкрософт
-description: В этой статье описывается bin () в Azure обозреватель данных.
+title: bin() в Azure Data Explorer | Документация Майкрософт
+description: В этой статье описана функция bin() в Azure Data Explorer.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -10,31 +10,31 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.localizationpriority: high
 ms.openlocfilehash: 6fc2e55b43e7c7c2dc2bb537730f8f627e3e4a66
-ms.sourcegitcommit: 4e811d2f50d41c6e220b4ab1009bb81be08e7d84
-ms.translationtype: MT
+ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 12/01/2020
 ms.locfileid: "95513120"
 ---
 # <a name="bin"></a>bin()
 
 Округляет значения до целого, кратного указанному размеру группы. 
 
-Часто используется в сочетании с [`summarize by ...`](./summarizeoperator.md) .
+Часто используется в сочетании с [`summarize by ...`](./summarizeoperator.md).
 При наличии разрозненного набора значений они будут сгруппированы в меньший набор определенных значений.
 
-Значения NULL, размер ячейки null или отрицательный размер ячейки приводят к значению NULL. 
+При указании значения NULL, размера ячейки NULL или отрицательного значения размера ячейки возвращается значение NULL. 
 
-Псевдоним для `floor()` функции.
+Псевдоним для функции `floor()`.
 
 ## <a name="syntax"></a>Синтаксис
 
-`bin(`*значение* `,` *roundTo*`)`
+`bin(`*value*`,`*roundTo*`)`
 
 ## <a name="arguments"></a>Аргументы
 
-* *value*: число, дата или интервал времени. 
-* *roundTo*: "размер ячейки". Число или интервал времени, разделяющий *значение*. 
+* *value*: число, дата или временной диапазон. 
+* *roundTo*: значение "Размер ячейки". Число или временной диапазон, на который делится *value*. 
 
 ## <a name="returns"></a>Возвращаемое значение
 
