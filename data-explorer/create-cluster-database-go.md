@@ -7,12 +7,12 @@ ms.reviewer: abhishgu
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 833a801e6455fd4d88fbbbab83010aea1d406f02
-ms.sourcegitcommit: 7edce9d9d20f9c0505abda67bb8cc3d2ecd60d15
+ms.openlocfilehash: 3a8133c42ad87ec7eec693be3109ce5e7aea4935
+ms.sourcegitcommit: 79d923d7b7e8370726974e67a984183905f323ff
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96524255"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96868643"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-using-go"></a>Создание кластера Azure обозреватель данных и базы данных с помощью Go
 
@@ -195,7 +195,7 @@ func deleteCluster(sub, clusterName, rgName string) {
     cd azure-data-explorer-go-cluster-management
     ```
 
-1. Программа выполняет проверку подлинности с использованием учетных данных клиента. Чтобы создать субъект-службу, используйте команду Azure CLI [AZ AD SP Create/for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) . Сохраните идентификатор клиента, секрет клиента и сведения об ИДЕНТИФИКАТОРе клиента для использования на следующем шаге.
+1. Программа выполняет проверку подлинности с использованием учетных данных клиента. Чтобы создать субъект-службу, используйте команду Azure CLI [AZ AD SP Create/for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Сохраните идентификатор клиента, секрет клиента и сведения об ИДЕНТИФИКАТОРе клиента для использования на следующем шаге.
 
 1. Экспортируйте необходимые переменные среды, включая сведения о субъекте-службе. Введите идентификатор подписки, группу ресурсов и регион, в которых требуется создать кластер.
 
