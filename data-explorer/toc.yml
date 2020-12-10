@@ -1672,8 +1672,10 @@
           href: ./kusto/management/query-results-cache-commands.md
           items:
             - name: Отображение кэша
+              displayName: show database cache query results
               href: ./kusto/management/show-query-results-cache-command.md
             - name: Очистка кэша
+              displayName: clear query results cache
               href: ./kusto/management/clear-query-results-cache-command.md
         - name: Сведения о системе
           href: ./kusto/management/systeminfo.md
