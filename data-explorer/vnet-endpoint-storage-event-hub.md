@@ -7,12 +7,12 @@ ms.reviewer: gunjand
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 10/12/2020
-ms.openlocfilehash: 43f7705170228afa3d3f5e31086d40cea73c62db
-ms.sourcegitcommit: a7458819e42815a0376182c610aba48519501d92
+ms.openlocfilehash: a8e351dc04b77a41dd7ab793581a1f464f181f4e
+ms.sourcegitcommit: 724d3a3c817867b17a5a5853b6433818cbc97cf7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92906378"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97050524"
 ---
 # <a name="create-a-private-or-service-endpoint-to-event-hub-and-azure-storage"></a>Создание частной или закрытой конечной точки службы для концентратора событий и хранилища Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "92906378"
 
 В этой статье показано, как создать подключение между Azure обозреватель данных и [концентратором событий](ingest-data-event-hub-overview.md) или [службой хранилища Azure](/azure/storage/).
 
-## <a name="prerequisites"></a>Обязательные условия
+## <a name="prerequisites"></a>Предварительные требования
 
 * [Виртуальная сеть Azure](/azure/virtual-network/virtual-networks-overview)
 * [Подсеть обозреватель данных Azure](vnet-deployment.md)
@@ -62,15 +62,15 @@ ms.locfileid: "92906378"
 ### <a name="add-a-virtual-network"></a>Добавление виртуальной сети 
 
 1. Перейдите к учетной записи хранения, которую нужно защитить.
-1. В меню слева выберите **брандмауэры и виртуальные сети** .
-1. Разрешить доступ из **выбранных сетей** .
-1. В разделе **виртуальные сети** выберите **+ Добавить существующую виртуальную сеть** . 
+1. В меню слева выберите **брандмауэры и виртуальные сети**.
+1. Разрешить доступ из **выбранных сетей**.
+1. В разделе **виртуальные сети** выберите **+ Добавить существующую виртуальную сеть**. 
 
     :::image type="content" source="media/vnet-private-link-storage-event-hub/storage-add-existing-vnet.png" alt-text="Добавление существующего подключения виртуальной сети к хранилищу Azure в Azure обозреватель данных":::
 
 ### <a name="add-networks-pane"></a>Область добавления сетей
 
-:::image type="content" source="media/vnet-private-link-storage-event-hub/storage-add-networks.png" alt-text="Добавление существующего подключения виртуальной сети к хранилищу Azure в Azure обозреватель данных":::
+:::image type="content" source="media/vnet-private-link-storage-event-hub/storage-add-networks.png" alt-text="Добавление виртуальной сети в учетную запись хранения Azure для подключения к Azure обозреватель данных":::
 
 1. В области справа **Добавить сети** выберите подписку Azure.
 
@@ -79,13 +79,13 @@ ms.locfileid: "92906378"
     > [!NOTE]
     > Перед добавлением виртуальной сети в список Включите конечную точку службы. Если конечная точка службы не включена, портал предложит включить ее.
     
-1. Выберите **Добавить** .
+1. Выберите **Добавить**.
 
 ### <a name="save-and-verify-virtual-network-settings"></a>Сохранение и проверка параметров виртуальной сети
 
-1. На панели инструментов нажмите **Сохранить** , чтобы сохранить параметры. 
+1. На панели инструментов нажмите **Сохранить**, чтобы сохранить параметры. 
 
-    :::image type="content" source="media/vnet-private-link-storage-event-hub/storage-virtual-network.png" alt-text="Добавление существующего подключения виртуальной сети к хранилищу Azure в Azure обозреватель данных":::
+    :::image type="content" source="media/vnet-private-link-storage-event-hub/storage-virtual-network.png" alt-text="Виртуальная сеть для подключения учетной записи хранения к Azure обозреватель данных":::
 
     Подождите несколько минут, пока не появится подтверждение для уведомлений на портале.
 
@@ -99,32 +99,32 @@ ms.locfileid: "92906378"
 ### <a name="add-a-virtual-network"></a>Добавление виртуальной сети
 
 1. В портал Azure перейдите к **пространству имен концентраторов событий** , которое необходимо защитить.
-1. В меню слева выберите **сеть** . Эта вкладка отображается только в **стандартных** или **выделенных** пространствах имен.
-1. Перейдите на вкладку **брандмауэры и виртуальные сети** .
+1. В меню слева выберите **сеть**. Эта вкладка отображается только в **стандартных** или **выделенных** пространствах имен.
+1. Перейдите на вкладку **брандмауэры и виртуальные сети** . 
 
-    :::image type="content" source="media/vnet-private-link-storage-event-hub/networking.png" alt-text="Добавление существующего подключения виртуальной сети к хранилищу Azure в Azure обозреватель данных":::
+    :::image type="content" source="media/vnet-private-link-storage-event-hub/networking.png" alt-text="Сетевые подключения в концентраторе событий":::
 
-1. Разрешить доступ из **выбранных сетей** .
-1. В разделе **виртуальные сети** выберите **+ Добавить существующую виртуальную сеть** . 
+1. Разрешить доступ из **выбранных сетей**.
+1. В разделе **виртуальные сети** выберите **+ Добавить существующую виртуальную сеть**. 
 
-    :::image type="content" source="media/vnet-private-link-storage-event-hub/event-hub-add-existing-vnet.png" alt-text="Добавление существующего подключения виртуальной сети к хранилищу Azure в Azure обозреватель данных":::
+    :::image type="content" source="media/vnet-private-link-storage-event-hub/event-hub-add-existing-vnet.png" alt-text="Добавление существующей виртуальной сети в Azure обозреватель данных":::
 
 ### <a name="add-networks-pane"></a>Область добавления сетей
 
-:::image type="content" source="media/vnet-private-link-storage-event-hub/add-networks.png" alt-text="Добавление существующего подключения виртуальной сети к хранилищу Azure в Azure обозреватель данных":::  
+:::image type="content" source="media/vnet-private-link-storage-event-hub/add-networks.png" alt-text="Добавление полей сетей для подключения виртуальной сети к Azure обозреватель данных":::  
 
 1. В области справа **Добавить сети** выберите подписку Azure.
 
 1. Выберите виртуальную сеть из списка виртуальных сетей, а затем выберите подсеть. Перед добавлением виртуальной сети в список необходимо включить конечную точку службы. 
     > [!NOTE]
     > Перед добавлением виртуальной сети в список Включите конечную точку службы. Если конечная точка службы не включена, портал предложит включить ее.
-1. Выберите **Добавить** .
+1. Выберите **Добавить**.
 
 ### <a name="save-and-verify-virtual-network-settings"></a>Сохранение и проверка параметров виртуальной сети
 
-1. На панели инструментов нажмите **Сохранить** , чтобы сохранить параметры. Подождите несколько минут, пока не появится подтверждение в уведомлениях на портале.
+1. На панели инструментов нажмите **Сохранить**, чтобы сохранить параметры. Подождите несколько минут, пока не появится подтверждение в уведомлениях на портале.
     
-    :::image type="content" source="media/vnet-private-link-storage-event-hub/event-hub-firewalls-and-vnet.png" alt-text="Добавление существующего подключения виртуальной сети к хранилищу Azure в Azure обозреватель данных"::: 
+    :::image type="content" source="media/vnet-private-link-storage-event-hub/event-hub-firewalls-and-vnet.png" alt-text="Добавление виртуальной сети и подсети в концентратор событий для подключения к Azure обозреватель данных"::: 
 
 ---
 
