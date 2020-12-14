@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/30/2020
-ms.openlocfilehash: 8cd79b6f6531efd9621edf603b38d71bb074f6aa
-ms.sourcegitcommit: c815c6ccf33864e21e1d3daff26a4f077dff88f7
+ms.openlocfilehash: 8b549ca239dac0e88e0a8c0f0748eb86984f5cb4
+ms.sourcegitcommit: fcaf3056db2481f0e3f4c2324c4ac956a4afef38
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012173"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97389010"
 ---
 # <a name="export-data-to-an-external-table"></a>Экспорт данных во внешнюю таблицу
 
@@ -37,12 +37,12 @@ ms.locfileid: "95012173"
     * `spread`, `concurrency` -свойства для уменьшения или увеличения параллелизма операций записи. Дополнительные сведения см. в разделе [оператор секционирования](../../query/partitionoperator.md) . Эти свойства применимы только при экспорте во внешнюю таблицу, секционированную по _строковой_ секции. По умолчанию число узлов, одновременно выполняющих экспорт, будет равно минимуму между 64 и числом узлов кластера.
 
 
-## <a name="output"></a>Выходные данные
+## <a name="output"></a>Вывод
 
-|Выходной параметр |Type |Описание
+|Выходной параметр |Тип |Описание
 |---|---|---
 |екстерналтабленаме  |Строка |Имя внешней таблицы.
-|Path|Строка|Путь вывода.
+|путь|Строка|Путь вывода.
 |нумрекордс|Строка| Число записей, экспортируемых по пути.
 
 ## <a name="notes"></a>Примечания
@@ -75,7 +75,7 @@ ms.locfileid: "95012173"
 .export to table ExternalBlob <| T
 ```
 
-|екстерналтабленаме|Path|нумрекордс|
+|екстерналтабленаме|путь|нумрекордс|
 |---|---|---|
 |екстерналблоб|http://storage1.blob.core.windows.net/externaltable1cont1/1_58017c550b384c0db0fea61a8661333e.csv|10|
 
@@ -86,9 +86,8 @@ ms.locfileid: "95012173"
 ```kusto
 .create external table PartitionedExternalBlob (Timestamp:datetime, CustomerName:string) 
 kind=blob
-partition by 
-   "CustomerName="CustomerName,
-   bin(Timestamp, 1d)
+partition by (CustomerName:string=CustomerName, Date:datetime=startofday(Timestamp))   
+pathformat = ("CustomerName=" CustomerName "/" datetime_pattern("yyyy/MM/dd", Date))   
 dataformat=csv
 ( 
    h@'http://storageaccount.blob.core.windows.net/container1;secretKey'
@@ -99,7 +98,7 @@ dataformat=csv
 .export to table PartitionedExternalBlob <| T
 ```
 
-|екстерналтабленаме|Path|нумрекордс|
+|екстерналтабленаме|путь|нумрекордс|
 |---|---|---|
 |екстерналблоб|http://storageaccount.blob.core.windows.net/container1/CustomerName=customer1/2019/01/01/fa36f35c-c064-414d-b8e2-e75cf157ec35_1_58017c550b384c0db0fea61a8661333e.csv|10|
 |екстерналблоб|http://storageaccount.blob.core.windows.net/container1/CustomerName=customer2/2019/01/01/fa36f35c-c064-414d-b8e2-e75cf157ec35_2_b785beec2c004d93b7cd531208424dc9.csv|10|

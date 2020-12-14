@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/24/2020
-ms.openlocfilehash: df38761d7ffebdf5e36c14ea25b0d02377bfa128
-ms.sourcegitcommit: fdc1f917621e9b7286bba23903101298cccc4c95
+ms.openlocfilehash: 6af499d97e4733d0b8e099d02bec9573da6817d3
+ms.sourcegitcommit: fcaf3056db2481f0e3f4c2324c4ac956a4afef38
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364128"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97389027"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>Создание и изменение внешних таблиц в службе хранилища Azure или Azure Data Lake
 
@@ -25,7 +25,7 @@ ms.locfileid: "93364128"
 
 **Синтаксис**
 
-( `.create`  |  `.alter`  |  `.create-or-alter` ) `external` `table` *[TableName](#table-name)* `(` *[Схема](#schema)* TableName`)`  
+( `.create`  |  `.alter`  |  `.create-or-alter` ) `external` `table` *[](#table-name)* `(` *[Схема](#schema)* TableName`)`  
 `kind` `=` (`blob` | `adl`)  
 [ `partition` `by` `(` *[Секции](#partitions)* `)` [ `pathformat` `=` `(` *[пасформат](#path-format)* `)` ]]  
 `dataformat``=` *[Формат](#format)*  
@@ -76,21 +76,21 @@ ms.locfileid: "93364128"
 
 * Секция, основанная на [хэш-](../query/hashfunction.md)значении столбца строки, *номер* остатка от деления.
 
-  *PartitionName* `:` `long` `=` `hash` `(` *ColumnName* `,` *Номер* ColumnName`)`
+  *PartitionName* `:` `long` `=` `hash` `(`  `,` *Номер* ColumnName`)`
 
 * Секция, основанная на усеченном значении столбца типа DateTime. См. документацию по функциям [startofyear](../query/startofyearfunction.md), [StartOfMonth](../query/startofmonthfunction.md), [startofweek](../query/startofweekfunction.md), [стартофдай](../query/startofdayfunction.md) или [bin](../query/binfunction.md) .
 
   *PartitionName* `:` `datetime` `=` ( `startofyear` \| `startofmonth` \| `startofweek` \| `startofday` ) `(` *ColumnName*`)`  
-  *PartitionName* `:` `datetime` `=` `bin` `(` *ColumnName* `,` *Интервал* времени ColumnName`)`
+  *PartitionName* `:` `datetime` `=` `bin` `(`  `,` *Интервал* времени ColumnName`)`
 
-Чтобы проверить правильность определения секционирования, используйте свойство `sampleUris` при создании внешней таблицы.
+Чтобы проверить правильность определения секционирования, используйте свойство `sampleUris` или `filesPreview` при создании внешней таблицы.
 
 <a name="path-format"></a>
 *пасформат*
 
 Формат пути к файлу внешних URI данных, который можно указать в дополнение к секциям. Формат пути — это последовательность элементов раздела и разделителей текста:
 
-&nbsp;&nbsp;[ *Стрингсепаратор* ] *Partition* [ *Стрингсепаратор* ] [ *Секция* [ *стрингсепаратор* ]...]  
+&nbsp;&nbsp;[*Стрингсепаратор*] *Partition* [*Стрингсепаратор*] [*Секция* [*стрингсепаратор*]...]  
 
 где *Partition* ссылается на секцию, объявленную в `partition` `by` предложении, а *стрингсепаратор* — любой текст, заключенный в кавычки. Элементы смежных секций должны быть заданы отдельно с помощью *стрингсепаратор*.
 
@@ -138,7 +138,7 @@ ms.locfileid: "93364128"
 <a name="properties"></a>
 *Необязательные свойства*
 
-| Свойство         | Тип     | Описание       |
+| Свойство.         | Тип     | Описание       |
 |------------------|----------|-------------------------------------------------------------------------------------|
 | `folder`         | `string` | Папка таблицы                                                                     |
 | `docString`      | `string` | Строка документирования таблицы                                                       |
@@ -147,8 +147,10 @@ ms.locfileid: "93364128"
 | `namePrefix`     | `string` | Если задано, указывает префикс файлов. При операциях записи все файлы будут записаны с помощью этого префикса. При операциях чтения считываются только файлы с этим префиксом. |
 | `fileExtension`  | `string` | Если задано, указывает расширения файлов. При записи имена файлов будут заканчиваться этим суффиксом. При чтении будут считываться только файлы с этим расширением.           |
 | `encoding`       | `string` | Указывает, как текст кодируется: `UTF8NoBOM` (по умолчанию) или `UTF8BOM` .             |
-| `sampleUris`     | `bool`   | Если этот параметр задан, в результате выполнения команды предоставляется несколько примеров URI внешних файлов данных, так как они ожидаются определением внешней таблицы (выборки возвращаются во второй таблице результатов). Этот параметр позволяет проверить, правильно ли определены *[разделы](#partitions)* и параметры *[пасформат](#path-format)* . |
+| `sampleUris`     | `bool`   | Если параметр задан, в результате выполнения команды предоставляется несколько примеров имитации URI внешних файлов данных, так как они ожидаются определением внешней таблицы. Этот параметр позволяет проверить, правильно ли определены параметры *[разделов](#partitions)* и *[пасформат](#path-format)* . |
+| `filesPreview`   | `bool`   | Если задано значение, то одна из таблиц результатов команды содержит команду Предварительная версия [. Отображение внешних артефактов таблицы](#show-external-table-artifacts) . Например `sampleUri` , параметр помогает проверить *[Секции](#partitions)* и *[пасформат](#path-format)* параметры определения внешней таблицы. |
 | `validateNotEmpty` | `bool`   | Если задано значение, строки подключения проверяются на наличие в них содержимого. Команда завершится ошибкой, если указанное расположение URI не существует или у вас недостаточно разрешений для доступа к нему. |
+| `dryRun` | `bool` | Если задано, определение внешней таблицы не сохраняется. Этот параметр полезен для проверки определения внешней таблицы, особенно в сочетании с `filesPreview` `sampleUris` параметром или. |
 
 > [!TIP]
 > Дополнительные сведения о роли `namePrefix` и `fileExtension` свойствах, воспроизводимых в фильтрации файлов данных во время запроса, см. в разделе [логика фильтрации файлов](#file-filtering) .
@@ -264,7 +266,7 @@ external_table("ExternalTable")
 
 При запросе к внешней таблице механизм запросов повышает производительность, отфильтровывая ненужные файлы внешнего хранилища. Ниже описан процесс выполнения итерации по файлам и принятия решения о необходимости обработки файла.
 
-1. Создайте шаблон URI, представляющий место, где находятся файлы. Изначально шаблон URI равен строке подключения, предоставленной как часть определения внешней таблицы. Если определенные секции определены, они подготавливаются к просмотру с помощью *[пасформат](#path-format)* , а затем добавляются к шаблону URI.
+1. Создайте шаблон URI, представляющий место, где находятся файлы. Изначально шаблон URI равен строке подключения, предоставленной как часть определения внешней таблицы. Если определенные секции определены, они подготавливаются к просмотру с помощью *[пасформат](#path-format)*, а затем добавляются к шаблону URI.
 
 2. Для всех файлов, найденных в созданных шаблонах URI, проверьте следующее:
 
@@ -286,7 +288,7 @@ external_table("ExternalTable")
 
 **Синтаксис** 
 
-`.show``external` `table` *TableName* `artifacts` [ `limit` *MaxResults* ]
+`.show``external` `table` *TableName* `artifacts` [ `limit` *MaxResults*]
 
 где *MaxResults* — необязательный параметр, который можно задать для ограничения количества результатов.
 
@@ -296,7 +298,7 @@ external_table("ExternalTable")
 |------------------|--------|-----------------------------------|
 | URI              | строка | URI внешнего файла данных хранилища |
 | Размер             | long   | Длина файла в байтах              |
-| Секция        | Динамический | Динамический объект, описывающий файловые секции для секционированной внешней таблицы |
+| Секция        | dynamic | Динамический объект, описывающий файловые секции для секционированной внешней таблицы |
 
 > [!TIP]
 > Итерация по всем файлам, на которые ссылается внешняя таблица, может быть довольно дорогостоящей в зависимости от числа файлов. Обязательно используйте `limit` параметр, если вы просто хотите увидеть некоторые примеры URI.
@@ -325,14 +327,14 @@ external_table("ExternalTable")
 
 ## <a name="create-external-table-mapping"></a>. Создание сопоставления внешней таблицы
 
-`.create``external` `table` *Екстерналтабленаме* `json` `mapping` *MappingName* *маппингинжсонформат*
+`.create``external` `table` *Екстерналтабленаме* `mapping` *MappingName* *маппингинжсонформат*
 
 Создает новое сопоставление. Дополнительные сведения см. в разделе [сопоставления данных](./mappings.md#json-mapping).
 
 **Пример** 
  
 ```kusto
-.create external table MyExternalTable json mapping "Mapping1" '[{"Column": "rownumber", "Properties": {"Path": "$.rownumber"}}, {"Column": "rowguid", "Properties": {"Path": "$.rowguid"}}]'
+.create external table MyExternalTable mapping "Mapping1" '[{"Column": "rownumber", "Properties": {"Path": "$.rownumber"}}, {"Column": "rowguid", "Properties": {"Path": "$.rowguid"}}]'
 ```
 
 **Пример выходных данных**
@@ -343,14 +345,14 @@ external_table("ExternalTable")
 
 ## <a name="alter-external-table-mapping"></a>. изменение сопоставления внешней таблицы
 
-`.alter``external` `table` *Екстерналтабленаме* `json` `mapping` *MappingName* *маппингинжсонформат*
+`.alter``external` `table` *Екстерналтабленаме* `mapping` *MappingName* *маппингинжсонформат*
 
 Изменяет существующее сопоставление. 
  
 **Пример** 
  
 ```kusto
-.alter external table MyExternalTable json mapping "Mapping1" '[{"Column": "rownumber", "Properties": {"Path": "$.rownumber"}}, {"Column": "rowguid", "Properties": {"Path": "$.rowguid"}}]'
+.alter external table MyExternalTable mapping "Mapping1" '[{"Column": "rownumber", "Properties": {"Path": "$.rownumber"}}, {"Column": "rowguid", "Properties": {"Path": "$.rowguid"}}]'
 ```
 
 **Пример выходных данных**
@@ -361,18 +363,18 @@ external_table("ExternalTable")
 
 ## <a name="show-external-table-mappings"></a>. Отображение сопоставлений внешних таблиц
 
-`.show``external` `table` *Екстерналтабленаме* `json` `mapping` *MappingName* 
+`.show``external` `table` *Екстерналтабленаме* `mapping` *MappingName* 
 
-`.show``external` `table` *ExternalTableName* Екстерналтабленаме `json``mappings`
+`.show``external` `table` *Екстерналтабленаме*`mappings`
 
 Отображение сопоставлений (все или указанное по имени).
  
 **Пример** 
  
 ```kusto
-.show external table MyExternalTable json mapping "Mapping1" 
+.show external table MyExternalTable mapping "Mapping1" 
 
-.show external table MyExternalTable json mappings 
+.show external table MyExternalTable mappings 
 ```
 
 **Пример выходных данных**
@@ -383,14 +385,14 @@ external_table("ExternalTable")
 
 ## <a name="drop-external-table-mapping"></a>. Удаление сопоставления внешней таблицы
 
-`.drop``external` `table` *Екстерналтабленаме* `json` `mapping` *MappingName* 
+`.drop``external` `table` *Екстерналтабленаме* `mapping` *MappingName* 
 
 Удаляет сопоставление из базы данных.
  
 **Пример** 
  
 ```kusto
-.drop external table MyExternalTable json mapping "Mapping1" 
+.drop external table MyExternalTable mapping "Mapping1" 
 ```
 ## <a name="next-steps"></a>Дальнейшие действия
 

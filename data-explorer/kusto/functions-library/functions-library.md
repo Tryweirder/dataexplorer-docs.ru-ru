@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 09/08/2020
-ms.openlocfilehash: fb08edf4105c44a6be96cf6b2f314cf25887e69a
-ms.sourcegitcommit: 4d5628b52b84f7564ea893f621bdf1a45113c137
+ms.openlocfilehash: b7e066133817184664e37aec52a562525afa9504
+ms.sourcegitcommit: fcaf3056db2481f0e3f4c2324c4ac956a4afef38
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444000"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97388959"
 ---
 # <a name="functions-library"></a>Библиотека функций
 
@@ -27,6 +27,16 @@ ms.locfileid: "96444000"
 |[kmeans_fl()](kmeans-fl.md)|Кластеризации с использованием алгоритма k-средних. |
 |[predict_fl()](predict-fl.md)|Прогнозирование с использованием существующей обученной модели машинного обучения. |
 |[predict_onnx_fl()](predict-onnx-fl.md)| Прогнозирование с использованием существующей обученной модели машинного обучения в формате ONNX. |
+
+## <a name="promql-functions"></a>Функции Промкл
+
+В следующем разделе содержатся общие функции [промкл](https://prometheus.io/docs/prometheus/latest/querying/basics/) . Эти функции можно использовать для анализа метрик, принимаемых в Azure обозреватель данных системой мониторинга [Prometheus](https://prometheus.io/) . Все функции предполагают, что метрики в Azure обозреватель данных структурированы с помощью [модели данных Prometheus](https://prometheus.io/docs/concepts/data_model/).
+
+
+|Имя функции     |Описание                                          |
+|-------------------------|--------------------------------------------------------|
+|[series_metric_fl ()](series-metric-fl.md)|Выбирает и получает временные ряды, хранящиеся в модели данных Prometheus. |
+|[series_rate_fl ()](series-rate-fl.md)|Вычисляет среднюю частоту увеличения метрики счетчика в секунду. |
 
 ## <a name="series-processing-functions"></a>Функции обработки рядов
 
