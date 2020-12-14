@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/19/2020
-ms.openlocfilehash: 04c59b33d780db1c9731ac71d1f905315afbc302
-ms.sourcegitcommit: 4405ae34e119948778e0de5021077638d24da812
+ms.openlocfilehash: 2ff3578b055fd487f3d339dc9b7fb4aa1ad11e14
+ms.sourcegitcommit: d9e203a54b048030eeb6d05b01a65902ebe4e0b8
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86448050"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371447"
 ---
 # <a name="ingestionbatching-policy-command"></a>Команда политики Инжестионбатчинг
 
@@ -23,14 +23,20 @@ ms.locfileid: "86448050"
 
 Если политика не задана для определенной сущности, она будет искать политику более высокого уровня иерархии, если для параметра ALL задано значение null, то будет использоваться по умолчанию. 
 
-Нижняя граница политики ограничена 10 секундами, поэтому не рекомендуется использовать значения, превышающие 15 минут.
+**Ограничения Инжестионбатчинг:**
+
+| Тип | По умолчанию | Минимальные | Максимальная
+|---|---|---|---|
+| Количество элементов | 1000 | 1 | 2000 |
+| Размер данных (МБ) | 1000 | 100 | 1000 |
+| Время | 5 мин | 10 с | 15 минут |
 
 ## <a name="displaying-the-ingestionbatching-policy"></a>Отображение политики Инжестионбатчинг
 
 Политику можно задать для базы данных или таблицы и отобразить с помощью одной из следующих команд:
 
-* `.show``database` *DatabaseName* DatabaseName `policy``ingestionbatching`
-* `.show``table` *Имя_базы_данных*, `.` *TableName* TableName `policy``ingestionbatching`
+* `.show``database`  DatabaseName `policy``ingestionbatching`
+* `.show``table` *Имя_базы_данных*, `.`  TableName `policy``ingestionbatching`
 
 ## <a name="altering-the-ingestionbatching-policy"></a>Изменение политики Инжестионбатчинг
 
@@ -54,11 +60,11 @@ ms.locfileid: "86448050"
 }
 ```
 
-* `entity_type`: таблица, база данных
+* `entity_type` : таблица, база данных
 * `database_or_table`. Если сущность является таблицей или базой данных, ее имя должно быть указано в команде следующим образом: 
   - `database_name` или 
   - `database_name.table_name` или 
-  - `table_name`(при выполнении в контексте конкретной базы данных)
+  - `table_name` (при выполнении в контексте конкретной базы данных)
 
 ## <a name="deleting-the-ingestionbatching-policy"></a>Удаление политики Инжестионбатчинг
 
