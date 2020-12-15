@@ -8,14 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 1ea8960b8d58ed9e549e042f8a4e64164952f32d
-ms.sourcegitcommit: 4f24d68f1ae4903a2885985aa45fd15948867175
+ms.openlocfilehash: b76321fd843efe915a6fd55797bd2dc68059b004
+ms.sourcegitcommit: 8ac4717dbff679991b122b09a0c1ed700562a736
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558195"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97488582"
 ---
-# <a name="iot-hub-data-connection"></a>Подключение к данным центра Интернета вещей
+# <a name="iot-hub-data-connection"></a>Подключение к данным Центра Интернета вещей
 
 [Центр Интернета вещей Azure](/azure/iot-hub/about-iot-hub) — это управляемая служба, размещенная в облаке, которая выступает в качестве центрального центра сообщений для двунаправленного обмена данными между приложением IOT и управляемыми ими устройствами. Azure обозреватель данных обеспечивает непрерывное получение из управляемых клиентами центров Интернета вещей с помощью [встроенной конечной точки, совместимой с концентратором событий](/azure/iot-hub/iot-hub-devguide-messages-d2c#routing-endpoints).
 
@@ -36,7 +36,7 @@ ms.locfileid: "92558195"
 
 Свойства приема указывают процессу приема, куда перенаправляются данные и как их обрабатывать. [Свойства приема](ingestion-properties.md) событий можно указать с помощью [свойства EventData. Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties). Задать можно следующие свойства.
 
-|Свойство |Описание|
+|Свойство. |Описание|
 |---|---|
 | Таблица | Имя существующей целевой таблицы (с учетом регистра). Переопределяет `Table` набор на `Data Connection` панели. |
 | Формат | Формат данных. Переопределяет `Data format` набор на `Data Connection` панели. |
@@ -44,7 +44,7 @@ ms.locfileid: "92558195"
 | Кодирование |  Кодировка данных, значение по умолчанию — UTF8. Может быть любой из [поддерживаемых кодировок .NET](/dotnet/api/system.text.encoding?view=netframework-4.8#remarks). |
 
 > [!NOTE]
-> Принимаются только события, помещенные в очередь после создания подключения к данным.
+> Принимаются только события, поставленные в очередь после создания подключения к данным.
 
 ## <a name="events-routing"></a>Маршрутизация событий
 
@@ -65,7 +65,7 @@ ms.locfileid: "92558195"
 
 Центр Интернета вещей предоставляет следующие свойства системы:
 
-|Свойство |Описание|
+|Свойство. |Описание|
 |---|---|
 | message-id | Задаваемый пользователем идентификатор сообщения, используемый для шаблонов типа "запрос-ответ". |
 | sequence-number | Число (уникальное для каждой очереди устройства), которое Центр Интернета вещей назначает каждому сообщению, отправленному из облака на устройство. |
@@ -98,7 +98,7 @@ ms.locfileid: "92558195"
 
 ## <a name="sending-events"></a>Отправка событий
 
-См. [Пример проекта](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Quickstarts/simulated-device) , который имитирует устройство и создает данные.
+См. [Пример проекта](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Quickstarts/SimulatedDevice) , который имитирует устройство и создает данные.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
