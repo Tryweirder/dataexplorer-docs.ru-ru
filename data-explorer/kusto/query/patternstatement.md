@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 1fa4c303624c62b7c43d2ddd0de58977ed6e42aa
-ms.sourcegitcommit: 608539af6ab511aa11d82c17b782641340fc8974
+ms.openlocfilehash: f8ae6bc55df90dc27fc329e9b49f63430cd77aba
+ms.sourcegitcommit: 335e05864e18616c10881db4ef232b9cda285d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92241336"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97596827"
 ---
 # <a name="pattern-statement"></a>pattern, инструкция
 
@@ -35,7 +35,7 @@ ms.locfileid: "92241336"
 declare pattern app;
 ```
 
-Эта инструкция указывает Kusto, что `app` является шаблоном, но не указывает Kusto, как разрешить шаблон. В результате любая попытка вызвать этот шаблон в запросе приведет к возникновению определенной ошибки и отобразит список всех таких вызовов. Пример:
+Эта инструкция указывает Kusto, что `app` является шаблоном, но не указывает Kusto, как разрешить шаблон. В результате любая попытка вызвать этот шаблон в запросе приведет к возникновению определенной ошибки и отобразит список всех таких вызовов. Пример.
 
 ```kusto
 declare pattern app;
@@ -46,13 +46,13 @@ app("ApplicationX").StartEvents
 
 Этот запрос выдаст ошибку от Kusto, указывающую, что не удается разрешить следующие вызовы шаблона: `app("ApplicationX")["StartEvents"]` и `app("ApplicationX")["StopEvents"]` .
 
-## <a name="syntax"></a>Синтаксис
+## <a name="syntax-of-pattern-declaration"></a>Синтаксис объявления шаблона
 
 `declare``pattern` *Паттерннаме*
 
 ## <a name="pattern-definition"></a>Определение шаблона
 
-Для определения шаблона можно также использовать инструкцию pattern. В определении шаблона все возможные вызовы шаблона явным образом размещаются, а соответствующее табличное выражение задается. Когда Kusto выполняет запрос, он заменяет каждый вызов шаблона соответствующим телом шаблона. Пример:
+Для определения шаблона можно также использовать инструкцию pattern. В определении шаблона все возможные вызовы шаблона явным образом размещаются, а соответствующее табличное выражение задается. Когда Kusto выполняет запрос, он заменяет каждый вызов шаблона соответствующим телом шаблона. Пример.
 
 ```kusto
 declare pattern app = (applicationId:string)[eventType:string]
@@ -67,9 +67,9 @@ app("ApplicationX").StartEvents
 
 Выражение, предоставляемое для каждого совпадающего шаблона, является либо именем таблицы, либо ссылкой на [инструкцию Let](letstatement.md).
 
-## <a name="syntax"></a>Синтаксис
+## <a name="syntax-of-pattern-definition"></a>Синтаксис определения шаблона
 
-`declare``pattern` *PatternName*  =  Паттерннаме `(` *Аргнаме* `:` *Аргтипе* [ `,` ...] `)` [ `[` *PathName* `:` *пасаргтипе* `]` ]`{`
+`declare``pattern`   =  Паттерннаме `(` *Аргнаме* `:` *Аргтипе* [ `,` ...] `)` [ `[` *PathName* `:` *пасаргтипе* `]` ]`{`
 &nbsp;&nbsp;&nbsp;&nbsp;`(` *ArgValue1* [ `,` *ArgValue2* ...] `)` [ `.[` * пасвалуе `]` ] `=` `{` *выражение* `};` &nbsp; &nbsp; &nbsp; &nbsp; [ &nbsp; &nbsp; &nbsp; &nbsp; `(` *ArgValue1_2* [ `,` *ArgValue2_2* ...] `)` [ `.[` *PathValue_2* `]` ] `=` `{` *expression_2* `};` &nbsp; &nbsp; &nbsp; &nbsp; ... &nbsp; &nbsp; &nbsp; &nbsp; ]        `}`
 
 * *Паттерннаме*: имя ключевого слова pattern. Синтаксис, определяющий ключевое слово only, допустим: для обнаружения всех ссылок на шаблоны с указанным ключевым словом.

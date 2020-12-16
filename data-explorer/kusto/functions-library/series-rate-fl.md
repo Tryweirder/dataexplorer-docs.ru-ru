@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 12/13/2020
-ms.openlocfilehash: 6678f17624225895734781f32782ed5b9bd79955
-ms.sourcegitcommit: fcaf3056db2481f0e3f4c2324c4ac956a4afef38
+ms.openlocfilehash: 9d34fa3d880b4888cd7f43913644e9cba8b4ca9d
+ms.sourcegitcommit: 335e05864e18616c10881db4ef232b9cda285d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97389178"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97596844"
 ---
 # <a name="series_rate_fl"></a>series_rate_fl ()
 
@@ -31,6 +31,7 @@ ms.locfileid: "97389178"
 ## <a name="arguments"></a>Аргументы
 
 * *n_bins*: количество ячеек для указания разрыва между извлеченными значениями метрики для вычисления ставки. Функция вычисляет разницу между текущим образцом и одной *n_bins* ранее и делит ее на разность соответствующих меток времени в секундах. Этот параметр является необязательным и имеет значение по умолчанию, равное одной ячейке. Параметры по умолчанию вычисляют [ирате ()](https://prometheus.io/docs/prometheus/latest/querying/functions/#irate), функцию промкл мгновенной скорости.
+* *fix_reset*: логический флаг, определяющий, следует ли проверять Сброс счетчиков и исправлять его, например функцию промкл [Rate ()](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) . Этот параметр является необязательным и имеет значение по умолчанию `true` . Задайте для параметра значение `false` , чтобы сохранить избыточный анализ в случае, если не нужно проверять наличие сбросов.
 
 ## <a name="usage"></a>Использование
 
@@ -45,16 +46,22 @@ ms.locfileid: "97389178"
 
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
-let series_rate_fl=(tbl:(timestamp:dynamic, name:string, labels:string, value:dynamic), n_bins:int=1)
+let series_rate_fl=(tbl:(timestamp:dynamic, value:dynamic), n_bins:int=1, fix_reset:bool=true)
 {
     tbl
+    | where fix_reset                                                   //  Prometheus counters can only go up
+    | mv-apply value to typeof(double) on   
+    ( extend correction = iff(value < prev(value), prev(value), 0.0)    // if the value decreases we assume it was reset to 0, so add last value
+    | extend cum_correction = row_cumsum(correction)
+    | extend corrected_value = value + cum_correction
+    | summarize value = make_list(corrected_value))
+    | union (tbl | where not(fix_reset))
     | extend timestampS = array_shift_right(timestamp, n_bins), valueS = array_shift_right(value, n_bins)
     | extend dt = series_subtract(timestamp, timestampS)
     | extend dt = series_divide(dt, 1e7)                              //  converts from ticks to seconds
     | extend dv = series_subtract(value, valueS)
-    | extend dv = array_iff(series_greater_equals(dv, 0), dv, value)  //  handles negative difference like PromQL
     | extend rate = series_divide(dv, dt)
-    | project timestamp, name, rate, labels
+    | project-away dt, dv, timestampS, value, valueS
 }
 ;
 //
@@ -73,16 +80,22 @@ demo_prometheus
 <!-- csl: https://help.kusto.windows.net:443/Samples -->
 ```kusto
 .create-or-alter function with (folder = "Packages\\Series", docstring = "Simulate PromQL rate()")
-series_rate_fl(tbl:(timestamp:dynamic, name:string, labels:string, value:dynamic), n_bins:int=1)
+series_rate_fl(tbl:(timestamp:dynamic, value:dynamic), n_bins:int=1, fix_reset:bool=true)
 {
     tbl
+    | where fix_reset                                                   //  Prometheus counters can only go up
+    | mv-apply value to typeof(double) on   
+    ( extend correction = iff(value < prev(value), prev(value), 0.0)    // if the value decreases we assume it was reset to 0, so add last value
+    | extend cum_correction = row_cumsum(correction)
+    | extend corrected_value = value + cum_correction
+    | summarize value = make_list(corrected_value))
+    | union (tbl | where not(fix_reset))
     | extend timestampS = array_shift_right(timestamp, n_bins), valueS = array_shift_right(value, n_bins)
     | extend dt = series_subtract(timestamp, timestampS)
     | extend dt = series_divide(dt, 1e7)                              //  converts from ticks to seconds
     | extend dv = series_subtract(value, valueS)
-    | extend dv = array_iff(series_greater_equals(dv, 0), dv, value)  //  handles negative difference like PromQL
     | extend rate = series_divide(dv, dt)
-    | project timestamp, name, rate, labels
+    | project-away dt, dv, timestampS, value, valueS
 }
 ```
 
