@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
-ms.openlocfilehash: b77fe78ec43bce775774ae95c1ea713d03873cf4
-ms.sourcegitcommit: c351c2c8ab6e184827c4702eb0ec8bf783c7bbd3
+ms.openlocfilehash: 4f3639aeb6e401aa37703bbef929af2275960a91
+ms.sourcegitcommit: 35236fefb52978ce9a09bc36affd5321acb039a4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874803"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97513977"
 ---
 # <a name="show-database-schema-commands"></a>. Отображение команд схемы базы данных
 
@@ -50,12 +50,12 @@ ms.locfileid: "94874803"
 |имя_базы_данных|TableName|ColumnName|ColumnType|исдефаулттабле|исдефаултколумн|преттинаме|Версия
 |---|---|---|---|---|---|---|--- 
 |TestDB||||False|False||Версия 1.1       
-|TestDB|События|||True|Неверно||       
-|TestDB|События| Имя|System.String|True|Неверно||     
-|TestDB|События| StartTime|  System.DateTime|True|Неверно||    
-|TestDB|События| EndTime|    System.DateTime|True|Неверно||        
-|TestDB|События| City|   System.String|True| Неверно||     
-|TestDB|События| SessionId|  System.Int32|True|  True|| 
+|TestDB|События|||Верно|Неверно||       
+|TestDB|События| Имя|System.String|Верно|Неверно||     
+|TestDB|События| StartTime|  System.DateTime|Верно|Неверно||    
+|TestDB|События| EndTime|    System.DateTime|Верно|Неверно||        
+|TestDB|События| City|   System.String|Верно| Неверно||     
+|TestDB|События| SessionId|  System.Int32|Да|  Да|| 
 
 **Пример** 
 
@@ -70,12 +70,12 @@ ms.locfileid: "94874803"
 |имя_базы_данных|TableName|ColumnName|ColumnType|исдефаулттабле|исдефаултколумн|преттинаме|Версия
 |---|---|---|---|---|---|---|--- 
 |TestDB||||False|False||Версия 1.1       
-|TestDB|События|||True|Неверно||       
-|TestDB|События| Имя|System.String|True|Неверно||     
-|TestDB|События| StartTime|  System.DateTime|True|Неверно||    
-|TestDB|События| EndTime|    System.DateTime|True|Неверно||        
-|TestDB|События| City|   System.String|True| Неверно||     
-|TestDB|События| SessionId|  System.Int32|True|  True||  
+|TestDB|События|||Верно|Неверно||       
+|TestDB|События| Имя|System.String|Верно|Неверно||     
+|TestDB|События| StartTime|  System.DateTime|Верно|Неверно||    
+|TestDB|События| EndTime|    System.DateTime|Верно|Неверно||        
+|TestDB|События| City|   System.String|Верно| Неверно||     
+|TestDB|События| SessionId|  System.Int32|Да|  Да||  
 
 Так как указана версия, которая ниже текущей версии базы данных, была возвращена схема "TestDB". Если указать равную или более позднюю версию, будет создан пустой результат.
 
@@ -112,25 +112,23 @@ ms.locfileid: "94874803"
 
 **Синтаксис**
 
-`.show``database` *DatabaseName* `schema` DatabaseName `as` `csl` `script` [ `with(` *Параметры* `)` ]
+`.show``database`  `schema` DatabaseName `as` `csl` `script` [ `with(` *Параметры* `)` ]
 
 **Аргументы**
 
 Следующие *Параметры* являются необязательными.
 
-* `IncludeEncodingPolicies`: ( `true`  |  `false` ) — Если `true` будут включаться политики кодирования на уровне базы данных, таблицы или столбца. По умолчанию — `false`. 
+* `IncludeEncodingPolicies`: ( `true`  |  `false` ) — Если `true` будут включаться политики кодирования на уровне базы данных, таблицы или столбца. По умолчанию имеет значение `false`. 
 * `IncludeSecuritySettings`: ( `true`  |  `false` ) — Значение по умолчанию — `false` . Если `true` задано значение, будут включаться следующие параметры:
   * Полномочные субъекты на уровне базы данных или таблицы.
   * Политики безопасности на уровне строк на уровне таблицы.
   * Ограниченные политики доступа к представлениям на уровне таблицы.
-* `IncludeIngestionMappings`: ( `true`  |  `false` ) — Если `true` будут включаться сопоставления приема на уровне таблицы. По умолчанию — `false`. 
+* `IncludeIngestionMappings`: ( `true`  |  `false` ) — Если `true` будут включаться сопоставления приема на уровне таблицы. По умолчанию имеет значение `false`. 
 
 **Возвращает**
 
 Скрипт, возвращаемый в виде строки, будет содержать:
 
-* Команды для создания базы данных и задания ее имени, если таковые имеются.
-  * Созданная команда создаст временную базу данных и будет добавляться в комментарий при добавлении в скрипт.
 * Команды для создания всех таблиц в базе данных.
 * Команды для установки всех политик базы данных, таблиц и столбцов в соответствии с исходными политиками.
 * Команды для создания или изменения всех определяемых пользователем функций в базе данных.

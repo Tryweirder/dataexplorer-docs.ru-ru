@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 ms.date: 08/04/2020
-ms.openlocfilehash: 8f19606a75c388917a5195d0ac5cbb0ecf4335f9
-ms.sourcegitcommit: 80f0c8b410fa4ba5ccecd96ae3803ce25db4a442
+ms.openlocfilehash: 166d5f4f4d81957c49fb3fdedd3b2654985648ab
+ms.sourcegitcommit: 35236fefb52978ce9a09bc36affd5321acb039a4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96321137"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97514068"
 ---
 # <a name="update-policy-overview"></a>Обзор политики обновления
 
@@ -40,6 +40,7 @@ ms.locfileid: "96321137"
 * При ссылке на `Source` таблицу в `Query` части политики или в функции, на которые ссылается `Query` часть:
    * Не используйте полное имя таблицы. Вместо этого используйте `TableName`. 
    * Не используйте `database("DatabaseName").TableName` или `cluster("ClusterName").database("DatabaseName").TableName` .
+* Сведения об ограничениях политики обновления при приеме потоковой передачи см. в разделе [потоковая политика приема потоков](../../ingest-data-streaming.md#limitations). 
 
 > [!WARNING]
 > Определение неверного запроса в политике обновления может препятствовать передаче данных в исходную таблицу.
