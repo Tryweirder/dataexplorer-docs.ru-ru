@@ -1,5 +1,5 @@
 ---
-title: Включить имя файла
+title: включить файл
 description: включить файл
 author: orspod
 ms.service: data-explorer
@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: orspodek
 ms.reviewer: alexefro
 ms.custom: include file
-ms.openlocfilehash: 33168f001dd3d998fbf82169c7637e2eb390e0bc
-ms.sourcegitcommit: 537a7eaf8c8e06a5bde57503fedd1c3706dd2b45
+ms.openlocfilehash: 60831cd9e4af4890a4afe788a42cbbd5cbb641aa
+ms.sourcegitcommit: 35236fefb52978ce9a09bc36affd5321acb039a4
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86423186"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97532019"
 ---
 ## <a name="limitations"></a>Ограничения
 
@@ -24,4 +24,5 @@ ms.locfileid: "86423186"
 * Обновления схемы, такие как создание и изменение таблиц и сопоставлений приема, могут занять до пяти минут для службы приема потоковой передачи. Дополнительные сведения см. в статье прием [потоковой передачи и изменения схемы](../kusto/management/data-ingestion/streaming-ingestion-schema-changes.md).
 * Включение приема потоковой передачи в кластере, даже если данные не принимаются через потоковую передачу, использует часть локального диска SSD компьютеров кластера для данных приема потоковой передачи и сокращает объем хранилища, доступного для оперативного кэша.
 * Невозможно задать [теги экстентов](../kusto/management/extents-overview.md#extent-tagging) для данных приема потоковой передачи.
+* [Обновление политики](../kusto/management/updatepolicy.md). Политика обновления может ссылаться только на недавно полученные данные в исходной таблице, а не на другие данные или таблицы в базе данных.
 * Если прием потоковой передачи используется в любой из таблиц базы данных, эта база данных не может использоваться в качестве лидера для [баз данных-следов](../follower.md) или в качестве [поставщика данных](../data-share.md#data-provider---share-data) для общего ресурса данных Azure.
