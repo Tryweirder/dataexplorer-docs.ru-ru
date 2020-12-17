@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
 ms.localizationpriority: high
-ms.openlocfilehash: 6fc2e55b43e7c7c2dc2bb537730f8f627e3e4a66
-ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.openlocfilehash: 2a49adf8befcd7c20bd4ec1180ccf937c7bfcfff
+ms.sourcegitcommit: fcaf3056db2481f0e3f4c2324c4ac956a4afef38
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "95513120"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97388993"
 ---
 # <a name="bin"></a>bin()
 
@@ -33,7 +33,7 @@ ms.locfileid: "95513120"
 
 ## <a name="arguments"></a>Аргументы
 
-* *value*: число, дата или временной диапазон. 
+* *value*: число, дата или [временной диапазон](scalar-data-types/timespan.md). 
 * *roundTo*: значение "Размер ячейки". Число или временной диапазон, на который делится *value*. 
 
 ## <a name="returns"></a>Возвращаемое значение
