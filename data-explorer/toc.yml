@@ -365,11 +365,11 @@
               href: dealing-with-duplicates.md
     - name: Монитор
       items:
-        - name: 'Использование журналов диагностики для мониторинга приема, команд и запросов'
-          href: using-diagnostic-logs.md
         - name: Мониторинг Azure Data Explorer с помощью метрик
           displayName: 'health, performance'
           href: using-metrics.md
+        - name: 'Использование журналов диагностики для мониторинга приема, команд и запросов'
+          href: using-diagnostic-logs.md
         - name: Использование Работоспособности ресурсов для мониторинга работоспособности кластера
           href: monitor-with-resource-health.md
     - name: Совместное использование данных
@@ -1444,6 +1444,8 @@
                   href: ./kusto/management/show-ingestion-mapping-command.md
                 - name: .create table
                   href: ./kusto/management/create-table-command.md
+                - name: .create table based-on
+                  href: ./kusto/management/create-table-based-on-command.md
                 - name: .create tables
                   href: ./kusto/management/create-tables-command.md
                 - name: .create-merge table
