@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 ms.date: 07/09/2020
 ms.localizationpriority: high
-ms.openlocfilehash: 582683a9261d84fa24d819b5234e58effaf90a97
-ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.openlocfilehash: 2ef75f2249466a9796fb0313186546bd9088ff07
+ms.sourcegitcommit: 28f18c3500992fd7dcfd95dffe2bae0161a22ca3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "95512032"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97792937"
 ---
 # <a name="the-dynamic-data-type"></a>Динамический тип данных
 
@@ -163,6 +163,8 @@ print d=dynamic({"a": datetime(1970-05-11)})
 * [make_set_if()](../makesetif-aggfunction.md) возвращает массив, содержащий все уникальные значения (с предикатом).
 
 ## <a name="operators-and-functions-over-dynamic-types"></a>Операторы и функции для динамических типов
+
+Полный список скалярных функций для динамических типов и массивов см. в [этом разделе](../scalarfunctions.md#dynamicarray-functions).
 
 |Оператор или функция|Использование с динамическими типами данных|
 |---|---|

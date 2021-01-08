@@ -372,6 +372,8 @@
           href: using-diagnostic-logs.md
         - name: Использование Работоспособности ресурсов для мониторинга работоспособности кластера
           href: monitor-with-resource-health.md
+        - name: Использование аналитических сведений Azure Monitor
+          href: /azure/azure-monitor/insights/data-explorer?toc=/azure/data-explorer/toc.json&bc=/azure/data-explorer/breadcrumb/toc.json
     - name: Совместное использование данных
       items:
         - name: Использование Azure Data Share
@@ -414,7 +416,7 @@
                   href: /sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=/azure/data-explorer/context/context
                 - name: Использование Kqlmagic
                   displayName: Azure Data Studio
-                  href: /sql/azure-data-studio/notebooks/notebooks-kqlmagic?context=%252fazure%252fdata-explorer%252fcontext%252fcontext
+                  href: /sql/azure-data-studio/notebooks/notebooks-kqlmagic?context=/azure/data-explorer/context/context
         - name: Azure Pipelines
           href: devops.md
         - name: Синхронизация Kusto

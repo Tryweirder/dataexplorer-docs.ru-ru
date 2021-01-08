@@ -11,12 +11,12 @@ ms.date: 10/08/2020
 ms.localizationpriority: high
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 0616c0d4dd2a44ba1d54ac83c699a1c0bac249b0
-ms.sourcegitcommit: f134d51e52504d3ca722bdf6d33baee05118173a
+ms.openlocfilehash: 56f6952be508a79f06077077f6ec479c7a17c13a
+ms.sourcegitcommit: c4ab6f07e2e5363e331ccd4ecfb6ed813edfbc48
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563365"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706402"
 ---
 # <a name="tutorial-use-kusto-queries-in-azure-data-explorer-and-azure-monitor"></a>Руководство по использованию запросов Kusto в Azure Data Explorer и Azure Monitor
 
@@ -165,7 +165,7 @@ print x=1
 
 ## <a name="aggregate-groups-of-rows-summarize"></a>Агрегирование групп строк с помощью оператора *summarize*
 
-Выполните следующий запрос, чтобы подсчитать количество событий в каждом штате:
+Подсчитайте количество событий для каждого штата:
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
@@ -242,7 +242,7 @@ StormEvents
 
 :::image type="content" source="images/tutorial/event-counts-state.png" alt-text="Снимок экрана: гистограмма с количеством штормов по штату.":::
 
-Хотя мы удалили элемент `mid` в операции `project`, он нам еще пригодится, если мы хотим, чтобы страны на диаграмме отображались именно в таком порядке.
+Хотя мы удалили элемент `mid` в операции `project`, он нам еще пригодится, если мы хотим, чтобы штаты на диаграмме отображались именно в таком порядке.
 
 Строго говоря, `render` — это клиентская функция, а не часть языка запросов. Тем не менее, она интегрирована в язык и полезна для представления результатов.
 

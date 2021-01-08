@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.localizationpriority: high
-ms.openlocfilehash: 0086fb9f649d7bb3b7031521812c1dff0ca532f7
-ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.openlocfilehash: 2c23633c13c2a58f3c6e6e9b9daf001942117bfb
+ms.sourcegitcommit: 1530a38181ec92ed1c2c1f3aa2a75f69bd3e9045
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "95513069"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822837"
 ---
 # <a name="kustoexplorer-installation-and-user-interface"></a>Установка и пользовательский интерфейс Kusto.Explorer
 
@@ -325,6 +325,11 @@ Kusto.Explorer пытается интерпретировать уровень 
 Чтобы изменить выходную цветовую схему или отключить это поведение, в меню **Tools** (Средства) выберите **Options** > **Results Viewer** > **Verbosity color scheme** (Параметры > Средство просмотра результатов > Детализированная цветовая схема).
 
 :::image type="content" source="images/kusto-explorer/ke-color-scheme.png" alt-text="Изменение цветовой схемы обозревателя Kusto":::
+
+
+Условные обозначения для цветовой схемы **Excel**| Условные обозначения для цветовой схемы **Яркие**
+|---|---
+| :::image type="content" source="images/kusto-explorer/excel-color-scheme.png" alt-text="Снимок экрана: условные обозначения для цветовой схемы Excel в обозревателе Kusto" border="false"::: |:::image type="content" source="images/kusto-explorer/vivid-color-scheme.png" alt-text="Снимок экрана: условные обозначения для яркой цветовой схемы в обозревателе Kusto" border="false":::
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

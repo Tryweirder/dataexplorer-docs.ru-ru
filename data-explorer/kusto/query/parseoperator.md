@@ -9,17 +9,16 @@ ms.service: data-explorer
 ms.topic: reference
 ms.date: 02/13/2020
 ms.localizationpriority: high
-ms.openlocfilehash: 2b034719fa7c2f3714020c722b5717f5cf8590ff
-ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.openlocfilehash: a9da3735df9299b387188157bbae3d561f5de631
+ms.sourcegitcommit: f20619fac91f9bb2e6507cac10d41fb8425218e0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "95512967"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97811775"
 ---
 # <a name="parse-operator"></a>Оператор parse
 
-оценивает выражение строки и разбирает его на один или несколько вычисляемых столбцов. Вычисляемые столбцы будут иметь значения NULL для неудачно проанализированных строк.
-Дополнительные сведения см. в статье [Оператор parse-where](parsewhereoperator.md).
+оценивает выражение строки и разбирает его на один или несколько вычисляемых столбцов. Вычисляемые столбцы будут иметь значения NULL для неудачно проанализированных строк. Если нет необходимости использовать строки, которые не удалось проанализировать, рекомендуем использовать оператор [parse-where](parsewhereoperator.md).
 
 ```kusto
 T | parse Text with "ActivityName=" name ", ActivityType=" type
@@ -87,7 +86,7 @@ T | parse Text with "ActivityName=" name ", ActivityType=" type
 Оператор `parse` предоставляет упрощенный способ использования `extend` для таблицы путем применения нескольких операторов `extract` в одном выражении `string`. Этот результат полезен, если в таблице есть столбец типа `string`, содержащий несколько значений, которые необходимо разделить на отдельные столбцы. Например, столбец, созданный инструкцией трассировки разработчика ("`printf`"/"`Console.WriteLine`").
 
 В примере ниже предполагается, что столбец `EventText` таблицы `Traces` содержит строки вида `Event: NotifySliceRelease (resourceName={0}, totalSlices= {1}, sliceNumber={2}, lockTime={3}, releaseTime={4}, previousLockTime={5})`.
-Оператор включит в таблицу шесть столбцов: `resourceName`, `totalSlices`, `sliceNumber`, `lockTime `, `releaseTime`, `previousLockTime`, `Month` и `Day`. 
+Оператор включит в таблицу шесть столбцов: `resourceName`, `totalSlices`, `sliceNumber`, `lockTime `, `releaseTime` и `previousLockTime`. 
 
 <!-- csl: https://help.kusto.windows.net/Samples -->
 ```kusto
