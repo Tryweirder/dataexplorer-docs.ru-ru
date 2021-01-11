@@ -368,7 +368,7 @@
         - name: Мониторинг Azure Data Explorer с помощью метрик
           displayName: 'health, performance'
           href: using-metrics.md
-        - name: 'Использование журналов диагностики для мониторинга приема, команд и запросов'
+        - name: 'Использование журналов диагностики для мониторинга приема, команд, запросов и таблиц'
           href: using-diagnostic-logs.md
         - name: Использование Работоспособности ресурсов для мониторинга работоспособности кластера
           href: monitor-with-resource-health.md
