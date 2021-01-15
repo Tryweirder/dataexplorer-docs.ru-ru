@@ -86,7 +86,7 @@
             - name: Общие сведения о приеме одним щелчком
               href: ingest-data-one-click.md
             - name: Перенос данных из контейнера в новую таблицу в формате CSV
-              displayName: 'ingest data, ingestion, one click'
+              displayName: 'Event Grid, ingest data, ingestion, one click'
               href: one-click-ingestion-new-table.md
             - name: Перенос данных из локального файла в существующую таблицу в формате JSON
               displayName: 'ingest data, ingestion, one click'
