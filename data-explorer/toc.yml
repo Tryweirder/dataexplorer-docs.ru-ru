@@ -1398,7 +1398,7 @@
               href: ./kusto/tools/kusto-explorer-troubleshooting.md
         - name: Kusto.Cli
           href: ./kusto/tools/kusto-cli.md
-- name: Справочник
+- name: Справочные сведения
   items:
     - name: Управление
       items:
@@ -1713,24 +1713,28 @@
               href: ./kusto/management/access-control/how-to-authenticate-with-aad.md
         - name: Расширенное управление данными
           items:
-            - name: Обзор экстентов (сегментов данных)
-              href: ./kusto/management/extents-overview.md
-            - name: Команды для экстентов
+            - name: Экстенты (сегменты данных)
               items:
-                - name: .alter extent
-                  href: ./kusto/management/alter-extent.md
-                - name: .drop extents
-                  href: ./kusto/management/drop-extents.md
-                - name: .drop extent tags
-                  href: ./kusto/management/drop-extent-tags.md
-                - name: .merge extents
-                  href: ./kusto/management/merge-extents.md
-                - name: .move extents
-                  href: ./kusto/management/move-extents.md
-                - name: .replace extents
-                  href: ./kusto/management/replace-extents.md
-                - name: .show extents
-                  href: ./kusto/management/show-extents.md
+                - name: Обзор экстентов
+                  href: ./kusto/management/extents-overview.md
+                - name: Команды для экстентов
+                  items:
+                    - name: .alter extent
+                      href: ./kusto/management/alter-extent.md
+                    - name: .drop extents
+                      href: ./kusto/management/drop-extents.md
+                    - name: .drop extent tags
+                      href: ./kusto/management/drop-extent-tags.md
+                    - name: .merge extents
+                      href: ./kusto/management/merge-extents.md
+                    - name: .move extents
+                      href: ./kusto/management/move-extents.md
+                    - name: .replace extents
+                      href: ./kusto/management/replace-extents.md
+                    - name: .show extents
+                      href: ./kusto/management/show-extents.md
+                - name: Команды очистки контейнеров экстентов
+                  href: ./kusto/management/clean-extent-containers.md
             - name: Подписчик кластера
               href: ./kusto/management/cluster-follower.md
             - name: Очистка данных
