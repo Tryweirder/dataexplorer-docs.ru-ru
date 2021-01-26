@@ -11,12 +11,12 @@ ms.date: 10/08/2020
 ms.localizationpriority: high
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 930936bd9839730ccb0c438cc96a67334ea7ac71
-ms.sourcegitcommit: 64b7b320875950dfee8eb1a23d36aa95e27d7297
+ms.openlocfilehash: 90c1f09710bcfcf9394113a9eca4764fa51c696e
+ms.sourcegitcommit: 3a2d2def8d6bf395bbbb3b84935bc58adae055b8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98207811"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98636030"
 ---
 # <a name="tutorial-use-kusto-queries-in-azure-data-explorer-and-azure-monitor"></a>Руководство по использованию запросов Kusto в Azure Data Explorer и Azure Monitor
 
@@ -416,7 +416,7 @@ StormEvents
 
 * 5 % штормов имеют продолжительность менее 5 минут;
 * 50 % штормов длились менее одного часа и 25 минут;
-* 95 % штормов длятся не менее двух часов и 50 минут.
+* 95 % штормов длились менее двух часов и 50 минут.
 
 Чтобы получить отдельную разбивку для каждого штата, используйте столбец `state` отдельно с обеими операторами `summarize`:
 

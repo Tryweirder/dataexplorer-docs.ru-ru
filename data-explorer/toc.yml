@@ -1398,13 +1398,29 @@
               href: ./kusto/tools/kusto-explorer-troubleshooting.md
         - name: Kusto.Cli
           href: ./kusto/tools/kusto-cli.md
-- name: Справочные сведения
+- name: Справочник
   items:
     - name: Управление
       items:
         - name: Общие сведения о командах управления
           displayName: Management
           href: ./kusto/management/index.md
+        - name: Группы рабочей нагрузки (предварительная версия)
+          items:
+            - name: Общие сведения о группах рабочей нагрузки
+              href: ./kusto/management/workload-groups.md
+            - name: Управление группами рабочей нагрузки
+              href: ./kusto/management/workload-groups-commands.md
+            - name: Политика классификации запросов
+              items:
+                - name: Политика классификации запросов
+                  href: ./kusto/management/request-classification-policy.md
+                - name: Команды для политики классификации запросов
+                  href: ./kusto/management/request-classification-policy-commands.md
+            - name: Политика ограничения запросов
+              href: ./kusto/management/request-limits-policy.md
+            - name: Политика ограничения частоты запросов
+              href: ./kusto/management/request-rate-limit-policy.md
         - name: схема
           items:
             - name: Рекомендации по управлению схемами
@@ -1565,12 +1581,6 @@
                   href: ./kusto/management/partitioningpolicy.md
                 - name: команда политики секционирования
                   href: ./kusto/management/partitioning-policy.md
-            - name: Регулирование запросов
-              items:
-                - name: Политика регулирования запросов
-                  href: ./kusto/management/query-throttling-policy.md
-                - name: Команды для политики регулирования запросов
-                  href: ./kusto/management/query-throttling-policy-commands.md
             - name: Сохранение
               items:
                 - name: Политика хранения
