@@ -1,34 +1,36 @@
 ---
-title: Функция parse_json() в Azure Data Explorer
-description: В этой статье приводится описание функции parse_json() в Azure Data Explorer.
+title: Функции todynamic() и parse_json() в Azure Data Explorer
+description: В этой статье описываются функции todynamic() и parse_json() в Azure Data Explorer.
 services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 01/25/2021
 ms.localizationpriority: high
-ms.openlocfilehash: 3125a51733f6672d041e6c1522ea755e5677cb0c
-ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.openlocfilehash: 680ce93ec2a3b39d14475689ac80793a02d86547
+ms.sourcegitcommit: 8468c6886dc097032ef6db86992a5e8c9b18786e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "95512865"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98911950"
 ---
-# <a name="parse_json"></a>parse_json()
+# <a name="todynamic-parse_json"></a>todynamic(), parse_json()
 
-Интерпретирует `string` как значение JSON и возвращает значение типа `dynamic`.
+Интерпретирует `string` как значение JSON и возвращает значение типа `dynamic`. 
 
-Если необходимо извлечь более одного элемента составного объекта JSON, эта функция более эффективная, чем [функция extractjson()](./extractjsonfunction.md).
+> [!NOTE]
+> Функции `todynamic()` и `parse_json()` интерпретируются одинаково.
+
+Если необходимо извлечь более одного элемента составного объекта JSON, эта функция более эффективная, чем [функция extractjson()](./extractjsonfunction.md). По возможности старайтесь использовать [dynamic()](./scalar-data-types/dynamic.md).
 
 ## <a name="syntax"></a>Синтаксис
 
 `parse_json(`*json*`)`
+`todynamic(`*json*`)`
 
-Псевдонимы:
-- [todynamic()](./todynamicfunction.md)
-- [toobject()](./todynamicfunction.md)
+<!-- deprecated aliases: `toobject()` and parsejson() -->
 
 ## <a name="arguments"></a>Аргументы
 
