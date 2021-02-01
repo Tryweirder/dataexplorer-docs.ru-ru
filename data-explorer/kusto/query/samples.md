@@ -11,12 +11,12 @@ ms.date: 10/08/2020
 ms.localizationpriority: high
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 866df577fa039e8b92c31753197cf4a4fa03f139
-ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.openlocfilehash: 4da3a7137b170b8048fbf03b6e6b6369eb4785d9
+ms.sourcegitcommit: 62eff65b320ce4ca53eabed6156eb9fe5b77f548
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "95783614"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99224236"
 ---
 # <a name="samples-for-queries-for-azure-data-explorer-and-azure-monitor"></a>Примеры запросов для Azure Data Explorer и Azure Monitor
 
@@ -255,7 +255,7 @@ X | mv-expand samples = range(bin(StartTime, 1m), StopTime , 1m)
 ```kusto
 X
 | mv-expand samples = range(bin(StartTime, 1m), StopTime , 1m)
-| summarize count(SessionId) by bin(todatetime(samples),1m)
+| summarize count_SessionId = count() by bin(todatetime(samples),1m)
 ```
 
 * Используйте `todatetime()`, так как [mv-expand](./mvexpandoperator.md) выдает столбец динамического типа.
