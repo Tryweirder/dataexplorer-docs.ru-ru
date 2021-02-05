@@ -1,6 +1,6 @@
 ---
-title: Определяемые пользователем функции в Azure Data Explorer | Документация Майкрософт
-description: В этой статье описываются определяемые пользователем функции в Azure Data Explorer.
+title: Определяемые пользователем функции в Azure Data Explorer
+description: В этой статье описываются определяемые пользователем функции (скалярные функции и представления) в Azure Data Explorer.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/12/2020
 ms.localizationpriority: high
-ms.openlocfilehash: 92627b3325a7a2ba8e2e4d58a82ebf6db3977221
-ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.openlocfilehash: c85fd5dc784747314fe843d8f2325db76ee18d2c
+ms.sourcegitcommit: c11e3871d600ecaa2824ad78bce9c8fc5226eef9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "95512882"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99554672"
 ---
 # <a name="user-defined-functions"></a>Определяемые пользователем функции
 
@@ -22,8 +22,8 @@ ms.locfileid: "95512882"
 
 Определяемая пользователем функция может принадлежать к одной из двух категорий:
 
-* Скалярные функции 
-* табличные функции. 
+* скалярные функции; 
+* табличные функции, также известные как представления.
 
 Входные аргументы и выходные данные функции определяют, является ли она скалярной или табличной, что обуславливает способ ее использования. 
 
