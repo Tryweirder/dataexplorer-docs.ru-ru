@@ -507,6 +507,7 @@
         - name: Типы функций
           href: ./kusto/query/functions/index.md
         - name: Определяемые пользователем функции
+          displayName: 'Kusto view, views, Kusto function'
           href: ./kusto/query/functions/user-defined-functions.md
     - name: Инструкции запросов
       items:
