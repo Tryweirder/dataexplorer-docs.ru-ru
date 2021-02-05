@@ -1,18 +1,18 @@
 ---
 title: Элементы управления соответствием в службе "Политика Azure" для Azure Data Explorer
 description: Содержит список элементов управления соответствием из службы "Политика Azure" для Azure Data Explorer. Эти встроенные определения политик предоставляют популярные подходы к управлению соответствием ресурсов Azure.
-ms.date: 01/27/2021
+ms.date: 02/05/2021
 ms.topic: sample
 author: orspod
 ms.author: orspodek
 ms.service: data-explorer
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3d27a642afd13e25fb593a3ca79bf63e78aa408f
-ms.sourcegitcommit: c65080267f32f23205134c4d685908db58fb87c0
+ms.openlocfilehash: 9f52935e235dcf64c5236d3fbdd58b95441aa5c9
+ms.sourcegitcommit: d1c2433df183d0cfbfae4d3b869ee7f9cbf00fe4
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99099171"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99586394"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-explorer"></a>Элементы управления соответствием в службе "Политика Azure" для Azure Data Explorer
 
@@ -30,10 +30,10 @@ ms.locfileid: "99099171"
 |Домен |Идентификатор элемента управления |Заголовок элемента управления |Политика<br /><sub>(портал Azure)</sub> |Версия политики<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Защита системы и средств передачи данных |SC.3.177 |Применение шифрование, проверенного FIPS, при использовании для защиты конфиденциальности контролируемой несекретной информации. |[Во время шифрования неактивных данных в Azure Data Explorer должен использоваться управляемый клиентом ключ](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F81e74cea-30fd-40d5-802f-d72103c2aaaa) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_CMK.json) |
-|Защита системы и средств передачи данных |SC.3.177 |Применение шифрование, проверенного FIPS, при использовании для защиты конфиденциальности контролируемой несекретной информации. |[В Azure Data Explorer должно быть включено шифрование дисков](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4b53539-8df9-40e4-86c6-6b607703bd4e) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_disk_encrypted.json) |
-|Защита системы и средств передачи данных |SC.3.177 |Применение шифрование, проверенного FIPS, при использовании для защиты конфиденциальности контролируемой несекретной информации. |[В Azure Data Explorer должно быть включено двойное шифрование](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec068d99-e9c7-401f-8cef-5bdde4e6ccf1) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_doubleEncryption.json) |
-|Защита системы и средств передачи данных |SC.3.191 |Защита конфиденциальности неактивной контролируемой несекретной информации |[В Azure Data Explorer должно быть включено шифрование дисков](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4b53539-8df9-40e4-86c6-6b607703bd4e) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_disk_encrypted.json) |
-|Защита системы и средств передачи данных |SC.3.191 |Защита конфиденциальности неактивной контролируемой несекретной информации |[В Azure Data Explorer должно быть включено двойное шифрование](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec068d99-e9c7-401f-8cef-5bdde4e6ccf1) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_doubleEncryption.json) |
+|Защита системы и средств передачи данных |SC.3.177 |Применение шифрование, проверенного FIPS, при использовании для защиты конфиденциальности контролируемой несекретной информации. |[В Azure Data Explorer должно быть включено шифрование дисков](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4b53539-8df9-40e4-86c6-6b607703bd4e) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_disk_encrypted.json) |
+|Защита системы и средств передачи данных |SC.3.177 |Применение шифрование, проверенного FIPS, при использовании для защиты конфиденциальности контролируемой несекретной информации. |[В Azure Data Explorer должно быть включено двойное шифрование](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec068d99-e9c7-401f-8cef-5bdde4e6ccf1) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_doubleEncryption.json) |
+|Защита системы и средств передачи данных |SC.3.191 |Защита конфиденциальности неактивной контролируемой несекретной информации |[В Azure Data Explorer должно быть включено шифрование дисков](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4b53539-8df9-40e4-86c6-6b607703bd4e) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_disk_encrypted.json) |
+|Защита системы и средств передачи данных |SC.3.191 |Защита конфиденциальности неактивной контролируемой несекретной информации |[В Azure Data Explorer должно быть включено двойное шифрование](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec068d99-e9c7-401f-8cef-5bdde4e6ccf1) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_doubleEncryption.json) |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
