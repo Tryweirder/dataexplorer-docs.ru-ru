@@ -211,6 +211,8 @@
           items:
             - name: Python
               href: python-query-data.md
+        - name: Оптимизация для обеспечения высокой степени параллелизма
+          href: high-concurrency.md
         - name: Анализ временных рядов и машинное обучение
           items:
             - name: Аналитика временных рядов
