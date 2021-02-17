@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 ms.date: 10/19/2020
 ms.localizationpriority: high
-ms.openlocfilehash: 13dac735127815c00ac8c1128c710e26208406d7
-ms.sourcegitcommit: d4b359e817e002fba7320132732ce6d9cee97415
+ms.openlocfilehash: 0dffa044ff47748d46b3ab4758bb61684bb8bb10
+ms.sourcegitcommit: db99b9d0b5f34341ad3be38cc855c9b80b3c0b0e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541501"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100359732"
 ---
 # <a name="string-operators"></a>Строковые операторы
 
@@ -55,6 +55,7 @@ Kusto создает индекс термина, состоящий из все
 `!~`            |Не равно                                                        |Нет            |`"aBc" !~ "xyz"`
 `has`           |Правая часть представляет собой все слово в левой части     |Нет            |`"North America" has "america"`
 `!has`          |ПЧ не является полным термином в ЛЧ                                     |Нет            |`"North America" !has "amer"` 
+[`has_all`](has-all-operator.md)       |Аналогичен `has`, но работает со всеми элементами                    |Нет            |`"North and South America" has_all("south", "north")`
 [`has_any`](has-anyoperator.md)       |Аналогичен `has`, но работает с любыми элементами                    |Нет            |`"North America" has_any("south", "north")`
 `has_cs`        |ПЧ представляет целый термин в ЛЧ                                        |Да           |`"North America" has_cs "America"`
 `!has_cs`       |ПЧ не является полным термином в ЛЧ                                     |Да           |`"North America" !has_cs "amer"` 
@@ -94,7 +95,7 @@ Kusto создает индекс термина, состоящий из все
 Пример:
 
 * вместо`=~` используйте `==`.
-* вместо`in~` используйте `in`;
+* вместо`in~` используйте `in`.
 * вместо`contains` используйте `contains_cs`.
 
 Для ускорения результатов при тестировании на наличие символа или буквенно-цифрового слова, которое связано с символами, отличными от алфавитных символов, или в начале или в конце поля используйте `has` или `in`. 
