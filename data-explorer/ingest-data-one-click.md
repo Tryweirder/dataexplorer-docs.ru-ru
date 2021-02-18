@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 03/29/2020
-ms.openlocfilehash: bf6dced9b0df0b90b0b1ff87389c9dab31ebe7c0
-ms.sourcegitcommit: f7bebd245081a5cdc08e88fa4f9a769c18e13e5d
+ms.openlocfilehash: 5ebd3ee711baa24c6f73facfdab361e2de5ada20
+ms.sourcegitcommit: abbcb27396c6d903b608e7b19edee9e7517877bb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94644643"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100528157"
 ---
 # <a name="what-is-one-click-ingestion"></a>Что такое прием данных одним щелчком?
 
@@ -26,7 +26,7 @@ ms.locfileid: "94644643"
 * прием данных в разных [форматах](#file-formats);
 * прием данных в новые или существующие таблицы;
 * вам предлагаются сопоставления таблиц и схемы, которые можно легко изменить;
-* вы можете быстро и легко продолжить прием из контейнера с помощью Сетки событий.
+* вы можете быстро и легко продолжить прием из контейнера с помощью [Сетки событий](one-click-ingestion-new-table.md#create-continuous-ingestion-for-container).
 
 Возможность приема данных одним щелчком особенно полезна при первом приеме данных или в случае, когда схема данных вам незнакома.
 
@@ -40,13 +40,19 @@ ms.locfileid: "94644643"
 
 Мастер приема данных одним щелчком помогает выполнить прием данных одним щелчком.
 
+* Чтобы получить доступ к мастеру из [пользовательского веб-интерфейса Azure Data Explorer](https://dataexplorer.azure.com/), используйте один из следующих методов:
+    * В области слева щелкните элемент **Данные**. На странице **Управление данными** выберите тип приема и щелкните элемент **Прием**. 
+      
+      :::image type="content" source="media/ingest-data-one-click/data-management.png" alt-text="Прием данных из окна управления данными интерфейса WebUI, Azure Data Explorer" lightbox="media/ingest-data-one-click/data-management.png":::
+   
+     * Щелкните правой кнопкой мыши строку **баз данных** или **таблиц** слева в меню пользовательского веб-интерфейса Azure Data Explorer и выберите элемент **Ingest new data** (Прием новых данных).
+        
+        :::image type="content" source="media/ingest-data-one-click/one-click-ingestion-in-webui.png" alt-text="Выбор функции приема данных одним щелчком в пользовательском веб-интерфейсе":::
+
 * Чтобы открыть мастер приема данных одним щелчком на **начальном экране Azure Data Explorer** в вашем кластере, выполните первые два шага ([создание кластера и создание базы данных](#prerequisites)), а затем выберите **Ingest new data** (Принять новые данные).
 
     :::image type="content" source="media/ingest-data-one-click/welcome-ingestion.png" alt-text="Прием новых данных с начального экрана Azure Data Explorer":::
 
-* Чтобы открыть мастер из [пользовательского веб-интерфейса Azure Data Explorer](https://dataexplorer.azure.com/), щелкните правой кнопкой мыши строку **базы данных** или **таблицы** в меню веб-интерфейса Azure Data Explorer слева и выберите **Ingest new data** (Принять новые данные).
-
-    :::image type="content" source="media/ingest-data-one-click/one-click-ingestion-in-webui.png" alt-text="Выбор функции приема данных одним щелчком в пользовательском веб-интерфейсе":::
 
 * Чтобы открыть мастер на портале Azure, в меню слева выберите элемент **Запрос**, щелкните правой кнопкой мыши имя **базы данных** или **таблицы** и выберите элемент **Прием новых данных**.
 
@@ -65,10 +71,9 @@ ms.locfileid: "94644643"
    * принимать данные в [имеющейся таблице](one-click-ingestion-existing-table.md),
    * о приеме данных в [новую таблицу](one-click-ingestion-new-table.md)
    * Прием данных из:
-      * Хранилище BLOB-объектов
-      * [локального файла;](one-click-ingestion-existing-table.md)
-      * [контейнера.](one-click-ingestion-new-table.md)
-
+      * Хранилища BLOB-объектов: до 10 больших двоичных объектов;
+      * [локального файла](one-click-ingestion-existing-table.md): до 10 файлов;
+      * [контейнера](one-click-ingestion-new-table.md) (контейнер больших двоичных объектов, контейнер ADLS 1-го поколения, контейнер ADLS 2-го поколения).
 
 ### <a name="schema-mapping"></a>Сопоставление схем
 
@@ -77,6 +82,7 @@ ms.locfileid: "94644643"
 На вкладке **Схема** нужно сделать следующее:
    * подтвердить автоматически выбранный тип сжатия;
    * выбрать [формат данных](#file-formats). Разные форматы поддерживают возможность дальнейших изменений.
+   * Измените сопоставление в [окне редактора](#editor-window).
 
 #### <a name="file-formats"></a>Форматы файлов
 
@@ -84,12 +90,9 @@ ms.locfileid: "94644643"
 
 ### <a name="editor-window"></a>Окно редактора
 
-В окне **редактора** можно нужным образом настроить столбцы таблицы. 
+В окне **редактора** на вкладке **Схема** можно нужным образом настроить столбцы таблицы. 
 
-|Тип таблицы  |Доступные параметры столбцов  |
-|---------|---------|
-|Создать     | "Создать столбец", "Удалить столбец", "Обновить столбец", "Сортировать по возрастанию", "Сортировать по убыванию"  |
-|Существующий     | "Создать столбец", "Обновить столбец", "Сортировать по возрастанию", "Сортировать по убыванию"  |
+[!INCLUDE [data-explorer-one-click-column-table](includes/data-explorer-one-click-column-table.md)]
 
 >[!NOTE]
 > Вам также доступен [редактор команд](one-click-ingestion-new-table.md#command-editor) (над областью **редактора**). В нем можно просматривать и копировать автоматические команды, созданные на основе входных данных.
@@ -104,7 +107,7 @@ ms.locfileid: "94644643"
 * DateTimeFromUnixMicroseconds;
 * DateTimeFromUnixNanoseconds.
 
-Дополнительные сведения см. в разделе [Преобразования сопоставлений](kusto/management/mappings.md#mapping-transformations).
+Дополнительные сведения см. в разделе [Преобразования сопоставлений](#mapping-transformations).
 
 ### <a name="data-ingestion"></a>Прием данных
 

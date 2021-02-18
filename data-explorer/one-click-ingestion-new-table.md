@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 ms.date: 03/29/2020
-ms.openlocfilehash: e2c84649653d6d3762a82c1e4aa3c98c9ef8119d
-ms.sourcegitcommit: d9e203a54b048030eeb6d05b01a65902ebe4e0b8
+ms.openlocfilehash: 3ac9788eda7a75173778ce0533f59820cfd7e7dd
+ms.sourcegitcommit: abbcb27396c6d903b608e7b19edee9e7517877bb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371684"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100528280"
 ---
 # <a name="use-one-click-ingestion-to-ingest-csv-data-from-a-container-to-a-new-table-in-azure-data-explorer"></a>Использование приема данных одним щелчком для приема данных в формате CSV из контейнера в новую таблицу в Azure Data Explorer
 
@@ -33,9 +33,11 @@ ms.locfileid: "97371684"
 
     :::image type="content" source="media/one-click-ingestion-new-table/one-click-ingestion-in-web-ui.png" alt-text="Прием новых данных":::
 
-1. В окне **Ingest new data** (Прием новых данных) выберите вкладку **Источник**. 
+1. В окне **Ingest new data** (Прием новых данных) выберите вкладку **Источник**. Поля **кластера** и **базы данных** заполняются автоматически.
 
-1. Выберите **Создать таблицу** и введите имя новой таблицы. Вы можете использовать буквенно-цифровые символы, дефисы и символы подчеркивания. Специальные символы не поддерживаются.
+    [!INCLUDE [one-click-cluster](includes/one-click-cluster.md)]
+
+1. Выберите элементы **Таблица** > **Создать новую** и введите имя новой таблицы. Вы можете использовать буквенно-цифровые символы, дефисы и символы подчеркивания. Специальные символы не поддерживаются.
 
     > [!NOTE]
     > Имена таблиц должны включать от 1 до 1024 символов.
@@ -44,9 +46,9 @@ ms.locfileid: "97371684"
 
 ## <a name="select-an-ingestion-type"></a>Выберите тип приема данных
 
-В разделе **Ingestion type** (Тип приема) сделайте следующее:
+В разделе **Тип источника** сделайте следующее:
    
-  1. Выберите **из контейнера** (контейнер BLOB-объектов, контейнер ADLS 1-го поколения, контейнер ADLS 2-го поколения).
+  1. Выберите элемент **From blob container** (Из контейнера больших двоичных объектов). Это может быть контейнер больших двоичных объектов, контейнер ADLS 1-го поколения и контейнер ADLS 2-го поколения. Вы можете принять до 1000 больших двоичных объектов из одного контейнера.
   1. В поле **Link to storage** (Ссылка на хранилище) добавьте [подписанный URL-адрес](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) контейнера и при необходимости введите размер выборки. Ознакомьтесь со статьей [Прием данных из папки в контейнере](#ingest-from-folder-in-a-container), чтобы выполнить эту операцию.
 
       :::image type="content" source="media/one-click-ingestion-new-table/from-container.png" alt-text="Прием данных одним щелчком из контейнера":::
@@ -56,7 +58,7 @@ ms.locfileid: "97371684"
 
 ### <a name="ingest-from-folder-in-a-container"></a>Прием данных из папки в контейнере
 
-Для приема данных из определенной папки в контейнере создайте строку в следующем формате:
+Для приема данных из определенной папки в контейнере [создайте строку в следующем формате](kusto/api/connection-strings/storage.md#azure-data-lake-store):
 
 *container_path*`/`*folder_path*`;`*access_key_1*.
 
