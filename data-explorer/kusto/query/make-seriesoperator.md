@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 ms.date: 03/16/2020
 ms.localizationpriority: high
-ms.openlocfilehash: 6357afeb0a5673584e27b84a231e3c65f897b8fc
-ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.openlocfilehash: 29fdacc9483c21c4a8a148d2134f4082d439bb89
+ms.sourcegitcommit: ee49cd8186d4aecd5de1ed6d24db6c7b7a079ac4
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "95512372"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100549009"
 ---
 # <a name="make-series-operator"></a>Оператор make-series
 
@@ -87,8 +87,9 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
 |[maxif()](maxif-aggfunction.md)|Возвращает максимальное значение с предикатом в группе.|
 |[min()](min-aggfunction.md)|Возвращает минимальное значение в группе.|
 |[minif()](minif-aggfunction.md)|Возвращает минимальное значение с предикатом в группе.|
+|[percentile()](percentiles-aggfunction.md)|Возвращает значение процентиля в группе.|
 |[stdev()](stdev-aggfunction.md)|Возвращает стандартное отклонение в группе.|
-|[sum()](sum-aggfunction.md)|Возвращает сумму элементов в группе.|
+|[sum()](sum-aggfunction.md)|Возвращает сумму элементов в группе|
 |[sumif()](sumif-aggfunction.md)|Возвращает сумму элементов с предикатом в группе.|
 |[variance()](variance-aggfunction.md)|Возвращает вариантность в группе.|
 
@@ -107,7 +108,9 @@ T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from da
 |[series_periods_validate()](series-periods-validatefunction.md)|Проверяет, содержит ли временной ряд периодические шаблоны заданной длины.|
 |[series_stats_dynamic()](series-stats-dynamicfunction.md)|Возвращает несколько столбцов с общей статистикой (min/max/variance/stdev/average).|
 |[series_stats()](series-statsfunction.md)|Создает динамическое значение с общей статистикой (min/max/variance/stdev/average).|
-  
+
+Полный список функций для анализа рядов см. в следующем документе: [Функции обработки рядов](scalarfunctions.md#series-processing-functions)
+
 ## <a name="list-of-series-interpolation-functions"></a>Список функций интерполяции ряда
 
 |Функция|Описание|
