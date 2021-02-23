@@ -4,6 +4,8 @@
   items:
     - name: Что такое Azure Data Explorer?
       href: data-explorer-overview.md
+    - name: Новые возможности Azure Data Explorer
+      href: whats-new.md
 - name: Краткие руководства
   expanded: true
   items:
