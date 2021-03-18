@@ -1573,6 +1573,12 @@
                   href: ./kusto/management/show-function.md
         - name: Политики
           items:
+            - name: Автоматическое удаление
+              items:
+                - name: Политика автоматического удаления
+                  href: ./kusto/management/auto-delete-policy.md
+                - name: Команда политики автоматического удаления
+                  href: ./kusto/management/auto-delete-policy-command.md
             - name: Пакетная обработка приема
               items:
                 - name: Политика пакетной обработки приема
