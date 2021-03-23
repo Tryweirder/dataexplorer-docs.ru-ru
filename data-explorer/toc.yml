@@ -81,8 +81,13 @@
           href: create-cluster-database-go.md
         - name: Шаблон Azure Resource Manager
           href: create-cluster-database-resource-manager.md
-    - name: Создание таблицы
-      href: one-click-table.md
+    - name: Создание таблиц
+      items:
+        - name: Создать таблицу
+          href: one-click-table.md
+        - name: Создание внешней таблицы
+          displayName: one-click
+          href: external-table.md
     - name: Прием данных
       items:
         - name: Прием данных одним щелчком
