@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.localizationpriority: high
-ms.openlocfilehash: 23bd17b54a1910633baabf2b78a1015f31eead5a
-ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.openlocfilehash: e55ad9e69909b71537401f0a2a25a6f0aa1bbb9e
+ms.sourcegitcommit: 4afb883901e8935e0584441e946d5522a9b47f6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "95512780"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104796654"
 ---
 # <a name="visualize-data-with-azure-data-explorer-dashboardspreview"></a>Визуализация данных с помощью панели мониторинга Azure Data Explorer (предварительная версия)
 
@@ -106,7 +106,7 @@ ms.locfileid: "95512780"
 
 ## <a name="share-dashboards"></a>Совместное использование панелей мониторинга
 
-Используйте меню совместного доступа, чтобы [предоставить разрешения](#grant-permissions) к панели мониторинга, [изменить уровень разрешений пользователя](#change-a-user-permission-level) и [поделиться ссылкой на панель мониторинга](#share-the-dashboard-link).
+Используйте меню общего доступа, чтобы [предоставить разрешения](#grant-permissions) на доступ к панели мониторинга для пользователя Azure Active Directory (AAD) или группы AAD, [изменить уровень разрешений пользователя](#change-a-user-permission-level) и [поделиться ссылкой на панель мониторинга](#share-the-dashboard-link).
 
 > [!IMPORTANT]
 > Чтобы получить доступ к панели мониторинга требуется следующее:
