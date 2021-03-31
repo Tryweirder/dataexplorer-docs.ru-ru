@@ -11,12 +11,12 @@ ms.date: 03/30/2020
 ms.localizationpriority: high
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: b90e5f1c95ec75a946490cd75b5dd89ad2cb1aba
-ms.sourcegitcommit: f49e581d9156e57459bc69c94838d886c166449e
+ms.openlocfilehash: 5ab13fc7f86849f65ede7e8f30370a1ef97f423d
+ms.sourcegitcommit: 7a94cdf8c07b15e594dd8abc10091afe5f716609
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "95513341"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543130"
 ---
 # <a name="join-operator"></a>Оператор join
 
@@ -54,7 +54,7 @@ Table1 | join (Table2) on CommonColumn, $left.Col1 == $right.Col2
 
     |Имя параметра           |Значения                                        |Описание                                  |
     |---------------|----------------------------------------------|---------------------------------------------|
-    |`kind`         |Разновидности оператора соединения|См. раздел [Варианты оператора join](#join-flavors).|                                             |
+    |`kind`         |Разновидности оператора соединения|См. раздел [Варианты оператора join](#join-flavors).|
     |`hint.remote`  |`auto`, `left`, `local`, `right`              |См. статью [Межкластерный оператор join](joincrosscluster.md).|
     |`hint.strategy`|Указания по выполнению                               |См. раздел [Указания для оператора join](#join-hints).                |
 
@@ -64,7 +64,7 @@ Table1 | join (Table2) on CommonColumn, $left.Col1 == $right.Col2
 
     |Имя           |Значения                                        |Описание                                  |
     |---------------|----------------------------------------------|---------------------------------------------|
-    |`kind`         |Разновидности оператора соединения|См. раздел [Варианты оператора join](#join-flavors).|                                             |
+    |`kind`         |Разновидности оператора соединения|См. раздел [Варианты оператора join](#join-flavors).|
     |`hint.remote`  |`auto`, `left`, `local`, `right`              |                                             |
     |`hint.strategy`|Указания по выполнению                               |См. раздел [Указания для оператора join](#join-hints).                |
 
